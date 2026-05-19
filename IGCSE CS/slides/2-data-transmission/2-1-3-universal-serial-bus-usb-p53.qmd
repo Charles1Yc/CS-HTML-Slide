@@ -1,0 +1,122 @@
+---
+title: "2.1.3 Universal serial bus (USB)"
+subtitle: "Data Transmission P53"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## USB Overview
+
+### Universal connection standard
+
+<span class="term">USB</span> (Universal Serial Bus, 通用串行总线) is a form of <span class="mark">serial data transmission</span>. It is now the most common type of input/output port found on computers and has led to a <span class="mark">standardisation method</span> for the transfer of data between devices and a computer.
+
+::: {.tight-list}
+- USB allows both <span class="mark">half-duplex and full-duplex</span> data transmission
+- It has become an <span class="mark">industry standard</span>, which means considerable support is available
+- Can support <span class="mark">different data transmission rates</span> (from 1.5 Mbps to 5 Gbps)
+:::
+
+## USB Cable Structure
+
+### Four-wired shielded cable
+
+As Figure 2.12 shows, the USB cable consists of a <span class="mark">four-wired shielded cable</span>:
+
+::: {.tight-list}
+- <span class="mark">Red (+5 V)</span> — power
+- <span class="mark">Black (Ground)</span> — power
+- <span class="mark">White (Data +)</span> — data transmission
+- <span class="mark">Green (Data −)</span> — data transmission
+:::
+
+Two wires for <span class="mark">power</span> (red and black), two wires for <span class="mark">data</span> (white and green).
+
+## USB Device Detection
+
+### What happens when a device is plugged in
+
+When a device is plugged into a computer using one of the USB ports:
+
+::: {.tight-list}
+1. The computer <span class="mark">automatically detects</span> that a device is present (due to a <span class="mark">small change in the voltage</span> on the data signal wires in the USB cable)
+2. The device is <span class="mark">automatically recognised</span>, and the appropriate <span class="term">device driver</span> software is loaded up so that computer and device can communicate effectively
+3. If a <span class="mark">new device</span> is detected, the computer will look for the device driver that matches the device; if not available, the user is <span class="mark">prompted to download</span> the appropriate driver software
+:::
+
+## Table 2.2: Benefits and Drawbacks of USB
+
+### Textbook comparison of USB systems
+
+::: {.clean-table}
+| Benefits | Drawbacks |
+|---|---|
+| devices plugged into the computer are <span class="mark">automatically detected</span> and device drivers are automatically loaded up | standard USB only supports a <span class="mark">maximum cable length of 5 m</span>; beyond that, USB hubs are needed |
+| connections can only <span class="mark">fit one way</span> preventing incorrect connections | even though USB is backward compatible, very <span class="mark">early USB standards (V1)</span> may not always be supported by the latest computers |
+| it has become an <span class="mark">industry standard</span>, which means considerable support is available | even the latest V3/V4 USB-C systems have a data transfer rate which is <span class="mark">slow compared to Ethernet</span> connections (USB V2 max: 480 Mbps) |
+| can support different data transmission rates (from <span class="mark">1.5 Mbps to 5 Gbps</span>) | |
+| <span class="mark">no need for external power source</span> since cable supplies +5 V power | |
+| USB protocol notifies the transmitter to <span class="mark">re-transmit data if any errors are detected</span>; this leads to error-free data transmission | |
+| relatively easy to <span class="mark">add more USB ports</span> if necessary, by using USB hubs | |
+| USB is <span class="mark">backward compatible</span> (older versions are still supported) | |
+:::
+
+## USB-C
+
+### The new standard connector
+
+A new type of USB connector, referred to as <span class="term">USB-C</span>, is now becoming more common in laptops and tablets/phones:
+
+::: {.tight-list}
+- <span class="mark">24-pin symmetrical connector</span> — fits into a USB-C port <span class="mark">either way round</span>
+- Much <span class="mark">smaller and thinner</span> than older USB connectors
+- Offers <span class="mark">100 watt (20 volt) power</span> connectivity — full-sized devices can now be charged
+- Can carry data at <span class="mark">10 gigabits per second (10 Gbps)</span>
+- Can now support <span class="mark">4K video delivery</span>
+- <span class="mark">Backward compatible</span> (to USB 2.0 and 3.0) provided a suitable adaptor is used
+- Expected to become the <span class="mark">new industry standard (universal) format</span>
+:::
+
+## Classroom Check
+
+### Understand USB and peripheral communication
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="term">USB</span> is a form of <span class="mark">serial data transmission</span>; allows both half-duplex and full-duplex
+- USB cable: <span class="mark">four-wired shielded cable</span> — two for power (red/black), two for data (white/green)
+- device plugged in → <span class="mark">auto-detected via voltage change</span> → device driver loaded
+- benefits: <span class="mark">auto-detection, industry standard, no external power needed, error-free transmission, backward compatible</span>
+- drawbacks: <span class="mark">max 5 m cable length</span>, older versions may not be supported, slower than Ethernet
+- <span class="mark">USB-C: 24-pin symmetrical, 100 W power, 10 Gbps, 4K video, fits either way</span>
+:::
+
+## Bridge
+
+### Next: Error Checking
+
+The next deck covers why error detection is necessary in data transmission.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

@@ -1,0 +1,190 @@
+---
+title: "2.1.1 Data packets"
+subtitle: "Data Transmission P45-P49"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Data Packets
+
+### Breaking data into chunks
+
+Data sent over long distances is usually broken up into <span class="term">data packets</span> (数据包), sometimes called <span class="term">datagrams</span>:
+
+::: {.tight-list}
+- Large data broken into <span class="mark">small chunks (typically 64 KiB)</span>
+- Much easier to control than a long continuous stream of data
+- Each packet can be sent along a <span class="mark">different route</span> to its destination
+- Great benefit if a particular transmission route is <span class="mark">out of action or very busy</span>
+- The only obvious drawback is the <span class="mark">need to reassemble the data</span> when it reaches its destination
+:::
+
+## Packet Structure
+
+### Header, payload, and trailer
+
+A typical packet is split up into three parts:
+
+::: {.tight-list}
+**Packet header:**
+- <span class="mark">IP address of the sending device</span>
+- <span class="mark">IP address of the receiving device</span>
+- <span class="mark">Sequence number</span> of the packet (allows correct reassembly)
+- <span class="mark">Packet size</span> (to check if all packets have arrived intact)
+- Note: header often also contains the total number of packets in this transmission
+
+**Payload:**
+- The <span class="mark">actual data</span> being sent in the packet (usually about 64 KiB)
+
+**Packet trailer:**
+- A way of <span class="mark">identifying the end of the packet</span> — essential to separate packets as they travel
+- An <span class="term">error checking method</span>: Cyclic Redundancy Checks (CRC) are used
+:::
+
+## CRC Error Checking
+
+### Cyclic Redundancy Check in packet trailer
+
+<span class="term">CRC (Cyclic Redundancy Check)</span> (循环冗余校验) checks data packets:
+
+::: {.tight-list}
+1. The sending computer <span class="mark">adds up all the 1-bits in the payload</span>
+2. This total is stored as a <span class="mark">hex value</span> in the trailer before sending
+3. Once the packet arrives, the receiving computer <span class="mark">recalculates the number of 1-bits</span> in the payload
+4. The computer then checks this value against the one sent in the trailer
+5. If the two values <span class="mark">match</span>, no transmission errors have occurred
+6. If they <span class="mark">do not match</span>, the packet needs to be <span class="mark">re-sent</span>
+:::
+
+## Packet Switching
+
+### Routing through networks
+
+<span class="term">Packet switching</span> (分组交换) is a method of data transmission in which a message is broken up into a number of packets. Each packet can then be sent <span class="mark">independently</span> from start point to end point.
+
+At each stage in the transmission, there are nodes that contain a <span class="term">router</span> (路由器). Each router:
+- Receives a data packet and, based on the information in the header, <span class="mark">decides where to send it next</span>
+- Determines which route the packet needs to take, using the <span class="mark">destination IP address</span>
+- Routing selection depends on the <span class="mark">number of packets waiting to be processed</span> at each node
+- The <span class="mark">shortest possible path available</span> is always selected — this may not always be the shortest possible path, since certain parts of the route may be too busy or not suitable
+
+::: {.tight-list}
+- Packets can reach the destination <span class="mark">in a different order</span> to that in which they were sent
+- At the destination, packets will need to be <span class="mark">reassembled into their correct order</span> (using the sequence number sent in the header)
+:::
+
+## Benefits of Packet Switching
+
+### Advantages of this approach
+
+::: {.tight-list}
+- <span class="mark">No need to tie up a single communication line</span>
+- <span class="mark">Overcome failed, busy or faulty lines</span> by simply re-routing packets
+- <span class="mark">Relatively easy to expand</span> package usage
+- <span class="mark">High data transmission rate</span> is possible
+:::
+
+## Drawbacks of Packet Switching
+
+### Limitations to consider
+
+::: {.tight-list}
+- <span class="mark">Packets can be lost</span> and need to be re-sent
+- The method is <span class="mark">more prone to errors with real-time streaming</span> (e.g. a live sporting event transmitted over the internet)
+- There is a <span class="mark">delay at the destination</span> whilst the packets are being re-ordered
+:::
+
+## Router Role in Packet Switching
+
+### Moving packets between networks
+
+<span class="term">Routers</span> (路由器) make packet switching possible:
+
+::: {.tight-list}
+- <span class="mark">Examine destination IP</span> in each packet's header
+- <span class="mark">Consult routing decisions</span> to find next node
+- <span class="mark">Forward packet</span> to the next appropriate router
+- <span class="mark">Make independent decisions</span> for each packet
+- Thousands of routers interconnected across the internet
+- Packets hop from router to router (node to node) until reaching destination
+:::
+
+## Hopping: Preventing Lost Packets
+
+### How packets that never arrive are handled
+
+Sometimes packets get lost because they keep <span class="mark">'bouncing' around from router to router</span> and never actually reach their destination. This would eventually clog the network.
+
+To overcome this, a method called <span class="term">hopping</span> (跳数) is used:
+
+::: {.tight-list}
+- A <span class="mark">hop number</span> is added to the header of each packet
+- This number is <span class="mark">reduced by 1</span> every time the packet leaves a router
+- Each packet has a <span class="mark">maximum hop number</span> to start with
+- Once a hop number reaches <span class="mark">zero</span>, the packet is <span class="mark">deleted</span> when it reaches the next router
+- The missing packets will then be flagged by the receiving computer
+- A <span class="mark">request to re-send</span> these packets will be made
+:::
+
+Note: hopping is not included on the syllabus but helps understand how packets can get lost.
+
+## Packet Reassembly
+
+### Reconstructing data at destination
+
+Destination must rebuild original data:
+
+::: {.tight-list}
+- Packets can reach the destination <span class="mark">in a different order</span> to that in which they were sent
+- <span class="mark">Sequence numbers in the header</span> identify the correct packet order
+- <span class="mark">Missing packets detected</span> (gaps in sequence numbers)
+- Reassembled into original order using sequence information
+- The receiving computer checks packet sizes to ensure all packets are intact
+- Transparent to user — happens automatically
+:::
+
+## Classroom Check
+
+### Understand packets and packet switching
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">packets are small chunks (typically 64 KiB)</span> — easier to control than continuous streams
+- packet header contains <span class="mark">sender/receiver IP address, sequence number, packet size</span>
+- packet trailer contains <span class="mark">end-of-packet identifier and CRC error check</span>
+- <span class="mark">CRC: sending computer adds up all 1-bits in payload</span>, receiver recalculates and compares
+- <span class="mark">packet switching routes each packet independently</span>; routers decide next hop by destination IP
+- benefits: <span class="mark">no single line tied up, overcome failed lines, easy to expand, high data rate</span>
+- drawbacks: <span class="mark">packets can be lost, errors with real-time streaming, delay during re-ordering</span>
+- <span class="mark">hopping: hop number prevents lost packets clogging the network</span>
+:::
+
+## Bridge
+
+### Next: Data Transmission Methods
+
+The next deck covers serial, parallel, and duplex transmission methods.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

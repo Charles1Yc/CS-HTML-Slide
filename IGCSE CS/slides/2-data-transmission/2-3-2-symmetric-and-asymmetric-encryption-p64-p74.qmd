@@ -1,0 +1,205 @@
+---
+title: "2.3.2 Symmetric and asymmetric encryption"
+subtitle: "Data Transmission P64-P74"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Symmetric Encryption
+
+### Same key for both operations
+
+<span class="term">Symmetric encryption</span> (对称加密) uses an encryption key; the <span class="mark">same key</span> is used to encrypt and decrypt the encoded message.
+
+First, consider a simple system that uses a <span class="mark">10-digit denary encryption key</span> (this gives 1 × 10¹⁰ possible codes). Suppose our encryption key is:
+
+<p style="text-align: center; font-size: 1.4em; font-family: monospace; letter-spacing: 0.3em;"><span class="mark">4 2 9 1 3 6 2 8 5 6</span></p>
+
+This means every letter in a word is <span class="mark">shifted across the alphabet</span> by +4, +2, +9, +1, +3, +6, +2, +8, +5, +6 places, repeating for the whole message.
+
+## Symmetric Encryption Example
+
+### COMPUTER SCIENCE IS EXCITING
+
+Plaintext (top) and ciphertext (bottom) after applying the key 4 2 9 1 3 6 2 8 5 6:
+
+<p style="text-align: center; font-size: 0.85em; font-family: monospace;">
+C O M P U T E R &nbsp; S C I E N C E &nbsp; I S &nbsp; E X C I T I N G<br>
+<span class="mark">G Q V Q X Z G Z X &nbsp; I M G W D &nbsp; H O U M C &nbsp; I M V R O J</span>
+</p>
+
+To get back to the original message, apply the same decryption key but <span class="mark">in reverse</span>: each letter shifted −4, −2, −9, −1, −3, and so on.
+
+For example: 'G' −4 → 'C', 'Q' −2 → 'O', 'V' −9 → 'M'
+
+## Symmetric Encryption: Key Length
+
+### Modern encryption keys
+
+However, modern computers could <span class="mark">'crack' this encryption key in a matter of seconds</span>. To combat this, we now use <span class="mark">256-bit binary encryption keys</span> that give 2²⁵⁶ (approximately 1.2 × 10⁷⁷) possible combinations.
+
+(Even this may not be enough as we head towards <span class="term">quantum computers</span>.)
+
+## Symmetric Encryption Problem
+
+### Key distribution challenge
+
+The real difficulty is <span class="mark">keeping the encryption key a secret</span> (for example, it needs to be sent in an email or a text message which can be intercepted).
+
+::: {.tight-list}
+- The <span class="mark">security issue</span> is always the <span class="mark">main drawback of symmetric encryption</span>
+- A single encryption key is required for both sender and recipient
+- This problem led to the development of <span class="term">asymmetric encryption</span>
+:::
+
+## Asymmetric Encryption
+
+### Two keys: public and private
+
+<span class="term">Asymmetric encryption</span> (非对称加密) was developed to overcome the security problems associated with symmetric encryption. It makes use of two keys:
+
+::: {.tight-list}
+- <span class="mark">Public key</span> (公钥) — made available to everybody
+- <span class="mark">Private key</span> (私钥) — only known to the computer user
+:::
+
+Both types of key are needed to encrypt and decrypt messages.
+
+The matching pairs of keys are <span class="mark">mathematically linked</span> but can't be derived from each other.
+
+## Tom & Jane: Step 1 and 2
+
+### Asymmetric encryption in action
+
+Suppose Tom and Jane work for the same company and Tom wishes to send a confidential document to Jane:
+
+**Step 1:** Jane uses an algorithm to <span class="mark">generate a matching pair of keys</span> (private and public) that they must keep stored on their computers.
+
+**Step 2:** Jane now <span class="mark">sends her public key to Tom</span>.
+
+```
+Tom                         Jane
+                            Public key + Private key
+Jane sends Tom              (matching pair)
+her public key  ←-----------
+```
+
+## Tom & Jane: Step 3 and 4
+
+### Encryption and decryption
+
+**Step 3:** Tom now uses <span class="mark">Jane's public key</span> to encrypt the document he wishes to send to her. He then sends his <span class="mark">encrypted document (ciphertext)</span> back to Jane.
+
+**Step 4:** Jane uses her <span class="mark">matching private key</span> to unlock Tom's document and decrypt it.
+
+::: {.tight-list}
+- This works because the <span class="mark">public key used to encrypt</span> and the <span class="mark">private key used to decrypt</span> are a matching pair generated on Jane's computer
+- <span class="mark">Jane can't use the public key to decrypt</span> the message — only the matching private key works
+:::
+
+## Public Key Sharing
+
+### Multiple senders
+
+Jane can also exchange her public key with <span class="mark">any number of people</span> working in the company, so she is able to receive encrypted messages from everyone:
+
+```
+Tom ----→ Public key ---
+                         |
+Susan ---→ Public key ---→ Jane
+                         |   Public key
+Mike ----→ Public key ---→ Private key
+                         |
+Megan ---→ Public key ---
+```
+
+All senders encrypt using <span class="mark">Jane's public key</span>; only Jane can decrypt using her <span class="mark">matching private key</span>.
+
+## Two-Way Communication
+
+### Everyone needs their own key pair
+
+If a two-way communication is required between all five workers:
+- They <span class="mark">all</span> need to <span class="mark">generate their own matching public and private keys</span>
+- All users then need to <span class="mark">swap public keys</span> so they can send encrypted documents between each other
+- Each worker will then use their <span class="mark">own private key</span> to decrypt information being sent to them
+
+## Symmetric vs Asymmetric Comparison
+
+### Comparing the two encryption methods
+
+::: {.clean-table}
+| Aspect | Symmetric | Asymmetric |
+|--------|-----------|-----------|
+| Keys | One (shared) | Two (public/private) |
+| Speed | Fast | Slower |
+| Key distribution | Main drawback — keeping key secret | Solved — public key shared openly |
+| How it works | Same key encrypts and decrypts | Public key encrypts, matching private key decrypts |
+| Main use | Bulk data encryption | Secure key exchange, where key distribution is the main issue |
+:::
+
+The <span class="mark">key distribution problem</span> is the central difference — asymmetric encryption was developed specifically to solve this.
+
+## Key Points Summary
+
+### Symmetric encryption
+
+::: {.tight-list}
+- Uses <span class="mark">one key</span> for both encryption and decryption
+- Key must be kept <span class="mark">secret</span> — this is the main drawback
+- Modern systems use <span class="mark">256-bit binary keys</span> (2²⁵⁶ possible combinations)
+- Example: 10-digit key 4291362856 shifts each letter by successive digits
+:::
+
+### Asymmetric encryption
+
+::: {.tight-list}
+- Uses <span class="mark">two mathematically linked keys</span> — public (shared) and private (secret)
+- Public key encrypts → <span class="mark">matching private key decrypts</span>
+- Anyone with the public key can send encrypted messages to the key owner
+- For two-way communication, <span class="mark">all parties need their own key pair</span> and must swap public keys
+:::
+
+## Classroom Check
+
+### Understand encryption types and applications
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">symmetric encryption: same key encrypts and decrypts</span> — fast, but key distribution is the main security drawback
+- <span class="mark">256-bit binary keys</span> give 2²⁵⁶ ≈ 1.2 × 10⁷⁷ possible combinations
+- <span class="mark">asymmetric encryption: uses public key (shared) and private key (secret)</span> — mathematically linked but can't be derived from each other
+- process: <span class="mark">Jane generates key pair → sends public key to Tom → Tom encrypts with public key → Jane decrypts with private key</span>
+- <span class="mark">public key can be shared with any number of people</span>; all can send encrypted messages that only the private key holder can decrypt
+- for <span class="mark">two-way communication, all parties need their own key pair</span> and must swap public keys
+:::
+
+## Bridge
+
+### Return to the main outline
+
+Return to the Unit 2 directory to review the data transmission topics and encryption examples.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

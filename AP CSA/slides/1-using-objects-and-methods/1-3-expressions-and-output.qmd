@@ -1,0 +1,149 @@
+---
+title: "1.3 Expressions and Output"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Output
+
+### `print` versus `println`
+
+Java has two common output methods:
+
+::: {.tight-list}
+- `System.out.print(value)` prints without moving to a new line
+- `System.out.println(value)` prints and then adds a new line
+:::
+
+A text value like `"Hi there!"` is a <span class="term">string literal</span> (字符串字面量).
+
+## Output
+
+### Special characters need escape sequences
+
+Use a backslash to include special characters inside strings:
+
+```java
+System.out.println("She said \"Hi\".");
+System.out.println("Line 1\nLine 2");
+System.out.println("Backslash: \\");
+```
+
+The AP-safe examples to know are quotation marks, backslash, and newline.
+
+## Arithmetic Expressions
+
+### Operators produce one value
+
+An <span class="term">expression</span> (表达式) combines values, variables, and operators into a result.
+
+::: {.tight-list}
+- addition `+`
+- subtraction `-`
+- multiplication `*`
+- division `/`
+:::
+
+An expression with only `int` values evaluates to `int`. If at least one part is `double`, the result becomes `double`.
+
+## Integer Division
+
+### Truncating division surprises beginners
+
+```java
+System.out.println(2 / 3);   // 0
+System.out.println(2.0 / 3); // 0.666...
+```
+
+When Java divides two `int` values, it uses <span class="term">truncating division</span> (截断除法): the decimal part is thrown away.
+
+That is why `2 / 3` gives <span class="mark">`0`</span>, not `0.67` and not `1`.
+
+## Logic Errors in Math
+
+### Code can run and still be wrong
+
+Not every bug is a syntax bug.
+
+::: {.tight-list}
+- `100 / 2.54` correctly converts centimeters to inches
+- `100 * 2.54` compiles, runs, and gives the <span class="mark">wrong calculation</span>
+:::
+
+This is a <span class="term">logic error</span>: the program executes, but the algorithm is wrong.
+
+## Compound Expressions
+
+### Precedence still matters
+
+Java follows standard precedence rules:
+
+::: {.tight-list}
+- parentheses first
+- then `*`, `/`, `%`
+- then `+`, `-`
+:::
+
+```java
+2 + 3 * 2      // 8
+(2 + 3) * 2    // 10
+```
+
+When students are unsure, extra parentheses improve readability.
+
+## The Remainder Operator
+
+### `%` means the leftover part
+
+The operator <span class="term">`%`</span> returns the remainder after integer division.
+
+::: {.tight-list}
+- `5 % 2` -> `1`
+- `8 % 2` -> `0`
+- `3 % 4` -> `3`
+:::
+
+Important shortcut: if `x` is smaller than `y`, then `x % y` is always <span class="mark">`x`</span>.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- output prediction with `print` and `println`
+- truncating-division correction tasks
+- operator-precedence tracing
+- <span class="term">1.3.5 Coding Challenge: Pay Calculator</span>
+:::
+
+The central teaching move is to connect <span class="mark">syntax</span>, <span class="mark">numeric type</span>, and <span class="mark">predicted output</span>.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- distinguish `print` and `println`
+- define a <span class="term">string literal</span>
+- evaluate arithmetic expressions with the correct operator rules
+- explain why `int / int` uses truncating division
+- interpret `%` as the remainder after division
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

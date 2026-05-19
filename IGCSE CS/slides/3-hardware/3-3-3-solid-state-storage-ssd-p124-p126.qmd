@@ -1,0 +1,122 @@
+---
+title: "3.3.3 Magnetic, optical and solid-state storage"
+subtitle: "Solid state drives (SSD) · Hardware P124-P126"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.3 Solid-state storage
+
+### Solid state drives (SSD)
+
+Latency is an issue in HDDs as described earlier. A <span class="term">solid state drive (SSD)</span> removes this issue considerably since it has <span class="mark">no moving parts</span> and all data is retrieved at the same rate.
+
+They do not rely on magnetic properties. The most common type of solid state storage devices store data by controlling the movement of <span class="term">electrons</span> (电子) within <span class="term">NAND</span> or <span class="term">NOR</span> chips.
+
+## Floating Gate and Control Gate
+
+### How the data is stored
+
+The data is stored as 0s and 1s in millions of tiny transistors. At each junction one transistor is called a <span class="term">floating gate</span> and the other is called a <span class="term">control gate</span>.
+
+This effectively produces a <span class="mark">non-volatile rewritable memory</span>.
+
+Floating gate and control gate transistors use <span class="term">CMOS</span> (complementary metal oxide semiconductor) NAND technology.
+
+## Figure 3.64
+
+### Flash memory
+
+![Figure 3.64 Flash memory](../../assets/3-hardware/3-3-3-solid-state-storage-ssd-p124-p126/Figure 3.64 Flash memory.png){fig-align="center" width="78%"}
+
+Flash memories make use of a <span class="term">matrix</span> (矩阵). At each intersection on the matrix there is a floating gate and a control gate.
+
+## Bit Values and Charge
+
+### Why the memory is non-volatile
+
+A <span class="term">dielectric coating</span> (绝缘层) separates the two transistors, which allows the floating gate transistor to retain its charge.
+
+::: {.tight-list}
+- the floating gate transistor has a value of <span class="mark">1</span> when it is charged
+- it has a value of <span class="mark">0</span> when it is not charged
+- to program one of these intersection cells, a voltage is applied to the control gate
+- electrons from the electron source are attracted to it
+- due to the dielectric coating, the electrons become <span class="mark">trapped in the floating gate</span>
+:::
+
+After about <span class="mark">12 months</span>, this charge can leak away, which is why a solid state device should be used at least once a year to be certain it will retain its memory.
+
+## SSD Benefits
+
+### Why SSD became common
+
+The main benefits of this newer solid state technology over hard disk drives are:
+
+::: {.tight-list}
+- they are <span class="mark">more reliable</span> (no moving parts to go wrong)
+- they are <span class="mark">considerably lighter</span> (which makes them suitable for laptops)
+- they do not have to get up to speed before they work properly
+- they have a <span class="mark">lower power consumption</span>
+- they run <span class="mark">much cooler</span> than HDDs
+- because of no moving parts, they are very <span class="mark">thin</span>
+- data access is <span class="mark">considerably faster</span> than HDD
+:::
+
+## SSD Drawbacks
+
+### Endurance and erase-before-write
+
+The main drawback of SSD is still the <span class="term">longevity</span> (寿命) of the technology.
+
+Most solid state storage devices are conservatively rated at only <span class="mark">20 GB of write operations per day over a three year period</span>. This is known as <span class="term">SSD endurance</span>.
+
+For this reason, SSD technology is still not used in all servers, for example, where a huge number of write operations take place every day.
+
+However, the durability of these solid state systems is being improved by a number of manufacturers and they are rapidly becoming more common in applications such as servers and cloud storage devices.
+
+It is also <span class="mark">not possible to over-write existing data</span> on a flash memory device; it is necessary to first erase the old data and then write the new data at the same location.
+
+## Classroom Check
+
+### Keep the SSD explanation tied to the textbook
+
+A complete answer should include:
+
+::: {.tight-list}
+- that SSD uses <span class="mark">electrons</span> in <span class="term">NAND</span>/<span class="term">NOR</span> chips rather than magnetic platters
+- that each junction uses a <span class="mark">floating gate</span> and a <span class="mark">control gate</span>
+- that a <span class="term">dielectric coating</span> traps charge so the memory is <span class="mark">non-volatile</span>
+- that SSD has <span class="mark">no moving parts</span> and therefore lower latency than HDD
+- that SSD has endurance limits and existing data must be <span class="mark">erased before new data is written</span>
+:::
+
+## Bridge
+
+### Next: memory sticks and flash memories
+
+The next deck stays within <span class="term">3.3.3 Solid-state storage</span> and covers <span class="term">memory sticks / flash memories</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

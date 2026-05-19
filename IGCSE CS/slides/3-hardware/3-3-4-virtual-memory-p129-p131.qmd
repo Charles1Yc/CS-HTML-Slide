@@ -1,0 +1,142 @@
+---
+title: "3.3.4 Virtual memory"
+subtitle: "Hardware P129-P131"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.4 Virtual memory
+
+### Why it is needed
+
+One of the problems associated with memory management is the case when processes run out of <span class="term">RAM</span>.
+
+If the amount of available RAM is exceeded due to multiple programs running, it is likely to cause a <span class="mark">system crash</span>.
+
+This can be solved by utilising the hard disk drive (or <span class="term">SSD</span>) if we need more memory. This is the basis behind <span class="term">virtual memory</span> (虚拟内存).
+
+Essentially, RAM is the <span class="mark">physical memory</span>, while virtual memory is <span class="mark">RAM + swap space on the hard disk or SSD</span>.
+
+## Figure 3.68
+
+### Without virtual memory
+
+Suppose we have five programs (numbered 0 to 4) that are in memory, all requiring access to RAM.
+
+![Figure 3.68 Normal memory management](../../assets/3-hardware/3-3-4-virtual-memory-p129-p131/Figure 3.68 Normal memory management.png){fig-align="center" width="88%"}
+
+When program <span class="mark">4</span> tries to access RAM there is no available memory, causing a <span class="mark">system crash</span>.
+
+## Figure 3.69
+
+### Status just before program 4 is given RAM space
+
+To allow all five programs to access RAM as required, data is moved out of RAM into HDD/SSD and then other data is moved out of HDD/SSD into RAM.
+
+![Figure 3.69 Status just before program 4 is given RAM space](../../assets/3-hardware/3-3-4-virtual-memory-p129-p131/Figure 3.69 Status just before program 4 is given RAM space.png){fig-align="center" width="90%"}
+
+Notice the use of the <span class="mark">32-bit map</span>. When a program in memory tries to access RAM, it is sent to the map, which then allocates the program address space in RAM.
+
+Program <span class="mark">4</span> cannot use RAM yet and its data has been mapped to the HDD/SSD instead because program <span class="mark">0</span> is the oldest data.
+
+## Figure 3.70
+
+### Status with program 0 mapped to HDD/SSD
+
+Virtual memory now moves the <span class="mark">oldest data</span> out of RAM into the HDD/SSD to allow program 4 to gain access to RAM.
+
+![Figure 3.70 Status with program 0 now mapped to HDD and program 4 has access to RAM](../../assets/3-hardware/3-3-4-virtual-memory-p129-p131/Figure 3.70 Status with program 0 now mapped to HDD and program 4 has access to RAM.png){fig-align="center" width="90%"}
+
+The map is updated to reflect the new situation:
+
+::: {.tight-list}
+- data from program <span class="mark">0</span> is now mapped to the HDD/SSD instead
+- address space <span class="mark">3</span> is left free for use by program 4
+- program <span class="mark">4</span> now maps to address space 3 in RAM
+:::
+
+Virtual memory gives the <span class="mark">illusion of unlimited memory</span> being available.
+
+## Paging, Benefits and Drawbacks
+
+### What the textbook emphasises
+
+In computer operating systems, <span class="term">paging</span> (分页) is used by memory management to store and retrieve data from HDD/SSD and copy it into RAM.
+
+A <span class="term">page</span> is a <span class="mark">fixed-length consecutive block of data</span> utilised in virtual memory systems.
+
+The main benefits of virtual memory are:
+
+::: {.tight-list}
+- programs can be larger than physical memory and still be executed
+- there is no need to waste memory with data that is not being used
+- it reduces the need to buy and install more expensive RAM memory
+:::
+
+However, accessing data in virtual memory is <span class="mark">slower</span>, so the larger the RAM the faster the CPU can operate.
+
+## Disk Thrashing
+
+### The main drawback
+
+When using HDD for virtual memory the main drawback is <span class="term">disk thrashing</span> (磁盘抖动).
+
+As main memory fills, more and more data needs to be swapped in and out of virtual memory leading to a very high rate of hard disk read/write head movements.
+
+If more and more time is spent moving data in and out of memory than actually doing any processing, then the processing speed of the computer will be considerably reduced.
+
+A point can be reached when the execution of a process comes to a halt since the system is so busy moving data in and out of memory rather than doing any actual execution. This is known as the <span class="mark">thrash point</span>.
+
+Thrashing can be reduced by:
+
+::: {.tight-list}
+- installing <span class="mark">more RAM</span>
+- reducing the number of programs running at a time
+- reducing the size of the <span class="term">swap file</span> (交换文件)
+- making use of a <span class="term">solid state drive (SSD)</span> rather than using HDD
+:::
+
+## Classroom Check
+
+### Keep virtual memory tied to the textbook model
+
+A complete answer should include:
+
+::: {.tight-list}
+- that virtual memory is <span class="mark">RAM + swap space on the hard disk or SSD</span>
+- that virtual memory avoids a <span class="mark">system crash</span> when RAM is exceeded
+- that the textbook model uses a <span class="mark">map</span> to show which program is in RAM and which is on HDD/SSD
+- that the <span class="mark">oldest data</span> can be moved out of RAM to make space
+- that <span class="term">paging</span> uses fixed-length blocks called <span class="term">pages</span>
+- that <span class="term">disk thrashing</span> is the main drawback when too much swapping happens
+:::
+
+## Bridge
+
+### Next: 3.3.5 Cloud storage
+
+The next deck moves from virtual memory to <span class="term">cloud storage</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

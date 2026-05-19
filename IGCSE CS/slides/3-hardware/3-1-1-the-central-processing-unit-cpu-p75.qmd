@@ -1,0 +1,110 @@
+---
+title: "3.1.1 The central processing unit (CPU)"
+subtitle: "Hardware P75"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## The central processing unit (CPU)
+
+### Textbook definition and names
+
+The <span class="term">central processing unit (CPU)</span> (中央处理器), also known as a <span class="term">microprocessor</span> (微处理器) or <span class="term">processor</span> (处理器), is central to all modern computer systems, including tablets and smartphones.
+
+The CPU is very often installed as an <span class="term">integrated circuit</span> (集成电路) on a single <span class="term">microchip</span> (微芯片).
+
+## The central processing unit (CPU)
+
+### What the CPU is responsible for
+
+The CPU has the responsibility for the <span class="term">execution</span> (执行) or <span class="term">processing</span> (处理) of all the instructions and data in a computer application.
+
+The important wording is <span class="mark">instructions and data</span>: the CPU is not only a fast component; it is the component that carries out instructions and processes data.
+
+## The central processing unit (CPU)
+
+### Figure 3.1: CPU inside the architecture
+
+![Figure 3.1 Von Neumann architecture](../../assets/3-hardware/3-1-1-the-central-processing-unit-cpu-p75/Figure 3.1 Von Neumann architecture.png){fig-align="center" width="92%"}
+
+::: {.figure-note}
+For this lesson, use the figure only to locate the CPU parts. The full von Neumann architecture is handled in the next deck.
+:::
+
+## The central processing unit (CPU)
+
+### CPU consists of three groups
+
+As Figure 3.1 shows, the CPU consists of:
+
+::: {.tight-list}
+- <span class="term">control unit (CU)</span> (控制单元)
+- <span class="term">arithmetic and logic unit (ALU)</span> (算术逻辑单元)
+- <span class="term">registers and buses</span> (寄存器与总线)
+:::
+
+These names are exam keywords. Students should be able to recognise both the full name and abbreviation.
+
+## Control unit (CU)
+
+### Directing the CPU work
+
+The <span class="term">control unit (CU)</span> reads an instruction from memory and interprets it using the <span class="term">Fetch-Decode-Execute cycle</span> (取指-译码-执行循环).
+
+During that process, signals are generated along the <span class="term">control bus</span> (控制总线) to tell the other components in the computer what to do.
+
+## Arithmetic and logic unit (ALU)
+
+### Arithmetic and logic operations
+
+The <span class="term">Arithmetic and Logic Unit (ALU)</span> allows the required arithmetic operations, for example <span class="mark">+</span>, <span class="mark">-</span> and shifting, or logic operations, for example <span class="mark">AND</span> and <span class="mark">OR</span>, to be carried out while a program is being run.
+
+Multiplication and division are carried out by a sequence of addition, subtraction and left or right logical shift operations.
+
+## Registers and buses
+
+### Storage and movement inside the system
+
+<span class="term">Registers</span> (寄存器) are small, fast storage locations used by the CPU while instructions and data are being processed.
+
+<span class="term">Buses</span> (总线) are pathways used to move addresses, data and control signals between parts of the computer system.
+
+This deck only introduces the terms; the later decks explain the named registers and system buses in detail.
+
+## Classroom Check
+
+### Keep the CPU answer precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- CPU / microprocessor / processor as the central component.
+- It executes or processes instructions and data.
+- It is commonly an integrated circuit on a single microchip.
+- It consists of CU, ALU, registers and buses.
+:::
+
+Avoid only writing: “the CPU is the brain of the computer.”
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

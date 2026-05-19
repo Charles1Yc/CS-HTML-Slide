@@ -1,0 +1,113 @@
+---
+title: "1.6 Compound Assignment Operators"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Compound Assignment
+
+### Update and assign in one step
+
+Compound assignment operators are shortcuts such as:
+
+::: {.tight-list}
+- `+=`
+- `-=`
+- `*=`
+- `/=`
+- `%=`
+:::
+
+`x += 1` means the same as `x = x + 1`.
+
+## Operator Equivalence
+
+### Read the shortcut as expanded assignment
+
+| Written out | Compound |
+|---|---|
+| `x = x + 1` | `x += 1` |
+| `x = x - 1` | `x -= 1` |
+| `x = x * 2` | `x *= 2` |
+| `x = x / 2` | `x /= 2` |
+| `x = x % 2` | `x %= 2` |
+
+The operation happens first, then the new value is assigned back into the same variable.
+
+## Increment and Decrement
+
+### The most common short forms
+
+Because `+1` and `-1` are so common, Java also provides:
+
+::: {.tight-list}
+- `x++` -> increment by 1
+- `y--` -> decrement by 1
+:::
+
+For AP CSA, the most important reading is still the simple update idea: <span class="mark">current value -> change -> store again</span>.
+
+## Prefix and Postfix
+
+### Know the note, keep the AP usage simple
+
+Real Java code may use `++x` or `x++`.
+
+::: {.tight-list}
+- <span class="term">postfix</span>: use the current value first, then update
+- <span class="term">prefix</span>: update first, then use the value
+:::
+
+The textbook explicitly notes that AP-style work stays with <span class="mark">clear, readable uses</span>, not tricky expression puzzles.
+
+## Code Tracing
+
+### Operators are easiest to learn by tracing
+
+![Trace table example](../../assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png){fig-align="center" width="26%"}
+
+<span class="term">Code tracing</span> (代码跟踪) means stepping through the program line by line and recording how variables change.
+
+This is the bridge from operator meaning to exam-style reasoning.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- shortcut-operator active code
+- tracing multiple-choice checks
+- <span class="term">1.6.1 Code Tracing Challenge and Operators Maze</span>
+:::
+
+The instructional emphasis is <span class="mark">not memorizing symbols in isolation</span>; it is predicting variable state accurately.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- expand `+=`, `-=`, `*=`, `/=`, and `%=` into full assignment form
+- explain `++` and `--` as one-step updates
+- trace variable values after multiple updates
+- recognize that AP work avoids tricky prefix/postfix edge cases
+- use a trace table when the code becomes hard to hold mentally
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

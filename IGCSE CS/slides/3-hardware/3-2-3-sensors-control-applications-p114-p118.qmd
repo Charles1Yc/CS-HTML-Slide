@@ -1,0 +1,324 @@
+---
+title: "3.2.3 Sensors"
+subtitle: "Control applications · Hardware P114-P118"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Control Applications
+
+### One loop, several contexts
+
+This deck follows the textbook order for control applications: street lighting, anti-lock braking systems, central heating systems, chemical process control and greenhouse environment control.
+
+Keep the route visible: <span class="mark">sensor</span> → <span class="mark">ADC</span> → <span class="mark">microprocessor</span> → <span class="mark">DAC/actuator</span> → <span class="mark">changed process</span>.
+
+## Figure 3.52
+
+### Street lighting
+
+![Figure 3.52 Street lighting](../../assets/3-hardware/3-2-3-sensors-control-applications-p114-p118/Figure 3.52 Street lighting.png){fig-align="center" width="78%"}
+
+::: {.figure-note}
+The street lamp is fitted with a light sensor which constantly sends data to the microprocessor.
+:::
+
+## Street Lighting 1/3
+
+### Input and sampling
+
+The <span class="term">light sensor</span> sends data to the <span class="term">ADC</span> interface.
+
+The ADC changes the data into digital form and sends it to the microprocessor.
+
+The data value changes according to whether it is <span class="mark">sunny</span>, <span class="mark">cloudy</span>, <span class="mark">raining</span> or <span class="mark">night time</span>.
+
+The microprocessor samples the data <span class="mark">every minute</span>, or at some other frequency rate.
+
+## Street Lighting 2/3
+
+### Switching on
+
+If the data from the sensor <span class="mark">&lt; value stored in memory</span>, a signal is sent from the microprocessor to the street lamp and the lamp is switched on.
+
+The lamp stays switched on for <span class="mark">30 minutes</span> before the sensor readings are sampled again.
+
+This prevents the lamp flickering off and on during brief heavy cloud cover.
+
+## Street Lighting 3/3
+
+### Switching off
+
+If the data from the sensor <span class="mark">&gt;= value stored in memory</span>, a signal is sent from the microprocessor to the street lamp and the lamp is switched off.
+
+The lamp stays switched off for <span class="mark">30 minutes</span> before sensor readings are sampled again.
+
+This prevents the lamp flickering off and on during heavy cloud cover.
+
+## Anti-Lock Braking 1/3
+
+### Magnetic field sensors
+
+<span class="term">Anti-lock braking systems (ABS)</span> use <span class="term">magnetic field sensors</span> to stop the wheels locking up if the brakes have been applied too sharply.
+
+When one of the car wheels rotates too slowly, that is, it is locking up, a magnetic field sensor sends data to a microprocessor.
+
+## Anti-Lock Braking 2/3
+
+### Comparing wheel speed
+
+The microprocessor checks the rotation speed of the other three wheels.
+
+If they are different, that is, rotating faster, the microprocessor sends a signal to the braking system and the <span class="term">braking pressure</span> to the affected wheel is reduced.
+
+The wheel's rotational speed is then increased to match the other wheels.
+
+## Anti-Lock Braking 3/3
+
+### Constant adjustment
+
+The checking of the rotational speed using magnetic field sensors is done <span class="mark">several times a second</span>.
+
+The braking pressure to all the wheels can be constantly changing to prevent any wheel locking up under heavy braking.
+
+This is felt as a <span class="term">judder</span> on the brake pedal as the braking system is constantly switched off and on.
+
+If one wheel rotates too quickly, braking pressure is increased to that wheel until it matches the other three.
+
+## Figure 3.53
+
+### Central heating
+
+![Figure 3.53 Controlling a central heating system](../../assets/3-hardware/3-2-3-sensors-control-applications-p114-p118/Figure 3.53 Controlling a central heating system.png){fig-align="center" width="86%"}
+
+::: {.figure-note}
+The gas valve and water pump are controlled by the microprocessor through output control.
+:::
+
+## Central Heating 1/4
+
+### Gas supply and water pump
+
+In this example, a <span class="term">gas supply</span> is used to heat water using a heater.
+
+A valve on the gas supply is controlled by a microprocessor and is opened if the heating levels need to be increased.
+
+A <span class="term">water pump</span> is used to pump hot water around the central heating system whenever the temperature drops below a pre-set value.
+
+## Central Heating 2/4
+
+### Pre-set value
+
+The required temperature is keyed in and stored in the microprocessor memory.
+
+This is called the <span class="term">pre-set value</span>.
+
+The temperature sensor is constantly sending data readings to the microprocessor.
+
+## Central Heating 3/4
+
+### ADC and comparison
+
+The sensor data is first sent to an <span class="term">ADC</span> to convert the analogue data into digital data.
+
+The digital data is sent to the microprocessor, and the microprocessor compares this data with the <span class="term">pre-set value</span>.
+
+If the temperature reading <span class="mark">&gt;= pre-set value</span>, then no action is taken.
+
+## Central Heating 4/4
+
+### Actuator outputs
+
+If the temperature reading <span class="mark">&lt; pre-set value</span>, a signal is sent:
+
+::: {.tight-list}
+- to an <span class="term">actuator</span> via a <span class="term">DAC</span> to open the gas valve to the heater
+- to an actuator via a DAC to turn on the <span class="term">water pump</span>
+:::
+
+The process continues until the central heating is switched off.
+
+## Chemical Process 1/3
+
+### Two required conditions
+
+A certain <span class="term">chemical process</span> only works if:
+
+::: {.tight-list}
+- the temperature is above <span class="mark">70°C</span>
+- the <span class="term">pH</span> acidity level is less than <span class="mark">3.5</span>
+:::
+
+A heater is used to heat the reactor and valves are used to add acid when necessary.
+
+The aim is to maintain the required acidity as well as the required temperature.
+
+## Chemical Process 2/3
+
+### Sensor readings
+
+Temperature and pH sensors read data from the chemical process.
+
+This data is converted to digital using an <span class="term">ADC</span> and then sent to the computer.
+
+The computer compares the incoming data with <span class="term">pre-set values</span> stored in memory.
+
+## Chemical Process 3/3
+
+### Control rules
+
+::: {.tight-list}
+- if the <span class="mark">temperature &lt; 70°C</span>, a signal is sent to switch on the heater
+- if the temperature <span class="mark">&gt;= 70°C</span>, a signal is sent to switch off the heaters
+- if the <span class="mark">pH &gt; 3.5</span>, a signal is sent to open a valve and acid is added
+- if the pH <span class="mark">&lt;= 3.5</span>, a signal is sent to close this valve
+- computer signals are changed into analogue signals using a <span class="term">DAC</span> so that heaters and valves can be controlled
+:::
+
+This continues as long as the computer system is activated.
+
+## Figure 3.54
+
+### Greenhouse environment
+
+![Figure 3.54 Control of greenhouse environment](../../assets/3-hardware/3-2-3-sensors-control-applications-p114-p118/Figure 3.54 Control of greenhouse environment.png){fig-align="center" width="90%"}
+
+::: {.figure-note}
+Five different sensors could be used: humidity, moisture, temperature, pH and light.
+:::
+
+## Greenhouse 1/3
+
+### Humidity path
+
+Because of the number of sensors, this is clearly quite a complex problem.
+
+Consider the <span class="term">humidity</span> sensor only. It sends a signal to an ADC, which sends a digital signal to the computer.
+
+The computer compares the input with stored pre-set values and decides what action needs to be taken.
+
+## Greenhouse 2/3
+
+### Humidity outputs
+
+If humidity is <span class="mark">&gt; pre-set value</span>, the computer sends a signal to a DAC to operate the motors to open windows, reducing the humidity.
+
+If humidity is <span class="mark">&lt; pre-set value</span>, the computer sends a signal to open valves to spray water into the air.
+
+If the reading equals the pre-set value, then no action is taken.
+
+## Greenhouse 3/3
+
+### Other sensor outputs
+
+::: {.tight-list}
+- <span class="term">moisture</span>: heater to dry, or open valve to add water
+- <span class="term">temperature</span>: open windows, or close windows and switch on heater
+- <span class="term">pH</span>: open valve to add acid, or open valve to add <span class="term">alkali</span>
+- <span class="term">light</span>: close blinds, or switch on artificial light
+:::
+
+The control process continues as long as the system is switched on.
+
+Similar arguments can be used for all five sensors.
+
+## Activity 3.5 1/4
+
+### Car air conditioning
+
+An air conditioning unit in a car is being controlled by a microprocessor and a number of sensors.
+
+::: {.tight-list}
+- describe the main differences between <span class="term">control</span> and <span class="term">monitoring</span> of a process
+- describe how the sensors and microprocessor would be used to control the air conditioning unit in the car
+- name at least two different sensors that might be used
+- explain the role of <span class="term">positive feedback</span> in the description
+- drawing a diagram of the intended process may be helpful
+:::
+
+## Activity 3.5 2/4
+
+### Greenhouse pH
+
+Look at Figure 3.54 and describe how the <span class="term">pH sensor</span> would be used to control the acidity levels in the soil to optimise growing conditions in the greenhouse.
+
+The answer should follow the same route as the other Figure 3.54 sensors: sensor reading, ADC, computer comparison with a pre-set value, DAC if needed, and output to a valve.
+
+## Figure 3.55
+
+### Nuclear reactor activity
+
+![Figure 3.55 Nuclear reactor activity diagram](../../assets/3-hardware/3-2-3-sensors-control-applications-p114-p118/Figure 3.55 Nuclear reactor activity diagram.png){fig-align="center" width="82%"}
+
+::: {.figure-note}
+The pump symbol in Figure 3.55 represents a gas or liquid pump.
+:::
+
+## Activity 3.5 3/4
+
+### 300°C and 10 bar
+
+The nuclear reactor task states:
+
+::: {.tight-list}
+- a temperature sensor monitors the reactor temperature; if this exceeds <span class="mark">300°C</span>, the water flow into the reactor is increased
+- a pressure sensor monitors the gas pressure of carbon dioxide circulating in the reactor; if this is less than <span class="mark">10 bar</span>, the gas pump is opened
+- describe how the sensors and microprocessor are used to maintain the correct water temperature and gas pressure
+- name other hardware devices needed, such as pumps, ADC, DAC and actuators
+:::
+
+## Figure 3.56
+
+### Traffic light activity
+
+![Figure 3.56 Traffic light junction activity diagram](../../assets/3-hardware/3-2-3-sensors-control-applications-p114-p118/Figure 3.56 Traffic light junction activity diagram.png){fig-align="center" width="52%"}
+
+::: {.figure-note}
+Figure 3.56 shows a junction controlled by traffic lights.
+:::
+
+## Activity 3.5 4/4
+
+### Road sensors and light sequence
+
+Describe how sensors in the road and a microprocessor are used to control the traffic at the junction.
+
+The microprocessor is able to change the <span class="mark">colour sequence</span> of the <span class="term">traffic lights</span>.
+
+## Classroom Check
+
+### Same loop in every application
+
+A strong answer should include:
+
+::: {.tight-list}
+- the sensor and property being measured
+- ADC before computer comparison if sensor data is analogue
+- comparison with a threshold, stored value or pre-set value
+- DAC and actuator/output device where physical control is needed
+- repeated sampling so feedback changes the next readings
+- the exact condition from the application, such as every minute, 30 minutes, 70°C, pH 3.5, 300°C or 10 bar
+- Activity 3.5 wording: positive feedback, pH control, gas/liquid pump, road sensors and traffic-light colour sequence
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

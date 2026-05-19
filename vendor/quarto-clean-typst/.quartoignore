@@ -1,0 +1,16 @@
+_quarto.yml
+_site/
+*.Rproj
+static/img/template-full.png
+static/img/thumbnail.png
+static/img/thumbnail.svg
+snapshot.R
+renv.lock
+renv/
+.Rprofile
+README.qmd
+README.md
+touying-quarto-clean/
+scripts/
+Justfile
+air.toml

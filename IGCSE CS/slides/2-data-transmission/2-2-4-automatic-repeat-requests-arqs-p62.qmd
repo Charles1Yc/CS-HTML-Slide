@@ -1,0 +1,89 @@
+---
+title: "2.2.4 Automatic Repeat Requests (ARQs)"
+subtitle: "Data Transmission P62"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Automatic Repeat Request (ARQ)
+
+### A third way to check data
+
+<span class="term">ARQ (Automatic Repeat Request)</span> (自动重复请求) is a third way used to check data following data transmission (after parity checks and echo checks).
+
+ARQ uses <span class="mark">positive and negative acknowledgements</span> and <span class="mark">timeout</span>:
+
+::: {.tight-list}
+- The receiving device receives an <span class="mark">error detection code</span> as part of the data transmission (this is typically a <span class="term">Cyclic Redundancy Check — CRC</span>)
+- This is used to detect whether the received data contains any transmission errors
+- If <span class="mark">no error is detected</span>, a <span class="mark">positive acknowledgement</span> is sent back to the sending device
+- If <span class="mark">an error is detected</span>, the receiving device sends a <span class="mark">negative acknowledgement</span> and requests <span class="mark">re-transmission of the data</span>
+:::
+
+## ARQ: Timeout and Retransmission
+
+### Handling the case when no acknowledgement arrives
+
+::: {.tight-list}
+- A <span class="term">timeout</span> (超时) is used by the sending device — it waits a <span class="mark">pre-determined amount of time</span>
+- If <span class="mark">no acknowledgement</span> of any type has been received within this time limit, the sender <span class="mark">automatically re-sends the data</span>
+- This continues until a <span class="mark">positive acknowledgement is received</span>
+- Or until a <span class="mark">pre-determined number of re-transmissions</span> has taken place
+- ARQ is often used by <span class="mark">mobile phone networks</span> to guarantee data integrity
+:::
+
+## ARQ Process Summary
+
+### Complete ARQ flow
+
+::: {.tight-list}
+1. Sender transmits data with error detection code (CRC)
+2. Receiver checks for errors using the error detection code
+3. If <span class="mark">no error</span>: receiver sends <span class="mark">positive acknowledgement</span> back to sender
+4. If <span class="mark">error detected</span>: receiver sends <span class="mark">negative acknowledgement</span> and requests re-transmission
+5. If <span class="mark">no acknowledgement received</span> within timeout period: sender <span class="mark">automatically re-sends</span> the data
+6. Process repeats until positive acknowledgement or <span class="mark">pre-determined re-transmission limit</span> reached
+:::
+
+## Classroom Check
+
+### Understand ARQ and retransmission
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">ARQ uses positive/negative acknowledgements and timeout</span>
+- receiver uses <span class="mark">error detection code (CRC)</span> to check for transmission errors
+- <span class="mark">no error → positive acknowledgement</span> sent to sender
+- <span class="mark">error detected → negative acknowledgement</span> and request for re-transmission
+- <span class="mark">timeout: if no acknowledgement received</span> within time limit, sender automatically re-sends
+- continues until <span class="mark">positive acknowledgement or pre-determined re-transmission limit</span>
+- ARQ is used by <span class="mark">mobile phone networks</span> to guarantee data integrity
+:::
+
+## Bridge
+
+### Next: Encryption
+
+The next deck covers the purpose of encryption for protecting data privacy.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

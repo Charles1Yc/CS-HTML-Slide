@@ -1,0 +1,120 @@
+---
+title: "3.3.5 Cloud storage"
+subtitle: "Hardware P130-P132"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.5 Cloud storage
+
+### Public and private cloud computing
+
+<span class="term">Cloud storage</span> is a method of data storage where data is stored on <span class="mark">remote servers</span>.
+
+The same data is stored on more than one server in case of maintenance or repair, allowing clients to access data at any time. This is known as <span class="term">data redundancy</span> (数据冗余).
+
+The physical environment is owned and managed by a hosting company and may include hundreds of servers in many locations.
+
+## Three Common Systems
+
+### Public, private and hybrid cloud
+
+There are three common systems:
+
+::: {.tight-list}
+- <span class="term">Public cloud</span> — the customer/client and cloud storage provider are different companies
+- <span class="term">Private cloud</span> — storage is provided by a dedicated environment behind a company firewall; customer/client and cloud storage provider are integrated and operate as a single entity
+- <span class="term">Hybrid cloud</span> — a combination of the two above environments; some data resides in the private cloud and less sensitive or less commercial data can be accessed from a public cloud storage provider
+:::
+
+Instead of saving data on a local hard disk or other storage device, a user can save their data <span class="mark">'in the cloud'</span>.
+
+## Table 3.12
+
+### Benefits and drawbacks of cloud storage
+
+![Table 3.12 Benefits and drawbacks of cloud storage](../../assets/3-hardware/3-3-5-cloud-storage-p130-p132/Table 3.12 Benefits and drawbacks of cloud storage.png){fig-align="center" width="94%"}
+
+## Data Security
+
+### Questions the textbook raises
+
+Companies that transfer vast amounts of confidential data from their own systems to a cloud service provider are effectively <span class="mark">relinquishing control</span> of their own data security.
+
+This raises a number of questions:
+
+::: {.tight-list}
+- what physical security exists regarding the building where the data is housed?
+- how good is the cloud service provider's resistance to natural disasters or power cuts?
+- what safeguards exist regarding personnel who work for the cloud service company?
+:::
+
+## Potential Data Loss
+
+### Why some users remain nervous
+
+There is a risk that important and irreplaceable data could be lost from the cloud storage facilities.
+
+Actions from hackers, such as gaining access to accounts or <span class="term">pharming</span> attacks, could lead to loss or corruption of data.
+
+Users need to be certain that sufficient safeguards exist to overcome these risks.
+
+## Security Breach Examples
+
+### Textbook examples
+
+The textbook gives several examples:
+
+::: {.tight-list}
+- the <span class="term">XEN</span> security threat forced several cloud operators to reboot all their cloud servers
+- a large cloud service provider permanently <span class="mark">lost data</span> during a routine back-up procedure
+- the celebrity photos cloud hacking scandal leaked more than <span class="mark">100 private photos</span>
+- in 2016, the National Electoral Institute of Mexico had <span class="mark">93 million voter registrations</span> compromised
+:::
+
+These examples suggest why some people are nervous of using cloud storage for important files.
+
+## Classroom Check
+
+### Keep the cloud-storage answer concrete
+
+A complete answer should include:
+
+::: {.tight-list}
+- that cloud storage stores data on <span class="mark">remote servers</span>
+- that <span class="term">data redundancy</span> means the same data is stored on more than one server
+- the three systems: <span class="mark">public</span>, <span class="mark">private</span> and <span class="mark">hybrid</span> cloud
+- benefits and drawbacks should match <span class="term">Table 3.12</span>
+- that data security and <span class="term">pharming</span> risks are important concerns
+- that the textbook gives real examples of major cloud-security breaches
+:::
+
+## Bridge
+
+### Next: 3.4 Network hardware
+
+The next section moves from storage to <span class="term">network hardware</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

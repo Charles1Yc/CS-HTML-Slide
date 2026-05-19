@@ -1,0 +1,97 @@
+---
+title: "3.2.2 Output devices"
+subtitle: "Actuators · Hardware P101"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Actuators
+
+### Output devices for control
+
+When a computer is used to control devices, such as a <span class="term">conveyer belt</span> (传送带) or a <span class="term">valve</span> (阀门), it is usually necessary to use an <span class="term">actuator</span> (执行器).
+
+The actuator makes the physical output happen, for example to start/stop the conveyer belt or open/close the valve.
+
+## Actuators
+
+### Textbook definition
+
+An actuator is a <span class="term">mechanical or electromechanical device</span> (机械或机电设备), such as a <span class="term">relay</span> (继电器), <span class="term">solenoid</span> (螺线管) or <span class="term">motor</span> (电动机).
+
+In a control system, the computer has already processed data; the actuator carries out the controlled action.
+
+## Solenoid example
+
+### Figure 3.36: a solenoid
+
+![Figure 3.36 A solenoid](../../assets/3-hardware/3-2-2-output-devices-actuators-p101/Figure 3.36 A solenoid.png){fig-align="center" width="82%"}
+
+::: {.figure-note}
+The solenoid coil carries current. This produces an electromagnetic field around the coil.
+:::
+
+## Solenoid example
+
+### Electrical signal to magnetic field
+
+The textbook uses a solenoid as the example.
+
+A solenoid converts an <span class="term">electrical signal</span> (电信号) into a <span class="term">magnetic field</span> (磁场), producing <span class="term">linear motion</span> (直线运动).
+
+This is the key output-device idea: an electronic signal becomes physical movement.
+
+## Solenoid example
+
+### Plunger movement
+
+If a <span class="term">plunger</span> (柱塞), for example a magnetised metal bar, is placed inside the coil, it will move when a current is applied to the coil.
+
+This movement can allow the solenoid to operate a valve or a switch.
+
+## Rotary solenoids
+
+### Rotational movement
+
+There are also examples of <span class="term">rotary solenoids</span> (旋转螺线管), where a cylindrical coil is used.
+
+In this case, when a current is supplied to the coil, it causes a rotational movement of the plunger.
+
+So actuators can produce either linear movement or rotational movement, depending on the design.
+
+## Classroom Check
+
+### Sensor vs actuator
+
+Explain why a temperature sensor and an actuator are not the same type of device.
+
+A strong answer should say:
+
+::: {.tight-list}
+- a sensor provides input data to the computer
+- the computer processes the data
+- an actuator produces the physical output action
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

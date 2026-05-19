@@ -1,0 +1,21 @@
+.local/
+.quarto/
+.quarto-home/
+.DS_Store
+**/.DS_Store
+.tmp-rendered-pages/
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Staging only; final slide images live under course assets.
+Temp ScreenShot/*
+!Temp ScreenShot/README.md
+
+.claude/
+.codex-tmp/
+.vscode/
+MIGRATION_HANDOFF.md
+**/resources/
+**/materials/
+**/notes/

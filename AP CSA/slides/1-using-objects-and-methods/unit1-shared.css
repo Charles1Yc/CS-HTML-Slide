@@ -1,0 +1,54 @@
+.reveal .term {
+  color: #c62828;
+  font-weight: 700;
+}
+
+.reveal .mark {
+  background: #fff176;
+  padding: 0 0.08em;
+}
+
+.reveal .tight-list li {
+  margin-bottom: 0.22em;
+}
+
+.reveal .figure-note,
+.reveal .small-note {
+  font-size: 0.8em;
+  line-height: 1.32;
+}
+
+.reveal .small {
+  font-size: 0.86em;
+}
+
+.reveal .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.reveal .compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.reveal .soft-box {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(31, 41, 55, 0.12);
+  border-radius: 10px;
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.reveal pre code {
+  max-height: 540px;
+  font-size: 0.78em;
+  line-height: 1.34;
+}
+
+.reveal table code {
+  white-space: nowrap;
+}

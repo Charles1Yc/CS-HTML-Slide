@@ -1,0 +1,112 @@
+---
+title: "3.2.1 Input devices"
+subtitle: "Microphones · Hardware P94-P95"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Microphones
+
+### Sound waves into an electric current
+
+Microphones are either <span class="term">built into the computer</span> (内置于计算机) or are <span class="term">external devices</span> (外部设备) connected through the <span class="term">USB port</span> or using <span class="term">Bluetooth connectivity</span>.
+
+Figure 3.26 shows how a microphone can convert <span class="term">sound waves</span> (声波) into an <span class="term">electric current</span> (电流).
+
+The current produced is converted to a <span class="term">digital format</span> (数字格式) so that a computer can process it or store it, for example on a CD.
+
+## Microphones
+
+### Figure 3.26: microphone structure
+
+![Figure 3.26 Diagram of how a microphone works](../../assets/3-hardware/3-2-1-input-devices-microphones-p94-p95/figure-3-26-diagram-of-how-a-microphone-works-enhanced.png){fig-align="center" width="98%"}
+
+::: {.figure-note}
+The diagram links the physical parts: <span class="term">diaphragm</span> (振膜), <span class="term">cone</span> (锥盆), <span class="term">coil of wire</span> (线圈) and <span class="term">permanent magnet</span> (永久磁铁).
+:::
+
+## How a microphone converts sound into current
+
+### 1/3 Steps 1-2 of 5
+
+::: {.tight-list}
+- When sound is created, it causes the air to <span class="term">vibrate</span> (振动).
+- When a <span class="term">diaphragm</span> in the microphone picks up the air vibrations, the diaphragm also begins to vibrate.
+:::
+
+## How a microphone converts sound into current
+
+### 2/3 Step 3 of 5
+
+A <span class="term">copper coil</span> (铜线圈) is wrapped around the cone which is connected to the diaphragm.
+
+As the diaphragm vibrates, the cone moves in and out causing the copper coil to move backwards and forwards.
+
+## How a microphone converts sound into current
+
+### 3/3 Steps 4-5 of 5
+
+::: {.tight-list}
+- This forwards and backwards motion causes the coil to cut through the <span class="term">magnetic field</span> (磁场) around the permanent magnet, <span class="term">inducing an electric current</span> (感应出电流), so an <span class="term">induced</span> current is produced.
+- The electric current is then either <span class="term">amplified</span> (放大) or sent to a recording device. The electric current is <span class="term">analogue in nature</span> (本质上是模拟信号).
+:::
+
+## Microphone Output To A Computer
+
+### Sound card conversion
+
+The electric current output from the microphone can also be sent to a computer where a <span class="term">sound card</span> (声卡) converts the current into a <span class="term">digital signal</span> (数字信号) which can then be stored in the computer.
+
+The following diagram shows what happens when the word <span class="mark">‘hut’</span> is picked up by a microphone and is converted into digital values.
+
+## Microphone Output To A Computer
+
+### Figure 3.27: analogue to digital conversion
+
+![Figure 3.27 Analogue to digital conversion](../../assets/3-hardware/3-2-1-input-devices-microphones-p94-p95/figure-3-27-analogue-to-digital-conversion-enhanced.png){fig-align="center" width="92%"}
+
+::: {.figure-note}
+The sound wave for <span class="term">HUT</span> is converted into digital values after conversion.
+:::
+
+## Microphone Output To A Computer
+
+### ADC and stored digital values
+
+Look at Figure 3.27. The word ‘hut’, in the form of a <span class="term">sound wave</span> (声波), has been picked up by the microphone.
+
+This is then converted using an <span class="term">analogue to digital converter (ADC)</span> (模数转换器) into <span class="term">digital values</span> (数字值), which can then be stored in a computer or manipulated as required using appropriate software.
+
+## Classroom Check
+
+### Explain the full conversion chain
+
+::: {.tight-list}
+- What vibrates first when sound is created?
+- Which part of the microphone picks up the air vibrations?
+- How does the copper coil help induce an electric current?
+- Why must the signal be converted by an <span class="term">ADC</span> before the computer can store or manipulate it?
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

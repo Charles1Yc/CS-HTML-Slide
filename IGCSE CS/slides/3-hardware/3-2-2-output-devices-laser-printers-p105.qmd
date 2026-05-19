@@ -1,0 +1,139 @@
+---
+title: "3.2.2 Output devices"
+subtitle: "Laser printers · Hardware P105"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.78em; line-height: 1.12; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.25em 0.34em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Laser printers
+
+### Toner and static electricity
+
+Laser printers use <span class="term">dry powder ink</span> rather than liquid ink.
+
+This dry powder ink is called <span class="term">toner</span> (碳粉).
+
+Laser printers make use of the properties of <span class="term">static electricity</span> (静电) to produce text and images.
+
+Unlike inkjet printers, laser printers print the <span class="mark">whole page</span> in one go.
+
+## Laser printers
+
+### Figure 3.40: laser printer
+
+![Figure 3.40 Laser printer](../../assets/3-hardware/3-2-2-output-devices-laser-printers-p105/Figure 3.40 Laser printer.png){fig-align="center" width="62%"}
+
+::: {.figure-note}
+Use the picture as a reminder that the output device is different from inkjet: laser printers use toner, a charged drum, paper transfer and a fuser.
+:::
+
+## Colour laser printers
+
+### Four toner cartridges
+
+Colour laser printers use four toner cartridges:
+
+::: {.tight-list}
+- blue
+- cyan
+- magenta
+- black
+:::
+
+Although the actual technology is different to monochrome printers, the printing method is similar, but coloured dots are used to build up the text and images.
+
+## Table 3.7: laser printing process
+
+### 1/3 Driver and buffer stages
+
+::: {.clean-table}
+| Stage | Description of what happens |
+|---:|---|
+| 1 | the data from the document is sent to a <span class="term">printer driver</span> |
+| 2 | the printer driver ensures that the data is in a format that the chosen printer can understand |
+| 3 | a check is made to ensure that the printer is available, for example busy, off-line or out of ink |
+| 4 | the data is sent to the printer and stored in a temporary memory known as a <span class="term">printer buffer</span> |
+:::
+
+## Table 3.7: laser printing process
+
+### 2/3 Drum, laser and toner stages
+
+::: {.clean-table}
+| Stage | Description of what happens |
+|---:|---|
+| 5 | a printing drum is given a positive charge; a laser beam removes the positive charge in certain areas, leaving negatively charged areas matching the page |
+| 6 | the drum is coated with positively charged toner; toner sticks only to the negatively charged parts of the drum |
+| 7 | a negatively charged sheet of paper is rolled over the drum |
+| 8 | toner on the drum sticks to the paper to produce an exact copy of the page |
+:::
+
+## Table 3.7: laser printing process
+
+### 3/3 Paper release, fuser and discharge
+
+::: {.clean-table}
+| Stage | Description of what happens |
+|---:|---|
+| 9 | the electric charge on the paper is removed after one rotation of the drum so the paper does not stick to the drum |
+| 10 | the paper goes through a <span class="term">fuser</span> (定影器), heated rollers that melt the ink so it fixes permanently to the paper |
+| 11 | a <span class="term">discharge lamp</span> (放电灯) removes all electric charge from the drum, making it ready for the next page |
+:::
+
+## Applications of laser printers
+
+### High volume and high quality
+
+Laser printers produce high quality printouts and are very fast when making multiple copies of a document.
+
+Any application that needs <span class="term">high volume printing</span>, in colour or monochrome, would choose the laser printer.
+
+The textbook example is producing a large number of high-quality flyers or posters for advertising.
+
+## Applications of laser printers
+
+### Toner cartridges and paper trays
+
+Laser printers have two advantages for high-volume work:
+
+::: {.tight-list}
+- large toner cartridges
+- large paper trays, often holding more than a ream of paper
+:::
+
+These features make them more suitable than inkjet printers when many pages are required.
+
+## Classroom Check
+
+### Compare with inkjet accurately
+
+A clear comparison should include:
+
+::: {.tight-list}
+- inkjet: liquid ink droplets, print head, line-by-line printing
+- laser: toner, static electricity, charged drum, whole-page printing, fuser and discharge lamp
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

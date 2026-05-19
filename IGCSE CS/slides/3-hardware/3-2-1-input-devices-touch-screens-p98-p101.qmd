@@ -1,0 +1,275 @@
+---
+title: "3.2.1 Input devices"
+subtitle: "Touch screens · Hardware P98-P101"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Touch screens
+
+### Common input device
+
+<span class="term">Touch screens</span> (触摸屏) are now a very common form of <span class="term">input device</span> (输入设备).
+
+They allow simple touch selection from a menu to launch an application (app).
+
+Touch screens allow the user to carry out the same functions as they would with a <span class="term">pointing device</span> (指针设备), such as a mouse.
+
+## Touch screens
+
+### Three common technologies
+
+There are three common types of touch screen technologies currently being used by mobile phone and tablet manufacturers:
+
+::: {.tight-list}
+- <span class="term">capacitive</span> (电容式)
+- <span class="term">infrared</span> (红外式)
+- <span class="term">resistive</span> (电阻式, most common method at the moment)
+:::
+
+Similar technologies are used in other applications, for example food selection at a fast food restaurant.
+
+## Capacitive touch screens
+
+### Figure 3.32: basic structure
+
+![Figure 3.32 Capacitive touch screen](../../assets/3-hardware/3-2-1-input-devices-touch-screens-p98-p101/Figure 3.32 Capacitive touch screen.png){fig-align="center" width="90%"}
+
+::: {.figure-note}
+The basic capacitive structure is a protective glass layer, a transparent conductive electrode layer and a glass substrate.
+:::
+
+## Capacitive touch screens
+
+### 1/5 Glass, electrode layer and glass substrate
+
+Capacitive touch screens are composed of a layer of glass (<span class="term">protective layer</span>, 保护层), a transparent <span class="term">electrode</span> (电极) or conductive layer, and a <span class="term">glass substrate</span> (玻璃基底).
+
+Since human skin is a <span class="term">conductor of electricity</span> (导电体), when bare fingers or a special stylus touch the screen, the electrostatic field of the conductive layer is changed.
+
+## Capacitive touch screens
+
+### 2/5 Coordinates from electrostatic change
+
+The installed <span class="term">microcontroller</span> (微控制器) is able to calculate where this change took place.
+
+It can then determine the <span class="term">coordinates</span> (坐标) of the point of touching.
+
+There are presently two main types of capacitive touch screens:
+
+::: {.tight-list}
+- <span class="term">surface</span> (表面电容式)
+- <span class="term">projective</span> (投射电容式)
+:::
+
+## Capacitive touch screens
+
+### 3/5 Surface capacitive screens
+
+With <span class="term">surface capacitive screens</span> (表面电容屏), sensors are placed at the corners of a screen.
+
+Small voltages are also applied at the corners of the screen, creating an <span class="term">electric field</span> (电场).
+
+A finger touching the screen surface will draw current from each corner, reducing the <span class="term">capacitance</span> (电容).
+
+A microcontroller measures the decrease in capacitance and determines the point where the finger touched the screen.
+
+## Capacitive touch screens
+
+### 4/5 Projective capacitive screens
+
+<span class="term">Projective capacitive</span> screens work slightly differently.
+
+The transparent conductive layer is now in the form of an <span class="term">X-Y matrix pattern</span> (X-Y 矩阵图案).
+
+This creates a three dimensional (3D) <span class="term">electrostatic field</span> (静电场). When a finger touches the screen, it disturbs the 3D electrostatic field, allowing a microcontroller to determine the coordinates of the point of contact.
+
+## Capacitive touch screens
+
+### 5/5 Touch methods and multi-touch
+
+Surface capacitive screens only work with a bare finger or stylus.
+
+Projective capacitive screens work with bare fingers, stylus and thin surgical or cotton gloves.
+
+They also allow <span class="term">multi-touch</span> (多点触控) facility, for example <span class="mark">pinching</span> or <span class="mark">sliding</span>.
+
+## Capacitive touch screens
+
+### Advantages compared to the other two technologies
+
+::: {.tight-list}
+- Better image clarity than resistive screens, especially in <span class="term">strong sunlight</span> (强烈阳光).
+- Very durable screens that have high <span class="term">scratch resistance</span> (抗刮性).
+- Projective capacitive screens allow <span class="term">multi-touch</span>.
+:::
+
+## Capacitive touch screens
+
+### Disadvantages compared to the other two technologies
+
+::: {.tight-list}
+- Surface capacitive screens only work with bare fingers or a special stylus.
+- They are sensitive to <span class="term">electromagnetic radiation</span> (电磁辐射), such as magnetic fields or microwaves.
+:::
+
+## Infrared touch screens
+
+### Figure 3.33: transmitters and sensors
+
+![Figure 3.33 Array of infrared transmitters and sensors surrounding the screen](../../assets/3-hardware/3-2-1-input-devices-touch-screens-p98-p101/Figure 3.33 Array of infrared transmitters and sensors surrounding the screen.png){fig-align="center" width="92%"}
+
+::: {.figure-note}
+Infrared transmitters and infrared sensors are placed around the edge of the screen to create and detect a matrix of infrared rays.
+:::
+
+## Infrared touch screens
+
+### 1/3 Infrared beams around the screen
+
+Infrared touch screens use a glass screen with an array of <span class="term">sensors</span> (传感器) and <span class="term">infrared transmitters</span> (红外发射器).
+
+The sensors detect the <span class="term">infrared radiation</span> (红外辐射).
+
+## Infrared touch screens
+
+### 2/3 Figure 3.34: broken beams show touch position
+
+![Figure 3.34 Infrared screen touched](../../assets/3-hardware/3-2-1-input-devices-touch-screens-p98-p101/Figure 3.34.png){fig-align="center" width="86%"}
+
+::: {.figure-note}
+When a finger touches the screen, some infrared beams are broken and the corresponding sensors show a reduction in infrared radiation.
+:::
+
+## Infrared touch screens
+
+### 3/3 Microcontroller calculates the position
+
+If any of the infrared beams are broken, for example with a finger touching the screen, the infrared radiation reaching the sensors is reduced.
+
+The sensor readings are sent to a <span class="term">microcontroller</span> (微控制器) that calculates where the screen was touched.
+
+## Infrared touch screens
+
+### Advantages compared to the other two technologies
+
+::: {.tight-list}
+- Allows <span class="term">multi-touch</span> facilities.
+- Has good screen durability.
+- The operability isn’t affected by a scratched or cracked screen.
+:::
+
+## Infrared touch screens
+
+### Disadvantages compared to the other two technologies
+
+::: {.tight-list}
+- The screen can be sensitive to <span class="term">water or moisture</span> (水或湿气).
+- It is possible for accidental activation to take place if the infrared beams are disturbed in some way.
+- Sometimes sensitive to <span class="term">light interference</span> (光线干扰).
+:::
+
+## Resistive touch screens
+
+### Figure 3.35: two resistive layers
+
+![Figure 3.35 Resistive touch screen](../../assets/3-hardware/3-2-1-input-devices-touch-screens-p98-p101/Figure 3.35 Resistive touch screen.png){fig-align="center" width="96%"}
+
+::: {.figure-note}
+The upper flexible polyethylene layer and the bottom glass layer are separated until pressure makes the two coated layers touch.
+:::
+
+## Resistive touch screens
+
+### 1/4 Layers and materials
+
+Resistive touch screens are made up of two layers of electrically <span class="term">resistive material</span> (电阻材料) with a voltage applied across them.
+
+The upper layer is made of flexible <span class="term">polyethylene</span> (聚乙烯, a type of polymer) with a resistive coating on one side.
+
+The bottom layer is made of glass also with a resistive coating, usually <span class="term">indium tin oxide</span> (氧化铟锡), on one side.
+
+## Resistive touch screens
+
+### 2/4 Air or inert gas separation
+
+These two layers are separated by air or an <span class="term">inert gas</span> (惰性气体), such as <span class="term">argon</span> (氩气).
+
+When the top polyethylene surface is touched, the two layers make contact.
+
+Since both layers are coated in a resistive material, a circuit is now completed which results in a flow of electricity.
+
+## Resistive touch screens
+
+### 3/4 Voltage change to digital data
+
+The point of contact is detected where there was a change in <span class="term">voltage</span> (电压).
+
+A microcontroller converts the voltage, created when the two resistive layers touch, to <span class="term">digital data</span> (数字数据).
+
+It then sends the digital data to the <span class="term">microprocessor</span> (微处理器).
+
+## Resistive touch screens
+
+### 4/4 Detection method summary
+
+The important route is:
+
+<span class="mark">pressure on top layer</span> → <span class="mark">two resistive layers touch</span> → <span class="mark">circuit completed</span> → <span class="mark">voltage changes</span> → <span class="mark">microcontroller sends digital data</span>.
+
+This is different from capacitive electrostatic field change and infrared broken beams.
+
+## Resistive touch screens
+
+### Advantages compared to the other two technologies
+
+::: {.tight-list}
+- Good resistance to dust and water.
+- Can be used with bare fingers, stylus and gloved hand.
+:::
+
+## Resistive touch screens
+
+### Disadvantages compared to the other two technologies
+
+::: {.tight-list}
+- Low touch sensitivity; sometimes users have to press down harder.
+- Doesn’t support multi-touch facility.
+- Poor visibility in strong sunlight.
+- Vulnerable to scratches on the screen, because it is made of polymer.
+:::
+
+## Classroom Check
+
+### Match each technology to its detection method
+
+::: {.tight-list}
+- <span class="term">Capacitive</span>: detects a change in the electrostatic field.
+- <span class="term">Infrared</span>: detects broken infrared beams and reduced infrared radiation at sensors.
+- <span class="term">Resistive</span>: detects pressure when two resistive layers touch and voltage changes.
+:::
+
+A strong answer should also mention one advantage and one disadvantage for each technology.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

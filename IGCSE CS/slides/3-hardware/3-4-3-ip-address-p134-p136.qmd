@@ -1,0 +1,173 @@
+---
+title: "3.4.3 Internet protocol (IP) address"
+subtitle: "IP address · Hardware P134-P136"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## IP Address
+
+### Internet Protocol address
+
+An <span class="term">IP address</span> (互联网协议地址) is a <span class="mark">unique logical address</span> that identifies a device on a network:
+
+::: {.tight-list}
+- Used for routing data across networks and the internet
+- <span class="mark">Different from MAC address</span> (which is hardware address for local LAN)
+- Because the operation of the internet is based on a set of <span class="term">protocols</span> (协议), it is necessary to supply an IP address
+- <span class="mark">Protocols define the rules</span> that must be agreed by senders and receivers of data communicating through the internet
+:::
+
+## How IP Addresses Are Assigned
+
+### Router, private, and public IPs
+
+When a device connects to a private network, a <span class="mark">router assigns a private IP address</span> to it. That IP address is unique on that network, but might be the same as an IP address on a separate network.
+
+::: {.tight-list}
+- When a router connects to the internet it is given a <span class="mark">unique public IP address</span>
+- This is usually supplied by the <span class="term">internet service provider (ISP)</span>
+- No other device on the internet has the same public IP address
+- All the devices connected to that router have the <span class="mark">same public IP address</span> as the router but each have their own <span class="mark">different private IP addresses</span> on that network
+:::
+
+## IPv4: Original Standard 1/2
+
+### 32-bit addresses
+
+<span class="term">IPv4</span> (Internet Protocol version 4) is based on <span class="mark">32 bits</span> and the address is written as four groups of eight bits (shown in denary format):
+
+::: {.tight-list}
+- Example: `254.25.28.77`
+- Because the use of only 32 bits considerably reduces the potential number of devices and routers used on the internet at any one time, a newer version is now used
+:::
+
+## IPv6: Modern Standard 2/2
+
+### 128-bit addresses for expansion
+
+<span class="term">IPv6</span> (Internet Protocol version 6) uses <span class="mark">128-bit addresses</span> that take the form of eight groups of hex digits:
+
+::: {.tight-list}
+- Example: `A8FB:7A88:FFF0:0FFF:3D21:2085:66FB:F0FA`
+- Note the use of colons (:) and hexadecimal numbering
+- IPv6 has been designed to allow the internet to grow in terms of the number of hosts and potential increase in the amount of data traffic
+:::
+
+The main advantages of IPv6 compared to IPv4 are:
+- <span class="mark">removes the risk of IP address collisions</span>
+- <span class="mark">has built-in authentication checks</span>
+- <span class="mark">allows for more efficient packet routes</span>
+
+## Public vs Private IP Addresses 1/2
+
+### Public IP — routable on the internet
+
+**Public IP Address:**
+
+::: {.tight-list}
+- <span class="mark">Unique</span> — no other device on the internet has the same public IP address
+- Assigned by <span class="term">internet service provider (ISP)</span> to the router
+- <span class="mark">Globally routable</span> across the internet
+- Used to identify where the device is connected to the internet
+:::
+
+## Public vs Private IP Addresses 2/2
+
+### Private IP — internal network use only
+
+**Private IP Address:**
+
+::: {.tight-list}
+- <span class="mark">Unique on that network</span>, but might be the same as an IP address on a separate network
+- Assigned by the <span class="mark">router</span> to each connected device
+- All devices share the <span class="mark">same public IP address</span> as the router
+- Each device has its own <span class="mark">different private IP address</span> on that network
+:::
+
+## IP Assignment Methods 1/2
+
+### DHCP — automatic assignment
+
+<span class="term">DHCP (Dynamic Host Configuration Protocol)</span>:
+
+::: {.tight-list}
+- Dynamic IP addresses are assigned by the <span class="mark">ISP each time a device logs onto the internet</span>
+- A computer on the internet, configured as a <span class="mark">DHCP server</span>, is used by the ISP to automatically assign an IP address to a device
+- <span class="mark">Could be different</span> every time a device connects to the internet
+- <span class="mark">Dynamic IP addresses change</span> every time a device connects to the internet
+:::
+
+## IP Assignment Methods 2/2
+
+### Static IP — permanent address
+
+**Static IP:**
+
+::: {.tight-list}
+- <span class="mark">Static IP addresses don't change</span>
+- IP addresses can be either <span class="mark">static (don't change)</span> or <span class="mark">dynamic (change every time)</span>
+- Used for devices that need a consistent, predictable address
+- Required for servers and other devices providing services
+:::
+
+## Table 3.13
+
+### MAC addresses vs IP addresses
+
+::: {.clean-table}
+| Feature | MAC Address | IP Address |
+|---------|-------------|------------|
+| Scope | Identifies the <span class="mark">physical address</span> of a device on the network | Identifies the <span class="mark">global address</span> on the internet |
+| Uniqueness | <span class="mark">Unique</span> for device on the network | May <span class="mark">not necessarily be unique</span> |
+| Assignment | Assigned by the <span class="mark">manufacturer</span> of the device — part of the NIC | Dynamic IP addresses assigned by <span class="mark">ISP using DHCP</span> each time the device connects |
+| Types | Can be <span class="mark">universal (UAA) or local (LAA)</span> | Can be <span class="mark">static or dynamic</span> |
+| Bit length | <span class="mark">48 bits</span> | Either <span class="mark">32 bits (IPv4) or 128 bits (IPv6)</span> |
+| Usage | Used to identify sender's and recipient's <span class="mark">devices</span> | Used in <span class="mark">routing operations</span> — specifically identify where the device is connected to the internet |
+:::
+
+## Classroom Check
+
+### Understand IP addresses and their role
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">IP address</span> is a <span class="mark">logical address for routing across networks</span>; <span class="term">MAC address</span> is a physical hardware address
+- router assigns a <span class="mark">private IP</span> to each device; router itself gets a <span class="mark">unique public IP</span> from the <span class="term">ISP</span>
+- <span class="term">IPv4</span> is <span class="mark">32-bit</span> (e.g. 254.25.28.77); <span class="term">IPv6</span> is <span class="mark">128-bit</span> (e.g. A8FB:7A88:FFF0:0FFF:3D21:2085:66FB:F0FA)
+- three IPv6 advantages: <span class="mark">removes IP address collisions</span>, <span class="mark">built-in authentication checks</span>, <span class="mark">more efficient packet routes</span>
+- <span class="mark">protocols</span> define the rules agreed by senders and receivers
+- <span class="term">DHCP</span> assigns dynamic addresses (change each time); <span class="mark">static IP</span> doesn't change
+- Table 3.13: MAC = 48-bit, manufacturer-assigned, unique for device; IP = 32/128-bit, ISP/DHCP-assigned, for routing
+:::
+
+## Bridge
+
+### Next: Static and Dynamic IP Addresses
+
+The next deck explores the practical differences between static and dynamic IP assignment in detail.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

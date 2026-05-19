@@ -1,0 +1,138 @@
+---
+title: "3.2.3 Sensors"
+subtitle: "Control systems · Hardware P114-P118"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Control Systems
+
+### Automatic action
+
+Sensors are used in both monitoring and control applications.
+
+In a <span class="term">control system</span>, if the <span class="mark">new data is outside the acceptable range</span>, the computer/microprocessor sends signals to <span class="term">control devices</span>, such as valves, motors, heaters or pumps.
+
+## Figure 3.50
+
+### Control path
+
+![Figure 3.50 Monitoring and control systems using sensors](../../assets/3-hardware/3-2-3-sensors-control-systems-p114-p118/Figure 3.50 Monitoring and control systems using sensors.png){fig-align="center" width="94%"}
+
+::: {.figure-note}
+Figure 3.50 is a simplification of the process. Use the right-hand side for control: sensor input, ADC if necessary, comparison with stored values, output to devices, and feedback from the changed process.
+:::
+
+## Control Sequence 1/2
+
+### Input and analysis
+
+::: {.tight-list}
+- <span class="term">sensors</span> send signals to the microprocessor/computer
+- the signals are converted to digital, if necessary, using an <span class="term">analogue to digital converter (ADC)</span>
+- the computer/microprocessor analyses the data received
+- the data is checked against <span class="term">stored values</span>
+:::
+
+## Control Sequence 2/2
+
+### Output and feedback
+
+::: {.tight-list}
+- if the new data is <span class="mark">outside the acceptable range</span>, the microprocessor/computer sends signals to control <span class="term">valves</span>, <span class="term">motors</span> and other devices
+- a <span class="term">DAC</span> may be needed later in the output route if the controlled device needs an analogue signal
+- an <span class="term">actuator</span> may be used to operate a physical device
+- the output from the system affects the next set of inputs from the sensors
+:::
+
+## Feedback Loop
+
+### The changed process becomes the next input
+
+The output from the control system changes the process being controlled.
+
+That changed process then affects the next set of sensor readings.
+
+This repeated route is the <span class="term">feedback loop</span>.
+
+## Examples of Control Path
+
+### Figure 3.50 right-hand route
+
+The control path follows the right-hand side of Figure 3.50:
+
+::: {.tight-list}
+- sensors send signals to the microprocessor/computer
+- signals are converted to digital if necessary using an <span class="term">ADC</span>
+- the microprocessor/computer analyses the data by checking it against stored values
+- if the new data is outside the acceptable range, the microprocessor/computer sends signals to control <span class="term">valves</span>, <span class="term">motors</span> or other devices
+- the output from the system affects the next set of inputs from the sensors
+:::
+
+This last step is the <span class="term">feedback loop</span>.
+
+## Monitoring and Control
+
+### The difference
+
+Monitoring sends a warning message or activates an alarm; the microprocessor/computer has <span class="mark">no effect on what is being monitored</span>.
+
+Control sends signals to devices such as valves, motors, heaters or pumps, so the process is changed automatically.
+
+## Examples of Control
+
+### Textbook examples
+
+::: {.tight-list}
+- turning <span class="term">street lights</span> on at night and off during daylight
+- controlling the temperature in a <span class="term">central heating</span> or air conditioning system
+- <span class="term">chemical process</span> control, for example maintaining temperature and pH
+- operating <span class="term">anti-lock brakes</span> on a car when necessary
+- controlling the environment in a <span class="term">green house</span> / <span class="term">greenhouse</span>
+:::
+
+## Application Pattern
+
+### Same structure in each context
+
+Every control application in the next deck follows the same answer pattern:
+
+<span class="mark">sensor</span> → <span class="mark">ADC</span> → <span class="mark">computer comparison</span> → <span class="mark">DAC if needed</span> → <span class="mark">actuator/output device</span> → <span class="mark">feedback loop</span>.
+
+The details change, but the control logic stays the same: name the sensor, the stored value or pre-set value, the comparison, the device controlled, and how the changed output affects later readings.
+
+## Classroom Check
+
+### Do not stop at the output
+
+A strong answer should include:
+
+::: {.tight-list}
+- the sensor and measured property
+- <span class="term">ADC</span> before the computer if the sensor data is analogue
+- comparison with <span class="term">stored values</span> or pre-set values
+- <span class="term">DAC</span> and <span class="term">actuator</span> where the output device needs them
+- the <span class="term">feedback loop</span>, where the output affects the next sensor input
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

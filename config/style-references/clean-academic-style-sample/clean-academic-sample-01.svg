@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="900" viewBox="0 0 1600 900">
+  <style>
+    .bg { fill: #fbfbf8; }
+    .ink { fill: #17202a; }
+    .muted { fill: #68717d; }
+    .blue { fill: #2f5f9f; }
+    .line { stroke: #d8d6ce; stroke-width: 2; }
+    .accent-line { stroke: #2f5f9f; stroke-width: 5; stroke-linecap: round; }
+    .thin { stroke: #9aa4b2; stroke-width: 2; fill: none; }
+    .panel { fill: #ffffff; stroke: #dedbd2; stroke-width: 2; }
+    .soft { fill: #eef3f9; }
+    text { font-family: sans-serif; }
+    .title { font-weight: 700; font-size: 54px; }
+    .subtitle { font-weight: 400; font-size: 29px; }
+    .h3 { font-weight: 700; font-size: 30px; }
+    .body { font-weight: 400; font-size: 29px; }
+    .body-sm { font-weight: 400; font-size: 24px; }
+    .zh { font-weight: 400; font-size: 23px; fill: #68717d; }
+    .small { font-weight: 600; font-size: 18px; letter-spacing: 1.6px; }
+    .num { font-weight: 700; font-size: 21px; fill: #ffffff; }
+    .mono { font-family: monospace; font-weight: 600; font-size: 28px; }
+  </style>
+  <rect class="bg" width="1600" height="900"/>
+  <text x="96" y="74" class="small muted">DIGITAL CAMERAS</text>
+  <text x="96" y="145" class="title ink">Digital Cameras</text>
+  <text x="96" y="191" class="subtitle muted">A clean academic style sample · 极简学术风样张</text>
+  <line x1="96" y1="226" x2="1504" y2="226" class="line"/>
+  <line x1="96" y1="226" x2="218" y2="226" class="accent-line"/>
+  
+  <text x="96" y="332" class="body ink">A digital camera captures light and stores the result as a digital image file.</text>
+  <text x="96" y="374" class="zh">数字相机接收光线，并把结果存储为数字图像文件。</text>
+  <rect x="940" y="300" width="430" height="270" rx="6" class="panel"/>
+  <image x="980" y="334" width="350" height="202" xlink:href="../../../IGCSE CS/assets/3-hardware/digital-cameras-p92-p93/figure-3-20-digital-camera-enhanced.png" preserveAspectRatio="xMidYMid meet"/>
+  <text x="96" y="512" class="h3 blue">Core question</text>
+  <text x="96" y="560" class="body ink">How does light become binary data?</text>
+  <text x="96" y="600" class="zh">光线如何变成二进制数据？</text>
+  <line x1="96" y1="672" x2="760" y2="672" class="thin"/>
+  <text x="96" y="724" class="body-sm muted">Style note: mostly text, strong hierarchy, restrained colour.</text>
+  <text x="96" y="758" class="zh">风格特点：文字清楚、层级明确、颜色克制。</text>
+  <text x="96" y="838" class="small muted">IGCSE Computer Science · Hardware</text>
+  <text x="1464" y="838" text-anchor="end" class="small muted">01/05</text>
+</svg>

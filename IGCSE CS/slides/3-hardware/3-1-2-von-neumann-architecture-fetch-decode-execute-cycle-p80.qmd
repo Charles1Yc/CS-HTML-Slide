@@ -1,0 +1,123 @@
+---
+title: "3.1.2 Von Neumann architecture"
+subtitle: "Fetch-Decode-Execute cycle · Hardware P80"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Fetch-Decode-Execute cycle
+
+### The CPU instruction cycle
+
+To carry out a set of instructions, the CPU first fetches some data and instructions from memory and stores them in suitable registers.
+
+Both the <span class="term">address bus</span> (地址总线) and <span class="term">data bus</span> (数据总线) are used in this process.
+
+Once this is done, each instruction needs to be decoded before finally being executed. This is known as the <span class="term">Fetch-Decode-Execute cycle</span> (取指-译码-执行循环).
+
+## Fetch-Decode-Execute cycle
+
+### Figure 3.3: whole flowchart
+
+![Figure 3.3 Fetch-Decode-Execute cycle flowchart](../../assets/3-hardware/3-1-2-von-neumann-architecture-fetch-decode-execute-cycle-p80/Figure 3.3 Fetch–Decode–Execute cycle flowchart.png){fig-align="center" width="70%"}
+
+::: {.figure-note}
+Use the flowchart as the full route: PC → MAR → MDR → CIR → PC increment → decode → execute → repeat or end.
+:::
+
+## Fetch
+
+### 1/4 PC contains the next instruction address
+
+The <span class="term">Program Counter (PC)</span> (程序计数器) contains the address of the memory location of the next instruction which has to be fetched.
+
+The cycle begins by checking whether there are any instructions to process.
+
+If there are no instructions, the process ends.
+
+## Fetch
+
+### 2/4 PC to MAR using the address bus
+
+This address is copied from the PC to the <span class="term">memory address register (MAR)</span> (存储器地址寄存器).
+
+This is done using the <span class="term">address bus</span>.
+
+At this point, the CPU has identified where the next instruction is stored in memory.
+
+## Fetch
+
+### 3/4 Memory contents to MDR
+
+The contents, or instruction, at the memory location contained in MAR are copied temporarily into the <span class="term">memory data register (MDR)</span> (存储器数据寄存器).
+
+Both data and instructions can be stored in MDR.
+
+In this stage, MDR is holding the fetched instruction.
+
+## Fetch
+
+### 4/4 MDR to CIR and PC incremented
+
+The contents of the MDR are copied and placed into the <span class="term">Current Instruction Register (CIR)</span> (当前指令寄存器).
+
+The value in the PC is then <span class="term">incremented</span> (递增) by 1 so that it now points to the next instruction which has to be fetched.
+
+## Decode
+
+### Interpreting the instruction
+
+The instruction is then <span class="term">decoded</span> (译码) so that it can be interpreted in the next part of the cycle.
+
+The CPU works out what operation is required and which components will need to act.
+
+## Execute
+
+### Control signals carry out the instruction
+
+The instruction is finally <span class="term">executed</span> (执行) by sending out signals via the <span class="term">control bus</span> (控制总线) to the various components of the computer system.
+
+This allows each instruction to be carried out in its logical sequence.
+
+## Repeat or end
+
+### Any more instructions to service?
+
+After execution, the CPU checks whether there are any more instructions to service.
+
+If there are more instructions, the process continues with the next instruction address already prepared in the Program Counter.
+
+If there are no more instructions, the process ends.
+
+## Classroom Check
+
+### Register sequence answer
+
+A complete explanation should include this register sequence:
+
+<span class="mark">PC contains next address</span> → <span class="mark">PC copied to MAR</span> → <span class="mark">memory contents copied to MDR</span> → <span class="mark">MDR copied to CIR</span> → <span class="mark">PC incremented</span> → <span class="mark">instruction decoded and executed</span>.
+
+Do not simply write “the CPU fetches, decodes and executes”.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

@@ -1,0 +1,92 @@
+---
+title: "2.3.1 The purpose of encryption"
+subtitle: "Data Transmission P63"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Why Encryption Matters
+
+### Protecting data on public networks
+
+When data is transmitted over any public network (wired or wireless), there is always a risk of it being <span class="mark">intercepted</span> by, for example, a hacker. Under these circumstances, a hacker is often referred to as an <span class="term">eavesdropper</span> (窃听者).
+
+<span class="term">Encryption</span> (加密) alters data into a form that is <span class="mark">unreadable by anybody for whom the data is not intended</span>:
+
+::: {.tight-list}
+- It <span class="mark">cannot prevent the data being intercepted</span>
+- But it <span class="mark">stops it from making any sense</span> to the eavesdropper
+- This is particularly important if the data is <span class="mark">sensitive or confidential</span> (e.g. credit card/bank details, medical history or legal documents)
+:::
+
+## Plaintext and Ciphertext
+
+### How encryption transforms data
+
+The original data being sent is known as <span class="term">plaintext</span> (明文). Once it has gone through an <span class="term">encryption algorithm</span> (加密算法), it produces <span class="term">ciphertext</span> (密文):
+
+::: {.tight-list}
+- **Plaintext** → original readable data
+- **Encryption algorithm** → a complex piece of software that takes plaintext and generates an encrypted string
+- **Encryption key** → secret parameter controlling the algorithm
+- **Ciphertext** → encrypted data that is the result of putting plaintext through an encryption algorithm
+- **Decryption algorithm** → reverses the process
+- Only someone with the <span class="mark">correct decryption key</span> can decode (unscramble) the data
+:::
+
+## Types of Encryption
+
+### Two main categories
+
+::: {.tight-list}
+**Symmetric encryption (对称加密):**
+- <span class="mark">Same encryption key</span> used to encrypt and decrypt the message
+- Fast but main drawback: <span class="mark">keeping the encryption key a secret</span> (key distribution problem)
+
+**Asymmetric encryption (非对称加密):**
+- Uses <span class="mark">two keys: public key and private key</span>
+- Public key — made available to everybody
+- Private key — only known to the computer user
+- Both types of key are needed to encrypt and decrypt messages
+:::
+
+## Classroom Check
+
+### Understand encryption purpose and need
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">encryption cannot prevent interception but stops data making sense</span> to eavesdroppers
+- <span class="mark">plaintext → encryption algorithm + key → ciphertext</span>
+- only someone with the <span class="mark">correct decryption key</span> can decode the data
+- symmetric: <span class="mark">same key</span> for encrypt and decrypt; main drawback is keeping the key secret
+- asymmetric: <span class="mark">public key (available to all) + private key (kept secret)</span>; both needed
+:::
+
+## Bridge
+
+### Next: Symmetric and Asymmetric Encryption
+
+The next deck details how symmetric and asymmetric encryption methods differ and work.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

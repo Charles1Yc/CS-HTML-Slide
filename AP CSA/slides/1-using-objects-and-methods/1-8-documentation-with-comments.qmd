@@ -1,0 +1,135 @@
+---
+title: "1.8 Documentation with Comments"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Comments
+
+### Code for people, not the compiler
+
+Comments make code easier to read, maintain, and revisit later.
+
+Java supports three common forms:
+
+::: {.tight-list}
+- `//` single-line comment
+- `/* ... */` multi-line block comment
+- `/** ... */` documentation comment for generated docs
+:::
+
+Comments are ignored by the compiler, but useful to programmers.
+
+## Documentation Comments
+
+### Javadoc-style metadata
+
+Documentation comments often appear before classes, methods, or instance variables.
+
+Common tags include:
+
+::: {.tight-list}
+- `@author`
+- `@since`
+- `@version`
+- `@param`
+- `@return`
+:::
+
+The AP exam will not require full Javadoc, but the habit of documenting intent is still valuable.
+
+## Preconditions and Postconditions
+
+### What must be true before and after a method runs
+
+::: {.tight-list}
+- a <span class="term">precondition</span> must be true before the method is called
+- a <span class="term">postcondition</span> describes what is true after the method finishes
+:::
+
+Examples:
+
+::: {.tight-list}
+- dividing by zero breaks a math precondition
+- `Math.sqrt(num)` is only meaningful for non-negative inputs in normal classroom use
+- a turtle movement method expects values within a usable screen range
+:::
+
+## Preconditions in Design
+
+### Stronger reasoning, stronger testing
+
+Good preconditions and postconditions help with:
+
+::: {.tight-list}
+- method usage
+- debugging
+- test-case design
+- software validity checks
+:::
+
+Students should get comfortable asking: <span class="mark">What must be true before this method call?</span>
+
+## Use Cases
+
+### User interactions can become method-level thinking
+
+![Restaurant use-case diagram](../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png){fig-align="center" width="70%"}
+
+A <span class="term">use-case</span> describes a specific user interaction with a system. Preconditions and postconditions can be attached to each use-case, not just to methods.
+
+## Agile Development
+
+### Planning is iterative, not just linear
+
+![Waterfall vs Agile](../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/waterfallVsAgile.png){fig-align="center" width="70%"}
+
+The textbook keeps this as professional context:
+
+::: {.tight-list}
+- <span class="term">waterfall</span>: finish one phase, then move on
+- <span class="term">agile</span>: short iterations, testing, feedback, revision
+:::
+
+For classroom use, the key takeaway is that software quality improves through <span class="mark">frequent feedback and revision</span>.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- classify comment types
+- add comments to a short multiplication program
+- reason about method preconditions with `Math.sqrt` and turtle movement
+- <span class="term">1.8.5 Coding Challenge: Preconditions in Algorithms</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- identify the three common Java comment forms
+- explain that comments help people, not program execution
+- define <span class="term">precondition</span> and <span class="term">postcondition</span>
+- apply precondition thinking to method calls such as `Math.sqrt` or turtle movement
+- connect documentation to testing and software validity
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

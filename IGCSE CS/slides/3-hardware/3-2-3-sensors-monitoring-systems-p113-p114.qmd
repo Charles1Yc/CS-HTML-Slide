@@ -1,0 +1,178 @@
+---
+title: "3.2.3 Sensors"
+subtitle: "Monitoring systems · Hardware P113-P114"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Monitoring Systems
+
+### Watching the process
+
+Sensors are used in both <span class="term">monitoring</span> and <span class="term">control</span> applications.
+
+There is a <span class="mark">subtle difference</span> between how these two methods work.
+
+In a monitoring system, the microprocessor/computer has <span class="mark">no effect on what is being monitored</span>; it is simply <span class="term">watching</span> the process.
+
+## Figure 3.50
+
+### Monitoring path
+
+![Figure 3.50 Monitoring and control systems using sensors](../../assets/3-hardware/3-2-3-sensors-monitoring-systems-p113-p114/Figure 3.50 Monitoring and control systems using sensors.png){fig-align="center" width="94%"}
+
+::: {.figure-note}
+Use the left-hand side of Figure 3.50 for monitoring: sensor input, ADC if necessary, comparison with stored values, then a warning message or alarm output.
+:::
+
+## Monitoring Path
+
+### Stored values and warnings
+
+The <span class="term">sensors</span> send signals to the microprocessor/computer.
+
+The signals are converted to digital if necessary using an <span class="term">analogue to digital converter (ADC)</span>.
+
+The computer/microprocessor analyses the data received by checking it against <span class="term">stored values</span>.
+
+## Monitoring Path
+
+### Outside the acceptable range
+
+If new data is <span class="mark">outside the acceptable range</span>, a <span class="mark">warning message</span> is sent to a screen or an alarm is activated.
+
+The important distinction is that the system warns or displays; it does not change the process being monitored.
+
+## Examples of Monitoring
+
+### Textbook examples
+
+::: {.tight-list}
+- <span class="term">patient monitoring</span> in a hospital for vital signs such as heart rate and temperature
+- monitoring of intruders in a <span class="term">burglar alarm</span> system
+- checking the temperature levels in a car engine
+- monitoring <span class="term">pollution levels</span> in a river
+:::
+
+## Figure 3.51
+
+### Security system
+
+![Figure 3.51 Security system](../../assets/3-hardware/3-2-3-sensors-monitoring-systems-p113-p114/Figure 3.51 Security system.png){fig-align="center" width="92%"}
+
+::: {.figure-note}
+Figure 3.51 concentrates on the <span class="term">sensor input</span> side of the security system.
+:::
+
+Note: compare this to Figure 3.9, which shows the security system in more detail.
+
+## Security System 1/3
+
+### Activation and sensor inputs
+
+The system is activated by keying in a <span class="term">password</span> on a keypad.
+
+::: {.tight-list}
+- the <span class="term">infrared sensor</span> picks up the movement of an intruder in the building
+- the <span class="term">acoustic sensor</span> picks up sounds such as footsteps or breaking glass
+- the <span class="term">pressure sensor</span> picks up the weight of an intruder coming through a door or through a window
+:::
+
+## Security System 2/3
+
+### ADC, sampling and stored values
+
+The sensor data is passed through an <span class="term">ADC</span> if it is in an analogue form to produce digital data.
+
+The computer/microprocessor samples the digital data coming from these sensors at a given frequency, for example <span class="mark">every 5 seconds</span>.
+
+The data is compared with the <span class="term">stored values</span> by the computer/microprocessor.
+
+## Security System 3/3
+
+### Siren, lights and reset
+
+If any incoming data values are <span class="mark">outside the acceptable range</span>, the computer sends a signal:
+
+::: {.tight-list}
+- to a <span class="term">siren</span> to sound the alarm
+- to a light to start <span class="mark">flashing lights</span>
+- through a <span class="term">DAC</span> if the devices need analogue values to operate them
+:::
+
+The alarm continues to sound, or the lights continue to flash, until the system is reset with a <span class="term">password</span>.
+
+## Patient Monitoring 1/2
+
+### Vital signs
+
+A number of sensors are attached to the patient.
+
+These measure <span class="term">vital signs</span> such as <span class="mark">temperature</span>, <span class="mark">heart rate</span> and <span class="mark">breathing rate</span>.
+
+The sensors are all attached to a computer system and constantly send data back to the computer.
+
+## Patient Monitoring 2/2
+
+### Alarm or digital readout
+
+The computer samples the data at frequent intervals.
+
+The range of acceptable values for each parameter is keyed into the computer, and the values from the sensors are compared with those keyed in.
+
+If anything is out of the acceptable range, a signal is sent to sound an alarm.
+
+If data from the sensors is within range, the values are shown in graphical form on a screen and/or a <span class="term">digital readout</span> (digital read out).
+
+Monitoring continues until the <span class="term">sensors are disconnected</span> from the patient.
+
+## Monitoring Answer Pattern
+
+### What to include
+
+::: {.tight-list}
+- sensor readings are sent to the computer/microprocessor
+- analogue readings pass through an <span class="term">ADC</span> if necessary
+- data is sampled at a stated frequency
+- data is compared with stored or acceptable values
+- if outside the acceptable range, a warning message, screen display, siren or alarm is triggered
+- the system has <span class="mark">no effect on what is being monitored</span>
+- in patient monitoring, monitoring continues until the sensors are disconnected
+:::
+
+## Classroom Check
+
+### Keep monitoring separate from control
+
+A complete answer should include:
+
+::: {.tight-list}
+- the sensors used and the physical property each one measures
+- the <span class="term">ADC</span> step if the sensor data is analogue
+- comparison with <span class="term">stored values</span> or an acceptable range
+- the warning, alarm, screen output, siren or flashing lights
+- the fact that monitoring only watches the process; it does not alter it
+- the stopping condition where relevant, such as sensors being disconnected or the system being reset
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

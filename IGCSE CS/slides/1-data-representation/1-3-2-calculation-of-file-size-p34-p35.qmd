@@ -1,0 +1,103 @@
+---
+title: "1.3.2 Calculation of file size"
+subtitle: "Data Representation P34-P35"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## File Size Formulae
+
+### Images and sound samples
+
+In this section we will look at the calculation of the file size required to hold a <span class="term">bitmap image</span> and a <span class="term">sound sample</span>.
+
+The file size of an image is calculated as:
+
+<span class="mark">image resolution (in pixels) × colour depth (in bits)</span>
+
+The size of a mono sound file is calculated as:
+
+<span class="mark">sample rate (in Hz) × sample resolution (in bits) × length of sample (in seconds)</span>
+
+For a stereo sound file, you would then <span class="mark">multiply the result by two</span>.
+
+## Example 1
+
+### How many photographs fit on a memory stick?
+
+A photograph is `1024 × 1080` pixels and uses a colour depth of `32 bits`. How many photographs of this size would fit onto a memory stick of `64 GiB`?
+
+::: {.tight-list}
+1. total number of pixels = `(1024 × 1080) = 1 105 920` pixels
+2. file size in bytes = `1 105 920 × 32 = 35 389 440` bits, then `35 389 440 ÷ 8 = 4 423 680` bytes
+3. `64 GiB = 64 × 1024 × 1024 × 1024 = 68 719 476 736` bytes
+4. photographs that fit = `68 719 476 736 ÷ 4 423 680 = 15 534` photos
+:::
+
+## Example 2
+
+### Camera detector image size
+
+A camera detector has an array of `2048 × 2048` pixels and uses a colour depth of `16`. Find the size of an image taken by this camera in `MiB`.
+
+::: {.tight-list}
+1. total number of pixels = `(2048 × 2048) = 4 194 304` pixels
+2. file size in bits = `4 194 304 × 16 = 67 108 864` bits
+3. file size in bytes = `67 108 864 ÷ 8 = 8 388 608` bytes
+4. file size in `MiB` = `8 388 608 ÷ (1024 × 1024) = 8 MiB`
+:::
+
+## Example 3
+
+### 60-minute CD recording
+
+An audio CD has a sample rate of `44 100` and a sample resolution of `16 bits`. The music being sampled uses <span class="mark">two channels</span> to allow for stereo recording. Calculate the file size for a `60-minute` recording.
+
+::: {.tight-list}
+1. size of one channel = `44 100 × 16 × (60 × 60) = 2 540 160 000` bits
+2. multiply by `2` since there are two channels being used = `5 080 320 000` bits
+3. divide by `8` to find number of bytes = `635 040 000` bytes
+4. divide by `1024 × 1024` to convert to `MiB` = `605 MiB`
+:::
+
+## Classroom Check
+
+### Calculate image and sound file sizes
+
+A complete answer should include:
+
+::: {.tight-list}
+- the image file size formula: <span class="mark">image resolution × colour depth</span>
+- the mono sound formula: <span class="mark">sample rate × sample resolution × length</span>
+- that a <span class="mark">stereo sound file</span> requires the result to be multiplied by `2`
+- how to convert from <span class="mark">bits to bytes</span> by dividing by `8`
+- how to convert from bytes to <span class="mark">MiB</span> using `1024 × 1024`
+- the ability to show the working for the textbook examples
+:::
+
+## Bridge
+
+### Next: Data Compression
+
+The next deck explains why data compression is needed.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

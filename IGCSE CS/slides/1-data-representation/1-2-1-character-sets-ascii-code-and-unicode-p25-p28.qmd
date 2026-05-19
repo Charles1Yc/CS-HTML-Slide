@@ -1,0 +1,135 @@
+---
+title: "1.2.1 Character sets - ASCII code and Unicode"
+subtitle: "Data Representation P25-P28"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note {
+          margin-top: 0.7em;
+          padding: 0.42em 0.7em;
+          border: 1px dashed #b8b8b8;
+          color: #555;
+          font-size: 0.72em;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Character Sets
+
+### ASCII code and Unicode
+
+The <span class="term">ASCII</span> code system (American Standard Code for Information Interchange) was set up in <span class="mark">1963</span> for use in communication systems and computer systems. A newer version of the code was published in <span class="mark">1986</span>.
+
+The standard ASCII code character set consists of <span class="mark">$7$-bit codes</span> (`0` to `127` in denary or `00` to `7F` in hexadecimal) that represent the letters, numbers and characters found on a standard keyboard, together with <span class="mark">$32$ control codes</span> that use codes `0` to `31` in denary.
+
+::: {.figure-note}
+**Table 1.2** Part of the ASCII code table placeholder
+:::
+
+## Uppercase and Lowercase Codes
+
+### Comparing characters in binary
+
+Consider the uppercase and lowercase codes in binary of characters:
+
+```text
+'a' 1100001   hex 61   (lower case)
+'A' 1000001   hex 41   (upper case)
+
+'y' 1111001   hex 79   (lower case)
+'Y' 1011001   hex 59   (upper case)
+```
+
+::: {.tight-list}
+- the <span class="mark">sixth bit changes from $1$ to $0$</span> when comparing the lowercase and uppercase of a character
+- this makes the <span class="mark">conversion between the two</span> an easy operation
+- the character sets (`a` to `z`, `0` to `9`, and so on) are grouped together in sequence, which <span class="mark">speeds up usability</span>
+:::
+
+## Extended ASCII
+
+### 8-bit character codes
+
+<span class="term">Extended ASCII</span> uses <span class="mark">$8$-bit codes</span> (`0` to `255` in denary or `0` to `FF` in hexadecimal).
+
+::: {.tight-list}
+- this gives another <span class="mark">$128$ codes</span> to allow for characters in non-English alphabets
+- it also allows <span class="mark">some graphical characters</span> to be included
+:::
+
+::: {.figure-note}
+**Figure 1.6** Extended ASCII code table placeholder
+:::
+
+## Unicode
+
+### Supporting all languages
+
+ASCII code has a number of disadvantages. The main disadvantage is that it does not represent characters in <span class="mark">non-Western languages</span>, for example Chinese characters. As can be seen in Figure 1.6, <span class="term">DOS</span> and <span class="term">Windows</span> use different characters for some ASCII codes.
+
+For this reason, different methods of coding have been developed over the years. One coding system is called <span class="term">Unicode</span> (统一码):
+
+::: {.tight-list}
+- Unicode can represent <span class="mark">all languages of the world</span>
+- there is overlap with standard ASCII code, since the <span class="mark">first $128$ characters are the same</span>
+- Unicode can support <span class="mark">several thousand different characters</span> in total
+- ASCII uses <span class="mark">one byte</span> to represent a character, whereas Unicode will support <span class="mark">up to four bytes</span> per character
+:::
+
+## Unicode Consortium Goals
+
+### Version 1.0
+
+The Unicode consortium was set up in <span class="mark">1991</span>. Version 1.0 was published with five goals:
+
+::: {.tight-list}
+- create a <span class="mark">universal standard</span> that covered all languages and all writing systems
+- produce a <span class="mark">more efficient coding system</span> than ASCII
+- adopt <span class="mark">uniform encoding</span> where each character is encoded as `16-bit` or `32-bit` code
+- create <span class="mark">unambiguous encoding</span> where each `16-bit` and `32-bit` value always represents the same character
+- reserve part of the code for <span class="mark">private use</span> to enable a user to assign codes for their own characters and symbols
+:::
+
+::: {.figure-note}
+**Figure 1.7** Sample of Unicode characters placeholder
+:::
+
+## Classroom Check
+
+### Understand character encoding standards
+
+A complete answer should include:
+
+::: {.tight-list}
+- that standard <span class="term">ASCII</span> uses <span class="mark">$7$-bit codes</span> for the letters, numbers and characters found on a standard keyboard
+- that ASCII also includes <span class="mark">$32$ control codes</span>
+- that <span class="term">Extended ASCII</span> uses <span class="mark">$8$-bit codes</span>, giving another $128$ codes
+- that ASCII has disadvantages because it does not represent <span class="mark">non-Western languages</span>
+- that <span class="term">Unicode</span> can represent <span class="mark">all languages of the world</span> and can support several thousand different characters
+- that the first <span class="mark">$128$ Unicode characters</span> are the same as standard ASCII
+:::
+
+## Bridge
+
+### Next: Sound Representation
+
+The next deck covers how computers represent sound.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

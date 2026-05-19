@@ -1,0 +1,105 @@
+---
+title: "3.4.4 Routers"
+subtitle: "Hardware P136-P137"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.4.4 Routers
+
+### Joining one network to another
+
+<span class="term">Routers</span> enable data packets to be routed between different networks, for example, to join a <span class="term">LAN</span> to a <span class="term">WAN</span>.
+
+The router takes data transmitted in one format from a network, which is using a particular protocol, and converts the data to a protocol and format understood by another network, thereby allowing them to communicate.
+
+A router would typically have an internet cable plugged into it and several cables connecting to computers and other devices on the LAN.
+
+## Figure 3.72
+
+### Router flow diagram
+
+![Figure 3.72 Router flow diagram](../../assets/3-hardware/3-4-4-routers-p136-p137/Figure 3.72 Router flow diagram.png){fig-align="center" width="86%"}
+
+## Firewall and Main Function
+
+### Protection and protocol transfer
+
+<span class="term">Broadband routers</span> sit behind a <span class="term">firewall</span> (防火墙). The firewall protects the computers on a network.
+
+The router's main function is to <span class="mark">transmit internet and transmission protocols between two networks</span> and also allow <span class="mark">private networks to be connected together</span>.
+
+## Router to Switch to Device
+
+### How the packet reaches the destination
+
+Routers inspect the data package sent to it from any computer on any of the networks connected to it.
+
+Since every computer on the same network has the same part of an internet protocol (IP) address, the router is able to send the data packet to the appropriate <span class="term">switch</span>.
+
+The data will then be delivered to the correct device using the <span class="mark">MAC destination address</span>.
+
+If the MAC address does not match any device connected to the switch, it passes on to another switch on the same network until the appropriate device is found.
+
+Routers can be <span class="mark">wired or wireless devices</span>.
+
+## Activity 3.8
+
+### Textbook review questions
+
+1. Explain each of the following terms:
+   a <span class="term">Network interface card (NIC)</span>
+   b <span class="term">MAC address</span>
+   c <span class="term">IP address</span>
+   d <span class="term">Router</span>
+   e <span class="term">DHCP server</span>
+
+2. a Give two features of <span class="mark">dynamic IP addresses</span>.  
+   b Give two features of <span class="mark">static IP addresses</span>.  
+   c Explain why we need both types of IP address.
+
+3. Describe <span class="mark">three differences</span> between MAC addresses and IP addresses.
+
+## Classroom Check
+
+### Keep the router path explicit
+
+A complete answer should include:
+
+::: {.tight-list}
+- that routers move packets between <span class="mark">different networks</span>
+- that routers convert data to a protocol and format understood by another network
+- that routers often pass packets to a <span class="mark">switch</span>, which then uses the <span class="term">MAC destination address</span>
+- that broadband routers sit behind a <span class="term">firewall</span>
+- that routers can be <span class="mark">wired or wireless</span>
+:::
+
+## Bridge
+
+### End of 3.4 Network hardware
+
+This completes the main <span class="term">3.4 Network hardware</span> content in the current production scope.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

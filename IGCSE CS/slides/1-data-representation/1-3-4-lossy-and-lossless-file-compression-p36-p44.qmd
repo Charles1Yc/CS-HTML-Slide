@@ -1,0 +1,234 @@
+---
+title: "1.3.4 Lossy and lossless file compression"
+subtitle: "Data Representation P36-P44"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note {
+          margin-top: 0.7em;
+          padding: 0.42em 0.7em;
+          border: 1px dashed #b8b8b8;
+          color: #555;
+          font-size: 0.72em;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Lossy and Lossless File Compression
+
+### Two types of file compression
+
+File compression can either be <span class="term">lossless</span> (无损) or <span class="term">lossy</span> (有损).
+
+## Lossy File Compression
+
+### Some data is discarded
+
+With this technique, the file compression algorithm <span class="mark">eliminates unnecessary data</span> from the file. This means the original file <span class="mark">cannot be reconstructed</span> once it has been compressed.
+
+Lossy file compression results in <span class="mark">some loss of detail</span> when compared to the original file.
+
+For example, when applying a lossy file compression algorithm to:
+
+::: {.tight-list}
+- an <span class="mark">image</span>, it may reduce the resolution and/or the bit/colour depth
+- a <span class="mark">sound file</span>, it may reduce the sampling rate and/or the resolution
+:::
+
+Lossy files are <span class="mark">smaller than lossless files</span>, which is of great benefit when considering storage and data transfer rate requirements.
+
+## Common Lossy Algorithms
+
+### MP3, MP4 and JPEG
+
+Common lossy file compression algorithms are:
+
+::: {.tight-list}
+- <span class="term">MPEG-3 (MP3)</span> and <span class="term">MPEG-4 (MP4)</span>
+- <span class="term">JPEG</span>
+:::
+
+## MP3 and MP4
+
+### Music and multimedia files
+
+MP3 files are used for playing music on computers or mobile phones. This compression technology will reduce the size of a normal music file by about <span class="mark">$90\%$</span>. While MP3 music files can never match the sound quality found on a DVD or CD, the quality is satisfactory for most general purposes.
+
+Essentially the algorithm removes sounds that the human ear cannot hear properly:
+
+::: {.tight-list}
+- removal of sounds <span class="mark">outside the human ear range</span>
+- if two sounds are played at the same time, only the <span class="mark">louder one</span> can be heard by the ear, so the softer sound is eliminated
+- this is called <span class="term">perceptual music shaping</span>
+:::
+
+MP4 files are slightly different to MP3 files. This format allows the storage of <span class="mark">multimedia files</span> rather than just sound - music, videos, photos and animation can all be stored in the MP4 format.
+
+## JPEG
+
+### Lossy compression for bitmap images
+
+When a camera takes a photograph, it produces a <span class="mark">raw bitmap file</span> which can be very large in size. JPEG is a lossy file compression algorithm used for bitmap images.
+
+The JPEG file reduction process is based on two key concepts:
+
+::: {.tight-list}
+- human eyes do not detect differences in <span class="mark">colour shades</span> quite as well as they detect differences in <span class="mark">image brightness</span>
+- by separating pixel colour from brightness, images can be split into <span class="mark">$8 \times 8$ pixel blocks</span>
+- certain information can then be <span class="mark">discarded</span> without causing any real noticeable deterioration in quality
+:::
+
+Once the image is subjected to the JPEG compression algorithm, a <span class="mark">new file</span> is formed and the original file can no longer be reconstructed.
+
+## Lossless File Compression
+
+### All original data can be reconstructed
+
+With this technique, <span class="mark">all the data</span> from the original uncompressed file can be reconstructed.
+
+This is particularly important for files where any loss of data would be disastrous, for example:
+
+::: {.tight-list}
+- transferring a <span class="mark">large and complex spreadsheet</span>
+- downloading a <span class="mark">large computer application</span>
+:::
+
+Lossless file compression is designed so that <span class="mark">none of the original detail</span> from the file is lost.
+
+## Run-Length Encoding (RLE)
+
+### Lossless compression of repeated data
+
+<span class="term">Run-length encoding (RLE)</span> can be used for lossless compression of a number of different file formats:
+
+::: {.tight-list}
+- it is a form of <span class="mark">lossless/reversible</span> file compression
+- it reduces the size of a string of <span class="mark">adjacent, identical data</span>
+- a repeating string is encoded into two values:
+  - the first value represents the <span class="mark">number of identical data items</span> in the run
+  - the second value represents the <span class="mark">code of the data item</span>
+- RLE is only effective where there is a <span class="mark">long run of repeated units/bits</span>
+:::
+
+## Using RLE on Text Data
+
+### `aaaaabbbbccddddd`
+
+Consider the text string `aaaaabbbbccddddd`. Assuming each character requires `1 byte`, this string needs `16 bytes`.
+
+If ASCII code is being used, the string can be coded as:
+
+```text
+05 97   04 98   02 99   05 100
+```
+
+This means:
+
+::: {.tight-list}
+- `5` characters with ASCII code `97`
+- `4` characters with ASCII code `98`
+- `2` characters with ASCII code `99`
+- `5` characters with ASCII code `100`
+:::
+
+Assuming each number requires `1 byte`, the RLE code needs <span class="mark">`8 bytes`</span>. This is <span class="mark">half the original file size</span>.
+
+## Using a Flag
+
+### When a string has few repeats
+
+One issue occurs with a string such as `cdcdcdcdcd` where RLE compression is not very effective. To cope with this, we use a <span class="term">flag</span>.
+
+::: {.tight-list}
+- a flag preceding data indicates that what follows are the <span class="mark">number of repeating units</span>
+- for example, `255 05 97` means the flag is `255` and there are `5` items with ASCII code `97`
+- when a flag is not used, the next byte(s) are taken with their <span class="mark">face value</span> and a run of `1`
+:::
+
+Introducing a flag (`255` in this case) produces:
+
+```text
+255 08 97   255 10 98   99 100 99 100 99 100   255 08 101
+```
+
+This has `15` values and would therefore require `15 bytes` of storage. This is a reduction in file size of about <span class="mark">$53\%$</span> when compared to the original string.
+
+## Using RLE with Images
+
+### Black and white image
+
+Figure 1.12 shows the letter `F` in a grid where each square requires `1 byte` of storage. A white square has a value `1` and a black square a value of `0`.
+
+::: {.figure-note}
+**Figure 1.12** Using RLE with a black and white image placeholder
+:::
+
+In compressed RLE format this becomes:
+
+```text
+9W 6B 2W 1B 7W 1B 7W 5B 3W 1B 7W 1B 7W 1B 6W
+```
+
+Using `W = 1` and `B = 0` we get:
+
+```text
+91 60 21 10 71 10 71 50 31 10 71 10 71 10 61
+```
+
+The `8 × 8` grid would need `64 bytes`; the compressed RLE format has `30 values`, and therefore needs only <span class="mark">`30 bytes`</span> to store the image.
+
+## Coloured Images
+
+### Example 2
+
+Figure 1.13 shows an object in four colours. Each colour is made up of <span class="term">red</span>, <span class="term">green</span> and <span class="term">blue</span> (`RGB`).
+
+::: {.figure-note}
+**Figure 1.13** Using RLE with a coloured image placeholder
+:::
+
+The original image (`8 × 8` square) would need <span class="mark">`3 bytes per square`</span> to include all three RGB values. Therefore, the uncompressed file for this image is:
+
+<span class="mark">`8 × 8 × 3 = 192 bytes`</span>
+
+The RLE code has `92 values`, which means the compressed file will be <span class="mark">`92 bytes`</span> in size. This gives a file reduction of about <span class="mark">$52\%$</span>.
+
+## Classroom Check
+
+### Understand compression types and RLE
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">lossy compression</span> removes some data, so the original file cannot be reconstructed
+- that <span class="term">lossless compression</span> allows <span class="mark">all original data</span> to be reconstructed
+- that MP3 and MP4 are used for <span class="mark">sound or multimedia</span>, and JPEG is used for <span class="mark">bitmap images</span>
+- that <span class="term">RLE</span> stores a run as the <span class="mark">number of repeated items</span> together with the <span class="mark">code of the data item</span>
+- that RLE is only effective where there is a <span class="mark">long run of repeated units/bits</span>
+- that lossless compression is needed where <span class="mark">no data can be lost</span>, such as spreadsheets or applications
+:::
+
+## Bridge
+
+### Next: Data Transmission
+
+The next unit covers how data is transmitted.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

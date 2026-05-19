@@ -1,0 +1,38 @@
+title: clean
+author: "Grant McDermott and Kazuharu Yanagimoto"
+version: 1.4.1
+quarto-required: ">=1.8.0"
+contributes:
+  formats:
+    revealjs:
+      theme: [default, clean.scss]
+      menu:
+        side: left
+      slide-number: true
+      include-in-header:
+        - text: |
+            <link rel="stylesheet" href="tablet-controls.css">
+      date-format: long
+      html-math-method:
+        method: mathjax
+        url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+      include-before-body:
+        - text: |
+            <script src="mathjax-config.js"></script>
+      include-after-body:
+        - text: |
+            <script src="tablet-controls.js"></script>
+      format-resources:
+        - mathjax-config.js
+        - tablet-controls.css
+        - tablet-controls.js
+  format:
+    typst:
+      shortcodes:
+        - shortcodes.lua
+      filters:
+        - typst-environment.lua
+        - revealjs.lua
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ

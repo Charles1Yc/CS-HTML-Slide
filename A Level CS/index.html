@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Level Computer Science</title>
+  <link rel="stylesheet" href="../config/course-index.css">
+</head>
+<body class="course-explorer-page">
+  <header class="hub-header course-header">
+    <a class="hub-brand" href="../index.html" aria-label="Back to EduHub home">
+      <span class="brand-mark" aria-hidden="true">▣</span>
+      <span class="brand-copy">
+        <strong>EduHub</strong>
+        <small>课程</small>
+      </span>
+    </a>
+
+    <nav class="course-breadcrumb" id="courseBreadcrumb" aria-label="Breadcrumb"></nav>
+
+    <div class="hub-actions">
+      <label class="hub-search" for="courseExplorerSearch">
+        <span class="visually-hidden">搜索知识点或主题</span>
+        <input type="search" id="courseExplorerSearch" placeholder="搜索知识点 / 主题...">
+      </label>
+    </div>
+  </header>
+
+  <main class="course-workspace" data-course-explorer data-course-id="alevel-cs" data-initial-unit="unit-0" data-initial-section="0.1" data-initial-topic="0.1.1" data-course-data="course-data.json">
+    <aside class="catalog-sidebar" id="catalogSidebar">
+      <div class="catalog-sidebar-top">
+        <div>
+          <p>课程目录</p>
+        </div>
+        <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="收起目录">‹</button>
+      </div>
+
+      <section class="catalog-course-card" data-course-profile>
+        <h1>计算机科学</h1>
+        <p>A Level Computer Science</p>
+        <span>Cambridge</span>
+      </section>
+
+      <nav class="unit-tree" id="unitTree" aria-label="Unit tree"></nav>
+    </aside>
+
+    <section class="section-stage">
+      <header class="section-stage-head">
+        <p class="section-kicker" id="selectedUnitLabel"></p>
+        <h1 id="sectionTitleCn"></h1>
+        <p class="section-title-en" id="sectionTitleEn"></p>
+        <p class="section-summary" id="sectionSummary"></p>
+      </header>
+
+      <div class="topic-card-list" id="topicCards"></div>
+    </section>
+  </main>
+
+
+  <script src="../config/course-catalog.js"></script>
+  <script src="../config/course-index.js"></script>
+</body>
+</html>

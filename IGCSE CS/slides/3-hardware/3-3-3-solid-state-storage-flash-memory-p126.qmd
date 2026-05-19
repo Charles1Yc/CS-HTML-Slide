@@ -1,0 +1,80 @@
+---
+title: "3.3.3 Magnetic, optical and solid-state storage"
+subtitle: "Memory sticks / flash memories · Hardware P125-P126"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.3 Solid-state storage
+
+### Memory sticks / flash memories
+
+<span class="term">Memory sticks</span> / <span class="term">flash memories</span> (also known as <span class="term">pen drives</span>) use <span class="mark">solid state technology</span>.
+
+They usually connect to the computer through the <span class="term">USB port</span>.
+
+Their main advantage is that they are <span class="mark">very small, lightweight devices</span>, which make them very suitable as a method for <span class="mark">file transfer between computers</span>.
+
+## Common Uses
+
+### Transfer and back-up
+
+Memory sticks / flash memories are <span class="term">non-volatile</span> devices and can also be used as <span class="mark">portable backup</span> devices for music or photo files, for example.
+
+They are part of the <span class="term">solid-state storage</span> family, so they have <span class="mark">no moving parts</span>.
+
+## Dongle Use
+
+### Software protection
+
+Complex or expensive software, such as financial planning software, often uses memory sticks as a <span class="term">software dongle</span> (软件加密狗).
+
+The dongle contains <span class="mark">additional files</span> that are needed to run the software.
+
+Without this dongle, the software will not work properly.
+
+It therefore prevents <span class="mark">illegal or unauthorised use</span> of the software, and also prevents copying of the software since, without the dongle, it is useless.
+
+## Classroom Check
+
+### Keep the use cases specific
+
+A complete answer should include:
+
+::: {.tight-list}
+- that memory sticks / flash memories use <span class="mark">solid-state technology</span>
+- that they usually connect through the <span class="term">USB</span> port
+- that they are <span class="mark">small and lightweight</span>, so they are useful for transferring files
+- that they can be used as <span class="mark">small back-up devices</span>
+- that as a <span class="term">dongle</span>, they contain additional files needed to run software
+:::
+
+## Bridge
+
+### Next: optical storage
+
+The next decks move from <span class="term">solid-state storage</span> to <span class="term">optical storage</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

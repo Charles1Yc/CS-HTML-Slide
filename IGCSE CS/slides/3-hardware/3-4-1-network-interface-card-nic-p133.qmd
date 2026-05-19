@@ -1,0 +1,83 @@
+---
+title: "3.4.1 Network interface card (NIC)"
+subtitle: "Hardware P133"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Network Interface Card
+
+### Hardware for network connectivity
+
+A <span class="term">network interface card (NIC)</span> (网络接口卡) is needed to allow a device to connect to a network (such as the internet):
+
+::: {.tight-list}
+- It is usually <span class="mark">part of the device hardware</span>
+- Contains the <span class="term">Media Access Control (MAC) address</span> generated at the manufacturing stage
+:::
+
+## Wireless NIC (WNIC)
+
+### Wireless connectivity via antenna
+
+<span class="term">Wireless network interface cards/controllers (WNICs)</span> are the same as NICs in that they are used to connect devices to the internet or other networks. However, they use <span class="mark">wireless connectivity</span>:
+
+::: {.tight-list}
+- Utilise an <span class="mark">antenna</span> to communicate with networks via <span class="mark">microwaves</span>
+- Would normally plug into the <span class="mark">USB port</span> or be part of an internal integrated circuit
+:::
+
+## NIC and MAC Address
+
+### Permanent hardware identifier
+
+A key feature of every NIC is its built-in identifier:
+
+::: {.tight-list}
+- The NIC contains the <span class="mark">MAC address</span> generated at the manufacturing stage
+- <span class="mark">If the NIC card is replaced, the MAC address will also change</span>
+- This ties the network identity to the physical hardware
+:::
+
+## Classroom Check
+
+### Understand NICs and their role
+
+A complete answer should include:
+
+::: {.tight-list}
+- that a <span class="term">NIC</span> is needed to <span class="mark">allow a device to connect to a network</span> (such as the internet)
+- it is usually <span class="mark">part of the device hardware</span> and contains the <span class="term">MAC address</span> generated at the manufacturing stage
+- <span class="term">WNICs</span> use <span class="mark">wireless connectivity</span> utilising an antenna to communicate via microwaves; they plug into the USB port or are part of an internal integrated circuit
+- if the NIC card is replaced, the <span class="mark">MAC address will also change</span>
+:::
+
+## Bridge
+
+### Next: MAC Addresses
+
+The next deck covers MAC addresses (physical addresses) that NICs use for local network communication.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

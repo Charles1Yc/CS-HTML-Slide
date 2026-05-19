@@ -1,0 +1,127 @@
+---
+title: "1.2.2 Representation of sound"
+subtitle: "Data Representation P29-P30"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        .reveal .figure-note {
+          margin-top: 0.7em;
+          padding: 0.42em 0.7em;
+          border: 1px dashed #b8b8b8;
+          color: #555;
+          font-size: 0.72em;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Sound Waves
+
+### Frequency, wavelength and amplitude
+
+<span class="term">Soundwaves</span> are vibrations in the air. The human ear senses these vibrations and interprets them as sound.
+
+Each sound wave has a <span class="mark">frequency</span>, <span class="mark">wavelength</span> and <span class="mark">amplitude</span>. The amplitude specifies the <span class="mark">loudness</span> of the sound.
+
+::: {.figure-note}
+**Figure 1.8** High and low frequency wave signals placeholder
+:::
+
+## Sampling Sound
+
+### Analogue to digital conversion
+
+Sound waves vary continuously. This means that sound is <span class="term">analogue</span> (模拟). Computers cannot work with analogue data, so sound waves need to be sampled in order to be stored in a computer.
+
+Sampling means <span class="mark">measuring the amplitude</span> of the sound wave. This is done using an <span class="term">analogue to digital converter (ADC)</span> (模数转换器).
+
+::: {.figure-note}
+**Figure 1.9** A sound wave being sampled placeholder
+:::
+
+## Sampled Values
+
+### Amplitude range and bit depth
+
+Figure 1.9 shows a sound wave. The x-axis shows the <span class="mark">time intervals</span> when the sound was sampled, and the y-axis shows the <span class="mark">amplitude</span> of the sampled sound.
+
+::: {.tight-list}
+- at time interval `1`, the approximate amplitude is `10`
+- at time interval `2`, the approximate amplitude is `4`
+- because the amplitude range is `0` to `10`, then <span class="mark">$4$ binary bits</span> can be used to represent each amplitude value
+- for example, `9` would be represented by the binary value <span class="mark">`1001`</span>
+- the number of bits per sample is known as the <span class="term">sampling resolution</span> (also known as the <span class="term">bit depth</span>)
+:::
+
+Using a range of `0` to `127` gives a much more accurate representation of the sound sample than using a range of `0` to `10`.
+
+## Sampling Rate
+
+### Number of samples per second
+
+<span class="term">Sampling rate</span> (采样率) is the number of sound samples taken per second. This is measured in <span class="mark">hertz (Hz)</span>, where `1 Hz` means <span class="mark">one sample per second</span>.
+
+So how is sampling used to record a sound clip?
+
+::: {.tight-list}
+- the <span class="mark">amplitude</span> of the sound wave is first determined at set time intervals (the sampling rate)
+- this gives an <span class="mark">approximate representation</span> of the sound wave
+- each sample of the sound wave is then <span class="mark">encoded as a series of binary digits</span>
+:::
+
+## Table 1.3
+
+### Larger sampling resolution
+
+Using a higher sampling rate or larger resolution will result in a more faithful representation of the original sound source. However, the higher the sampling rate and/or sampling resolution, the greater the file size.
+
+::: {.clean-table}
+| Benefits | Drawbacks |
+|---|---|
+| larger dynamic range | produces larger file size |
+| better sound quality | takes longer to transmit/download music files |
+| less sound distortion | requires greater processing power |
+:::
+
+CDs have a <span class="mark">$16$-bit sampling resolution</span> and a <span class="mark">$44.1$ kHz sample rate</span> - that is `44 100` samples every second.
+
+## Classroom Check
+
+### Understand sound digitisation
+
+A complete answer should include:
+
+::: {.tight-list}
+- that sound waves are <span class="mark">analogue</span> and need to be sampled before they can be stored in a computer
+- that sampling means <span class="mark">measuring the amplitude</span> of the sound wave using an <span class="term">ADC</span>
+- that <span class="term">sampling resolution</span> is the <span class="mark">number of bits per sample</span>
+- that <span class="term">sampling rate</span> is the <span class="mark">number of samples taken per second</span>, measured in `Hz`
+- that using a <span class="mark">higher sampling rate</span> or <span class="mark">larger resolution</span> gives a more faithful representation but also increases file size
+- that CDs use <span class="mark">$16$-bit resolution</span> and a <span class="mark">$44.1$ kHz sample rate</span>
+:::
+
+## Bridge
+
+### Next: Bitmap Images
+
+The next deck covers how computers represent bitmap images.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

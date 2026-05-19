@@ -1,0 +1,118 @@
+---
+title: "3.4.3 Internet protocol (IP) address"
+subtitle: "Static and dynamic IP addresses · Hardware P135-P136"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Static and Dynamic IP Addresses
+
+### Two types of IP address
+
+IP addresses can be either <span class="mark">static (don't change)</span> or <span class="mark">dynamic (change every time a device connects to the internet)</span>.
+
+## Static IP Addresses
+
+### Permanently assigned by ISP
+
+<span class="term">Static IP addresses</span> are permanently assigned to a device by the <span class="term">internet service provider (ISP)</span>; they do not change each time a device logs onto the internet.
+
+Static IP addresses are usually assigned to:
+
+::: {.tight-list}
+- remote servers which are hosting a website
+- an online database
+- a <span class="term">File Transfer Protocol (FTP)</span> server
+:::
+
+In other words, a <span class="term">File Transfer Protocol (FTP) server</span> is one of the common examples used in the textbook.
+
+## Dynamic IP Addresses
+
+### Assigned each time by DHCP
+
+<span class="term">Dynamic IP addresses</span> are assigned by the ISP each time a device logs onto the internet.
+
+This is done using <span class="term">Dynamic Host Configuration Protocol (DHCP)</span>.
+
+A computer on the internet, configured as a <span class="mark">DHCP server</span>, is used by the ISP to automatically assign an IP address to a device.
+
+As the name suggests, a dynamic IP address could be <span class="mark">different every time</span> a device connects to the internet.
+
+## Table 3.14
+
+### Dynamic and static IP addresses
+
+::: {.clean-table}
+| Dynamic IP addresses | Static IP addresses |
+|---|---|
+| greater privacy since they change each time a user logs on | since static IP addresses do not change, they allow each device to be fully traceable |
+| dynamic IP addresses can be an issue when using, for example, VoIP since this type of addressing is less reliable as it can disconnect and change the IP address causing the VoIP connection to fail | allow for faster upload and download speeds |
+|  | more expensive to maintain since the device must be constantly running so that information is always available |
+:::
+
+## Figure 3.71
+
+### Comparison of dynamic IP addressing
+
+![Figure 3.71 Comparison of dynamic IP addressing](../../assets/3-hardware/3-4-3-static-dynamic-ip-addresses-p135-p136/Figure 3.71 Comparison of dynamic IP addressing.png){fig-align="center" width="92%"}
+
+The diagram shows how a device contacts web servers that are also connected to the internet:
+
+::: {.tight-list}
+- a <span class="term">DHCP server</span> supplies a dynamic IP address to the device
+- a <span class="term">DNS server</span> looks up the domain name of the desired website into an IP address
+- a <span class="term">website server</span> contains the web pages of the desired website
+:::
+
+## Figure 3.71
+
+### Comparison of static IP addressing
+
+![Figure 3.71 Comparison of static IP addressing](../../assets/3-hardware/3-4-3-static-dynamic-ip-addresses-p135-p136/Figure 3.71 Comparison of static IP addressing.png){fig-align="center" width="92%"}
+
+When a device on the network is using a <span class="mark">static IP address</span>, it can access website resources directly. This gives the device a <span class="mark">consistent location</span> and also means <span class="mark">less bandwidth is used</span>, reducing network traffic.
+
+## Classroom Check
+
+### Keep the distinction precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- that static IP addresses are <span class="mark">permanently assigned</span> by the ISP
+- that dynamic IP addresses are assigned each time by <span class="term">DHCP</span>
+- that static IP addresses are used for <span class="mark">websites, databases and FTP servers</span>
+- that dynamic IP gives <span class="mark">greater privacy</span> but can be a problem for <span class="term">VoIP</span>
+- that Figure 3.71 involves <span class="term">DHCP</span>, <span class="term">DNS</span> and a <span class="term">website server</span>
+:::
+
+## Bridge
+
+### Next: 3.4.4 Routers
+
+The next deck explains how <span class="term">routers</span> move packets between networks.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

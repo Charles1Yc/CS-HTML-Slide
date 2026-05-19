@@ -1,0 +1,165 @@
+---
+title: "2.1.2 Data transmission"
+subtitle: "Data Transmission P50-P52"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Data Transmission Factors
+
+### Three considerations when transmitting data
+
+Data transmission can be over a short distance (e.g. computer to printer) or over longer distances (e.g. global network). Three factors need to be considered:
+
+::: {.tight-list}
+- <span class="mark">The direction</span> of data transmission (can data transmit in one direction only, or in both directions?)
+- <span class="mark">The method</span> of transmission (how many bits can be sent at the same time?)
+- <span class="mark">How data will be synchronised</span> (how to make sure the received data is in the correct order?)
+:::
+
+These factors are usually considered by a <span class="term">communication protocol</span>.
+
+## Serial vs Parallel Transmission
+
+### Bit-by-bit vs multi-bit transmission
+
+Data can be transmitted in two ways:
+
+::: {.tight-list}
+**Serial data transmission (串行):**
+- Data is sent <span class="mark">ONE BIT AT A TIME</span> over a <span class="mark">SINGLE WIRE/CHANNEL</span>
+- Bits are sent one after the other as a single stream
+- Works well over <span class="mark">long distances</span>
+- Data transmitted at a <span class="mark">slower rate</span> than parallel
+- Data will arrive at its destination <span class="mark">fully synchronised</span> (in the correct order)
+- Example: connecting a computer to a printer via a USB connection
+
+**Parallel data transmission (并行):**
+- <span class="mark">SEVERAL BITS OF DATA</span> (usually 1 byte) are sent down <span class="mark">SEVERAL CHANNELS/WIRES</span> all at the same time
+- Each channel/wire transmits one bit
+- <span class="mark">Faster</span> method of data transmission than serial
+- Works well over <span class="mark">short distances</span> only
+- Example: internal circuits in a computer (very short distances between components, high-speed essential)
+:::
+
+Note: Both serial and parallel data transmission can be simplex, half-duplex or full-duplex.
+
+## Data Skewing
+
+### Problem with parallel transmission over long distances
+
+Over longer distances (for example, over 20 metres), parallel data can become <span class="term">skewed</span> (数据偏移):
+
+::: {.tight-list}
+- Data can arrive <span class="mark">unsynchronised</span> — bits arrive out of order
+- The <span class="mark">longer the wire, the worse</span> this can become
+- Serial transmission does not have this problem: data arrives <span class="mark">fully synchronised</span> because only one channel/wire is used
+:::
+
+## Table 2.1: Serial vs Parallel Comparison
+
+### Textbook comparison of transmission methods
+
+::: {.clean-table}
+| Serial | Parallel |
+|---|---|
+| <span class="mark">less risk of external interference</span> than with parallel (due to fewer wires) | <span class="mark">faster rate</span> of data transmission than serial |
+| more <span class="mark">reliable</span> transmission over longer distances | works well over <span class="mark">shorter distances</span> (e.g. internal pathways on computer circuit boards) |
+| transmitted bits won't have the risk of being <span class="mark">skewed</span> (out of synchronisation) | since several wires used, bits can arrive <span class="mark">out of synchronisation (skewed)</span> |
+| used if amount of data is <span class="mark">relatively small</span> since transmission rate is slower (e.g. USB) | preferred method when <span class="mark">speed is important</span> |
+| used to send data over <span class="mark">long distances</span> (e.g. telephone lines) | if data is <span class="mark">time-sensitive</span>, parallel is most appropriate |
+| <span class="mark">less expensive</span> than parallel due to fewer hardware requirements | parallel ports require <span class="mark">more hardware</span>, making them more expensive |
+| — | <span class="mark">easier to program input/output operations</span> when parallel used |
+:::
+
+## Simplex, Half-duplex, and Full-duplex
+
+### Communication directions
+
+::: {.clean-table}
+| Mode | Direction | Example |
+|---|---|---|
+| **Simplex** | One-way only | Computer to printer, broadcast TV/radio |
+| **Half-duplex** | Both ways, but not simultaneously | Walkie-talkies |
+| **Full-duplex** | Both ways simultaneously | Broadband internet connection, telephone call |
+:::
+
+## Simplex Transmission
+
+### One-way communication
+
+<span class="term">Simplex</span> (单工) occurs when data can be sent in <span class="mark">ONE DIRECTION ONLY</span> (for example, from sender to receiver):
+
+::: {.tight-list}
+- <span class="mark">Data flows in one direction only</span>
+- An example would be <span class="mark">sending data from a computer to a printer</span>
+- Receiver cannot send data back
+:::
+
+## Half-duplex Transmission
+
+### Alternating two-way communication
+
+<span class="term">Half-duplex</span> (半双工) occurs when data is sent in <span class="mark">BOTH DIRECTIONS but NOT AT THE SAME TIME</span>:
+
+::: {.tight-list}
+- Data can be sent from 'A' to 'B' and from 'B' to 'A' along the same transmission line
+- <span class="mark">But they can't both be done at the same time</span>
+- An example would be a <span class="mark">walkie-talkie</span> where a message can be sent in one direction only at a time; but messages can be both received and sent
+:::
+
+## Full-duplex Transmission
+
+### Simultaneous two-way communication
+
+<span class="term">Full-duplex</span> (全双工) occurs when data can be sent in <span class="mark">BOTH DIRECTIONS AT THE SAME TIME</span> (simultaneously):
+
+::: {.tight-list}
+- Data can be sent from 'A' to 'B' and from 'B' to 'A' along the same transmission line <span class="mark">simultaneously</span>
+- An example would be a <span class="mark">broadband internet connection</span>
+:::
+
+## Classroom Check
+
+### Understand transmission modes
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">three factors: direction, method, synchronisation</span> (via communication protocol)
+- <span class="mark">serial: one bit at a time, single wire</span>, works over long distances, no skewing
+- <span class="mark">parallel: several bits, several wires</span>, faster but limited to short distances, risk of <span class="mark">skewed data</span> (bits arrive out of synchronisation over >20m)
+- <span class="mark">simplex: ONE DIRECTION ONLY</span> (e.g. computer to printer)
+- <span class="mark">half-duplex: BOTH DIRECTIONS but NOT AT THE SAME TIME</span> (e.g. walkie-talkies)
+- <span class="mark">full-duplex: BOTH DIRECTIONS AT THE SAME TIME</span> (e.g. broadband internet)
+- both serial and parallel can be simplex, half-duplex or full-duplex
+:::
+
+## Bridge
+
+### Next: USB (Universal Serial Bus)
+
+The next deck covers USB connections and device communication protocols.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

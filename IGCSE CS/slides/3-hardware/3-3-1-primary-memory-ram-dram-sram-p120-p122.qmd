@@ -1,0 +1,183 @@
+---
+title: "3.3.1 Primary memory"
+subtitle: "RAM, DRAM and SRAM · Hardware P120-P122"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        .reveal .clean-table th:first-child, .reveal .clean-table td:first-child { width: 19%; white-space: nowrap; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.1 Primary memory
+
+### Random access memory (RAM)
+
+All computer systems come with some form of <span class="term">RAM</span> (随机存储器).
+
+The word <span class="mark">random</span> refers to the fact that <span class="mark">any memory location in RAM can be accessed independent of which memory location was last used</span>.
+
+When you run an application or program, data is retrieved from <span class="term">secondary storage</span> and placed temporarily into RAM. Access time to locate data is much faster in RAM than in secondary or off-line devices.
+
+## RAM Features
+
+### What the textbook emphasises
+
+Features of RAM include:
+
+::: {.tight-list}
+- it has <span class="mark">read/write capability</span>; it can be written to or read from
+- the data can be changed by the user or the computer
+- it is used to store data, files, part of an application or part of the operating system currently in use
+- it is <span class="term">volatile memory</span> (易失性内存), which means memory contents are lost when powering off the computer
+:::
+
+In general, the <span class="mark">larger the size of RAM</span> the faster the computer will operate.
+
+## RAM When It Becomes Full
+
+### Why more RAM helps
+
+RAM never runs out of memory; it continues to operate but just becomes <span class="mark">slower and slower</span> as more data is stored.
+
+As RAM becomes full, the CPU has to continually access secondary data storage devices to overwrite old data on RAM with new data.
+
+By increasing the RAM size, the number of times this has to be done is considerably reduced; thus making the computer operate more quickly.
+
+## Figure 3.59
+
+### Primary memory
+
+![Figure 3.59 Primary memory placeholder](../../assets/3-hardware/3-3-1-primary-memory-ram-dram-sram-p120-p122/Figure 3.59 Primary memory placeholder.svg){fig-align="center" width="88%"}
+
+<span class="figure-note">Figure 3.59 screenshot placeholder: Primary memory.</span>
+
+## DRAM
+
+### Transistors and capacitors
+
+There are currently two types of RAM technology:
+
+::: {.tight-list}
+- <span class="term">dynamic RAM (DRAM)</span>
+- <span class="term">static RAM (SRAM)</span>
+:::
+
+Each DRAM chip consists of <span class="mark">transistors</span> and <span class="mark">capacitors</span>.
+
+::: {.tight-list}
+- <span class="term">capacitor</span> — this holds the bits of information (0 or 1)
+- <span class="term">transistor</span> — this acts like a switch; it allows the chip control circuitry to read the capacitor or change the capacitor's value
+- DRAM <span class="mark">must be constantly refreshed</span>
+- the capacitor needs to be re-charged every <span class="mark">15 microseconds</span>
+:::
+
+## Figure 3.60
+
+### DRAM
+
+![Figure 3.60 DRAM placeholder](../../assets/3-hardware/3-3-1-primary-memory-ram-dram-sram-p120-p122/Figure 3.60 DRAM placeholder.svg){fig-align="center" width="88%"}
+
+<span class="figure-note">Figure 3.60 screenshot placeholder: DRAM.</span>
+
+## DRAM Advantages
+
+### Compared with SRAM
+
+DRAMs have a number of advantages over SRAMs:
+
+::: {.tight-list}
+- they are much less expensive to manufacture than SRAM
+- they consume <span class="mark">less power</span> than SRAM
+- they have a <span class="mark">higher memory capacity</span> than SRAM
+:::
+
+## SRAM
+
+### Flip-flops and speed
+
+A major difference between SRAM and DRAM is that <span class="term">SRAM</span> (静态随机存储器) <span class="mark">doesn't need to be constantly refreshed</span>.
+
+It makes use of <span class="term">flip-flops</span> (触发器), which hold each bit of memory.
+
+SRAM is much faster than DRAM when it comes to data access:
+
+::: {.tight-list}
+- SRAM access time is typically <span class="mark">25 nanoseconds</span>
+- DRAM access time is typically <span class="mark">60 nanoseconds</span>
+:::
+
+## Figure 3.61
+
+### SRAM
+
+![Figure 3.61 SRAM placeholder](../../assets/3-hardware/3-3-1-primary-memory-ram-dram-sram-p120-p122/Figure 3.61 SRAM placeholder.svg){fig-align="center" width="88%"}
+
+<span class="figure-note">Figure 3.61 screenshot placeholder: SRAM.</span>
+
+## Table 3.9
+
+### Differences between DRAM and SRAM
+
+::: {.clean-table}
+| DRAM | SRAM |
+|---|---|
+| consists of a number of transistors and capacitors | uses flip flops to hold each bit of memory |
+| needs to be constantly refreshed | does not need to be constantly refreshed |
+| less expensive to manufacture than SRAM | has a faster data access time than DRAM |
+| has a higher memory capacity than SRAM | CPU memory cache makes use of SRAM |
+| main memory is constructed from DRAM |  |
+| consumes less power than SRAM |  |
+:::
+
+## Memory Cache
+
+### Why SRAM is used there
+
+DRAM is the most common type of RAM used in computers, but where absolute speed is essential, for example, in the CPU's <span class="term">memory cache</span> (高速缓存), SRAM is the preferred technology.
+
+Memory cache is a high-speed portion of the memory. It is effective because most programs access the same data or instructions many times.
+
+By keeping as much of this information as possible in SRAM, the computer avoids having to access the slower DRAM.
+
+## Classroom Check
+
+### Keep the RAM distinctions precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- that RAM is <span class="mark">volatile</span> and can be <span class="mark">written to and read from</span>
+- that any memory location in RAM can be accessed <span class="mark">independently</span> of the last one used
+- that DRAM uses <span class="mark">transistors and capacitors</span> and needs <span class="mark">constant refresh</span>
+- that SRAM uses <span class="mark">flip-flops</span> and does <span class="mark">not</span> need refresh
+- that SRAM is <span class="mark">faster</span> and is used in <span class="term">memory cache</span>
+- that DRAM is <span class="mark">cheaper</span> and has <span class="mark">higher capacity</span>
+:::
+
+## Bridge
+
+### Next: ROM
+
+The next deck stays within <span class="term">3.3.1 Primary memory</span> and covers <span class="term">ROM</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

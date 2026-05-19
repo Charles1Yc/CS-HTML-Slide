@@ -1,0 +1,291 @@
+---
+title: "1.1.2 Binary, denary and hexadecimal systems"
+subtitle: "Data Representation P3-P12"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        .reveal .clean-table table { font-size: 0.70em; line-height: 1.10; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.18em 0.28em; vertical-align: top; text-align: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Three Number Systems
+
+### Denary, binary, and hexadecimal
+
+Computers and engineers use three number systems, all based on positional notation with powers of the base:
+
+::: {.tight-list}
+- <span class="term">Denary</span> (十进制) — <span class="mark">base $10$</span>, digits $0$–$9$; the natural system for humans
+- <span class="term">Binary</span> (二进制) — <span class="mark">base $2$</span>, digits $0$–$1$; the native language of computers
+- <span class="term">Hexadecimal</span> (十六进制) — <span class="mark">base $16$</span>, digits $0$–$9$, $A$–$F$; compact shorthand for binary
+:::
+
+In each system, the value of a digit depends on its position — each position represents a power of the base.
+
+## Denary (Base 10)
+
+### The familiar decimal system
+
+<span class="term">Denary</span> uses ten digits and powers of $10$:
+
+::: {.tight-list}
+- Digits: $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$
+- Place values: $\dots 10^4, 10^3, 10^2, 10^1, 10^0$
+:::
+
+**Example:** $25\,177$
+
+$$\begin{array}{c c c c c}
+(10^4) & (10^3) & (10^2) & (10^1) & (10^0) \\
+10\,000 & 1\,000 & 100 & 10 & 1 \\
+2 & 5 & 1 & 7 & 7
+\end{array}$$
+
+Denary is known as a <span class="mark">base $10$ number system</span>.
+
+## Binary (Base 2)
+
+### The computer's number system
+
+<span class="term">Binary</span> uses two digits and powers of $2$:
+
+::: {.tight-list}
+- Digits: $0, 1$ only
+- Place values: $\dots 2^7, 2^6, 2^5, 2^4, 2^3, 2^2, 2^1, 2^0$
+:::
+
+**Example:** Typical headings for an 8-bit binary number:
+
+$$\begin{array}{c c c c c c c c}
+(2^7) & (2^6) & (2^5) & (2^4) & (2^3) & (2^2) & (2^1) & (2^0) \\
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 1 & 1 & 0 & 1 & 1 & 1 & 0
+\end{array}$$
+
+A typical binary number would be: $11101110_2$.
+
+## Binary → Denary
+
+### Multiply each bit by its place value
+
+Each time a <span class="mark">$1$-value</span> appears in a column, the column value is added to the total.
+
+**Example:** Convert $11101110_2$ into denary.
+
+$$\begin{array}{c c c c c c c c}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 1 & 1 & 0 & 1 & 1 & 1 & 0
+\end{array}$$
+
+$$128 + 64 + 32 + 8 + 4 + 2 = \mathbf{238}$$
+
+The same method can be used for a binary number of any size (8-bit, 12-bit, 16-bit).
+
+## Denary → Binary: Method 1 (1/2)
+
+### Successive subtraction — higher columns
+
+Convert the denary number <span class="mark">$142$</span> into binary. Subtract the largest possible power of $2$ each time:
+
+::: {.tight-list}
+- $142 - \mathbf{128} = 14$ → $128$ column = <span class="mark">$1$</span>
+- $14 < 64$, cannot subtract → $64$ column = $0$
+- $14 < 32$, cannot subtract → $32$ column = $0$
+- $14 < 16$, cannot subtract → $16$ column = $0$
+:::
+
+Continue with the remaining value $14$ on the next slide.
+
+## Denary → Binary: Method 1 (2/2)
+
+### Successive subtraction — lower columns
+
+Continue from $14$:
+
+::: {.tight-list}
+- $14 - \mathbf{8} = 6$ → $8$ column = <span class="mark">$1$</span>
+- $6 - \mathbf{4} = 2$ → $4$ column = <span class="mark">$1$</span>
+- $2 - \mathbf{2} = 0$ → $2$ column = <span class="mark">$1$</span>
+- $0 < 1$, cannot subtract → $1$ column = $0$
+:::
+
+$$\begin{array}{c c c c c c c c}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 0 & 0 & 0 & 1 & 1 & 1 & 0
+\end{array}$$
+
+Result: <span class="mark">$10001110_2$</span> (verify: $128 + 8 + 4 + 2 = 142$ ✓)
+
+## Denary → Binary: Method 2
+
+### Repeated division by $2$
+
+Convert the denary number <span class="mark">$142$</span> into binary. Divide repeatedly by $2$; record remainders; read <span class="mark">bottom-to-top</span>:
+
+```
+2   142
+2    71   remainder: 0   ↑
+2    35   remainder: 1   ↑
+2    17   remainder: 1   ↑
+2     8   remainder: 1   ↑  read direction
+2     4   remainder: 0   ↑
+2     2   remainder: 0   ↑
+2     1   remainder: 0   ↑
+      0   remainder: 1   ↑
+```
+
+Result: <span class="mark">$10001110_2$</span> — the same as Method 1.
+
+## Hexadecimal (Base 16)
+
+### Compact shorthand for binary
+
+<span class="term">Hexadecimal</span> uses sixteen digits and powers of $16$:
+
+::: {.tight-list}
+- Digits: $0$–$9$, then $A$–$F$ where $A=10, B=11, C=12, D=13, E=14, F=15$
+- Place values: $\dots 16^3, 16^2, 16^1, 16^0$
+- <span class="mark">One hex digit = exactly $4$ binary bits</span> (since $16 = 2^4$)
+:::
+
+**Example:** $21F3A_{16}$
+
+$$\begin{array}{c c c c c}
+(16^4) & (16^3) & (16^2) & (16^1) & (16^0) \\
+65\,536 & 4\,096 & 256 & 16 & 1 \\
+2 & 1 & F & 3 & A
+\end{array}$$
+
+## Table 1.1: Binary ↔ Hex ↔ Denary
+
+### Complete 4-bit reference
+
+::: {.clean-table}
+| Binary | Hex | Denary | | Binary | Hex | Denary |
+|:------:|:---:|:------:|-|:------:|:---:|:------:|
+| $0000$ | $0$ | $0$ | | $1000$ | $8$ | $8$ |
+| $0001$ | $1$ | $1$ | | $1001$ | $9$ | $9$ |
+| $0010$ | $2$ | $2$ | | $1010$ | $A$ | $10$ |
+| $0011$ | $3$ | $3$ | | $1011$ | $B$ | $11$ |
+| $0100$ | $4$ | $4$ | | $1100$ | $C$ | $12$ |
+| $0101$ | $5$ | $5$ | | $1101$ | $D$ | $13$ |
+| $0110$ | $6$ | $6$ | | $1110$ | $E$ | $14$ |
+| $0111$ | $7$ | $7$ | | $1111$ | $F$ | $15$ |
+:::
+
+Since $16 = 2^4$, each hex digit corresponds to exactly $4$ binary bits.
+
+## Binary → Hexadecimal
+
+### Group bits into fours from the right
+
+Starting from the right and moving left, split the binary number into <span class="mark">groups of $4$ bits</span>. If the last group has less than $4$ bits, fill in with $0$s from the left.
+
+**Example 1:** $101111100001_2$
+
+Split: $1011 \quad 1110 \quad 0001$ → <span class="mark">$BE1_{16}$</span>
+
+**Example 2:** $10000111111101_2$
+
+Split: $10\;0001\;1111\;1101$ → add two $0$s: $0010\;0001\;1111\;1101$ → <span class="mark">$21FD_{16}$</span>
+
+## Hexadecimal → Binary
+
+### Expand each hex digit to $4$ bits
+
+Using Table 1.1, take each hexadecimal digit and write down the <span class="mark">$4$-bit code</span> which corresponds to the digit.
+
+**Example 3:** $45A_{16}$
+
+$4 \to 0100, \quad 5 \to 0101, \quad A \to 1010$ → <span class="mark">$0100\;0101\;1010_2$</span>
+
+**Example 4:** $BF08_{16}$
+
+$B \to 1011, \quad F \to 1111, \quad 0 \to 0000, \quad 8 \to 1000$ → <span class="mark">$1011\;1111\;0000\;1000_2$</span>
+
+## Hexadecimal → Denary
+
+### Multiply each digit by its hex place value
+
+Multiply each hex digit by its heading value and add the totals. Remember that hex digits $A$–$F$ must be first converted to $10$–$15$.
+
+**Example:** Convert $45A_{16}$ into denary.
+
+$$\begin{array}{c c c}
+256 & 16 & 1 \\
+4 & 5 & A
+\end{array}$$
+
+$(4 \times 256 = 1\,024) \quad (5 \times 16 = 80) \quad (A = 10, \; 10 \times 1 = 10)$
+
+$1\,024 + 80 + 10 = \mathbf{1\,114}$
+
+## Denary → Hexadecimal
+
+### Repeated division by $16$
+
+Divide repeatedly by $16$; record remainders; read <span class="mark">bottom-to-top</span>.
+
+**Example:** Convert $2\,004$ into hexadecimal.
+
+```
+16   2004
+16    125   remainder:  4   ↑
+16      7   remainder: 13   ↑  read direction
+        0   remainder:  7   ↑
+```
+
+Convert remainders $\ge 10$ to hex letters ($13 = D$):
+
+Result: <span class="mark">$\mathbf{7D4}_{16}$</span> (verify: $7 \times 256 + 13 \times 16 + 4 = 2\,004$ ✓)
+
+## Classroom Check (1/2)
+
+### Convert between number systems
+
+A complete answer should include:
+
+::: {.tight-list}
+- binary → denary: <span class="mark">sum the place values ($2^{\text{position}}$) of all $1$-bit positions</span>
+- denary → binary Method 1: <span class="mark">successive subtraction of largest powers of $2$</span>
+- denary → binary Method 2: <span class="mark">repeated division by $2$ (read remainders bottom-to-top)</span>
+- binary → hex: <span class="mark">group $4$ bits from the right, convert each group using Table 1.1</span>
+:::
+
+## Classroom Check (2/2)
+
+### Convert between number systems (continued)
+
+::: {.tight-list}
+- hex → binary: <span class="mark">expand each hex digit to its $4$-bit equivalent</span>
+- hex → denary: <span class="mark">multiply each digit by its hex place value ($1, 16, 256\dots$)</span>
+- denary → hex: <span class="mark">repeated division by $16$, read remainders bottom-to-top</span>
+- why hex: <span class="mark">$1$ hex digit = exactly $4$ bits — compact, readable shorthand for binary</span>
+:::
+
+## Bridge
+
+### Next: Uses of Hexadecimal
+
+The next deck explores practical applications — error codes, MAC addresses, IPv6 addresses, and HTML colour codes.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

@@ -1,0 +1,235 @@
+---
+title: "1.1.6 Two's complement (binary numbers)"
+subtitle: "Data Representation P22-P24"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        .reveal .clean-table table { font-size: 0.78em; line-height: 1.15; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.22em 0.30em; vertical-align: top; text-align: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Two's Complement
+
+### Representing positive and negative integers
+
+Up until now, we have assumed all binary numbers are positive integers. To allow the possibility of representing <span class="mark">negative integers</span> we make use of <span class="term">two's complement</span> (二进制补码). In this section we will again assume <span class="mark">8-bit registers</span> are being used.
+
+Only one minor change to the binary headings needs to be introduced here:
+
+$$\begin{array}{c c c c c c c c}
+\mathbf{-128} & 64 & 32 & 16 & 8 & 4 & 2 & 1
+\end{array}$$
+
+::: {.tight-list}
+- the left-most bit is changed to a <span class="mark">negative value</span>
+- the new range of possible numbers is <span class="mark">$-128$ ($10000000_2$) to $+127$ ($01111111_2$)</span>
+- a <span class="mark">$1$-value in the left-most bit</span> indicates a negative number and a <span class="mark">$0$-value</span> indicates a positive number
+:::
+
+## Writing Positive Binary Numbers
+
+### Positive numbers in two's complement format
+
+The following two examples show how we can write the following positive binary numbers in the two's complement format: <span class="mark">$19$</span> and <span class="mark">$4$</span>
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 0 & 0 & 1 & 0 & 0 & 1 & 1
+\end{array}$$
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
+\end{array}$$
+
+As you will notice, for positive binary numbers, it is no different to what was done in Section 1.1.2.
+
+## Converting Positive Denary Numbers
+
+### Positive denary to two's complement format
+
+If we wish to convert a positive denary number to the two's complement format, we do exactly the same as in Section 1.1.2:
+
+::: {.tight-list}
+- $38$ gives <span class="mark">`00100110`</span>
+- $125$ gives <span class="mark">`01111101`</span>
+:::
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 0 & 1 & 0 & 0 & 1 & 1 & 0
+\end{array}$$
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 1 & 1 & 1 & 1 & 1 & 0 & 1
+\end{array}$$
+
+## Converting Positive Binary Numbers
+
+### Positive two's complement to denary
+
+Each time a $1$ appears in a column, the column value is added to the total:
+
+::: {.tight-list}
+- `01101110` gives <span class="mark">$64 + 32 + 8 + 4 + 2 = 110$</span>
+- `00111111` gives <span class="mark">$32 + 16 + 8 + 4 + 2 + 1 = 63$</span>
+:::
+
+## Reading Negative Two's Complement
+
+### Interpreting numbers with MSB $= 1$
+
+Each time a $1$ appears in a column, the column value is added to the total:
+
+**Example:** `10010011`
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 0 & 0 & 1 & 0 & 0 & 1 & 1
+\end{array}$$
+
+$-128 + 16 + 2 + 1 = \mathbf{-109}$
+
+**Example:** `11100100`
+
+$-128 + 64 + 32 + 4 = \mathbf{-28}$
+
+**Example:** `11110101`
+
+$-128 + 64 + 32 + 16 + 4 + 1 = \mathbf{-11}$
+
+A two's complement number with a <span class="mark">$1$-value in the $-128$ column</span> must represent a negative binary number.
+
+## Converting Negative Denary Numbers
+
+### Method 1 and Method 2
+
+Consider the number <span class="mark">$+67$</span> in 8-bit two's complement binary format:
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 1 & 0 & 0 & 0 & 0 & 1 & 1
+\end{array}$$
+
+**Method 1**: put $1$s in their correct places for <span class="mark">$-67$</span>
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 0 & 1 & 1 & 1 & 1 & 0 & 1
+\end{array}$$
+
+since <span class="mark">$-128 + 32 + 16 + 8 + 4 + 1 = -67$</span>
+
+**Method 2**: first write the number as a positive binary value, then invert and add $1$
+
+```text
+ 67  = 01000011
+invert -> 10111100
++1     -> 10111101
+```
+
+## Worked Example: $-79$
+
+### Convert $-79$ into 8-bit two's complement
+
+**Method 1**
+
+$$\begin{array}{c c c c c c c c}
+-128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 0 & 1 & 1 & 0 & 0 & 0 & 1
+\end{array}$$
+
+because <span class="mark">$-79 = -128 + 49$</span> and $49 = 32 + 16 + 1$.
+
+**Method 2**
+
+```text
+ 79     = 01001111
+invert  = 10110000
++1      = 10110001
+```
+
+Both methods give <span class="mark">`10110001`</span>. It is a good idea to practise both methods.
+
+## Not Limited to 8 Bits
+
+### Two's complement with fewer bits
+
+When applying two's complement, it isn't always necessary for a binary number to have $8$ bits:
+
+$$\begin{array}{c c c c}
+-8 & 4 & 2 & 1 \\
+0 & 1 & 1 & 0
+\end{array}$$
+
+Applying two's complement (`1001 + 1`) would give:
+
+$$\begin{array}{c c c c}
+-8 & 4 & 2 & 1 \\
+1 & 0 & 1 & 0
+\end{array}$$
+
+In other words: <span class="mark">$-6$</span>
+
+## Example with 12 Bits
+
+### Converting $-1676$
+
+The following <span class="mark">$12$-bit</span> binary number represents denary number <span class="mark">$1676$</span>:
+
+$$\begin{array}{c c c c c c c c c c c c}
+-2048 & 1024 & 512 & 256 & 128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0
+\end{array}$$
+
+Applying two's complement (`100101110011 + 1`) would give:
+
+$$\begin{array}{c c c c c c c c c c c c}
+-2048 & 1024 & 512 & 256 & 128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+1 & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 0 & 0
+\end{array}$$
+
+In other words: <span class="mark">$-1676$</span>
+
+## Classroom Check
+
+### Understand two's complement representation
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">two's complement</span> allows representation of <span class="mark">both positive and negative integers</span> in binary
+- that the left-most heading changes from <span class="mark">$+128$ to $-128$</span> in an 8-bit register
+- that a <span class="mark">$0$-value</span> in the left-most bit indicates a positive number and a <span class="mark">$1$-value</span> indicates a negative number
+- that positive numbers are written in the <span class="mark">same way</span> as ordinary binary, provided the left-most bit is $0$
+- the two methods for negative numbers: <span class="mark">direct placement using the negative left-most column</span>, or <span class="mark">invert all bits and add $1$</span>
+- the 8-bit two's complement range: <span class="mark">$-128$ to $+127$</span>
+:::
+
+## Bridge
+
+### Next: Character Sets (ASCII and Unicode)
+
+The next deck covers how computers represent text.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

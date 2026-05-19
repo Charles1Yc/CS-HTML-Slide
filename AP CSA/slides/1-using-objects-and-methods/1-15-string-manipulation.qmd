@@ -1,0 +1,160 @@
+---
+title: "1.15 String Manipulation"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Strings as Objects
+
+### Text in Java is stored as `String` objects
+
+`String` is a class in the built-in <span class="term">`java.lang`</span> package.
+
+::: {.tight-list}
+- strings are <span class="term">reference types</span>, not primitive types
+- a string variable can hold a reference or `null`
+- class names like `String` start with a capital letter
+:::
+
+![Initial string reference](../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png){fig-align="center" width="18%"}
+
+## Creating and Referring to Strings
+
+### Literal form and constructor form
+
+```java
+String greeting1 = "Hello";
+String greeting2 = new String("Welcome");
+```
+
+Both statements create a `String` object and store a reference in the variable.
+
+![String object and class relationship](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png){fig-align="center" width="62%"}
+
+## Concatenation and Immutability
+
+### Building new strings with `+`
+
+```java
+String start = "Happy Birthday";
+String name = "Jose";
+String result = start + " " + name;
+result += "!";
+```
+
+::: {.tight-list}
+- `+` and `+=` can concatenate strings
+- Java converts other values to strings when needed
+- strings are <span class="term">immutable</span>
+- concatenation creates a <span class="mark">new string</span>; it does not modify the old one
+:::
+
+## Index and Length
+
+### String positions start at 0
+
+![String indices](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png){fig-align="center" width="62%"}
+
+::: {.tight-list}
+- the first character is at index `0`
+- the last character is at index `length() - 1`
+- an invalid index causes an <span class="term">IndexOutOfBoundsException</span>
+:::
+
+```java
+String word = "Code";
+int size = word.length();
+```
+
+## Common String Methods
+
+### `length`, `substring`, and `indexOf`
+
+```java
+String s = "baby";
+System.out.println(s.length());      // 4
+System.out.println(s.substring(2));  // by
+System.out.println(s.indexOf("b"));  // 0
+```
+
+::: {.tight-list}
+- `length()` returns the number of characters
+- `substring(begin)` copies from `begin` to the end
+- `substring(begin, end)` stops <span class="mark">before</span> `end`
+- `indexOf(...)` finds a character or string position, or returns `-1`
+:::
+
+## Comparing Strings
+
+### Use methods, not `==`
+
+::: {.two-col}
+![compareTo behavior](../../assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png){width="100%"}
+![Pig Latin challenge icon](../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png){width="42%"}
+:::
+
+```java
+message.equals("Hello!");
+message.compareTo("Zoo");
+```
+
+::: {.tight-list}
+- `equals(...)` returns `true` or `false`
+- `compareTo(...)` returns `0`, a negative number, or a positive number
+- both are <span class="mark">case-sensitive</span>
+- `==` checks whether references are the same object, not whether characters match
+:::
+
+## Common Mistakes with Strings
+
+### The usual errors are predictable
+
+::: {.tight-list}
+- forgetting spaces during concatenation
+- thinking `substring(begin, end)` includes the character at `end`
+- expecting `toLowerCase()` or similar calls to change the original string automatically
+- using `==` instead of `equals(...)`
+- calling string methods on a `null` reference
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- string-reference output checks
+- concatenation and indexing quick checks
+- `substring`, `length`, and `indexOf` tracing
+- compareTo / equals comparison tasks
+- <span class="term">1.15.8 Coding Challenge: Pig Latin</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- identify `String` as a class type in `java.lang`
+- explain concatenation and string immutability
+- use `length`, `substring`, and `indexOf` correctly
+- apply zero-based indexing to strings
+- compare strings with `equals` or `compareTo`, not `==`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

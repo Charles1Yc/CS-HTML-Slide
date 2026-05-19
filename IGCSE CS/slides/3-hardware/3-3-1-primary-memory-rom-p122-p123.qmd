@@ -1,0 +1,143 @@
+---
+title: "3.3.1 Primary memory"
+subtitle: "ROM · Hardware P122-P123"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## ROM: Read-Only Memory
+
+### Permanent, non-volatile storage
+
+<span class="term">ROM</span> (只读存储器) is a type of primary memory with permanent, unchangeable contents:
+
+::: {.tight-list}
+- <span class="mark">Non-volatile memory</span> — contents are not lost when power is switched off
+- <span class="mark">Permanent memory</span> — data cannot be altered or changed by the user or computer
+- <span class="mark">Read-only</span> — data can be read but never written to
+- Contents cannot be changed or written to by the user, the computer or any application/program
+- Part of primary memory, directly accessible by the CPU
+:::
+
+## ROM: Purpose
+
+### Bootstrap and startup instructions
+
+<span class="term">ROM</span> stores essential data needed when the computer first boots up:
+
+::: {.tight-list}
+- <span class="mark">BIOS</span> (Basic Input/Output System) — firmware that initializes hardware
+- Bootstrap/startup routines that begin the loading process
+- <span class="mark">Self-test procedures</span> to check hardware before loading the operating system
+- Core system settings needed before any secondary storage can be accessed
+:::
+
+The CPU executes these routines automatically when power is first switched on.
+
+## ROM: Characteristics
+
+### Compared to RAM
+
+<span class="term">ROM</span> differs fundamentally from <span class="term">RAM</span>:
+
+::: {.tight-list}
+- ROM cannot be increased in size (unlike RAM, which can be upgraded)
+- ROM contents are determined before installation (unlike RAM, which stores variable data)
+- ROM is used for <span class="mark">permanent system data</span>; RAM is temporary working storage
+:::
+
+## Table: RAM vs ROM
+
+### Primary memory comparison
+
+::: {.clean-table}
+| Characteristic | RAM | ROM |
+|---|---|---|
+| Type | Temporary memory | Permanent memory |
+| Volatility | Volatile | Non-volatile |
+| Read/Write capability | Both read and write | Read-only |
+| Data persistence | Lost at power-off | Retained always |
+| Purpose | Current applications, data, OS in use | BIOS, startup routines, firmware |
+| Size upgrade | Can be increased | Fixed size |
+:::
+
+## Example: Remote-Controlled Toy Car
+
+### RAM and ROM working together
+
+A remote-controlled toy car contains both RAM and ROM chips:
+
+**ROM stores:**
+
+::: {.tight-list}
+- Factory settings such as remote control <span class="mark">frequencies</span>
+- <span class="mark">Start-up routines</span> when the toy car is first switched on
+- Set routines: how buttons control turning left, acceleration, stopping, etc.
+:::
+
+**RAM stores:**
+
+::: {.tight-list}
+- User-programmed <span class="mark">new instructions</span> and custom routines
+- Data/instructions received from the remote control unit during use
+:::
+
+This shows how ROM provides permanent, factory-defined behaviour, while RAM allows the user to customise operation.
+
+## Activity 3.6
+
+### Practice: RAM and ROM in everyday devices
+
+Describe how ROM and RAM chips could be used in the following devices:
+
+::: {.tight-list}
+1. A <span class="term">microwave oven</span> — which settings are permanent (ROM) and which are user-defined (RAM)?
+2. A <span class="term">refrigerator</span> — how would ROM and RAM support temperature control?
+3. A <span class="term">remote-controlled model aeroplane</span> controlled by a hand-held device — what goes in ROM vs RAM?
+:::
+
+Think about: factory settings vs user preferences, start-up routines vs real-time remote data.
+
+## Classroom Check
+
+### Know the role of ROM
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">ROM</span> is <span class="mark">non-volatile</span> — data persists when power is off
+- that ROM contents <span class="mark">cannot be altered</span> — it is read-only
+- that ROM stores <span class="mark">BIOS and startup routines</span> needed before loading the OS
+- that ROM is part of <span class="term">primary memory</span> and directly addressable by the CPU
+- the key contrast: ROM is permanent and read-only; RAM is temporary and read-write
+:::
+
+## Bridge
+
+### Next: Secondary Storage Devices
+
+The next decks cover secondary (offline) storage devices: hard disk drives (HDD), solid state drives (SSD), optical media, and virtual memory.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

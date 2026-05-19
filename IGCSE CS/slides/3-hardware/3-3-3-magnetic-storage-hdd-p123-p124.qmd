@@ -1,0 +1,121 @@
+---
+title: "3.3.3 Magnetic, optical and solid-state storage"
+subtitle: "Hard disk drives (HDD) · Hardware P123-P124"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.3 Magnetic storage
+
+### Hard disk drives (HDD)
+
+Secondary (and off-line) storage falls into three categories according to the technology used:
+
+::: {.tight-list}
+- <span class="term">magnetic</span> (磁性)
+- <span class="term">solid state</span> (固态)
+- <span class="term">optical</span> (光存储)
+:::
+
+<span class="term">Hard disk drives (HDD)</span> are still one of the most common methods used to store data on a computer.
+
+## Figure 3.62
+
+### HDD
+
+![Figure 3.62 HDD](../../assets/3-hardware/3-3-3-magnetic-storage-hdd-p123-p124/Figure 3.62 HDD.png){fig-align="center" width="72%"}
+
+## HDD Structure
+
+### Platters and read-write heads
+
+Data is stored in a digital format on the magnetic surfaces of the disks (or <span class="term">platters</span>).
+
+::: {.tight-list}
+- the hard disk drive will have a number of platters that can <span class="mark">spin at about 7000 times a second</span>
+- <span class="term">read-write heads</span> (读写磁头) consist of electromagnets that are used to read data from or write data to the platters
+- platters can be made from <span class="mark">aluminium</span>, <span class="mark">glass</span> or a <span class="mark">ceramic material</span>
+- a number of read-write heads can access all of the surfaces of the platters in the disk drive
+- normally each platter will have <span class="mark">two surfaces</span> which can be used to store data
+:::
+
+## Figure 3.63
+
+### Tracks and sectors
+
+![Figure 3.63 Tracks and sectors](../../assets/3-hardware/3-3-3-magnetic-storage-hdd-p123-p124/Figure 3.63 Tracks and sectors.png){fig-align="center" width="78%"}
+
+These read-write heads can move very quickly. Typically, they can move from the <span class="mark">centre of the disk to the edge of the disk</span> (and back again) 50 times a second.
+
+Data is stored on the surface in <span class="term">sectors</span> (扇区) and <span class="term">tracks</span> (磁道). A sector on a given track will contain a <span class="mark">fixed number of bytes</span>.
+
+## Latency
+
+### Why access is slow
+
+Unfortunately, hard disk drives have very slow data access when compared to, for example, RAM.
+
+Many applications require the read-write heads to constantly look for the correct blocks of data; this means a large number of head movements.
+
+<span class="term">Latency</span> (延迟) is defined as the time it takes for a specific block of data on a data track to <span class="mark">rotate around to the read-write head</span>.
+
+Users will sometimes notice the effect of latency when they see messages such as <span class="mark">'Please wait'</span> or, at its worst, <span class="mark">'not responding'</span>.
+
+## Fragmentation and Removable HDDs
+
+### Performance and portability
+
+When a file or data is stored on a HDD, the required number of sectors needed to store the data will be allocated. However, the sectors allocated may not be <span class="mark">adjacent</span> to each other.
+
+Through time, the HDD will undergo numerous deletions and editing which leads to sectors becoming increasingly <span class="term">fragmented</span> (碎片化), resulting in a gradual deterioration of HDD performance.
+
+<span class="term">Defragmentation software</span> (磁盘碎片整理软件) can improve this situation by <span class="mark">'tidying up'</span> the disk sectors.
+
+All data in a given sector on a HDD will be read <span class="mark">in order</span> (that is, sequentially); however, access to the sector itself will be by a <span class="mark">direct read-write head movement</span>.
+
+Removable hard disk drives are essentially HDDs external to the computer that can be connected to the computer using one of the <span class="term">USB</span> ports.
+
+## Classroom Check
+
+### Keep the HDD description faithful
+
+A complete answer should include:
+
+::: {.tight-list}
+- that HDDs are a form of <span class="term">magnetic storage</span>
+- that data is stored on magnetic <span class="mark">platters</span> and accessed by <span class="mark">read-write heads</span>
+- that data is organised in <span class="mark">tracks</span> and <span class="mark">sectors</span>
+- that <span class="term">latency</span> is the time taken for a data block to rotate round to the read-write head
+- that <span class="term">fragmentation</span> slows access because sectors may not be adjacent
+- that removable HDDs can be connected using a <span class="term">USB</span> port
+:::
+
+## Bridge
+
+### Next: solid-state storage
+
+The next decks move from <span class="term">magnetic storage</span> to <span class="term">solid-state storage</span>, including <span class="term">SSD</span> and <span class="term">flash memory</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

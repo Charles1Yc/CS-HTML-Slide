@@ -1,0 +1,142 @@
+---
+title: "2.2.3 Check digits"
+subtitle: "Data Transmission P59-P61"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Check Digits
+
+### Detecting data entry errors
+
+A <span class="term">check digit</span> (校验数字) is the final digit included in a code; it is calculated from all the other digits in the code.
+
+Check digits are used for <span class="mark">barcodes on products</span>, such as International Standard Book Numbers (ISBN) and Vehicle Identification Numbers (VIN).
+
+::: {.tight-list}
+- Check digits are used to identify <span class="mark">errors in data entry</span> caused by <span class="mark">mis-typing or mis-scanning</span> a barcode
+- Different from transmission error checking (those detect bit errors during transmission)
+:::
+
+## Types of Errors Check Digits Detect
+
+### Four types of data entry errors
+
+Check digits can usually detect the following types of error:
+
+::: {.tight-list}
+- <span class="mark">An incorrect digit entered</span> — for example 5327 entered instead of 5307
+- <span class="mark">Transposition errors</span> — where two numbers have changed order, for example 5037 instead of 5307
+- <span class="mark">Omitted or extra digits</span> — for example 537 instead of 5307 or 53107 instead of 5307
+- <span class="mark">Phonetic errors</span> — for example 13 (thirteen) instead of 30 (thirty)
+:::
+
+## ISBN-13 Check Digit
+
+### Calculation 1 — Generation from 12 digits
+
+The check digit in ISBN 13 is the <span class="mark">thirteenth digit</span> in the number. The algorithm generates the check digit from the 12 other digits:
+
+1. <span class="mark">Add all the odd numbered digits</span> together
+2. <span class="mark">Add all the even numbered digits</span> together and multiply the result by 3
+3. Add the results from 1 and 2 together and <span class="mark">divide by 10</span>
+4. Take the remainder; if zero use this value, otherwise <span class="mark">subtract the remainder from 10</span> to find the check digit
+
+**Example: ISBN 9 7 8 0 3 4 0 9 8 3 8 2**
+1. Odd: 9 + 8 + 3 + 0 + 8 + 8 = 36
+2. Even: 3 × (7 + 0 + 4 + 9 + 3 + 2) = 3 × 25 = 75
+3. (36 + 75)/10 = 111/10 = 11 remainder 1
+4. 10 − 1 = 9 → <span class="mark">check digit is 9</span>
+
+Full ISBN-13: 978 0 340 98382 <span class="mark">9</span>
+
+## ISBN-13 Verification
+
+### Calculation 2 — Re-calculation to verify
+
+To check that an ISBN 13-digit code is correct (including its check digit):
+
+1. <span class="mark">Add all the odd numbered digits</span> together, including the check digit
+2. <span class="mark">Add all the even numbered digits</span> together and multiply the result by 3
+3. Add the results together and <span class="mark">divide by 10</span>
+4. The number is correct if the <span class="mark">remainder is zero</span>
+
+**Verification: ISBN 9 7 8 0 3 4 0 9 8 3 8 2 9**
+1. Odd: 9 + 8 + 3 + 0 + 8 + 8 + 9 = 45
+2. Even: 3 × (7 + 0 + 4 + 9 + 3 + 2) = 75
+3. (45 + 75)/10 = 120/10 = 12 <span class="mark">remainder 0</span>
+4. Remainder is 0 → <span class="mark">number is correct</span>
+
+## Modulo-11 Check Digit
+
+### Calculation 1 — Generation from 7 digits
+
+The <span class="term">modulo-11</span> method can have varying lengths of number, making it suitable for product codes or VINs:
+
+1. Each digit is given a <span class="mark">weighting of 8, 7, 6, 5, 4, 3, 2</span> starting from the left (weightings start from 8 since the number becomes eight-digit when the check digit is added)
+2. The digit is <span class="mark">multiplied by its weighting</span> and then each value is added to make a total
+3. The total is <span class="mark">divided by 11</span>
+4. The remainder is <span class="mark">subtracted from 11</span> to find the check digit (if remainder is 10, check digit = 'X')
+
+**Example: 7-digit number 4 1 5 6 7 1 0**
+- Sum: (8×4)+(7×1)+(6×5)+(5×6)+(4×7)+(3×1)+(2×0) = 32+7+30+30+28+3+0 = 130
+- 130/11 = 11 remainder 9
+- 11 − 9 = <span class="mark">2 (check digit)</span>
+- Result: 4 1 5 6 7 1 0 <span class="mark">2</span>
+
+## Modulo-11 Verification
+
+### Calculation 2 — Re-calculation to verify
+
+To check that the eight-digit number is correct (including its check digit):
+
+1. Each digit given weighting of <span class="mark">8, 7, 6, 5, 4, 3, 2, 1</span> starting from the left
+2. Digit × weighting, then <span class="mark">sum all values</span>
+3. Divide total by <span class="mark">11</span>
+4. The number is correct if the <span class="mark">remainder is zero</span>
+
+**Verification: 4 1 5 6 7 1 0 2**
+- Sum: (8×4)+(7×1)+(6×5)+(5×6)+(4×7)+(3×1)+(2×0)+(1×2) = 32+7+30+30+28+3+0+2 = 132
+- 132/11 = 12 <span class="mark">remainder 0</span> → <span class="mark">number is correct</span>
+
+## Classroom Check
+
+### Understand check digits and verification
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">check digit is the final digit in a code</span>, calculated from all other digits — detects data entry errors
+- four types of errors detected: <span class="mark">incorrect digit, transposition, omitted/extra digits, phonetic errors</span>
+- <span class="mark">ISBN-13: add odd digits + 3 × (sum of even digits)</span>, divide by 10, subtract remainder from 10 for check digit
+- <span class="mark">verification: remainder is zero</span> when the calculation includes the check digit
+- <span class="mark">modulo-11: weighted multiplication, divide by 11</span> — remainder 0 = correct; if generating, subtract remainder from 11 (10 = 'X')
+- <span class="mark">different from transmission error detection</span> — check digits catch manual entry errors, not bit errors during transmission
+:::
+
+## Bridge
+
+### Next: Automatic Repeat Requests (ARQ)
+
+The next deck covers how retransmission protocols work when errors are detected.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

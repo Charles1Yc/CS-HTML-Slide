@@ -1,0 +1,33 @@
+  {
+    "course": {
+      "short": "A Level CS",
+      "cn": "计算机科学",
+      "en": "A Level Computer Science",
+      "code": "Cambridge"
+    },
+    "units": [
+      {
+        "id": "unit-0",
+        "code": "0",
+        "cn": "课程准备",
+        "en": "Course Setup",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "0.1",
+            "cn": "目录与资源",
+            "en": "Structure and Resources",
+            "summary": "课程目录、资料目录、资源目录与课件模板已建立，后续按单元继续补入内容。",
+            "topics": [
+              {
+                "code": "0.1.1",
+                "cn": "课件制作中",
+                "en": "Slides in preparation",
+                "decks": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

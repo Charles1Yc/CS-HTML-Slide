@@ -1,0 +1,102 @@
+---
+title: "1.3.1 Measurement of data storage"
+subtitle: "Data Representation P32-P33"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.18em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Basic Units
+
+### Bits, bytes and nibbles
+
+A <span class="term">bit</span> is the basic unit of all computing memory storage terms and is either `1` or `0`. The word comes from <span class="mark">binary digit</span>.
+
+The <span class="term">byte</span> is the smallest unit of memory in a computer. <span class="mark">`1 byte = 8 bits`</span>.
+
+A <span class="term">nibble</span> is <span class="mark">$4$ bits</span> - half a byte.
+
+## Table 1.4
+
+### Memory size using denary values
+
+`1 byte` of memory would not allow you to store very much information, so memory size is measured in the multiples shown below:
+
+::: {.clean-table}
+| Name of memory size | Equivalent denary value |
+|---|---|
+| `1 kilobyte (1 KB)` | `1 000` bytes |
+| `1 megabyte (1 MB)` | `1 000 000` bytes |
+| `1 gigabyte (1 GB)` | `1 000 000 000` bytes |
+| `1 terabyte (1 TB)` | `1 000 000 000 000` bytes |
+| `1 petabyte (1 PB)` | `1 000 000 000 000 000` bytes |
+| `1 exabyte (1 EB)` | `1 000 000 000 000 000 000` bytes |
+:::
+
+The above system of numbering now only refers to some storage devices but is technically inaccurate. It is based on the <span class="term">SI</span> (base `10`) system of units where `1 kilo` is equal to `1000`.
+
+A `1 TB` hard disk drive would allow the storage of <span class="mark">`1 × 10^12 bytes`</span> according to this system.
+
+## Table 1.5
+
+### IEC memory size system
+
+Since memory size is actually measured in terms of <span class="mark">powers of $2$</span>, another system has been adopted by the <span class="term">IEC</span> (International Electrotechnical Commission) that is based on the binary system:
+
+::: {.clean-table}
+| Name of memory size | Number of bytes | Equivalent denary value |
+|---|---:|---|
+| `1 kibibyte (1 KiB)` | `2^10` | `1 024` bytes |
+| `1 mebibyte (1 MiB)` | `2^20` | `1 048 576` bytes |
+| `1 gibibyte (1 GiB)` | `2^30` | `1 073 741 824` bytes |
+| `1 tebibyte (1 TiB)` | `2^40` | `1 099 511 627 776` bytes |
+| `1 pebibyte (1 PiB)` | `2^50` | `1 125 899 906 842 624` bytes |
+| `1 exbibyte (1 EiB)` | `2^60` | `1 152 921 504 606 846 976` bytes |
+:::
+
+**Advice:** Only the <span class="mark">IEC system</span> is covered in the syllabus.
+
+This system is more accurate. Internal memories (such as <span class="term">RAM</span> and <span class="term">ROM</span>) should be measured using the IEC system. A `64 GiB` RAM could, therefore, store <span class="mark">`64 × 2^30` bytes</span> of data (`68 719 476 736` bytes).
+
+## Classroom Check
+
+### Understand storage units and systems
+
+A complete answer should include:
+
+::: {.tight-list}
+- that a <span class="term">bit</span> is the basic unit of storage and a <span class="term">byte</span> is the smallest unit of memory in a computer
+- that <span class="mark">`1 byte = 8 bits`</span> and a <span class="term">nibble</span> is <span class="mark">$4$ bits</span>
+- the denary units `KB`, `MB`, `GB`, `TB`, `PB`, `EB`
+- that the SI system is based on <span class="mark">powers of $10$</span>
+- that the IEC system is based on <span class="mark">powers of $2$</span> and is the system covered in the syllabus
+- that internal memories such as <span class="term">RAM</span> and <span class="term">ROM</span> should be measured using the <span class="mark">IEC system</span>
+:::
+
+## Bridge
+
+### Next: Calculation of File Size
+
+The next deck covers file size calculations for bitmap images and sound samples.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

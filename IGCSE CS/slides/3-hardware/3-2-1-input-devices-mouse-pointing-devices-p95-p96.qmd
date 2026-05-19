@@ -1,0 +1,111 @@
+---
+title: "3.2.1 Input devices"
+subtitle: "Mouse and pointing devices · Hardware P95-P96"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Optical Mouse
+
+### Pointing device and image capture
+
+An <span class="term">optical mouse</span> (光学鼠标) is an example of a <span class="term">pointing device</span> (指针设备).
+
+It uses tiny cameras to take <span class="mark">1500 images per second</span>.
+
+Unlike an older <span class="term">mechanical mouse</span> (机械鼠标), the optical mouse can work on virtually any surface.
+
+## Optical Mouse
+
+### Figure 3.28: light reflection path
+
+![Figure 3.28 Diagram of an optical mouse](../../assets/3-hardware/3-2-1-input-devices-mouse-pointing-devices-p95-p96/figure-3-28-diagram-of-an-optical-mouse-enhanced.png){fig-align="center" width="96%"}
+
+::: {.figure-note}
+The diagram shows the red light source (LED), lens, surface reflection path, CMOS sensor and mouse body.
+:::
+
+## How an optical mouse detects movement
+
+### 1/3 LED and surface reflection
+
+A <span class="term">red LED</span> (红色发光二极管) is used in the base of the mouse.
+
+The red light is <span class="term">bounced off the surface</span> (从表面反射), and the reflection is picked up by a <span class="term">complementary metal oxide semiconductor (CMOS)</span> (互补金属氧化物半导体).
+
+## How an optical mouse detects movement
+
+### 2/3 CMOS pulses and DSP
+
+The <span class="term">CMOS</span> generates <span class="term">electric pulses</span> (电脉冲) to represent the reflected red light.
+
+These pulses are sent to a <span class="term">digital signal processor (DSP)</span> (数字信号处理器).
+
+## How an optical mouse detects movement
+
+### 3/3 Coordinates and cursor movement
+
+The processor can now work out the <span class="term">coordinates</span> (坐标) of the mouse based on the <span class="term">changing image patterns</span> (变化的图像模式) as it is moved about on the surface.
+
+The computer can then move the <span class="term">on-screen cursor</span> (屏幕光标) to the coordinates sent by the mouse.
+
+## Benefits of an optical mouse over a mechanical mouse
+
+### Textbook advantages
+
+::: {.tight-list}
+- There are <span class="term">no moving parts</span> (没有运动部件), therefore it is more reliable.
+- Dirt can’t get trapped in any of the <span class="term">mechanical components</span> (机械部件).
+- There is no need to have any special surfaces.
+:::
+
+## Wired And Wireless Optical Mice
+
+### Bluetooth connectivity
+
+Most optical mice use <span class="term">Bluetooth connectivity</span> (蓝牙连接) rather than using a <span class="term">USB wired connection</span> (USB 有线连接).
+
+This makes the mouse more <span class="term">versatile</span> (用途更灵活 / 适用场景更多).
+
+## Wired And Wireless Optical Mice
+
+### Advantages of a wired mouse
+
+::: {.tight-list}
+- no <span class="term">signal loss</span> (信号丢失), since there is a constant signal pathway (wire)
+- cheaper to operate, because there is no need to buy new batteries or charge batteries
+- fewer <span class="term">environmental issues</span> (环境问题), because there is no need to dispose of old batteries
+:::
+
+## Classroom Check
+
+### Explain movement detection accurately
+
+A complete answer should include this route:
+
+<span class="mark">red LED reflection</span> → <span class="mark">CMOS electric pulses</span> → <span class="mark">DSP processing</span> → <span class="mark">coordinates</span> → <span class="mark">cursor movement</span>.
+
+Do not only write “the mouse sends movement to the computer”.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

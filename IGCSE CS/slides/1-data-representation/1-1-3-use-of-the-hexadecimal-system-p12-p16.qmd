@@ -1,0 +1,147 @@
+---
+title: "1.1.3 Use of the hexadecimal system"
+subtitle: "Data Representation P12-P16"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        .reveal .clean-table table { font-size: 0.82em; line-height: 1.15; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.22em 0.30em; vertical-align: top; }
+        .reveal .figure-note {
+          margin-top: 0.7em;
+          padding: 0.42em 0.7em;
+          border: 1px dashed #b8b8b8;
+          color: #555;
+          font-size: 0.72em;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Why Use Hexadecimal?
+
+### Easier for humans than raw binary
+
+As we have seen, a computer can only work with binary data. Whilst computer scientists can work with binary, they find <span class="term">hexadecimal</span> (十六进制) more convenient to use. This is because <span class="mark">one hex digit represents four binary digits</span>.
+
+A complex binary number, such as `1101001010101111`, can be written in hex as <span class="mark">`D2AF`</span>. The hex number is far easier for humans to remember, copy and work with.
+
+This section reviews <span class="mark">four uses</span> of the hexadecimal system:
+
+::: {.tight-list}
+- error codes
+- MAC addresses
+- IP addresses
+- HTML colour codes
+:::
+
+## Error Codes
+
+### Hexadecimal in error messages
+
+<span class="term">Error codes</span> (错误代码) are often shown as hexadecimal values:
+
+::: {.tight-list}
+- these numbers refer to the <span class="mark">memory location</span> (内存地址) of the error
+- they are usually <span class="mark">automatically generated</span> by the computer
+- the programmer needs to know how to <span class="mark">interpret the hexadecimal error codes</span>
+:::
+
+![Figure 1.3 Example of error codes](../../assets/1-data-representation/1-1-3-use-of-the-hexadecimal-system-p12-p16/Figure%201.3%20Example%20of%20error%20codes.png)
+
+## MAC Addresses
+
+### Network interface identification
+
+<span class="term">Media Access Control (MAC) address</span> (媒体访问控制地址) refers to a number which uniquely identifies a device on a network. The MAC address refers to the <span class="term">network interface card (NIC)</span> (网络接口卡) which is part of the device.
+
+::: {.tight-list}
+- a MAC address is usually made up of <span class="mark">$48$ bits shown as $6$ groups of two hexadecimal digits</span>
+- format: `NN-NN-NN-DD-DD-DD` or `NN:NN:NN:DD:DD:DD`
+- the first half (`NN-NN-NN`) is the <span class="mark">identity number of the manufacturer</span>
+- the second half (`DD-DD-DD`) is the <span class="mark">serial number of the device</span>
+:::
+
+Example: `00-1C-B3-4F-25-FE` is the MAC address of a device produced by Apple Corporation (code: `001CB3`) with a serial number of `4F25FE`.
+
+## Internet Protocol (IP) Addresses
+
+### IPv4 and IPv6
+
+Each device connected to a network is given an address known as the <span class="term">Internet Protocol (IP) address</span> (互联网协议地址).
+
+::: {.tight-list}
+- an <span class="term">IPv4 address</span> is a <span class="mark">$32$-bit number</span> written in denary or hexadecimal form: `109.108.158.1` (or `77.76.9e.01` in hex)
+- <span class="term">IPv6</span> improved upon IPv4
+- an <span class="term">IPv6 address</span> is a <span class="mark">$128$-bit number</span> broken down into <span class="mark">$16$-bit chunks</span>, represented by a hexadecimal number
+- example: `a8fb:7a88:fff0:0fff:3d21:2085:66fb:f0fa`
+- IPv6 uses a <span class="mark">colon (:)</span> rather than a decimal point (.) as used in IPv4
+:::
+
+## HTML Colour Codes
+
+### Web design and graphics
+
+<span class="term">HyperText Mark-up Language (HTML)</span> is used when writing and developing web pages. HTML uses hexadecimal to represent colours:
+
+::: {.tight-list}
+- format: <span class="mark">`#RRGGBB`</span> — six hex digits prefixed by `#`
+- `RR`: red intensity, `GG`: green, `BB`: blue — each <span class="mark">$00$–$FF$</span>
+- each colour channel has <span class="mark">$256$ possible intensity levels</span>
+- total: <span class="mark">$256 \times 256 \times 256 = 16\,777\,216$</span> possible colours
+:::
+
+::: {.figure-note}
+**Figure 1.4** HTML code example screenshot placeholder
+:::
+
+| Code | Colour |
+|:----:|--------|
+| `#FF0000` | Primary red |
+| `#00FF00` | Primary green |
+| `#0000FF` | Primary blue |
+| `#FF00FF` | Fuchsia |
+| `#FF8000` | Orange |
+| `#B18904` | Tan |
+
+::: {.figure-note}
+**Figure 1.5** Examples of HTML hex colour codes screenshot placeholder
+:::
+
+## Classroom Check
+
+### Know where and why hexadecimal is used
+
+A complete answer should include:
+
+::: {.tight-list}
+- why hex is convenient: <span class="mark">one hex digit = $4$ bits</span>, so hex is more compact and easier to read than binary
+- error codes: <span class="mark">hexadecimal numbers that refer to a memory location</span>, usually automatically generated
+- MAC addresses: <span class="mark">$48$ bits, six groups of two hex digits</span>, used to identify a device on a network
+- IP addresses: <span class="mark">IPv4 is $32$ bits</span>; <span class="mark">IPv6 is $128$ bits in eight groups of four hex digits</span>
+- HTML colour codes: <span class="mark">`#RRGGBB` format</span>, with $256$ values each for red, green and blue
+:::
+
+## Bridge
+
+### Next: Binary Addition
+
+The next deck covers how to add two binary numbers together and what happens when the result overflows.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

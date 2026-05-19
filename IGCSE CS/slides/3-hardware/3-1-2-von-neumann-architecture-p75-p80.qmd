@@ -1,0 +1,185 @@
+---
+title: "3.1.2 Von Neumann architecture"
+subtitle: "Overview · Hardware P75-P80"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        .reveal .clean-table table { font-size: 0.82em; line-height: 1.12; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.25em 0.36em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Von Neumann architecture
+
+### Why stored programs mattered
+
+Early computers were fed data while the machines were actually running.
+
+It wasn’t possible to store <span class="term">programs</span> (程序) or <span class="term">data</span> (数据), which meant they couldn’t operate without considerable human intervention.
+
+In the mid-1940s, John von Neumann developed the concept of the <span class="term">stored program computer</span> (存储程序计算机).
+
+## Von Neumann architecture
+
+### Four main novel features
+
+The von Neumann architecture had the following main novel features:
+
+::: {.tight-list}
+- the concept of a <span class="term">central processing unit (CPU or processor)</span>
+- the <span class="term">CPU can access memory directly</span>; in the textbook wording, the CPU was able to access the memory directly
+- computer memories could store <span class="term">programs as well as data</span>
+- stored programs were made up of instructions which could be executed in <span class="term">sequential order</span> (顺序)
+:::
+
+## Von Neumann architecture
+
+### Figure 3.1: one simple representation
+
+![Figure 3.1 Von Neumann architecture](../../assets/3-hardware/3-1-2-von-neumann-architecture-p75-p80/Figure 3.1 Von Neumann architecture.png){fig-align="center" width="94%"}
+
+::: {.figure-note}
+Read the diagram as a stored-program model: CPU, registers, buses and memory cooperate so instructions can be fetched, decoded and executed.
+:::
+
+## Components of the CPU
+
+### Main CPU components in the textbook
+
+The main components of the CPU are the <span class="term">Control Unit (CU)</span> (控制单元), <span class="term">Arithmetic & Logic Unit (ALU)</span> (算术逻辑单元) and <span class="term">system clock</span> (系统时钟).
+
+Figure 3.1 also shows the named registers and the buses used to move information around the architecture.
+
+## Arithmetic & Logic Unit (ALU)
+
+### Arithmetic and logic operations
+
+The ALU allows the required arithmetic, for example <span class="mark">+</span>, <span class="mark">-</span> and shifting, or logic, for example <span class="mark">AND</span> and <span class="mark">OR</span>, operations to be carried out while a program is being run.
+
+It is possible for a computer to have more than one ALU to carry out specific functions.
+
+Multiplication and division are carried out by a sequence of addition, subtraction and left or right logical shift operations.
+
+## Control Unit (CU)
+
+### Instruction address and interpretation
+
+The control unit reads an instruction from memory.
+
+The address of the location where the instruction can be found is stored in the <span class="term">Program Counter (PC)</span> (程序计数器).
+
+This instruction is then interpreted using the <span class="term">Fetch-Decode-Execute cycle</span> (取指-译码-执行循环).
+
+## Control Unit (CU)
+
+### Signals and synchronisation
+
+During that process, signals are generated along the <span class="term">control bus</span> (控制总线) to tell the other components in the computer what to do.
+
+The control unit ensures <span class="term">synchronisation</span> (同步) of data flow and program instructions throughout the computer.
+
+A system clock is used to produce timing signals on the control bus. Without the clock, the computer would simply crash.
+
+## RAM and IAS
+
+### Immediate Access Store
+
+The <span class="term">RAM</span> holds all the data and programs needed to be accessed by the CPU.
+
+The RAM is often referred to as the <span class="term">Immediate Access Store (IAS)</span> (立即访问存储器).
+
+The CPU takes data and programs held in <span class="term">backing store</span> (后备存储, e.g. a hard disk drive) and puts them into RAM temporarily.
+
+## RAM and IAS
+
+### Why data is moved into RAM
+
+This is done because read/write operations carried out using the RAM are considerably faster than read/write operations to backing store.
+
+Consequently, any key data needed by an application will be stored temporarily in RAM to considerably speed up operations.
+
+## Registers
+
+### General and special purpose
+
+One of the most fundamental components of the von Neumann system are the <span class="term">registers</span> (寄存器).
+
+Registers can be general or special purpose.
+
+The textbook focuses on <span class="term">special purpose registers</span> (专用寄存器), which are explained more fully in the Fetch-Decode-Execute cycle.
+
+## Specific purpose registers
+
+### Table 3.1: names and abbreviations
+
+::: {.clean-table}
+| Register | Abbreviation used | Function / purpose |
+|---|---|---|
+| current instruction register | CIR | stores the current instruction being decoded and executed |
+| accumulator | ACC | stores data temporarily during ALU calculations |
+| memory address register | MAR | stores the address of the memory location currently being read from or written to |
+| memory data / buffer register, also called <span class="term">Memory Data Register</span> | MDR | stores data just read from memory or data about to be written to memory |
+| program counter | PC | stores the address where the next instruction to be read can be found |
+:::
+
+## Figure 3.1 register focus
+
+### Match the names to the diagram
+
+In Figure 3.1, the special purpose registers are placed around the CPU model:
+
+::: {.tight-list}
+- <span class="term">MAR</span> and <span class="term">MDR</span> support memory access.
+- <span class="term">PC</span> points to the next instruction.
+- <span class="term">CIR</span> holds the instruction being decoded and executed.
+- <span class="term">Accumulator (ACC)</span> supports ALU calculations.
+:::
+
+## System buses and memory
+
+### Figure 3.2: CPU, memory and input/output
+
+![Figure 3.2 System buses and memory](../../assets/3-hardware/3-1-2-von-neumann-architecture-p75-p80/Figure 3.2 System buses and memory.png){fig-align="center" width="92%"}
+
+::: {.figure-note}
+Figure 3.2 shows how the CPU connects to memory and input/output ports using the control bus, address bus and data bus.
+:::
+
+## System buses and memory
+
+### Bridge to the next deck
+
+Earlier, Figure 3.1 referred to components labelled as <span class="term">buses</span> (总线).
+
+Figure 3.2 shows how these buses are used to connect the CPU to the memory and to <span class="term">input/output devices</span> (输入/输出设备).
+
+The next deck focuses on the details of system buses and memory read/write operations.
+
+## Classroom Check
+
+### Explain the architecture in one route
+
+A strong answer should connect these ideas:
+
+<span class="mark">stored program computer</span> → <span class="mark">CPU accesses memory directly</span> → <span class="mark">memory stores programs and data</span> → <span class="mark">registers hold addresses/instructions/data temporarily</span> → <span class="mark">buses connect CPU, memory and I/O</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

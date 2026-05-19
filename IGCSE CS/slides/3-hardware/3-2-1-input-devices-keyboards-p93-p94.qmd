@@ -1,0 +1,118 @@
+---
+title: "3.2.1 Input devices"
+subtitle: "Keyboards · Hardware P93-P94"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+        .reveal .small-note { font-size: 0.76em; color: #555; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Keyboards
+
+### Common method used for data entry
+
+::: {.two-col}
+![Figure 3.23 Keyboard](../../assets/3-hardware/3-2-1-input-devices-keyboards-p93-p94/figure-3-23-keyboard-enhanced.png){fig-align="center" width="100%"}
+
+Keyboards are by far the most common method used for <span class="term">data entry</span> (数据输入). They are used as the <span class="term">input devices</span> (输入设备) on computers, tablets, mobile phones and many other electronic items.
+:::
+
+## Keyboards
+
+### USB, wireless and virtual keyboards
+
+The keyboard is connected to the computer either by using a <span class="term">USB connection</span> (USB 连接) or by <span class="term">wireless connection</span> (无线连接).
+
+In the case of tablets and mobile phones, the keyboard is often <span class="term">virtual</span> (虚拟的) or a type of <span class="term">touch screen technology</span> (触摸屏技术).
+
+## Keyboards
+
+### Character to digital signal
+
+As shown in Chapter 1, each character on a keyboard has an <span class="term">ASCII value</span> (ASCII 编码值).
+
+Each character pressed is converted into a <span class="term">digital signal</span> (数字信号), which the computer <span class="term">interprets</span> (解释/识别).
+
+## Keyboards
+
+### Speed, errors and RSI
+
+They are a relatively slow method of data entry and are also prone to <span class="term">errors</span> (错误).
+
+However keyboards are probably still the easiest way to enter text into a computer.
+
+Unfortunately, frequent use of these devices can lead to injuries, such as <span class="term">repetitive strain injury (RSI)</span> (重复性劳损) in the hands and wrists.
+
+## Ergonomic Keyboards
+
+### Reducing strain during long typing
+
+::: {.two-col}
+![Figure 3.24 Ergonomic keyboard](../../assets/3-hardware/3-2-1-input-devices-keyboards-p93-p94/figure-3-24-ergonomic-keyboard-enhanced.png){fig-align="center" width="92%"}
+
+Ergonomic keyboards can help to overcome this problem — these have the keys arranged differently as shown in Figure 3.24. They are also designed to give more support to the wrists and hands when doing a lot of typing.
+:::
+
+## How the computer recognises a letter pressed on the keyboard
+
+### 1/3 Figure 3.25 overview
+
+![Figure 3.25 Diagram of a keyboard](../../assets/3-hardware/3-2-1-input-devices-keyboards-p93-p94/figure-3-25-diagram-of-a-keyboard-enhanced.png){fig-align="center" width="98%"}
+
+::: {.figure-note}
+The diagram shows the <span class="term">H key</span> completing contact between conductive layers, so the computer can interpret the pressed key.
+:::
+
+## How the computer recognises a letter pressed on the keyboard
+
+### 2/3 Steps 1-3 of 5
+
+::: {.tight-list}
+- There is a <span class="term">membrane</span> (薄膜) or <span class="term">circuit board</span> (电路板) at the base of the keys.
+- In Figure 3.25, the ‘H’ key is pressed and this <span class="term">completes a circuit</span> (形成闭合电路) as shown.
+- The <span class="term">CPU</span> (中央处理器) in the computer can then determine which key has been pressed.
+:::
+
+## How the computer recognises a letter pressed on the keyboard
+
+### 3/3 Steps 4-5 of 5
+
+::: {.tight-list}
+- The CPU refers to an <span class="term">index file</span> (索引文件) to identify which character the key press represents.
+- Each character on a keyboard has a corresponding <span class="term">ASCII value</span> (ASCII 编码值) (see Chapter 1).
+:::
+
+<span class="mark">Exam focus</span>: do not write only “the key sends H”. A complete answer should mention circuit completion, CPU identification, index file lookup and ASCII value.
+
+## Classroom Check
+
+### Explain the full route from key press to character
+
+::: {.tight-list}
+- Which physical action completes the circuit?
+- Which component determines which key has been pressed?
+- Why does the computer need an <span class="term">ASCII value</span>?
+- Why might an <span class="term">ergonomic keyboard</span> be used instead of a standard keyboard?
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

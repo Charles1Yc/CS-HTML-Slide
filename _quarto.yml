@@ -1,0 +1,6 @@
+project:
+  type: default
+
+format:
+  clean-revealjs:
+    slide-number: true

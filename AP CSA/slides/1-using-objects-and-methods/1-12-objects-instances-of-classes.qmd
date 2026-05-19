@@ -1,0 +1,142 @@
+---
+title: "1.12 Objects: Instances of Classes"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Classes and Objects
+
+### Blueprint and instance
+
+![Blueprint and cookie-cutter model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png){width="36%"}
+![Cookie-cutter model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png){width="52%"}
+
+A <span class="term">class</span> is like a blueprint or cookie cutter.  
+An <span class="term">object</span> is a specific thing created from that class.
+
+Objects are <span class="term">instances</span> of the class.
+
+## Attributes and Behaviors
+
+### What an object knows and what it can do
+
+![Cats as objects with shared structure](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png){fig-align="center" width="68%"}
+
+::: {.tight-list}
+- <span class="term">attributes</span> are object data or properties
+- <span class="term">behaviors</span> are actions, implemented by methods
+:::
+
+Different cat objects have different values, but the same broad structure.
+
+## Turtle as an Object Model
+
+### Concrete object-oriented vocabulary
+
+![Turtle attributes and methods](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png){fig-align="center" width="50%"}
+
+The `Turtle` class is useful because students can see object state and behavior visually:
+
+::: {.tight-list}
+- color, size, and position are attributes
+- `forward()`, `turnLeft()`, `turnRight()` are behaviors
+:::
+
+## Reference Variables
+
+### A turtle variable refers to an object
+
+```java
+Turtle yertle;
+Turtle myrtle;
+```
+
+Variables of class types store <span class="term">references</span>, not primitive values.  
+That is why objects can carry many attributes together as one unit.
+
+## Creating Multiple Objects
+
+### One class, many instances
+
+```java
+World habitat = new World(300, 300);
+Turtle yertle = new Turtle(habitat);
+Turtle myrtle = new Turtle(habitat);
+```
+
+One class can create <span class="mark">as many objects as needed</span>.  
+Each object has its own state and can behave independently.
+
+## Inheritance
+
+### A class hierarchy can share structure
+
+![Inheritance hierarchy](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png){fig-align="center" width="62%"}
+
+The textbook keeps inheritance here as vocabulary context:
+
+::: {.tight-list}
+- superclass
+- subclass
+- inherited attributes and behaviors
+:::
+
+It is not the main AP focus anymore, but it helps explain class relationships.
+
+## Turtle Methods and Coordinates
+
+### Visual reasoning matters
+
+::: {.two-col}
+![Turtle UML class diagram](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png){width="100%"}
+![Turtle coordinate system](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png){width="88%"}
+:::
+
+The turtle world uses screen coordinates:
+
+::: {.tight-list}
+- `(0,0)` is at the top-left
+- `x` increases to the right
+- `y` increases downward
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- class/object/attribute/behavior vocabulary checks
+- turtle movement edits and extra-object creation
+- coordinate-aware drawing tasks
+- <span class="term">1.12.7 Coding Challenge: Draw Letters</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define class, object, and instance correctly
+- distinguish attributes from behaviors
+- explain that reference variables point to objects
+- recognize that one class can create many objects
+- read the turtle coordinate system correctly
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

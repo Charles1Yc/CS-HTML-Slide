@@ -1,0 +1,148 @@
+---
+title: "1.14 Calling Instance Methods"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Instance Methods
+
+### Behaviors belong to a specific object
+
+```java
+yertle.forward();
+yertle.turnRight();
+```
+
+An <span class="term">instance method</span> is called on an object, not on the class name.
+
+::: {.tight-list}
+- the object before the dot is the <span class="term">receiver</span>
+- the method can read or change that object's state
+- the same method name can be used by many different objects
+:::
+
+## Class Methods vs. Instance Methods
+
+### Who receives the method call?
+
+::: {.two-col}
+![Static vs instance method flow](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png){width="100%"}
+![Method-call flowchart](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png){width="100%"}
+:::
+
+::: {.tight-list}
+- class or <span class="term">static</span> method: `Math.sqrt(25)`
+- instance method: `yertle.forward()`
+- static methods do not depend on one object's attributes
+- instance methods usually work with one object's data
+:::
+
+## Reading Instance Method Signatures
+
+### Signatures still tell you name, types, and return type
+
+![Student class with constructors and methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png){fig-align="center" width="64%"}
+
+Notice the methods do <span class="mark">not</span> use the keyword `static`.
+
+::: {.tight-list}
+- the signature names the method
+- it lists any parameters
+- it also shows the <span class="term">return type</span>
+:::
+
+## Calling Methods Safely
+
+### You need an actual object before the call
+
+::: {.two-col}
+![Calling methods from main or within a class](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png){width="100%"}
+![Method parameters and arguments](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png){width="100%"}
+:::
+
+```java
+World habitat = new World(300, 300);
+Turtle yertle = new Turtle(habitat);
+yertle.forward(200);
+```
+
+If the variable is `null`, calling its method causes a <span class="term">NullPointerException</span>.
+
+## Arguments and Overloaded Methods
+
+### The call must match the signature
+
+```java
+yertle.forward();
+yertle.forward(100);
+yertle.turn(30);
+```
+
+::: {.tight-list}
+- methods can be <span class="term">overloaded</span>
+- arguments must match the parameter order and types
+- `forward()` and `forward(100)` are different valid calls
+- arguments make behavior more flexible for drawing and problem solving
+:::
+
+![Turtle UML class diagram](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png){fig-align="center" width="42%"}
+
+## Methods That Return Values
+
+### Some methods produce information instead of causing visible effects
+
+```java
+int x = yertle.getXPos();
+int y = yertle.getYPos();
+System.out.println(x + ", " + y);
+```
+
+::: {.tight-list}
+- `forward()` is a <span class="term">void method</span>: it does something
+- `getXPos()` is a <span class="term">non-void method</span>: it returns a value
+- getters are common instance methods for reading object state
+- when a method returns a value, you need to <span class="mark">use that value</span>
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- static-versus-instance call comparisons
+- `null` object debugging checks
+- method-call tracing with arguments and getters
+- <span class="term">1.14.6 Coding Challenge: Turtle House</span>
+:::
+
+![Turtle house challenge](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png){fig-align="center" width="34%"}
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- distinguish class methods from instance methods
+- explain why instance methods need an object receiver
+- match arguments to parameters in the correct order
+- explain `void` versus non-`void` methods
+- recognize `NullPointerException` as calling a method on `null`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,150 @@
+---
+title: "1.1.5 Logical binary shifts"
+subtitle: "Data Representation P19-P21"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        .reveal .clean-table table { font-size: 0.78em; line-height: 1.15; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.22em 0.32em; vertical-align: top; text-align: center; }
+        .reveal .code { font-family: monospace; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Logical Shifts
+
+### Shifting bits left or right
+
+Computers can carry out a <span class="term">logical shift</span> (逻辑移位) on a sequence of binary numbers:
+
+::: {.tight-list}
+- <span class="mark">Left shift</span> — all bits move left; vacated right-hand positions are filled with $0$s
+- <span class="mark">Right shift</span> — all bits move right; vacated left-hand positions are filled with $0$s
+- Each shift left = <span class="mark">multiply by $2$</span>; each shift right = <span class="mark">divide by $2$</span>
+:::
+
+There is a limit to the number of shifts in an 8-bit <span class="term">register</span> (寄存器). Eventually, after a number of shifts, the register would only contain zeros. For example, shifting $01110000_2$ ($112$) five places left in an 8-bit register would give $00000000_2$ — making it seem as though $112 \times 32 = 0$!
+
+## Example 1: Left Shift
+
+### The denary number $21$ is $00010101_2$
+
+If we put $21$ into an 8-bit register and shift left:
+
+::: {.clean-table}
+| Shift | $128$ | $64$ | $32$ | $16$ | $8$ | $4$ | $2$ | $1$ | Denary | Equivalent |
+|:-----:|:-----:|:----:|:----:|:----:|:---:|:---:|:---:|:---:|:------:|:----------:|
+| 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | $21$ | — |
+| << 1 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | $42$ | $21 \times 2^1 = 42$ ✓ |
+| << 2 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | $84$ | $21 \times 2^2 = 84$ ✓ |
+| << 3 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | $168$ | $21 \times 2^3 = 168$ ✓ |
+| << 4 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | $80$ | $21 \times 2^4 = 336$ ✗ |
+:::
+
+After $4$ left shifts, the <span class="mark">left-most $1$-bit has been lost</span>. The result $21 \times 2^4 = 80$ is clearly incorrect — we have <span class="mark">exceeded the maximum number of left shifts</span> possible using this register.
+
+## Example 2: Right Shift
+
+### The denary number $200$ is $11001000_2$
+
+Putting $200$ into an 8-bit register and shifting right:
+
+::: {.clean-table}
+| Shift | $128$ | $64$ | $32$ | $16$ | $8$ | $4$ | $2$ | $1$ | Denary | Equivalent |
+|:-----:|:-----:|:----:|:----:|:----:|:---:|:---:|:---:|:---:|:------:|:----------:|
+| 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | $200$ | — |
+| >> 1 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | $100$ | $200 \div 2^1 = 100$ ✓ |
+| >> 2 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | $50$ | $200 \div 2^2 = 50$ ✓ |
+| >> 3 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | $25$ | $200 \div 2^3 = 25$ ✓ |
+| >> 4 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | $12$ | $200 \div 2^4 = 12.5$ ✗ |
+:::
+
+After $4$ right shifts, the <span class="mark">right-most $1$-bit has been lost</span>. The result $200 \div 2^4 = 12$ is incorrect — we have <span class="mark">exceeded the maximum number of right shifts</span> possible using this $8$-bit register.
+
+## Example 3
+
+### Shifting $24$ left and right
+
+a) Write $24$ as an 8-bit binary number:
+
+$$\begin{array}{c c c c c c c c}
+128 & 64 & 32 & 16 & 8 & 4 & 2 & 1 \\
+0 & 0 & 0 & 1 & 1 & 0 & 0 & 0
+\end{array}$$
+
+b) Logical shift $2$ places to the left:
+
+$$\begin{array}{c c c c c c c c}
+0 & 1 & 1 & 0 & 0 & 0 & 0 & 0
+\end{array}\qquad 24 \times 2^2 = 96\; \checkmark$$
+
+c) Logical shift $3$ places to the right:
+
+$$\begin{array}{c c c c c c c c}
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 1
+\end{array}\qquad 24 \div 2^3 = 3\; \checkmark$$
+
+## Example 4
+
+### Addition combined with shifting
+
+a) Convert $19$ and $17$ into binary:
+
+$19 = 00010011_2 \qquad 17 = 00010001_2$
+
+b) Binary addition: $00010011 + 00010001 = 00100100_2$ (denary $36$)
+
+c) Shift the result <span class="mark">$2$ places left</span>:
+
+$$\begin{array}{c c c c c c c c}
+1 & 0 & 0 & 1 & 0 & 0 & 0 & 0
+\end{array}$$
+
+$36 \times 2^2 = 144$ ✓
+
+d) Shift the result <span class="mark">$3$ places right</span>:
+
+$$\begin{array}{c c c c c c c c}
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0
+\end{array}$$
+
+The result is $4$, which is <span class="mark">incorrect</span> since $36 \div 2^3$ is not $4$. The number of possible right shifts has been <span class="mark">exceeded</span> — a $1$ has been lost from the original binary number.
+
+## Classroom Check
+
+### Understand logical shifts and their effects
+
+A complete answer should include:
+
+::: {.tight-list}
+- that a <span class="term">logical shift</span> moves all bits left or right; <span class="mark">vacated positions are filled with $0$s</span>
+- left shift by $n$ places <span class="mark">multiplies the value by $2^n$</span>; right shift by $n$ places <span class="mark">divides by $2^n$</span> (integer division)
+- that there is a <span class="mark">limit to the number of shifts</span> in an 8-bit register — eventually the register only contains zeros
+- that bits shifted <span class="mark">past the register boundary are lost</span>, producing incorrect results
+- the textbook examples: <span class="mark">$21 \ll 4$ produces $80$ (not $336$)</span>; <span class="mark">$200 \gg 4$ produces $12$ (not $12.5$)</span>
+:::
+
+## Bridge
+
+### Next: Two's Complement
+
+The next deck covers how negative numbers are represented in binary using two's complement notation.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

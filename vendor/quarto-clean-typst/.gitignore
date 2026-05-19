@@ -1,0 +1,13 @@
+.DS_Store
+*.pdf
+/.luarc.json
+/template*.typ
+README.html
+.Rproj.user
+_site/
+*_files/
+.vscode/
+
+/.quarto/
+.Renviron
+**/*.quarto_ipynb

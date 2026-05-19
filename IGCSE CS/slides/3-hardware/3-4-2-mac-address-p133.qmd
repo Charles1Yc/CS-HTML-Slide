@@ -1,0 +1,99 @@
+---
+title: "3.4.2 Media access control (MAC) address"
+subtitle: "Hardware P133"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## MAC Address
+
+### Physical hardware address
+
+A <span class="term">MAC address</span> (媒体访问控制地址) is made up of <span class="mark">48 bits</span> which are shown as six groups of hexadecimal digits with the general format:
+
+**NN – NN – NN – DD – DD – DD**
+
+::: {.tight-list}
+- First six hex digits: <span class="mark">manufacturer's code</span> — identifies the device as made by, for example, Apple
+- Second set of six hex digits: <span class="mark">device serial number</span> — this is unique
+- Every NIC has a unique MAC address
+- <span class="mark">If the NIC card is replaced, the MAC address will also change</span>
+:::
+
+Textbook example: `00 – 1C – B3 – 4F – 25 – FF`
+
+## Types of MAC Address
+
+### UAA and LAA
+
+There are two types of MAC address:
+
+::: {.tight-list}
+
+**Universally Administered MAC Address (UAA):**
+- By far the <span class="mark">most common type</span> of MAC address
+- This is the one <span class="mark">set by the manufacturer at the factory</span>
+- It is rare for a user to want to change this MAC address
+
+**Locally Administered MAC Address (LAA):**
+- Used when a user or organisation wishes to <span class="mark">change their MAC address</span>
+- This is a relatively easy task to carry out, but it will cause big problems if the changed address <span class="mark">isn't unique</span>
+:::
+
+## Reasons for Using LAA
+
+### Three scenarios for changing MAC
+
+There are a few reasons why the MAC address needs to be changed using LAA:
+
+::: {.tight-list}
+1. Certain software used on <span class="mark">mainframe systems</span> need all the MAC addresses of devices to fall into a strict format — because of this, it may be necessary to change the MAC address of some devices to ensure they follow the correct format
+
+2. It may be necessary to <span class="mark">bypass a MAC address filter</span> on a router or a firewall — only MAC addresses with a certain format are allowed through, otherwise the devices will be blocked if their MAC address doesn't adhere to the correct format
+
+3. To <span class="mark">get past certain types of network restrictions</span> it may be necessary to emulate unrestricted MAC addresses — hence it may require the MAC address to be changed on certain devices connected to the network
+:::
+
+## Classroom Check
+
+### Understand MAC addresses
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">MAC address</span> is a <span class="mark">48-bit unique hardware identifier</span> for a NIC, shown as six groups of hex digits (NN-NN-NN-DD-DD-DD)
+- first six hex digits = <span class="mark">manufacturer's code</span>; last six = <span class="mark">device serial number</span> (unique)
+- if the NIC card is replaced, the <span class="mark">MAC address will also change</span>
+- two types: <span class="mark">UAA</span> (set at factory, most common) and <span class="mark">LAA</span> (changed by user)
+- three LAA reasons: <span class="mark">mainframe software format</span> requirements, <span class="mark">bypassing MAC filters</span> on routers/firewalls, <span class="mark">getting past network restrictions</span> by emulating unrestricted addresses
+:::
+
+## Bridge
+
+### Next: IP Addresses
+
+The next deck covers IP addresses, which enable communication across networks and the internet.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

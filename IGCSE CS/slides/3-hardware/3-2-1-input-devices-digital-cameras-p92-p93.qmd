@@ -1,0 +1,156 @@
+---
+title: "3.2.1 Input devices"
+subtitle: "Digital cameras · Hardware P92-P93"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term {
+          color: #cf1f2e;
+          font-weight: 700;
+        }
+        .reveal .mark {
+          background: #fff36d;
+          padding: 0 0.08em;
+        }
+        .reveal .tight-list li {
+          margin-bottom: 0.22em;
+        }
+        .reveal .figure-note {
+          font-size: 0.82em;
+          line-height: 1.28;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Digital cameras
+
+### Replacing traditional film cameras
+
+:::: {.columns}
+
+::: {.column width="42%"}
+![Figure 3.20 Digital camera](../../assets/3-hardware/3-2-1-input-devices-digital-cameras-p92-p93/figure-3-20-digital-camera-enhanced.png){fig-align="center" width="92%"}
+:::
+
+::: {.column width="54%"}
+Digital cameras have essentially replaced the more traditional camera that used <span class="term">film</span> (胶片) to capture the images.
+
+The film required developing and then printing before the photographer could see the result of their work.
+
+This made these cameras expensive to operate since it was not possible to delete unwanted photographs.
+:::
+
+::::
+
+## Digital cameras
+
+### Connection to a computer system
+
+Modern digital cameras simply link to a computer system via a <span class="term">USB port</span> (USB 接口) or by using <span class="term">Bluetooth</span> (蓝牙).
+
+Bluetooth enables <span class="mark">wireless transfer of photographic files</span> (照片文件的无线传输).
+
+The key idea is that the image is already digital, so it can be transferred, stored, displayed or deleted without developing film.
+
+## Embedded system control
+
+### Automatic camera tasks
+
+These cameras are controlled by an <span class="term">embedded system</span> (嵌入式系统) which can automatically carry out the following tasks:
+
+::: {.tight-list}
+- adjust the shutter speed
+- focus the image automatically
+- operate the flash gun automatically
+- adjust the aperture size
+- adjust the size of the image
+- remove <span class="term">red-eye</span> ('red eye'，红眼) when the flash gun has been used
+- and so on
+:::
+
+## What happens when a photograph is taken
+
+### 1/5 Sub-items 1-2 of 7
+
+- the image is captured when light passes through the <span class="term">lens</span> (镜头) onto a light-sensitive cell; this cell is made up of millions of tiny sensors which are acting as <span class="term">photodiodes</span> (光电二极管), i.e. <span class="mark">charge couple devices (CCD)</span> (电荷耦合器件) which convert light into electricity
+- each of the sensors are often referred to as <span class="term">pixels</span> (picture elements，像素), since they are tiny components that make up the image
+
+## What happens when a photograph is taken
+
+### 2/5 Sub-items 3-4 of 7
+
+- the image is converted into tiny electric charges which are then passed through an <span class="mark">analogue to digital converter (ADC)</span> (模数转换器) to form a digital image array
+- the ADC converts the electric charges from each pixel into levels of brightness, now in a digital format; for example, an <span class="term">8-bit ADC</span> gives `2^8` or <span class="mark">256 possible brightness levels</span> per pixel, for example brightness level `01110011`
+
+## What happens when a photograph is taken
+
+### 3/5 Sub-item 5 of 7
+
+- apart from brightness, the sensors also measure colour which produces another binary pattern; most cameras use a <span class="mark">24-bit RGB system</span> (24 位 RGB 系统), which means each pixel has a <span class="term">red value</span> (0 to 255 in denary), a <span class="term">green value</span> (0 to 255) and a <span class="term">blue value</span> (0 to 255)
+
+For example, a shade of orange could be 215 (red), 165 (green) and 40 (blue), giving a binary pattern of `1101 0111 1010 0101 0010 1000`, or <span class="mark">D7A528 written in hex</span> (十六进制).
+
+## What happens when a photograph is taken
+
+### 4/5 Figure 3.21 explains sub-item 5
+
+![Figure 3.21 Typical pixel brightness and colour values](../../assets/3-hardware/3-2-1-input-devices-digital-cameras-p92-p93/figure-3-21-typical-pixel-brightness-and-colour-values-enhanced.png){fig-align="center" width="96%"}
+
+The orange pixel has brightness value of 115, which is `73` in hex or `0111 0011` in binary.
+
+The same pixel also has three RGB components: red `215` (`D7`), green `165` (`A5`) and blue `40` (`28`).
+
+## What happens when a photograph is taken
+
+### 5/5 Sub-items 6-7 of 7
+
+- the number of pixels determines the size of the file used to store the photograph
+- the quality of the image depends on the recording device (how good the camera lens is and how good the sensor array is), the number of pixels used (the more pixels used, the better the image), the levels of light and how the image is stored, for example <span class="term">JPEG</span> or <span class="term">raw file</span> (原始文件)
+
+Together, these 7 sub-items describe the complete textbook process from light capture to digital data, colour values, file size and image quality.
+
+## Mobile phones and digital cameras
+
+### Pixel count is not the whole story
+
+Mobile phones have caught up with digital cameras as regards number of pixels.
+
+But the drawback is often <span class="term">inferior lens quality</span> (较差的镜头质量) and limited memory for the storage of photos.
+
+This is fast changing: at the time of writing, many smartphones now have very sophisticated optics and photography software as standard.
+
+## Figure 3.22 How a digital camera works
+
+### Image to digital representation
+
+![Figure 3.22 Diagram of how a digital camera works](../../assets/3-hardware/3-2-1-input-devices-digital-cameras-p92-p93/figure-3-22-diagram-of-how-a-digital-camera-works-enhanced.png){fig-align="center" width="98%"}
+
+The diagram shows the core chain: image -> lens -> <span class="term">CCD</span> -> <span class="term">ADC</span> -> digital representation of image.
+
+The timing device allows different shutter speeds, delayed action and so on.
+
+## Classroom Check
+
+### Explain the conversion chain
+
+A complete answer should move in order:
+
+light -> lens -> light-sensitive cell / CCD -> pixels -> electric charges -> ADC -> brightness / RGB values -> digital image
+
+Key terms to use: <span class="term">photodiodes</span>, <span class="term">CCD</span>, <span class="term">pixels</span>, <span class="term">ADC</span>, <span class="term">RGB</span>, <span class="term">JPEG</span>, <span class="term">raw file</span>.
+
+## End
+
+### Return to the main outline
+
+[Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

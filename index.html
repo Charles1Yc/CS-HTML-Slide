@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduHub 教学平台</title>
+  <link rel="stylesheet" href="config/course-index.css">
+</head>
+<body class="library-page">
+  <header class="hub-header">
+    <a class="hub-brand" href="index.html" aria-label="EduHub home">
+      <span class="brand-mark" aria-hidden="true">▣</span>
+      <span class="brand-copy">
+        <strong>EduHub</strong>
+        <small>教学平台</small>
+      </span>
+    </a>
+
+    <nav class="hub-nav" id="homeViews" aria-label="Home sections">
+      <button type="button" class="hub-nav-link active" data-home-target="courses">课程</button>
+    </nav>
+
+    <div class="hub-actions">
+      <label class="hub-search" for="librarySearch">
+        <span class="visually-hidden">搜索课程或课件</span>
+        <input type="search" id="librarySearch" placeholder="搜索课程 / 课件...">
+      </label>
+      <button type="button" class="hub-avatar" aria-label="User">T</button>
+    </div>
+  </header>
+
+  <main class="library-shell">
+
+    <section class="content-block" id="courses">
+      <div class="section-heading-row">
+        <div>
+          <h2>我的课程</h2>
+          <p>按课程体系与学科筛选，也可拖拽调整顺序。</p>
+        </div>
+        <span class="section-count" id="libraryResult">3 个课程</span>
+      </div>
+
+      <div class="chip-row" id="libraryFilters" aria-label="Course filters">
+        <button type="button" class="chip active" data-library-filter="all">全部</button>
+        <button type="button" class="chip" data-library-filter="igcse">IGCSE</button>
+        <button type="button" class="chip" data-library-filter="alevel">A Level</button>
+        <button type="button" class="chip" data-library-filter="ap">AP</button>
+        <button type="button" class="chip" data-library-filter="cs">计算机科学</button>
+      </div>
+
+      <div class="course-card-grid" id="courseCardGrid"></div>
+
+      <div class="empty-state is-hidden" id="libraryEmpty">没有匹配的课程。</div>
+    </section>
+  </main>
+
+  <script src="config/course-catalog.js"></script>
+  <script src="config/course-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+---
+title: "1.2.3 Representation of (bitmap) images"
+subtitle: "Data Representation P30-P31"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note {
+          margin-top: 0.7em;
+          padding: 0.42em 0.7em;
+          border: 1px dashed #b8b8b8;
+          color: #555;
+          font-size: 0.72em;
+        }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Bitmap Images
+
+### Pixels and binary values
+
+<span class="term">Bitmap images</span> are made up of <span class="term">pixels</span> (picture elements); an image is made up of a <span class="mark">two-dimensional matrix</span> of pixels.
+
+::: {.figure-note}
+**Figure 1.10** Pixel shape examples placeholder
+:::
+
+Each pixel can be represented as a <span class="mark">binary number</span>, and so a bitmap image is stored in a computer as a series of binary numbers.
+
+## Bits per Pixel
+
+### Colour depth
+
+::: {.tight-list}
+- a black and white image only requires <span class="mark">$1$ bit per pixel</span>, so each pixel can be one of two colours
+- if each pixel is represented by <span class="mark">$2$ bits</span>, then each pixel can be one of four colours (`2^2 = 4`)
+- if each pixel is represented by <span class="mark">$3$ bits</span>, then each pixel can be one of eight colours (`2^3 = 8`)
+- the number of bits used to represent each colour is called the <span class="term">colour depth</span> (色深)
+:::
+
+An <span class="mark">$8$ bit colour depth</span> means that each pixel can be one of `256` colours (`2^8 = 256`). Modern computers have a <span class="mark">$24$ bit colour depth</span>, which means over `16 million` different colours can be represented. With `x` pixels, <span class="mark">`2^x` colours</span> can be represented as a generalisation.
+
+Increasing <span class="mark">colour depth</span> also increases the size of the file when storing an image.
+
+## Image Resolution
+
+### Number of pixels in the image
+
+<span class="term">Image resolution</span> refers to the <span class="mark">number of pixels</span> that make up an image; for example, an image could contain `4096 × 3072` pixels (`12 582 912` pixels in total).
+
+The resolution can be varied on many cameras before taking, for example, a digital photograph. Photographs with a <span class="mark">lower resolution</span> have less detail than those with a <span class="mark">higher resolution</span>.
+
+::: {.figure-note}
+**Figure 1.11** Five images of the same car wheel using different resolutions placeholder
+:::
+
+## Pixelation and File Size
+
+### Drawbacks of low and high resolution
+
+Image `A` has the highest resolution and `E` has the lowest resolution. `E` has become <span class="term">pixelated</span> (像素化, `<span class="mark">fuzzy</span>`). This is because there are fewer pixels in `E` to represent the image.
+
+::: {.tight-list}
+- the main drawback of using <span class="mark">high resolution images</span> is the increase in <span class="mark">file size</span>
+- as the number of pixels used to represent the image is increased, the size of the file will also increase
+- this impacts on how many images can be stored on, for example, a hard drive
+- it also impacts on the time to <span class="mark">download</span> an image from the internet or the time to <span class="mark">transfer</span> images from device to device
+- a certain amount of reduction in resolution is possible before the loss of quality becomes noticeable
+:::
+
+## Classroom Check
+
+### Understand bitmap image representation
+
+A complete answer should include:
+
+::: {.tight-list}
+- that a bitmap image is made up of <span class="mark">pixels in a two-dimensional matrix</span>
+- that each pixel can be represented as a <span class="mark">binary number</span>
+- that <span class="term">colour depth</span> is the <span class="mark">number of bits used to represent each colour</span>
+- that <span class="mark">$8$-bit colour depth</span> gives `256` colours and <span class="mark">$24$-bit colour depth</span> gives over `16 million` colours
+- that <span class="term">resolution</span> is the <span class="mark">number of pixels</span> making up the image
+- that increasing <span class="mark">colour depth</span> or <span class="mark">resolution</span> increases file size
+:::
+
+## Bridge
+
+### Next: Measurement of Data Storage
+
+The next deck covers how data storage is measured.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

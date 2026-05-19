@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<script src="../_shared/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../_shared/site_libs/quarto-html/tabby.min.js"></script>
+<script src="../_shared/site_libs/quarto-html/popper.min.js"></script>
+<script src="../_shared/site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../_shared/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../_shared/site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <title>2.3.2 Symmetric and asymmetric encryption</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
+  <link href="../_shared/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../_shared/site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../_shared/site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../_shared/site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <link rel="stylesheet" href="tablet-controls.css">
+  <style>
+  .reveal .term { color: #cf1f2e; font-weight: 700; }
+  .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+  .reveal .tight-list li { margin-bottom: 0.24em; }
+  .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+  .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+  </style>
+</head>
+<body class="quarto-light">
+<script src="mathjax-config.js"></script>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">2.3.2 Symmetric and asymmetric encryption</h1>
+  <p class="subtitle">Data Transmission P64-P74</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="course-directory" class="slide level2">
+<h2>Course Directory</h2>
+<h3 id="return-to-the-main-outline">Return to the main outline</h3>
+<p><a href="../../index.html">← Back to Unit 2 Directory / 返回 Unit 2 目录</a></p>
+</section>
+<section id="symmetric-encryption" class="slide level2">
+<h2>Symmetric Encryption</h2>
+<h3 id="same-key-for-both-operations">Same key for both operations</h3>
+<p><span class="term">Symmetric encryption</span> (对称加密) uses an encryption key; the <mark>same key</mark> is used to encrypt and decrypt the encoded message.</p>
+<p>First, consider a simple system that uses a <mark>10-digit denary encryption key</mark> (this gives 1 × 10¹⁰ possible codes). Suppose our encryption key is:</p>
+<p style="text-align: center; font-size: 1.4em; font-family: monospace; letter-spacing: 0.3em;">
+<mark>4 2 9 1 3 6 2 8 5 6</mark>
+</p>
+<p>This means every letter in a word is <mark>shifted across the alphabet</mark> by +4, +2, +9, +1, +3, +6, +2, +8, +5, +6 places, repeating for the whole message.</p>
+</section>
+<section id="symmetric-encryption-example" class="slide level2">
+<h2>Symmetric Encryption Example</h2>
+<h3 id="computer-science-is-exciting">COMPUTER SCIENCE IS EXCITING</h3>
+<p>Plaintext (top) and ciphertext (bottom) after applying the key 4 2 9 1 3 6 2 8 5 6:</p>
+<p style="text-align: center; font-size: 0.85em; font-family: monospace;">
+C O M P U T E R &nbsp; S C I E N C E &nbsp; I S &nbsp; E X C I T I N G<br> <mark>G Q V Q X Z G Z X &nbsp; I M G W D &nbsp; H O U M C &nbsp; I M V R O J</mark>
+</p>
+<p>To get back to the original message, apply the same decryption key but <mark>in reverse</mark>: each letter shifted −4, −2, −9, −1, −3, and so on.</p>
+<p>For example: ‘G’ −4 → ‘C’, ‘Q’ −2 → ‘O’, ‘V’ −9 → ‘M’</p>
+</section>
+<section id="symmetric-encryption-key-length" class="slide level2">
+<h2>Symmetric Encryption: Key Length</h2>
+<h3 id="modern-encryption-keys">Modern encryption keys</h3>
+<p>However, modern computers could <mark>‘crack’ this encryption key in a matter of seconds</mark>. To combat this, we now use <mark>256-bit binary encryption keys</mark> that give 2²⁵⁶ (approximately 1.2 × 10⁷⁷) possible combinations.</p>
+<p>(Even this may not be enough as we head towards <span class="term">quantum computers</span>.)</p>
+</section>
+<section id="symmetric-encryption-problem" class="slide level2">
+<h2>Symmetric Encryption Problem</h2>
+<h3 id="key-distribution-challenge">Key distribution challenge</h3>
+<p>The real difficulty is <mark>keeping the encryption key a secret</mark> (for example, it needs to be sent in an email or a text message which can be intercepted).</p>
+<div class="tight-list">
+<ul>
+<li>The <mark>security issue</mark> is always the <mark>main drawback of symmetric encryption</mark></li>
+<li>A single encryption key is required for both sender and recipient</li>
+<li>This problem led to the development of <span class="term">asymmetric encryption</span></li>
+</ul>
+</div>
+</section>
+<section id="asymmetric-encryption" class="slide level2">
+<h2>Asymmetric Encryption</h2>
+<h3 id="two-keys-public-and-private">Two keys: public and private</h3>
+<p><span class="term">Asymmetric encryption</span> (非对称加密) was developed to overcome the security problems associated with symmetric encryption. It makes use of two keys:</p>
+<div class="tight-list">
+<ul>
+<li><mark>Public key</mark> (公钥) — made available to everybody</li>
+<li><mark>Private key</mark> (私钥) — only known to the computer user</li>
+</ul>
+</div>
+<p>Both types of key are needed to encrypt and decrypt messages.</p>
+<p>The matching pairs of keys are <mark>mathematically linked</mark> but can’t be derived from each other.</p>
+</section>
+<section id="tom-jane-step-1-and-2" class="slide level2">
+<h2>Tom &amp; Jane: Step 1 and 2</h2>
+<h3 id="asymmetric-encryption-in-action">Asymmetric encryption in action</h3>
+<p>Suppose Tom and Jane work for the same company and Tom wishes to send a confidential document to Jane:</p>
+<p><strong>Step 1:</strong> Jane uses an algorithm to <mark>generate a matching pair of keys</mark> (private and public) that they must keep stored on their computers.</p>
+<p><strong>Step 2:</strong> Jane now <mark>sends her public key to Tom</mark>.</p>
+<pre><code>Tom                         Jane
+                            Public key + Private key
+Jane sends Tom              (matching pair)
+her public key  ←-----------</code></pre>
+</section>
+<section id="tom-jane-step-3-and-4" class="slide level2">
+<h2>Tom &amp; Jane: Step 3 and 4</h2>
+<h3 id="encryption-and-decryption">Encryption and decryption</h3>
+<p><strong>Step 3:</strong> Tom now uses <mark>Jane’s public key</mark> to encrypt the document he wishes to send to her. He then sends his <mark>encrypted document (ciphertext)</mark> back to Jane.</p>
+<p><strong>Step 4:</strong> Jane uses her <mark>matching private key</mark> to unlock Tom’s document and decrypt it.</p>
+<div class="tight-list">
+<ul>
+<li>This works because the <mark>public key used to encrypt</mark> and the <mark>private key used to decrypt</mark> are a matching pair generated on Jane’s computer</li>
+<li><mark>Jane can’t use the public key to decrypt</mark> the message — only the matching private key works</li>
+</ul>
+</div>
+</section>
+<section id="public-key-sharing" class="slide level2">
+<h2>Public Key Sharing</h2>
+<h3 id="multiple-senders">Multiple senders</h3>
+<p>Jane can also exchange her public key with <mark>any number of people</mark> working in the company, so she is able to receive encrypted messages from everyone:</p>
+<pre><code>Tom ----→ Public key ---
+                         |
+Susan ---→ Public key ---→ Jane
+                         |   Public key
+Mike ----→ Public key ---→ Private key
+                         |
+Megan ---→ Public key ---</code></pre>
+<p>All senders encrypt using <mark>Jane’s public key</mark>; only Jane can decrypt using her <mark>matching private key</mark>.</p>
+</section>
+<section id="two-way-communication" class="slide level2">
+<h2>Two-Way Communication</h2>
+<h3 id="everyone-needs-their-own-key-pair">Everyone needs their own key pair</h3>
+<p>If a two-way communication is required between all five workers: - They <mark>all</mark> need to <mark>generate their own matching public and private keys</mark> - All users then need to <mark>swap public keys</mark> so they can send encrypted documents between each other - Each worker will then use their <mark>own private key</mark> to decrypt information being sent to them</p>
+</section>
+<section id="symmetric-vs-asymmetric-comparison" class="slide level2">
+<h2>Symmetric vs Asymmetric Comparison</h2>
+<h3 id="comparing-the-two-encryption-methods">Comparing the two encryption methods</h3>
+<div class="clean-table">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Symmetric</th>
+<th>Asymmetric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Keys</td>
+<td>One (shared)</td>
+<td>Two (public/private)</td>
+</tr>
+<tr class="even">
+<td>Speed</td>
+<td>Fast</td>
+<td>Slower</td>
+</tr>
+<tr class="odd">
+<td>Key distribution</td>
+<td>Main drawback — keeping key secret</td>
+<td>Solved — public key shared openly</td>
+</tr>
+<tr class="even">
+<td>How it works</td>
+<td>Same key encrypts and decrypts</td>
+<td>Public key encrypts, matching private key decrypts</td>
+</tr>
+<tr class="odd">
+<td>Main use</td>
+<td>Bulk data encryption</td>
+<td>Secure key exchange, where key distribution is the main issue</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <mark>key distribution problem</mark> is the central difference — asymmetric encryption was developed specifically to solve this.</p>
+</section>
+<section id="key-points-summary" class="slide level2">
+<h2>Key Points Summary</h2>
+<h3 id="symmetric-encryption-1">Symmetric encryption</h3>
+<div class="tight-list">
+<ul>
+<li>Uses <mark>one key</mark> for both encryption and decryption</li>
+<li>Key must be kept <mark>secret</mark> — this is the main drawback</li>
+<li>Modern systems use <mark>256-bit binary keys</mark> (2²⁵⁶ possible combinations)</li>
+<li>Example: 10-digit key 4291362856 shifts each letter by successive digits</li>
+</ul>
+</div>
+<h3 id="asymmetric-encryption-1">Asymmetric encryption</h3>
+<div class="tight-list">
+<ul>
+<li>Uses <mark>two mathematically linked keys</mark> — public (shared) and private (secret)</li>
+<li>Public key encrypts → <mark>matching private key decrypts</mark></li>
+<li>Anyone with the public key can send encrypted messages to the key owner</li>
+<li>For two-way communication, <mark>all parties need their own key pair</mark> and must swap public keys</li>
+</ul>
+</div>
+</section>
+<section id="classroom-check" class="slide level2">
+<h2>Classroom Check</h2>
+<h3 id="understand-encryption-types-and-applications">Understand encryption types and applications</h3>
+<p>A complete answer should include:</p>
+<div class="tight-list">
+<ul>
+<li><mark>symmetric encryption: same key encrypts and decrypts</mark> — fast, but key distribution is the main security drawback</li>
+<li><mark>256-bit binary keys</mark> give 2²⁵⁶ ≈ 1.2 × 10⁷⁷ possible combinations</li>
+<li><mark>asymmetric encryption: uses public key (shared) and private key (secret)</mark> — mathematically linked but can’t be derived from each other</li>
+<li>process: <mark>Jane generates key pair → sends public key to Tom → Tom encrypts with public key → Jane decrypts with private key</mark></li>
+<li><mark>public key can be shared with any number of people</mark>; all can send encrypted messages that only the private key holder can decrypt</li>
+<li>for <mark>two-way communication, all parties need their own key pair</mark> and must swap public keys</li>
+</ul>
+</div>
+</section>
+<section id="bridge" class="slide level2">
+<h2>Bridge</h2>
+<h3 id="return-to-the-main-outline-1">Return to the main outline</h3>
+<p>Return to the Unit 2 directory to review the data transmission topics and encryption examples.</p>
+</section>
+<section id="end" class="slide level2">
+<h2>End</h2>
+<h3 id="return-to-the-main-outline-2">Return to the main outline</h3>
+<p><a href="../../index.html">← Back to Unit 2 Directory / 返回 Unit 2 目录</a></p>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../_shared/site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../_shared/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../_shared/site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../_shared/site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "已复制");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "已复制");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script src="tablet-controls.js"></script>
+    
+
+</body></html>

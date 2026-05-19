@@ -1,0 +1,97 @@
+---
+title: "3.3 Data storage"
+subtitle: "Overview · Hardware P119-P120"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3 Data storage
+
+### Memory and storage
+
+All computers require some form of <span class="term">memory</span> (内存) and <span class="term">storage</span> (存储).
+
+<span class="term">Memory</span> is usually referred to as the internal devices used to store data that the computer can access <span class="mark">directly</span>. This is also known as <span class="term">primary memory</span> (主存储器). This memory can be the user's workspace, temporary data or data that is key to running the computer.
+
+<span class="term">Storage devices</span> allow users to store applications, data and files. The user's data is stored <span class="mark">permanently</span> and they can change it or read it as they wish.
+
+## Why Storage Is Needed
+
+### Transfer and data loss protection
+
+Storage needs to be larger than internal memory since the user may wish to store large files such as music files or videos.
+
+Storage devices can also be <span class="mark">removable</span> to allow data, for example, to be transferred between computers.
+
+Removable devices allow a user to store important data in a different location in case of <span class="term">data loss</span> (数据丢失).
+
+However, all of this removable storage has become less important with the advent of technology such as <span class="term">data drop</span> (数据投送) and <span class="term">cloud storage</span> (云存储).
+
+## Figure 3.57
+
+### Typical memory and storage devices
+
+![Figure 3.57 Typical memory and storage devices](../../assets/3-hardware/3-3-data-storage-overview-p119-p120/Figure 3.57 Typical memory and storage devices.png){fig-align="center" width="88%"}
+
+## Two Distinct Groups
+
+### Primary memory and secondary storage
+
+Memory and storage devices can be split up into <span class="mark">two distinct groups</span>:
+
+::: {.tight-list}
+- <span class="term">primary memory</span> (主存储器)
+- <span class="term">secondary storage</span> (二级存储)
+:::
+
+## Figure 3.58
+
+### Summary of primary and secondary devices
+
+![Figure 3.58 Summary of primary, secondary and off-line devices](../../assets/3-hardware/3-3-data-storage-overview-p119-p120/Figure 3.58 Summary of primary, secondary and off-line devices.png){fig-align="center" width="90%"}
+
+The key distinction is whether a device is <span class="mark">directly addressable by the CPU</span>.
+
+## Classroom Check
+
+### Keep the distinction precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- that <span class="term">memory</span> refers to internal devices that the computer can access <span class="mark">directly</span>
+- that this is also known as <span class="term">primary memory</span>
+- that storage is used to hold applications, data and files <span class="mark">permanently</span>
+- that memory and storage devices are split into <span class="mark">primary memory</span> and <span class="mark">secondary storage</span>
+- that the key difference is whether the device is <span class="mark">directly addressable by the CPU</span>
+:::
+
+## Bridge
+
+### Next: 3.3.1 Primary memory
+
+The next decks explain <span class="term">primary memory</span>, including <span class="term">RAM</span>, <span class="term">DRAM</span>, <span class="term">SRAM</span> and <span class="term">ROM</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

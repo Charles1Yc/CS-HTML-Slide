@@ -1,0 +1,129 @@
+---
+title: "1.10 Calling Class Methods"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Class Methods
+
+### Static methods belong to the class
+
+Most methods used so far in this part of the course are <span class="term">class methods</span>, also called <span class="term">static methods</span>.
+
+```java
+public static returnType methodName(parameters)
+{
+    // body
+}
+```
+
+They are called with the class name, such as `Math.sqrt(25)`.
+
+## Non-void Methods
+
+### Some methods calculate and return a value
+
+![Method as a function](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png){fig-align="center" width="44%"}
+
+<span class="term">void</span> methods do not return a value.  
+<span class="term">non-void</span> methods do return a value that must match the declared return type.
+
+## Square Example
+
+### Return values come back to the caller
+
+![Square method model](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png){fig-align="center" width="46%"}
+
+```java
+public static int square(int number)
+{
+    int result = number * number;
+    return result;
+}
+```
+
+The <span class="term">return</span> statement ends the method and sends the value back.
+
+## Using Returned Values
+
+### Do something with the result
+
+```java
+int y = square(5);
+System.out.println(square(4));
+```
+
+Common mistakes:
+
+::: {.tight-list}
+- ignoring the returned value
+- storing it in the wrong type
+- passing arguments in the wrong order
+:::
+
+With non-void methods, the returned value is the whole point.
+
+## Methods Outside the Class
+
+### Use the class name when the method lives elsewhere
+
+If a method is in another class, call it with:
+
+```java
+ClassName.methodName(arguments)
+```
+
+Examples:
+
+::: {.tight-list}
+- `Math.sqrt(9)`
+- `Math.pow(3, 2)`
+:::
+
+This topic is the bridge between custom examples like `square()` and library use like `Math`.
+
+## Classroom Task
+
+### Ladder on Tower
+
+![Ladder on tower challenge](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png){fig-align="center" width="30%"}
+
+The retained coding challenge uses the Pythagorean theorem:
+
+`c = sqrt(a^2 + b^2)`
+
+It is a good checkpoint for:
+
+::: {.tight-list}
+- method calls with arguments
+- return values
+- `Math.sqrt` and `Math.pow`
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define class methods as <span class="term">static</span> methods
+- distinguish `void` and non-void methods
+- explain the job of the `return` statement
+- use or store a returned value correctly
+- call methods in other classes with `ClassName.methodName(...)`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

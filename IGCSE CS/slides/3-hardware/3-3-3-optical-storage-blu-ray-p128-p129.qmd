@@ -1,0 +1,123 @@
+---
+title: "3.3.3 Magnetic, optical and solid-state storage"
+subtitle: "Blu-ray discs · Hardware P128-P129"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.3 Optical storage
+
+### Blu-ray discs
+
+<span class="term">Blu-ray discs</span> are another example of optical storage media. However, they are fundamentally different to DVDs in their construction and in the way they carry out read-write operations.
+
+Note: it is probably worth mentioning why they are called <span class="term">Blu-ray</span> rather than <span class="term">Blue-ray</span>; the simple reason is it was impossible to copyright the word <span class="mark">'Blue'</span> and hence the use of the word <span class="mark">'Blu'</span>.
+
+## Figure 3.67
+
+### Blu-ray disc
+
+![Figure 3.67 Blu-ray disc](../../assets/3-hardware/3-3-3-optical-storage-blu-ray-p128-p129/Figure 3.67 Blu-ray disc.png){fig-align="center" width="76%"}
+
+## Main Differences
+
+### DVD and Blu-ray
+
+The main differences between <span class="term">DVD</span> and <span class="term">Blu-ray</span> are:
+
+::: {.tight-list}
+- a <span class="mark">blue laser</span>, rather than a red laser, is used to carry out read and write operations
+- the wavelength of blue light is only <span class="mark">405 nanometres</span> compared to <span class="mark">650 nm</span> for red light
+- using blue laser light means that the pits and lands can be <span class="mark">much smaller</span>
+- consequently, Blu-ray can store up to <span class="mark">five times more data</span> than normal DVD
+- single-layer Blu-ray discs use a <span class="mark">1.2 mm thick polycarbonate disk</span>
+- dual-layer Blu-ray and normal DVDs both use a sandwich of <span class="mark">two 0.6 mm thick disks</span>
+- Blu-ray disks automatically come with a <span class="mark">secure encryption system</span> to help prevent piracy and copyright infringement
+- the data transfer rate for a DVD is <span class="mark">10 Mbps</span> and for a Blu-ray disc it is <span class="mark">36 Mbps</span>
+:::
+
+## Capacity and Interactivity
+
+### Comparison notes from the textbook
+
+Since Blu-ray discs can come in single layer or dual-layer format (unlike DVD, which is always dual-layer), it is worth comparing the differences in capacity and interactivity of the two technologies.
+
+::: {.tight-list}
+- a standard dual-layer DVD has a storage capacity of <span class="mark">4.7 GB</span>
+- a single-layer Blu-ray disc has a storage capacity of <span class="mark">27 GB</span>
+- a dual-layer Blu-ray disc has a storage capacity of <span class="mark">50 GB</span>
+:::
+
+Blu-ray allows <span class="mark">greater interactivity</span> than DVDs. For example, with Blu-ray, it is possible to:
+
+::: {.tight-list}
+- record high definition television programmes
+- skip quickly to any part of the disc
+- create playlists of recorded movies and television programmes
+- edit or re-order programmes recorded on the disc
+- automatically search for empty space on the disc to avoid over-recording
+- access websites and download subtitles and other interesting features
+:::
+
+## Table 3.11
+
+### Comparison of CD, DVD and Blu-ray
+
+![Table 3.11 Comparison of CD, DVD and Blu-ray](../../assets/3-hardware/3-3-3-optical-storage-blu-ray-p128-p129/Table 3.11 Comparison of CD, DVD and Blu-ray.png){fig-align="center" width="92%"}
+
+## Common Uses
+
+### Movies, games and software
+
+The most common use of DVD and Blu-ray is the supply of <span class="mark">movies or games</span>.
+
+The memory capacity of CDs is not big enough to store most movies.
+
+All these optical storage media are used as <span class="term">back-up systems</span> (备份系统) for photos, music and multimedia files.
+
+Manufacturers sometimes supply their software, for example printer drivers, using CDs and DVDs. When the software is supplied in this way, the disk is usually in a <span class="mark">read-only format</span>.
+
+## Classroom Check
+
+### Focus on the textbook comparison
+
+A complete answer should include:
+
+::: {.tight-list}
+- that Blu-ray uses a <span class="mark">blue laser</span> at <span class="mark">405 nm</span> rather than a red laser
+- that smaller pits and lands allow Blu-ray to store <span class="mark">much more data</span> than DVD
+- that single-layer Blu-ray is <span class="mark">27 GB</span> and dual-layer Blu-ray is <span class="mark">50 GB</span>
+- that Blu-ray comes with a <span class="mark">secure encryption system</span>
+- that Blu-ray allows <span class="mark">greater interactivity</span> than DVD
+- that DVD and Blu-ray are commonly used for <span class="mark">movies or games</span>
+:::
+
+## Bridge
+
+### Next: 3.3.4 Virtual memory
+
+The next deck moves from storage media to <span class="term">virtual memory</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

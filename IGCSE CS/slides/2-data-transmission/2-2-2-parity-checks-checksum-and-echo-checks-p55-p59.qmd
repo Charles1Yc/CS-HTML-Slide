@@ -1,0 +1,156 @@
+---
+title: "2.2.2 Parity checks, checksum and echo checks"
+subtitle: "Data Transmission P55-P59"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Parity Checks
+
+### Simple single-bit error detection
+
+<span class="term">Parity checking</span> (奇偶校验) is one method used to check whether data has been changed or corrupted following data transmission. This method is based on the <span class="mark">number of 1-bits</span> in a byte of data.
+
+The parity can be either called <span class="mark">EVEN</span> (an even number of 1-bits) or <span class="mark">ODD</span> (an odd number of 1-bits). One of the bits in the byte — usually the <span class="mark">most significant bit (left-most bit)</span> — is reserved for a <span class="term">parity bit</span> (奇偶校验位).
+
+**Example byte:** 1 1 0 1 1 0 0 (with parity bit position reserved at left):
+
+- Using <span class="mark">even parity</span>: parity bit set to 0 → **0** 1 1 0 1 1 0 0 (four 1-bits, even)
+- Using <span class="mark">odd parity</span>: parity bit set to 1 → **1** 1 1 0 1 1 0 0 (five 1-bits, odd)
+
+Before data is transferred, an <span class="mark">agreement is made</span> between sender and receiver regarding which type of parity is being used. Parity checks are being used as a type of <span class="term">transmission protocol</span>.
+
+## How Parity Detects Errors
+
+### Receiver checks the parity of each byte
+
+If a byte has been transmitted from 'A' to 'B' using even parity, an error would be flagged if the byte now had an <span class="mark">odd number of 1-bits</span> at the receiver's end.
+
+Example (even parity being used):
+
+Sent: **0** 1 0 1 1 1 0 0 (even parity, four 1-bits)
+Received: **0** 1 0 1 1 0 0 0 (now has three 1-bits, odd parity)
+
+::: {.tight-list}
+- The byte received has <span class="mark">three 1-bits (odd parity)</span>, but even parity was agreed
+- This means an <span class="mark">error has occurred</span> during transmission
+- If even parity had been agreed, a <span class="mark">change in parity</span> in the received byte indicates a transmission error
+:::
+
+## Parity Limitations
+
+### What parity can and cannot detect
+
+If <span class="mark">two bits</span> change value following data transmission, it may be impossible to locate the error using parity checking.
+
+Example: byte sent using even parity → **0** 1 0 1 1 1 0 0 (four 1-bits). Two bits change:
+
+- Received: **0** 1 1 1 1 1 0 1 (six 1-bits, still even → error NOT detected)
+- Received: **0** 1 0 1 0 0 0 0 (two 1-bits, still even → error NOT detected)
+
+::: {.tight-list}
+- <span class="mark">Any even number of bit flips</span> may go undetected — parity unchanged
+- Even though an error has been flagged, it is <span class="mark">impossible to know exactly which bit</span> is in error
+- Clearly necessary to have <span class="mark">other ways to complement parity</span> to ensure errors are never missed
+- One such method is <span class="term">checksum</span>
+:::
+
+## Parity Blocks
+
+### Horizontal and vertical parity checking
+
+One way round the parity limitation is to use <span class="term">parity blocks</span> (奇偶校验块). A block of data is sent and the number of 1-bits are totalled <span class="mark">horizontally and vertically</span> (parity check in both directions).
+
+This method not only <span class="mark">identifies that an error has occurred</span> but also <span class="mark">indicates where the error is</span>.
+
+Another byte, known as the <span class="term">parity byte</span> (奇偶校验字节), is also sent. This byte consists entirely of the parity bits produced by the <span class="mark">vertical parity check</span>. The parity byte also indicates the <span class="mark">end of the block of data</span>.
+
+## Parity Block Example
+
+### Using Table 2.3 to locate an error
+
+Nine bytes of data have been transmitted using even parity. A parity byte has also been sent. At the receiving end:
+
+::: {.tight-list}
+- Check the parity of each byte <span class="mark">horizontally</span> (bytes 1 to 9)
+- Check the parity of each bit column <span class="mark">vertically</span> (columns 1 to 8)
+- Flag each row and column where parity has <span class="mark">changed from even to odd</span>
+:::
+
+If byte 8 (row 8) has incorrect parity AND bit 5 (column 5) also has incorrect parity:
+- The <span class="mark">intersection of row 8 and column 5</span> identifies the exact bit position of the error
+- This bit can be <span class="mark">corrected automatically</span>, or an error message sent back to the sender to <span class="mark">re-transmit the block of data</span>
+
+## Checksum
+
+### Verification using calculated values
+
+A <span class="term">checksum</span> (校验和) is a verification method used to check if data transferred has been altered or corrupted:
+
+::: {.tight-list}
+- Calculated from the <span class="mark">block of data</span> being sent
+- The checksum value is sent <span class="mark">after each data block</span>
+- The receiving computer recalculates the checksum using the <span class="mark">same method</span>
+- <span class="mark">If the two checksum values don't match</span>, the receiving computer requests the data to be re-transmitted
+:::
+
+## Echo Check
+
+### Receiver verification
+
+An <span class="term">echo check</span> (回显检查) is a method used to check if data has been transferred correctly:
+
+::: {.tight-list}
+1. Data is sent to a receiver
+2. <span class="mark">Receiver immediately sends the data back</span> to the sender
+3. Sender <span class="mark">checks if the received data matches</span> the sent data
+4. <span class="mark">If they match, transmission successful</span>
+5. <span class="mark">If different, error detected</span> — re-transmit
+:::
+
+Simple method but involves sending data twice. However, this <span class="mark">isn't very reliable</span>: if the two sets of data are different, <span class="mark">it isn't known whether the error occurred when sending the data in the first place, or if the error occurred when sending the data back</span> for checking.
+
+## Classroom Check
+
+### Understand error detection methods
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">parity check: based on number of 1-bits</span> — even parity (even number of 1s) or odd parity (odd number of 1s)
+- <span class="mark">parity bit is usually the MSB (left-most bit)</span>; sender and receiver agree parity protocol beforehand
+- <span class="mark">parity detects odd number of bit flips but fails for even number</span>
+- <span class="mark">parity blocks: horizontal + vertical parity</span> identifies exact bit position of the error
+- <span class="mark">parity byte: extra byte from vertical parity check</span> sent at end of block
+- <span class="mark">checksum: value calculated from data block</span>, sent after block; receiver recalculates and compares
+- <span class="mark">echo check: receiver sends data back</span> to sender for comparison
+:::
+
+## Bridge
+
+### Next: Check Digits
+
+The next deck covers check digits for detecting data entry errors.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

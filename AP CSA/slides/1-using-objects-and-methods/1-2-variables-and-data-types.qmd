@@ -1,0 +1,144 @@
+---
+title: "1.2 Variables and Data Types"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## What Is a Variable?
+
+### A named place that can change
+
+A <span class="term">variable</span> (变量) is a memory location that stores a value that can change while the program runs.
+
+![Pong score example](../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/pongScore.png){fig-align="center" width="44%"}
+
+Scores, ages, prices, and names are useful because the same program can work with <span class="mark">different stored values</span>.
+
+## Data Types
+
+### What kind of value can this variable hold?
+
+Java variables need both a <span class="term">name</span> and a <span class="term">data type</span>.
+
+::: {.tight-list}
+- `int`: whole numbers
+- `double`: decimal values
+- `boolean`: `true` or `false`
+- `String`: text inside double quotes
+:::
+
+AP CSA distinguishes between <span class="term">primitive</span> values and <span class="term">reference</span> types.
+
+## Type Choice
+
+### Match the data to the question
+
+Use these classroom heuristics:
+
+::: {.tight-list}
+- average grade -> <span class="mark">`double`</span>
+- number of people -> <span class="mark">`int`</span>
+- first name -> <span class="mark">`String`</span>
+- raining or not -> <span class="mark">`boolean`</span>
+:::
+
+Students usually struggle most when they choose `int` for a quantity that really needs decimals.
+
+## Declaring Variables
+
+### Type first, then name
+
+```java
+int score;
+score = 4;
+
+double price = 23.25;
+boolean won = false;
+String name = "Jose";
+```
+
+To <span class="term">declare</span> a variable is to create it. To <span class="term">initialize</span> it is to give it its first value.
+
+## Memory and Type Size
+
+### Java needs to know how much space to reserve
+
+![Variable types and memory](../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/typesAndSpace.png){fig-align="center" width="78%"}
+
+::: {.tight-list}
+- `int` uses <span class="mark">32 bits</span>
+- `double` uses <span class="mark">64 bits</span>
+- type affects both storage and allowed operations
+:::
+
+## Printing Variables
+
+### Print the value, not the variable name
+
+```java
+int score = 0;
+String name = "Jose";
+
+System.out.println(score);
+System.out.println("Hi " + name);
+```
+
+Never put a variable inside quotes if you want its value. `"name"` prints the letters `n a m e`; `name` prints the stored text.
+
+## Naming Variables
+
+### Meaningful, valid, and readable
+
+::: {.tight-list}
+- start with a letter
+- use letters, digits, and `_`
+- no spaces
+- do not use Java keywords such as `class`, `if`, `int`
+- prefer <span class="term">camelCase</span> such as `gameScore`
+- Java is <span class="mark">case-sensitive</span>: `gameScore` and `gamescore` are different
+:::
+
+Good names explain the data. `score` is useful; `x` is usually too vague.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- quick checks on choosing the right data type
+- a case-sensitivity debugging task
+- <span class="term">1.2.5 Debugging Challenge: Weather Report</span>
+- <span class="term">1.2.6 Coding Challenge: Mad Libs</span>
+:::
+
+These tasks reinforce both <span class="mark">declaration</span> and <span class="mark">meaningful naming</span>.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define a <span class="term">variable</span> as a named storage location
+- identify `int`, `double`, `boolean`, and `String`
+- declare and initialize a variable correctly
+- print variables without putting them inside quotes
+- use clear <span class="term">camelCase</span> names and respect case sensitivity
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

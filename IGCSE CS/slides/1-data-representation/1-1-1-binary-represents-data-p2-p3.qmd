@@ -1,0 +1,69 @@
+---
+title: "1.1.1 Binary represents data"
+subtitle: "Data Representation P2-P3"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Why Binary?
+
+### The basic building block of all computers
+
+The <span class="term">binary number system</span> (二进制) is chosen because it only consists of <span class="mark">$1$s and $0$s</span>. Since computers contain millions and millions of tiny <span class="term">switches</span> (开关), which must be in the <span class="mark">ON</span> or <span class="mark">OFF</span> position, they can be represented by the binary system:
+
+::: {.tight-list}
+- a switch in the <span class="mark">ON</span> position is represented by <span class="mark">$1$</span>
+- a switch in the <span class="mark">OFF</span> position is represented by <span class="mark">$0$</span>
+:::
+
+## Storing and Processing Data
+
+### Logic gates and binary format
+
+Switches used in a computer make use of <span class="term">logic gates</span> (逻辑门) and are used to <span class="mark">store</span> and <span class="mark">process data</span>.
+
+Any form of data needs to be converted into a <span class="mark">binary format</span> so that it can be processed by the computer.
+
+No matter how complex the system, the basic building block in all computers is the binary number system.
+
+## Classroom Check
+
+### Understand why and how binary works
+
+A complete answer should include:
+
+::: {.tight-list}
+- that computers use <span class="term">binary</span> because electronic switches have <span class="mark">two states (ON/OFF)</span>, represented by <span class="mark">$1$ and $0$</span>
+- that computers contain millions and millions of tiny <span class="term">switches</span> which can be represented by binary
+- that a switch in the <span class="mark">ON</span> position is represented by <span class="mark">$1$</span> and a switch in the <span class="mark">OFF</span> position is represented by <span class="mark">$0$</span>
+- that switches in a computer make use of <span class="term">logic gates</span> (逻辑门) and are used to <span class="mark">store and process data</span>
+- that <span class="mark">any form of data</span> must be converted into binary format before the computer can process it
+:::
+
+## Bridge
+
+### Next: Binary, Denary and Hexadecimal
+
+The next deck covers the three number systems used in computing and how to convert between them.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)

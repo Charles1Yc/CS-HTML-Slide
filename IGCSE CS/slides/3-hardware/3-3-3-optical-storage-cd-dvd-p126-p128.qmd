@@ -1,0 +1,118 @@
+---
+title: "3.3.3 Magnetic, optical and solid-state storage"
+subtitle: "CD/DVD · Hardware P126-P128"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## 3.3.3 Optical storage
+
+### CD/DVD disks
+
+<span class="term">CDs</span> and <span class="term">DVDs</span> are described as <span class="term">optical storage devices</span> (光存储设备). <span class="mark">Laser light</span> is used to read and write data to and from the surface of the disk.
+
+## Figure 3.65
+
+### Optical media
+
+![Figure 3.65 Optical media](../../assets/3-hardware/3-3-3-optical-storage-cd-dvd-p126-p128/Figure 3.65 Optical media.png){fig-align="center" width="74%"}
+
+Both CDs and DVDs use a thin layer of <span class="mark">metal alloy</span> or <span class="mark">light-sensitive organic dye</span> to store the data.
+
+Both systems use a <span class="mark">single spiral track</span> which runs from the centre of the disk to the edge.
+
+When a disk spins, the optical head moves to the point where the laser beam contacts the disk surface and follows the spiral track from the centre outwards.
+
+## CD/DVD Reading and Writing
+
+### Pits, lands and sectors
+
+As with a HDD, a CD/DVD is divided into <span class="term">sectors</span> allowing <span class="mark">direct access</span> to data.
+
+As in the case of HDD, the outer part of the disk runs <span class="mark">faster</span> than the inner part of the disk.
+
+The data is stored in <span class="term">pits</span> (凹点) and <span class="term">lands</span> (平面) on the spiral track.
+
+A <span class="mark">red laser</span> is used to read and write the data.
+
+CDs and DVDs can be designated <span class="term">'R'</span> (write once only) or <span class="term">'RW'</span> (can be written to or read from many times).
+
+## Figure 3.66
+
+### Dual-layering on a DVD
+
+![Figure 3.66 Dual-layering on a DVD](../../assets/3-hardware/3-3-3-optical-storage-cd-dvd-p126-p128/Figure 3.66 Dual-layering on a DVD.png){fig-align="center" width="78%"}
+
+## DVD Technology
+
+### Why DVD stores more data
+
+DVD technology is slightly different to that used in CDs. One of the main differences is the potential for <span class="term">dual-layering</span> (双层记录), which considerably increases the storage capacity.
+
+::: {.tight-list}
+- there are <span class="mark">two individual recording layers</span>
+- two layers of a standard DVD are joined together with a transparent <span class="term">polycarbonate</span> spacer
+- a very thin <span class="mark">reflector</span> is sandwiched between the two layers
+- reading and writing of the second layer is done by a <span class="mark">red laser focusing at a fraction of a millimetre difference</span> compared to the first layer
+:::
+
+Standard single-layer DVDs still have a larger storage capacity than CDs because the <span class="mark">'pit' size and track width are both smaller</span>.
+
+DVDs use lasers with a wavelength of <span class="mark">650 nanometres</span>; CDs use lasers with a wavelength of <span class="mark">780 nanometres</span>.
+
+The <span class="mark">shorter the wavelength</span> of the laser light, the greater the storage capacity of the medium.
+
+## Typical Uses
+
+### Software distribution and transfer
+
+Manufacturers sometimes supply their software, for example printer drivers, using CDs and DVDs.
+
+When the software is supplied in this way, the disk is usually in a <span class="mark">read-only format</span>.
+
+CDs and DVDs can also be used to transfer files between computers and as back-up systems for photos, music and multimedia files.
+
+## Classroom Check
+
+### Keep the optical-storage wording precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- that CDs and DVDs are <span class="term">optical storage devices</span> using <span class="mark">laser light</span>
+- that both use a <span class="mark">single spiral track</span> from the centre to the edge of the disk
+- that data is stored in <span class="mark">pits</span> and <span class="mark">lands</span>
+- that CDs/DVDs can be <span class="term">R</span> or <span class="term">RW</span>
+- that DVD technology can use <span class="mark">dual-layering</span>
+- that DVDs use <span class="mark">650 nm</span> lasers and CDs use <span class="mark">780 nm</span> lasers
+:::
+
+## Bridge
+
+### Next: Blu-ray discs
+
+The next deck continues the <span class="term">optical storage</span> section with <span class="term">Blu-ray discs</span>.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

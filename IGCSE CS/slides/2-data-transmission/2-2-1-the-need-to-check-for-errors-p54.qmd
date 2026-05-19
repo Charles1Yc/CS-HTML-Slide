@@ -1,0 +1,87 @@
+---
+title: "2.2.1 The need to check for errors"
+subtitle: "Data Transmission P54"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)
+
+## Why Error Detection Matters
+
+### Transmission errors are inevitable
+
+When data is transmitted, there is always a risk that it may be <span class="mark">corrupted, lost or even gained</span>. Errors can occur during data transmission due to:
+
+::: {.tight-list}
+- <span class="mark">Interference</span> — all types of cable can suffer from electrical interference, which can cause data to be corrupted or even lost
+- <span class="mark">Problems during packet switching</span> — this can lead to data loss or it is even possible to <span class="mark">gain data</span>!
+- <span class="mark">Skewing of data</span> — this occurs during parallel data transmission and can cause data corruption if the bits arrive out of synchronisation
+:::
+
+## Why Error Checking Matters
+
+### Computers can't understand corrupted text
+
+Checking for errors is important since computers are unable to understand text if the words are not recognised by its built-in dictionary. Look at the following example of corrupted text:
+
+> "I cnduo't bvleiee taht I culod aulaclty uesdtannrd waht I was rdnaieg. Unisg the icndeblire pweor of the hmuan mnid, aocdcrnig to rseecrah at Cmabridge Uinervtisy, it dseno't mttaer in waht oderr the lterets in a wrod are..."
+
+::: {.tight-list}
+- A <span class="mark">human</span> would probably have little problem understanding this text
+- But a <span class="mark">computer would be unable to make any sense</span> of it
+- Data corruption is therefore a <span class="mark">very real problem</span> to a computer
+- This is why error checking is such an <span class="mark">important part of computer technology</span>
+:::
+
+## Error Detection Methods
+
+### Three ways to check data after transmission
+
+There are a number of ways data can be checked for errors following transmission:
+
+::: {.tight-list}
+- <span class="mark">Parity checks</span> — based on counting the number of 1-bits in a byte
+- <span class="mark">Checksum</span> — a calculated value sent after a block of data
+- <span class="mark">Echo check</span> — receiver sends data back to sender for comparison
+:::
+
+Each method has different error detection capability and overhead.
+
+## Classroom Check
+
+### Understand why error checking is necessary
+
+A complete answer should include:
+
+::: {.tight-list}
+- <span class="mark">errors occur due to interference, packet switching problems, and data skewing</span>
+- data can be <span class="mark">corrupted, lost or even gained</span> during transmission
+- <span class="mark">computers cannot understand corrupted text</span> (unlike humans) — error checking is essential
+- three methods covered: <span class="mark">parity checks, checksum, echo check</span>
+:::
+
+## Bridge
+
+### Next: Parity, Checksum, Echo Check
+
+The next deck covers specific error detection methods and how they work.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 2 Directory / 返回 Unit 2 目录](../../index.html)

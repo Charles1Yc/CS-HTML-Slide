@@ -1,0 +1,139 @@
+---
+title: "3.1.4 Instruction set"
+subtitle: "Hardware P83-P84"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; align-items: start; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Instruction set
+
+### Instructions as decoded operations
+
+In a computer system, <span class="term">instructions</span> (指令) are a set of operations which are decoded in sequence.
+
+Each operation will instruct the <span class="term">ALU</span> and <span class="term">CU</span>, which are part of the CPU.
+
+This links software execution directly to CPU hardware.
+
+## Operation structure
+
+### Opcode and operand
+
+An operation is made up of an <span class="term">opcode</span> (操作码) and an <span class="term">operand</span> (操作数).
+
+The opcode informs the CPU what operation needs to be done.
+
+The operand is the data which needs to be acted on, or it can refer to a register in the memory.
+
+## Opcode and operand
+
+### Keep the two roles separate
+
+::: {.two-col}
+<div>
+<span class="term">Opcode</span>
+
+The part that tells the CPU the operation to carry out, such as add, jump or load.
+</div>
+
+<div>
+<span class="term">Operand</span>
+
+The data to be acted on, or a reference to a register or memory location.
+</div>
+:::
+
+A strong answer should not describe both parts as “the instruction”.
+
+## Instruction set
+
+### Limited number of opcodes
+
+Since the computer needs to understand the operation to be carried out, there is actually a limited number of opcodes that can be used.
+
+This is known as the <span class="term">instruction set</span> (指令集).
+
+All software running on a computer will contain a set of instructions, which need to be converted into <span class="term">binary</span> (二进制).
+
+## Instruction set and FDE
+
+### CPU processes instructions in sequence
+
+The <span class="term">Fetch-Decode-Execute cycle</span> is the sequence of steps used by the CPU to process each instruction in sequence.
+
+This means instruction sets should be understood as low-level operations that the CPU can decode and execute, not as high-level classroom pseudocode.
+
+## X86 example
+
+### Same instruction set, different electronic designs
+
+One example of an instruction set is the <span class="term">X86</span>, a common CPU standard used in many modern computers.
+
+Although different computer manufacturers will adopt their own internal electronic design, if the computer is based on the X86 CPU then all designs will share almost identical instruction sets.
+
+## X86 example
+
+### Intel Pentium and AMD Athlon
+
+For example, <span class="term">Intel Pentium</span> and <span class="term">AMD Athlon</span> CPUs use almost identical X86 instruction sets even though they are based on very different electronic designs.
+
+This is why the instruction set is a CPU standard issue, not simply a brand-name issue.
+
+## Do not confuse instruction sets with program code
+
+### Textbook caution
+
+Do not confuse instruction sets with <span class="term">programming code</span> (程序代码).
+
+Instruction sets are the low-level language instructions that instruct the CPU how to carry out an operation.
+
+Program code needs <span class="term">interpreters</span> (解释器) or <span class="term">compilers</span> (编译器) to convert the code into the instruction set understood by the computer.
+
+## Example instruction set operations
+
+### ADD, JMP and LDA
+
+Some examples of instruction set operations include:
+
+::: {.tight-list}
+- <span class="term">ADD</span>: add operation
+- <span class="term">JMP</span>: jump operation
+- <span class="term">LDA</span>: load accumulator operation
+:::
+
+These are low-level CPU instructions, not high-level programming statements.
+
+## Classroom Check
+
+### Define the three key terms
+
+Students should be able to explain:
+
+::: {.tight-list}
+- <span class="term">opcode</span>: the operation to be done
+- <span class="term">operand</span>: the data or register/memory reference used by the operation
+- <span class="term">instruction set</span>: the limited set of operations the CPU can understand
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

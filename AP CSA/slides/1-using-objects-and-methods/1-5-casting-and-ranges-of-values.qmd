@@ -1,0 +1,133 @@
+---
+title: "1.5 Casting and Ranges of Values"
+subtitle: "Using Objects and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Casting
+
+### Changing the type of a value
+
+In Java, <span class="term">casting</span> (类型转换) means converting a value from one type to another.
+
+![Bronze casting analogy](../../assets/1-using-objects-and-methods/1-5-casting-and-ranges-of-values/bronze-casting.jpg){fig-align="center" width="36%"}
+
+The cast operator is written before an expression, such as <span class="mark">`(int)`</span> or <span class="mark">`(double)`</span>.
+
+## Casting
+
+### Widening and narrowing
+
+```java
+(double) 3 / 4   // 0.75
+(int) 3.6        // 3
+```
+
+::: {.tight-list}
+- casting `int` to `double` is a <span class="term">widening conversion</span>
+- casting `double` to `int` is a <span class="term">narrowing conversion</span>
+- narrowing removes the digits to the right of the decimal point
+:::
+
+Truncating is <span class="mark">not</span> the same thing as rounding.
+
+## Casting and Division
+
+### The cast changes the whole expression result
+
+```java
+System.out.println(3 / 4);          // 0
+System.out.println(3.0 / 4);        // 0.75
+System.out.println((double) 3 / 4); // 0.75
+System.out.println((int) 3.0 / 4);  // 0
+```
+
+If any part of the expression becomes `double`, the expression evaluates as `double`.
+
+## Rounding
+
+### Round first, then cast
+
+To round a positive `double` to the nearest `int`:
+
+```java
+int nearestInt = (int) (number + 0.5);
+```
+
+For negative values:
+
+```java
+int nearestNegInt = (int) (negNumber - 0.5);
+```
+
+This slide matters because many students assume Java rounds automatically. It does not.
+
+## Range of Values
+
+### Types are limited by storage
+
+::: {.tight-list}
+- `int` uses <span class="mark">32 bits</span>
+- `double` uses <span class="mark">64 bits</span>
+- `Integer.MAX_VALUE` is `2147483647`
+- `Integer.MIN_VALUE` is `-2147483648`
+:::
+
+If a value is too large or too small for `int`, an <span class="term">integer overflow</span> (整数溢出) occurs.
+
+## Range of Values
+
+### Precision is also limited
+
+`double` values can hold decimals, but not unlimited precision.
+
+::: {.tight-list}
+- repeating decimals are cut off after about <span class="mark">14-15 digits</span>
+- computers may produce <span class="term">round-off error</span> when exact precision cannot be stored
+- formatting output and intentional rounding can control what students see
+:::
+
+This is a good place to distinguish <span class="mark">representation limits</span> from logic mistakes.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- division with and without casts
+- truncation versus rounding checks
+- integer overflow repair task
+- <span class="term">1.5.4 Coding Challenge: Average 3 Numbers</span>
+:::
+
+The average challenge is the right place to insist on casting before division.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define a <span class="term">cast</span> as converting a value to another type
+- explain why `(double) total / count` avoids truncating division
+- distinguish truncation from rounding
+- identify `Integer.MAX_VALUE` and overflow as range limits
+- note that `double` values are precise only up to a limited number of digits
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,42 @@
+  {
+    "course": {
+      "short": "AP CSA",
+      "cn": "计算机科学 A",
+      "en": "AP Computer Science A",
+      "code": "College Board"
+    },
+    "units": [
+      {
+        "id": "unit-1",
+        "code": "1",
+        "cn": "使用对象与方法",
+        "en": "Using Objects and Methods",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "1",
+            "cn": "使用对象与方法",
+            "en": "Using Objects and Methods",
+            "summary": "变量、表达式、输入输出、方法、对象与字符串操作。",
+            "topics": [
+              {"code": "1.1", "cn": "算法、编程与编译器", "en": "Algorithms, Programming, and Compilers", "decks": [{"cn": "算法、编程与编译器", "en": "Algorithms, Programming, and Compilers", "href": "slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.html"}]},
+              {"code": "1.2", "cn": "变量与数据类型", "en": "Variables and Data Types", "decks": [{"cn": "变量与数据类型", "en": "Variables and Data Types", "href": "slides/1-using-objects-and-methods/1-2-variables-and-data-types.html"}]},
+              {"code": "1.3", "cn": "表达式与输出", "en": "Expressions and Output", "decks": [{"cn": "表达式与输出", "en": "Expressions and Output", "href": "slides/1-using-objects-and-methods/1-3-expressions-and-output.html"}]},
+              {"code": "1.4", "cn": "赋值与输入", "en": "Assignment and Input", "decks": [{"cn": "赋值与输入", "en": "Assignment and Input", "href": "slides/1-using-objects-and-methods/1-4-assignment-and-input.html"}]},
+              {"code": "1.5", "cn": "类型转换与取值范围", "en": "Casting and Ranges of Values", "decks": [{"cn": "类型转换与取值范围", "en": "Casting and Ranges of Values", "href": "slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.html"}]},
+              {"code": "1.6", "cn": "复合赋值运算符", "en": "Compound Assignment Operators", "decks": [{"cn": "复合赋值运算符", "en": "Compound Assignment Operators", "href": "slides/1-using-objects-and-methods/1-6-compound-assignment-operators.html"}]},
+              {"code": "1.7", "cn": "API 与库", "en": "APIs and Libraries", "decks": [{"cn": "API 与库", "en": "APIs and Libraries", "href": "slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.html"}]},
+              {"code": "1.8", "cn": "使用注释编写文档", "en": "Documentation with Comments", "decks": [{"cn": "使用注释编写文档", "en": "Documentation with Comments", "href": "slides/1-using-objects-and-methods/1-8-documentation-with-comments.html"}]},
+              {"code": "1.9", "cn": "方法签名", "en": "Method Signatures", "decks": [{"cn": "方法签名", "en": "Method Signatures", "href": "slides/1-using-objects-and-methods/1-9-method-signatures.html"}]},
+              {"code": "1.10", "cn": "调用类方法", "en": "Calling Class Methods", "decks": [{"cn": "调用类方法", "en": "Calling Class Methods", "href": "slides/1-using-objects-and-methods/1-10-calling-class-methods.html"}]},
+              {"code": "1.11", "cn": "Math 类", "en": "Math Class", "decks": [{"cn": "Math 类", "en": "Math Class", "href": "slides/1-using-objects-and-methods/1-11-math-class.html"}]},
+              {"code": "1.12", "cn": "对象：类的实例", "en": "Objects: Instances of Classes", "decks": [{"cn": "对象：类的实例", "en": "Objects: Instances of Classes", "href": "slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.html"}]},
+              {"code": "1.13", "cn": "对象创建与存储", "en": "Object Creation and Storage", "decks": [{"cn": "对象创建与存储", "en": "Object Creation and Storage", "href": "slides/1-using-objects-and-methods/1-13-object-creation-and-storage.html"}]},
+              {"code": "1.14", "cn": "调用实例方法", "en": "Calling Instance Methods", "decks": [{"cn": "调用实例方法", "en": "Calling Instance Methods", "href": "slides/1-using-objects-and-methods/1-14-calling-instance-methods.html"}]},
+              {"code": "1.15", "cn": "字符串操作", "en": "String Manipulation", "decks": [{"cn": "字符串操作", "en": "String Manipulation", "href": "slides/1-using-objects-and-methods/1-15-string-manipulation.html"}]}
+            ]
+          }
+        ]
+      }
+    ]
+  }

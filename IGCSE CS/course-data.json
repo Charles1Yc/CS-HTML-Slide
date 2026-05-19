@@ -1,0 +1,735 @@
+  {
+    "course": {
+      "short": "IGCSE CS",
+      "cn": "计算机科学",
+      "en": "IGCSE Computer Science",
+      "code": "0478/0984"
+    },
+    "units": [
+      {
+        "id": "unit-1",
+        "code": "1",
+        "cn": "数据表示",
+        "en": "Data Representation",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "1.1",
+            "cn": "数制",
+            "en": "Number systems",
+            "summary": "二进制、十进制与十六进制的表示、转换、应用，以及二进制运算与二补数表示。",
+            "topics": [
+              {
+                "code": "1.1.1",
+                "cn": "二进制表示数据",
+                "en": "Binary represents data",
+                "decks": [
+                  { "cn": "为什么计算机使用二进制", "en": "Why computers use binary", "href": "slides/1-data-representation/1-1-1-binary-represents-data-p2-p3.html" }
+                ]
+              },
+              {
+                "code": "1.1.2",
+                "cn": "二进制、十进制与十六进制系统",
+                "en": "Binary, denary and hexadecimal systems",
+                "decks": [
+                  { "cn": "进制表示与转换", "en": "Number-system conversion", "href": "slides/1-data-representation/1-1-2-binary-denary-and-hexadecimal-systems-p3-p12.html" }
+                ]
+              },
+              {
+                "code": "1.1.3",
+                "cn": "十六进制系统的用途",
+                "en": "Use of the hexadecimal system",
+                "decks": [
+                  { "cn": "十六进制应用", "en": "Hexadecimal uses", "href": "slides/1-data-representation/1-1-3-use-of-the-hexadecimal-system-p12-p16.html" }
+                ]
+              },
+              {
+                "code": "1.1.4",
+                "cn": "二进制数的加法",
+                "en": "Addition of binary numbers",
+                "decks": [
+                  { "cn": "二进制加法与溢出", "en": "Binary addition and overflow", "href": "slides/1-data-representation/1-1-4-addition-of-binary-numbers-p17-p18.html" }
+                ]
+              },
+              {
+                "code": "1.1.5",
+                "cn": "逻辑二进制移位",
+                "en": "Logical binary shifts",
+                "decks": [
+                  { "cn": "逻辑移位", "en": "Logical shifts", "href": "slides/1-data-representation/1-1-5-logical-binary-shifts-p19-p21.html" }
+                ]
+              },
+              {
+                "code": "1.1.6",
+                "cn": "二补数（二进制数）",
+                "en": "Two's complement (binary numbers)",
+                "decks": [
+                  { "cn": "二补数表示", "en": "Two's complement", "href": "slides/1-data-representation/1-1-6-twos-complement-binary-numbers-p22-p24.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "1.2",
+            "cn": "文本、声音和图像",
+            "en": "Text, sound and images",
+            "summary": "字符编码、声音采样与位图图像表示。",
+            "topics": [
+              {
+                "code": "1.2.1",
+                "cn": "字符集：ASCII 码与 Unicode",
+                "en": "Character sets - ASCII code and Unicode",
+                "decks": [
+                  { "cn": "字符编码", "en": "Character encoding", "href": "slides/1-data-representation/1-2-1-character-sets-ascii-code-and-unicode-p25-p28.html" }
+                ]
+              },
+              {
+                "code": "1.2.2",
+                "cn": "声音的表示",
+                "en": "Representation of sound",
+                "decks": [
+                  { "cn": "声音采样", "en": "Sound sampling", "href": "slides/1-data-representation/1-2-2-representation-of-sound-p29-p30.html" }
+                ]
+              },
+              {
+                "code": "1.2.3",
+                "cn": "位图图像的表示",
+                "en": "Representation of (bitmap) images",
+                "decks": [
+                  { "cn": "位图图像表示", "en": "Bitmap image representation", "href": "slides/1-data-representation/1-2-3-representation-of-bitmap-images-p30-p31.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "1.3",
+            "cn": "数据存储与文件压缩",
+            "en": "Data storage and file compression",
+            "summary": "存储单位、文件大小计算，以及有损和无损压缩。",
+            "topics": [
+              {
+                "code": "1.3.1",
+                "cn": "数据存储的计量",
+                "en": "Measurement of data storage",
+                "decks": [
+                  { "cn": "存储单位", "en": "Storage units", "href": "slides/1-data-representation/1-3-1-measurement-of-data-storage-p32-p33.html" }
+                ]
+              },
+              {
+                "code": "1.3.2",
+                "cn": "文件大小的计算",
+                "en": "Calculation of file size",
+                "decks": [
+                  { "cn": "图像与声音文件大小计算", "en": "File size calculation", "href": "slides/1-data-representation/1-3-2-calculation-of-file-size-p34-p35.html" }
+                ]
+              },
+              {
+                "code": "1.3.3",
+                "cn": "数据压缩",
+                "en": "Data compression",
+                "decks": [
+                  { "cn": "压缩的必要性", "en": "Why compression is needed", "href": "slides/1-data-representation/1-3-3-data-compression-p35-p36.html" }
+                ]
+              },
+              {
+                "code": "1.3.4",
+                "cn": "有损与无损文件压缩",
+                "en": "Lossy and lossless file compression",
+                "decks": [
+                  { "cn": "有损与无损压缩", "en": "Lossy vs lossless compression", "href": "slides/1-data-representation/1-3-4-lossy-and-lossless-file-compression-p36-p44.html" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-2",
+        "code": "2",
+        "cn": "数据传输",
+        "en": "Data Transmission",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "2.1",
+            "cn": "数据传输类型与方法",
+            "en": "Types and methods of data transmission",
+            "summary": "数据包、分组交换、传输方式与 USB。",
+            "topics": [
+              {
+                "code": "2.1.1",
+                "cn": "数据包",
+                "en": "Data packets",
+                "decks": [
+                  { "cn": "数据包与分组交换", "en": "Packets and packet switching", "href": "slides/2-data-transmission/2-1-1-data-packets-p45-p49.html" }
+                ]
+              },
+              {
+                "code": "2.1.2",
+                "cn": "数据传输",
+                "en": "Data transmission",
+                "decks": [
+                  { "cn": "传输方式", "en": "Transmission modes and methods", "href": "slides/2-data-transmission/2-1-2-data-transmission-p50-p52.html" }
+                ]
+              },
+              {
+                "code": "2.1.3",
+                "cn": "通用串行总线（USB）",
+                "en": "Universal serial bus (USB)",
+                "decks": [
+                  { "cn": "USB 通信", "en": "USB communication", "href": "slides/2-data-transmission/2-1-3-universal-serial-bus-usb-p53.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "2.2",
+            "cn": "错误检测方法",
+            "en": "Methods of error detection",
+            "summary": "奇偶校验、校验和、回声检查、校验位和 ARQ。",
+            "topics": [
+              {
+                "code": "2.2.1",
+                "cn": "检查错误的必要性",
+                "en": "The need to check for errors",
+                "decks": [
+                  { "cn": "错误检测的必要性", "en": "Why error checking matters", "href": "slides/2-data-transmission/2-2-1-the-need-to-check-for-errors-p54.html" }
+                ]
+              },
+              {
+                "code": "2.2.2",
+                "cn": "奇偶校验、校验和与回声检查",
+                "en": "Parity checks, checksum and echo checks",
+                "decks": [
+                  { "cn": "奇偶校验、校验和与回声检查", "en": "Parity, checksum and echo checks", "href": "slides/2-data-transmission/2-2-2-parity-checks-checksum-and-echo-checks-p55-p59.html" }
+                ]
+              },
+              {
+                "code": "2.2.3",
+                "cn": "校验位",
+                "en": "Check digits",
+                "decks": [
+                  { "cn": "校验位算法", "en": "Check digit methods", "href": "slides/2-data-transmission/2-2-3-check-digits-p59-p61.html" }
+                ]
+              },
+              {
+                "code": "2.2.4",
+                "cn": "自动重传请求（ARQs）",
+                "en": "Automatic Repeat Requests (ARQs)",
+                "decks": [
+                  { "cn": "ARQ 过程", "en": "ARQ process", "href": "slides/2-data-transmission/2-2-4-automatic-repeat-requests-arqs-p62.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "2.3",
+            "cn": "对称与非对称加密",
+            "en": "Symmetric and asymmetric encryption",
+            "summary": "为什么需要加密，以及对称与非对称加密的工作流程。",
+            "topics": [
+              {
+                "code": "2.3.1",
+                "cn": "加密的目的",
+                "en": "The purpose of encryption",
+                "decks": [
+                  { "cn": "为什么需要加密", "en": "Why encryption is needed", "href": "slides/2-data-transmission/2-3-1-the-purpose-of-encryption-p63.html" }
+                ]
+              },
+              {
+                "code": "2.3.2",
+                "cn": "对称与非对称加密",
+                "en": "Symmetric and asymmetric encryption",
+                "decks": [
+                  { "cn": "加密流程比较", "en": "Encryption process comparison", "href": "slides/2-data-transmission/2-3-2-symmetric-and-asymmetric-encryption-p64-p74.html" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "code": "3",
+        "cn": "硬件",
+        "en": "Hardware",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "3.1",
+            "cn": "计算机结构",
+            "en": "Computer architecture",
+            "summary": "CPU、冯·诺依曼结构、核心、缓存、内部时钟、指令集与嵌入式系统。",
+            "topics": [
+              {
+                "code": "3.1.1",
+                "cn": "中央处理器（CPU）",
+                "en": "The central processing unit (CPU)",
+                "decks": [
+                  { "cn": "中央处理器", "en": "CPU", "href": "slides/3-hardware/3-1-1-the-central-processing-unit-cpu-p75.html" }
+                ]
+              },
+              {
+                "code": "3.1.2",
+                "cn": "冯·诺依曼结构",
+                "en": "Von Neumann architecture",
+                "decks": [
+                  { "cn": "结构概述", "en": "Overview", "href": "slides/3-hardware/3-1-2-von-neumann-architecture-p75-p80.html" },
+                  { "cn": "系统总线与内存", "en": "System buses and memory", "href": "slides/3-hardware/3-1-2-von-neumann-architecture-system-buses-memory-p77-p80.html" },
+                  { "cn": "取指-译码-执行周期", "en": "Fetch-Decode-Execute cycle", "href": "slides/3-hardware/3-1-2-von-neumann-architecture-fetch-decode-execute-cycle-p80.html" }
+                ]
+              },
+              {
+                "code": "3.1.3",
+                "cn": "核心、缓存与内部时钟",
+                "en": "Cores, cache and internal clock",
+                "decks": [
+                  { "cn": "核心、缓存与内部时钟", "en": "Cores, cache and internal clock", "href": "slides/3-hardware/3-1-3-cores-cache-and-internal-clock-p80-p83.html" }
+                ]
+              },
+              {
+                "code": "3.1.4",
+                "cn": "指令集",
+                "en": "Instruction set",
+                "decks": [
+                  { "cn": "指令集", "en": "Instruction set", "href": "slides/3-hardware/3-1-4-instruction-set-p83-p84.html" }
+                ]
+              },
+              {
+                "code": "3.1.5",
+                "cn": "嵌入式系统",
+                "en": "Embedded systems",
+                "decks": [
+                  { "cn": "嵌入式系统", "en": "Overview", "href": "slides/3-hardware/3-1-5-embedded-systems-p84-p87.html" },
+                  { "cn": "嵌入式系统示例", "en": "Examples", "href": "slides/3-hardware/3-1-5-embedded-systems-examples-p85-p87.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "3.2",
+            "cn": "输入和输出设备",
+            "en": "Input and output devices",
+            "summary": "输入设备、输出设备与传感器在监控和控制中的应用。",
+            "topics": [
+              {
+                "code": "3.2.1",
+                "cn": "输入设备",
+                "en": "Input devices",
+                "decks": [
+                  { "cn": "条形码扫描器", "en": "Barcode scanners", "href": "slides/3-hardware/3-2-1-input-devices-barcode-scanners-p88-p90.html" },
+                  { "cn": "二维码", "en": "QR codes", "href": "slides/3-hardware/3-2-1-input-devices-qr-codes-p90-p92.html" },
+                  { "cn": "数码相机", "en": "Digital cameras", "href": "slides/3-hardware/3-2-1-input-devices-digital-cameras-p92-p93.html" },
+                  { "cn": "键盘", "en": "Keyboards", "href": "slides/3-hardware/3-2-1-input-devices-keyboards-p93-p94.html" },
+                  { "cn": "麦克风", "en": "Microphones", "href": "slides/3-hardware/3-2-1-input-devices-microphones-p94-p95.html" },
+                  { "cn": "鼠标与指针设备", "en": "Mouse and pointing devices", "href": "slides/3-hardware/3-2-1-input-devices-mouse-pointing-devices-p95-p96.html" },
+                  { "cn": "2D 和 3D 扫描器", "en": "2D and 3D scanners", "href": "slides/3-hardware/3-2-1-input-devices-scanners-2d-3d-p96-p98.html" },
+                  { "cn": "触摸屏", "en": "Touch screens", "href": "slides/3-hardware/3-2-1-input-devices-touch-screens-p98-p101.html" }
+                ]
+              },
+              {
+                "code": "3.2.2",
+                "cn": "输出设备",
+                "en": "Output devices",
+                "decks": [
+                  { "cn": "执行器", "en": "Actuators", "href": "slides/3-hardware/3-2-2-output-devices-actuators-p101.html" },
+                  { "cn": "投影仪", "en": "Light projectors", "href": "slides/3-hardware/3-2-2-output-devices-light-projectors-p102-p103.html" },
+                  { "cn": "喷墨打印机", "en": "Inkjet printers", "href": "slides/3-hardware/3-2-2-output-devices-inkjet-printers-p104-p105.html" },
+                  { "cn": "激光打印机", "en": "Laser printers", "href": "slides/3-hardware/3-2-2-output-devices-laser-printers-p105.html" },
+                  { "cn": "3D 打印机", "en": "3D printers", "href": "slides/3-hardware/3-2-2-output-devices-3d-printers-p106-p107.html" },
+                  { "cn": "LED、LCD 与 OLED 屏幕", "en": "LED, LCD and OLED screens", "href": "slides/3-hardware/3-2-2-output-devices-led-lcd-and-oled-screens-p108-p110.html" },
+                  { "cn": "扬声器", "en": "Speakers", "href": "slides/3-hardware/3-2-2-output-devices-speakers-p110.html" }
+                ]
+              },
+              {
+                "code": "3.2.3",
+                "cn": "传感器",
+                "en": "Sensors",
+                "decks": [
+                  { "cn": "传感器概述", "en": "Overview", "href": "slides/3-hardware/3-2-3-sensors-p111-p113.html" },
+                  { "cn": "监控系统", "en": "Monitoring systems", "href": "slides/3-hardware/3-2-3-sensors-monitoring-systems-p113-p114.html" },
+                  { "cn": "控制系统", "en": "Control systems", "href": "slides/3-hardware/3-2-3-sensors-control-systems-p114-p118.html" },
+                  { "cn": "控制应用", "en": "Control applications", "href": "slides/3-hardware/3-2-3-sensors-control-applications-p114-p118.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "3.3",
+            "cn": "数据存储",
+            "en": "Data storage",
+            "summary": "主存储器、二级与离线存储、磁性/光学/固态存储、虚拟内存与云存储。",
+            "topics": [
+              {
+                "code": "3.3.1",
+                "cn": "主存储器",
+                "en": "Primary memory",
+                "decks": [
+                  { "cn": "RAM、DRAM 与 SRAM", "en": "RAM, DRAM and SRAM", "href": "slides/3-hardware/3-3-1-primary-memory-ram-dram-sram-p120-p122.html" },
+                  { "cn": "ROM", "en": "ROM", "href": "slides/3-hardware/3-3-1-primary-memory-rom-p122-p123.html" }
+                ]
+              },
+              {
+                "code": "3.3.2",
+                "cn": "二级与离线存储",
+                "en": "Secondary and off-line storage",
+                "decks": [
+                  { "cn": "数据存储概述", "en": "Data storage overview", "href": "slides/3-hardware/3-3-data-storage-overview-p119-p120.html" }
+                ]
+              },
+              {
+                "code": "3.3.3",
+                "cn": "磁性、光学与固态存储",
+                "en": "Magnetic, optical and solid-state storage",
+                "decks": [
+                  { "cn": "硬盘驱动器", "en": "Hard disk drives (HDD)", "href": "slides/3-hardware/3-3-3-magnetic-storage-hdd-p123-p124.html" },
+                  { "cn": "固态硬盘", "en": "Solid state drives (SSD)", "href": "slides/3-hardware/3-3-3-solid-state-storage-ssd-p124-p126.html" },
+                  { "cn": "记忆棒与闪存", "en": "Memory sticks / flash memories", "href": "slides/3-hardware/3-3-3-solid-state-storage-flash-memory-p126.html" },
+                  { "cn": "光学存储：CD 与 DVD", "en": "Optical storage: CD/DVD", "href": "slides/3-hardware/3-3-3-optical-storage-cd-dvd-p126-p128.html" },
+                  { "cn": "蓝光光盘", "en": "Blu-ray discs", "href": "slides/3-hardware/3-3-3-optical-storage-blu-ray-p128-p129.html" }
+                ]
+              },
+              {
+                "code": "3.3.4",
+                "cn": "虚拟内存",
+                "en": "Virtual memory",
+                "decks": [
+                  { "cn": "虚拟内存", "en": "Virtual memory", "href": "slides/3-hardware/3-3-4-virtual-memory-p129-p131.html" }
+                ]
+              },
+              {
+                "code": "3.3.5",
+                "cn": "云存储",
+                "en": "Cloud storage",
+                "decks": [
+                  { "cn": "云存储", "en": "Cloud storage", "href": "slides/3-hardware/3-3-5-cloud-storage-p130-p132.html" }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "3.4",
+            "cn": "网络硬件",
+            "en": "Network hardware",
+            "summary": "网卡、MAC 地址、IP 地址与路由器。",
+            "topics": [
+              {
+                "code": "3.4.1",
+                "cn": "网络接口卡（NIC）",
+                "en": "Network interface card (NIC)",
+                "decks": [
+                  { "cn": "网卡", "en": "Network interface card (NIC)", "href": "slides/3-hardware/3-4-1-network-interface-card-nic-p133.html" }
+                ]
+              },
+              {
+                "code": "3.4.2",
+                "cn": "媒体访问控制（MAC）地址",
+                "en": "Media access control (MAC) address",
+                "decks": [
+                  { "cn": "MAC 地址", "en": "MAC address", "href": "slides/3-hardware/3-4-2-mac-address-p133.html" }
+                ]
+              },
+              {
+                "code": "3.4.3",
+                "cn": "互联网协议地址",
+                "en": "Internet protocol (IP) address",
+                "decks": [
+                  { "cn": "IP 地址", "en": "IP address", "href": "slides/3-hardware/3-4-3-ip-address-p134-p136.html" },
+                  { "cn": "静态与动态 IP 地址", "en": "Static and dynamic IP addresses", "href": "slides/3-hardware/3-4-3-static-dynamic-ip-addresses-p135-p136.html" }
+                ]
+              },
+              {
+                "code": "3.4.4",
+                "cn": "路由器",
+                "en": "Routers",
+                "decks": [
+                  { "cn": "路由器", "en": "Routers", "href": "slides/3-hardware/3-4-4-routers-p136-p137.html" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "code": "4",
+        "cn": "软件",
+        "en": "Software",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "4.1",
+            "cn": "软件类型与中断",
+            "en": "Types of software and interrupts",
+            "summary": "系统软件与应用软件、操作系统功能，以及中断的作用与处理。",
+            "topics": [
+              { "code": "4.1.1", "cn": "软件类型", "en": "Types of software", "decks": [] },
+              { "code": "4.1.2", "cn": "中断", "en": "Interrupts", "decks": [] }
+            ]
+          },
+          {
+            "code": "4.2",
+            "cn": "编程语言、翻译器与 IDE",
+            "en": "Types of programming language, translators and IDEs",
+            "summary": "高级语言、低级语言、汇编器、编译器、解释器与 IDE。",
+            "topics": [
+              { "code": "4.2.1", "cn": "编程语言类型", "en": "Types of programming language", "decks": [] },
+              { "code": "4.2.2", "cn": "翻译器与 IDE", "en": "Translators and IDEs", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-5",
+        "code": "5",
+        "cn": "互联网及其应用",
+        "en": "The Internet and Its Uses",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "5.1",
+            "cn": "互联网与万维网",
+            "en": "The internet and the World Wide Web (WWW)",
+            "summary": "互联网与 WWW 的区别、URL、HTTP/HTTPS、浏览器与 cookies。",
+            "topics": [
+              { "code": "5.1.1", "cn": "互联网与 WWW", "en": "The internet and the World Wide Web", "decks": [] }
+            ]
+          },
+          {
+            "code": "5.2",
+            "cn": "数字货币",
+            "en": "Digital currency",
+            "summary": "数字货币的使用方式与区块链跟踪交易。",
+            "topics": [
+              { "code": "5.2.1", "cn": "数字货币", "en": "Digital currency", "decks": [] }
+            ]
+          },
+          {
+            "code": "5.3",
+            "cn": "网络安全",
+            "en": "Cyber security",
+            "summary": "网络安全威胁以及常用安全实践。",
+            "topics": [
+              { "code": "5.3.1", "cn": "网络安全", "en": "Cyber security", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-6",
+        "code": "6",
+        "cn": "自动化与新兴技术",
+        "en": "Automated and Emerging Technologies",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "6.1",
+            "cn": "自动化系统",
+            "en": "Automated systems",
+            "summary": "传感器、微处理器和执行器在自动化系统中的作用。",
+            "topics": [
+              { "code": "6.1.1", "cn": "自动化系统", "en": "Automated systems", "decks": [] }
+            ]
+          },
+          {
+            "code": "6.2",
+            "cn": "机器人学",
+            "en": "Robotics",
+            "summary": "机器人的特征、用途、优点与局限。",
+            "topics": [
+              { "code": "6.2.1", "cn": "机器人学", "en": "Robotics", "decks": [] }
+            ]
+          },
+          {
+            "code": "6.3",
+            "cn": "人工智能",
+            "en": "Artificial intelligence (AI)",
+            "summary": "人工智能系统的基本概念、特征与组成。",
+            "topics": [
+              { "code": "6.3.1", "cn": "人工智能", "en": "Artificial intelligence", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-7",
+        "code": "7",
+        "cn": "算法设计与问题解决",
+        "en": "Algorithm Design and Problem Solving",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "7.1",
+            "cn": "程序开发生命周期",
+            "en": "The program development life cycle",
+            "summary": "分析、设计、编码与测试。",
+            "topics": [
+              { "code": "7.1.1", "cn": "程序开发生命周期", "en": "The program development life cycle", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.2",
+            "cn": "系统、子系统与分解",
+            "en": "Computer systems, sub-systems and decomposition",
+            "summary": "系统分解与解决方案构建。",
+            "topics": [
+              { "code": "7.2.1", "cn": "系统、子系统与分解", "en": "Computer systems, sub-systems and decomposition", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.3",
+            "cn": "解释算法的目的",
+            "en": "Explaining the purpose of an algorithm",
+            "summary": "算法目的与处理过程。",
+            "topics": [
+              { "code": "7.3.1", "cn": "解释算法的目的", "en": "Explaining the purpose of an algorithm", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.4",
+            "cn": "标准求解方法",
+            "en": "Standard methods of solution",
+            "summary": "线性搜索、冒泡排序、求和、计数与平均值。",
+            "topics": [
+              { "code": "7.4.1", "cn": "标准求解方法", "en": "Standard methods of solution", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.5",
+            "cn": "确认与验证",
+            "en": "Validation and verification",
+            "summary": "验证检查与确认检查。",
+            "topics": [
+              { "code": "7.5.1", "cn": "确认与验证", "en": "Validation and verification", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.6",
+            "cn": "测试数据",
+            "en": "Test data",
+            "summary": "测试数据类型与应用。",
+            "topics": [
+              { "code": "7.6.1", "cn": "测试数据", "en": "Test data", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.7",
+            "cn": "追踪表",
+            "en": "Trace tables to document dry runs of algorithms",
+            "summary": "追踪表与 dry run 记录。",
+            "topics": [
+              { "code": "7.7.1", "cn": "追踪表", "en": "Trace tables", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.8",
+            "cn": "识别算法错误",
+            "en": "Identifying errors in algorithms",
+            "summary": "识别并纠正流程图、程序与伪代码中的错误。",
+            "topics": [
+              { "code": "7.8.1", "cn": "识别算法错误", "en": "Identifying errors in algorithms", "decks": [] }
+            ]
+          },
+          {
+            "code": "7.9",
+            "cn": "编写与修改算法",
+            "en": "Writing and amending algorithms",
+            "summary": "用流程图、程序与伪代码表达解决方案。",
+            "topics": [
+              { "code": "7.9.1", "cn": "编写与修改算法", "en": "Writing and amending algorithms", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-8",
+        "code": "8",
+        "cn": "编程",
+        "en": "Programming",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "8.1",
+            "cn": "编程概念",
+            "en": "Programming concepts",
+            "summary": "变量、输入输出、顺序、选择、迭代、函数与可维护程序。",
+            "topics": [
+              { "code": "8.1.1", "cn": "编程概念", "en": "Programming concepts", "decks": [] }
+            ]
+          },
+          {
+            "code": "8.2",
+            "cn": "数组",
+            "en": "Arrays",
+            "summary": "一维与二维数组、索引与遍历。",
+            "topics": [
+              { "code": "8.2.1", "cn": "数组", "en": "Arrays", "decks": [] }
+            ]
+          },
+          {
+            "code": "8.3",
+            "cn": "文件处理",
+            "en": "File handling",
+            "summary": "打开、关闭、读取和写入文本/数据文件。",
+            "topics": [
+              { "code": "8.3.1", "cn": "文件处理", "en": "File handling", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-9",
+        "code": "9",
+        "cn": "数据库",
+        "en": "Databases",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "9.1",
+            "cn": "数据库",
+            "en": "Databases",
+            "summary": "单表数据库、字段、记录、主键、数据类型与 SQL 查询。",
+            "topics": [
+              { "code": "9.1.1", "cn": "数据库", "en": "Databases", "decks": [] }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-10",
+        "code": "10",
+        "cn": "布尔逻辑",
+        "en": "Boolean Logic",
+        "status": "pending",
+        "sections": [
+          {
+            "code": "10.1",
+            "cn": "标准逻辑门符号",
+            "en": "Standard logic gate symbols",
+            "summary": "逻辑门定义、符号与用途。",
+            "topics": [
+              { "code": "10.1.1", "cn": "标准逻辑门符号", "en": "Standard logic gate symbols", "decks": [] }
+            ]
+          },
+          {
+            "code": "10.2",
+            "cn": "六种逻辑门的功能",
+            "en": "The function of the six logic gates",
+            "summary": "NOT、AND、OR、NAND、NOR 与 XOR。",
+            "topics": [
+              { "code": "10.2.1", "cn": "六种逻辑门的功能", "en": "The function of the six logic gates", "decks": [] }
+            ]
+          },
+          {
+            "code": "10.3",
+            "cn": "逻辑电路、逻辑表达式与真值表",
+            "en": "Logic circuits, logic expressions, truth tables and problem statements",
+            "summary": "根据问题、表达式、电路与真值表进行相互转换。",
+            "topics": [
+              { "code": "10.3.1", "cn": "逻辑电路、逻辑表达式与真值表", "en": "Logic circuits, logic expressions and truth tables", "decks": [] }
+            ]
+          }
+        ]
+      }
+    ]
+  }

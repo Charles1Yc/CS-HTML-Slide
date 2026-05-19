@@ -1,0 +1,191 @@
+---
+title: "3.2.3 Sensors"
+subtitle: "Overview · Hardware P111-P113"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.32em; vertical-align: top; }
+        .reveal .clean-table th:first-child, .reveal .clean-table td:first-child { width: 19%; white-space: nowrap; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)
+
+## Sensors
+
+### Physical properties
+
+<span class="term">Sensors</span> (传感器) are <span class="term">input devices</span> which read or measure <span class="term">physical properties</span> (物理属性) from their surroundings.
+
+Examples include <span class="mark">temperature</span>, <span class="mark">pressure</span>, <span class="mark">acidity level</span> and <span class="mark">length</span>.
+
+## Real Data
+
+### Analogue in nature
+
+Real data is <span class="term">analogue</span> (模拟的) in nature; this means it is <span class="mark">constantly changing</span> and does not have a <span class="mark">single discrete value</span>.
+
+Therefore, analogue data needs some form of <span class="term">interpretation</span> (解释/判读) by the user.
+
+## Figure 3.48
+
+### Mercury thermometer
+
+![Figure 3.48 Mercury thermometer](../../assets/3-hardware/3-2-3-sensors-p111-p113/Figure 3.48 Mercury thermometer.png){fig-align="center" width="78%"}
+
+The temperature measurement on a <span class="term">mercury thermometer</span> requires the user to look at the height of the mercury column and use their <span class="mark">best judgement</span> by looking at the scale.
+
+## Analogue Values
+
+### Infinite possible readings
+
+There are an <span class="mark">infinite number of values</span> depending on how precisely the height of the mercury column is measured.
+
+Computers cannot make any sense of these <span class="term">physical quantities</span>, so the data needs to be converted into a <span class="term">digital format</span>.
+
+## Figure 3.49
+
+### Analogue to digital converter
+
+![Figure 3.49 ADC](../../assets/3-hardware/3-2-3-sensors-p111-p113/Figure 3.49 ADC.png){fig-align="center" width="96%"}
+
+This is usually achieved by an <span class="term">analogue to digital converter</span>, or <span class="term">ADC</span> (模数转换器).
+
+This device converts <span class="term">physical values</span> into <span class="mark">discrete digital values</span> (离散数字值).
+
+## DAC and Actuators
+
+### Digital to analogue converter
+
+When the computer is used to control devices, such as a <span class="term">motor</span> or a <span class="term">valve</span>, it is necessary to use a <span class="term">digital to analogue converter</span>, or <span class="term">DAC</span> (数模转换器).
+
+These devices need <span class="term">analogue data</span> to operate in many cases.
+
+<span class="term">Actuators</span> (执行器) are used in such <span class="term">control applications</span>.
+
+## Feedback
+
+### Output changes the next input
+
+Sensor readings may cause the <span class="term">microprocessor</span> to, for example, alter a valve or a motor that will then change the <span class="mark">next reading</span> taken by the sensor.
+
+The <span class="term">output</span> from the microprocessor will impact on the <span class="term">next input</span> received as it attempts to bring the system within the desired parameters.
+
+This is known as <span class="term">feedback</span> (反馈).
+
+## Constant Sensor Values
+
+### Sensors keep sending readings
+
+Sensors send out <span class="mark">constant values</span>; they do not suddenly send a reading when the parameter they are measuring changes.
+
+It is the <span class="term">microprocessor</span> they are giving the input to that will <span class="mark">analyse the incoming data</span> and take the necessary action.
+
+## Table 3.8 Sensors 1/5
+
+### Temperature, moisture and humidity
+
+::: {.clean-table}
+| Sensor | Description of sensor | Example applications |
+|---|---|---|
+| <span class="term">Temperature sensors</span> | Measures temperature of the surroundings by sending signals; these signals will change as the temperature changes. | Control of a central heating system; control/monitor a chemical process; control/monitor temperature in a greenhouse. |
+| <span class="term">Moisture sensors</span> | Measures water levels in, for example, soil; it is based on the electrical resistance of the sample being monitored. | Control/monitor moisture levels in soil in a greenhouse; monitor the moisture levels in a food processing factory. |
+| <span class="term">Humidity sensors</span> | Measures the amount of water vapour in a sample of air; the conductivity of air will change depending on the amount of water present. | Monitor humidity levels in a building; monitor humidity levels in a microchip factory; monitor/control humidity levels in the air in a greenhouse. |
+:::
+
+## Table 3.8 Sensors 2/5
+
+### Light and infrared
+
+::: {.clean-table}
+| Sensor | Description of sensor | Example applications |
+|---|---|---|
+| <span class="term">Light</span> | Uses photoelectric cells that produce an output in the form of an electric current depending on the brightness of the light. | Switching street lights on or off depending on light levels; switch on car headlights automatically when it gets dark. |
+| <span class="term">Active infrared</span> | Uses an invisible beam of infrared radiation picked up by a detector; if the beam is broken, there will be a change in the amount of infrared radiation reaching the detector. | Turn on car windscreen wipers automatically when it detects rain on the windscreen; security alarm system when an intruder breaks the infra-red beam. |
+| <span class="term">passive infrared</span> | Measures the heat radiation given off by an object, for example, the temperature of an intruder or the temperature in a fridge. | Security alarm system detecting body heat; monitor the temperature inside an industrial freezer or chiller unit. |
+:::
+
+## Table 3.8 Sensors 3/5
+
+### Pressure, sound and gas
+
+::: {.clean-table}
+| Sensor | Description of sensor | Example applications |
+|---|---|---|
+| <span class="term">Pressure sensors</span> | A pressure sensor is a <span class="term">transducer</span> (换能器) and generates different electric currents depending on the pressure applied. | Weighing of lorries at a weighing station; measure the gas pressure in a nuclear reactor. |
+| <span class="term">Acoustic/sound</span> | These are basically microphones that convert detected sound into electric signals or pulses. | Pick up the noise of footsteps in a security system; detect the sound of liquids dripping at a faulty pipe joint. |
+| <span class="term">Gas sensors</span> | Common examples are oxygen or carbon dioxide sensors; they produce outputs that vary with the oxygen or carbon dioxide levels present. | Monitor pollution levels in the air at an airport; monitor oxygen and carbon dioxide levels in a greenhouse; monitor oxygen levels in a car exhaust. |
+:::
+
+## Table 3.8 Sensors 4/5
+
+### Acidity, magnetic fields and motion
+
+::: {.clean-table}
+| Sensor | Description of sensor | Example applications |
+|---|---|---|
+| <span class="term">pH sensors</span> | Measures acidity through changes in voltages in, for example, soil. | Monitor/control acidity levels in the soil in a greenhouse; control acidity levels in a chemical process. |
+| <span class="term">Magnetic field sensors</span> | Measures changes in magnetic fields; the signal output will depend on how the magnetic field changes. | Detect magnetic field changes in mobile phones and CD players; used in anti-lock braking systems in cars. |
+| <span class="term">accelerometers</span> | Measures acceleration and motion of an application, that is, the change in velocity; a piezoelectric cell output varies according to the change in velocity. | Used in cars to measure <span class="mark">rapid deceleration</span> and apply air bags in a crash; used by mobile phones to change between portrait and landscape mode. |
+:::
+
+## Table 3.8 Sensors 5/5
+
+### Presence, flow and level
+
+::: {.clean-table}
+| Sensor | Description of sensor | Example applications |
+|---|---|---|
+| <span class="term">Proximity sensors</span> | Detects the presence of a nearby object. | Detect when a face is close to a mobile phone screen and switch off screen when held to the ear. |
+| <span class="term">Flow-rate sensors</span> | Measures the flow rate of a moving liquid or gas and produces an output based on the amount of liquid or gas passing over the sensor. | Used in respiratory devices and inhalers in hospitals; measure gas flows in pipes, for example, natural gas. |
+| <span class="term">level sensors</span> | Uses ultrasonics to detect changing liquid levels, or capacitance/conductivity to measure static levels; level sensors can also be optical or mechanical in nature. | Monitor levels in a petrol tank in a car; monitor powder levels in tablet production; leak detection in refrigerant. |
+:::
+
+## Sensor Choice
+
+### Link the sensor to the measured property
+
+Exam answers should identify the <span class="mark">property being measured</span> before naming the sensor.
+
+For example: soil acidity → <span class="term">pH sensor</span>; gas pressure → <span class="term">pressure sensor</span>; light level → <span class="term">light sensor</span>; rapid deceleration → <span class="term">accelerometer</span>.
+
+## Classroom Check
+
+### Keep the sensor answer precise
+
+A complete answer should include:
+
+::: {.tight-list}
+- what physical property the <span class="term">sensor</span> is reading or measuring
+- why analogue data may need an <span class="term">ADC</span> before the computer can use it
+- why output to motors or valves may need a <span class="term">DAC</span> and an <span class="term">actuator</span>
+- how <span class="term">feedback</span> means the output can affect the <span class="mark">next input</span>
+- that sensors send out <span class="mark">constant values</span>; the microprocessor analyses the incoming data
+:::
+
+## Bridge
+
+### Monitoring and control applications
+
+Sensors are used in both <span class="term">monitoring</span> and <span class="term">control applications</span>.
+
+The next deck compares how these two methods work.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 3 Directory / 返回 Unit 3 目录](../../index.html)

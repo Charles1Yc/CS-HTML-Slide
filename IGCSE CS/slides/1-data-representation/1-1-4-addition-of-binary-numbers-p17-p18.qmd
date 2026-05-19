@@ -1,0 +1,153 @@
+---
+title: "1.1.4 Addition of binary numbers"
+subtitle: "Data Representation P17-P18"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal p { margin-top: 0.4em; margin-bottom: 0.25em; }
+        .reveal .tight-list li { margin-bottom: 0.14em; }
+        .reveal .clean-table table { font-size: 0.78em; line-height: 1.15; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.22em 0.32em; vertical-align: top; text-align: center; }
+        .reveal .code { font-family: monospace; background: #f0f0f0; padding: 0 0.2em; border-radius: 3px; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
+
+## Binary Addition Rules
+
+### Adding binary digits
+
+Binary addition follows the same rules as denary addition — <span class="mark">carry whenever the sum is greater than $1$</span>:
+
+::: {.clean-table}
+| Binary addition | Carry | Sum |
+|:---------------:|:-----:|:---:|
+| $0 + 0$ | $0$ | $0$ |
+| $0 + 1$ | $0$ | $1$ |
+| $1 + 0$ | $0$ | $1$ |
+| $1 + 1$ | $1$ | $0$ |
+:::
+
+This extends to three binary digits:
+
+::: {.clean-table}
+| Binary digit | Carry | Sum |
+|:------------:|:-----:|:---:|
+| $0 + 0 + 0$ | $0$ | $0$ |
+| $0 + 0 + 1$ | $0$ | $1$ |
+| $0 + 1 + 0$ | $0$ | $1$ |
+| $0 + 1 + 1$ | $1$ | $0$ |
+| $1 + 0 + 0$ | $0$ | $1$ |
+| $1 + 0 + 1$ | $1$ | $0$ |
+| $1 + 1 + 0$ | $1$ | $0$ |
+| $1 + 1 + 1$ | $1$ | $1$ |
+:::
+
+For comparison: in denary, $7 + 9$ gives carry $1$ and sum $6$; $7 + 9 + 8$ gives carry $2$ and sum $4$.
+
+## Example 1: Column-by-Column
+
+### Adding $00100111_2 + 01001010_2$
+
+We set this out showing carry and sum values:
+
+```
+   0 0 1 0 0 1 1 1
++  0 1 0 0 1 0 1 0
+─────────────────────
+        1 1 1         carry values
+   0 1 1 1 0 0 0 1    sum values
+```
+
+::: {.tight-list}
+- Column 1: $1 + 0 = 1$ no carry
+- Column 2: $1 + 1 = 0$ carry $1$
+- Column 3: $1 + 0 + 1 = 0$ carry $1$
+- Column 4: $0 + 1 + 1 = 0$ carry $1$
+- Column 5: $0 + 0 + 1 = 1$ no carry
+- Column 6: $1 + 0 = 1$ no carry
+- Column 7: $0 + 1 = 1$ no carry
+- Column 8: $0 + 0 = 0$ no carry
+:::
+
+Answer: <span class="mark">$01110001_2$</span>
+
+## Example 2: Verify with Denary
+
+### Adding $126 + 62$ via binary
+
+a) Convert $126$ and $62$ into binary, then b) add and check against denary:
+
+a) $126 = 01111110_2$, $62 = 00111110_2$
+
+b)
+```
+   0 1 1 1 1 1 1 0
++  0 0 1 1 1 1 1 0
+─────────────────────
+   1 1 1 1 1 1       carry values
+   1 0 1 1 1 1 0 0    sum values
+```
+
+Answer: $10111100_2$ has denary value $128 + 32 + 16 + 8 + 4 = \mathbf{188}$, which matches $126 + 62$ ✓
+
+## Overflow
+
+### When the result exceeds $8$ bits
+
+Now consider adding $01101110_2$ and $11011110_2$:
+
+```
+   0 1 1 0 1 1 1 0
++  1 1 0 1 1 1 1 0
+─────────────────────
+ 1)1 1 1 1 1 1       carry values
+ 1)0 1 0 0 1 1 0 0    sum values
+```
+
+This addition has generated a <span class="mark">$9^{\text{th}}$ bit</span>. The $8$-bit answer $01001100_2$ gives denary $64 + 8 + 4 = 76$ — which is <span class="mark">incorrect</span> (the actual result is $110 + 222 = 332$).
+
+::: {.tight-list}
+- The maximum denary value of an 8-bit binary number is <span class="mark">$2^8 - 1 = 255$</span>
+- The $9^{\text{th}}$ bit is clear indication that the sum has <span class="mark">exceeded this value</span>
+- This is known as an <span class="term">overflow error</span> (溢出错误) — the number is too big to be stored using $8$ bits
+:::
+
+The greater the number of bits, the larger the number that can be stored: a $16$-bit register allows up to <span class="mark">$2^{16} - 1 = 65\,535$</span>, a $32$-bit register up to $2^{32} - 1 = 4\,294\,967\,295$.
+
+## Classroom Check
+
+### Understand binary addition and overflow
+
+A complete answer should include:
+
+::: {.tight-list}
+- the binary addition rules: <span class="mark">$0+0=0$, $0+1=1$, $1+1=0$ carry $1$, $1+1+1=1$ carry $1$</span>
+- that addition proceeds <span class="mark">column by column from right to left</span>, carrying when the sum exceeds $1$
+- that <span class="term">overflow</span> occurs when an addition generates a <span class="mark">$9^{\text{th}}$ bit</span>, meaning the result exceeds $2^8 - 1 = 255$ (the maximum for an 8-bit register)
+- that this is called an <span class="term">overflow error</span> — the number is too big to be stored using $8$ bits
+- that using a larger register (e.g. <span class="mark">$16$-bit or $32$-bit</span>) allows larger numbers to be stored, preventing overflow
+:::
+
+## Bridge
+
+### Next: Logical Binary Shifts
+
+The next deck covers left and right binary shifts, their multiplication and division effects, and what happens when bits are shifted beyond the register boundary.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 1 Directory / 返回 Unit 1 目录](../../index.html)
