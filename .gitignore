@@ -16,6 +16,6 @@ Temp ScreenShot/*
 .codex-tmp/
 .vscode/
 MIGRATION_HANDOFF.md
-**/resources/
-**/materials/
-**/notes/
+*/resources/
+*/materials/
+*/notes/
