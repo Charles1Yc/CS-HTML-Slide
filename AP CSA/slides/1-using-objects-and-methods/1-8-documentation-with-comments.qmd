@@ -40,7 +40,7 @@ In commercial software, commenting matters because code is usually maintained by
 
 Most IDEs format comments differently so they are easier to spot.
 
-## Documentation Comments
+## Documentation Comments {.smaller}
 
 ### Javadoc-style metadata
 
@@ -89,7 +89,7 @@ Good comments clarify purpose, assumptions, or non-obvious code.
 
 Add a multi-line comment above the class. Then add single-line comments above each section: read input, calculate, and print.
 
-```java
+```{.java .smaller}
 import java.util.Scanner;
 
 public class Multiply
@@ -190,7 +190,7 @@ The documentation tells the caller what values are expected.
 
 Change `forward(100)` to test the Turtle method's precondition.
 
-```java
+```{.java .smaller}
 import java.awt.*;
 import java.util.*;
 

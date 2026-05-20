@@ -259,7 +259,7 @@ z--;
 
 Do not skip lines. Compound operators still update the variable on the left.
 
-## Groupwork Tracing Challenge
+## Groupwork Tracing Challenge {.smaller}
 
 ### Check your trace
 

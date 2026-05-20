@@ -177,7 +177,7 @@ public static void main(String[] args)
 
 Distractors to reject: `Public`, `Static`, `Void`, and an extra `()`.
 
-## Reorder Task
+## Reorder Task {.smaller}
 
 ### Build a print statement
 

@@ -68,9 +68,9 @@ window.EduHubCourseCatalog = {
       },
       overview: {
         kind: "progress",
-        percent: 10,
-        left: "1 / 4 单元已上线",
-        right: "15 课件"
+        percent: 100,
+        left: "Unit 1-4 已完成",
+        right: "53 课件"
       }
     }
   ]

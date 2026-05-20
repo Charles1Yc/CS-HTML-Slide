@@ -319,7 +319,7 @@ public class Draw7
 
 Remember: a turtle starts facing north.
 
-## Code Task
+## Code Task {.smaller}
 
 ### Type the digital 7 program
 
@@ -345,7 +345,7 @@ public class TurtleDraw7
 
 Required sequence: `forward`, `turnLeft`, `forward`.
 
-## Code Task
+## Code Task {.smaller}
 
 ### Draw a digital 8
 
@@ -371,7 +371,7 @@ public class TurtleDraw8
 
 Completion checks: at least 7 calls to `forward` and at least 5 turns.
 
-## Groupwork Coding Challenge
+## Groupwork Coding Challenge {.smaller}
 
 ### Draw letters
 

@@ -133,7 +133,7 @@ Read `yertle.forward()` as: ask the turtle object `yertle` to execute its `forwa
 
 Run the program, then add one more line to make `yertle` go `forward()` again.
 
-```java
+```{.java .smaller}
 import java.awt.*;
 import java.util.*;
 
@@ -187,7 +187,7 @@ The key reading is:
 
 Use the class/object/attribute/method distinction every time you read API docs.
 
-## Mixed-Up Code
+## Mixed-Up Code {.smaller}
 
 ### Draw a sideways capital L
 

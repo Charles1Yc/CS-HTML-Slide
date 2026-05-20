@@ -320,7 +320,7 @@ public class MathChallenge
 
 Use `(int) (Math.random() * 40)` for each spin.
 
-## Groupwork Coding Challenge
+## Groupwork Coding Challenge {.smaller}
 
 ### Combination count
 

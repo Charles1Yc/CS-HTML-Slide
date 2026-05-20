@@ -2,6 +2,10 @@
 
 This folder stores reusable project configuration material for generating HTML Slide decks.
 
+Primary project standard:
+
+- `project-standard.md`: canonical rules for course structure, course pages, course JSON data, slide paths, and local/remote access.
+
 ## Runtime files kept at project root
 
 Some files must stay at the project root because Quarto and Codex discover them from there:
@@ -29,8 +33,10 @@ Course resources and slide outputs are separated by course:
 
 Each course folder should use the same internal structure:
 
-- `resources/`
+- `index.html`
+- `course-data.json`
 - `assets/`
-- `notes/`
 - `materials/`
+- `notes/`
+- `resources/`
 - `slides/`

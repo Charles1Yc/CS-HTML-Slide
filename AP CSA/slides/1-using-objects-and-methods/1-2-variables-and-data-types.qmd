@@ -142,7 +142,7 @@ Hi Jose
 
 Never put variables inside quotes if you want their values. `"name"` prints the letters `name`; `name` prints the value stored in the variable.
 
-## Identify Declarations
+## Identify Declarations {.smaller}
 
 ### Which lines create variables?
 
@@ -321,7 +321,7 @@ Start with lowercase, then uppercase the first letter of each additional word.
 
 Debug the code. Make sure data types match the values, names match exactly, strings close correctly, and statements end correctly.
 
-```java
+```{.java .smaller}
 public class Challenge1_2_weather
 {
     public static void main(String[] args)
@@ -367,7 +367,7 @@ Checklist:
 
 Replace each `"Replace"` value with a word that matches the variable name, then create another silly story using at least five new `String` variables.
 
-```java
+```{.java .smaller}
 public class MadLibs1
 {
     public static void main(String[] args)

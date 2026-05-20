@@ -19,3 +19,10 @@ MIGRATION_HANDOFF.md
 */resources/
 */materials/
 */notes/
+!AP CSA/notes/
+AP CSA/notes/*
+!AP CSA/notes/rebuild-audit/
+AP CSA/notes/rebuild-audit/*
+!AP CSA/notes/content-quality-standard.md
+!AP CSA/notes/rebuild-audit-template.md
+!AP CSA/notes/rebuild-audit/unit-1.md

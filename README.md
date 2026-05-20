@@ -2,6 +2,14 @@
 
 This project keeps only the files needed to open the course site and HTML slide decks reliably on any machine.
 
+## Project Standard
+
+Canonical project standard:
+
+- [config/project-standard.md](config/project-standard.md)
+
+Use that document as the source of truth for course structure, page/data responsibilities, slide paths, and publish/test rules.
+
 ## Canonical Course Layout
 
 Each course directory now follows the same internal layout:
@@ -9,6 +17,7 @@ Each course directory now follows the same internal layout:
 ```text
 <Course>/
   index.html
+  course-data.json
   README.md
   assets/
   materials/
@@ -26,6 +35,7 @@ This keeps course pages, slide output, assets, and local working materials in pr
 Keep these in the GitHub repo:
 
 - `index.html` and each course `index.html`
+- each course `course-data.json`
 - `<Course>/slides/`: generated `.html` decks and `.qmd` sources
 - `<Course>/assets/`: images used by the slide decks
 - `<Course>/slides/_shared/site_libs/`: shared Quarto/Reveal runtime copied from generated decks

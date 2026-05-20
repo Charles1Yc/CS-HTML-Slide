@@ -310,7 +310,7 @@ public class Challenge1_5
 }
 ```
 
-## Groupwork Coding Challenge
+## Groupwork Coding Challenge {.smaller}
 
 ### Average 3 Numbers checks
 
