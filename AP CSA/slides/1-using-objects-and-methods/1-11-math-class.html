@@ -210,77 +210,317 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="math-class" class="slide level2">
-<h2>Math Class</h2>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
 <h3 id="built-in-static-methods-in-java.lang">Built-in static methods in <code>java.lang</code></h3>
 <p>The Java <code>Math</code> class is part of <span class="term"><code>java.lang</code></span>, so it is available by default.</p>
-<p>These are <span class="term">class methods</span>, so they are called with the class name:</p>
-<div class="tight-list">
-<ul>
-<li><code>Math.abs(...)</code></li>
-<li><code>Math.pow(...)</code></li>
-<li><code>Math.sqrt(...)</code></li>
-<li><code>Math.random()</code></li>
-</ul>
-</div>
+<p><code>Math</code> methods are <span class="term">class methods</span>, so they are called with the class name.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(-</span><span class="dv">4</span><span class="op">);</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb1-3"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span></span>
+<span id="cb1-4"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These methods return values; print them, store them, or use them in expressions.</p>
 </section>
-<section id="mathematical-functions" class="slide level2">
-<h2>Mathematical Functions</h2>
-<h3 id="what-each-ap-subset-method-does">What each AP subset method does</h3>
-<div class="tight-list">
-<ul>
-<li><code>abs</code> returns absolute value</li>
-<li><code>pow(base, exponent)</code> returns a power</li>
-<li><code>sqrt(number)</code> returns the positive square root</li>
-<li><code>random()</code> returns a <code>double</code> from <mark>0.0 inclusive to 1.0 exclusive</mark></li>
-</ul>
-</div>
-<p>These methods return values, so the caller must print them, store them, or use them in expressions.</p>
+<section id="ap-math-methods" class="slide level2">
+<h2>AP Math Methods</h2>
+<h3 id="java-quick-reference-subset">Java Quick Reference subset</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int abs(int)</code></td>
+<td>absolute value of an <code>int</code></td>
+</tr>
+<tr class="even">
+<td><code>double abs(double)</code></td>
+<td>absolute value of a <code>double</code></td>
+</tr>
+<tr class="odd">
+<td><code>double pow(double, double)</code></td>
+<td>first argument raised to second argument</td>
+</tr>
+<tr class="even">
+<td><code>double sqrt(double)</code></td>
+<td>positive square root</td>
+</tr>
+<tr class="odd">
+<td><code>double random()</code></td>
+<td>random <code>double</code> from <code>0.0</code> inclusive to <code>1.0</code> exclusive</td>
+</tr>
+</tbody>
+</table>
+<p>The AP exam reference sheet lists the <code>Math</code> methods you may need.</p>
 </section>
-<section id="distance-with-abs" class="slide level2">
-<h2>Distance with <code>abs</code></h2>
+<section id="absolute-value" class="slide level2">
+<h2>Absolute Value</h2>
+<h3 id="distance-from-zero">Distance from zero</h3>
+<p><code>Math.abs</code> returns the positive value without the sign.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(</span><span class="dv">45</span><span class="op">);</span>     <span class="co">// 45</span></span>
+<span id="cb2-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(-</span><span class="dv">45</span><span class="op">);</span>    <span class="co">// 45</span></span>
+<span id="cb2-3"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(</span><span class="fl">33.3</span><span class="op">);</span>   <span class="co">// 33.3</span></span>
+<span id="cb2-4"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(-</span><span class="fl">33.3</span><span class="op">);</span>  <span class="co">// 33.3</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The return type matches the argument type: <code>int</code> input returns <code>int</code>; <code>double</code> input returns <code>double</code>.</p>
+</section>
+<section id="powers-and-square-roots" class="slide level2">
+<h2>Powers and Square Roots</h2>
+<h3 id="pow-and-sqrt"><code>pow</code> and <code>sqrt</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span>   <span class="co">// 8.0</span></span>
+<span id="cb3-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span>  <span class="co">// 1000000.0</span></span>
+<span id="cb3-3"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="op">-</span><span class="dv">3</span><span class="op">);</span>  <span class="co">// 0.125</span></span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span>     <span class="co">// 3.0</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Math.pow</code> and <code>Math.sqrt</code> return <code>double</code> values. A returned value must be used.</p>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="try-math-methods">Try Math methods</h3>
+<p>Change the code so it computes the absolute value of <code>-4</code>, the square root of <code>9</code>, and <code>3</code> raised to the power of <code>2</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TryMath</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(-</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">4</span><span class="op">));</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">));</span></span>
+<span id="cb4-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected output after changes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>4</span>
+<span id="cb5-2"><a href=""></a>3.0</span>
+<span id="cb5-3"><a href=""></a>9.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="valid-sqrt-calls">Valid <code>sqrt</code> calls</h3>
+<p>Knowing that <code>Math.sqrt</code> takes one argument, which calls are syntactically correct?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb6-3"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">2</span><span class="op">))</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Incorrect examples:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">()</span></span>
+<span id="cb7-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb7-3"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span> <span class="dv">2</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Parentheses are required, and the number of arguments must match.</p>
+</section>
+<section id="distance-formula" class="slide level2">
+<h2>Distance Formula</h2>
 <h3 id="absolute-difference-on-a-number-line">Absolute difference on a number line</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/number-line.svg" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Number line distance</p><p>The distance between two numbers can be written as:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(</span>a <span class="op">-</span> b<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is a good example of combining arithmetic with a class method.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/number-line.svg" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Number line distance</p><p>The distance between two numbers is the absolute value of their difference.</p>
+<p>Correct expression:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span><span class="op">(</span>a <span class="op">-</span> b<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Math.abs(a) - Math.abs(b)</code> is not the same thing.</p>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="complete-a-distance-method">Complete a distance method</h3>
+<p>Fill in the method using subtraction and <code>Math.abs</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> DistanceCalculator</span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">distance</span><span class="op">(</span><span class="dt">double</span> a<span class="op">,</span> <span class="dt">double</span> b<span class="op">)</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-5"><a href=""></a>        <span class="dt">double</span> distance <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a>        <span class="cf">return</span> distance<span class="op">;</span></span>
+<span id="cb9-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-9"><a href=""></a></span>
+<span id="cb9-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> argv<span class="op">)</span></span>
+<span id="cb9-11"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"distance(13.5, 26.2) = "</span> <span class="op">+</span> <span class="fu">distance</span><span class="op">(</span><span class="fl">13.5</span><span class="op">,</span> <span class="fl">26.2</span><span class="op">));</span></span>
+<span id="cb9-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"distance(26.2, 13.5) = "</span> <span class="op">+</span> <span class="fu">distance</span><span class="op">(</span><span class="fl">26.2</span><span class="op">,</span> <span class="fl">13.5</span><span class="op">));</span></span>
+<span id="cb9-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Target pattern: <code>Math.abs(a - b)</code>.</p>
 </section>
 <section id="random-numbers" class="slide level2">
 <h2>Random Numbers</h2>
-<h3 id="why-games-need-unpredictability">Why games need unpredictability</h3>
+<h3 id="inclusive-1.0-exclusive"><code>0.0</code> inclusive, <code>1.0</code> exclusive</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/dice.png" style="width:18.0%" class="r-stretch quarto-figure-center"><p class="caption">Dice</p><p><code>Math.random()</code> gives a decimal value in the interval:</p>
-<p><code>0.0 &lt;= value &lt; 1.0</code></p>
-<p>Important point: it can return <code>0.0</code>, but it never returns exactly <code>1.0</code>.</p>
-</section>
-<section id="random-numbers-1" class="slide level2">
-<h2>Random Numbers</h2>
-<h3 id="stretch-cast-then-shift">Stretch, cast, then shift</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> rnd1 <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">);</span>      <span class="co">// 0 to 9</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> rnd2 <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">)</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// 1 to 10</span></span>
-<span id="cb2-3"><a href=""></a><span class="dt">int</span> rnd3 <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">6</span><span class="op">)</span> <span class="op">+</span> <span class="dv">5</span><span class="op">;</span>   <span class="co">// 5 to 10</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Recipe:</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/dice.png" style="width:12.0%" class="r-stretch quarto-figure-left"><p class="caption">Dice</p><p><code>Math.random()</code> returns a <code>double</code> number:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>0.0 &lt;= value &lt; 1.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Important:</p>
 <div class="tight-list">
 <ul>
-<li>multiply to stretch the range</li>
-<li>cast to <code>int</code> to drop decimals</li>
-<li>add the minimum value to shift the range</li>
+<li>it can return <code>0.0</code></li>
+<li>it never returns exactly <code>1.0</code></li>
+<li>running the same code multiple times should produce different values</li>
 </ul>
 </div>
 </section>
-<section id="classroom-task" class="slide level2">
-<h2>Classroom Task</h2>
-<h3 id="random-combination-lock-challenge">Random combination lock challenge</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg" style="width:18.0%" class="r-stretch quarto-figure-center"><p class="caption">Lock challenge</p><p>Retained classroom work for this topic includes:</p>
+<section id="code-task-2" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="observe-random-output">Observe random output</h3>
+<p>Run the code several times and compare the values.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test3</span>
+<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb11-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">());</span></span>
+<span id="cb11-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">());</span></span>
+<span id="cb11-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb11-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The output is not predictable, but each value should be at least <code>0.0</code> and less than <code>1.0</code>.</p>
+</section>
+<section id="stretch-the-range" class="slide level2">
+<h2>Stretch the Range</h2>
+<h3 id="multiply-before-casting">Multiply before casting</h3>
+<p>Multiply to stretch the decimal range.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This produces a <code>double</code> value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>0.0 &lt;= value &lt; 10.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To get an integer from <code>0</code> through <code>9</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="dt">int</span> rnd <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shift-the-range" class="slide level2">
+<h2>Shift the Range</h2>
+<h3 id="random-integer-from-1-through-10">Random integer from 1 through 10</h3>
+<p>To get a random integer from <code>1</code> through <code>10</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="dt">int</span> rnd <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">)</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The parentheses matter.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">10</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>casts after multiplication. Without the parentheses, <code>(int) Math.random()</code> would always be <code>0</code>.</p>
+</section>
+<section id="random-recipe" class="slide level2">
+<h2>Random Recipe</h2>
+<h3 id="range-and-min"><code>range</code> and <code>min</code></h3>
+<p>General form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a><span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> range<span class="op">)</span> <span class="op">+</span> min</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To include both <code>min</code> and <code>max</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb18-1"><a href=""></a>range <span class="op">=</span> max <span class="op">-</span> min <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Examples:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Desired values</th>
+<th>Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 through 9</td>
+<td><code>(int)(Math.random() * 10)</code></td>
+</tr>
+<tr class="even">
+<td>1 through 10</td>
+<td><code>(int)(Math.random() * 10) + 1</code></td>
+</tr>
+<tr class="odd">
+<td>5 through 10</td>
+<td><code>(int)(Math.random() * 6) + 5</code></td>
+</tr>
+<tr class="even">
+<td>-10 through 9</td>
+<td><code>(int)(Math.random() * 20) - 10</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quick-checks" class="slide level2">
+<h2>Quick Checks</h2>
+<h3 id="random-probability-and-ranges">Random probability and ranges</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Answer</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>true about 40% of the time</td>
+<td><code>Math.random() &lt; 0.4</code></td>
+<td>values are uniform from 0 to less than 1</td>
+</tr>
+<tr class="even">
+<td>random integer from 1 to 5 inclusive</td>
+<td><code>(int)(Math.random() * 5) + 1</code></td>
+<td>creates 0-4, then shifts by 1</td>
+</tr>
+<tr class="odd">
+<td>random integer from 0 to 10 inclusive</td>
+<td><code>(int)(Math.random() * 11)</code></td>
+<td>11 possible values</td>
+</tr>
+<tr class="even">
+<td>true about 75% of the time</td>
+<td><code>Math.random() &gt; 0.25</code></td>
+<td>values above 0.25 cover 75% of the interval</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ap-style-quick-check" class="slide level2">
+<h2>AP-Style Quick Check</h2>
+<h3 id="random-integer-from-25-to-60">Random integer from 25 to 60</h3>
+<p>Which statement assigns a random integer between <code>25</code> and <code>60</code>, inclusive?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb19-1"><a href=""></a><span class="dt">int</span> rn <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">36</span><span class="op">)</span> <span class="op">+</span> <span class="dv">25</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reason:</p>
 <div class="tight-list">
 <ul>
-<li>trying <code>abs</code>, <code>pow</code>, and <code>sqrt</code></li>
-<li>building distance formulas</li>
-<li>generating random integers in specific ranges</li>
-<li><span class="term">1.11.3 Coding Challenge: Random Numbers</span></li>
+<li><code>max - min + 1</code> is <code>60 - 25 + 1</code>, which is <code>36</code></li>
+<li><code>Math.random() * 36</code> creates values from <code>0</code> up to but not including <code>36</code></li>
+<li>casting gives integers <code>0</code> through <code>35</code></li>
+<li>adding <code>25</code> shifts the range to <code>25</code> through <code>60</code></li>
 </ul>
 </div>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="random-combination-lock">Random combination lock</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg" style="width:12.0%" class="r-stretch quarto-figure-left"><p class="caption">Lock challenge</p><p>Generate three random integers from <code>0</code> up to but not including <code>40</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MathChallenge</span>
+<span id="cb20-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb20-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb20-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb20-5"><a href=""></a>        <span class="co">// Generate and print 3 random integers from 0 to 39.</span></span>
+<span id="cb20-6"><a href=""></a></span>
+<span id="cb20-7"><a href=""></a>        <span class="co">// Calculate the number of 3-spin combinations for 40 values per spin.</span></span>
+<span id="cb20-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb20-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>(int) (Math.random() * 40)</code> for each spin.</p>
+</section>
+<section id="groupwork-coding-challenge-1" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="combination-count">Combination count</h3>
+<p>Use <code>Math.pow</code> to compute the number of possible combinations.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a href=""></a><span class="dt">double</span> combinations <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">40</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb21-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>combinations<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected result contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href=""></a>64000</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A strong solution should:</p>
+<div class="tight-list">
+<ul>
+<li>call <code>Math.random()</code> at least three times</li>
+<li>cast each random value to <code>int</code></li>
+<li>call <code>Math.pow(40, 3)</code></li>
+<li>print the random values and the combination count</li>
+</ul>
+</div>
+</section>
+<section id="optional-extension-boundary" class="slide level2">
+<h2>Optional Extension Boundary</h2>
+<h3 id="dancing-turtles">Dancing turtles</h3>
+<p>The source includes a dancing turtles challenge using loops, random coordinates, and random RGB color values.</p>
+<p>Keep it optional for this topic because loops belong to Unit 2.</p>
+<p>Core idea worth carrying forward:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a href=""></a><span class="dt">int</span> randomColor <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">256</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates a color component from <code>0</code> through <code>255</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
@@ -289,9 +529,11 @@
 <ul>
 <li>call <code>Math</code> methods with the class name</li>
 <li>explain what <code>abs</code>, <code>pow</code>, and <code>sqrt</code> return</li>
-<li>state the range of <code>Math.random()</code></li>
+<li>use a returned <code>Math</code> value in an assignment, output statement, or expression</li>
+<li>compute distance as <code>Math.abs(a - b)</code></li>
+<li>state that <code>Math.random()</code> returns <code>0.0 &lt;= value &lt; 1.0</code></li>
 <li>convert a random <code>double</code> into a bounded random <code>int</code></li>
-<li>use <code>Math.abs(a - b)</code> for numeric distance</li>
+<li>compute random integer ranges using <code>range = max - min + 1</code></li>
 </ul>
 </div>
 </section>

@@ -210,75 +210,256 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="apis-and-libraries" class="slide level2">
-<h2>APIs and Libraries</h2>
-<h3 id="reusing-code-written-by-other-programmers">Reusing code written by other programmers</h3>
-<p>We have already been using <code>System.out.println()</code>. That method is part of the Java <span class="term">API</span>.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="apis-let-you-use-existing-code">APIs let you use existing code</h3>
+<p>We have already used <code>System.out.println()</code>. That method is part of the Java <span class="term">API</span> (Application Programming Interface).</p>
 <div class="tight-list">
 <ul>
-<li>a <span class="term">library</span> is a collection of classes written by other programmers</li>
-<li>an <span class="term">API</span> tells you how to use those classes</li>
-<li>a <span class="term">package</span> organizes related classes so they can be imported and reused</li>
+<li>A <span class="term">library</span> is a collection of classes written by other programmers.</li>
+<li>An <span class="term">API specification</span> tells programmers how to use classes and methods in a library.</li>
+<li>A <span class="term">package</span> organizes related classes so they can be imported and reused.</li>
 </ul>
 </div>
 <p>The practical point is simple: <mark>you do not write everything from scratch</mark>.</p>
 </section>
+<section id="library-api-package" class="slide level2">
+<h2>Library, API, Package</h2>
+<h3 id="similar-terms-different-emphasis">Similar terms, different emphasis</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Classroom meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="term">library</span></td>
+<td>collection of reusable classes or code</td>
+</tr>
+<tr class="even">
+<td><span class="term">API</span></td>
+<td>specification that explains how to use the library</td>
+</tr>
+<tr class="odd">
+<td><span class="term">package</span></td>
+<td>Java’s way to group related classes</td>
+</tr>
+<tr class="even">
+<td><span class="term">class</span></td>
+<td>building block that defines a reference type</td>
+</tr>
+<tr class="odd">
+<td><span class="term">method</span></td>
+<td>block of code that performs a task</td>
+</tr>
+</tbody>
+</table>
+<p>These words often appear together in documentation.</p>
+</section>
 <section id="java.lang-package" class="slide level2">
 <h2>java.lang Package</h2>
 <h3 id="built-in-classes-you-already-use">Built-in classes you already use</h3>
-<p>The package <span class="term"><code>java.lang</code></span> is available by default in Java.</p>
+<p>The <code>java.lang</code> package is available by default in Java.</p>
 <div class="tight-list">
 <ul>
-<li><code>String</code> is in <code>java.lang</code></li>
-<li><code>System</code> is in <code>java.lang</code></li>
-<li><code>System.out</code> is an object that can print</li>
-<li><code>println()</code> is one of the methods provided by <code>PrintStream</code></li>
+<li><code>String</code> is in <code>java.lang</code>.</li>
+<li><code>System</code> is in <code>java.lang</code>.</li>
+<li><code>System.out</code> is an object whose type is <code>PrintStream</code>.</li>
+<li><code>PrintStream</code> provides <code>println()</code> methods for printing different value types.</li>
 </ul>
 </div>
-<p>Documentation matters because it tells you the available methods and which types they accept.</p>
+<p>Documentation is essential because it tells you the available attributes and behaviors.</p>
+</section>
+<section id="documentation-check" class="slide level2">
+<h2>Documentation Check</h2>
+<h3 id="how-many-println-methods">How many <code>println</code> methods?</h3>
+<p>The <code>PrintStream</code> class includes overloaded <code>println</code> methods for different types.</p>
+<p>Quick check:</p>
+<div class="tight-list">
+<ul>
+<li>Find only methods named <code>println</code>.</li>
+<li>Do not count <code>print</code> or <code>printf</code>.</li>
+<li>Count each distinct <code>println</code> method signature.</li>
+</ul>
+</div>
+<p>Answer: <code>10</code>.</p>
+<p>Reason: there is one <code>println</code> method for each type it can print, plus the no-argument newline version.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="purpose-of-apis-and-libraries">Purpose of APIs and libraries</h3>
+<p>What is the purpose of APIs and libraries in programming?</p>
+<div class="tight-list">
+<ul>
+<li>A. To write every new program from scratch</li>
+<li>B. To use code written by others</li>
+<li>C. To create programming languages</li>
+<li>D. To compile code</li>
+</ul>
+</div>
+<p>Answer: <mark>B</mark>. APIs and libraries let programmers reuse tested code and focus on the specific task they are solving.</p>
 </section>
 <section id="turtle-library" class="slide level2">
 <h2>Turtle Library</h2>
-<h3 id="a-concrete-example-of-an-api">A concrete example of an API</h3>
-<p>The textbook uses a <code>Turtle</code> library so students can see objects doing visible work.</p>
+<h3 id="a-concrete-api-example">A concrete API example</h3>
+<p>The CSAwesome2 <code>Turtle</code> library lets students create drawings using an animated turtle that moves around the screen.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png" style="width:54.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle attributes and behaviors</p><p>The class defines both <span class="term">attributes</span> and <span class="term">behaviors</span>.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png" style="width:54.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle attributes and behaviors</p><p><code>Turtle</code> is a <span class="term">class</span> that can be used as a reference type. A turtle object such as <code>yertle</code> has data and behavior.</p>
 </section>
-<section id="attributes-and-methods" class="slide level2">
-<h2>Attributes and Methods</h2>
-<h3 id="how-to-tell-them-apart-in-documentation">How to tell them apart in documentation</h3>
+<section id="attributes-and-behaviors" class="slide level2">
+<h2>Attributes and Behaviors</h2>
+<h3 id="data-versus-actions">Data versus actions</h3>
 <div class="tight-list">
 <ul>
-<li>attributes are stored data such as <code>name</code>, <code>width</code>, or <code>height</code></li>
-<li>methods are actions such as <code>forward()</code> and <code>turnLeft()</code></li>
-<li>methods always appear with <mark>parentheses</mark></li>
-<li>attributes do <mark>not</mark> use parentheses</li>
+<li><span class="term">Attributes</span> store data related to the class, such as <code>name</code>, <code>width</code>, <code>height</code>, or color.</li>
+<li><span class="term">Behaviors</span> are what objects can do and are defined by methods.</li>
+<li>Methods always have parentheses, such as <code>forward()</code> or <code>turnLeft()</code>.</li>
+<li>Attributes do not have parentheses.</li>
 </ul>
 </div>
-<p>This is one of the first documentation-reading skills students need in Java.</p>
+<p>This is a documentation-reading skill: parentheses usually signal a method.</p>
 </section>
-<section id="the-dot-operator" class="slide level2">
-<h2>The Dot Operator</h2>
-<h3 id="asking-an-object-to-do-something">Asking an object to do something</h3>
+<section id="dot-operator" class="slide level2">
+<h2>Dot Operator</h2>
+<h3 id="ask-an-object-to-run-a-method">Ask an object to run a method</h3>
+<p>The <span class="term">dot operator</span> <code>.</code> connects an object or class with the method being used.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
 <span id="cb1-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
 <span id="cb1-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <span class="term">dot operator</span> <code>.</code> connects the object or class with the method being used.</p>
 <p>Read <code>yertle.forward()</code> as: ask the turtle object <code>yertle</code> to execute its <code>forward()</code> behavior.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="turtle-api-starter-code">Turtle API starter code</h3>
+<p>Run the program, then add one more line to make <code>yertle</code> go <code>forward()</code> again.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb2-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleTest</span>
+<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb2-12"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
+<span id="cb2-13"><a href=""></a></span>
+<span id="cb2-14"><a href=""></a>        <span class="co">// Add another yertle.forward() call here.</span></span>
+<span id="cb2-15"><a href=""></a></span>
+<span id="cb2-16"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb2-17"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="turtle-api-completion-check">Turtle API completion check</h3>
+<p>A successful solution should contain at least two calls to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The key reading is:</p>
 <div class="tight-list">
 <ul>
-<li>vocabulary checks for API, library, package, class, and method</li>
-<li>turtle direction and method-identification checks</li>
-<li>mixed-up turtle code tracing</li>
-<li><span class="term">1.7.3 Coding Challenge: Turtle Drawing</span></li>
+<li><code>Turtle</code> is the class.</li>
+<li><code>yertle</code> is an object of type <code>Turtle</code>.</li>
+<li><code>forward()</code> and <code>turnRight()</code> are methods.</li>
+<li><code>habitat.show(true)</code> displays the world.</li>
 </ul>
 </div>
-<p>This topic is mainly about <mark>reading and using existing code</mark>.</p>
+</section>
+<section id="quick-checks" class="slide level2">
+<h2>Quick Checks</h2>
+<h3 id="turtle-vocabulary">Turtle vocabulary</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Which way does a turtle face when first created?</td>
+<td>North</td>
+</tr>
+<tr class="even">
+<td>What type of thing is <code>Turtle</code> in the program?</td>
+<td>class</td>
+</tr>
+<tr class="odd">
+<td>What type of thing is <code>turnRight</code>?</td>
+<td>method</td>
+</tr>
+<tr class="even">
+<td>What type of thing is the turtle’s position?</td>
+<td>attribute</td>
+</tr>
+<tr class="odd">
+<td>What are attributes of a class?</td>
+<td>data stored in variables</td>
+</tr>
+</tbody>
+</table>
+<p>Use the class/object/attribute/method distinction every time you read API docs.</p>
+</section>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="draw-a-sideways-capital-l">Draw a sideways capital L</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleForwardLeftForward.png" style="width:24.0%" class="r-stretch quarto-figure-right"><p class="caption">Sideways L target</p><p>Put the needed blocks in order.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb4-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb4-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleTest <span class="op">{</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb4-6"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb4-7"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
+<span id="cb4-8"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb4-9"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb4-10"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb4-11"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb4-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reject distractors such as <code>yertle.right();</code> and <code>yertle.forward()</code> without the semicolon.</p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="turtle-drawing-starter">Turtle Drawing starter</h3>
+<p>Make <code>yertle</code> draw a shape by calling <code>forward</code>, <code>backward</code>, and turn methods several times.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb5-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleShape</span>
+<span id="cb5-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="dv">500</span><span class="op">);</span></span>
+<span id="cb5-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb5-10"><a href=""></a></span>
+<span id="cb5-11"><a href=""></a>        <span class="co">// Use yertle's movement and turn methods to draw a shape.</span></span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb5-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-coding-challenge-1" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="turtle-drawing-checks">Turtle Drawing checks</h3>
+<p>Your shape can be a square, zigzag, or block letter.</p>
+<p>A strong solution should include:</p>
+<div class="tight-list">
+<ul>
+<li>at least <mark>3 turns</mark> using <code>turnRight()</code> or <code>turnLeft()</code></li>
+<li>at least <mark>4 moves</mark> using <code>forward()</code> or <code>backward()</code></li>
+<li>enough code lines to show a deliberate drawing plan</li>
+<li>method calls written with the object name, dot operator, method name, parentheses, and semicolon</li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
@@ -287,9 +468,11 @@
 <ul>
 <li>distinguish <span class="term">library</span>, <span class="term">API</span>, and <span class="term">package</span></li>
 <li>identify <code>java.lang</code> as a built-in package</li>
-<li>explain that classes define attributes and methods</li>
-<li>recognize methods by their parentheses</li>
-<li>explain <code>object.method()</code> using the dot operator</li>
+<li>explain that a class defines a reference type and can be used to create objects</li>
+<li>distinguish <span class="term">attributes</span> from <span class="term">methods</span></li>
+<li>recognize methods by parentheses in documentation</li>
+<li>explain <code>object.method()</code> using the <span class="term">dot operator</span></li>
+<li>use API documentation to decide which method call is valid</li>
 </ul>
 </div>
 </section>

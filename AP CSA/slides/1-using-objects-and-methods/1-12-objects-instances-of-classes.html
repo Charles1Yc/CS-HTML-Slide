@@ -210,107 +210,405 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="java-is-object-oriented">Java is object-oriented</h3>
+<p>Java is an <span class="term">object-oriented programming</span> language. One main way to design Java programs is in terms of <span class="term">objects</span> (对象).</p>
+<p>Objects combine:</p>
+<div class="tight-list">
+<ul>
+<li>data</li>
+<li>code that operates on that data</li>
+</ul>
+</div>
+<p>To create objects, Java first defines a <span class="term">class</span> (类), which provides a blueprint for creating objects.</p>
+</section>
 <section id="classes-and-objects" class="slide level2">
 <h2>Classes and Objects</h2>
 <h3 id="blueprint-and-instance">Blueprint and instance</h3>
-<p><img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png" style="width:36.0%" alt="Blueprint and cookie-cutter model"> <img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png" style="width:52.0%" alt="Cookie-cutter model"></p>
-<p>A <span class="term">class</span> is like a blueprint or cookie cutter.<br>
-An <span class="term">object</span> is a specific thing created from that class.</p>
-<p>Objects are <span class="term">instances</span> of the class.</p>
+<p><img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png" style="width:36.0%" alt="Blueprint model"> <img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png" style="width:52.0%" alt="Cookie-cutter model"></p>
+<p>A class is like a blueprint or cookie cutter. An object is a specific thing created from that class.</p>
+<p>Objects are <span class="term">instances</span> (实例) of the class.</p>
+</section>
+<section id="class-as-data-type" class="slide level2">
+<h2>Class as Data Type</h2>
+<h3 id="reference-types-can-declare-variables">Reference types can declare variables</h3>
+<p>A class can define a new data type. The <code>Turtle</code> class can be used to declare turtle variables.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>Turtle yertle<span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a>Turtle myrtle<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Just as <code>int</code> variables hold numbers, <code>Turtle</code> variables can refer to animated turtle objects.</p>
+<p>Class-type variables are <span class="term">reference variables</span>.</p>
 </section>
 <section id="attributes-and-behaviors" class="slide level2">
 <h2>Attributes and Behaviors</h2>
-<h3 id="what-an-object-knows-and-what-it-can-do">What an object knows and what it can do</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png" style="width:68.0%" class="r-stretch quarto-figure-center"><p class="caption">Cats as objects with shared structure</p><div class="tight-list">
-<ul>
-<li><span class="term">attributes</span> are object data or properties</li>
-<li><span class="term">behaviors</span> are actions, implemented by methods</li>
-</ul>
-</div>
-<p>Different cat objects have different values, but the same broad structure.</p>
-</section>
-<section id="turtle-as-an-object-model" class="slide level2">
-<h2>Turtle as an Object Model</h2>
-<h3 id="concrete-object-oriented-vocabulary">Concrete object-oriented vocabulary</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle attributes and methods</p><p>The <code>Turtle</code> class is useful because students can see object state and behavior visually:</p>
+<h3 id="what-an-object-knows-and-does">What an object knows and does</h3>
+<p>A class defines the <span class="term">attributes</span> and <span class="term">behaviors</span> that objects of that class can have.</p>
 <div class="tight-list">
 <ul>
-<li>color, size, and position are attributes</li>
-<li><code>forward()</code>, <code>turnLeft()</code>, <code>turnRight()</code> are behaviors</li>
+<li>Attributes are data or properties an object knows about itself.</li>
+<li>Behaviors are actions an object can do.</li>
+<li>Behaviors are implemented by methods.</li>
+<li>Each object has its own values for attributes.</li>
+</ul>
+</div>
+<p>Example: a turtle object has color and position, and it can move or turn.</p>
+</section>
+<section id="cat-objects" class="slide level2">
+<h2>Cat Objects</h2>
+<h3 id="same-class-different-attribute-values">Same class, different attribute values</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Cats as objects with shared structure</p><p>Student response task:</p>
+<div class="tight-list">
+<ul>
+<li>Name at least 3 cat attributes.</li>
+<li>Name at least 3 cat behaviors.</li>
+<li>For one visible cat, give an attribute value.</li>
+</ul>
+</div>
+<p>Attributes are often nouns or adjectives; behaviors are often verbs.</p>
+</section>
+<section id="turtle-object-model" class="slide level2">
+<h2>Turtle Object Model</h2>
+<h3 id="concrete-object-oriented-vocabulary">Concrete object-oriented vocabulary</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle attributes and methods</p><div class="tight-list">
+<ul>
+<li><code>name</code>, <code>width</code>, <code>height</code>, and color are attributes.</li>
+<li><code>forward()</code>, <code>backward()</code>, <code>turnLeft()</code>, and <code>turnRight()</code> are methods.</li>
+<li>Methods define behavior.</li>
+</ul>
+</div>
+<p>The <code>Turtle</code> class makes object state and behavior visible.</p>
+</section>
+<section id="vocabulary-check" class="slide level2">
+<h2>Vocabulary Check</h2>
+<h3 id="match-the-concept">Match the concept</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Definition</th>
+<th>Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a specific instance of a class with defined attributes</td>
+<td>object</td>
+</tr>
+<tr class="even">
+<td>defines a new data type and acts like a blueprint</td>
+<td>class</td>
+</tr>
+<tr class="odd">
+<td>what the object knows about itself</td>
+<td>attributes or instance variables</td>
+</tr>
+<tr class="even">
+<td>what an object can do</td>
+<td>behaviors or methods</td>
+</tr>
+</tbody>
+</table>
+<p>Use this vocabulary before writing Turtle code.</p>
+</section>
+<section id="quick-checks" class="slide level2">
+<h2>Quick Checks</h2>
+<h3 id="class-and-object-reasoning">Class and object reasoning</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How many objects can you create from a class?</td>
+<td>as many as needed</td>
+</tr>
+<tr class="even">
+<td>What specifies object behavior in Java?</td>
+<td>methods</td>
+</tr>
+<tr class="odd">
+<td>What are object data or properties called?</td>
+<td>attributes</td>
+</tr>
+</tbody>
+</table>
+<p>One class definition can create many objects.</p>
+</section>
+<section id="turtle-class" class="slide level2">
+<h2>Turtle Class</h2>
+<h3 id="create-and-use-a-turtle-object">Create and use a turtle object</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb2-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleTest</span>
+<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb2-12"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb2-13"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb2-14"><a href=""></a></span>
+<span id="cb2-15"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb2-16"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>yertle</code> is an object created from the <code>Turtle</code> class.</p>
+</section>
+<section id="dot-operator" class="slide level2">
+<h2>Dot Operator</h2>
+<h3 id="ask-an-object-to-execute-a-method">Ask an object to execute a method</h3>
+<p>The <span class="term">dot operator</span> <code>.</code> runs an object’s method.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb3-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight-list">
+<ul>
+<li><code>yertle.forward()</code> asks <code>yertle</code> to move forward by the default amount.</li>
+<li><code>yertle.forward(50)</code> passes an argument and asks <code>yertle</code> to move 50 pixels.</li>
+<li>Parentheses are required even when the argument list is empty.</li>
+</ul>
+</div>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="change-the-turtle-movement">Change the turtle movement</h3>
+<p>In the starter code, <code>yertle</code> goes forward and turns left. Change it to make <code>yertle</code> go <code>forward</code> twice and then <code>turnRight</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb4-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb4-5"><a href=""></a>yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb4-6"><a href=""></a></span>
+<span id="cb4-7"><a href=""></a>habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion checks:</p>
+<div class="tight-list">
+<ul>
+<li>at least two <code>yertle.forward()</code> calls</li>
+<li>at least one <code>yertle.turnRight()</code> call</li>
 </ul>
 </div>
 </section>
 <section id="reference-variables" class="slide level2">
 <h2>Reference Variables</h2>
-<h3 id="a-turtle-variable-refers-to-an-object">A turtle variable refers to an object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>Turtle yertle<span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a>Turtle myrtle<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Variables of class types store <span class="term">references</span>, not primitive values.<br>
-That is why objects can carry many attributes together as one unit.</p>
+<h3 id="object-variables-hold-references">Object variables hold references</h3>
+<p>A variable of a reference type such as <code>Turtle</code> holds an object reference, which can be thought of as the memory address of that object.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Contrast:</p>
+<div class="tight-list">
+<ul>
+<li>primitive variables such as <code>int</code> hold one simple value</li>
+<li>object references point to complex objects with many attributes</li>
+</ul>
+</div>
 </section>
 <section id="creating-multiple-objects" class="slide level2">
 <h2>Creating Multiple Objects</h2>
 <h3 id="one-class-many-instances">One class, many instances</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb2-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
-<span id="cb2-3"><a href=""></a>Turtle myrtle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One class can create <mark>as many objects as needed</mark>.<br>
-Each object has its own state and can behave independently.</p>
+<p>Use the pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>ClassName variableName <span class="op">=</span> <span class="kw">new</span> <span class="fu">ClassName</span><span class="op">(</span>arguments<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb7-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb7-3"><a href=""></a>Turtle myrtle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each turtle can move independently while sharing the same class definition.</p>
 </section>
-<section id="inheritance" class="slide level2">
-<h2>Inheritance</h2>
-<h3 id="a-class-hierarchy-can-share-structure">A class hierarchy can share structure</h3>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="add-another-turtle">Add another turtle</h3>
+<p>Add a third turtle object to this program.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb8-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb8-3"><a href=""></a>Turtle myrtle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb8-6"><a href=""></a>yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb8-7"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb8-8"><a href=""></a></span>
+<span id="cb8-9"><a href=""></a>myrtle<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
+<span id="cb8-10"><a href=""></a>myrtle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb8-11"><a href=""></a></span>
+<span id="cb8-12"><a href=""></a>habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion check: at least three occurrences of <code>new Turtle(habitat)</code>.</p>
+</section>
+<section id="inheritance-boundary" class="slide level2">
+<h2>Inheritance Boundary</h2>
+<h3 id="useful-vocabulary-not-the-main-ap-focus-here">Useful vocabulary, not the main AP focus here</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Inheritance hierarchy</p><p>The textbook keeps inheritance here as vocabulary context:</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png" style="width:56.0%" class="r-stretch quarto-figure-center"><p class="caption">Inheritance hierarchy</p><p><span class="term">Inheritance</span> lets a subclass reuse attributes and behaviors from a superclass.</p>
 <div class="tight-list">
 <ul>
-<li>superclass</li>
-<li>subclass</li>
-<li>inherited attributes and behaviors</li>
+<li>superclass: more general class</li>
+<li>subclass: more specific class</li>
+<li>all Java classes are subclasses of <code>Object</code></li>
 </ul>
 </div>
-<p>It is not the main AP focus anymore, but it helps explain class relationships.</p>
+<p>Designing and implementing inheritance relationships is outside the AP CSA course and exam scope here.</p>
 </section>
-<section id="turtle-methods-and-coordinates" class="slide level2">
-<h2>Turtle Methods and Coordinates</h2>
-<h3 id="visual-reasoning-matters">Visual reasoning matters</h3>
-<div class="two-col">
-<p><img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png" style="width:100.0%" alt="Turtle UML class diagram"> <img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png" style="width:88.0%" alt="Turtle coordinate system"></p>
-</div>
-<p>The turtle world uses screen coordinates:</p>
+<section id="turtle-methods" class="slide level2">
+<h2>Turtle Methods</h2>
+<h3 id="class-diagram-and-method-list">Class diagram and method list</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png" style="width:52.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle UML class diagram</p><p>Use the class diagram to identify:</p>
 <div class="tight-list">
 <ul>
-<li><code>(0,0)</code> is at the top-left</li>
-<li><code>x</code> increases to the right</li>
-<li><code>y</code> increases downward</li>
+<li>attributes stored by the turtle</li>
+<li>methods the turtle can execute</li>
+<li>which methods require arguments</li>
 </ul>
 </div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="turtle-coordinates" class="slide level2">
+<h2>Turtle Coordinates</h2>
+<h3 id="screen-coordinates-are-not-cartesian">Screen coordinates are not Cartesian</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle coordinate system</p><p>The Turtle world uses screen coordinates.</p>
 <div class="tight-list">
 <ul>
-<li>class/object/attribute/behavior vocabulary checks</li>
-<li>turtle movement edits and extra-object creation</li>
-<li>coordinate-aware drawing tasks</li>
-<li><span class="term">1.12.7 Coding Challenge: Draw Letters</span></li>
+<li><code>(0, 0)</code> is at the top-left corner.</li>
+<li><code>x</code> increases to the right.</li>
+<li><code>y</code> increases downward.</li>
+<li>A new turtle begins facing north, toward the top of the page.</li>
 </ul>
 </div>
+</section>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="draw-a-digital-7">Draw a digital 7</h3>
+<p>Put the code blocks in order. The turtle should draw a line upward, turn left, and draw another line.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Draw7</span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-5"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb9-6"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb9-7"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb9-8"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb9-9"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb9-10"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb9-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Remember: a turtle starts facing north.</p>
+</section>
+<section id="code-task-2" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="type-the-digital-7-program">Type the digital 7 program</h3>
+<p>After ordering the blocks, type the same movement into the starter program.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb10-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleDraw7</span>
+<span id="cb10-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb10-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb10-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb10-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb10-10"><a href=""></a></span>
+<span id="cb10-11"><a href=""></a>        <span class="co">// Make yertle draw a 7.</span></span>
+<span id="cb10-12"><a href=""></a></span>
+<span id="cb10-13"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb10-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb10-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Required sequence: <code>forward</code>, <code>turnLeft</code>, <code>forward</code>.</p>
+</section>
+<section id="code-task-3" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="draw-a-digital-8">Draw a digital 8</h3>
+<p>Make <code>yertle</code> draw the digital number <code>8</code> as two squares stacked on top of each other.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb11-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleDraw8</span>
+<span id="cb11-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb11-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb11-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">500</span><span class="op">,</span> <span class="dv">500</span><span class="op">);</span></span>
+<span id="cb11-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb11-10"><a href=""></a></span>
+<span id="cb11-11"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb11-12"><a href=""></a></span>
+<span id="cb11-13"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb11-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb11-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion checks: at least 7 calls to <code>forward</code> and at least 5 turns.</p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="draw-letters">Draw letters</h3>
+<p>Working in pairs, use a turtle to draw simple block-style initials using straight lines.</p>
+<p>Allowed methods:</p>
+<div class="tight-list">
+<ul>
+<li><code>forward()</code></li>
+<li><code>turnLeft()</code></li>
+<li><code>turnRight()</code></li>
+<li><code>backward()</code></li>
+<li><code>penUp()</code></li>
+<li><code>penDown()</code></li>
+</ul>
+</div>
+<p>Act out the code as the turtle before running it.</p>
+</section>
+<section id="groupwork-coding-challenge-1" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="turtle-letter-starter">Turtle Letter starter</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb12-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleLetter</span>
+<span id="cb12-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb12-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb12-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb12-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb12-9"><a href=""></a>        <span class="co">// Create a turtle object.</span></span>
+<span id="cb12-10"><a href=""></a></span>
+<span id="cb12-11"><a href=""></a>        <span class="co">// Have it draw your initials.</span></span>
+<span id="cb12-12"><a href=""></a></span>
+<span id="cb12-13"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb12-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb12-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A strong solution should create a turtle object and contain at least 20 lines of code, including meaningful movement and pen commands.</p>
+</section>
+<section id="ap-style-quick-checks" class="slide level2">
+<h2>AP-Style Quick Checks</h2>
+<h3 id="object-vocabulary">Object vocabulary</h3>
+<p>Dog class example:</p>
+<div class="tight-list">
+<ul>
+<li><code>breed</code>, <code>age</code>, and <code>name</code> are attributes.</li>
+<li>an object <code>pet</code> declared as type <code>Dog</code> is an instance of the <code>Dog</code> class.</li>
+</ul>
+</div>
+<p>Party class example:</p>
+<div class="tight-list">
+<ul>
+<li><code>numOfPeople</code>, <code>discoLightsOn</code>, and <code>partyStarted</code> are attributes.</li>
+<li><code>myParty</code> is an instance of the <code>Party</code> class.</li>
+</ul>
+</div>
+<p>Do not confuse an object’s name with one of its attributes.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define class, object, and instance correctly</li>
-<li>distinguish attributes from behaviors</li>
-<li>explain that reference variables point to objects</li>
-<li>recognize that one class can create many objects</li>
-<li>read the turtle coordinate system correctly</li>
+<li>define <span class="term">class</span>, <span class="term">object</span>, and <span class="term">instance</span></li>
+<li>explain that a class defines a new reference type</li>
+<li>distinguish <span class="term">attributes</span> from <span class="term">behaviors</span></li>
+<li>explain that object variables hold references</li>
+<li>use <code>new ClassName(arguments)</code> to create an object</li>
+<li>use the dot operator to call an object’s methods</li>
+<li>read Turtle screen coordinates correctly</li>
+<li>explain inheritance vocabulary while keeping it outside the main AP implementation focus</li>
 </ul>
 </div>
 </section>

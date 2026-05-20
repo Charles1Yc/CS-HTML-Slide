@@ -37,6 +37,95 @@
             ]
           }
         ]
+      },
+      {
+        "id": "unit-2",
+        "code": "2",
+        "cn": "选择与迭代",
+        "en": "Selection and Iteration",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "2",
+            "cn": "选择与迭代",
+            "en": "Selection and Iteration",
+            "summary": "算法中的选择与重复、布尔表达式、条件分支、复合条件、字符串算法、嵌套循环与基础运行时间分析。",
+            "topics": [
+              {"code": "2.1", "cn": "带选择与重复的算法", "en": "Algorithms with Selection and Repetition", "decks": [{"cn": "带选择与重复的算法", "en": "Algorithms with Selection and Repetition", "href": "slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.html"}]},
+              {"code": "2.2", "cn": "布尔表达式", "en": "Boolean Expressions", "decks": [{"cn": "布尔表达式", "en": "Boolean Expressions", "href": "slides/2-selection-and-iteration/2-2-boolean-expressions.html"}]},
+              {"code": "2.3", "cn": "if 语句", "en": "if Statements", "decks": [{"cn": "if 语句", "en": "if Statements", "href": "slides/2-selection-and-iteration/2-3-if-statements.html"}]},
+              {"code": "2.4", "cn": "嵌套 if 语句", "en": "Nested if Statements", "decks": [{"cn": "嵌套 if 语句", "en": "Nested if Statements", "href": "slides/2-selection-and-iteration/2-4-nested-if-statements.html"}]},
+              {"code": "2.5", "cn": "复合布尔表达式", "en": "Compound Boolean Expressions", "decks": [{"cn": "复合布尔表达式", "en": "Compound Boolean Expressions", "href": "slides/2-selection-and-iteration/2-5-compound-boolean-expressions.html"}]},
+              {"code": "2.6", "cn": "比较布尔表达式", "en": "Comparing Boolean Expressions", "decks": [{"cn": "比较布尔表达式", "en": "Comparing Boolean Expressions", "href": "slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.html"}]},
+              {"code": "2.7", "cn": "while 循环", "en": "while Loops", "decks": [{"cn": "while 循环", "en": "while Loops", "href": "slides/2-selection-and-iteration/2-7-while-loops.html"}]},
+              {"code": "2.8", "cn": "for 循环", "en": "for Loops", "decks": [{"cn": "for 循环", "en": "for Loops", "href": "slides/2-selection-and-iteration/2-8-for-loops.html"}]},
+              {"code": "2.9", "cn": "实现选择与迭代算法", "en": "Implementing Selection and Iteration Algorithms", "decks": [{"cn": "实现选择与迭代算法", "en": "Implementing Selection and Iteration Algorithms", "href": "slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.html"}]},
+              {"code": "2.10", "cn": "实现字符串算法", "en": "Implementing String Algorithms", "decks": [{"cn": "实现字符串算法", "en": "Implementing String Algorithms", "href": "slides/2-selection-and-iteration/2-10-implementing-string-algorithms.html"}]},
+              {"code": "2.11", "cn": "嵌套迭代", "en": "Nested Iteration", "decks": [{"cn": "嵌套迭代", "en": "Nested Iteration", "href": "slides/2-selection-and-iteration/2-11-nested-iteration.html"}]},
+              {"code": "2.12", "cn": "非正式运行时间分析", "en": "Informal Run-Time Analysis", "decks": [{"cn": "非正式运行时间分析", "en": "Informal Run-Time Analysis", "href": "slides/2-selection-and-iteration/2-12-informal-run-time-analysis.html"}]}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "code": "3",
+        "cn": "类的创建",
+        "en": "Class Creation",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "3",
+            "cn": "类的创建",
+            "en": "Class Creation",
+            "summary": "抽象、程序设计影响、类结构、构造器、方法、类变量、作用域与 this 关键字。",
+            "topics": [
+              {"code": "3.1", "cn": "抽象与程序设计", "en": "Abstraction and Program Design", "decks": [{"cn": "抽象与程序设计", "en": "Abstraction and Program Design", "href": "slides/3-class-creation/3-1-abstraction-and-program-design.html"}]},
+              {"code": "3.2", "cn": "程序设计的影响", "en": "Impact of Program Design", "decks": [{"cn": "程序设计的影响", "en": "Impact of Program Design", "href": "slides/3-class-creation/3-2-impact-of-program-design.html"}]},
+              {"code": "3.3", "cn": "类的结构", "en": "Anatomy of a Class", "decks": [{"cn": "类的结构", "en": "Anatomy of a Class", "href": "slides/3-class-creation/3-3-anatomy-of-a-class.html"}]},
+              {"code": "3.4", "cn": "构造器", "en": "Constructors", "decks": [{"cn": "构造器", "en": "Constructors", "href": "slides/3-class-creation/3-4-constructors.html"}]},
+              {"code": "3.5", "cn": "方法：如何编写", "en": "Methods: How to Write Them", "decks": [{"cn": "方法：如何编写", "en": "Methods: How to Write Them", "href": "slides/3-class-creation/3-5-methods-how-to-write-them.html"}]},
+              {"code": "3.6", "cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "decks": [{"cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "href": "slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.html"}]},
+              {"code": "3.7", "cn": "类变量与类方法", "en": "Class Variables and Methods", "decks": [{"cn": "类变量与类方法", "en": "Class Variables and Methods", "href": "slides/3-class-creation/3-7-class-variables-and-methods.html"}]},
+              {"code": "3.8", "cn": "作用域与访问", "en": "Scope and Access", "decks": [{"cn": "作用域与访问", "en": "Scope and Access", "href": "slides/3-class-creation/3-8-scope-and-access.html"}]},
+              {"code": "3.9", "cn": "this 关键字", "en": "this Keyword", "decks": [{"cn": "this 关键字", "en": "this Keyword", "href": "slides/3-class-creation/3-9-this-keyword.html"}]}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "code": "4",
+        "cn": "数据集合",
+        "en": "Data Collections",
+        "status": "ready",
+        "sections": [
+          {
+            "code": "4",
+            "cn": "数据集合",
+            "en": "Data Collections",
+            "summary": "数据伦理、数据集、数组、ArrayList、二维数组、搜索、排序与递归。",
+            "topics": [
+              {"code": "4.1", "cn": "数据收集的伦理与社会问题", "en": "Ethical and Social Issues Around Data Collection", "decks": [{"cn": "数据收集的伦理与社会问题", "en": "Ethical and Social Issues Around Data Collection", "href": "slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.html"}]},
+              {"code": "4.2", "cn": "数据集使用导论", "en": "Introduction to Using Data Sets", "decks": [{"cn": "数据集使用导论", "en": "Introduction to Using Data Sets", "href": "slides/4-data-collections/4-2-introduction-to-using-data-sets.html"}]},
+              {"code": "4.3", "cn": "数组的创建与访问", "en": "Array Creation and Access", "decks": [{"cn": "数组的创建与访问", "en": "Array Creation and Access", "href": "slides/4-data-collections/4-3-array-creation-and-access.html"}]},
+              {"code": "4.4", "cn": "数组遍历", "en": "Array Traversals", "decks": [{"cn": "数组遍历", "en": "Array Traversals", "href": "slides/4-data-collections/4-4-array-traversals.html"}]},
+              {"code": "4.5", "cn": "实现数组算法", "en": "Implementing Array Algorithms", "decks": [{"cn": "实现数组算法", "en": "Implementing Array Algorithms", "href": "slides/4-data-collections/4-5-implementing-array-algorithms.html"}]},
+              {"code": "4.6", "cn": "使用文本文件", "en": "Using Text Files", "decks": [{"cn": "使用文本文件", "en": "Using Text Files", "href": "slides/4-data-collections/4-6-using-text-files.html"}]},
+              {"code": "4.7", "cn": "包装类", "en": "Wrapper Classes", "decks": [{"cn": "包装类", "en": "Wrapper Classes", "href": "slides/4-data-collections/4-7-wrapper-classes.html"}]},
+              {"code": "4.8", "cn": "ArrayList 方法", "en": "ArrayList Methods", "decks": [{"cn": "ArrayList 方法", "en": "ArrayList Methods", "href": "slides/4-data-collections/4-8-arraylist-methods.html"}]},
+              {"code": "4.9", "cn": "ArrayList 遍历", "en": "ArrayList Traversals", "decks": [{"cn": "ArrayList 遍历", "en": "ArrayList Traversals", "href": "slides/4-data-collections/4-9-arraylist-traversals.html"}]},
+              {"code": "4.10", "cn": "实现 ArrayList 算法", "en": "Implementing ArrayList Algorithms", "decks": [{"cn": "实现 ArrayList 算法", "en": "Implementing ArrayList Algorithms", "href": "slides/4-data-collections/4-10-implementing-arraylist-algorithms.html"}]},
+              {"code": "4.11", "cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "decks": [{"cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "href": "slides/4-data-collections/4-11-2d-array-creation-and-access.html"}]},
+              {"code": "4.12", "cn": "二维数组遍历", "en": "2D Array Traversals", "decks": [{"cn": "二维数组遍历", "en": "2D Array Traversals", "href": "slides/4-data-collections/4-12-2d-array-traversals.html"}]},
+              {"code": "4.13", "cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "decks": [{"cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "href": "slides/4-data-collections/4-13-implementing-2d-array-algorithms.html"}]},
+              {"code": "4.14", "cn": "搜索算法", "en": "Searching Algorithms", "decks": [{"cn": "搜索算法", "en": "Searching Algorithms", "href": "slides/4-data-collections/4-14-searching-algorithms.html"}]},
+              {"code": "4.15", "cn": "排序算法", "en": "Sorting Algorithms", "decks": [{"cn": "排序算法", "en": "Sorting Algorithms", "href": "slides/4-data-collections/4-15-sorting-algorithms.html"}]},
+              {"code": "4.16", "cn": "递归", "en": "Recursion", "decks": [{"cn": "递归", "en": "Recursion", "href": "slides/4-data-collections/4-16-recursion.html"}]},
+              {"code": "4.17", "cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "decks": [{"cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "href": "slides/4-data-collections/4-17-recursive-searching-and-sorting.html"}]}
+            ]
+          }
+        ]
       }
     ]
   }

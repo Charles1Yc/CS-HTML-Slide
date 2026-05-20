@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit1-shared.css">
@@ -144,110 +210,285 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="comments" class="slide level2">
-<h2>Comments</h2>
-<h3 id="code-for-people-not-the-compiler">Code for people, not the compiler</h3>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="comments-are-written-for-people">Comments are written for people</h3>
 <p>Comments make code easier to read, maintain, and revisit later.</p>
-<p>Java supports three common forms:</p>
 <div class="tight-list">
 <ul>
-<li><code>//</code> single-line comment</li>
-<li><code>/* ... */</code> multi-line block comment</li>
-<li><code>/** ... */</code> documentation comment for generated docs</li>
+<li>Comments are ignored by the compiler.</li>
+<li>Comments do not execute when the program runs.</li>
+<li>Comments help the original programmer, classmates, teachers, and future maintainers understand intent.</li>
 </ul>
 </div>
-<p>Comments are ignored by the compiler, but useful to programmers.</p>
+<p>In commercial software, commenting matters because code is usually maintained by a team for years.</p>
+</section>
+<section id="comment-types" class="slide level2">
+<h2>Comment Types</h2>
+<h3 id="three-common-java-forms">Three common Java forms</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comment type</th>
+<th>Syntax</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>single-line comment</td>
+<td><code>// comment</code></td>
+<td>short note on one line</td>
+</tr>
+<tr class="even">
+<td>multi-line comment</td>
+<td><code>/* comment */</code></td>
+<td>block comment across lines</td>
+</tr>
+<tr class="odd">
+<td>documentation comment</td>
+<td><code>/** comment */</code></td>
+<td>Javadoc-style API documentation</td>
+</tr>
+</tbody>
+</table>
+<p>Most IDEs format comments differently so they are easier to spot.</p>
 </section>
 <section id="documentation-comments" class="slide level2">
 <h2>Documentation Comments</h2>
 <h3 id="javadoc-style-metadata">Javadoc-style metadata</h3>
-<p>Documentation comments often appear before classes, methods, or instance variables.</p>
-<p>Common tags include:</p>
+<p>Documentation comments often appear before classes, methods, and instance variables.</p>
+<p>Common tags:</p>
 <div class="tight-list">
 <ul>
-<li><code>@author</code></li>
-<li><code>@since</code></li>
-<li><code>@version</code></li>
-<li><code>@param</code></li>
-<li><code>@return</code></li>
+<li><code>@author</code>: author of the program</li>
+<li><code>@since</code>: date released</li>
+<li><code>@version</code>: version of the program</li>
+<li><code>@param</code>: parameter of a method</li>
+<li><code>@return</code>: return value from a method</li>
 </ul>
 </div>
-<p>The AP exam will not require full Javadoc, but the habit of documenting intent is still valuable.</p>
+<p>The AP exam does not require full Javadoc, but it does require reading and reasoning from documentation.</p>
 </section>
-<section id="preconditions-and-postconditions" class="slide level2">
-<h2>Preconditions and Postconditions</h2>
-<h3 id="what-must-be-true-before-and-after-a-method-runs">What must be true before and after a method runs</h3>
-<div class="tight-list">
-<ul>
-<li>a <span class="term">precondition</span> must be true before the method is called</li>
-<li>a <span class="term">postcondition</span> describes what is true after the method finishes</li>
-</ul>
-</div>
-<p>Examples:</p>
-<div class="tight-list">
-<ul>
-<li>dividing by zero breaks a math precondition</li>
-<li><code>Math.sqrt(num)</code> is only meaningful for non-negative inputs in normal classroom use</li>
-<li>a turtle movement method expects values within a usable screen range</li>
-</ul>
-</div>
+<section id="comment-example" class="slide level2">
+<h2>Comment Example</h2>
+<h3 id="explain-intent-and-sections">Explain intent and sections</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">/**</span></span>
+<span id="cb1-2"><a href=""></a> <span class="co">*</span> MyClass<span class="co">.</span>java</span>
+<span id="cb1-3"><a href=""></a><span class="co"> * </span><span class="an">@author</span> My Name</span>
+<span id="cb1-4"><a href=""></a> <span class="co">*</span> <span class="an">@since</span> Date</span>
+<span id="cb1-5"><a href=""></a> <span class="co">*</span> This class keeps track of the max score<span class="co">.</span></span>
+<span id="cb1-6"><a href=""></a> <span class="co">*/</span></span>
+<span id="cb1-7"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
+<span id="cb1-8"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> max <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> <span class="co">// this keeps track of the max score</span></span>
+<span id="cb1-10"><a href=""></a></span>
+<span id="cb1-11"><a href=""></a>    <span class="co">/* The print method prints out the max. */</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>max<span class="op">);</span></span>
+<span id="cb1-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Good comments clarify purpose, assumptions, or non-obvious code.</p>
 </section>
-<section id="preconditions-in-design" class="slide level2">
-<h2>Preconditions in Design</h2>
-<h3 id="stronger-reasoning-stronger-testing">Stronger reasoning, stronger testing</h3>
-<p>Good preconditions and postconditions help with:</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="add-useful-comments">Add useful comments</h3>
+<p>Add a multi-line comment above the class. Then add single-line comments above each section: read input, calculate, and print.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Multiply</span>
+<span id="cb2-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="dt">int</span> num1 <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="dt">int</span> num2 <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>        <span class="dt">int</span> result <span class="op">=</span> num1 <span class="op">*</span> num2<span class="op">;</span></span>
+<span id="cb2-12"><a href=""></a></span>
+<span id="cb2-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num1 <span class="op">+</span> <span class="st">" x "</span> <span class="op">+</span> num2 <span class="op">+</span> <span class="st">" = "</span> <span class="op">+</span> result<span class="op">);</span></span>
+<span id="cb2-14"><a href=""></a>        scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb2-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion checks: include <code>/*</code> and <code>//</code> comments.</p>
+</section>
+<section id="preconditions" class="slide level2">
+<h2>Preconditions</h2>
+<h3 id="what-must-be-true-before-code-runs">What must be true before code runs</h3>
+<p>A <span class="term">precondition</span> (前置条件) is a condition that must be true just before a method or section of code runs for it to behave as expected.</p>
 <div class="tight-list">
 <ul>
-<li>method usage</li>
-<li>debugging</li>
-<li>test-case design</li>
-<li>software validity checks</li>
+<li>The method may depend on the caller to satisfy the precondition.</li>
+<li>The method is not always required to check the precondition.</li>
+<li>Preconditions often describe legal parameter values.</li>
 </ul>
 </div>
-<p>Students should get comfortable asking: <mark>What must be true before this method call?</mark></p>
+<p>Example: divisors cannot be zero for integer division.</p>
+</section>
+<section id="postconditions" class="slide level2">
+<h2>Postconditions</h2>
+<h3 id="what-must-be-true-after-code-runs">What must be true after code runs</h3>
+<p>A <span class="term">postcondition</span> (后置条件) describes what must be true after a method or section of code finishes.</p>
+<p>Postconditions can describe:</p>
+<div class="tight-list">
+<ul>
+<li>the value returned by a method</li>
+<li>changes to an object’s state</li>
+<li>output produced by a method</li>
+<li>guarantees the caller can rely on</li>
+</ul>
+</div>
+<p>Good documentation tells callers what a method expects and what it promises.</p>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="math.sqrt-precondition"><code>Math.sqrt</code> precondition</h3>
+<p>The square root method has a precondition: the number should not be negative for normal real-number results.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SqRoot</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="dt">double</span> num <span class="op">=</span> <span class="op">-</span><span class="dv">4</span><span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span>num<span class="op">));</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Fix <code>num</code> so the output is not <code>NaN</code>.</p>
+<p><code>NaN</code> means “not a number”.</p>
+</section>
+<section id="turtle-preconditions" class="slide level2">
+<h2>Turtle Preconditions</h2>
+<h3 id="documenting-expected-ranges">Documenting expected ranges</h3>
+<p>The Turtle <code>forward</code> method can be documented with preconditions and postconditions.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="co">/**</span></span>
+<span id="cb4-2"><a href=""></a> <span class="co">*</span> Method to move the turtle forward the given number of pixels<span class="co">.</span></span>
+<span id="cb4-3"><a href=""></a> <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">pixels</span><span class="co"> </span>the number of pixels to walk forward in the heading direction</span>
+<span id="cb4-4"><a href=""></a> <span class="co">*</span> Preconditions<span class="co">:</span> pixels is between <span class="co">0</span> and the width and height of the world<span class="co">.</span></span>
+<span id="cb4-5"><a href=""></a> <span class="co">*</span> Postconditions<span class="co">:</span> the turtle is moved forward by pixels amount</span>
+<span id="cb4-6"><a href=""></a> <span class="co">*</span> but stays within the width and height of the world<span class="co">.</span></span>
+<span id="cb4-7"><a href=""></a> <span class="co">*/</span></span>
+<span id="cb4-8"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">forward</span><span class="op">(</span><span class="dt">int</span> pixels<span class="op">)</span></span>
+<span id="cb4-9"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="co">/* code to move the turtle forward */</span></span>
+<span id="cb4-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The documentation tells the caller what values are expected.</p>
+</section>
+<section id="code-task-2" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="try-to-break-a-precondition">Try to break a precondition</h3>
+<p>Change <code>forward(100)</code> to test the Turtle method’s precondition.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb5-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtlePreconditions</span>
+<span id="cb5-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb5-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
+<span id="cb5-10"><a href=""></a></span>
+<span id="cb5-11"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb5-14"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb5-15"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb5-16"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb5-17"><a href=""></a></span>
+<span id="cb5-18"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb5-19"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Try a larger number and a negative number; observe what the method does.</p>
+</section>
+<section id="software-validity" class="slide level2">
+<h2>Software Validity</h2>
+<h3 id="preconditions-support-testing">Preconditions support testing</h3>
+<p><span class="term">Software validity</span> asks whether software does what it is supposed to do before release.</p>
+<p>Preconditions and postconditions help testers decide:</p>
+<div class="tight-list">
+<ul>
+<li>normal inputs to try</li>
+<li>boundary cases to try</li>
+<li>invalid inputs to try</li>
+<li>expected results after each action</li>
+</ul>
+</div>
+<p>Good testers intentionally try to break assumptions.</p>
 </section>
 <section id="use-cases" class="slide level2">
 <h2>Use Cases</h2>
-<h3 id="user-interactions-can-become-method-level-thinking">User interactions can become method-level thinking</h3>
+<h3 id="preconditions-in-user-interactions">Preconditions in user interactions</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Restaurant use-case diagram</p><p>A <span class="term">use-case</span> describes a specific user interaction with a system. Preconditions and postconditions can be attached to each use-case, not just to methods.</p>
-</section>
-<section id="agile-development" class="slide level2">
-<h2>Agile Development</h2>
-<h3 id="planning-is-iterative-not-just-linear">Planning is iterative, not just linear</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/waterfallVsAgile.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Waterfall vs Agile</p><p>The textbook keeps this as professional context:</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Restaurant use-case diagram</p><p>A <span class="term">use-case</span> describes a specific user interaction with a system.</p>
+<p>Example:</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">waterfall</span>: finish one phase, then move on</li>
-<li><span class="term">agile</span>: short iterations, testing, feedback, revision</li>
+<li>Precondition for “Eat Food”: the customer has already ordered food and staff has delivered it.</li>
+<li>Postcondition for “Eat Food”: the customer eats the food.</li>
 </ul>
 </div>
-<p>For classroom use, the key takeaway is that software quality improves through <mark>frequent feedback and revision</mark>.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="student-response-task" class="slide level2">
+<h2>Student Response Task</h2>
+<h3 id="pay-for-food-use-case">Pay for food use-case</h3>
+<p>Write the preconditions and postconditions for the use-case “Pay for food”.</p>
+<p>A strong answer should connect it to earlier use-cases:</p>
 <div class="tight-list">
 <ul>
-<li>classify comment types</li>
-<li>add comments to a short multiplication program</li>
-<li>reason about method preconditions with <code>Math.sqrt</code> and turtle movement</li>
-<li><span class="term">1.8.5 Coding Challenge: Preconditions in Algorithms</span></li>
+<li>possible precondition: customer has ordered food</li>
+<li>possible precondition: staff has delivered food or prepared the bill</li>
+<li>possible postcondition: payment is completed</li>
+<li>possible postcondition: order is marked paid</li>
 </ul>
 </div>
+<p>Use-case conditions should be concrete enough to test.</p>
+</section>
+<section id="groupwork-challenge" class="slide level2">
+<h2>Groupwork Challenge</h2>
+<h3 id="preconditions-in-algorithms">Preconditions in Algorithms</h3>
+<p>In pairs or groups, design four steps a user must do to purchase a product online.</p>
+<p>For each step, list:</p>
+<div class="tight-list">
+<ul>
+<li>the user action</li>
+<li>at least one precondition</li>
+<li>at least one postcondition</li>
+</ul>
+</div>
+<p>Example product: a Java book in an online store.</p>
+<p>Optional drawing tools are not required; the important work is precise conditions.</p>
+</section>
+<section id="ap-style-quick-check" class="slide level2">
+<h2>AP-Style Quick Check</h2>
+<h3 id="reasonable-preconditions">Reasonable preconditions</h3>
+<p>Consider the method.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="co">/**</span> method to add extra<span class="co">-</span>credit to the score <span class="co">**/</span></span>
+<span id="cb6-2"><a href=""></a><span class="kw">public</span> <span class="dt">double</span> <span class="fu">computeScore</span><span class="op">(</span><span class="dt">double</span> score<span class="op">,</span> <span class="dt">double</span> extraCredit<span class="op">)</span></span>
+<span id="cb6-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="dt">double</span> totalScore <span class="op">=</span> score <span class="op">+</span> extraCredit<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="cf">return</span> totalScore<span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reasonable preconditions:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="co">/* Precondition: score &gt;= 0 */</span></span>
+<span id="cb7-2"><a href=""></a><span class="co">/* Precondition: extraCredit &gt;= 0 */</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Both values should be non-negative for a normal scoring model.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>identify the three common Java comment forms</li>
+<li>identify <code>//</code>, <code>/* comment */</code>, and <code>/** comment */</code></li>
 <li>explain that comments help people, not program execution</li>
-<li>define <span class="term">precondition</span> and <span class="term">postcondition</span></li>
-<li>apply precondition thinking to method calls such as <code>Math.sqrt</code> or turtle movement</li>
-<li>connect documentation to testing and software validity</li>
+<li>use comments to clarify purpose, sections, or assumptions</li>
+<li>define <span class="term">precondition</span> as what must be true before execution</li>
+<li>define <span class="term">postcondition</span> as what must be true after execution</li>
+<li>apply precondition thinking to method calls such as <code>Math.sqrt</code> or <code>Turtle.forward</code></li>
+<li>connect preconditions and postconditions to testing and software validity</li>
 </ul>
 </div>
 </section>

@@ -14,92 +14,353 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Math Class
+## Topic Intro
 
 ### Built-in static methods in `java.lang`
 
 The Java `Math` class is part of <span class="term">`java.lang`</span>, so it is available by default.
 
-These are <span class="term">class methods</span>, so they are called with the class name:
+`Math` methods are <span class="term">class methods</span>, so they are called with the class name.
 
-::: {.tight-list}
-- `Math.abs(...)`
-- `Math.pow(...)`
-- `Math.sqrt(...)`
-- `Math.random()`
-:::
+```java
+Math.abs(-4);
+Math.pow(2, 3);
+Math.sqrt(9);
+Math.random();
+```
 
-## Mathematical Functions
+These methods return values; print them, store them, or use them in expressions.
 
-### What each AP subset method does
+## AP Math Methods
 
-::: {.tight-list}
-- `abs` returns absolute value
-- `pow(base, exponent)` returns a power
-- `sqrt(number)` returns the positive square root
-- `random()` returns a `double` from <span class="mark">0.0 inclusive to 1.0 exclusive</span>
-:::
+### Java Quick Reference subset
 
-These methods return values, so the caller must print them, store them, or use them in expressions.
+| Method | Returns |
+|---|---|
+| `int abs(int)` | absolute value of an `int` |
+| `double abs(double)` | absolute value of a `double` |
+| `double pow(double, double)` | first argument raised to second argument |
+| `double sqrt(double)` | positive square root |
+| `double random()` | random `double` from `0.0` inclusive to `1.0` exclusive |
 
-## Distance with `abs`
+The AP exam reference sheet lists the `Math` methods you may need.
+
+## Absolute Value
+
+### Distance from zero
+
+`Math.abs` returns the positive value without the sign.
+
+```java
+Math.abs(45);     // 45
+Math.abs(-45);    // 45
+Math.abs(33.3);   // 33.3
+Math.abs(-33.3);  // 33.3
+```
+
+The return type matches the argument type: `int` input returns `int`; `double` input returns `double`.
+
+## Powers and Square Roots
+
+### `pow` and `sqrt`
+
+```java
+Math.pow(2, 3);   // 8.0
+Math.pow(10, 6);  // 1000000.0
+Math.pow(2, -3);  // 0.125
+
+Math.sqrt(9);     // 3.0
+```
+
+`Math.pow` and `Math.sqrt` return `double` values. A returned value must be used.
+
+## Code Task
+
+### Try Math methods
+
+Change the code so it computes the absolute value of `-4`, the square root of `9`, and `3` raised to the power of `2`.
+
+```java
+public class TryMath
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Math.abs(-2));
+        System.out.println(Math.sqrt(4));
+        System.out.println(Math.pow(2, 3));
+    }
+}
+```
+
+Expected output after changes:
+
+```text
+4
+3.0
+9.0
+```
+
+## Quick Check
+
+### Valid `sqrt` calls
+
+Knowing that `Math.sqrt` takes one argument, which calls are syntactically correct?
+
+```java
+Math.sqrt(2)
+Math.sqrt(2 + 3)
+Math.sqrt(Math.sqrt(2))
+```
+
+Incorrect examples:
+
+```java
+Math.sqrt()
+Math.sqrt(2, 4)
+Math.sqrt 2
+```
+
+Parentheses are required, and the number of arguments must match.
+
+## Distance Formula
 
 ### Absolute difference on a number line
 
-![Number line distance](../../assets/1-using-objects-and-methods/1-11-math-class/number-line.svg){fig-align="center" width="72%"}
+![Number line distance](../../assets/1-using-objects-and-methods/1-11-math-class/number-line.svg){fig-align="center" width="70%"}
 
-The distance between two numbers can be written as:
+The distance between two numbers is the absolute value of their difference.
+
+Correct expression:
 
 ```java
 Math.abs(a - b)
 ```
 
-This is a good example of combining arithmetic with a class method.
+`Math.abs(a) - Math.abs(b)` is not the same thing.
 
-## Random Numbers
+## Code Task
 
-### Why games need unpredictability
+### Complete a distance method
 
-![Dice](../../assets/1-using-objects-and-methods/1-11-math-class/dice.png){fig-align="center" width="18%"}
-
-`Math.random()` gives a decimal value in the interval:
-
-`0.0 <= value < 1.0`
-
-Important point: it can return `0.0`, but it never returns exactly `1.0`.
-
-## Random Numbers
-
-### Stretch, cast, then shift
+Fill in the method using subtraction and `Math.abs`.
 
 ```java
-int rnd1 = (int)(Math.random() * 10);      // 0 to 9
-int rnd2 = (int)(Math.random() * 10) + 1;  // 1 to 10
-int rnd3 = (int)(Math.random() * 6) + 5;   // 5 to 10
+public class DistanceCalculator
+{
+    public static double distance(double a, double b)
+    {
+        double distance = 0.0;
+
+        return distance;
+    }
+
+    public static void main(String[] argv)
+    {
+        System.out.println("distance(13.5, 26.2) = " + distance(13.5, 26.2));
+        System.out.println("distance(26.2, 13.5) = " + distance(26.2, 13.5));
+    }
+}
 ```
 
-Recipe:
+Target pattern: `Math.abs(a - b)`.
+
+## Random Numbers
+
+### `0.0` inclusive, `1.0` exclusive
+
+![Dice](../../assets/1-using-objects-and-methods/1-11-math-class/dice.png){fig-align="left" width="12%"}
+
+`Math.random()` returns a `double` number:
+
+```text
+0.0 <= value < 1.0
+```
+
+Important:
 
 ::: {.tight-list}
-- multiply to stretch the range
-- cast to `int` to drop decimals
-- add the minimum value to shift the range
+- it can return `0.0`
+- it never returns exactly `1.0`
+- running the same code multiple times should produce different values
 :::
 
-## Classroom Task
+## Code Task
 
-### Random combination lock challenge
+### Observe random output
 
-![Lock challenge](../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg){fig-align="center" width="18%"}
+Run the code several times and compare the values.
 
-Retained classroom work for this topic includes:
+```java
+public class Test3
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Math.random());
+        System.out.println(Math.random());
+    }
+}
+```
+
+The output is not predictable, but each value should be at least `0.0` and less than `1.0`.
+
+## Stretch the Range
+
+### Multiply before casting
+
+Multiply to stretch the decimal range.
+
+```java
+System.out.println(Math.random() * 10);
+```
+
+This produces a `double` value:
+
+```text
+0.0 <= value < 10.0
+```
+
+To get an integer from `0` through `9`:
+
+```java
+int rnd = (int) (Math.random() * 10);
+```
+
+## Shift the Range
+
+### Random integer from 1 through 10
+
+To get a random integer from `1` through `10`:
+
+```java
+int rnd = (int) (Math.random() * 10) + 1;
+```
+
+The parentheses matter.
+
+```java
+(int) (Math.random() * 10)
+```
+
+casts after multiplication. Without the parentheses, `(int) Math.random()` would always be `0`.
+
+## Random Recipe
+
+### `range` and `min`
+
+General form:
+
+```java
+(int) (Math.random() * range) + min
+```
+
+To include both `min` and `max`:
+
+```java
+range = max - min + 1
+```
+
+Examples:
+
+| Desired values | Expression |
+|---|---|
+| 0 through 9 | `(int)(Math.random() * 10)` |
+| 1 through 10 | `(int)(Math.random() * 10) + 1` |
+| 5 through 10 | `(int)(Math.random() * 6) + 5` |
+| -10 through 9 | `(int)(Math.random() * 20) - 10` |
+
+## Quick Checks
+
+### Random probability and ranges
+
+| Question | Answer | Reason |
+|---|---|---|
+| true about 40% of the time | `Math.random() < 0.4` | values are uniform from 0 to less than 1 |
+| random integer from 1 to 5 inclusive | `(int)(Math.random() * 5) + 1` | creates 0-4, then shifts by 1 |
+| random integer from 0 to 10 inclusive | `(int)(Math.random() * 11)` | 11 possible values |
+| true about 75% of the time | `Math.random() > 0.25` | values above 0.25 cover 75% of the interval |
+
+## AP-Style Quick Check
+
+### Random integer from 25 to 60
+
+Which statement assigns a random integer between `25` and `60`, inclusive?
+
+```java
+int rn = (int) (Math.random() * 36) + 25;
+```
+
+Reason:
 
 ::: {.tight-list}
-- trying `abs`, `pow`, and `sqrt`
-- building distance formulas
-- generating random integers in specific ranges
-- <span class="term">1.11.3 Coding Challenge: Random Numbers</span>
+- `max - min + 1` is `60 - 25 + 1`, which is `36`
+- `Math.random() * 36` creates values from `0` up to but not including `36`
+- casting gives integers `0` through `35`
+- adding `25` shifts the range to `25` through `60`
 :::
+
+## Groupwork Coding Challenge
+
+### Random combination lock
+
+![Lock challenge](../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg){fig-align="left" width="12%"}
+
+Generate three random integers from `0` up to but not including `40`.
+
+```java
+public class MathChallenge
+{
+    public static void main(String[] args)
+    {
+        // Generate and print 3 random integers from 0 to 39.
+
+        // Calculate the number of 3-spin combinations for 40 values per spin.
+    }
+}
+```
+
+Use `(int) (Math.random() * 40)` for each spin.
+
+## Groupwork Coding Challenge
+
+### Combination count
+
+Use `Math.pow` to compute the number of possible combinations.
+
+```java
+double combinations = Math.pow(40, 3);
+System.out.println(combinations);
+```
+
+Expected result contains:
+
+```text
+64000
+```
+
+A strong solution should:
+
+::: {.tight-list}
+- call `Math.random()` at least three times
+- cast each random value to `int`
+- call `Math.pow(40, 3)`
+- print the random values and the combination count
+:::
+
+## Optional Extension Boundary
+
+### Dancing turtles
+
+The source includes a dancing turtles challenge using loops, random coordinates, and random RGB color values.
+
+Keep it optional for this topic because loops belong to Unit 2.
+
+Core idea worth carrying forward:
+
+```java
+int randomColor = (int) (Math.random() * 256);
+```
+
+This creates a color component from `0` through `255`.
 
 ## Classroom Check
 
@@ -108,9 +369,11 @@ Retained classroom work for this topic includes:
 ::: {.tight-list}
 - call `Math` methods with the class name
 - explain what `abs`, `pow`, and `sqrt` return
-- state the range of `Math.random()`
+- use a returned `Math` value in an assignment, output statement, or expression
+- compute distance as `Math.abs(a - b)`
+- state that `Math.random()` returns `0.0 <= value < 1.0`
 - convert a random `double` into a bounded random `int`
-- use `Math.abs(a - b)` for numeric distance
+- compute random integer ranges using `range = max - min + 1`
 :::
 
 ## End

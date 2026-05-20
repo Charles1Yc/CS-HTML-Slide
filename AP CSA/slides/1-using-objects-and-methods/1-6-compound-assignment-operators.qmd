@@ -14,25 +14,27 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Compound Assignment
+## Topic Intro
 
 ### Update and assign in one step
 
-Compound assignment operators are shortcuts such as:
+<span class="term">Compound assignment operators</span> (复合赋值运算符) are shortcuts that do a math operation and assignment in one step.
 
-::: {.tight-list}
-- `+=`
-- `-=`
-- `*=`
-- `/=`
-- `%=`
-:::
+```java
+x += 1;
+```
 
-`x += 1` means the same as `x = x + 1`.
+means the same as:
 
-## Operator Equivalence
+```java
+x = x + 1;
+```
 
-### Read the shortcut as expanded assignment
+Read the operator first, then the assignment: add, then store back.
+
+## Compound Operators
+
+### Written out versus shortcut
 
 | Written out | Compound |
 |---|---|
@@ -42,57 +44,244 @@ Compound assignment operators are shortcuts such as:
 | `x = x / 2` | `x /= 2` |
 | `x = x % 2` | `x %= 2` |
 
-The operation happens first, then the new value is assigned back into the same variable.
+The left-side variable receives the new result after the operation.
+
+## Mnemonic
+
+### Operation, then equal sign
+
+If you are unsure whether to write `+=` or `=+`, use the meaning.
+
+::: {.tight-list}
+- The operation `+` is done first.
+- The result is assigned with `=`.
+- Therefore the operator is written `+=`.
+:::
+
+The same pattern works for `-=`, `*=`, `/=`, and `%=`.
 
 ## Increment and Decrement
 
-### The most common short forms
+### Shortest forms for plus one and minus one
 
-Because `+1` and `-1` are so common, Java also provides:
+Because changing a variable by one is common, Java provides:
 
 ::: {.tight-list}
-- `x++` -> increment by 1
-- `y--` -> decrement by 1
+- `x++`: increment (递增) `x` by `1`
+- `y--`: decrement (递减) `y` by `1`
 :::
 
-For AP CSA, the most important reading is still the simple update idea: <span class="mark">current value -> change -> store again</span>.
+Equivalent forms:
 
-## Prefix and Postfix
+```java
+x++;
+x += 1;
+x = x + 1;
+```
 
-### Know the note, keep the AP usage simple
+All three update `x` by one.
+
+## Code Task
+
+### Compound operators in action
+
+Predict each output before running.
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        int score = 0;
+        System.out.println(score);
+        score++;
+        System.out.println(score);
+        score *= 2;
+        System.out.println(score);
+        int penalty = 5;
+        score -= penalty / 2;
+        System.out.println(score);
+    }
+}
+```
+
+## Code Task
+
+### Expected output and extensions
+
+Expected output:
+
+```text
+0
+1
+2
+0
+```
+
+Now add:
+
+::: {.tight-list}
+- one compound statement that adds `3` to `score`
+- one compound statement that divides `score` by `2`
+:::
+
+Required operators: `+=` and `/=`.
+
+## Prefix and Postfix Note
+
+### Know the rule, keep AP usage readable
 
 Real Java code may use `++x` or `x++`.
 
 ::: {.tight-list}
-- <span class="term">postfix</span>: use the current value first, then update
-- <span class="term">prefix</span>: update first, then use the value
+- <span class="term">postfix</span>: `x++` uses the current value first, then changes it
+- <span class="term">prefix</span>: `++x` changes the value first, then uses it
 :::
 
-The textbook explicitly notes that AP-style work stays with <span class="mark">clear, readable uses</span>, not tricky expression puzzles.
+AP CSA will not use the prefix form, and it will not use postfix in a context where the expression value matters.
+
+## Prefix and Postfix Example
+
+### Why AP avoids trick puzzles here
+
+If `x` starts as `10`:
+
+```java
+System.out.println(x++);
+```
+
+prints `10`, then `x` becomes `11`.
+
+If `x` starts as `10`:
+
+```java
+System.out.println(++x);
+```
+
+prints `11`, and `x` is `11` afterward.
+
+For this course, prefer clear updates on their own line.
+
+## Quick Check
+
+### Trace increment and compound addition
+
+What are the final values?
+
+```java
+int x = 0;
+int y = 1;
+int z = 2;
+x--;
+y++;
+z += y;
+```
+
+Answer:
+
+```text
+x = -1, y = 2, z = 4
+```
+
+Reason: subtract one from `x`, add one to `y`, then add the current `y` to `z`.
+
+## Quick Check
+
+### Trace mixed updates
+
+What are the final values?
+
+```java
+int x = 3;
+int y = 5;
+int z = 2;
+x = z * 2;
+y = y / 2;
+z++;
+```
+
+Answer:
+
+```text
+x = 4, y = 2, z = 3
+```
+
+Reason: `y / 2` uses integer division because both operands are `int`.
 
 ## Code Tracing
 
-### Operators are easiest to learn by tracing
+### Dry-run code by hand
 
-![Trace table example](../../assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png){fig-align="center" width="26%"}
+<span class="term">Code tracing</span> (代码跟踪) means simulating a dry run through code line by line as if you are the computer.
 
-<span class="term">Code tracing</span> (代码跟踪) means stepping through the program line by line and recording how variables change.
+![Trace table example](../../assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png){fig-align="center" width="24%"}
 
-This is the bridge from operator meaning to exam-style reasoning.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
+Tracing can help:
 
 ::: {.tight-list}
-- shortcut-operator active code
-- tracing multiple-choice checks
-- <span class="term">1.6.1 Code Tracing Challenge and Operators Maze</span>
+- debug code
+- prove a program runs correctly
+- determine what unfamiliar code actually does
 :::
 
-The instructional emphasis is <span class="mark">not memorizing symbols in isolation</span>; it is predicting variable state accurately.
+## Trace Table Method
+
+### Record variables after each line
+
+A useful trace table has one column for each variable.
+
+| Line | `x` | `y` | `z` |
+|---|---:|---:|---:|
+| start |  |  |  |
+| after `x++` |  |  |  |
+| after `y -= 3` |  |  |  |
+| after `z = x + z` |  |  |  |
+
+Add output or line numbers when they matter.
+
+## Groupwork Tracing Challenge
+
+### Trace through the program
+
+Use paper and pencil. Track `x`, `y`, and `z` after each line.
+
+```java
+int x = 0;
+int y = 5;
+int z = 1;
+x++;
+y -= 3;
+z = x + z;
+x = y * z;
+y %= 2;
+z--;
+```
+
+Do not skip lines. Compound operators still update the variable on the left.
+
+## Groupwork Tracing Challenge
+
+### Check your trace
+
+Expected final values:
+
+```text
+x = 4
+y = 0
+z = 1
+```
+
+One possible trace:
+
+| Step | `x` | `y` | `z` |
+|---|---:|---:|---:|
+| initial values | 0 | 5 | 1 |
+| `x++` | 1 | 5 | 1 |
+| `y -= 3` | 1 | 2 | 1 |
+| `z = x + z` | 1 | 2 | 2 |
+| `x = y * z` | 4 | 2 | 2 |
+| `y %= 2` | 4 | 0 | 2 |
+| `z--` | 4 | 0 | 1 |
 
 ## Classroom Check
 
@@ -100,10 +289,11 @@ The instructional emphasis is <span class="mark">not memorizing symbols in isola
 
 ::: {.tight-list}
 - expand `+=`, `-=`, `*=`, `/=`, and `%=` into full assignment form
-- explain `++` and `--` as one-step updates
-- trace variable values after multiple updates
-- recognize that AP work avoids tricky prefix/postfix edge cases
-- use a trace table when the code becomes hard to hold mentally
+- explain `++` and `--` as one-step updates by `1`
+- trace variable values after multiple compound updates
+- apply integer division when `/=` or `/` uses only `int` values
+- explain why AP CSA avoids tricky prefix/postfix expression puzzles
+- use a trace table when variable changes are hard to hold mentally
 :::
 
 ## End

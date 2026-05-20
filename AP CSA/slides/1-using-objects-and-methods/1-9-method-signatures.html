@@ -210,90 +210,392 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="methods-organize-complex-programs">Methods organize complex programs</h3>
+<p>Until now, most code has been inside <code>main</code>. Complex programs are made up of many <span class="term">methods</span> (方法).</p>
+<p>A method is a named block of code that performs a task when it is called.</p>
+<div class="tight-list">
+<ul>
+<li>A <span class="term">block</span> is code enclosed in curly braces <code>{ }</code>.</li>
+<li>A method can solve one smaller subproblem.</li>
+<li>Method names should describe what the method does.</li>
+</ul>
+</div>
+</section>
 <section id="procedural-abstraction" class="slide level2">
 <h2>Procedural Abstraction</h2>
-<h3 id="break-big-work-into-named-smaller-tasks">Break big work into named smaller tasks</h3>
-<p>A <span class="term">method</span> is a named block of code that performs a task when it is called.</p>
-<p><span class="term">Procedural abstraction</span> means we can use a method without worrying about every internal detail of how it works.</p>
-<p>That is how large programs stay readable.</p>
+<h3 id="use-a-method-without-knowing-every-detail">Use a method without knowing every detail</h3>
+<p><span class="term">Procedural abstraction</span> (过程抽象) lets a programmer use a method by knowing what it does, even without knowing exactly how it is implemented.</p>
+<p>Everyday analogy:</p>
+<div class="tight-list">
+<ul>
+<li>You can use a car’s brakes without knowing every internal mechanical detail.</li>
+<li>You can call <code>println()</code> without knowing the full <code>PrintStream</code> implementation.</li>
+</ul>
+</div>
+<p>This is how large programs stay readable.</p>
+</section>
+<section id="repeated-code" class="slide level2">
+<h2>Repeated Code</h2>
+<h3 id="repetition-signals-a-method-opportunity">Repetition signals a method opportunity</h3>
+<p>The textbook uses song lyrics because repeated lines make method extraction visible.</p>
+<p>Repeated lines in an Old MacDonald verse include:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Old MacDonald had a farm"</span><span class="op">);</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"E-I-E-I-O"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When you see identical code repeated, ask whether it should become a named method.</p>
 </section>
 <section id="method-calls" class="slide level2">
 <h2>Method Calls</h2>
-<h3 id="flow-of-control-moves-between-methods">Flow of control moves between methods</h3>
+<h3 id="call-the-method-name-to-run-its-code">Call the method name to run its code</h3>
+<p>A <span class="term">method call</span> includes the method name and parentheses.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="fu">methodName</span><span class="op">();</span></span>
+<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hello World"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When a method is called:</p>
 <div class="tight-list">
 <ul>
-<li>execution jumps to that method</li>
-<li>the statements in that method run</li>
-<li>control returns to the line after the call</li>
+<li>flow of control jumps to the method</li>
+<li>the method body executes</li>
+<li>control returns to the line immediately after the call</li>
 </ul>
 </div>
-<p>The textbook uses repeated-song examples because repeated code is the clearest signal that a new method should exist.</p>
 </section>
-<section id="method-signature" class="slide level2">
-<h2>Method Signature</h2>
-<h3 id="what-the-caller-needs-to-know">What the caller needs to know</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-9-method-signatures/method-parts.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Method signature and method call</p><p>The method header includes:</p>
+<section id="flow-of-control" class="slide level2">
+<h2>Flow of Control</h2>
+<h3 id="old-macdonald-with-methods">Old MacDonald with methods</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> OldMacDonaldSong</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">intro</span><span class="op">()</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Old MacDonald had a farm"</span><span class="op">);</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="fu">chorus</span><span class="op">();</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">chorus</span><span class="op">()</span></span>
+<span id="cb3-10"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"E-I-E-I-O"</span><span class="op">);</span></span>
+<span id="cb3-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href=""></a></span>
+<span id="cb3-14"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-15"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-16"><a href=""></a>        <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb3-17"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on that farm they had a cow."</span><span class="op">);</span></span>
+<span id="cb3-18"><a href=""></a>        <span class="fu">chorus</span><span class="op">();</span></span>
+<span id="cb3-19"><a href=""></a>        <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb3-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Execution starts in <code>main</code>, then jumps through calls.</p>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="add-method-calls-for-another-verse">Add method calls for another verse</h3>
+<p>Scroll to <code>main</code> and add a second verse by calling existing methods.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on that farm they had a cow."</span><span class="op">);</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="fu">chorus</span><span class="op">();</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"With a moo moo here and a moo moo there"</span><span class="op">);</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Here a moo, there a moo, everywhere a moo moo"</span><span class="op">);</span></span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a>    <span class="co">// 1. Call intro().</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="co">// 2. Print a line with a duck or another animal.</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="co">// 3. Call chorus().</span></span>
+<span id="cb4-12"><a href=""></a>    <span class="co">// 4. Print the animal sound lines.</span></span>
+<span id="cb4-13"><a href=""></a>    <span class="co">// 5. Call intro() again.</span></span>
+<span id="cb4-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion checks: at least 3 calls to <code>intro()</code> and 3 calls to <code>chorus()</code>.</p>
+</section>
+<section id="trace-task" class="slide level2">
+<h2>Trace Task</h2>
+<h3 id="method-call-output-order">Method call output order</h3>
+<p>What does this code print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"I like to "</span><span class="op">);</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="fu">eat</span><span class="op">();</span></span>
+<span id="cb5-5"><a href=""></a>    <span class="fu">eat</span><span class="op">();</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="fu">eat</span><span class="op">();</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="fu">fruit</span><span class="op">();</span></span>
+<span id="cb5-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>where <code>eat()</code> prints <code>eat</code> and <code>fruit()</code> prints <code>apples and bananas!</code>.</p>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>I like to eat eat eat apples and bananas!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="method-header" class="slide level2">
+<h2>Method Header</h2>
+<h3 id="what-the-caller-and-compiler-need">What the caller and compiler need</h3>
+<p>The <span class="term">method header</span> is the first line of a method.</p>
+<p>It includes:</p>
 <div class="tight-list">
 <ul>
 <li>method name</li>
 <li>return type</li>
-<li>parameter list</li>
+<li>parameter list with data types</li>
 </ul>
 </div>
-<p>The <span class="term">signature</span> is the method name plus the ordered parameter types.</p>
+<p>For this lesson, many examples use the return type <code>void</code>, which means the method does not return a value.</p>
+</section>
+<section id="method-signature" class="slide level2">
+<h2>Method Signature</h2>
+<h3 id="header-without-the-return-type">Header without the return type</h3>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-9-method-signatures/method-parts.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Method signature and method call</p><p>A <span class="term">method signature</span> consists of:</p>
+<div class="tight-list">
+<ul>
+<li>method name</li>
+<li>ordered list of parameter types</li>
+</ul>
+</div>
+<p>A method without parameters has the method name and an empty parameter list.</p>
+</section>
+<section id="printstream-examples" class="slide level2">
+<h2>PrintStream Examples</h2>
+<h3 id="same-method-name-different-parameter-lists">Same method name, different parameter lists</h3>
+<p>Examples from <code>PrintStream</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">void</span> <span class="fu">println</span><span class="op">()</span></span>
+<span id="cb7-2"><a href=""></a><span class="dt">void</span> <span class="fu">println</span><span class="op">(</span><span class="bu">String</span> x<span class="op">)</span></span>
+<span id="cb7-3"><a href=""></a><span class="dt">void</span> <span class="fu">println</span><span class="op">(</span><span class="dt">int</span> x<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Corresponding calls:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb8-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hello World"</span><span class="op">);</span></span>
+<span id="cb8-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">42</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The argument must be compatible with the parameter type in the method signature.</p>
 </section>
 <section id="parameters-and-arguments" class="slide level2">
 <h2>Parameters and Arguments</h2>
 <h3 id="header-variables-versus-call-time-values">Header variables versus call-time values</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">void</span> <span class="fu">println</span><span class="op">(</span><span class="bu">String</span> x<span class="op">)</span>   <span class="co">// parameter</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">println</span><span class="op">(</span><span class="st">"Hello World"</span><span class="op">);</span>  <span class="co">// argument</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <span class="term">parameter</span> is declared in the method header.<br>
-The <span class="term">argument</span> is the actual value passed in the call.</p>
-<p>Arguments can be literals, variables, or expressions of compatible type.</p>
+<p>The <span class="term">parameter</span> is declared in the method header.</p>
+<p>The <span class="term">argument</span> is the actual value passed into the method call.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">void</span> <span class="fu">println</span><span class="op">(</span><span class="bu">String</span> x<span class="op">)</span>   <span class="co">// x is a parameter</span></span>
+<span id="cb9-2"><a href=""></a><span class="fu">println</span><span class="op">(</span><span class="st">"Hello World"</span><span class="op">);</span>  <span class="co">// "Hello World" is an argument</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Arguments can be literals, variables, or expressions that evaluate to the correct type.</p>
 </section>
-<section id="matching-arguments-to-parameters" class="slide level2">
-<h2>Matching Arguments to Parameters</h2>
-<h3 id="method-calls-must-fit-the-signature">Method calls must fit the signature</h3>
+<section id="finding-parameters" class="slide level2">
+<h2>Finding Parameters</h2>
+<h3 id="what-changes-between-verses">What changes between verses?</h3>
+<p>Old MacDonald verses repeat the same structure, but these parts change:</p>
+<div class="tight-list">
+<ul>
+<li>animal: <code>cow</code>, <code>duck</code></li>
+<li>sound: <code>moo</code>, <code>quack</code></li>
+</ul>
+</div>
+<p>Those changing values are good candidates for parameters.</p>
+<p>This is the design move: keep the shared structure in one method, pass the changing values as arguments.</p>
+</section>
+<section id="method-with-parameters" class="slide level2">
+<h2>Method with Parameters</h2>
+<h3 id="one-method-can-print-many-verses">One method can print many verses</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">verse</span><span class="op">(</span><span class="bu">String</span> animal<span class="op">,</span> <span class="bu">String</span> sound<span class="op">)</span></span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on this farm, they had a "</span> <span class="op">+</span> animal<span class="op">);</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="fu">chorus</span><span class="op">();</span></span>
+<span id="cb10-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"With a "</span> <span class="op">+</span> sound <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> sound</span>
+<span id="cb10-6"><a href=""></a>            <span class="op">+</span> <span class="st">" here and a "</span> <span class="op">+</span> sound <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> sound <span class="op">+</span> <span class="st">" there"</span><span class="op">);</span></span>
+<span id="cb10-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Here a "</span> <span class="op">+</span> sound</span>
+<span id="cb10-8"><a href=""></a>            <span class="op">+</span> <span class="st">", there a "</span> <span class="op">+</span> sound</span>
+<span id="cb10-9"><a href=""></a>            <span class="op">+</span> <span class="st">", everywhere a "</span> <span class="op">+</span> sound <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> sound<span class="op">);</span></span>
+<span id="cb10-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The parameters <code>animal</code> and <code>sound</code> hold different values for each call.</p>
+</section>
+<section id="main-as-outline" class="slide level2">
+<h2>Main as Outline</h2>
+<h3 id="method-calls-show-the-program-structure">Method calls show the program structure</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="fu">verse</span><span class="op">(</span><span class="st">"cow"</span><span class="op">,</span> <span class="st">"moo"</span><span class="op">);</span></span>
+<span id="cb11-5"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb11-6"><a href=""></a>    <span class="fu">verse</span><span class="op">(</span><span class="st">"duck"</span><span class="op">,</span> <span class="st">"quack"</span><span class="op">);</span></span>
+<span id="cb11-7"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb11-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Main methods often read like an outline: high-level calls appear in the order the program should run.</p>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="add-verses-with-arguments">Add verses with arguments</h3>
+<p>Add a verse with animal <code>goose</code> and sound <code>honk</code>, then call <code>intro()</code> again. Repeat with another animal and sound of your choice.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb12-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb12-3"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb12-4"><a href=""></a>    <span class="fu">verse</span><span class="op">(</span><span class="st">"cow"</span><span class="op">,</span> <span class="st">"moo"</span><span class="op">);</span></span>
+<span id="cb12-5"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb12-6"><a href=""></a>    <span class="fu">verse</span><span class="op">(</span><span class="st">"duck"</span><span class="op">,</span> <span class="st">"quack"</span><span class="op">);</span></span>
+<span id="cb12-7"><a href=""></a>    <span class="fu">intro</span><span class="op">();</span></span>
+<span id="cb12-8"><a href=""></a></span>
+<span id="cb12-9"><a href=""></a>    <span class="co">// Add verse("goose", "honk");</span></span>
+<span id="cb12-10"><a href=""></a>    <span class="co">// Then call intro().</span></span>
+<span id="cb12-11"><a href=""></a>    <span class="co">// Add one more animal and sound.</span></span>
+<span id="cb12-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Completion checks: include <code>verse("goose", "honk");</code> and at least 5 calls to <code>intro()</code>.</p>
+</section>
+<section id="arguments-to-parameters" class="slide level2">
+<h2>Arguments to Parameters</h2>
+<h3 id="matching-by-number-type-and-order">Matching by number, type, and order</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png" style="width:68.0%" class="r-stretch quarto-figure-center"><p class="caption">Arguments to parameters</p><p>Java matches a method call by checking:</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Arguments to parameters</p><p>Java chooses the right method by checking:</p>
 <div class="tight-list">
 <ul>
 <li>method name</li>
 <li>number of arguments</li>
-<li>argument types</li>
-<li>parameter order</li>
+<li>data types of the arguments</li>
+<li>order of parameter types</li>
 </ul>
 </div>
-<p>Java also uses <span class="term">call by value</span>: parameters receive copies of argument values.</p>
+<p>Method headers contain types; method calls contain values.</p>
+</section>
+<section id="call-by-value" class="slide level2">
+<h2>Call by Value</h2>
+<h3 id="parameters-receive-copies">Parameters receive copies</h3>
+<p>Java uses <span class="term">call by value</span> when it passes arguments to methods.</p>
+<p>That means:</p>
+<div class="tight-list">
+<ul>
+<li>the argument’s value is copied into the parameter variable</li>
+<li>the parameter is initialized with that copy</li>
+<li>changing the parameter variable does not change the original primitive variable outside the method</li>
+</ul>
+</div>
+<p>For now, read method calls as passing values into named parameter variables.</p>
 </section>
 <section id="overloading" class="slide level2">
 <h2>Overloading</h2>
 <h3 id="same-method-name-different-signatures">Same method name, different signatures</h3>
-<p>Methods are <span class="term">overloaded</span> when they share a name but differ in parameter count or parameter types.</p>
-<p>Examples from <code>println</code>:</p>
-<div class="tight-list">
-<ul>
-<li><code>println()</code></li>
-<li><code>println(String x)</code></li>
-<li><code>println(int x)</code></li>
-</ul>
-</div>
-<p>The compiler decides which version to call from the signature match.</p>
+<p>Methods are <span class="term">overloaded</span> when multiple methods have the same name but different signatures.</p>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="fu">println</span><span class="op">()</span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">println</span><span class="op">(</span><span class="bu">String</span> x<span class="op">)</span></span>
+<span id="cb13-3"><a href=""></a><span class="fu">println</span><span class="op">(</span><span class="dt">int</span> x<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The compiler determines which version to call from the number and types of arguments.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>repeated-code identification in song structure</li>
-<li>adding new method calls to an existing program</li>
-<li>tracing argument-to-parameter matching</li>
-<li><span class="term">1.9.5 Coding Challenge: Song with Parameters</span></li>
-</ul>
-</div>
+<section id="groupwork-challenge" class="slide level2">
+<h2>Groupwork Challenge</h2>
+<h3 id="song-with-parameters">Song with Parameters</h3>
+<p>The Ants Go Marching repeats structure with different values.</p>
+<p>Changing phrases:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Verse</th>
+<th><code>num</code> argument</th>
+<th><code>action</code> argument</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>"one"</code></td>
+<td><code>"suck a thumb"</code></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>"two"</code></td>
+<td><code>"tie a shoe"</code></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>"three"</code></td>
+<td><code>"climb a tree"</code></td>
+</tr>
+</tbody>
+</table>
+<p>These changing phrases become arguments to <code>chorus(num)</code> and <code>verse(num, action)</code>.</p>
+</section>
+<section id="groupwork-challenge-1" class="slide level2">
+<h2>Groupwork Challenge</h2>
+<h3 id="ants-song-starter">Ants Song starter</h3>
+<p>Write code in <code>main</code> that calls <code>chorus</code> and <code>verse</code> to print all three verses.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> AntsSong</span>
+<span id="cb14-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb14-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">chorus</span><span class="op">(</span><span class="bu">String</span> num<span class="op">)</span></span>
+<span id="cb14-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb14-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The ants go marching "</span> <span class="op">+</span> num</span>
+<span id="cb14-6"><a href=""></a>                <span class="op">+</span> <span class="st">" by "</span> <span class="op">+</span> num <span class="op">+</span> <span class="st">", hurrah, hurrah"</span><span class="op">);</span></span>
+<span id="cb14-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The ants go marching "</span> <span class="op">+</span> num</span>
+<span id="cb14-8"><a href=""></a>                <span class="op">+</span> <span class="st">" by "</span> <span class="op">+</span> num <span class="op">+</span> <span class="st">", hurrah, hurrah"</span><span class="op">);</span></span>
+<span id="cb14-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb14-10"><a href=""></a></span>
+<span id="cb14-11"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">verse</span><span class="op">(</span><span class="bu">String</span> num<span class="op">,</span> <span class="bu">String</span> action<span class="op">)</span></span>
+<span id="cb14-12"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb14-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The ants go marching "</span> <span class="op">+</span> num <span class="op">+</span> <span class="st">" by "</span> <span class="op">+</span> num<span class="op">);</span></span>
+<span id="cb14-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The little one stops to "</span> <span class="op">+</span> action<span class="op">);</span></span>
+<span id="cb14-15"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And they all go marching down to the ground"</span><span class="op">);</span></span>
+<span id="cb14-16"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"To get out of the rain, BOOM! BOOM! BOOM! BOOM!</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb14-17"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb14-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-challenge-2" class="slide level2">
+<h2>Groupwork Challenge</h2>
+<h3 id="required-method-calls">Required method calls</h3>
+<p>Your <code>main</code> method should call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="fu">chorus</span><span class="op">(</span><span class="st">"one"</span><span class="op">);</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">verse</span><span class="op">(</span><span class="st">"one"</span><span class="op">,</span> <span class="st">"suck a thumb"</span><span class="op">);</span></span>
+<span id="cb15-3"><a href=""></a></span>
+<span id="cb15-4"><a href=""></a><span class="fu">chorus</span><span class="op">(</span><span class="st">"two"</span><span class="op">);</span></span>
+<span id="cb15-5"><a href=""></a><span class="fu">verse</span><span class="op">(</span><span class="st">"two"</span><span class="op">,</span> <span class="st">"tie a shoe"</span><span class="op">);</span></span>
+<span id="cb15-6"><a href=""></a></span>
+<span id="cb15-7"><a href=""></a><span class="fu">chorus</span><span class="op">(</span><span class="st">"three"</span><span class="op">);</span></span>
+<span id="cb15-8"><a href=""></a><span class="fu">verse</span><span class="op">(</span><span class="st">"three"</span><span class="op">,</span> <span class="st">"climb a tree"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A strong solution uses method calls instead of copying all song lines into <code>main</code>.</p>
+</section>
+<section id="ap-style-trace-check" class="slide level2">
+<h2>AP-Style Trace Check</h2>
+<h3 id="which-calls-print-purr-meow-purr">Which calls print <code>purr meow purr</code>?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Cat</span>
+<span id="cb16-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb16-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">sound1</span><span class="op">()</span></span>
+<span id="cb16-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb16-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"meow "</span><span class="op">);</span></span>
+<span id="cb16-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb16-7"><a href=""></a></span>
+<span id="cb16-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">sound2</span><span class="op">()</span></span>
+<span id="cb16-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb16-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"purr "</span><span class="op">);</span></span>
+<span id="cb16-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb16-12"><a href=""></a></span>
+<span id="cb16-13"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">hello</span><span class="op">()</span></span>
+<span id="cb16-14"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb16-15"><a href=""></a>        <span class="fu">sound2</span><span class="op">();</span></span>
+<span id="cb16-16"><a href=""></a>        <span class="fu">sound1</span><span class="op">();</span></span>
+<span id="cb16-17"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb16-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Correct call sequence: <code>hello(); sound2();</code></p>
+</section>
+<section id="vocabulary-check" class="slide level2">
+<h2>Vocabulary Check</h2>
+<h3 id="match-the-concept">Match the concept</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Definition</th>
+<th>Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>named block of code to perform a task</td>
+<td>method</td>
+</tr>
+<tr class="even">
+<td>where execution starts</td>
+<td>main method</td>
+</tr>
+<tr class="odd">
+<td>method name and ordered parameter types</td>
+<td>method signature</td>
+</tr>
+<tr class="even">
+<td>variable declared in a method header</td>
+<td>parameter</td>
+</tr>
+<tr class="odd">
+<td>value passed into a method call</td>
+<td>argument</td>
+</tr>
+</tbody>
+</table>
+<p>Use this vocabulary precisely when reading API documentation.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
@@ -301,10 +603,13 @@ The <span class="term">argument</span> is the actual value passed in the call.</
 <div class="tight-list">
 <ul>
 <li>define a <span class="term">method</span> as a named task block</li>
-<li>explain the jump-and-return flow of control in a method call</li>
-<li>identify the parts of a method header</li>
-<li>distinguish parameters from arguments</li>
-<li>explain <span class="term">overloading</span> as same name with different signatures</li>
+<li>explain <span class="term">procedural abstraction</span></li>
+<li>trace jump-and-return <span class="term">flow of control</span> during method calls</li>
+<li>identify the method name, return type, and parameter list in a header</li>
+<li>define a <span class="term">method signature</span> as method name plus ordered parameter types</li>
+<li>distinguish <span class="term">parameters</span> from <span class="term">arguments</span></li>
+<li>explain <span class="term">call by value</span> as copying argument values into parameters</li>
+<li>explain <span class="term">overloading</span> as same method name with different signatures</li>
 </ul>
 </div>
 </section>

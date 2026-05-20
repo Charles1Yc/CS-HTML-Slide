@@ -210,95 +210,276 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="casting" class="slide level2">
-<h2>Casting</h2>
-<h3 id="changing-the-type-of-a-value">Changing the type of a value</h3>
-<p>In Java, <span class="term">casting</span> (类型转换) means converting a value from one type to another.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="type-casting-changes-the-value-type">Type casting changes the value type</h3>
+<p>In Java, <span class="term">type casting</span> (类型转换) converts a value from one type to another.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-5-casting-and-ranges-of-values/bronze-casting.jpg" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Bronze casting analogy</p><p>The cast operator is written before an expression, such as <mark><code>(int)</code></mark> or <mark><code>(double)</code></mark>.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-5-casting-and-ranges-of-values/bronze-casting.jpg" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">Bronze casting analogy</p><p>The <span class="term">cast operator</span> is written before an expression, such as <code>(int)</code> or <code>(double)</code>.</p>
 </section>
-<section id="casting-1" class="slide level2">
-<h2>Casting</h2>
-<h3 id="widening-and-narrowing">Widening and narrowing</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span>   <span class="co">// 0.75</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="fl">3.6</span>        <span class="co">// 3</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="cast-operators" class="slide level2">
+<h2>Cast Operators</h2>
+<h3 id="int-and-double"><code>(int)</code> and <code>(double)</code></h3>
+<p>The cast operator produces a value of the requested type.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="fl">3.6</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight-list">
 <ul>
-<li>casting <code>int</code> to <code>double</code> is a <span class="term">widening conversion</span></li>
-<li>casting <code>double</code> to <code>int</code> is a <span class="term">narrowing conversion</span></li>
-<li>narrowing removes the digits to the right of the decimal point</li>
+<li><code>(double) 1 / 3</code> evaluates to a <code>double</code> value instead of truncated integer division.</li>
+<li><code>(int) 3.6</code> evaluates to <code>3</code>.</li>
+<li>Casting a <code>double</code> to an <code>int</code> truncates the digits to the right of the decimal point.</li>
 </ul>
 </div>
-<p>Truncating is <mark>not</mark> the same thing as rounding.</p>
+<p>Truncation is <mark>not</mark> rounding.</p>
 </section>
-<section id="casting-and-division" class="slide level2">
-<h2>Casting and Division</h2>
-<h3 id="the-cast-changes-the-whole-expression-result">The cast changes the whole expression result</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span>          <span class="co">// 0</span></span>
-<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fl">3.0</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span>        <span class="co">// 0.75</span></span>
-<span id="cb2-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">((</span><span class="dt">double</span><span class="op">)</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span> <span class="co">// 0.75</span></span>
-<span id="cb2-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">((</span><span class="dt">int</span><span class="op">)</span> <span class="fl">3.0</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span>  <span class="co">// 0</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If any part of the expression becomes <code>double</code>, the expression evaluates as <code>double</code>.</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="division-with-casts">Division with casts</h3>
+<p>Predict each output line, then add a line that divides <code>5</code> by <code>2</code> using a <code>(double)</code> cast.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Casting</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fl">3.0</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">/</span> <span class="fl">4.0</span><span class="op">);</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">((</span><span class="dt">double</span><span class="op">)</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">((</span><span class="dt">int</span><span class="op">)</span> <span class="fl">3.0</span> <span class="op">/</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>        <span class="co">// Add a line that prints 5 divided by 2 using a (double) cast.</span></span>
+<span id="cb2-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="expected-casting-output">Expected casting output</h3>
+<p>Expected output after adding the final line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>0</span>
+<span id="cb3-2"><a href=""></a>0.75</span>
+<span id="cb3-3"><a href=""></a>0.75</span>
+<span id="cb3-4"><a href=""></a>0.75</span>
+<span id="cb3-5"><a href=""></a>0</span>
+<span id="cb3-6"><a href=""></a>2.5</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key reading:</p>
+<div class="tight-list">
+<ul>
+<li><code>int / int</code> produces an <code>int</code>.</li>
+<li>If any operand is <code>double</code>, the expression produces a <code>double</code>.</li>
+<li><code>(int) 3.0 / 4</code> casts <code>3.0</code> to <code>3</code>, then performs integer division.</li>
+</ul>
+</div>
+</section>
+<section id="widening-conversion" class="slide level2">
+<h2>Widening Conversion</h2>
+<h3 id="double-is-contagious-in-expressions"><code>double</code> is contagious in expressions</h3>
+<p>When Java evaluates an expression involving a <code>double</code>, <code>int</code> values are automatically widened to <code>double</code> values.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="fl">9.0</span> <span class="op">/</span> <span class="dv">10</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is evaluated like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="fl">9.0</span> <span class="op">/</span> <span class="fl">10.0</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>and produces:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>0.9</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A conversion from <code>int</code> to <code>double</code> is called a <span class="term">widening conversion</span>.</p>
+</section>
+<section id="average-pattern" class="slide level2">
+<h2>Average Pattern</h2>
+<h3 id="cast-before-division">Cast before division</h3>
+<p>When <code>total</code> and <code>count</code> are both <code>int</code>, cast before dividing.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">int</span> total<span class="op">;</span></span>
+<span id="cb7-2"><a href=""></a><span class="dt">int</span> count<span class="op">;</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> total <span class="op">/</span> count<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This avoids losing the fractional part before the result is stored in <code>average</code>.</p>
+<p>Important contrast:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> <span class="op">(</span>total <span class="op">/</span> count<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This performs integer division first, then casts the already-truncated result.</p>
 </section>
 <section id="rounding" class="slide level2">
 <h2>Rounding</h2>
-<h3 id="round-first-then-cast">Round first, then cast</h3>
-<p>To round a positive <code>double</code> to the nearest <code>int</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> nearestInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>number <span class="op">+</span> <span class="fl">0.5</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For negative values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> nearestNegInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>negNumber <span class="op">-</span> <span class="fl">0.5</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This slide matters because many students assume Java rounds automatically. It does not.</p>
+<h3 id="add-or-subtract-0.5-then-cast">Add or subtract <code>0.5</code>, then cast</h3>
+<p>Values of type <code>double</code> in the <code>int</code> range can be rounded to the nearest <code>int</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">double</span> number<span class="op">;</span></span>
+<span id="cb9-2"><a href=""></a><span class="dt">double</span> negNumber<span class="op">;</span></span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a><span class="dt">int</span> nearestInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>number <span class="op">+</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb9-5"><a href=""></a><span class="dt">int</span> nearestNegInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>negNumber <span class="op">-</span> <span class="fl">0.5</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For example, <code>7.0 / 4.0</code> is <code>1.75</code>; <code>(int) 1.75</code> truncates to <code>1</code>, but <code>(int) (1.75 + 0.5)</code> produces <code>2</code>.</p>
+</section>
+<section id="code-task-2" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="rounding-by-casting">Rounding by casting</h3>
+<p>Run the code mentally, then add a line that rounds <code>number + 2.3</code> to the nearest <code>int</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> NearestInt</span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb10-5"><a href=""></a>        <span class="dt">double</span> number <span class="op">=</span> <span class="fl">5.0</span> <span class="op">/</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb10-6"><a href=""></a>        <span class="dt">int</span> nearestInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>number <span class="op">+</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb10-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5.0/3 = "</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb10-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5/3 truncated: "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> number<span class="op">);</span></span>
+<span id="cb10-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5.0/3 rounded to nearest int: "</span> <span class="op">+</span> nearestInt<span class="op">);</span></span>
+<span id="cb10-10"><a href=""></a>        <span class="dt">double</span> negNumber <span class="op">=</span> <span class="op">-</span>number<span class="op">;</span></span>
+<span id="cb10-11"><a href=""></a>        <span class="dt">int</span> nearestNegInt <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>negNumber <span class="op">-</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb10-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"-5.0/3 rounded to nearest negative int: "</span> <span class="op">+</span> nearestNegInt<span class="op">);</span></span>
+<span id="cb10-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb10-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="rounding-and-casting">Rounding and casting</h3>
+<p>Answer true or false.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Statement</th>
+<th style="text-align: right;">Answer</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Java rounds up automatically when you do integer division.</td>
+<td style="text-align: right;"><code>false</code></td>
+<td>integer division truncates</td>
+</tr>
+<tr class="even">
+<td>Casting always results in a <code>double</code> type.</td>
+<td style="text-align: right;"><code>false</code></td>
+<td>the result type is the type named in the cast</td>
+</tr>
+</tbody>
+</table>
+<p>Use the exact cast operator to decide the resulting type.</p>
 </section>
 <section id="range-of-values" class="slide level2">
 <h2>Range of Values</h2>
-<h3 id="types-are-limited-by-storage">Types are limited by storage</h3>
+<h3 id="int-has-minimum-and-maximum-values"><code>int</code> has minimum and maximum values</h3>
+<p><code>int</code> values are stored using <mark>4 bytes</mark> of memory.</p>
 <div class="tight-list">
 <ul>
-<li><code>int</code> uses <mark>32 bits</mark></li>
-<li><code>double</code> uses <mark>64 bits</mark></li>
-<li><code>Integer.MAX_VALUE</code> is <code>2147483647</code></li>
-<li><code>Integer.MIN_VALUE</code> is <code>-2147483648</code></li>
+<li><code>Integer.MAX_VALUE</code> is <code>2147483647</code>.</li>
+<li><code>Integer.MIN_VALUE</code> is <code>-2147483648</code>.</li>
+<li>Values in an <code>int</code> variable must stay within this inclusive range.</li>
 </ul>
 </div>
-<p>If a value is too large or too small for <code>int</code>, an <span class="term">integer overflow</span> (整数溢出) occurs.</p>
+<p>If an expression would evaluate outside the allowed range, an <span class="term">integer overflow</span> (整数溢出) occurs.</p>
 </section>
-<section id="range-of-values-1" class="slide level2">
-<h2>Range of Values</h2>
-<h3 id="precision-is-also-limited">Precision is also limited</h3>
-<p><code>double</code> values can hold decimals, but not unlimited precision.</p>
-<div class="tight-list">
-<ul>
-<li>repeating decimals are cut off after about <mark>14-15 digits</mark></li>
-<li>computers may produce <span class="term">round-off error</span> when exact precision cannot be stored</li>
-<li>formatting output and intentional rounding can control what students see</li>
-</ul>
-</div>
-<p>This is a good place to distinguish <mark>representation limits</mark> from logic mistakes.</p>
+<section id="debugging-task" class="slide level2">
+<h2>Debugging Task</h2>
+<h3 id="integer-overflow">Integer overflow</h3>
+<p>The code tries to store values outside the <code>int</code> range. Fix the overflow by deleting the last <code>0</code> in each number.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TestOverflow</span>
+<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb11-5"><a href=""></a>        <span class="dt">int</span> id <span class="op">=</span> <span class="dv">2147483650</span><span class="op">;</span></span>
+<span id="cb11-6"><a href=""></a>        <span class="dt">int</span> negative <span class="op">=</span> <span class="op">-</span><span class="dv">2147483650</span><span class="op">;</span></span>
+<span id="cb11-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb11-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>negative<span class="op">);</span></span>
+<span id="cb11-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb11-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected fixed output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>214748365</span>
+<span id="cb12-2"><a href=""></a>-214748365</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="double-precision" class="slide level2">
+<h2>Double Precision</h2>
+<h3 id="limited-digits-can-cause-round-off-error">Limited digits can cause round-off error</h3>
+<p>Computers allot memory based on data type. A <code>double</code> uses 8 bytes, but it still cannot store unlimited precision.</p>
 <div class="tight-list">
 <ul>
-<li>division with and without casts</li>
-<li>truncation versus rounding checks</li>
-<li>integer overflow repair task</li>
-<li><span class="term">1.5.4 Coding Challenge: Average 3 Numbers</span></li>
+<li>Repeating decimals are cut off after about 14-15 digits.</li>
+<li>If a mathematical value needs more precision than can be stored, <span class="term">round-off error</span> occurs.</li>
+<li>To avoid unwanted display noise, round to the precision needed.</li>
 </ul>
 </div>
-<p>The average challenge is the right place to insist on casting before division.</p>
+<p>This is representation error, not necessarily a logic error.</p>
+</section>
+<section id="formatting-demo" class="slide level2">
+<h2>Formatting Demo</h2>
+<h3 id="show-fewer-decimal-places">Show fewer decimal places</h3>
+<p><code>printf</code> can format long decimal numbers for display. This is useful in class, but not a required AP exam target.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TestFormat</span>
+<span id="cb13-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb13-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb13-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb13-5"><a href=""></a>        <span class="dt">double</span> number <span class="op">=</span> <span class="fl">10.0</span> <span class="op">/</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb13-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Number cut off after 15 digits: "</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb13-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Number as an int: "</span> <span class="op">+</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> number<span class="op">);</span></span>
+<span id="cb13-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"Formatted number: </span><span class="sc">%.2f</span><span class="st">"</span><span class="op">,</span> number<span class="op">);</span></span>
+<span id="cb13-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">"</span><span class="sc">\n</span><span class="st">Formatted number: $</span><span class="sc">%.2f\n</span><span class="st">"</span><span class="op">,</span> number<span class="op">);</span></span>
+<span id="cb13-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb13-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add <code>2.0 / 3</code> formatted to show two digits after the decimal point.</p>
+</section>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="correct-average-expression">Correct average expression</h3>
+<p>Which expression returns the correct average for a <code>total</code> that is the sum of 3 <code>int</code> values?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> <span class="op">(</span>total <span class="op">/</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb14-2"><a href=""></a>total <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb14-3"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> total <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb14-4"><a href=""></a><span class="op">(</span><span class="dt">int</span><span class="op">)</span> total <span class="op">/</span> <span class="dv">3</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Correct answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="op">(</span><span class="dt">double</span><span class="op">)</span> total <span class="op">/</span> <span class="dv">3</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reason: it converts <code>total</code> to <code>double</code> before division happens.</p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="average-3-numbers-starter">Average 3 Numbers starter</h3>
+<p>Write a program that declares three <code>int</code> grades, sums them, and reports the average as a <code>double</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Challenge1_5</span>
+<span id="cb16-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb16-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb16-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb16-5"><a href=""></a>        <span class="co">// 1. Declare int variables grade1, grade2, and grade3.</span></span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a>        <span class="co">// 2. Declare an int variable called sum.</span></span>
+<span id="cb16-8"><a href=""></a></span>
+<span id="cb16-9"><a href=""></a>        <span class="co">// 3. Declare a double variable called average.</span></span>
+<span id="cb16-10"><a href=""></a></span>
+<span id="cb16-11"><a href=""></a>        <span class="co">// 4. Calculate the sum of the three grades.</span></span>
+<span id="cb16-12"><a href=""></a></span>
+<span id="cb16-13"><a href=""></a>        <span class="co">// 5. Calculate the average using division and type casting.</span></span>
+<span id="cb16-14"><a href=""></a></span>
+<span id="cb16-15"><a href=""></a>        <span class="co">// 6. Print the average.</span></span>
+<span id="cb16-16"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb16-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-coding-challenge-1" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="average-3-numbers-checks">Average 3 Numbers checks</h3>
+<p>For grades <code>90</code>, <code>100</code>, and <code>94</code>, the sum is <code>284</code>.</p>
+<p>The average should use this pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> grade1 <span class="op">+</span> grade2 <span class="op">+</span> grade3<span class="op">;</span></span>
+<span id="cb17-2"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A strong solution should:</p>
+<div class="tight-list">
+<ul>
+<li>declare exactly three grade variables</li>
+<li>declare <code>average</code> as <code>double</code></li>
+<li>use the variables in the sum formula</li>
+<li>include <code>(double)</code> before division</li>
+<li>print a decimal result, such as <code>94.66666666666667</code></li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define a <span class="term">cast</span> as converting a value to another type</li>
+<li>define <span class="term">type casting</span> as converting a value to another type</li>
+<li>use <code>(int)</code> and <code>(double)</code> correctly</li>
 <li>explain why <code>(double) total / count</code> avoids truncating division</li>
 <li>distinguish truncation from rounding</li>
-<li>identify <code>Integer.MAX_VALUE</code> and overflow as range limits</li>
-<li>note that <code>double</code> values are precise only up to a limited number of digits</li>
+<li>round positive and negative <code>double</code> values using <code>0.5</code> before casting</li>
+<li>identify <code>Integer.MAX_VALUE</code>, <code>Integer.MIN_VALUE</code>, and integer overflow</li>
+<li>describe round-off error as a precision limit for <code>double</code></li>
 </ul>
 </div>
 </section>

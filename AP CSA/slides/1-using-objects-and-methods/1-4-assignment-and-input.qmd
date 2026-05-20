@@ -14,117 +14,309 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Assignment Statements
+## Topic Intro
 
-### `=` means “gets assigned”
+### Variables change through assignment
 
-An <span class="term">assignment statement</span> (赋值语句) stores the value of the right-hand expression into the variable on the left.
+<span class="term">Assignment statements</span> (赋值语句) initialize or change the value stored in a variable using the assignment operator `=`.
 
-![Assignment statement diagram](../../assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png){fig-align="center" width="44%"}
+![Assignment statement diagram](../../assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png){fig-align="center" width="46%"}
 
-Read `score = points * 10 + 5;` as <span class="mark">“score gets ...”</span>, not as a math equation.
+Read `score = points * 10 + 5;` as <span class="mark">score gets the value of `points * 10 + 5`</span>, not as a math equation.
+
+## Assignment Statement
+
+### Variable left, expression right
+
+An assignment statement always has a single variable on the left-hand side.
+
+```java
+score = points * 10 + 5;
+```
+
+::: {.tight-list}
+- The right side is evaluated first.
+- The expression produces one value.
+- That value is stored in the variable on the left.
+:::
+
+The variable on the left must be able to store the value's type.
 
 ## Assignment and Memory
 
-### Values are copied, not magically linked
+### Copy the value, not the variable itself
+
+Set one variable's value to a <span class="mark">copy</span> of another variable's current value.
 
 ```java
 int x = 3;
 int y = 2;
+System.out.println(x);
+System.out.println(y);
 x = y;
+System.out.println(x);
+System.out.println(y);
 y = 5;
+System.out.println(x);
+System.out.println(y);
 ```
 
-After `x = y;`, the current value of `y` is copied into `x`. Changing `y` later does <span class="mark">not</span> change `x`.
+After `x = y;`, changing `y` later does not change `x`.
 
-This is one of the first major tracing ideas in AP CSA.
+## Trace Task
 
-## Assignment and Types
+### Copy and update variables
 
-### The stored type must be compatible
+Trace the code by hand before checking the answer.
+
+```java
+int x = 0;
+int y = 1;
+int z = 2;
+x = y;
+y = y * 2;
+z = 3;
+```
+
+What are the final values of `x`, `y`, and `z`?
+
+Answer: `x = 1`, `y = 2`, `z = 3`.
+
+## Mixed-Up Code
+
+### Swap two values
+
+Build the code that swaps the values in `x` and `y`.
+
+Needed blocks:
+
+```java
+int x = 3;
+int y = 5;
+int temp = 0;
+temp = x;
+x = y;
+y = temp;
+```
+
+Distractor:
+
+```java
+y = x;
+```
+
+The extra variable `temp` is needed because assignment overwrites the old value.
+
+## Data Types in Assignments
+
+### Compatible type required
+
+Every variable must be assigned a value before it can be used in an expression. That value must come from a compatible data type.
 
 ::: {.tight-list}
-- every variable must be assigned before it is used
-- the expression on the right produces one value with one type
-- that value must fit the variable on the left
+- A variable is <span class="term">initialized</span> the first time it is assigned a value.
+- During execution, an expression evaluates to a single value.
+- The value of an expression has a type based on the operands and operators.
 :::
 
-Example: if an expression evaluates to `double`, the destination usually must also be `double`.
+If an expression uses at least one `double`, the expression usually evaluates to `double`.
+
+## Debugging Task
+
+### Incompatible assignment type
+
+The code looks reasonable, but it has an incompatible type error. Change one variable's type to fix it.
+
+```java
+public class Asgn
+{
+    public static void main(String[] args)
+    {
+        int x = 1;
+        double y = 2.2;
+        x = 2 * y;
+        System.out.println(x);
+    }
+}
+```
+
+Expected output after the type fix:
+
+```text
+4.4
+```
 
 ## Reference Variables
 
-### `null` is a real value for references
+### `null` means no object reference
+
+Reference types like `String` can be assigned a new object or <span class="term">`null`</span>.
 
 ```java
 String str = null;
 str = "new object";
 ```
 
-For reference types such as `String`, <span class="term">`null`</span> means the variable is currently not associated with an object.
+`null` is a special literal that means the reference is not associated with any object.
 
-This is different from an empty string `""`.
+::: {.tight-list}
+- `null` is not the same as an empty string.
+- `""` is a real `String` object with zero characters.
+:::
 
 ## Updating a Variable
 
-### Reuse the current value
+### Use the current value to make the next value
 
 ```java
-int score = 0;
-score = score + 1;
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        int score = 0;
+        System.out.println(score);
+        score = score + 1;
+        System.out.println(score);
+    }
+}
 ```
 
-This looks strange in math, but it is normal in code:
+Expected output:
+
+```text
+0
+1
+```
+
+The right side uses the previous value of `score`, then stores the new value back into `score`.
+
+## Update Experiment
+
+### Change the increment
+
+Modify the update statement.
+
+```java
+score = score + 2;
+```
+
+Predict:
 
 ::: {.tight-list}
-- evaluate the right side first
-- then store the new result back into `score`
+- What output changes?
+- What would happen with `score = score + 10;`?
+- Why is this still not a math equation?
 :::
 
-This update pattern prepares students for loops and counters.
+This pattern prepares students for counters and loops.
 
 ## Input with Variables
 
 ### One algorithm, different user values
 
+Variables are a powerful abstraction because the same algorithm can run with different input values.
+
 Input can be:
 
 ::: {.tight-list}
-- tactile
-- audio
-- visual
-- text from the keyboard
+- tactile, such as clicking a button
+- audio, such as speech
+- visual, such as a webcam
+- text typed by the user
 :::
 
-The textbook uses Java's <span class="term">`Scanner`</span> class to read typed text input and store it in variables.
+Java's <span class="term">`Scanner`</span> class is one way to obtain keyboard input.
 
-## Input with Variables
+## Scanner Example
 
-### Useful, but not an AP exam target
+### Store typed text in a variable
+
+Keyboard input is useful in class, although it is not directly tested on the AP CSA exam.
 
 ```java
-Scanner scan = new Scanner(System.in);
-String name = scan.nextLine();
-System.out.println("Hello " + name);
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Please type in a name in the input box below.");
+        Scanner scan = new Scanner(System.in);
+        String name = scan.nextLine();
+        System.out.println("Hello " + name);
+        scan.close();
+    }
+}
 ```
 
-The practical point is not the full API. It is that <span class="mark">variables let the same program behave differently for different inputs</span>.
+The same code works for any typed `name`.
 
-Keyboard input itself is useful for class, even though it is not a direct AP CSA exam focus.
+## Groupwork Coding Challenge
 
-## Classroom Tasks
+### Dog Years starter
 
-### Practice worth keeping
+![Dog Years challenge](../../assets/1-using-objects-and-methods/1-4-assignment-and-input/dog-free.png){fig-align="left" width="14%"}
 
-Retained classroom work for this topic:
+Fill in years, compute ages, and print labels with the results.
+
+```java
+public class Challenge1_4
+{
+    public static void main(String[] args)
+    {
+        int currentYear =
+        int birthYear =
+        int dogBirthYear =
+
+        int age =
+        int dogAge =
+        int dogYearsAge =
+
+        // Print your age, your pet's age, and your pet's age in dog years.
+    }
+}
+```
+
+## Groupwork Coding Challenge
+
+### Dog Years formulas
+
+Your program should include these formulas.
+
+```java
+age = currentYear - birthYear;
+dogAge = currentYear - dogBirthYear;
+dogYearsAge = dogAge * 7;
+```
+
+A classroom-ready solution should:
 
 ::: {.tight-list}
-- assignment tracing checks
-- incompatible-type fix tasks
-- increment-by-one pattern practice
-- <span class="term">1.4.5 Coding Challenge: Dog Years</span>
+- initialize `currentYear`, `birthYear`, and `dogBirthYear`
+- use variables in formulas rather than hard-coded final answers
+- include at least one `System.out.print` or `System.out.println`
+- print text labels so the user knows what each number means
 :::
 
-The Dog Years task is a good first formula-building exercise with multiple variables.
+## Quick Check
+
+### Assignment with mixed numeric types
+
+Consider the code segment.
+
+```java
+int a = 5;
+int b = a / 2;
+double c = a / 2.0;
+double d = 5 + a / b * c - 2;
+System.out.println(d);
+```
+
+What is printed?
+
+Answer: `8.0`.
+
+Reason: `a / b` uses integer division, then multiplication with `c` produces a `double`.
 
 ## Classroom Check
 
@@ -133,9 +325,11 @@ The Dog Years task is a good first formula-building exercise with multiple varia
 ::: {.tight-list}
 - explain assignment as storing the right-side value into the left-side variable
 - trace copied values through multiple assignment steps
-- require type compatibility before using a variable in an expression
-- recognize `score = score + 1` as a valid update
-- explain that `Scanner` is one way to store keyboard input in variables
+- use a temporary variable to swap two values safely
+- require compatible types before assigning or using a variable in an expression
+- recognize `score = score + 1` as a valid update pattern
+- explain `null` as a reference value that means no object is associated
+- explain that `Scanner` stores keyboard input in variables, although keyboard input is not an AP exam target
 :::
 
 ## End

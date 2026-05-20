@@ -14,61 +14,110 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## APIs and Libraries
+## Topic Intro
 
-### Reusing code written by other programmers
+### APIs let you use existing code
 
-We have already been using `System.out.println()`. That method is part of the Java <span class="term">API</span>.
+We have already used `System.out.println()`. That method is part of the Java <span class="term">API</span> (Application Programming Interface).
 
 ::: {.tight-list}
-- a <span class="term">library</span> is a collection of classes written by other programmers
-- an <span class="term">API</span> tells you how to use those classes
-- a <span class="term">package</span> organizes related classes so they can be imported and reused
+- A <span class="term">library</span> is a collection of classes written by other programmers.
+- An <span class="term">API specification</span> tells programmers how to use classes and methods in a library.
+- A <span class="term">package</span> organizes related classes so they can be imported and reused.
 :::
 
 The practical point is simple: <span class="mark">you do not write everything from scratch</span>.
+
+## Library, API, Package
+
+### Similar terms, different emphasis
+
+| Term | Classroom meaning |
+|---|---|
+| <span class="term">library</span> | collection of reusable classes or code |
+| <span class="term">API</span> | specification that explains how to use the library |
+| <span class="term">package</span> | Java's way to group related classes |
+| <span class="term">class</span> | building block that defines a reference type |
+| <span class="term">method</span> | block of code that performs a task |
+
+These words often appear together in documentation.
 
 ## java.lang Package
 
 ### Built-in classes you already use
 
-The package <span class="term">`java.lang`</span> is available by default in Java.
+The `java.lang` package is available by default in Java.
 
 ::: {.tight-list}
-- `String` is in `java.lang`
-- `System` is in `java.lang`
-- `System.out` is an object that can print
-- `println()` is one of the methods provided by `PrintStream`
+- `String` is in `java.lang`.
+- `System` is in `java.lang`.
+- `System.out` is an object whose type is `PrintStream`.
+- `PrintStream` provides `println()` methods for printing different value types.
 :::
 
-Documentation matters because it tells you the available methods and which types they accept.
+Documentation is essential because it tells you the available attributes and behaviors.
+
+## Documentation Check
+
+### How many `println` methods?
+
+The `PrintStream` class includes overloaded `println` methods for different types.
+
+Quick check:
+
+::: {.tight-list}
+- Find only methods named `println`.
+- Do not count `print` or `printf`.
+- Count each distinct `println` method signature.
+:::
+
+Answer: `10`.
+
+Reason: there is one `println` method for each type it can print, plus the no-argument newline version.
+
+## Quick Check
+
+### Purpose of APIs and libraries
+
+What is the purpose of APIs and libraries in programming?
+
+::: {.tight-list}
+- A. To write every new program from scratch
+- B. To use code written by others
+- C. To create programming languages
+- D. To compile code
+:::
+
+Answer: <span class="mark">B</span>. APIs and libraries let programmers reuse tested code and focus on the specific task they are solving.
 
 ## Turtle Library
 
-### A concrete example of an API
+### A concrete API example
 
-The textbook uses a `Turtle` library so students can see objects doing visible work.
+The CSAwesome2 `Turtle` library lets students create drawings using an animated turtle that moves around the screen.
 
 ![Turtle attributes and behaviors](../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png){fig-align="center" width="54%"}
 
-The class defines both <span class="term">attributes</span> and <span class="term">behaviors</span>.
+`Turtle` is a <span class="term">class</span> that can be used as a reference type. A turtle object such as `yertle` has data and behavior.
 
-## Attributes and Methods
+## Attributes and Behaviors
 
-### How to tell them apart in documentation
+### Data versus actions
 
 ::: {.tight-list}
-- attributes are stored data such as `name`, `width`, or `height`
-- methods are actions such as `forward()` and `turnLeft()`
-- methods always appear with <span class="mark">parentheses</span>
-- attributes do <span class="mark">not</span> use parentheses
+- <span class="term">Attributes</span> store data related to the class, such as `name`, `width`, `height`, or color.
+- <span class="term">Behaviors</span> are what objects can do and are defined by methods.
+- Methods always have parentheses, such as `forward()` or `turnLeft()`.
+- Attributes do not have parentheses.
 :::
 
-This is one of the first documentation-reading skills students need in Java.
+This is a documentation-reading skill: parentheses usually signal a method.
 
-## The Dot Operator
+## Dot Operator
 
-### Asking an object to do something
+### Ask an object to run a method
+
+The <span class="term">dot operator</span> `.` connects an object or class with the method being used.
 
 ```java
 yertle.forward();
@@ -76,24 +125,132 @@ yertle.turnRight();
 System.out.println("Hi");
 ```
 
-The <span class="term">dot operator</span> `.` connects the object or class with the method being used.
-
 Read `yertle.forward()` as: ask the turtle object `yertle` to execute its `forward()` behavior.
 
-## Classroom Tasks
+## Code Task
 
-### Practice worth keeping
+### Turtle API starter code
 
-Retained classroom work for this topic:
+Run the program, then add one more line to make `yertle` go `forward()` again.
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTest
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+
+        yertle.forward();
+        yertle.turnRight();
+
+        // Add another yertle.forward() call here.
+
+        habitat.show(true);
+    }
+}
+```
+
+## Code Task
+
+### Turtle API completion check
+
+A successful solution should contain at least two calls to:
+
+```java
+yertle.forward();
+```
+
+The key reading is:
 
 ::: {.tight-list}
-- vocabulary checks for API, library, package, class, and method
-- turtle direction and method-identification checks
-- mixed-up turtle code tracing
-- <span class="term">1.7.3 Coding Challenge: Turtle Drawing</span>
+- `Turtle` is the class.
+- `yertle` is an object of type `Turtle`.
+- `forward()` and `turnRight()` are methods.
+- `habitat.show(true)` displays the world.
 :::
 
-This topic is mainly about <span class="mark">reading and using existing code</span>.
+## Quick Checks
+
+### Turtle vocabulary
+
+| Question | Answer |
+|---|---|
+| Which way does a turtle face when first created? | North |
+| What type of thing is `Turtle` in the program? | class |
+| What type of thing is `turnRight`? | method |
+| What type of thing is the turtle's position? | attribute |
+| What are attributes of a class? | data stored in variables |
+
+Use the class/object/attribute/method distinction every time you read API docs.
+
+## Mixed-Up Code
+
+### Draw a sideways capital L
+
+![Sideways L target](../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleForwardLeftForward.png){fig-align="right" width="24%"}
+
+Put the needed blocks in order.
+
+```java
+import java.util.*;
+import java.awt.*;
+public class TurtleTest {
+    public static void main(String[] args) {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+        yertle.turnRight();
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward(50);
+        habitat.show(true);
+    }
+}
+```
+
+Reject distractors such as `yertle.right();` and `yertle.forward()` without the semicolon.
+
+## Groupwork Coding Challenge
+
+### Turtle Drawing starter
+
+Make `yertle` draw a shape by calling `forward`, `backward`, and turn methods several times.
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleShape
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(500, 500);
+        Turtle yertle = new Turtle(habitat);
+
+        // Use yertle's movement and turn methods to draw a shape.
+
+        habitat.show(true);
+    }
+}
+```
+
+## Groupwork Coding Challenge
+
+### Turtle Drawing checks
+
+Your shape can be a square, zigzag, or block letter.
+
+A strong solution should include:
+
+::: {.tight-list}
+- at least <span class="mark">3 turns</span> using `turnRight()` or `turnLeft()`
+- at least <span class="mark">4 moves</span> using `forward()` or `backward()`
+- enough code lines to show a deliberate drawing plan
+- method calls written with the object name, dot operator, method name, parentheses, and semicolon
+:::
 
 ## Classroom Check
 
@@ -102,9 +259,11 @@ This topic is mainly about <span class="mark">reading and using existing code</s
 ::: {.tight-list}
 - distinguish <span class="term">library</span>, <span class="term">API</span>, and <span class="term">package</span>
 - identify `java.lang` as a built-in package
-- explain that classes define attributes and methods
-- recognize methods by their parentheses
-- explain `object.method()` using the dot operator
+- explain that a class defines a reference type and can be used to create objects
+- distinguish <span class="term">attributes</span> from <span class="term">methods</span>
+- recognize methods by parentheses in documentation
+- explain `object.method()` using the <span class="term">dot operator</span>
+- use API documentation to decide which method call is valid
 :::
 
 ## End

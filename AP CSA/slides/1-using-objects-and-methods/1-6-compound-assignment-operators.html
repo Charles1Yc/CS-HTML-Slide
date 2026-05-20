@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit1-shared.css">
@@ -144,24 +210,18 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="compound-assignment" class="slide level2">
-<h2>Compound Assignment</h2>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
 <h3 id="update-and-assign-in-one-step">Update and assign in one step</h3>
-<p>Compound assignment operators are shortcuts such as:</p>
-<div class="tight-list">
-<ul>
-<li><code>+=</code></li>
-<li><code>-=</code></li>
-<li><code>*=</code></li>
-<li><code>/=</code></li>
-<li><code>%=</code></li>
-</ul>
-</div>
-<p><code>x += 1</code> means the same as <code>x = x + 1</code>.</p>
+<p><span class="term">Compound assignment operators</span> (复合赋值运算符) are shortcuts that do a math operation and assignment in one step.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>x <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>means the same as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read the operator first, then the assignment: add, then store back.</p>
 </section>
-<section id="operator-equivalence" class="slide level2">
-<h2>Operator Equivalence</h2>
-<h3 id="read-the-shortcut-as-expanded-assignment">Read the shortcut as expanded assignment</h3>
+<section id="compound-operators" class="slide level2">
+<h2>Compound Operators</h2>
+<h3 id="written-out-versus-shortcut">Written out versus shortcut</h3>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -192,51 +252,258 @@
 </tr>
 </tbody>
 </table>
-<p>The operation happens first, then the new value is assigned back into the same variable.</p>
+<p>The left-side variable receives the new result after the operation.</p>
+</section>
+<section id="mnemonic" class="slide level2">
+<h2>Mnemonic</h2>
+<h3 id="operation-then-equal-sign">Operation, then equal sign</h3>
+<p>If you are unsure whether to write <code>+=</code> or <code>=+</code>, use the meaning.</p>
+<div class="tight-list">
+<ul>
+<li>The operation <code>+</code> is done first.</li>
+<li>The result is assigned with <code>=</code>.</li>
+<li>Therefore the operator is written <code>+=</code>.</li>
+</ul>
+</div>
+<p>The same pattern works for <code>-=</code>, <code>*=</code>, <code>/=</code>, and <code>%=</code>.</p>
 </section>
 <section id="increment-and-decrement" class="slide level2">
 <h2>Increment and Decrement</h2>
-<h3 id="the-most-common-short-forms">The most common short forms</h3>
-<p>Because <code>+1</code> and <code>-1</code> are so common, Java also provides:</p>
+<h3 id="shortest-forms-for-plus-one-and-minus-one">Shortest forms for plus one and minus one</h3>
+<p>Because changing a variable by one is common, Java provides:</p>
 <div class="tight-list">
 <ul>
-<li><code>x++</code> -&gt; increment by 1</li>
-<li><code>y--</code> -&gt; decrement by 1</li>
+<li><code>x++</code>: increment (递增) <code>x</code> by <code>1</code></li>
+<li><code>y--</code>: decrement (递减) <code>y</code> by <code>1</code></li>
 </ul>
 </div>
-<p>For AP CSA, the most important reading is still the simple update idea: <mark>current value -&gt; change -&gt; store again</mark>.</p>
+<p>Equivalent forms:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>x<span class="op">++;</span></span>
+<span id="cb3-2"><a href=""></a>x <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>All three update <code>x</code> by one.</p>
 </section>
-<section id="prefix-and-postfix" class="slide level2">
-<h2>Prefix and Postfix</h2>
-<h3 id="know-the-note-keep-the-ap-usage-simple">Know the note, keep the AP usage simple</h3>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="compound-operators-in-action">Compound operators in action</h3>
+<p>Predict each output before running.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb4-7"><a href=""></a>        score<span class="op">++;</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb4-9"><a href=""></a>        score <span class="op">*=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb4-11"><a href=""></a>        <span class="dt">int</span> penalty <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb4-12"><a href=""></a>        score <span class="op">-=</span> penalty <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
+<span id="cb4-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="expected-output-and-extensions">Expected output and extensions</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>0</span>
+<span id="cb5-2"><a href=""></a>1</span>
+<span id="cb5-3"><a href=""></a>2</span>
+<span id="cb5-4"><a href=""></a>0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now add:</p>
+<div class="tight-list">
+<ul>
+<li>one compound statement that adds <code>3</code> to <code>score</code></li>
+<li>one compound statement that divides <code>score</code> by <code>2</code></li>
+</ul>
+</div>
+<p>Required operators: <code>+=</code> and <code>/=</code>.</p>
+</section>
+<section id="prefix-and-postfix-note" class="slide level2">
+<h2>Prefix and Postfix Note</h2>
+<h3 id="know-the-rule-keep-ap-usage-readable">Know the rule, keep AP usage readable</h3>
 <p>Real Java code may use <code>++x</code> or <code>x++</code>.</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">postfix</span>: use the current value first, then update</li>
-<li><span class="term">prefix</span>: update first, then use the value</li>
+<li><span class="term">postfix</span>: <code>x++</code> uses the current value first, then changes it</li>
+<li><span class="term">prefix</span>: <code>++x</code> changes the value first, then uses it</li>
 </ul>
 </div>
-<p>The textbook explicitly notes that AP-style work stays with <mark>clear, readable uses</mark>, not tricky expression puzzles.</p>
+<p>AP CSA will not use the prefix form, and it will not use postfix in a context where the expression value matters.</p>
+</section>
+<section id="prefix-and-postfix-example" class="slide level2">
+<h2>Prefix and Postfix Example</h2>
+<h3 id="why-ap-avoids-trick-puzzles-here">Why AP avoids trick puzzles here</h3>
+<p>If <code>x</code> starts as <code>10</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">++);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>prints <code>10</code>, then <code>x</code> becomes <code>11</code>.</p>
+<p>If <code>x</code> starts as <code>10</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(++</span>x<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>prints <code>11</code>, and <code>x</code> is <code>11</code> afterward.</p>
+<p>For this course, prefer clear updates on their own line.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-increment-and-compound-addition">Trace increment and compound addition</h3>
+<p>What are the final values?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb8-3"><a href=""></a><span class="dt">int</span> z <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb8-4"><a href=""></a>x<span class="op">--;</span></span>
+<span id="cb8-5"><a href=""></a>y<span class="op">++;</span></span>
+<span id="cb8-6"><a href=""></a>z <span class="op">+=</span> y<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>x = -1, y = 2, z = 4</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reason: subtract one from <code>x</code>, add one to <code>y</code>, then add the current <code>y</code> to <code>z</code>.</p>
+</section>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-mixed-updates">Trace mixed updates</h3>
+<p>What are the final values?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb10-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb10-3"><a href=""></a><span class="dt">int</span> z <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-4"><a href=""></a>x <span class="op">=</span> z <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-5"><a href=""></a>y <span class="op">=</span> y <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-6"><a href=""></a>z<span class="op">++;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>x = 4, y = 2, z = 3</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reason: <code>y / 2</code> uses integer division because both operands are <code>int</code>.</p>
 </section>
 <section id="code-tracing" class="slide level2">
 <h2>Code Tracing</h2>
-<h3 id="operators-are-easiest-to-learn-by-tracing">Operators are easiest to learn by tracing</h3>
+<h3 id="dry-run-code-by-hand">Dry-run code by hand</h3>
+<p><span class="term">Code tracing</span> (代码跟踪) means simulating a dry run through code line by line as if you are the computer.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png" style="width:26.0%" class="r-stretch quarto-figure-center"><p class="caption">Trace table example</p><p><span class="term">Code tracing</span> (代码跟踪) means stepping through the program line by line and recording how variables change.</p>
-<p>This is the bridge from operator meaning to exam-style reasoning.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png" style="width:24.0%" class="r-stretch quarto-figure-center"><p class="caption">Trace table example</p><p>Tracing can help:</p>
 <div class="tight-list">
 <ul>
-<li>shortcut-operator active code</li>
-<li>tracing multiple-choice checks</li>
-<li><span class="term">1.6.1 Code Tracing Challenge and Operators Maze</span></li>
+<li>debug code</li>
+<li>prove a program runs correctly</li>
+<li>determine what unfamiliar code actually does</li>
 </ul>
 </div>
-<p>The instructional emphasis is <mark>not memorizing symbols in isolation</mark>; it is predicting variable state accurately.</p>
+</section>
+<section id="trace-table-method" class="slide level2">
+<h2>Trace Table Method</h2>
+<h3 id="record-variables-after-each-line">Record variables after each line</h3>
+<p>A useful trace table has one column for each variable.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Line</th>
+<th style="text-align: right;"><code>x</code></th>
+<th style="text-align: right;"><code>y</code></th>
+<th style="text-align: right;"><code>z</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>start</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>after <code>x++</code></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>after <code>y -= 3</code></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>after <code>z = x + z</code></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>Add output or line numbers when they matter.</p>
+</section>
+<section id="groupwork-tracing-challenge" class="slide level2">
+<h2>Groupwork Tracing Challenge</h2>
+<h3 id="trace-through-the-program">Trace through the program</h3>
+<p>Use paper and pencil. Track <code>x</code>, <code>y</code>, and <code>z</code> after each line.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb12-3"><a href=""></a><span class="dt">int</span> z <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb12-4"><a href=""></a>x<span class="op">++;</span></span>
+<span id="cb12-5"><a href=""></a>y <span class="op">-=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb12-6"><a href=""></a>z <span class="op">=</span> x <span class="op">+</span> z<span class="op">;</span></span>
+<span id="cb12-7"><a href=""></a>x <span class="op">=</span> y <span class="op">*</span> z<span class="op">;</span></span>
+<span id="cb12-8"><a href=""></a>y <span class="op">%=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-9"><a href=""></a>z<span class="op">--;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do not skip lines. Compound operators still update the variable on the left.</p>
+</section>
+<section id="groupwork-tracing-challenge-1" class="slide level2">
+<h2>Groupwork Tracing Challenge</h2>
+<h3 id="check-your-trace">Check your trace</h3>
+<p>Expected final values:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>x = 4</span>
+<span id="cb13-2"><a href=""></a>y = 0</span>
+<span id="cb13-3"><a href=""></a>z = 1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>One possible trace:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Step</th>
+<th style="text-align: right;"><code>x</code></th>
+<th style="text-align: right;"><code>y</code></th>
+<th style="text-align: right;"><code>z</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>initial values</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td><code>x++</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td><code>y -= 3</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td><code>z = x + z</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td><code>x = y * z</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td><code>y %= 2</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td><code>z--</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
@@ -244,10 +511,11 @@
 <div class="tight-list">
 <ul>
 <li>expand <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, and <code>%=</code> into full assignment form</li>
-<li>explain <code>++</code> and <code>--</code> as one-step updates</li>
-<li>trace variable values after multiple updates</li>
-<li>recognize that AP work avoids tricky prefix/postfix edge cases</li>
-<li>use a trace table when the code becomes hard to hold mentally</li>
+<li>explain <code>++</code> and <code>--</code> as one-step updates by <code>1</code></li>
+<li>trace variable values after multiple compound updates</li>
+<li>apply integer division when <code>/=</code> or <code>/</code> uses only <code>int</code> values</li>
+<li>explain why AP CSA avoids tricky prefix/postfix expression puzzles</li>
+<li>use a trace table when variable changes are hard to hold mentally</li>
 </ul>
 </div>
 </section>
