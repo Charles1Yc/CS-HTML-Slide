@@ -1,0 +1,130 @@
+---
+title: "4.7 Wrapper Classes"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Wrapper Classes
+
+### Wrapper classes give primitive values an object form
+
+The textbook focuses on `Integer` and `Double`.
+
+::: {.tight-list}
+- a <span class="term">wrapper class</span> encloses a primitive value in an object
+- `Integer` wraps `int`
+- `Double` wraps `double`
+- wrapper objects matter when APIs or collections require objects
+:::
+
+## Creating `Integer` and `Double` Objects
+
+### Wrapped values behave like objects, not raw primitives
+
+```java
+Integer i = 2;
+Double d = 3.5;
+```
+
+Retained ideas:
+
+::: {.tight-list}
+- wrapper classes live in `java.lang`
+- wrapper objects are <span class="term">immutable</span>
+- the classes also expose useful constants like min and max values
+:::
+
+## Overflow and Underflow
+
+### Integer ranges are fixed
+
+The textbook keeps one concrete consequence of fixed-size integer storage:
+
+::: {.tight-list}
+- adding `1` to `Integer.MAX_VALUE` rolls over
+- subtracting `1` from `Integer.MIN_VALUE` also wraps around
+- these constants are also useful when initializing min/max searches
+:::
+
+## Autoboxing and Unboxing
+
+### Java can convert automatically between primitives and wrappers
+
+::: {.compare-grid}
+::: {.soft-box}
+**Autoboxing**
+
+- primitive to wrapper
+- for example `int` to `Integer`
+- happens when an object is required
+:::
+::: {.soft-box}
+**Unboxing**
+
+- wrapper to primitive
+- for example `Integer` to `int`
+- happens when a primitive value is required
+:::
+:::
+
+This becomes especially important with `ArrayList`, which stores objects rather than primitive types.
+
+## Parsing Strings to Numbers
+
+### Wrapper classes also provide conversion utilities
+
+```java
+int n = Integer.parseInt(text);
+double x = Double.parseDouble(text);
+```
+
+Retained points:
+
+::: {.tight-list}
+- file and scanner input often begins as strings
+- parsing turns those strings into values that can be compared or used in arithmetic
+- these methods are part of the AP quick-reference expectations
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify what wrapper classes do
+- distinguish immutable wrapper objects from primitive values
+- explain autoboxing and unboxing
+- use `Integer.parseInt` and `Double.parseDouble` correctly
+- connect wrappers to collections like `ArrayList`
+- <span class="term">4.7.4 Coding Challenge: Pokemon Speed</span>
+:::
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- define a wrapper class
+- explain why `Integer` and `Double` are objects
+- distinguish autoboxing from unboxing
+- explain when parsing is needed
+- explain why wrapper classes matter for collections
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

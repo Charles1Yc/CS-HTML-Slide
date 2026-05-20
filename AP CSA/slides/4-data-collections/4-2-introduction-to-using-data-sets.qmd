@@ -1,0 +1,112 @@
+---
+title: "4.2 Introduction to Using Data Sets"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Introduction to Using Data Sets
+
+### A data set is a collection of specific pieces of information
+
+This topic keeps the textbook introduction before Java data structures appear.
+
+::: {.tight-list}
+- a <span class="term">data set</span> stores related pieces of information
+- the information can be organized in a chart or table
+- the table helps students plan how an algorithm should process the values
+:::
+
+## Tables and Charts Represent Data
+
+### Structured data is easier to inspect and process
+
+| First Name | Last Name | Email | GPA |
+|---|---|---|---:|
+| Ana | Li | ana@example.com | 3.9 |
+| Marco | Diaz | marco@example.com | 3.4 |
+| Priya | Shah | priya@example.com | 3.7 |
+
+Spreadsheet software stores data in this tabular form and provides tools to calculate with it.
+
+## Plan the Algorithm from the Table
+
+### Students process one value at a time
+
+To find an average GPA, the algorithm needs to:
+
+::: {.tight-list}
+- visit each row
+- access each GPA value
+- add the values together
+- divide by the number of rows
+:::
+
+This is the core transition from table reading to algorithm design.
+
+## Loops and Selection in Dataset Reasoning
+
+### Data processing often combines repetition and filtering
+
+The textbook retains two main reasoning patterns:
+
+::: {.tight-list}
+- use <span class="term">loops</span> to process each value in sequence
+- use <span class="term">selection</span> when only some rows meet a condition
+:::
+
+For example, an honor-roll algorithm would examine each GPA and print only those at `3.5` or higher.
+
+## Bridge to Java Data Structures
+
+### The same reasoning will soon move into arrays
+
+This topic is intentionally lightweight because it prepares students for the next step:
+
+::: {.tight-list}
+- represent many values together
+- access them one at a time
+- combine loops with conditions to answer a question
+:::
+
+The next lessons transfer that same logic into Java arrays.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- add another row to a simple spreadsheet-style table
+- order the pseudocode steps for average GPA
+- write short pseudocode for an honor-roll filter
+- explain how one value is accessed and processed at a time
+:::
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- define a <span class="term">data set</span>
+- explain why tables and charts help with algorithm planning
+- describe how an algorithm processes one value at a time
+- explain how loops support dataset analysis
+- explain how a condition can filter rows in a data set
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

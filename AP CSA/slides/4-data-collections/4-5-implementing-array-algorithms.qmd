@@ -1,0 +1,134 @@
+---
+title: "4.5 Implementing Array Algorithms"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Implementing Array Algorithms
+
+### This topic turns traversal into reusable problem-solving patterns
+
+The textbook keeps a common AP set of array algorithms together:
+
+::: {.tight-list}
+- sum and average
+- min, max, and search
+- property tests
+- pairs and duplicates
+- rotate and reverse
+:::
+
+Students should recognize the pattern first, then write the loop.
+
+## Accumulator Pattern
+
+### Initialize, traverse, update, then use the result
+
+The <span class="term">accumulator pattern</span> is retained as the first major array algorithm.
+
+::: {.tight-list}
+- initialize an accumulator before the loop
+- traverse the array
+- update the accumulator inside the loop
+- use the total after the loop finishes
+:::
+
+This pattern supports both sums and averages.
+
+## Min, Max, and Search
+
+### Loop plus selection is the core pattern
+
+To find a minimum, maximum, or target element:
+
+::: {.tight-list}
+- start with a meaningful initial value
+- examine each array element
+- use an `if` statement to decide whether to replace the current answer
+- avoid returning too early before the correct answer is known
+:::
+
+Enhanced for-loops work well for value-based search, but not when the algorithm must return an index.
+
+## Backward Traversal and Property Tests
+
+### Not every algorithm moves left to right
+
+The retained algorithm families here include:
+
+::: {.tight-list}
+- scanning from back to front
+- testing whether <span class="term">at least one</span> element has a property
+- testing whether <span class="term">all</span> elements have a property
+- counting how many elements satisfy a property
+:::
+
+The logic for “all” often depends on checking the negation and returning `false` at the right time.
+
+## Pairs, Duplicates, and Nested Loops
+
+### Some problems require comparing more than one element at once
+
+The textbook keeps two related cases:
+
+::: {.tight-list}
+- consecutive pairs such as `array[i]` and `array[i + 1]`
+- duplicates anywhere in the array using nested loops
+:::
+
+This is one of the first places where students need to justify when a single loop is not enough.
+
+## Rotate and Reverse
+
+### Reordering an array depends on careful index movement
+
+![Swapping values with a temporary variable](../../assets/4-data-collections/4-5-implementing-array-algorithms/swap.png){fig-align="center" width="52%"}
+
+::: {.tight-list}
+- rotation shifts all values left or right
+- reversing swaps symmetric positions
+- both patterns often need a <span class="term">temporary variable</span>
+- arrays are passed by reference, so in-place changes affect the original array
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify the correct loop pattern for sum, average, min, max, and search
+- distinguish forward and backward traversal use cases
+- write “at least one”, “all”, and “count” property checks
+- explain when nested loops are needed for duplicate detection
+- trace rotate and reverse algorithms with a temporary variable
+:::
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- explain the four-step accumulator pattern
+- describe how min, max, and search rely on loop-plus-if structure
+- distinguish “at least one” from “all” in array-property tests
+- explain when an indexed loop is required instead of an enhanced for-loop
+- explain why rotate and reverse often require a temporary variable
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

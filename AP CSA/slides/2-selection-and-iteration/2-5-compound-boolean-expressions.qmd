@@ -1,0 +1,124 @@
+---
+title: "2.5 Compound Boolean Expressions"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Compound Conditions
+
+### One branch can depend on more than one test
+
+Sometimes a single Boolean test is not enough.
+
+::: {.tight-list}
+- both conditions must be true
+- at least one condition must be true
+- one condition must be false
+:::
+
+This topic combines simple Boolean expressions into <span class="term">compound Boolean expressions</span>.
+
+## `&&`, `||`, and `!`
+
+### The three core logical operators
+
+```java
+if (cleanedRoom && didHomework)
+if (walking || carIsAvailable)
+if (!homeworkDone)
+```
+
+::: {.tight-list}
+- `&&` means <span class="term">and</span>
+- `||` means <span class="term">or</span>
+- `!` means <span class="term">not</span>
+:::
+
+In Java, `||` is inclusive OR, so it is true when either side is true or when both sides are true.
+
+## Common Uses with Numbers
+
+### `or` often checks for error ranges, `and` often checks valid ranges
+
+```java
+score < 0 || score > 100
+score >= 0 && score <= 100
+```
+
+::: {.tight-list}
+- use `||` when a value can be invalid on either end
+- use `&&` when a value must stay inside a range
+- use parentheses when the grouping is not obvious
+:::
+
+## Truth Tables
+
+### A truth table shows every possible combination
+
+For two Boolean values `P` and `Q`:
+
+::: {.tight-list}
+- `P && Q` is only true when <span class="mark">both</span> are true
+- `P || Q` is true when <span class="mark">either</span> one is true
+- `!P` flips true to false and false to true
+:::
+
+Truth tables are the cleanest way to explain why a compound condition works.
+
+## Short Circuit Evaluation
+
+### Java sometimes skips the second test
+
+```java
+if (x > 0 && (y / x) == 3)
+if (x == 0 || (y / x) == 3)
+```
+
+::: {.tight-list}
+- with `&&`, if the left side is false, Java stops
+- with `||`, if the left side is true, Java stops
+- this is called <span class="term">short circuit evaluation</span>
+- short circuiting can prevent errors such as division by zero
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- tracing `&&`, `||`, and `!` in simple conditionals
+- range checks with numeric examples
+- truth-table completion and branch prediction
+- short-circuit reasoning with divide-by-zero cases
+- <span class="term">2.5.4 Coding Challenge: Truth Tables POGIL</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- distinguish `&&`, `||`, and `!`
+- explain the difference between range checks and error checks
+- use truth-table reasoning for compound conditions
+- explain Java short circuit evaluation
+- recognize why short circuiting can avoid runtime errors
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,136 @@
+---
+title: "4.9 ArrayList Traversals"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## ArrayList Traversals
+
+### Array traversal ideas carry over, but list access uses methods
+
+The textbook keeps the bridge explicit:
+
+::: {.tight-list}
+- `ArrayList` can be traversed with enhanced `for`, indexed `for`, or `while`
+- indices still start at `0`
+- element access uses methods such as `get(index)`
+:::
+
+The main shift is that the collection size can change during runtime.
+
+## Enhanced For Loop
+
+### Use for-each when reading all values without changing list size
+
+The retained rule is simple:
+
+::: {.tight-list}
+- enhanced `for` works when students only need the values
+- it is concise and avoids index bookkeeping
+- it should <span class="mark">not</span> be used when the list size changes during traversal
+:::
+
+Adding or removing elements during an enhanced `for` traversal can cause a <span class="term">ConcurrentModificationException</span>.
+
+## Indexed For Loops and Bounds
+
+### Use indexed access when position matters
+
+```java
+for (int i = 0; i < list.size(); i++)
+{
+    System.out.println(list.get(i));
+}
+```
+
+Key retained ideas:
+
+::: {.tight-list}
+- `ArrayList` indices run from `0` to `size() - 1`
+- access uses `get(index)` rather than `[]`
+- invalid indices cause <span class="term">IndexOutOfBoundsException</span>
+:::
+
+## While Loops and Removal
+
+### Size-changing traversals need careful index control
+
+The textbook keeps a specific removal warning:
+
+::: {.tight-list}
+- removing an element shifts later elements left
+- if the index is always incremented, the next shifted element may be skipped
+- after a remove, the index often needs to stay in place for the next pass
+:::
+
+This is one of the core tracing patterns students must learn for mutable lists.
+
+## Reading Files with `java.nio.file`
+
+### This is enrichment, but it clarifies why lists are useful
+
+The retained teaching idea is:
+
+::: {.tight-list}
+- `readAllLines` can return a `List<String>`
+- dynamic list storage avoids knowing the final size in advance
+- this reinforces why `ArrayList` is useful for real input data
+:::
+
+This part is not the AP core, but it supports the conceptual transition from files to dynamic collections.
+
+## ArrayList of Objects
+
+### Traversal works for object lists as well as primitive-wrapper lists
+
+Students should be able to:
+
+::: {.tight-list}
+- traverse a list of objects
+- call methods on each object in the list
+- connect this back to earlier `Student` and `WordPair` class work
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+![Word pair construction pattern](../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png){fig-align="center" width="54%"}
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- compare enhanced `for`, indexed `for`, and `while` traversals
+- identify when list-size changes break enhanced `for`
+- trace removals without skipping shifted elements
+- read and traverse lists of objects
+- <span class="term">4.9.6 Coding Challenge: FRQ Word Pairs</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain how `ArrayList` traversal differs from array traversal
+- identify when an enhanced `for` loop is appropriate
+- explain why removing items during traversal can skip elements
+- state the valid index range using `size()`
+- explain how object lists are traversed and used
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

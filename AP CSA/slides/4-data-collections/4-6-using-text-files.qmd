@@ -1,0 +1,155 @@
+---
+title: "4.6 Using Text Files"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Using Text Files
+
+### Files let programs work with data that persists after the program stops
+
+The textbook uses files as the bridge from hard-coded collections to real stored data.
+
+::: {.tight-list}
+- a <span class="term">file</span> stores data outside the running program
+- the data can be loaded during execution
+- this separates data from code and supports larger data sets
+:::
+
+## `File`, `Scanner`, and `IOException`
+
+### Java needs both file access and input-reading tools
+
+```java
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+```
+
+Core ideas retained from the textbook:
+
+::: {.tight-list}
+- `File` identifies the file to open
+- `Scanner` reads the data
+- invalid file names can trigger exceptions
+- one common AP-level strategy is adding `throws IOException`
+:::
+
+## Reading Data with `Scanner`
+
+### Different methods read different shapes of input
+
+Important `Scanner` operations kept here:
+
+::: {.tight-list}
+- `nextLine()` reads an entire line
+- `next()` reads the next token
+- `nextInt()` and `nextDouble()` read numeric values
+- `hasNext()` checks whether more input remains
+- `close()` closes the file stream
+:::
+
+Mixing `nextLine()` with numeric reads often requires extra care because of leftover whitespace.
+
+## Loop to Read a File
+
+### Use a while loop until there is no more input
+
+```java
+while (scan.hasNext())
+{
+    String line = scan.nextLine();
+}
+scan.close();
+```
+
+This is the retained pattern for multi-line file processing.
+
+## Save File Data into an Array
+
+### Files can feed arrays or arrays of objects
+
+The textbook keeps two stages together:
+
+::: {.tight-list}
+- read each line from the file
+- store lines or extracted values into an array
+- later move from raw text into object-oriented structures
+:::
+
+This topic also previews why `ArrayList` can be useful when the final size is not known in advance.
+
+## Split Strings and CSV Data
+
+### One line can contain several fields separated by a delimiter
+
+```java
+String[] data = line.split(",");
+```
+
+Retained ideas:
+
+::: {.tight-list}
+- CSV means <span class="term">Comma Separated Values</span>
+- `split` breaks one line into fields
+- the resulting array lets the program identify specific attributes by index
+- string fields can later be converted into numbers if needed
+:::
+
+## Object-Oriented Design with CSV Files
+
+### Split fields can become objects, not just raw strings
+
+The textbook's final move for this topic is:
+
+::: {.tight-list}
+- define a class that matches the important columns
+- split each line into attributes
+- construct an object for that row
+- store those objects in an array
+:::
+
+This is the clean bridge from input files to structured program design.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- fix file-reading code by adding `throws IOException`
+- choose the right `Scanner` method for a given input type
+- use a while loop with `hasNext()` to read a file
+- split CSV lines into fields and identify important indices
+- convert file rows into arrays or arrays of objects
+- <span class="term">4.6.7 Coding Challenge: Array of Pokemon from Input File</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define a file as persistent storage
+- explain the roles of `File`, `Scanner`, and `IOException`
+- describe the standard while-loop pattern for file reading
+- explain what `split` does for CSV data
+- explain how one row of file data can become one object
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

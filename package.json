@@ -1,0 +1,13 @@
+{
+  "name": "html-slide-course-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:ap-csa:content": "node scripts/check-ap-csa-content-quality.mjs",
+    "check:slides:density": "node scripts/check-slide-density.mjs",
+    "check:slides:overflow": "node scripts/check-slide-overflow.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

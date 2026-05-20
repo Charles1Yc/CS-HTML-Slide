@@ -1,0 +1,158 @@
+---
+title: "2.10 Implementing String Algorithms"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## String Processing
+
+### Loops can traverse strings character by character
+
+This topic combines:
+
+::: {.tight-list}
+- string indexing
+- substring methods
+- conditionals
+- loops
+:::
+
+The goal is to recognize standard <span class="term">string-processing algorithms</span>.
+
+## String Indices and Useful Methods
+
+### Most string loops start at index 0
+
+![String indices](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png){fig-align="center" width="58%"}
+
+The core methods reused in this topic are:
+
+::: {.tight-list}
+- `length()`
+- `indexOf(...)`
+- `substring(from, to)`
+- `substring(from)`
+:::
+
+## while Find and Replace
+
+### Use `indexOf` to keep searching until the target is gone
+
+```java
+while (s.indexOf("a") >= 0)
+{
+    index = s.indexOf("a");
+    s = s.substring(0, index) + s.substring(index + 1);
+}
+```
+
+This pattern works when:
+
+::: {.tight-list}
+- you do not know how many matches there will be
+- each match is processed and removed or replaced
+- the string changes after each pass
+:::
+
+## Replacement Algorithms
+
+### A loop can repeatedly clean or rewrite text
+
+```java
+String firstpart = message.substring(0, index);
+String lastpart = message.substring(index + 1);
+message = firstpart + "l" + lastpart;
+```
+
+The important teaching move is not the exact example.  
+It is the algorithm:
+
+::: {.tight-list}
+- find the target
+- split the string around it
+- rebuild a new string
+- repeat until no target remains
+:::
+
+## `for` Loops over Strings
+
+### Use `for` when you intend to visit every character
+
+```java
+for (int i = 0; i < s.length(); i++)
+{
+    String ithLetter = s.substring(i, i + 1);
+}
+```
+
+The standard loop shape is:
+
+::: {.tight-list}
+- start at 0
+- continue while `i < s.length()`
+- process the character at `i`
+:::
+
+## Reversing a String
+
+### Build a new string one character at a time
+
+```java
+String sReversed = "";
+for (int i = 0; i < s.length(); i++)
+{
+    String ithLetter = s.substring(i, i + 1);
+    sReversed = ithLetter + sReversed;
+}
+```
+
+This is a good example of:
+
+::: {.tight-list}
+- traversal
+- building a result gradually
+- order mattering in concatenation
+:::
+
+## Classroom Task
+
+### String Replacement: Cats and Dogs
+
+![Cats and dogs challenge](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg){fig-align="center" width="28%"}
+
+Retained task focus:
+
+::: {.tight-list}
+- find every occurrence of a target substring
+- replace it with a new substring
+- trace repeated string rebuilding
+- <span class="term">2.10.3 Coding Challenge: String Replacement Cats and Dogs</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain when string algorithms use `while` versus `for`
+- apply `indexOf` and `substring` to locate and rebuild strings
+- use correct index bounds when traversing a string
+- explain how a reversed string is built character by character
+- recognize string-processing loops as repeated search-and-update patterns
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

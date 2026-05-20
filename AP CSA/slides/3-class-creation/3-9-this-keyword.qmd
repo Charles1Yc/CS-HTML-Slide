@@ -1,0 +1,108 @@
+---
+title: "3.9 this Keyword"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## `this` Keyword
+
+### `this` refers to the current object
+
+Within an instance method or constructor, <span class="term">`this`</span> is a reference to the object whose method or constructor is running.
+
+::: {.tight-list}
+- if `p1.setEmail()` is called, `this` refers to `p1`
+- if `p2.setEmail()` is called, `this` refers to `p2`
+- the current object changes with the receiver of the call
+:::
+
+## Where `this` Can Be Used
+
+### It exists only in instance context
+
+The textbook is explicit here:
+
+::: {.tight-list}
+- `this` can be used in <span class="term">instance methods</span>
+- `this` can be used in <span class="term">constructors</span>
+- class methods do <span class="mark">not</span> have a `this` reference
+:::
+
+Static methods are called with the class name, so there is no current object.
+
+## `this.instanceVariable`
+
+### Use `this` to distinguish fields from parameters
+
+```java
+public Person(String name)
+{
+    this.name = name;
+}
+```
+
+::: {.tight-list}
+- the parameter `name` is the closest local variable
+- `this.name` means the instance variable in the current object
+- this resolves the naming conflict clearly
+:::
+
+This is the natural follow-up to the scope-shadowing rule from Topic 3.8.
+
+## `this` as an Argument
+
+### The current object can be passed to another method or constructor
+
+![Tracing this as a shared reference](../../assets/3-class-creation/3-9-this-keyword/thisTrace.png){fig-align="center" width="76%"}
+
+::: {.tight-list}
+- `this` can be used anywhere an object variable could be used
+- passing `this` passes the current object reference
+- multiple names may then refer to the same object
+:::
+
+This topic ties back to the object-reference ideas from 3.6.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+![Bank account challenge prompt](../../assets/3-class-creation/3-9-this-keyword/dollarSign.png){fig-align="center" width="34%"}
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify what object `this` refers to in a constructor or instance method
+- distinguish `name` from `this.name` when parameters shadow fields
+- explain why static methods cannot use `this`
+- trace `this` when passed as an argument
+- <span class="term">3.9.3 Coding Challenge: Bank Account</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define `this` as a reference to the current object
+- state that `this` is available only in constructors and instance methods
+- explain how `this.instanceVariable` resolves a naming conflict
+- explain what happens when `this` is passed as an argument
+- connect `this` back to object-reference tracing
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

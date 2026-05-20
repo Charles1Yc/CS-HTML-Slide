@@ -1,0 +1,152 @@
+---
+title: "4.8 ArrayList Methods"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## ArrayList Methods
+
+### `ArrayList` is used when collection size needs to change
+
+![Dynamic list idea for changing collections](../../assets/4-data-collections/4-8-arraylist-methods/lists.jpg){fig-align="center" width="68%"}
+
+The textbook introduces `ArrayList` as the flexible alternative to fixed-size arrays.
+
+::: {.tight-list}
+- arrays have fixed length
+- `ArrayList` can grow and shrink during runtime
+- it stores object references, not primitive values
+:::
+
+## Import and Declaration
+
+### `ArrayList` comes from `java.util`
+
+```java
+import java.util.ArrayList;
+ArrayList<String> names = new ArrayList<String>();
+```
+
+Retained ideas:
+
+::: {.tight-list}
+- classes like `String` and `Math` are already available from `java.lang`
+- `ArrayList` must be imported from `java.util`
+- the type parameter `E` or a concrete type such as `String` identifies what the list stores
+- using a typed `ArrayList<E>` is preferred over a raw `ArrayList`
+:::
+
+## Creating Lists and `size()`
+
+### Declaring a variable does not create the list object
+
+```java
+ArrayList<String> list = new ArrayList<String>();
+int n = list.size();
+```
+
+::: {.tight-list}
+- a new `ArrayList()` starts empty
+- `size()` returns the current number of elements
+- calling methods on `null` still causes `NullPointerException`
+:::
+
+## `add(obj)` and `add(index, obj)`
+
+### Items can be appended or inserted
+
+Retained behaviors:
+
+::: {.tight-list}
+- `add(obj)` appends to the end of the list
+- `add(index, obj)` inserts at a position
+- insertion shifts later elements to the right
+- indices start at `0`
+:::
+
+Wrapper classes matter here because primitive types are added through autoboxing.
+
+## `remove(index)`
+
+### Removing an element also shifts the remaining elements
+
+```java
+E removed = list.remove(index);
+```
+
+Key idea:
+
+::: {.tight-list}
+- the element at the index is removed and returned
+- later elements shift left
+- the list becomes smaller by one
+:::
+
+## `get(index)` and `set(index, obj)`
+
+### Access and replacement use methods, not square brackets
+
+Because `ArrayList` is a class rather than a built-in array type:
+
+::: {.tight-list}
+- `get(index)` reads the element
+- `set(index, obj)` replaces the element
+- valid indices are `0` through `size() - 1`
+- `ArrayList` uses methods instead of `[]`
+:::
+
+## Arrays vs `ArrayList`
+
+### The choice depends on whether size must change
+
+The retained comparison is:
+
+::: {.tight-list}
+- use an array when the number of items is known and stable
+- use `ArrayList` when the size may change
+- arrays use `length` and `[]`
+- `ArrayList` uses `size()`, `get`, and `set`
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- import and declare typed `ArrayList` variables
+- distinguish an empty list from a `null` reference
+- use `size()`, `add`, `remove`, `get`, and `set` correctly
+- explain why wrapper classes are needed for numeric values
+- compare the operations of arrays and `ArrayList`
+- <span class="term">4.8.10 Coding Challenge: FRQ Digits</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain why `ArrayList` is used instead of an array in dynamic-size situations
+- identify the package import needed for `ArrayList`
+- explain what the generic type parameter means
+- distinguish `add(obj)` from `add(index, obj)`
+- explain how `remove`, `get`, `set`, and `size()` work
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

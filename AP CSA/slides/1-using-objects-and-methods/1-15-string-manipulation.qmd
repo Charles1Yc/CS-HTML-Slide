@@ -14,21 +14,33 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Strings as Objects
+## Topic Intro
 
 ### Text in Java is stored as `String` objects
 
 `String` is a class in the built-in <span class="term">`java.lang`</span> package.
 
 ::: {.tight-list}
-- strings are <span class="term">reference types</span>, not primitive types
-- a string variable can hold a reference or `null`
-- class names like `String` start with a capital letter
+- Strings are <span class="term">reference types</span>, not primitive types.
+- A string variable can hold a reference or `null`.
+- Class names like `String` start with a capital letter.
+- Primitive type names like `int` and `double` start with lowercase letters.
 :::
+
+## String References
+
+### A string variable can be `null`
 
 ![Initial string reference](../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png){fig-align="center" width="18%"}
 
-## Creating and Referring to Strings
+```java
+String greeting = null;
+System.out.println(greeting);
+```
+
+This prints `null`. The variable exists, but it does not yet refer to a `String` object.
+
+## Creating Strings
 
 ### Literal form and constructor form
 
@@ -39,11 +51,50 @@ String greeting2 = new String("Welcome");
 
 Both statements create a `String` object and store a reference in the variable.
 
+In most Java code, the <span class="term">string literal</span> form is preferred.
+
+## Code Task
+
+### Create first and last name strings
+
+Write a short program that creates and prints two strings.
+
+```java
+public class StringCreate {
+    public static void main(String[] args) {
+        String firstName = "Ada";
+        String lastName = new String("Lovelace");
+
+        System.out.println("Hello, " + firstName);
+        System.out.println("Welcome, " + lastName);
+    }
+}
+```
+
+Classroom edit: change the names, and use one literal string and one constructor-created string.
+
+## Strings and `Object`
+
+### `String` is a class type
+
 ![String object and class relationship](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png){fig-align="center" width="62%"}
 
-## Concatenation and Immutability
+```java
+String s = "Hello";
+System.out.println(s.getClass());
+System.out.println(s.getClass().getSuperclass());
+```
 
-### Building new strings with `+`
+Typical output:
+
+```text
+class java.lang.String
+class java.lang.Object
+```
+
+## Concatenation
+
+### Use `+` and `+=` to build new strings
 
 ```java
 String start = "Happy Birthday";
@@ -53,11 +104,68 @@ result += "!";
 ```
 
 ::: {.tight-list}
-- `+` and `+=` can concatenate strings
-- Java converts other values to strings when needed
-- strings are <span class="term">immutable</span>
-- concatenation creates a <span class="mark">new string</span>; it does not modify the old one
+- `+` concatenates strings.
+- `+=` appends to the current variable by creating a new string.
+- Java converts other values to strings when needed.
+- Strings are <span class="term">immutable</span> (不可变).
 :::
+
+## Code Task
+
+### Birthday message
+
+Start:
+
+```java
+public class BirthdayMessage {
+    public static void main(String[] args) {
+        String start = "Happy Birthday";
+        String name = "Jose";
+        String result = start + " " + name;
+        result += "!";
+        System.out.println(result);
+    }
+}
+```
+
+Edit it so the output is:
+
+```text
+Happy Birthday Jose Hernandez!!!
+```
+
+## Quick Check
+
+### Trace string reassignment
+
+```java
+String s1 = "xy";
+String s2 = s1;
+s1 = s1 + s2 + "z";
+System.out.println(s1);
+```
+
+Answer: `xyxyz`
+
+`s2` keeps referring to the earlier `"xy"` string. The final assignment stores a new string reference in `s1`.
+
+## Number Concatenation
+
+### Parentheses change the result
+
+```java
+System.out.println("12" + 4 + 3);
+System.out.println("12" + (4 + 3));
+```
+
+Output:
+
+```text
+1243
+127
+```
+
+When a string is first in the expression, `+` starts doing string concatenation unless parentheses force arithmetic first.
 
 ## Index and Length
 
@@ -66,80 +174,250 @@ result += "!";
 ![String indices](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png){fig-align="center" width="62%"}
 
 ::: {.tight-list}
-- the first character is at index `0`
-- the last character is at index `length() - 1`
-- an invalid index causes an <span class="term">IndexOutOfBoundsException</span>
+- The first character is at index `0`.
+- The last character is at index `length() - 1`.
+- An invalid index causes an <span class="term">IndexOutOfBoundsException</span>.
 :::
 
+## AP String Methods
+
+### Methods used on the AP CSA exam
+
+| Method | Meaning |
+|---|---|
+| `int length()` | returns the number of characters |
+| `String substring(int from, int to)` | returns characters from `from` up to but not including `to` |
+| `String substring(int from)` | returns characters from `from` to the end |
+| `int indexOf(String str)` | returns the first index of `str`, or `-1` if not found |
+| `boolean equals(String other)` | checks whether the character sequences match |
+| `int compareTo(String other)` | compares strings lexicographically |
+
+## Code Task
+
+### Trace `length`, `substring`, and `indexOf`
+
 ```java
-String word = "Code";
-int size = word.length();
+String message = "Computer Science";
+
+System.out.println(message.length());
+System.out.println(message.substring(0, 8));
+System.out.println(message.substring(9));
+System.out.println(message.indexOf("Science"));
+System.out.println(message.indexOf("Java"));
 ```
 
-## Common String Methods
+Trace before running. Remember that `substring(0, 8)` stops before index `8`, and a missing string returns `-1`.
 
-### `length`, `substring`, and `indexOf`
+## Precondition Check
+
+### Fix the substring bounds
+
+Broken code:
 
 ```java
-String s = "baby";
-System.out.println(s.length());      // 4
-System.out.println(s.substring(2));  // by
-System.out.println(s.indexOf("b"));  // 0
+String str = "hello";
+System.out.println(str.substring(-1, 10));
 ```
+
+Goal: print only `"o"`.
+
+Corrected code:
+
+```java
+String str = "hello";
+System.out.println(str.substring(4, 5));
+```
+
+The start index must be at least `0`, and the end index must be no larger than `length()`.
+
+## Quick Checks
+
+### Index and substring tracing
+
+Trace each expression.
+
+```java
+"abccba".indexOf("b")
+"baby".length()
+"baby".substring(0, 3)
+"baby".substring(2)
+```
+
+Answers:
 
 ::: {.tight-list}
-- `length()` returns the number of characters
-- `substring(begin)` copies from `begin` to the end
-- `substring(begin, end)` stops <span class="mark">before</span> `end`
-- `indexOf(...)` finds a character or string position, or returns `-1`
+- `1`
+- `4`
+- `"bab"`
+- `"by"`
 :::
 
 ## Comparing Strings
 
 ### Use methods, not `==`
 
-::: {.two-col}
-![compareTo behavior](../../assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png){width="100%"}
-![Pig Latin challenge icon](../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png){width="42%"}
-:::
+![compareTo behavior](../../assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png){fig-align="center" width="60%"}
 
 ```java
 message.equals("Hello!");
 message.compareTo("Zoo");
 ```
 
-::: {.tight-list}
-- `equals(...)` returns `true` or `false`
-- `compareTo(...)` returns `0`, a negative number, or a positive number
-- both are <span class="mark">case-sensitive</span>
-- `==` checks whether references are the same object, not whether characters match
-:::
+`equals` checks content equality. `compareTo` returns `0`, a negative number, or a positive number.
 
-## Common Mistakes with Strings
+## Compare Trace
+
+### Case-sensitive comparison
+
+```java
+String s1 = "apple";
+String s2 = "apple";
+String s3 = "banana";
+String s4 = "Apple";
+
+System.out.println(s1.compareTo(s2));
+System.out.println(s3.compareTo(s1));
+System.out.println(s4.compareTo(s1));
+System.out.println(s1.equals(s2));
+System.out.println(s1.equals(s4));
+```
+
+Expected output:
+
+```text
+0
+1
+-32
+true
+false
+```
+
+## Vocabulary Check
+
+### Choose the right method
+
+| Goal | Method |
+|---|---|
+| number of characters | `length()` |
+| part of a string | `substring(begin, end)` |
+| first position of another string | `indexOf(str)` |
+| same characters or not | `equals(other)` |
+| alphabetical-style ordering | `compareTo(other)` |
+
+Quick check: `"Hi".compareTo("Bye")` returns a positive value because `"H"` comes after `"B"`.
+
+## Common Mistakes
 
 ### The usual errors are predictable
 
 ::: {.tight-list}
-- forgetting spaces during concatenation
-- thinking `substring(begin, end)` includes the character at `end`
-- expecting `toLowerCase()` or similar calls to change the original string automatically
-- using `==` instead of `equals(...)`
-- calling string methods on a `null` reference
+- Forgetting spaces during concatenation.
+- Thinking `substring(begin, end)` includes the character at `end`.
+- Expecting `toLowerCase()` to change the original string automatically.
+- Using `==` instead of `equals(other)`.
+- Calling string methods on a `null` reference.
+- Forgetting that comparisons are case-sensitive.
 :::
 
-## Classroom Tasks
+## Debugging Task
 
-### Practice worth keeping
+### Fix common string mistakes
 
-Retained classroom work for this topic:
+Target output:
+
+```text
+The first letter in Hello!: H
+The last char. in Hello!: !
+In lowercase: hello!
+```
+
+One correct version:
+
+```java
+String message = "Hello!";
+System.out.println("The first letter in " + message + ": " + message.substring(0, 1));
+System.out.println("The last char. in " + message + ": " + message.substring(message.length() - 1));
+System.out.println("In lowercase: " + message.toLowerCase());
+```
+
+## Coding Challenge
+
+### Pig Latin
+
+![Pig Latin challenge icon](../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png){fig-align="center" width="26%"}
+
+Move the first letter to the end and add `"ay"`.
+
+```java
+public static String pigLatin(String word) {
+    String first = word.substring(0, 1);
+    String rest = word.substring(1);
+    return rest + first + "ay";
+}
+```
+
+## Coding Challenge
+
+### Pig Latin classroom checks
+
+Expected examples:
+
+```text
+pig -> igpay
+java -> avajay
+string -> tringsay
+```
+
+Your solution should:
 
 ::: {.tight-list}
-- string-reference output checks
-- concatenation and indexing quick checks
-- `substring`, `length`, and `indexOf` tracing
-- compareTo / equals comparison tasks
-- <span class="term">1.15.8 Coding Challenge: Pig Latin</span>
+- call `substring` at least twice
+- preserve all original letters
+- add `"ay"` at the end
+- work for words longer than one character
 :::
+
+## AP-Style Check
+
+### `indexOf` and `substring`
+
+```java
+String str = new String("hi there");
+int pos = str.indexOf("e");
+System.out.println(str.substring(0, pos));
+```
+
+`pos` is `5`, so the printed string is:
+
+```text
+hi th
+```
+
+The character at index `5` is not included.
+
+## AP-Style Check
+
+### Strings are immutable
+
+```java
+String s1 = "Hi";
+String s2 = s1.substring(0, 1);
+String s3 = s2.toLowerCase();
+
+System.out.println(s1);
+System.out.println(s2);
+System.out.println(s3);
+```
+
+Output:
+
+```text
+Hi
+H
+h
+```
+
+Calling `substring` or `toLowerCase` returns a new string; it does not change `s1`.
 
 ## Classroom Check
 
@@ -151,6 +429,7 @@ Retained classroom work for this topic:
 - use `length`, `substring`, and `indexOf` correctly
 - apply zero-based indexing to strings
 - compare strings with `equals` or `compareTo`, not `==`
+- trace returned string values without changing the original string
 :::
 
 ## End

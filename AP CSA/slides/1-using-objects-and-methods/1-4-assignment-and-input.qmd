@@ -82,7 +82,7 @@ What are the final values of `x`, `y`, and `z`?
 
 Answer: `x = 1`, `y = 2`, `z = 3`.
 
-## Mixed-Up Code
+## Mixed-Up Code {.fit-small}
 
 ### Swap two values
 

@@ -1,0 +1,113 @@
+---
+title: "3.2 Impact of Program Design"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Impact of Program Design
+
+### Programs affect people, systems, and decisions
+
+This topic keeps the textbook focus on how software work reaches beyond code quality alone.
+
+::: {.tight-list}
+- programs operate in real social settings
+- developers should consider <span class="term">harm</span>, <span class="term">privacy</span>, and reliability
+- technical choices can produce both intended and unintended consequences
+:::
+
+## System Reliability
+
+### Reliable software performs as expected under stated conditions
+
+<span class="term">System reliability</span> means a program can perform its tasks without failure under the conditions it was designed for.
+
+::: {.tight-list}
+- reliability does not happen by accident
+- programmers improve reliability through <span class="mark">testing with a variety of conditions</span>
+- edge cases matter because failures often appear outside the normal path
+:::
+
+## Beneficial and Harmful Impacts
+
+### The same program can solve one problem and create another
+
+The textbook keeps two ideas together:
+
+::: {.tight-list}
+- programs can improve life, work, communication, safety, and access
+- programs can also cause unintended harmful effects beyond their intended use
+- impacts reach society, the economy, and culture
+:::
+
+Students should evaluate software by looking at both benefits and risks.
+
+## Legal Use and Open Source
+
+### Reusing code still carries responsibility
+
+::: {.tight-list}
+- <span class="term">Open source</span> code is published for reuse under its license terms
+- code that is <span class="mark">not</span> open source may require permission or purchase
+- intellectual property and legal constraints are part of program design work
+:::
+
+Using existing code is normal, but using it correctly is part of professional practice.
+
+## AI and Ethical Decisions
+
+### Technical systems may force hard choices
+
+The textbook uses self-driving cars as a concrete example.
+
+::: {.tight-list}
+- AI and machine learning can improve safety and efficiency
+- those same systems may face ethical tradeoffs
+- questions about responsibility do not disappear when decisions are automated
+:::
+
+Students should be ready to discuss who is accountable: the software, the organization, or the programmers who built it.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- evaluate software applications for beneficial and harmful effects
+- discuss how testing relates to <span class="term">system reliability</span>
+- distinguish open-source reuse from code that needs permission
+- examine ethical issues in AI within a specific domain
+- <span class="term">3.2.1 Groupwork: Impacts of CS</span>
+:::
+
+The linked videos in the textbook work as optional openers, not required core deck content.
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- define <span class="term">system reliability</span> accurately
+- explain why testing under varied conditions matters
+- describe both beneficial and harmful impacts of a program
+- identify the difference between open-source reuse and restricted code use
+- discuss one ethical issue raised by AI in a concrete application area
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

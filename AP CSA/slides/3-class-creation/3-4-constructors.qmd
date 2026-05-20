@@ -1,0 +1,122 @@
+---
+title: "3.4 Constructors"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Constructors
+
+### A constructor creates an object and establishes its starting state
+
+Students already used constructor calls such as:
+
+```java
+new World(300, 300)
+new Turtle(world)
+new Person("Pat", "pat@gmail.com", "123-456-7890")
+```
+
+This topic moves from calling constructors to writing our own.
+
+## Constructor Signature
+
+### The constructor name must match the class name
+
+```java
+public Person(String initName, String initEmail, String initPhoneNumber)
+{
+    name = initName;
+    email = initEmail;
+    phoneNumber = initPhoneNumber;
+}
+```
+
+::: {.tight-list}
+- constructors are usually written after instance variables
+- they have <span class="mark">no return type</span>, not even `void`
+- the constructor name is the same as the class name
+- the parameter list receives the arguments from the constructor call
+:::
+
+## The Job of a Constructor
+
+### Put the object into a valid state
+
+The textbook centers this topic on <span class="term">state</span>.
+
+::: {.tight-list}
+- an object's state is the collection of its instance-variable values at a given time
+- a constructor should initialize those values to something <span class="term">useful</span>
+- a useful starting point means the object is in a <span class="term">valid state</span>
+- once constructed, the object should be ready for its public methods to run
+:::
+
+## Default Constructor
+
+### Java can supply one only when you do not write your own
+
+If a class has no written constructor, Java provides a <span class="term">default constructor</span> with no parameters.
+
+| Type | Default value |
+|---|---|
+| `int` | `0` |
+| `double` | `0.0` |
+| `boolean` | `false` |
+| object reference | `null` |
+
+These defaults only work when they still leave the object in a valid state.
+
+## Writing One Changes the Rule
+
+### Once you define a constructor, Java stops generating the default one
+
+::: {.tight-list}
+- this protects the class from being created with missing required data
+- `Person` should not be created without the values its design depends on
+- if the class needs multiple useful entry points, write multiple constructors
+- this is called <span class="term">overloading</span>
+:::
+
+Overloading is justified only when the extra constructor still creates valid objects.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify the signature rules for constructors
+- explain why constructors should initialize all important instance variables
+- compare default-constructor behavior with custom initialization
+- evaluate whether a constructor leaves an object in a valid state
+- <span class="term">3.4.3 Coding Challenge: Student Class</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- state that a constructor has the same name as the class
+- explain that constructors have no return type
+- define object <span class="term">state</span> and <span class="term">valid state</span>
+- explain when Java provides a default constructor
+- describe what changes after a class defines its own constructor
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

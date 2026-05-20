@@ -54,7 +54,7 @@ Algorithms can be represented using:
 
 The classroom test is practical: <span class="mark">each step should be precise enough to become a line of code</span>.
 
-## Reorder Task
+## Reorder Task {.fit-small}
 
 ### Brushing teeth algorithm
 
@@ -151,7 +151,7 @@ Errors detectable by the compiler must be fixed <span class="mark">before the pr
 - Most Java statements end with a <span class="mark">semicolon `;`</span>.
 :::
 
-## Reorder Task
+## Reorder Task {.fit-small}
 
 ### Build the main method header
 
@@ -177,7 +177,7 @@ public static void main(String[] args)
 
 Distractors to reject: `Public`, `Static`, `Void`, and an extra `()`.
 
-## Reorder Task {.smaller}
+## Reorder Task {.fit-small}
 
 ### Build a print statement
 

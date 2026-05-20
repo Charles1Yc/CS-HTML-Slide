@@ -284,33 +284,28 @@ Correct answer:
 
 Reason: it converts `total` to `double` before division happens.
 
-## Groupwork Coding Challenge
+## Groupwork Coding Challenge {.fit-xsmall}
 
 ### Average 3 Numbers starter
 
 Write a program that declares three `int` grades, sums them, and reports the average as a `double`.
 
+::: {.code-scroll .compact}
 ```java
-public class Challenge1_5
-{
-    public static void main(String[] args)
-    {
-        // 1. Declare int variables grade1, grade2, and grade3.
-
+public class Challenge1_5 {
+    public static void main(String[] args) {
+        // 1. Declare int variables grade1, grade2, grade3.
         // 2. Declare an int variable called sum.
-
         // 3. Declare a double variable called average.
-
         // 4. Calculate the sum of the three grades.
-
-        // 5. Calculate the average using division and type casting.
-
+        // 5. Calculate the average using casting.
         // 6. Print the average.
     }
 }
 ```
+:::
 
-## Groupwork Coding Challenge {.smaller}
+## Groupwork Coding Challenge {.fit-xsmall}
 
 ### Average 3 Numbers checks
 

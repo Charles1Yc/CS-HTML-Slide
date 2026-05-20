@@ -298,31 +298,28 @@ Reason:
 - adding `25` shifts the range to `25` through `60`
 :::
 
-## Groupwork Coding Challenge
+## Groupwork Coding Challenge {.fit-xsmall .image-fit}
 
 ### Random combination lock
 
-![Lock challenge](../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg){fig-align="left" width="12%"}
-
 Generate three random integers from `0` up to but not including `40`.
 
+::: {.code-scroll .compact}
 ```java
-public class MathChallenge
-{
-    public static void main(String[] args)
-    {
+public class MathChallenge {
+    public static void main(String[] args) {
         // Generate and print 3 random integers from 0 to 39.
-
         // Calculate the number of 3-spin combinations for 40 values per spin.
     }
 }
 ```
+:::
 
-Use `(int) (Math.random() * 40)` for each spin.
-
-## Groupwork Coding Challenge {.smaller}
+## Groupwork Coding Challenge {.fit-xsmall}
 
 ### Combination count
+
+Use `(int) (Math.random() * 40)` for each spin.
 
 Use `Math.pow` to compute the number of possible combinations.
 

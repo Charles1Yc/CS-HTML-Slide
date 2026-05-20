@@ -479,25 +479,23 @@
 </ul>
 </div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
+<section id="groupwork-coding-challenge" class="slide level2 fit-xsmall image-fit">
 <h2>Groupwork Coding Challenge</h2>
 <h3 id="random-combination-lock">Random combination lock</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg" style="width:12.0%" class="r-stretch quarto-figure-left"><p class="caption">Lock challenge</p><p>Generate three random integers from <code>0</code> up to but not including <code>40</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MathChallenge</span>
-<span id="cb20-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb20-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb20-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb20-5"><a href=""></a>        <span class="co">// Generate and print 3 random integers from 0 to 39.</span></span>
-<span id="cb20-6"><a href=""></a></span>
-<span id="cb20-7"><a href=""></a>        <span class="co">// Calculate the number of 3-spin combinations for 40 values per spin.</span></span>
-<span id="cb20-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb20-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use <code>(int) (Math.random() * 40)</code> for each spin.</p>
+<p>Generate three random integers from <code>0</code> up to but not including <code>40</code>.</p>
+<div class="code-scroll compact">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MathChallenge <span class="op">{</span></span>
+<span id="cb20-2"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-3"><a href=""></a>        <span class="co">// Generate and print 3 random integers from 0 to 39.</span></span>
+<span id="cb20-4"><a href=""></a>        <span class="co">// Calculate the number of 3-spin combinations for 40 values per spin.</span></span>
+<span id="cb20-5"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb20-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="groupwork-coding-challenge-1" class="slide level2 smaller">
+<section id="groupwork-coding-challenge-1" class="slide level2 fit-xsmall">
 <h2>Groupwork Coding Challenge</h2>
 <h3 id="combination-count">Combination count</h3>
+<p>Use <code>(int) (Math.random() * 40)</code> for each spin.</p>
 <p>Use <code>Math.pow</code> to compute the number of possible combinations.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a href=""></a><span class="dt">double</span> combinations <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">40</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
 <span id="cb21-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>combinations<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>

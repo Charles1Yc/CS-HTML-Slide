@@ -1,0 +1,157 @@
+---
+title: "3.6 Methods: Passing and Returning References of an Object"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Passing and Returning Object References
+
+### Classes often interact through other objects
+
+This topic keeps the textbook shift from single-class examples to interacting classes.
+
+::: {.tight-list}
+- one object can be stored inside another object
+- one object reference can be passed into a method
+- a method can also return an object reference
+:::
+
+That power creates both flexibility and risk.
+
+## Objects as Instance Variables
+
+### A class can have a has-a relationship with another class
+
+Example from the textbook:
+
+::: {.tight-list}
+- a `Person` can have an `Address`
+- the `Address` object has its own instance variables
+- the `Person` class stores that object as part of its own state
+:::
+
+This is a <span class="term">has-a relationship</span>.
+
+## Objects as Arguments
+
+### Java still uses call by value, but the copied value may be a reference
+
+![Aliasing with object references](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png){fig-align="center" width="74%"}
+
+::: {.tight-list}
+- when an argument is an object reference, Java copies the <span class="mark">reference</span>
+- it does <span class="mark">not</span> copy the whole object
+- the parameter and argument can become <span class="term">aliases</span> for the same object
+:::
+
+This is why object parameters behave differently from primitive parameters.
+
+## Mutable vs Immutable
+
+### Shared references matter only when the object can change
+
+::: {.compare-grid}
+::: {.soft-box}
+**Immutable**
+
+- examples include `String`
+- methods do not change the original object
+- sharing the reference is usually safe
+:::
+::: {.soft-box}
+**Mutable**
+
+- custom classes with setters are often mutable
+- one reference can change the object's state
+- all aliases see that changed state
+:::
+:::
+
+The textbook's rule of thumb is not to modify mutable parameter objects unless the specification requires it.
+
+## Copying Parameter Objects
+
+### Copy when the class should not share outside state
+
+When a constructor receives a mutable object, storing the original reference can cause surprising side effects.
+
+::: {.tight-list}
+- changing the original object later may also change the object's internal state
+- one fix is to create a new object using values from the parameter object
+- another fix is to use a <span class="term">copy constructor</span>
+:::
+
+For AP CSA, this protects the instance variable from pointing at the caller's original mutable object.
+
+## Same-Class Parameters
+
+### A method can access private data of another object only when it is the same class type
+
+The textbook makes this boundary explicit:
+
+::: {.tight-list}
+- `Person` methods can access private fields of another `Person` object
+- they cannot directly access private fields of an `Address` object
+- access still depends on the enclosing class type
+:::
+
+This is a precise rule that students often miss.
+
+## Returning Objects
+
+### Returning a reference shares access to the same object
+
+If a method returns an object reference:
+
+::: {.tight-list}
+- the returned value is the reference, not a copied object
+- the caller may now have another alias to the same object
+- if the object is mutable, the caller may change it through that returned reference
+:::
+
+Returning objects is powerful, but it reintroduces the same mutability concern seen with parameters.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+![Friends and birthdays challenge](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg){fig-align="center" width="42%"}
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify has-a relationships between classes
+- trace aliasing when object references are passed as arguments
+- explain when a mutable object should be copied
+- distinguish returning a reference from returning a copied object
+- apply same-class private-access rules correctly
+- <span class="term">3.6.7 Coding Challenge: Friends and Birthdays</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain that object arguments pass a copied reference, not a copied object
+- define aliasing in the context of object references
+- distinguish mutable from immutable objects
+- explain why copying a parameter object can protect class state
+- describe the risk of returning a mutable object reference directly
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

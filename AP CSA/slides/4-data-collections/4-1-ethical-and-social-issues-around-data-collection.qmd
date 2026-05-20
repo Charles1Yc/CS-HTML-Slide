@@ -1,0 +1,117 @@
+---
+title: "4.1 Ethical and Social Issues Around Data Collection"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Ethical and Social Issues Around Data Collection
+
+### Unit 4 starts with the human consequences of storing and using data
+
+Before students work with arrays and data sets, the textbook frames the question:
+
+::: {.tight-list}
+- what personal data is being collected?
+- who can access it?
+- what can go wrong when programs use incomplete or biased data?
+:::
+
+## Data Privacy
+
+### Useful software often depends on personal data
+
+![Location history and personal-data tracking](../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png){fig-align="center" width="78%"}
+
+Apps for maps, driving directions, purchases, or games may collect:
+
+::: {.tight-list}
+- location history
+- device or usage activity
+- purchase behavior
+- other personal records linked to the user
+:::
+
+## Privacy, Security, and Permission
+
+### Data collection can be beneficial and harmful at the same time
+
+The textbook keeps these ideas together:
+
+::: {.tight-list}
+- location tracking can help users navigate or be found in an emergency
+- the same data can create privacy and security risks
+- programmers should <span class="term">safeguard user privacy</span>
+- users should be asked for permission before data is accessed or stored
+- data breaches require disclosure to affected users
+:::
+
+## Data and Bias
+
+### Biased data can produce unfair program outcomes
+
+The textbook uses AI and machine learning as a concrete context.
+
+::: {.tight-list}
+- internet-scale data may already contain social bias
+- systems trained on that data may repeat or amplify the bias
+- this can affect hiring, facial recognition, search results, and other decisions
+:::
+
+<span class="term">Algorithmic bias</span> means repeated program errors that create unfair outcomes for a group of users.
+
+## Dataset Quality Matters
+
+### Not every data set is suitable for every conclusion
+
+Students should evaluate a data set before using it to draw conclusions.
+
+::: {.tight-list}
+- some data sets are incomplete
+- some contain inaccurate data
+- some are appropriate only for one topic or question
+- using weak data can make a program incorrect, inefficient, or unfair
+:::
+
+Mitigation strategies include representative data, bias testing, transparency, and diverse development teams.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- discuss when location tracking is beneficial or harmful
+- evaluate privacy risks in everyday software
+- explain what makes a data set biased or incomplete
+- analyze how biased data can create unfair outputs
+- use the short-answer reflection activities on privacy, bias, and dataset quality
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain why personal privacy is at risk when programs collect user data
+- describe both beneficial and harmful impacts of data collection
+- define <span class="term">algorithmic bias</span>
+- explain why incomplete or inaccurate data can produce weak outcomes
+- describe at least one way programmers can reduce bias or protect privacy
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

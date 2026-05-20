@@ -239,7 +239,7 @@ A useful trace table has one column for each variable.
 
 Add output or line numbers when they matter.
 
-## Groupwork Tracing Challenge
+## Groupwork Tracing Challenge {.fit-small .table-fit}
 
 ### Trace through the program
 
@@ -259,7 +259,7 @@ z--;
 
 Do not skip lines. Compound operators still update the variable on the left.
 
-## Groupwork Tracing Challenge {.smaller}
+## Groupwork Tracing Challenge {.fit-small .table-fit}
 
 ### Check your trace
 

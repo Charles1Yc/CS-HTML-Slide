@@ -57,7 +57,7 @@ The `java.lang` package is available by default in Java.
 
 Documentation is essential because it tells you the available attributes and behaviors.
 
-## Documentation Check
+## Documentation Check {.fit-small}
 
 ### How many `println` methods?
 
@@ -133,7 +133,7 @@ Read `yertle.forward()` as: ask the turtle object `yertle` to execute its `forwa
 
 Run the program, then add one more line to make `yertle` go `forward()` again.
 
-```{.java .smaller}
+```java
 import java.awt.*;
 import java.util.*;
 
@@ -187,7 +187,7 @@ The key reading is:
 
 Use the class/object/attribute/method distinction every time you read API docs.
 
-## Mixed-Up Code {.smaller}
+## Mixed-Up Code {.fit-small .image-fit}
 
 ### Draw a sideways capital L
 

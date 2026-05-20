@@ -1,0 +1,151 @@
+---
+title: "2.6 Comparing Boolean Expressions"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## De Morgan's Laws
+
+### Move the NOT inside and flip the connector
+
+![De Morgan's Laws](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png){fig-align="center" width="48%"}
+
+The goal is to show that two different-looking Boolean expressions can be logically equivalent.
+
+::: {.tight-list}
+- `!(a && b)` is equivalent to `!a || !b`
+- `!(a || b)` is equivalent to `!a && !b`
+:::
+
+## Flipping Relational Operators
+
+### Moving `!` inward also changes comparison signs
+
+::: {.tight-list}
+- `!(c == d)` becomes `c != d`
+- `!(c < d)` becomes `c >= d`
+- `!(c > d)` becomes `c <= d`
+:::
+
+The classroom shortcut is: <span class="mark">move the NOT, flip the sign</span>.
+
+## Simplifying Expressions
+
+### Equivalent code can be easier to read
+
+![Example simplification](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png){fig-align="center" width="52%"}
+
+```java
+!(x < 3 && y > 2)
+```
+
+can be simplified step by step into:
+
+```java
+x >= 3 || y <= 2
+```
+
+## Truth Tables and Equivalence
+
+### Matching outputs prove two expressions are equivalent
+
+Truth tables matter here because they let students compare:
+
+::: {.tight-list}
+- the original compound expression
+- the negated version
+- the simplified version
+:::
+
+If every row matches, the expressions are equivalent.
+
+## Comparing Objects and Strings
+
+### `equals` is usually the right comparison for object content
+
+![String aliases](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png){fig-align="center" width="34%"}
+
+::: {.tight-list}
+- objects can have many internal values
+- `==` checks whether two references point to the same object
+- `equals(...)` checks whether two objects should count as equal in content
+:::
+
+With strings, you almost always want `equals(...)`.
+
+## String Equality Cases
+
+### Same content is not always the same reference
+
+::: {.two-col}
+::: {}
+![Alias case](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg){width="100%"}
+:::
+::: {.soft-box}
+Two useful cases:
+
+- alias case: `s2 == s3` can be true
+- new-string case: `s1 == s2` can be false even when `s1.equals(s2)` is true
+:::
+:::
+
+![New strings with same characters](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg){fig-align="center" width="40%"}
+
+## Comparing with `null`
+
+### Use short circuiting to stay safe
+
+```java
+if (s != null && s.indexOf("a") >= 0)
+{
+    System.out.println(s + " contains an a");
+}
+```
+
+::: {.tight-list}
+- `null` means no object is there
+- calling a method on `null` causes a <span class="term">NullPointerException</span>
+- `s != null && ...` is safe because of short circuit evaluation
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- De Morgan transformation checks
+- truth-table comparisons for equivalent conditions
+- `==` versus `equals(...)` examples with strings
+- `null` guard tracing with short-circuit logic
+- <span class="term">2.6.8 Coding Challenge: Truth and Tracing Tables POGIL</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- apply De Morgan's Laws correctly
+- flip relational operators when moving negation inward
+- explain expression equivalence with truth-table reasoning
+- distinguish `==` from `equals(...)` for strings
+- explain why `obj != null && ...` is the safe pattern
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

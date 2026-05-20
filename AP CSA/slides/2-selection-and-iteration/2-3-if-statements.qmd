@@ -1,0 +1,136 @@
+---
+title: "2.3 if Statements"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## if Statements
+
+### Turn Boolean conditions into branching code
+
+An <span class="term">if statement</span> changes the default sequential flow of execution.
+
+::: {.tight-list}
+- when the condition is `true`, one branch runs
+- when the condition is `false`, the program skips that branch or takes another one
+:::
+
+![Comparing block-based and Java ifs](../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png){fig-align="center" width="86%"}
+
+## One-Way Selection
+
+### Run code only when the condition is true
+
+![One-way conditional flow](../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png){fig-align="center" width="30%"}
+
+```java
+if (isRaining)
+{
+    System.out.println("Take an umbrella!");
+}
+System.out.println("Drive carefully");
+```
+
+If the condition is false, the body is skipped and execution continues after the `if`.
+
+## Conditions Inside if Statements
+
+### Most branches use relational operators
+
+```java
+if (number > 0)
+{
+    System.out.println(number + " is positive!");
+}
+if (number == 0)
+{
+    System.out.println(number + " is zero!");
+}
+```
+
+Students need to see that `if` statements do not create new logic on their own.  
+They <span class="mark">consume Boolean expressions</span>.
+
+## Two-Way Selection
+
+### `if ... else` handles both outcomes
+
+::: {.two-col}
+::: {}
+![if/else flowchart](../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png){width="100%"}
+:::
+::: {.soft-box}
+Use `if/else` when exactly one of two branches must run:
+
+- one branch for `true`
+- one branch for `false`
+- one test case for each branch
+:::
+:::
+
+```java
+if (age >= 16)
+{
+    System.out.println("You can get a license.");
+}
+else
+{
+    System.out.println("You need to wait.");
+}
+```
+
+## Common Errors with if Statements
+
+### Most mistakes are structural, not conceptual
+
+::: {.tight-list}
+- forgetting curly braces for the intended block
+- writing `if (test);` with a stray semicolon
+- using `=` instead of `==` in the condition
+- assuming `else` matches indentation instead of the actual closest `if`
+:::
+
+The AP-style habit is simple: <span class="mark">always use braces</span>.
+
+## Classroom Task
+
+### Magic 8 Ball
+
+![Magic 8 Ball challenge](../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png){fig-align="center" width="24%"}
+
+Retained task focus:
+
+::: {.tight-list}
+- use random numbers to choose a branch
+- write multiple `if` checks or `if/else` logic
+- connect Boolean tests to visible program behavior
+- <span class="term">2.3.5 Coding Challenge: Magic 8 Ball</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain that `if` statements change control flow
+- distinguish one-way and two-way selection
+- use relational operators correctly inside conditions
+- explain why both branches of `if/else` need testing
+- avoid `=`, stray semicolons, and missing braces in conditional code
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

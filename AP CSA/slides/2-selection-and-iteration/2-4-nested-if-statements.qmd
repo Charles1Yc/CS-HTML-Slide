@@ -1,0 +1,137 @@
+---
+title: "2.4 Nested if Statements"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Nested Branching
+
+### One conditional can appear inside another
+
+Nested `if` statements let a program refine a decision after the outer condition is true.
+
+```java
+if (condition1)
+{
+    if (condition2)
+    {
+        statement;
+    }
+}
+```
+
+The inner test is only evaluated if the outer path is reached first.
+
+## Multiway Selection
+
+### `else if` is the common pattern for three or more branches
+
+![if / else if / else flowchart](../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png){fig-align="center" width="56%"}
+
+```java
+if (x < 0)
+{
+    System.out.println("negative");
+}
+else if (x == 0)
+{
+    System.out.println("zero");
+}
+else
+{
+    System.out.println("positive");
+}
+```
+
+Only the <span class="mark">first true branch</span> runs.
+
+## Reading Order Matters
+
+### The sequence of conditions changes the result
+
+In multiway selection:
+
+::: {.tight-list}
+- conditions are checked top to bottom
+- once one branch runs, the rest are skipped
+- broad conditions placed too early can hide later cases
+:::
+
+This is why tracing branch order is part of the lesson, not just syntax practice.
+
+## Dangling Else
+
+### `else` belongs to the closest unmatched `if`
+
+```java
+if (sunny)
+    if (hot)
+        System.out.println("Head for the beach!");
+    else
+        System.out.println("Bring your umbrella!");
+```
+
+The `else` above belongs to the inner `if`, regardless of indentation.
+
+Use braces to make the intended structure explicit.
+
+## Using Braces to Clarify Structure
+
+### Braces remove ambiguity
+
+```java
+if (sunny)
+{
+    if (hot)
+        System.out.println("Head for the beach!");
+}
+else
+{
+    System.out.println("Bring your umbrella!");
+}
+```
+
+This is the clean classroom rule: <span class="mark">if nesting can confuse the reader, bracket it</span>.
+
+## Classroom Task
+
+### Adventure
+
+![Adventure challenge](../../assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg){fig-align="center" width="34%"}
+
+Retained task focus:
+
+::: {.tight-list}
+- use `else if` for multiple direction commands
+- add a final `else` for invalid input
+- connect each branch to a different method or location
+- <span class="term">2.4.3 Coding Challenge: Adventure</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain how nested `if` statements work
+- distinguish `if/else if/else` from separate unrelated `if` statements
+- trace multiway selection from top to bottom
+- explain the dangling-else rule
+- use braces to make nested branch structure unambiguous
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,172 @@
+---
+title: "2.9 Implementing Selection and Iteration Algorithms"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Standard Loop Algorithms
+
+### This topic moves from syntax to reusable patterns
+
+The focus here is not a new keyword.  
+It is recognizing standard algorithms that combine:
+
+::: {.tight-list}
+- loops
+- selection
+- accumulators
+- counters
+:::
+
+These patterns appear repeatedly in AP-style questions.
+
+## Accumulator Pattern
+
+### Sum and average use the same four-step structure
+
+```java
+int sum = 0;
+for (int i = 1; i <= 100; i++)
+{
+    sum += i;
+}
+```
+
+Accumulator pattern steps:
+
+::: {.tight-list}
+- initialize the accumulator
+- loop through the values
+- update the accumulator inside the loop
+- use the result after the loop
+:::
+
+Average is just sum plus one more final step: divide by the number of values.
+
+## Input-Controlled Accumulation
+
+### Sentinel loops can accumulate and count at the same time
+
+```java
+while (number != -1)
+{
+    sum += number;
+    count++;
+    number = scan.nextInt();
+}
+```
+
+::: {.tight-list}
+- the sentinel value stops the loop
+- `sum` tracks the total
+- `count` tracks how many values were seen
+- forgetting the input update usually causes an infinite loop
+:::
+
+## Loop with if
+
+### Selection inside a loop supports minimum and maximum algorithms
+
+```java
+if (num < min)
+{
+    min = num;
+}
+```
+
+This is the common AP pattern:
+
+::: {.tight-list}
+- loop over many values
+- test each value
+- update the stored best-so-far result
+:::
+
+The same idea works for both minimum and maximum.
+
+## Divisibility and Digits
+
+### `%` and `/` drive several standard number algorithms
+
+```java
+num % divisor == 0
+digit = num % 10
+num = num / 10
+```
+
+Core uses:
+
+::: {.tight-list}
+- checking even / odd / divisible
+- building prime-number logic
+- pulling off digits one at a time
+- converting total minutes into hours and leftover minutes
+:::
+
+## `Math.random()` and Frequency
+
+### Conditions can model probability, and counters can measure outcomes
+
+```java
+if (Math.random() < 0.5)
+{
+    System.out.println("Heads");
+}
+```
+
+```java
+if (i % 2 == 0)
+{
+    count++;
+}
+```
+
+::: {.tight-list}
+- `Math.random()` lets conditionals simulate events by percentage
+- frequency problems count how often a criterion is met
+- the standard structure is: test inside the loop, increment the counter when true
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- accumulator and average-building code
+- input-controlled sum / average traces
+- min / max update pattern checks
+- prime / divisibility logic
+- random-choice conditionals
+- frequency counters
+- <span class="term">2.9.8 Coding Challenge: Prime Number Finder</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain the accumulator pattern for sum and average
+- combine looping and `if` logic for min / max and counting
+- use `%` and `/` for divisibility and digit algorithms
+- explain how `Math.random()` supports probability-based branches
+- recognize frequency as a counter-inside-a-loop pattern
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

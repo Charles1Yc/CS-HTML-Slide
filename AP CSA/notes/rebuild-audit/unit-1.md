@@ -1,0 +1,565 @@
+# AP CSA Unit 1 Rebuild Audit
+
+This audit tracks rebuilt Unit 1 topics against CSAwesome2 source content.
+
+## Topic 1.1 Introduction to Algorithms, Programming, and Compilers
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-1-intro-algorithms.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd`
+- Kept sections:
+  - Topic intro explanation with Java examples
+  - Algorithms
+  - First Java Program
+  - Compiling and Running Java Programs
+  - Java Keywords
+  - Syntax Errors and Debugging
+  - Reading Error Messages
+  - Run-time Errors
+  - Comments
+- Kept exercises:
+  - `parsonsprob:: brushalgorithm` -> converted to algorithm ordering slide
+  - `shortanswer:: pbjalgorithm` -> converted to student response slide
+  - `activecode:: printName` -> converted to code task slide
+  - `hparsons:: mp-main-method-order-*` -> converted to method-header reorder slide
+  - `hparsons:: mp-print-order-*` -> converted to print-statement reorder slide
+  - `parsonsprob:: mixed-hi` and `mixed-hi-paired` -> converted to mixed-up program slides
+  - `activecode:: sc2error1`, `sc2error2`, `sc2error3` -> converted to debugging code task slides
+  - `activecode:: divideByZeroDemo` -> converted to run-time error demonstration slide
+  - `activecode:: challenge1-1` -> converted to debugging challenge slide
+- Omitted items:
+  - YouTube videos
+  - Summary
+  - Unit review/practice links
+  - AP practice multiple choice
+- Assets:
+  - `Figures/firstbug.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/firstbug.jpg`
+  - `Figures/rubberduck.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/rubberduck.jpg`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.2 Variables and Data Types
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-2-variables.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd`
+- Kept sections:
+  - What is a Variable?
+  - Data Types
+  - Declaring Variables in Java
+  - Naming Variables
+- Kept exercises:
+  - `mchoice:: chooseType1` through `chooseType5` -> converted to type-choice quick check slides
+  - `activecode:: strConcatDemo` -> converted to complete code task slide
+  - `clickablearea:: var_declare` and `var_init` -> converted to identify declarations/initializations slide
+  - `activecode:: asgn_order` -> converted to assignment-order debugging slide
+  - `fillintheblank:: fillDecVar1` through `fillDecVar3` -> converted to declaration checkpoint slide
+  - `parsonsprob:: declareVars1` -> converted to mixed-up declaration slide
+  - `activecode:: varCaseSensitive` -> converted to case-sensitivity debugging slide
+  - `fillintheblank:: fillName1`, `fillName2` -> converted to camelCase checkpoint slide
+  - `activecode:: challenge1-2-weather` -> converted to debugging challenge slide
+  - `activecode:: challengeMadLibs` -> converted to coding challenge slide
+- Omitted items:
+  - YouTube video
+  - Scanner enrichment link for optional IDE input
+  - Summary
+  - AP practice multiple choice
+- Assets:
+  - `Figures/pongScore.png` -> `AP CSA/assets/1-using-objects-and-methods/1-2-variables-and-data-types/pongScore.png`
+  - `Figures/typesAndSpace.png` -> `AP CSA/assets/1-using-objects-and-methods/1-2-variables-and-data-types/typesAndSpace.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.3 Expressions and Output
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-3-expressions.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd`
+- Kept sections:
+  - Output
+  - Expressions and Operators
+  - Compound Expressions
+  - The Remainder Operator
+- Kept exercises:
+  - `activecode:: printCommands` -> converted to output code task slide
+  - `activecode:: bhescape` -> converted to escape sequence code slide
+  - `activecode:: lcop1` -> converted to arithmetic/truncating division code task slide
+  - `activecode:: cm2in-runtime-error` -> converted to logic-error debugging task
+  - `activecode:: compound1` -> converted to precedence prediction slide
+  - `activecode:: lcop2` -> converted to remainder prediction slide
+  - `mchoice:: mcq-rem1`, `mcq-rem2` -> converted to quick check slide
+  - `activecode:: challenge1-3-pay-calculator` -> converted to pay calculator coding challenge slide
+- Omitted items:
+  - YouTube video
+  - Summary
+  - AP practice multiple choice
+- Assets:
+  - `Figures/mod-py.png` -> `AP CSA/assets/1-using-objects-and-methods/1-3-expressions-and-output/mod-py.png`
+  - `Figures/dollarSign.png` -> `AP CSA/assets/1-using-objects-and-methods/1-3-expressions-and-output/dollarSign.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.4 Assignment and Input
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-4-assignment.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd`
+- Kept sections:
+  - Assignment Statements
+  - Data Types in Assignments
+  - Reference type `null`
+  - Adding 1 to a Variable
+  - Input with Variables
+  - Groupwork Coding Challenge: Dog Years
+- Kept exercises:
+  - `codelens:: asgn_viz1` -> converted to assignment tracing slide
+  - `mchoice:: qasgn1` -> converted to trace quick check slide
+  - `parsonsprob:: swapParsons` -> converted to mixed-up swap slide
+  - `activecode:: assignmentTypes` -> converted to incompatible-type debugging task
+  - `activecode:: incrementScore` -> converted to update-pattern code task
+  - `activecode:: inputName` -> converted to Scanner input code slide
+  - `activecode:: challenge1-4` -> converted to Dog Years coding challenge slides
+  - `mchoice:: apcsa_sample1` -> converted to assignment/expression quick check
+- Omitted items:
+  - YouTube video
+  - External Java visualizer links
+  - External Scanner/Replit/JuiceMind enrichment links
+  - Summary
+  - AP Classroom progress check note
+- Assets:
+  - `Figures/assignment.png` -> `AP CSA/assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png`
+  - `Figures/dog-free.png` -> `AP CSA/assets/1-using-objects-and-methods/1-4-assignment-and-input/dog-free.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.5 Casting and Ranges of Values
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-5-casting.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd`
+- Kept sections:
+  - Casting
+  - Widening conversion
+  - Rounding
+  - Range of Values
+  - Double precision and round-off error
+  - Groupwork Coding Challenge: Average 3 Numbers
+- Kept exercises:
+  - `activecode:: cast-division` -> converted to division-with-casts code task
+  - `activecode:: nearestInt` -> converted to rounding-by-casting code task
+  - `activecode:: overfl` -> converted to integer overflow debugging task
+  - `activecode:: double_precision` -> converted to formatting demo slide
+  - `mchoice:: q_round`, `q_cast` -> converted to quick check table
+  - `activecode:: challenge1-5-average` -> converted to Average 3 Numbers challenge slides
+  - `mchoice:: AP_casting` -> converted to average-expression quick check
+- Omitted items:
+  - Optional external Scanner/Replit/JuiceMind links
+  - Bonus Challenge: Unicode
+  - Summary
+  - AP practice bank beyond the retained average-expression check
+- Assets:
+  - `Figures/bronze-casting.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-5-casting-and-ranges-of-values/bronze-casting.jpg`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.6 Compound Assignment Operators
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-6-compound-operators.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd`
+- Kept sections:
+  - Compound Assignment Operators
+  - Increment and decrement operators
+  - Prefix/postfix note with AP boundary
+  - Code Tracing
+  - Groupwork Code Tracing Challenge
+- Kept exercises:
+  - `activecode:: compound-ops` -> converted to compound operator code task
+  - `mchoice:: q_trace_increment` -> converted to trace quick check
+  - `mchoice:: q_trace_increment2` -> converted to mixed-update trace quick check
+  - `shortanswer:: challenge1-6` -> converted to trace table groupwork challenge
+- Omitted items:
+  - C++ naming enrichment note as standalone content
+  - External Operators Maze game
+  - Summary
+  - Review/Practice for Unit 1 Part 1 links
+  - AP Classroom progress check note
+- Assets:
+  - `Figures/traceTable.png` -> `AP CSA/assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.7 Application Program Interface and Libraries
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-7-APIs-and-libraries.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd`
+- Kept sections:
+  - APIs and Libraries
+  - `java.lang` Package
+  - Turtle Library
+  - Attributes and Behaviors
+  - Dot Operator
+  - Groupwork Coding Challenge: Turtle Drawing
+- Kept exercises:
+  - `fillintheblank:: count-println` -> converted to documentation-count quick check
+  - `dragndrop:: API_vocab_match` -> converted to vocabulary table
+  - `mchoice:: purpose_apis` -> converted to API purpose quick check
+  - `activecode:: TurtleAPI` -> converted to Turtle API code task
+  - `mchoice:: turtle_dir`, `turtle_type`, `type_turn_right`, `type_position`, `attributes_class` -> converted to turtle vocabulary quick check
+  - `parsonsprob:: parsons_TurtleL` -> converted to mixed-up turtle code slide
+  - `activecode:: challenge1-7-TurtleShape` -> converted to Turtle Drawing coding challenge slides
+- Omitted items:
+  - External API documentation links
+  - External Turtle IDE/Replit/GitHub links
+  - Embedded `turtleClasses.jar` source listing
+  - Summary
+- Assets:
+  - `Figures/turtleOOD.png` -> `AP CSA/assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png`
+  - `Figures/turtleForwardLeftForward.png` -> `AP CSA/assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleForwardLeftForward.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.8 Documentation with Comments
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-8-comments.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd`
+- Kept sections:
+  - Comments
+  - Documentation comments and Javadoc-style tags
+  - Preconditions and Postconditions
+  - `Math.sqrt` precondition
+  - Turtle `forward` precondition example
+  - Software Validity and Use-Case Diagrams
+  - Coding Challenge: Preconditions in Algorithms
+- Kept exercises:
+  - `dragndrop:: comments` -> converted to comment-type table
+  - `activecode:: commentExercise` -> converted to add-comments code task
+  - `activecode:: math-preconditions` -> converted to `Math.sqrt` precondition task
+  - `activecode:: turtle-preconditions` -> converted to Turtle precondition experiment
+  - `shortanswer:: payconditions` -> converted to student response task
+  - `shortanswer:: challenge-1-8-use-case-preconditions` -> converted to groupwork challenge
+  - `mchoice:: AP-preconditions` -> converted to AP-style quick check
+- Omitted items:
+  - External JDK/Javadoc/String documentation links
+  - External software-design drawing tool links
+  - Agile Scrum video and Wake Up In the Morning game
+  - Summary
+- Assets:
+  - `Figures/use-case-restaurant.png` -> `AP CSA/assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png`
+  - `Figures/waterfallVsAgile.png` -> `AP CSA/assets/1-using-objects-and-methods/1-8-documentation-with-comments/waterfallVsAgile.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.9 Method Signatures
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-9-method-signatures.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd`
+- Kept sections:
+  - Methods and Procedural Abstraction
+  - Method Calls
+  - Flow of Control
+  - Method Signature, Parameters, Arguments
+  - Argument-to-parameter matching
+  - Call by Value
+  - Overloading
+  - Groupwork Coding Challenge: Song with Parameters
+- Kept exercises:
+  - `clickablearea:: repeatedcode-old-mcdonald` -> converted to repeated-code method opportunity slide
+  - `codelens:: songvizOldMcdonald` -> converted to flow-of-control code slide
+  - `activecode:: song-add-calls` -> converted to method-call code task
+  - `mchoice:: songMethodsTrace` -> converted to method-call trace task
+  - `clickablearea:: different-code-old-mcdonald` -> converted to parameter-identification slide
+  - `codelens:: songvizOldMcdonald2` -> converted to method-with-parameters flow slide
+  - `activecode:: OldMacDonaldSong2` -> converted to add-verses-with-arguments code task
+  - `activecode:: challenge-1-9-song` -> converted to Ants Song groupwork challenge slides
+  - `dragndrop:: vocab1_9` -> converted to vocabulary table
+  - `mchoice:: AP-trace-method-calls` -> converted to AP-style trace check
+- Omitted items:
+  - External visualizer links
+  - External song video link
+  - Summary
+  - AP Classroom progress check note
+- Assets:
+  - `Figures/method-parts.png` -> `AP CSA/assets/1-using-objects-and-methods/1-9-method-signatures/method-parts.png`
+  - `Figures/args2paramsFarm.png` -> `AP CSA/assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.10 Calling Class Methods
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-10-calling-class-methods.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd`
+- Kept sections:
+  - Calling Class Methods
+  - Non-void Methods
+  - Square method and return values
+  - Common Errors with Methods
+  - Methods Outside the Class
+  - Math preview
+  - Groupwork Coding Challenge: Ladder on Tower
+- Kept exercises:
+  - `codelens:: squareviz` -> converted to square method tracing slide
+  - `activecode:: squareMethod` -> converted to square-call code task
+  - `mchoice:: traceMethods1` -> converted to returned-value trace task
+  - `activecode:: fixMethodCalls` -> converted to method-call debugging task
+  - `mchoice:: hypotenuse-java-mc` -> converted to Pythagorean expression quick check
+  - `activecode:: challenge-1-10-pythagorean` -> converted to Ladder on Tower coding challenge slides
+  - `mchoice:: AP1-10-static-method`, `AP1-10-static-method2` -> converted to AP-style quick checks
+- Omitted items:
+  - External visualizer links
+  - Math history enrichment in Pythagorean theorem discussion
+  - Summary
+- Assets:
+  - `Figures/function.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png`
+  - `Figures/square-method.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png`
+  - `Figures/ladder.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.11 Math Class
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-11-Math.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd`
+- Kept sections:
+  - Using the Math Class
+  - Mathematical Functions
+  - `Math.abs`, `Math.pow`, `Math.sqrt`
+  - Random Numbers
+  - Random integer range recipe
+  - Groupwork Coding Challenge: Random Numbers
+- Kept exercises:
+  - `activecode:: trymath` -> converted to Math methods code task
+  - `mchoice:: call-sqrt-mc` -> converted to valid `sqrt` quick check
+  - `mchoice:: distance-mc` -> converted to distance formula explanation
+  - `activecode:: distance-abs` -> converted to distance method code task
+  - `activecode:: random1`, `random-example-stretched`, `randomRange` -> converted to random observation and range slides
+  - `mchoice:: qrand_1` through `qrand_4` -> converted to random probability/range quick checks
+  - `mchoice:: apcsa_sample3` -> converted to AP-style random range check
+  - `activecode:: challenge1-11-random-math` -> converted to random combination lock challenge
+  - `activecode:: challenge-random-dancing-turtles` -> kept as optional extension boundary only
+- Omitted items:
+  - External AP reference sheet and Javadocs links
+  - Long permutation listing
+  - Dancing turtles loop implementation as core content
+  - Summary
+- Assets:
+  - `Figures/number-line.svg` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/number-line.svg`
+  - `Figures/dice.png` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/dice.png`
+  - `Figures/lock.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/lock.jpg`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.12 Objects: Instances of Classes
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-12-objects.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd`
+- Kept sections:
+  - Objects - Instances of Classes
+  - What are Classes and Objects?
+  - Attributes and Behaviors
+  - Turtle Class
+  - Reference Variables
+  - Creating Turtle Objects
+  - Class Hierarchy and Inheritance boundary
+  - Turtle Methods and Coordinates
+  - Groupwork Coding Challenge: Draw Letters
+- Kept exercises:
+  - `shortanswer:: cats` -> converted to attributes/behaviors student response task
+  - `dragndrop:: vocab2_1` -> converted to vocabulary table
+  - `mchoice:: howmanyobjects`, `mcq_behaviors`, `mcq_data` -> converted to quick checks
+  - `activecode:: TurtleTest` -> converted to Turtle object code example
+  - `activecode:: TurtleTest2` -> converted to movement edit task
+  - `activecode:: TurtleTest3` -> converted to add-another-turtle task
+  - `parsonsprob:: ParsonsDraw7` -> converted to mixed-up digital 7 slide
+  - `activecode:: TurtleDrawSeven` -> converted to digital 7 code task
+  - `activecode:: TurtleDrawEight` -> converted to digital 8 code task
+  - `activecode:: challenge-Turtle_Letter` -> converted to Draw Letters groupwork challenge
+  - `mchoice:: AP-attributes`, `AP-objects` -> converted to AP-style vocabulary quick checks
+- Omitted items:
+  - YouTube videos
+  - External Turtle IDE/Replit/GitHub links
+  - Full inheritance implementation details beyond vocabulary boundary
+  - Summary
+- Assets:
+  - `Figures/blueprint.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png`
+  - `Figures/cookieCutterLabelled.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png`
+  - `Figures/catsLabelled.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png`
+  - `Figures/turtleOOD.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png`
+  - `Figures/inheritance-hierarchy-pet.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png`
+  - `Figures/turtleUMLClassDiagram.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png`
+  - `Figures/coords.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.13 Object Creation and Storage
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-13-constructors.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd`
+- Kept sections:
+  - Constructors and `new ClassName(arguments)` syntax
+  - `World` constructors and overloaded constructor selection
+  - `Turtle` constructors and argument order
+  - Object variables, references, and `null`
+  - Reading constructor signatures from documentation
+  - Parameters, arguments, and call by value
+  - Groupwork Coding Challenge: Custom Turtles
+- Kept exercises:
+  - `mchoice:: mcq_world_constructor` -> converted to valid `World` constructor quick check
+  - `mchoice:: mcq_overload_constructor` -> converted to overloaded constructor explanation
+  - `mchoice:: const_turtle` -> converted into Turtle constructor argument-order check
+  - `activecode:: TurtleConstructorTest` -> converted to constructor experiment code task
+  - `clickablearea:: date_constructor` -> converted to Date constructor call analysis
+  - parameter/argument quick checks -> converted to parameter-or-argument slide
+  - `activecode:: TurtleConstructorDebug` -> converted to debugging task with corrected version
+  - `activecode:: challenge-CustomTurtles` -> converted to Custom Turtles coding challenge slides
+  - AP-style constructor/reference checks -> converted to quick check slides
+- Omitted items:
+  - External documentation links
+  - Summary
+  - Review/practice bank items beyond retained quick checks
+- Assets:
+  - `Figures/worldConstructors.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png`
+  - `Figures/TurtleClassDefn.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/TurtleClassDefn.png`
+  - `Figures/DateClass.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/DateClass.png`
+  - `Figures/parameterMappingDate.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/parameterMappingDate.png`
+  - `Figures/customTurtles.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/customTurtles.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.14 Calling Instance Methods
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-14-calling-instance-methods.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd`
+- Kept sections:
+  - Instance methods and object receiver
+  - Static method calls versus instance method calls
+  - Reading method signatures from class documentation
+  - `object.methodName(arguments)` call syntax
+  - `NullPointerException` from calling a method on `null`
+  - Flow of control during method calls
+  - Methods with parameters and arguments
+  - Overloaded instance methods
+  - Void methods versus non-void getter methods
+  - Groupwork Turtle House challenge
+- Kept exercises:
+  - `clickablearea:: student_methods` -> converted to method signature identification
+  - `activecode:: nullPointerTest` -> converted to runtime error check
+  - `dragndrop:: vocab1_14` -> converted to vocabulary check slide
+  - `activecode:: TurtleTestMethods1` -> converted to drawing with turtle methods code task
+  - `parsonsprob:: DrawAHouse` -> converted to mixed-up house drawing task
+  - `activecode:: TurtleTestGetSet` -> converted to getter trace task
+  - `activecode:: TurtleArea` -> converted to returned-value debugging task
+  - `mchoice:: traceCircleArea`, `traceRectangleArea`, `MethodTrace` -> converted to trace check slides
+  - `activecode:: TurtleDistance` -> converted to distance method code task
+  - `activecode:: challenge-Turtle-House` -> converted to Turtle House groupwork challenge
+- Omitted items:
+  - External visualizer links
+  - External turtle library setup links
+  - Summary
+  - Review/practice bank items beyond retained trace checks
+- Assets:
+  - `Figures/calling-static-vs-instance-methods.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png`
+  - `Figures/StudentClass.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png`
+  - `Figures/calling-methods.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png`
+  - `Figures/FlowChartCallingMethods.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png`
+  - `Figures/method-param-arg.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png`
+  - `Figures/turtleUMLClassDiagram.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png`
+  - `Figures/house.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+
+## Topic 1.15 String Manipulation
+
+- Status: rebuilt
+- Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-15-strings.rst`
+- Rebuilt decks:
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd`
+- Kept sections:
+  - Strings as objects in `java.lang`
+  - String references and `null`
+  - Creating strings with literals and constructor calls
+  - `String` class and `Object` relationship
+  - Concatenation, `+=`, numeric conversion, and immutability
+  - Zero-based indexing and `length`
+  - AP String methods: `substring`, `indexOf`, `equals`, `compareTo`
+  - Common string mistakes
+  - Groupwork Coding Challenge: Pig Latin
+- Kept exercises:
+  - `activecode:: lcsbnew` -> converted to first/last-name string creation task
+  - `activecode:: lcsb2` -> converted to `getClass` and superclass trace
+  - `activecode:: lcso1` -> converted to birthday concatenation task
+  - `mchoice:: qse_1` -> converted to string reassignment trace quick check
+  - `activecode:: lcso2` -> converted to numeric concatenation/parentheses trace
+  - `activecode:: lcsm1` -> converted to `length`, `substring`, and `indexOf` trace task
+  - `activecode:: substring-preconditions` -> converted to bounds debugging task
+  - `mchoice:: qsb_3`, `qsb_3b`, `qsb_3c`, `qsb_4b` -> converted to index/substring quick checks
+  - `activecode:: lcsm2` -> converted to compare trace slide
+  - `dragndrop` string method vocabulary -> converted to method selection table
+  - `activecode:: stringMistakes` -> converted to common mistakes debugging task
+  - `activecode:: challenge-PigLatin` -> converted to Pig Latin coding challenge slides
+  - AP-style substring and immutability checks -> converted to quick check slides
+- Omitted items:
+  - String Methods Game iframe
+  - Optional external documentation links
+  - Summary
+  - Review/practice bank items beyond retained AP-style checks
+- Assets:
+  - `Figures/greeting.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png`
+  - `Figures/stringObject.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png`
+  - `Figures/stringIndicies.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png`
+  - `Figures/compareTo.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png`
+  - `Figures/pig.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png`
+- Verification:
+  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Passed `bash scripts/check-clean-reveal.sh`
+  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`

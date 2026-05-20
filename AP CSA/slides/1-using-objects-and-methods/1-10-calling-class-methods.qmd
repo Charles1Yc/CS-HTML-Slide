@@ -115,7 +115,7 @@ Expected output should include `36`.
 
 What does this code print?
 
-```{.java .smaller}
+```java
 public class MethodTrace
 {
     public static int square(int x)
@@ -159,7 +159,7 @@ Use the method signature to check every call.
 
 Do not change the methods except `main`.
 
-```{.java .smaller}
+```java
 public class MathMethods
 {
     public static int square(int number)
@@ -266,7 +266,7 @@ Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
 
 Complete `ladderSizeNeeded`, then call it with height `30` and width `40`.
 
-```{.java .smaller}
+```java
 public class LadderHelper
 {
     public static double ladderSizeNeeded(double height, double width)

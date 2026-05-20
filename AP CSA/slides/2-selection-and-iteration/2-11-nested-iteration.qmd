@@ -1,0 +1,117 @@
+---
+title: "2.11 Nested Iteration"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Nested Loops
+
+### A loop can run inside another loop
+
+![Nested loops overview](../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png){fig-align="center" width="44%"}
+
+In nested iteration:
+
+::: {.tight-list}
+- the outer loop controls larger repetitions
+- the inner loop restarts for each outer-loop pass
+- the inner loop must finish before the outer loop advances
+:::
+
+## Rows and Columns
+
+### Nested loops naturally model two dimensions
+
+```java
+for (int row = 1; row <= 3; row++)
+{
+    for (int col = 1; col <= 5; col++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+This is why nested loops are the standard pattern for:
+
+::: {.tight-list}
+- grids
+- rectangles of output
+- row/column reasoning
+- repeated shapes
+:::
+
+## Tracing Nested Iteration
+
+### Outer iterations and inner iterations are separate counts
+
+Students need to answer two questions:
+
+::: {.tight-list}
+- how many times does the outer loop run?
+- how many times does the inner loop run for each outer pass?
+:::
+
+That structure is the foundation for later loop-analysis work.
+
+## Nested Loops with Turtles
+
+### Repeated shapes plus a small turn create larger patterns
+
+```java
+for (int i = 1; i <= 12; i++)
+{
+    for (int sides = 1; sides <= 4; sides++)
+    {
+        yertle.forward();
+        yertle.turn(90);
+    }
+    yertle.turn(30);
+}
+```
+
+The inner loop draws one shape.  
+The outer loop repeats the shape with a new orientation.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- tracing rows and columns in printed-star patterns
+- distinguishing outer-loop count from inner-loop count
+- adjusting nested loop bounds for different rectangles
+- turtle-based repeated-shape reasoning
+- <span class="term">2.11.2 Coding Challenge: Turtle Snowflakes</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define nested iteration as a loop inside another loop
+- explain that the inner loop restarts for each outer iteration
+- connect nested loops to row/column style output
+- trace how many times inner work is repeated
+- explain the role split between outer pattern control and inner shape control
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,139 @@
+---
+title: "4.11 2D Array Creation and Access"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## 2D Array Creation and Access
+
+### Two-dimensional arrays model data in rows and columns
+
+The textbook introduces 2D arrays as the natural structure for grid-like information.
+
+![Rows and columns as lockers](../../assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg){fig-align="center" width="74%"}
+
+::: {.tight-list}
+- rows run horizontally
+- columns run vertically
+- 2D arrays are useful for tables, seats, boards, and pictures
+:::
+
+## Array Storage
+
+### Java stores a 2D array as an array of arrays
+
+![Row-major storage idea](../../assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png){fig-align="center" width="68%"}
+
+![Rows and columns as nested arrays](../../assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png){fig-align="center" width="72%"}
+
+Retained concepts:
+
+::: {.tight-list}
+- 2D arrays are arrays whose elements are themselves arrays
+- AP questions assume <span class="term">row-major order</span>
+- the outer array represents rows and the inner arrays represent columns
+:::
+
+## Declaring and Creating 2D Arrays
+
+### Syntax extends the 1D array pattern
+
+```java
+int[][] ticketInfo = new int[2][3];
+String[][] seatingChart = new String[3][2];
+```
+
+Key points kept from the textbook:
+
+::: {.tight-list}
+- `datatype[][] name` declares a 2D array variable
+- `new` creates the rows and columns
+- elements receive default values
+- the total element count is rows times columns
+:::
+
+## Initializer Lists
+
+### Each row is itself a 1D initializer list
+
+```java
+int[][] arr2D = { {1, 2, 3}, {4, 5, 6} };
+```
+
+Students should connect this to nested 1D arrays rather than treating it as a completely new syntax system.
+
+## Set and Get Values
+
+### Use `[row][col]` with row first and column second
+
+Retained access rule:
+
+::: {.tight-list}
+- the first index selects the row
+- the second index selects the column
+- assignment changes one specific cell
+- retrieval reads one specific cell
+:::
+
+This row-first convention is central for AP CSA tracing.
+
+## Row and Column Length
+
+### The outer array length gives rows; a row length gives columns
+
+```java
+arr.length
+arr[0].length
+```
+
+Retained rules:
+
+::: {.tight-list}
+- `arr.length` is the number of rows
+- `arr[0].length` is the number of columns in one row
+- row indices and column indices both start at `0`
+- invalid coordinates cause `ArrayIndexOutOfBoundsException`
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify row-major organization in a 2D structure
+- declare and create 2D arrays with `new`
+- build 2D arrays with initializer lists
+- access and modify values with `[row][col]`
+- use `length` correctly for rows and columns
+- <span class="term">4.11.7 Coding Challenge: ASCII Art</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain that a 2D array is an array of arrays
+- identify row-major order as the AP assumption
+- write the syntax for declaring and creating a 2D array
+- explain the meaning of `[row][col]`
+- distinguish `arr.length` from `arr[0].length`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

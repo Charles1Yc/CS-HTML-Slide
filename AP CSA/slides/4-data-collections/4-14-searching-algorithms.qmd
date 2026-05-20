@@ -1,0 +1,162 @@
+---
+title: "4.14 Searching Algorithms"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Searching Algorithms
+
+### Searching means locating a target efficiently in stored data
+
+This topic frames searching as an <span class="term">algorithm family</span>.
+
+::: {.tight-list}
+- <span class="term">linear search</span> works on unsorted data
+- <span class="term">binary search</span> requires sorted data
+- the choice depends on the structure of the data and the allowed assumptions
+:::
+
+## Linear Search
+
+### Check elements in order until the target is found or the data ends
+
+```java
+for (int j = 0; j < elements.length; j++)
+{
+    if (elements[j] == target)
+    {
+        return j;
+    }
+}
+return -1;
+```
+
+Retained rules:
+
+::: {.tight-list}
+- it can begin from either end if the algorithm is written that way
+- if no element matches, the search checks everything and returns `-1`
+- with `String` values, use <span class="term">`equals`</span> instead of `==`
+:::
+
+## Linear Search with 2D Arrays
+
+### Search each row, then each column position inside that row
+
+Retained extension:
+
+::: {.tight-list}
+- a 2D search still uses linear search logic
+- each row must be accessed before checking values in that row
+- this is another case of reusing a 1D pattern inside nested loops
+:::
+
+## Binary Search
+
+### Binary search only works when the data is already sorted
+
+![Binary search shrinks the search space by halves](../../assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif){fig-align="center" width="58%"}
+
+Core idea retained from the textbook:
+
+::: {.tight-list}
+- check the <span class="mark">middle</span> element first
+- if the target is smaller, discard the right half
+- if the target is larger, discard the left half
+- each step removes about half of the remaining candidates
+:::
+
+## Binary Search Control Variables
+
+### `left`, `right`, and `middle` define the active search range
+
+```java
+int left = 0;
+int right = elements.length - 1;
+while (left <= right)
+{
+    int middle = (left + right) / 2;
+    ...
+}
+```
+
+Students should retain:
+
+::: {.tight-list}
+- `left` starts at the first valid index
+- `right` starts at the last valid index
+- `middle` is recomputed each pass
+- if the range disappears, the target was not found
+:::
+
+## Strings in Binary Search
+
+### Ordered strings use `compareTo`, not numeric comparison operators
+
+Retained AP rule:
+
+::: {.tight-list}
+- `target.compareTo(elements[middle]) < 0` means target belongs to the left side
+- `> 0` means target belongs to the right side
+- `== 0` in `compareTo` terms means the strings match
+:::
+
+## Runtime Comparison
+
+### The main tradeoff is flexibility versus speed
+
+| Algorithm | Works on unsorted data? | Worst-case idea |
+|---|---|---|
+| Linear search | Yes | Check all `n` elements |
+| Binary search | No, must be sorted | Repeatedly cut the range in half |
+
+Retained conclusion:
+
+::: {.tight-list}
+- linear search is more general
+- binary search is typically more efficient on sorted data
+- runtime comparisons often use the <span class="term">worst case</span>, especially “target not found”
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- trace linear search on arrays and `ArrayList`s
+- explain why `String` search uses `equals` or `compareTo`
+- adapt linear search to a 2D array
+- trace `left`, `right`, and `middle` through binary search
+- compare worst-case steps for linear and binary search
+- <span class="term">4.14.5 Coding Challenge: Search Runtimes</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain when linear search is appropriate
+- state the sorting precondition for binary search
+- describe how binary search updates `left` and `right`
+- distinguish `equals` from `compareTo` in string search contexts
+- compare the worst-case behavior of linear and binary search
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,124 @@
+---
+title: "3.7 Class Variables and Methods"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Class Variables and Methods
+
+### `static` belongs to the class, not to one object
+
+The textbook connects this topic back to familiar examples:
+
+::: {.tight-list}
+- `Math.random()` is a <span class="term">class method</span>
+- `main` is also a static method
+- static members are associated with the <span class="mark">class itself</span>
+:::
+
+This topic separates shared class behavior from per-object behavior.
+
+## Class Methods
+
+### Static methods are called with the class name
+
+![Calling static and instance methods](../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png){fig-align="center" width="78%"}
+
+```java
+ClassName.methodName();
+```
+
+::: {.tight-list}
+- class methods belong to the class, not to any particular object
+- there is only one copy for the whole class
+- they can call other static methods directly
+- they can access <span class="term">class variables</span>
+:::
+
+## Static Context Rules
+
+### A static method cannot directly use instance state
+
+The key AP rule here is:
+
+::: {.tight-list}
+- static methods cannot directly access <span class="mark">instance variables</span>
+- static methods cannot directly call <span class="mark">instance methods</span>
+- they need an object reference passed in or created first
+:::
+
+This is why `main` must construct an object before calling instance methods on it.
+
+## Class Variables
+
+### One shared copy exists for the whole class
+
+```java
+public class Person
+{
+    public static int personCounter = 0;
+}
+```
+
+::: {.tight-list}
+- class variables are marked with `static`
+- every object shares the same class variable
+- they are useful for counters, totals, min/max tracking, and similar shared state
+- public static variables are accessed with `ClassName.variableName`
+:::
+
+## `final` Keyword
+
+### Use `final` for constants that should not change
+
+```java
+public static final double PI = 3.14159;
+```
+
+::: {.tight-list}
+- `final` means the value cannot be modified
+- constants are traditionally written in capital letters
+- `static final` is a common pattern for shared constants
+:::
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- distinguish static methods from instance methods
+- explain why static methods cannot directly use instance state
+- trace shared behavior of a static counter across multiple objects
+- identify appropriate uses for `static` and `final`
+- <span class="term">3.7.4 Coding Challenge: Static Song and counter</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain what makes a method or variable `static`
+- state that static methods cannot directly access instance variables
+- explain that class variables are shared across all objects
+- identify when the class name should be used to access a member
+- explain what `final` means for a variable
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

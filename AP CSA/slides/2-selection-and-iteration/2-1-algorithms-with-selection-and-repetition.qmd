@@ -1,0 +1,122 @@
+---
+title: "2.1 Algorithms with Selection and Repetition"
+subtitle: "Selection and Iteration"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Control Structures
+
+### Algorithms are more than straight-line code
+
+Until now, most beginner programs have followed plain sequential execution.  
+This unit adds two new control moves:
+
+::: {.tight-list}
+- <span class="term">selection</span>: choose between different paths
+- <span class="term">repetition</span>: repeat steps until a condition changes
+:::
+
+![Sequencing, selection, and repetition](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png){fig-align="center" width="46%"}
+
+## Selection
+
+### Decision making based on true or false
+
+Selection happens when an algorithm checks a condition and then follows a branch.
+
+::: {.tight-list}
+- “if there is a text, answer it”
+- “if it is cold, wear a sweater”
+- “if homework is due, pack it”
+:::
+
+The key idea is that <span class="mark">the next step depends on a Boolean result</span>.
+
+## Repetition
+
+### Doing something again until the work is finished
+
+Repetition happens when an algorithm loops.
+
+::: {.tight-list}
+- keep snoozing for 15 minutes
+- answer all of the texts
+- repeat packing until the bag is ready
+:::
+
+In code, repetition becomes <span class="term">iteration</span> through loops such as `while` and `for`.
+
+## Pseudocode and Flowcharts
+
+### Plan the logic before writing Java
+
+::: {.two-col}
+::: {}
+![Control-flow branching](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png){width="100%"}
+:::
+::: {.soft-box}
+Pseudocode and flowcharts help students:
+
+- see algorithm order clearly
+- mark branch points
+- identify repeated work
+- test the logic before Java syntax
+:::
+:::
+
+The classroom move here is to separate <span class="term">algorithm design</span> from language syntax.
+
+## Ordering Matters
+
+### Same building blocks, different outcomes
+
+An algorithm's result depends on:
+
+::: {.tight-list}
+- the order of steps
+- which condition is checked first
+- whether repetition stops at the right time
+:::
+
+That is why tracing pseudocode is part of the teaching sequence, not optional cleanup.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- pseudocode and flowchart ordering checks
+- identifying selection phrases and repetition phrases
+- tracing gift-buying algorithm outcomes
+- <span class="term">2.1.4 Coding Challenge: Algorithms</span>
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- define <span class="term">sequencing</span>, <span class="term">selection</span>, and <span class="term">repetition</span>
+- explain that selection depends on a true/false decision
+- explain that repetition continues until a stopping condition is met
+- recognize pseudocode and flowcharts as planning tools
+- explain why order affects algorithm outcome
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

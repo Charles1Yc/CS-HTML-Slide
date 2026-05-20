@@ -1,0 +1,135 @@
+---
+title: "4.10 Implementing ArrayList Algorithms"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Implementing ArrayList Algorithms
+
+### Standard array algorithm patterns carry over to dynamic lists
+
+This topic maps familiar ideas onto `ArrayList`:
+
+::: {.tight-list}
+- sum, average, min, and max
+- property tests
+- duplicates and pairs
+- shift, rotate, and reverse
+- parallel data-structure traversal
+:::
+
+The main change is method-based access and size-changing behavior.
+
+## Add and Remove During Algorithms
+
+### Students need to trace list mutation precisely
+
+The textbook retains direct tracing of:
+
+::: {.tight-list}
+- `add`
+- `add(index, obj)`
+- `remove`
+- shifting side effects after insertion or deletion
+:::
+
+This is foundational because later algorithms depend on understanding how list contents move.
+
+## Min, Max, Sum, and Average
+
+### The same loop patterns still apply
+
+Retained structure:
+
+::: {.tight-list}
+- use traversal to visit each list element
+- maintain accumulators or current best values
+- combine loops with `if` conditions as needed
+- use wrapper values because the list stores objects
+:::
+
+Students should recognize that the pattern is familiar even though the collection type changed.
+
+## Finding a Property
+
+### List algorithms still rely on boolean checks inside loops
+
+The AP-style patterns are the same as with arrays:
+
+::: {.tight-list}
+- determine whether at least one element has a property
+- determine whether all elements have a property
+- count how many elements have a property
+:::
+
+Only the access syntax changes from `array[i]` to `list.get(i)` or an enhanced `for` variable.
+
+## Pairs, Duplicates, and Nested Loops
+
+### Some list problems still need two-level iteration
+
+The textbook keeps nested-loop reasoning for:
+
+::: {.tight-list}
+- consecutive pairs
+- duplicate detection
+- pair generation
+:::
+
+Students should explicitly justify when one loop is insufficient.
+
+## Shift, Rotate, Reverse, and Parallel Structures
+
+### Reordering and multi-list traversal combine several earlier ideas
+
+Retained algorithm families:
+
+::: {.tight-list}
+- shift or rotate values in a list
+- reverse list order
+- traverse multiple arrays or `ArrayList` objects in sync
+:::
+
+This is where students need to balance index control, method use, and mutation effects.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- trace mutation caused by add/remove operations inside list algorithms
+- write min/max/sum/average loops over `ArrayList`
+- implement boolean-property and counting patterns
+- use nested loops for duplicate and pair algorithms
+- explain how parallel data structures are traversed together
+:::
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- explain how familiar array algorithms transfer to `ArrayList`
+- distinguish when traversal can use enhanced `for` versus indexed loops
+- explain the mutation effects of insertion and removal
+- identify when nested loops are needed
+- explain how two parallel lists can be traversed in step
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,144 @@
+---
+title: "4.17 Recursive Searching and Sorting"
+subtitle: "Data Collections"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Recursive Searching and Sorting
+
+### Recursion now applies to two algorithms students already know iteratively
+
+This topic connects earlier lessons:
+
+::: {.tight-list}
+- binary search from `4.14`
+- sorting from `4.15`
+- recursion from `4.16`
+:::
+
+## Recursive Binary Search
+
+### Keep halving a sorted range until the target is found or no range remains
+
+Retained algorithm story:
+
+::: {.tight-list}
+- binary search still requires <span class="mark">sorted data</span>
+- check the middle element first
+- recurse into the left half or the right half
+- stop when the middle matches or when the active range is empty
+:::
+
+## Base Cases and Recursive Calls
+
+### A recursive binary search needs two stopping conditions
+
+```java
+if (target == array[middle]) { return middle; }
+if (end < start) { return -1; }
+```
+
+Retained reasoning:
+
+::: {.tight-list}
+- one base case handles <span class="term">found</span>
+- one base case handles <span class="term">not found</span>
+- the recursive calls change `start` or `end` to eliminate half the values
+:::
+
+## Recursive Binary Search on ArrayLists
+
+### The same logic works with method-based access
+
+Retained transfer:
+
+::: {.tight-list}
+- arrays use `array[middle]`
+- `ArrayList`s use `list.get(middle)`
+- the search logic is otherwise the same
+:::
+
+## Merge Sort
+
+### Merge sort is a divide-and-conquer recursive sorting algorithm
+
+Retained algorithm story:
+
+::: {.tight-list}
+- split the array into smaller subarrays
+- recurse until each subarray has one element
+- merge the sorted pieces back together
+- merge sort is typically faster than selection sort and usually faster than insertion sort
+:::
+
+## Recognizing Merge Sort
+
+### The AP version has three named responsibilities
+
+Retained structure:
+
+::: {.tight-list}
+- `mergeSort` sets up the helper data structure
+- `mergeSortHelper` performs the recursive splitting
+- `merge` combines two sorted subarrays back into order
+:::
+
+This topic is less about memorizing every line and more about recognizing the control flow.
+
+## Tracing Split and Merge
+
+### Write the split stages first, then the merge stages
+
+Retained trace pattern for `{86, 3, 43, 5}`:
+
+::: {.tight-list}
+- split 1: `{ {86, 3}, {43, 5} }`
+- split 2: `{ {{86}, {3}}, {{43}, {5}} }`
+- merge 1: `{ {3, 86}, {5, 43} }`
+- merge 2: `{3, 5, 43, 86}`
+:::
+
+This is the merge-sort counterpart to tracing recursive binary search ranges.
+
+## Classroom Tasks
+
+### Practice worth keeping
+
+Retained classroom work for this topic:
+
+::: {.tight-list}
+- identify the base cases in recursive binary search
+- trace the `start`, `end`, and `middle` values through recursive calls
+- explain why sorted order is required for binary search
+- describe the role of `mergeSort`, `mergeSortHelper`, and `merge`
+- trace merge sort by writing split and merge stages
+- <span class="term">4.17.3 Tracing Challenge: Recursive Search and Sort</span>
+:::
+
+## Classroom Check
+
+### A strong answer should...
+
+::: {.tight-list}
+- explain how recursive binary search eliminates half of the active range
+- identify both recursive binary search base cases
+- explain why binary search requires sorted data
+- describe merge sort as recursive splitting followed by merging
+- trace either a recursive search range sequence or a merge-sort split/merge sequence
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
