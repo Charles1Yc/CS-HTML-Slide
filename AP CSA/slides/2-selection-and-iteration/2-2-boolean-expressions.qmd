@@ -14,110 +14,163 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Boolean Results
+## Topic Intro
 
-### Conditions produce `true` or `false`
+### Conditions produce true or false
 
-A <span class="term">Boolean expression</span> is a test with only two possible results:
+A <span class="term">Boolean expression</span> (布尔表达式) is an expression that evaluates to either `true` or `false`.
 
-::: {.tight-list}
-- `true`
-- `false`
-:::
+Boolean expressions are used by selection and iteration:
 
-These results drive selection statements later in the unit.
+```java
+if (score >= 90)
+{
+    System.out.println("A");
+}
+```
 
-## Equality Testing
+The code inside the block runs only when the condition is true.
 
-### `==` tests, `=` assigns
+## Testing Equality
+
+### `==` compares primitive values
+
+Use `==` to test whether two primitive values are equal.
 
 ```java
 int age = 15;
-int year = 14;
-System.out.println(age == year);
-System.out.println(age != year);
+System.out.println(age == 15);
+System.out.println(age == 16);
 ```
 
-::: {.tight-list}
-- one `=` changes a variable
-- two `==` compare values
-- `!=` means not equal
-:::
+Expected output:
 
-This is one of the first branch-killing syntax mistakes students make.
+```text
+true
+false
+```
 
-## Reference Equality
+`=` assigns a value; `==` asks an equality question.
 
-### With objects, `==` checks whether two references point to the same object
+## Object References
 
-![Turtle reference equality](../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png){fig-align="center" width="60%"}
+### `==` with objects checks whether references point to the same object
 
-::: {.tight-list}
-- `juan == mia` is false when they are different turtles
-- `friend == mia` is true when both references point to the same turtle
-- this is <span class="mark">reference equality</span>, not content equality
-:::
+![Turtle reference equality](../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png){fig-align="center" width="43%"}
+
+For reference types, `==` checks whether two variables refer to the same object, not whether two objects have equal-looking contents.
+
+This distinction becomes important for `String` in Topic 2.6.
 
 ## Relational Operators
 
-### Numeric comparisons also return Booleans
+### Compare numeric values
 
-::: {.tight-list}
-- `<` less than
-- `>` greater than
-- `<=` less than or equal to
-- `>=` greater than or equal to
-- `==` equals
-- `!=` not equal
-:::
+| Operator | Meaning |
+|---|---|
+| `<` | less than |
+| `>` | greater than |
+| `<=` | less than or equal to |
+| `>=` | greater than or equal to |
+| `==` | equal to |
+| `!=` | not equal to |
 
-```java
-number > 0
-number < 0
-age <= year
-```
+Relational expressions also evaluate to `true` or `false`.
 
-## Testing with `%`
+## Code Task
 
-### Remainders are useful for even, odd, and divisibility tests
+### Predict relational results
+
+Predict the output before running.
 
 ```java
-number % 2 == 0
-number % 2 != 0
-number % x == 0
+public class BooleanTrace
+{
+    public static void main(String[] args)
+    {
+        int x = 3;
+        int y = 5;
+        System.out.println(x < y);
+        System.out.println(x + 2 == y);
+        System.out.println(y != 5);
+        System.out.println(y >= x * 2);
+    }
+}
+```
+
+Expected output: `true`, `true`, `false`, `false`.
+
+## Testing with Remainder
+
+### `%` turns divisibility into a Boolean expression
+
+The remainder operator is useful for number tests.
+
+```java
+int n = 17;
+System.out.println(n % 2 == 0);
+System.out.println(n % 5 == 2);
 ```
 
 ::: {.tight-list}
-- even: remainder 0 when divided by 2
-- odd: remainder not 0 when divided by 2
-- divisible by `x`: remainder 0 when divided by `x`
+- `n % 2 == 0` tests whether `n` is even
+- `n % divisor == 0` tests divisibility
+- prime-number logic starts by checking possible divisors
 :::
 
-This is the bridge to prime-number and divisibility tasks.
+## Coding Challenge
 
-## Classroom Tasks
+### Prime Numbers POGIL starter
 
-### Practice worth keeping
+Complete the method by testing divisibility from `2` through `number - 1`.
 
-Retained classroom work for this topic:
+```java
+public class PrimeCheck
+{
+    public static boolean isPrime(int number)
+    {
+        if (number <= 1)
+        {
+            return false;
+        }
+
+        for (int divisor = 2; divisor < number; divisor++)
+        {
+            if (number % divisor == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+## Quick Check
+
+### Prime reasoning
+
+For `isPrime(9)`, which divisor first proves the number is not prime?
 
 ::: {.tight-list}
-- truth-value checks on equality and relational operators
-- reference-equality comparisons with turtle objects
-- even / odd / divisible-by-`x` tests using `%`
-- <span class="term">2.2.4 Coding Challenge: Prime Numbers POGIL</span>
+- A. `2`
+- B. `3`
+- C. `4`
+- D. no divisor
 :::
+
+Answer: <span class="mark">B</span>. `9 % 3 == 0`, so `9` is not prime.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- define a Boolean expression as a test that returns `true` or `false`
-- distinguish `=` from `==`
-- evaluate relational operators correctly
-- explain `%` tests for even, odd, and divisibility
-- recognize that `==` on objects checks references, not matching content
+- explain that a Boolean expression evaluates to `true` or `false`
+- distinguish assignment `=` from equality testing `==`
+- use relational operators correctly with numeric values
+- explain how `%` supports even, odd, divisibility, and prime checks
+- avoid assuming object reference equality means object content equality
 :::
 
 ## End

@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit2-shared.css">
@@ -144,48 +210,48 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="control-structures" class="slide level2">
-<h2>Control Structures</h2>
-<h3 id="algorithms-are-more-than-straight-line-code">Algorithms are more than straight-line code</h3>
-<p>Until now, most beginner programs have followed plain sequential execution.<br>
-This unit adds two new control moves:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="algorithms-can-choose-and-repeat">Algorithms can choose and repeat</h3>
+<p>An <span class="term">algorithm</span> (算法) is a step-by-step process for solving a problem. Unit 2 adds two control moves that make algorithms less linear:</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">selection</span>: choose between different paths</li>
-<li><span class="term">repetition</span>: repeat steps until a condition changes</li>
+<li><span class="term">selection</span> (选择): execute steps only when a condition is true</li>
+<li><span class="term">repetition</span> (重复): execute steps again until the work is finished</li>
 </ul>
 </div>
 
-<img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Sequencing, selection, and repetition</p></section>
+<img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">Sequencing, selection, and repetition</p></section>
 <section id="selection" class="slide level2">
 <h2>Selection</h2>
-<h3 id="decision-making-based-on-true-or-false">Decision making based on true or false</h3>
-<p>Selection happens when an algorithm checks a condition and then follows a branch.</p>
+<h3 id="a-branch-depends-on-a-boolean-decision">A branch depends on a Boolean decision</h3>
+<p>Selection phrases usually include a condition:</p>
 <div class="tight-list">
 <ul>
-<li>“if there is a text, answer it”</li>
-<li>“if it is cold, wear a sweater”</li>
-<li>“if homework is due, pack it”</li>
+<li>If there is a text from your friend, answer it.</li>
+<li>If it is cold, wear a sweater.</li>
+<li>Check if you have homework due. If so, pack it.</li>
+<li>Put on sunglasses if it is sunny.</li>
 </ul>
 </div>
-<p>The key idea is that <mark>the next step depends on a Boolean result</mark>.</p>
+<p>The next action depends on whether the condition evaluates to <mark>true or false</mark>.</p>
 </section>
 <section id="repetition" class="slide level2">
 <h2>Repetition</h2>
-<h3 id="doing-something-again-until-the-work-is-finished">Doing something again until the work is finished</h3>
-<p>Repetition happens when an algorithm loops.</p>
+<h3 id="a-loop-keeps-doing-work">A loop keeps doing work</h3>
+<p>Repetition phrases describe repeated action:</p>
 <div class="tight-list">
 <ul>
-<li>keep snoozing for 15 minutes</li>
-<li>answer all of the texts</li>
-<li>repeat packing until the bag is ready</li>
+<li>Keep waking up and snoozing for the next 15 minutes.</li>
+<li>If there is a text from your friend, answer it for all texts.</li>
+<li>Repeat packing items until your bag is ready.</li>
 </ul>
 </div>
-<p>In code, repetition becomes <span class="term">iteration</span> through loops such as <code>while</code> and <code>for</code>.</p>
+<p>In Java, repetition is implemented with <span class="term">loops</span>, especially <code>while</code> and <code>for</code>.</p>
 </section>
 <section id="pseudocode-and-flowcharts" class="slide level2">
 <h2>Pseudocode and Flowcharts</h2>
-<h3 id="plan-the-logic-before-writing-java">Plan the logic before writing Java</h3>
+<h3 id="plan-the-control-flow-before-java-syntax">Plan the control flow before Java syntax</h3>
 <div class="two-col">
 <div>
 <div class="quarto-figure quarto-figure-center">
@@ -196,53 +262,82 @@ This unit adds two new control moves:</p>
 </div>
 </div>
 <div class="soft-box">
-<p>Pseudocode and flowcharts help students:</p>
+<p>Use pseudocode and flowcharts to:</p>
 <ul>
-<li>see algorithm order clearly</li>
+<li>show the order of actions</li>
 <li>mark branch points</li>
-<li>identify repeated work</li>
-<li>test the logic before Java syntax</li>
+<li>mark repeated work</li>
+<li>test the algorithm before coding</li>
 </ul>
 </div>
 </div>
-<p>The classroom move here is to separate <span class="term">algorithm design</span> from language syntax.</p>
 </section>
-<section id="ordering-matters" class="slide level2">
-<h2>Ordering Matters</h2>
-<h3 id="same-building-blocks-different-outcomes">Same building blocks, different outcomes</h3>
-<p>An algorithm’s result depends on:</p>
+<section id="mixed-up-algorithm" class="slide level2">
+<h2>Mixed-Up Algorithm</h2>
+<h3 id="buying-a-birthday-gift">Buying a birthday gift</h3>
+<p>Reorder the pseudocode. Indent the buying rules inside the repetition.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Initialize total amount of money.</span>
+<span id="cb1-2"><a href=""></a>Repeat while still money in total:</span>
+<span id="cb1-3"><a href=""></a>    If total more than $25, buy a gift card and subtract 25.</span>
+<span id="cb1-4"><a href=""></a>    If total more than $10, buy a small cake and subtract 10.</span>
+<span id="cb1-5"><a href=""></a>    If total more than $5, buy some candy and subtract 5.</span>
+<span id="cb1-6"><a href=""></a>    If total more than $1, buy a card and subtract 1.</span>
+<span id="cb1-7"><a href=""></a>    Otherwise, give them the change.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Class focus: the repeated loop contains several selection checks.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-the-gift-algorithm-with-16">Trace the gift algorithm with $16</h3>
+<p>Given the gift algorithm, assume <code>total = 16</code>. What is the outcome?</p>
 <div class="tight-list">
 <ul>
-<li>the order of steps</li>
-<li>which condition is checked first</li>
-<li>whether repetition stops at the right time</li>
+<li>A. gift card, small cake, candy, card</li>
+<li>B. small cake and candy</li>
+<li>C. small cake, candy, and card</li>
+<li>D. two cakes and candy</li>
 </ul>
 </div>
-<p>That is why tracing pseudocode is part of the teaching sequence, not optional cleanup.</p>
+<p>Answer: <mark>C</mark>. The algorithm buys a $10 cake, then $5 candy, then a $1 card.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-the-gift-algorithm-with-22">Trace the gift algorithm with $22</h3>
+<p>Given the same algorithm, assume <code>total = 22</code>. What is the outcome?</p>
 <div class="tight-list">
 <ul>
-<li>pseudocode and flowchart ordering checks</li>
-<li>identifying selection phrases and repetition phrases</li>
-<li>tracing gift-buying algorithm outcomes</li>
-<li><span class="term">2.1.4 Coding Challenge: Algorithms</span></li>
+<li>A. gift card, small cake, candy, card</li>
+<li>B. small cake and candy</li>
+<li>C. small cake, candy, and card</li>
+<li>D. two cakes, a card, and $1 change</li>
 </ul>
 </div>
+<p>Answer: <mark>D</mark>. The repetition allows the $10 cake rule to run twice.</p>
+</section>
+<section id="student-response-task" class="slide level2">
+<h2>Student Response Task</h2>
+<h3 id="snack-algorithm">Snack algorithm</h3>
+<p>Write pseudocode for choosing a snack. It must include both:</p>
+<div class="tight-list">
+<ul>
+<li>one selection rule using <code>if</code></li>
+<li>one repetition rule using <code>repeat</code>, <code>while</code>, <code>until</code>, <code>all</code>, or <code>keep</code></li>
+</ul>
+</div>
+<p>Example starting point:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Repeat while I am still hungry:</span>
+<span id="cb2-2"><a href=""></a>    If the snack is healthy, choose it.</span>
+<span id="cb2-3"><a href=""></a>    Otherwise, look for another snack.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define <span class="term">sequencing</span>, <span class="term">selection</span>, and <span class="term">repetition</span></li>
-<li>explain that selection depends on a true/false decision</li>
-<li>explain that repetition continues until a stopping condition is met</li>
-<li>recognize pseudocode and flowcharts as planning tools</li>
-<li>explain why order affects algorithm outcome</li>
+<li>define <span class="term">selection</span> as choosing a path based on true or false</li>
+<li>define <span class="term">repetition</span> as repeating steps until a stopping condition is met</li>
+<li>distinguish sequential steps from branch and loop steps</li>
+<li>trace how repeated selection can change an algorithm result</li>
+<li>use pseudocode or a flowchart to show control flow before Java syntax</li>
 </ul>
 </div>
 </section>

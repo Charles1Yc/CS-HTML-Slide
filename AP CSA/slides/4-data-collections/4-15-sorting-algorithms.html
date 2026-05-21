@@ -210,131 +210,111 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="sorting-algorithms" class="slide level2">
-<h2>Sorting Algorithms</h2>
-<h3 id="sorting-puts-values-into-numeric-or-alphabetic-order">Sorting puts values into numeric or alphabetic order</h3>
-<p>This topic keeps two iterative AP sorting algorithms in focus:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="sorting-puts-data-in-order">Sorting puts data in order</h3>
+<p><span class="term">Sorting algorithms</span> reorder data, usually from smallest to largest or alphabetically.</p>
+<p>This topic focuses on:</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">selection sort</span></li>
-<li><span class="term">insertion sort</span></li>
-<li>merge sort is previewed here and handled fully in <code>4.17</code></li>
+<li>selection sort</li>
+<li>insertion sort</li>
+<li>tracing how an array changes</li>
+<li>informal runtime comparison</li>
 </ul>
 </div>
 </section>
-<section id="selection-sort" class="slide level2">
-<h2>Selection Sort</h2>
-<h3 id="repeatedly-choose-the-smallest-remaining-value-and-swap-it-forward">Repeatedly choose the smallest remaining value and swap it forward</h3>
-<p>Retained algorithm story:</p>
-<div class="tight-list">
-<ul>
-<li>the outer loop marks the start of the unsorted region</li>
-<li><code>minIndex</code> starts at the outer-loop index</li>
-<li>the inner loop scans the remaining unsorted values</li>
-<li>after the scan, swap the smallest found value into its final position</li>
-</ul>
-</div>
+<section id="selection-sort-idea" class="slide level2">
+<h2>Selection Sort Idea</h2>
+<h3 id="repeatedly-select-the-smallest-remaining-value">Repeatedly select the smallest remaining value</h3>
+<p>Algorithm:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>For each position from left to right:</span>
+<span id="cb1-2"><a href=""></a>    Find the smallest value in the unsorted part.</span>
+<span id="cb1-3"><a href=""></a>    Swap it into the current position.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After each pass, one more value is in its final position.</p>
 </section>
-<section id="recognizing-selection-sort" class="slide level2">
-<h2>Recognizing Selection Sort</h2>
-<h3 id="ap-questions-often-test-pattern-recognition-not-just-memorized-code">AP questions often test pattern recognition, not just memorized code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="dt">int</span> minIndex <span class="op">=</span> j<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> k <span class="op">=</span> j <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> k <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span><span class="op">;</span> k<span class="op">++)</span></span>
-<span id="cb1-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>elements<span class="op">[</span>k<span class="op">]</span> <span class="op">&lt;</span> elements<span class="op">[</span>minIndex<span class="op">])</span> <span class="op">{</span> minIndex <span class="op">=</span> k<span class="op">;</span> <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="co">// swap elements[j] and elements[minIndex]</span></span>
-<span id="cb1-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key signal: the selected minimum goes into its <mark>final</mark> location each pass.</p>
-</section>
-<section id="insertion-sort" class="slide level2">
-<h2>Insertion Sort</h2>
-<h3 id="insert-each-new-element-into-the-already-sorted-left-side">Insert each new element into the already sorted left side</h3>
-<p>Retained algorithm story:</p>
-<div class="tight-list">
-<ul>
-<li>the sorted region grows from left to right</li>
-<li>store the current value in <code>temp</code></li>
-<li>shift larger values rightward</li>
-<li>place <code>temp</code> into the open location</li>
-</ul>
-</div>
-</section>
-<section id="recognizing-insertion-sort" class="slide level2">
-<h2>Recognizing Insertion Sort</h2>
-<h3 id="the-inner-action-is-shifting-not-choosing-one-minimum">The inner action is shifting, not choosing one minimum</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
+<section id="selection-sort-code" class="slide level2 fit-small">
+<h2>Selection Sort Code</h2>
+<h3 id="find-min-index-then-swap">Find min index, then swap</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="dt">int</span> temp <span class="op">=</span> elements<span class="op">[</span>j<span class="op">];</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="dt">int</span> possibleIndex <span class="op">=</span> j<span class="op">;</span></span>
-<span id="cb2-5"><a href=""></a>    <span class="cf">while</span> <span class="op">(</span>possibleIndex <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> temp <span class="op">&lt;</span> elements<span class="op">[</span>possibleIndex <span class="op">-</span> <span class="dv">1</span><span class="op">])</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>        elements<span class="op">[</span>possibleIndex<span class="op">]</span> <span class="op">=</span> elements<span class="op">[</span>possibleIndex <span class="op">-</span> <span class="dv">1</span><span class="op">];</span></span>
-<span id="cb2-8"><a href=""></a>        possibleIndex<span class="op">--;</span></span>
-<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-10"><a href=""></a>    elements<span class="op">[</span>possibleIndex<span class="op">]</span> <span class="op">=</span> temp<span class="op">;</span></span>
-<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key signal: the algorithm opens space by <span class="term">shifting</span> values to the right.</p>
+<span id="cb2-3"><a href=""></a>    <span class="dt">int</span> minIndex <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>j<span class="op">]</span> <span class="op">&lt;</span> values<span class="op">[</span>minIndex<span class="op">])</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>            minIndex <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-11"><a href=""></a>    <span class="dt">int</span> temp <span class="op">=</span> values<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-12"><a href=""></a>    values<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> values<span class="op">[</span>minIndex<span class="op">];</span></span>
+<span id="cb2-13"><a href=""></a>    values<span class="op">[</span>minIndex<span class="op">]</span> <span class="op">=</span> temp<span class="op">;</span></span>
+<span id="cb2-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="compare-the-two-sorts" class="slide level2">
-<h2>Compare the Two Sorts</h2>
-<h3 id="they-both-use-nested-control-flow-but-they-improve-order-differently">They both use nested control flow, but they improve order differently</h3>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Algorithm</th>
-<th>Main action</th>
-<th>Best mental model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Selection sort</td>
-<td>find min, then swap</td>
-<td>choose the next final value</td>
-</tr>
-<tr class="even">
-<td>Insertion sort</td>
-<td>shift, then insert</td>
-<td>grow a sorted left side</td>
-</tr>
-</tbody>
-</table>
-<p>Retained contrast:</p>
+<section id="selection-sort-trace" class="slide level2">
+<h2>Selection Sort Trace</h2>
+<h3 id="first-pass">First pass</h3>
+<p>For <code>{5, 2, 7, 1}</code>:</p>
 <div class="tight-list">
 <ul>
-<li>selection sort does the same comparison pattern regardless of data order</li>
-<li>insertion sort can do less work when data is already mostly sorted</li>
-<li>both are iterative and traceable by index movement</li>
+<li>current position: index <code>0</code></li>
+<li>smallest remaining value: <code>1</code> at index <code>3</code></li>
+<li>swap indices <code>0</code> and <code>3</code></li>
+<li>array becomes <code>{1, 2, 7, 5}</code></li>
 </ul>
 </div>
 </section>
-<section id="runtime-framing" class="slide level2">
-<h2>Runtime Framing</h2>
-<h3 id="both-algorithms-are-much-slower-than-binary-style-divide-and-conquer-methods">Both algorithms are much slower than binary-style divide-and-conquer methods</h3>
-<p>Retained conclusion:</p>
+<section id="insertion-sort-idea" class="slide level2">
+<h2>Insertion Sort Idea</h2>
+<h3 id="insert-each-value-into-the-sorted-left-side">Insert each value into the sorted left side</h3>
+<p>Algorithm:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>Start with the left side considered sorted.</span>
+<span id="cb3-2"><a href=""></a>Take the next value.</span>
+<span id="cb3-3"><a href=""></a>Shift larger values right.</span>
+<span id="cb3-4"><a href=""></a>Insert the value into the open spot.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Insertion sort resembles sorting cards in your hand.</p>
+</section>
+<section id="insertion-sort-code" class="slide level2 fit-small">
+<h2>Insertion Sort Code</h2>
+<h3 id="shift-until-the-correct-position-opens">Shift until the correct position opens</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="dt">int</span> current <span class="op">=</span> values<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="dt">int</span> j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>    <span class="cf">while</span> <span class="op">(</span>j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> values<span class="op">[</span>j<span class="op">]</span> <span class="op">&gt;</span> current<span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>        values<span class="op">[</span>j <span class="op">+</span> <span class="dv">1</span><span class="op">]</span> <span class="op">=</span> values<span class="op">[</span>j<span class="op">];</span></span>
+<span id="cb4-9"><a href=""></a>        j<span class="op">--;</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href=""></a>    values<span class="op">[</span>j <span class="op">+</span> <span class="dv">1</span><span class="op">]</span> <span class="op">=</span> current<span class="op">;</span></span>
+<span id="cb4-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="insertion-sort-trace" class="slide level2">
+<h2>Insertion Sort Trace</h2>
+<h3 id="insert-2">Insert <code>2</code></h3>
+<p>For <code>{5, 2, 7, 1}</code> at <code>i = 1</code>:</p>
 <div class="tight-list">
 <ul>
-<li>both algorithms revisit the data many times</li>
-<li>informal runtime comparison often comes from counting inner-loop work</li>
-<li>they are useful because their control flow is visible and easy to trace</li>
+<li><code>current = 2</code></li>
+<li>compare with <code>5</code></li>
+<li>shift <code>5</code> right</li>
+<li>insert <code>2</code> at index <code>0</code></li>
+<li>array becomes <code>{2, 5, 7, 1}</code></li>
 </ul>
 </div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="sort-runtimes">Sort runtimes</h3>
+<p>Trace selection sort and insertion sort on the same small array.</p>
+<p>Record:</p>
 <div class="tight-list">
 <ul>
-<li>identify selection sort from outer-loop and <code>minIndex</code> behavior</li>
-<li>identify insertion sort from <code>temp</code>, <code>possibleIndex</code>, and shifting behavior</li>
-<li>trace one full pass of each algorithm</li>
-<li>compare how already sorted data affects insertion sort</li>
-<li>explain why selection sort still performs the same comparison structure</li>
-<li><span class="term">4.15.3 Coding Challenge: Sort Runtimes</span></li>
+<li>comparisons</li>
+<li>swaps or shifts</li>
+<li>array after each outer loop pass</li>
+<li>which algorithm feels easier to trace and why</li>
 </ul>
 </div>
 </section>
@@ -343,11 +323,11 @@
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain how selection sort chooses and places the next smallest value</li>
-<li>explain how insertion sort shifts values and inserts <code>temp</code></li>
-<li>distinguish swapping from shifting</li>
-<li>identify the loop structure that reveals each algorithm</li>
-<li>compare the informal runtime behavior of the two iterative sorts</li>
+<li>explain selection sort as choosing the minimum remaining value</li>
+<li>trace a selection sort swap</li>
+<li>explain insertion sort as inserting into a sorted left side</li>
+<li>trace an insertion sort shift</li>
+<li>compare sorting algorithms using passes, comparisons, swaps, and shifts</li>
 </ul>
 </div>
 </section>

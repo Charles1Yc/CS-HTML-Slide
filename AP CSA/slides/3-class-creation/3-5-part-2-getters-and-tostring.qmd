@@ -1,0 +1,166 @@
+---
+title: "3.5 Methods: How to Write Them"
+subtitle: "Part 2: Getters and toString"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Public methods expose selected information
+
+Because instance variables are usually `private`, outside code cannot read them directly.
+
+An <span class="term">accessor</span> or <span class="term">getter</span> method provides controlled read access.
+
+```java
+public String getName()
+{
+    return name;
+}
+```
+
+## Getter Pattern
+
+### Return type matches the data
+
+```java
+public int getGradeLevel()
+{
+    return gradeLevel;
+}
+```
+
+Typical getter features:
+
+::: {.tight-list}
+- `public`
+- non-`void`
+- usually no parameters
+- returns one piece of object state
+:::
+
+## Code Task
+
+### Student getters
+
+```java
+public class Student
+{
+    private String name;
+    private int gradeLevel;
+
+    public Student(String studentName, int studentGrade)
+    {
+        name = studentName;
+        gradeLevel = studentGrade;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getGradeLevel()
+    {
+        return gradeLevel;
+    }
+}
+```
+
+Call with `student.getName()` or `student.getGradeLevel()`.
+
+## Why Getters Matter
+
+### Encapsulation with controlled access
+
+Getters keep instance variables private while still allowing other classes to use needed information.
+
+```java
+Student s = new Student("Mina", 10);
+System.out.println(s.getName());
+```
+
+Outside code asks the object for information through a method. It does not directly touch `name`.
+
+## `toString`
+
+### Return a readable object description
+
+`toString` returns a `String` representation of an object.
+
+```java
+public String toString()
+{
+    return name + " is in grade " + gradeLevel;
+}
+```
+
+It is especially useful for printing, tracing, and debugging.
+
+## Code Task
+
+### Add `toString`
+
+```java
+public class Student
+{
+    private String name;
+    private int gradeLevel;
+
+    public Student(String studentName, int studentGrade)
+    {
+        name = studentName;
+        gradeLevel = studentGrade;
+    }
+
+    public String toString()
+    {
+        return name + " is in grade " + gradeLevel;
+    }
+}
+```
+
+`System.out.println(student);` can use this method automatically.
+
+## Quick Check
+
+### Getter or `toString`
+
+Choose the better method for each need:
+
+::: {.tight-list}
+- Need only the student's name: `getName()`
+- Need a printable summary of the whole object: `toString()`
+- Need the grade as an `int`: `getGradeLevel()`
+:::
+
+Good class interfaces expose useful information without exposing every variable directly.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain why private instance variables need public accessors
+- write a getter with a matching return type
+- explain why getters usually have no parameters
+- write a `toString` method that returns a readable `String`
+- distinguish a single-value getter from an object summary
+:::
+
+## End
+
+### Continue or return to the course outline
+
+[Next: Setters and Parameters](3-5-part-3-setters-and-parameters.html)  
+[← Back to AP CSA / 返回课程目录](../../index.html)

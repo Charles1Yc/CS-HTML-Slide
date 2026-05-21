@@ -14,136 +14,156 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Abstraction and Program Design
+## Topic Intro
 
-### Design classes before writing code
+### Program design starts before code
 
-In Unit 1, students used built-in classes such as `String` and `Turtle`.  
-This topic shifts to writing our own classes by planning:
+<span class="term">Object-oriented design</span> (面向对象设计) organizes programs around objects that store data and provide behaviors.
+
+Before writing Java, decide:
 
 ::: {.tight-list}
-- what <span class="term">objects</span> the program needs
-- what <span class="term">attributes</span> each object should store
-- what <span class="term">behaviors</span> each object should provide
+- what objects the program needs
+- what data each object stores
+- what behaviors each object should provide
+- how objects interact
 :::
 
 ## Object-Oriented Design
 
-### Start from nouns, then map data and methods
+### Identify nouns and verbs
 
-In <span class="term">object-oriented design</span>, programmers identify likely classes from the problem description.
+A useful first pass is to read a problem statement:
 
-::: {.compare-grid}
-::: {.soft-box}
-**Look for nouns**
-
-- `Student`
-- `Course`
-- `Turtle`
-- `World`
-:::
-::: {.soft-box}
-**Then plan**
-
-- data to track in each class
-- methods each class should provide
-- how the classes work together
-:::
+::: {.tight-list}
+- nouns often suggest classes or objects
+- verbs often suggest methods
+- descriptive facts often suggest instance variables
 :::
 
-Students should treat nouns as class candidates and verbs as clues for methods.
+Student response task: for a game with players, scores, and turns, list two possible classes and two behaviors each class should have.
 
 ## UML Class Diagrams
 
-### A diagram can show the class at a glance
+### A compact design sketch
 
-![UML class diagram for Turtle](../../assets/3-class-creation/3-1-abstraction-and-program-design/turtleUMLClassDiagram.png){fig-align="center" width="74%"}
+![Turtle UML class diagram](../../assets/3-class-creation/3-1-abstraction-and-program-design/turtleUMLClassDiagram.png){fig-align="center" width="48%"}
+
+A simple class diagram can show:
 
 ::: {.tight-list}
-- <span class="term">Class diagrams</span> summarize a class without showing implementation details
-- attributes stand for the data in the class
-- methods stand for the behaviors in the class
-- `-` means private and `+` means public, but detailed UML syntax is <span class="mark">not the AP CSA focus</span>
+- class name
+- instance variables
+- constructors
+- methods
 :::
+
+The diagram is a planning tool, not a full Java program.
 
 ## Abstraction
 
-### Focus on the main idea and hide irrelevant detail
+### Hide details so the important idea is visible
 
-<span class="term">Abstraction</span> reduces complexity by keeping attention on the idea that matters right now.
+<span class="term">Abstraction</span> (抽象) means managing complexity by focusing on the important ideas and hiding unnecessary details.
 
-::: {.tight-list}
-- the Turtle diagram shows what the class contains
-- it does <span class="mark">not</span> show how every method is implemented
-- this makes planning and communication easier
-:::
-
-The class diagram itself is an example of abstraction.
-
-## Data and Procedural Abstraction
-
-### Manage complexity through names, structure, and reusable actions
-
-::: {.compare-grid}
-::: {.soft-box}
-**Data abstraction**
-
-- gives data a meaningful name
-- separates what the data represents from its implementation
-- includes attributes such as instance variables
-- can include shared <span class="term">class variables</span>
-:::
-::: {.soft-box}
-**Procedural abstraction**
-
-- gives a process a method name
-- lets us use a method without knowing every internal step
-- supports <span class="term">method decomposition</span>
-- improves reuse when methods accept parameters
-:::
-:::
-
-Examples from earlier work include `forward()` on `Turtle` and song methods such as `chorus()`.
-
-## Why Procedural Abstraction Matters
-
-### Smaller methods make programs easier to build and revise
-
-Retained reasons from the textbook:
+In Java classes, abstraction appears when:
 
 ::: {.tight-list}
-- <span class="term">Organization</span>: divide a large problem into smaller parts
-- <span class="term">Code reuse</span>: avoid repeating the same code
-- <span class="term">Maintainability and debugging</span>: smaller methods are easier to trace and fix
-- <span class="term">Flexibility</span>: parameters generalize one method for many inputs
+- an object exposes methods instead of internal implementation details
+- a method name describes a task without showing every statement at the call site
+- a class stores private data and offers controlled public behaviors
 :::
 
-As long as the method signature and behavior stay consistent, the implementation can change internally.
+## Data Abstraction
 
-## Classroom Tasks
+### Represent an object's state with selected variables
 
-### Practice worth keeping
+Data abstraction means choosing what information belongs in an object.
 
-Retained classroom work for this topic:
+Example: a `Student` class may store:
+
+```java
+private String name;
+private int gradeLevel;
+private double gpa;
+```
+
+The class does not need to store every possible fact about a student. It stores the data needed by the program.
+
+## Procedural Abstraction
+
+### Replace repeated steps with a named method
+
+Repeated version:
+
+```java
+System.out.println("Old MacDonald had a farm");
+System.out.println("E-I-E-I-O");
+System.out.println("And on that farm he had a cow");
+```
+
+Method version:
+
+```java
+public static void verse(String animal)
+{
+    System.out.println("Old MacDonald had a farm");
+    System.out.println("E-I-E-I-O");
+    System.out.println("And on that farm he had a " + animal);
+}
+```
+
+## Code Task
+
+### Use the method abstraction
+
+Call the method for two animals.
+
+```java
+public class Song
+{
+    public static void verse(String animal)
+    {
+        System.out.println("Old MacDonald had a farm");
+        System.out.println("E-I-E-I-O");
+        System.out.println("And on that farm he had a " + animal);
+    }
+
+    public static void main(String[] args)
+    {
+        verse("cow");
+        verse("duck");
+    }
+}
+```
+
+## Group Challenge
+
+### Game design
+
+Design a small game using object-oriented thinking.
+
+Your group should produce:
 
 ::: {.tight-list}
-- identify likely classes from nouns in a problem description
-- infer attributes and methods for sample classes such as `Student` and `Course`
-- review procedural abstraction with method decomposition and parameters
-- <span class="term">3.1.2 Coding Exercise: Old MacDonald Song Repeated</span>
-- <span class="term">3.1.6 Group Challenge: Game Design</span>
+- two or more classes
+- at least two instance variables for each class
+- at least two behaviors for each class
+- one sentence explaining how the objects interact
 :::
+
+Keep the design small enough that another group could start coding it.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain how abstraction reduces complexity
-- distinguish <span class="term">data abstraction</span> from <span class="term">procedural abstraction</span>
-- identify possible classes from nouns in a specification
-- describe how attributes and methods support class design
-- explain why decomposition and parameters improve reuse
+- explain how object-oriented design uses objects, data, and behaviors
+- identify likely classes, instance variables, and methods from a problem
+- explain how a UML-style class diagram supports planning
+- distinguish data abstraction from procedural abstraction
+- explain how a method reduces repeated code
 :::
 
 ## End

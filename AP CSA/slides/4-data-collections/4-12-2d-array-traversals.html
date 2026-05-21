@@ -210,97 +210,85 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="d-array-traversals" class="slide level2">
-<h2>2D Array Traversals</h2>
-<h3 id="traversing-a-2d-array-requires-nested-loops">Traversing a 2D array requires nested loops</h3>
-<p>This topic extends 1D traversal logic into row-and-column structures.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="d-traversal-uses-nested-loops">2D traversal uses nested loops</h3>
+<p>A 2D array traversal usually has:</p>
 <div class="tight-list">
 <ul>
-<li>a 2D traversal visits all elements or a defined sequence of elements</li>
-<li>because there are rows and columns, one loop is not enough</li>
-<li>nested loops are the standard pattern</li>
+<li>outer loop for rows</li>
+<li>inner loop for columns</li>
+<li>body that uses <code>array[row][col]</code></li>
 </ul>
 </div>
 </section>
-<section id="nested-loops" class="slide level2">
-<h2>Nested Loops</h2>
-<h3 id="one-loop-controls-rows-and-one-loop-controls-columns">One loop controls rows and one loop controls columns</h3>
-<p>The retained structure is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> arr<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<section id="row-major-traversal" class="slide level2">
+<h2>Row-Major Traversal</h2>
+<h3 id="visit-one-full-row-at-a-time">Visit one full row at a time</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
 <span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="co">// use arr[row][col]</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]);</span></span>
 <span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Students should connect the total number of iterations to rows times columns.</p>
+<p>This is the most common AP CSA traversal order.</p>
 </section>
-<section id="row-major-and-column-major-traversals" class="slide level2">
-<h2>Row-Major and Column-Major Traversals</h2>
-<h3 id="traversal-order-depends-on-which-loop-is-outside">Traversal order depends on which loop is outside</h3>
-<p>Retained distinction:</p>
+<section id="column-major-traversal" class="slide level2">
+<h2>Column-Major Traversal</h2>
+<h3 id="visit-one-full-column-at-a-time">Visit one full column at a time</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]);</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This assumes a rectangular 2D array.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="which-order-is-row-major">Which order is row-major?</h3>
+<p>Row-major means:</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">row-major</span>: move across a row before going to the next row</li>
-<li><span class="term">column-major</span>: move down a column before going to the next column</li>
-<li>the loop order determines the traversal order</li>
+<li>choose a row</li>
+<li>visit each column in that row</li>
+<li>move to the next row</li>
 </ul>
 </div>
-<p>This is a frequent AP tracing target.</p>
+<p>In code, the outer loop is usually <code>row</code>, and the inner loop is usually <code>col</code>.</p>
 </section>
-<section id="enhanced-for-each-loop-for-2d-arrays" class="slide level2">
-<h2>Enhanced For-Each Loop for 2D Arrays</h2>
-<h3 id="the-outer-loop-visits-rows-and-the-inner-loop-visits-elements-in-each-row">The outer loop visits rows, and the inner loop visits elements in each row</h3>
-<p>The textbook keeps one exact mental model:</p>
-<div class="tight-list">
-<ul>
-<li>the outer enhanced <code>for</code> variable must be a 1D array type</li>
-<li>the inner enhanced <code>for</code> variable must be the element type</li>
-<li>enhanced <code>for</code> is good for reading all values</li>
-<li>assigning to the loop variable does not change stored primitive values</li>
-</ul>
-</div>
+<section id="enhanced-for-each" class="slide level2">
+<h2>Enhanced For-Each</h2>
+<h3 id="read-each-row-then-each-value">Read each row, then each value</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> grid<span class="op">)</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>value<span class="op">);</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For-each is clear for reading all values, but not for changing values by index.</p>
 </section>
-<section id="d-arrays-of-objects" class="slide level2">
-<h2>2D Arrays of Objects</h2>
-<h3 id="traversal-can-also-manipulate-object-state">Traversal can also manipulate object state</h3>
+<section id="d-array-of-objects" class="slide level2">
+<h2>2D Array of Objects</h2>
+<h3 id="each-cell-can-store-an-object-reference">Each cell can store an object reference</h3>
 
-<img data-src="../../assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">A pixel inside an image grid</p><p>When a 2D array stores object references, traversal can call methods on those objects.</p>
-<div class="tight-list">
-<ul>
-<li>a picture can be modeled as a 2D array of <code>Pixel</code> objects</li>
-<li>nested traversal can visit every pixel</li>
-<li>method calls can change object attributes such as RGB values</li>
-</ul>
-</div>
+<img data-src="../../assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Pixel image</p><p>Image processing can treat pixels as objects in a 2D grid.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>Pixel<span class="op">[][]</span> pixels <span class="op">=</span> picture<span class="op">.</span><span class="fu">getPixels2D</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="picture-lab-pattern" class="slide level2">
-<h2>Picture Lab Pattern</h2>
-<h3 id="d-traversal-becomes-a-concrete-image-processing-workflow">2D traversal becomes a concrete image-processing workflow</h3>
+<section id="groupwork-coding-challenge" class="slide level2 image-fit">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="picture-lab">Picture Lab</h3>
 
-<img data-src="../../assets/4-data-collections/4-12-2d-array-traversals/arch.jpg" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Picture Lab source image</p><p>The retained teaching idea is:</p>
+<img data-src="../../assets/4-data-collections/4-12-2d-array-traversals/arch.jpg" style="width:38.0%" class="r-stretch quarto-figure-center"><p class="caption">Arch image</p><p>Use nested loops over pixels to modify an image.</p>
+<p>Class focus:</p>
 <div class="tight-list">
 <ul>
-<li>visit every pixel in the picture</li>
-<li>read red, green, and blue values</li>
-<li>modify one or more color channels</li>
-<li>observe the transformed image</li>
-</ul>
-</div>
-<p>This makes nested loops concrete instead of abstract.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>write and trace nested loops for full 2D traversal</li>
-<li>distinguish row-major and column-major order</li>
-<li>explain the variable types in nested enhanced <code>for</code> loops</li>
-<li>explain why enhanced <code>for</code> does not modify primitive values directly</li>
-<li>traverse 2D arrays of objects and call mutator methods</li>
-<li><span class="term">4.12.5 Coding Challenge: Picture Lab</span></li>
+<li>row and column traversal</li>
+<li>object methods on each <code>Pixel</code></li>
+<li>changing state inside the nested loop</li>
 </ul>
 </div>
 </section>
@@ -309,11 +297,11 @@
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain why 2D traversal needs nested loops</li>
-<li>distinguish row-major from column-major traversal</li>
-<li>describe the outer and inner variable types in a nested enhanced <code>for</code> loop</li>
-<li>explain why enhanced <code>for</code> cannot directly replace primitive 2D array values</li>
-<li>explain how a 2D array of objects can still be modified through method calls</li>
+<li>write row-major traversal with nested loops</li>
+<li>write column-major traversal for rectangular arrays</li>
+<li>use <code>array.length</code> for rows and <code>array[row].length</code> for columns</li>
+<li>explain when enhanced for-each is appropriate</li>
+<li>connect 2D object arrays to image or grid processing</li>
 </ul>
 </div>
 </section>

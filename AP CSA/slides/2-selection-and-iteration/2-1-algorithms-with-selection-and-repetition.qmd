@@ -14,105 +14,143 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Control Structures
+## Topic Intro
 
-### Algorithms are more than straight-line code
+### Algorithms can choose and repeat
 
-Until now, most beginner programs have followed plain sequential execution.  
-This unit adds two new control moves:
+An <span class="term">algorithm</span> (算法) is a step-by-step process for solving a problem. Unit 2 adds two control moves that make algorithms less linear:
 
 ::: {.tight-list}
-- <span class="term">selection</span>: choose between different paths
-- <span class="term">repetition</span>: repeat steps until a condition changes
+- <span class="term">selection</span> (选择): execute steps only when a condition is true
+- <span class="term">repetition</span> (重复): execute steps again until the work is finished
 :::
 
-![Sequencing, selection, and repetition](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png){fig-align="center" width="46%"}
+![Sequencing, selection, and repetition](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png){fig-align="center" width="44%"}
 
 ## Selection
 
-### Decision making based on true or false
+### A branch depends on a Boolean decision
 
-Selection happens when an algorithm checks a condition and then follows a branch.
+Selection phrases usually include a condition:
 
 ::: {.tight-list}
-- “if there is a text, answer it”
-- “if it is cold, wear a sweater”
-- “if homework is due, pack it”
+- If there is a text from your friend, answer it.
+- If it is cold, wear a sweater.
+- Check if you have homework due. If so, pack it.
+- Put on sunglasses if it is sunny.
 :::
 
-The key idea is that <span class="mark">the next step depends on a Boolean result</span>.
+The next action depends on whether the condition evaluates to <span class="mark">true or false</span>.
 
 ## Repetition
 
-### Doing something again until the work is finished
+### A loop keeps doing work
 
-Repetition happens when an algorithm loops.
+Repetition phrases describe repeated action:
 
 ::: {.tight-list}
-- keep snoozing for 15 minutes
-- answer all of the texts
-- repeat packing until the bag is ready
+- Keep waking up and snoozing for the next 15 minutes.
+- If there is a text from your friend, answer it for all texts.
+- Repeat packing items until your bag is ready.
 :::
 
-In code, repetition becomes <span class="term">iteration</span> through loops such as `while` and `for`.
+In Java, repetition is implemented with <span class="term">loops</span>, especially `while` and `for`.
 
 ## Pseudocode and Flowcharts
 
-### Plan the logic before writing Java
+### Plan the control flow before Java syntax
 
 ::: {.two-col}
 ::: {}
 ![Control-flow branching](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png){width="100%"}
 :::
 ::: {.soft-box}
-Pseudocode and flowcharts help students:
+Use pseudocode and flowcharts to:
 
-- see algorithm order clearly
+- show the order of actions
 - mark branch points
-- identify repeated work
-- test the logic before Java syntax
+- mark repeated work
+- test the algorithm before coding
 :::
 :::
 
-The classroom move here is to separate <span class="term">algorithm design</span> from language syntax.
+## Mixed-Up Algorithm
 
-## Ordering Matters
+### Buying a birthday gift
 
-### Same building blocks, different outcomes
+Reorder the pseudocode. Indent the buying rules inside the repetition.
 
-An algorithm's result depends on:
+```text
+Initialize total amount of money.
+Repeat while still money in total:
+    If total more than $25, buy a gift card and subtract 25.
+    If total more than $10, buy a small cake and subtract 10.
+    If total more than $5, buy some candy and subtract 5.
+    If total more than $1, buy a card and subtract 1.
+    Otherwise, give them the change.
+```
+
+Class focus: the repeated loop contains several selection checks.
+
+## Quick Check
+
+### Trace the gift algorithm with $16
+
+Given the gift algorithm, assume `total = 16`. What is the outcome?
 
 ::: {.tight-list}
-- the order of steps
-- which condition is checked first
-- whether repetition stops at the right time
+- A. gift card, small cake, candy, card
+- B. small cake and candy
+- C. small cake, candy, and card
+- D. two cakes and candy
 :::
 
-That is why tracing pseudocode is part of the teaching sequence, not optional cleanup.
+Answer: <span class="mark">C</span>. The algorithm buys a $10 cake, then $5 candy, then a $1 card.
 
-## Classroom Tasks
+## Quick Check
 
-### Practice worth keeping
+### Trace the gift algorithm with $22
 
-Retained classroom work for this topic:
+Given the same algorithm, assume `total = 22`. What is the outcome?
 
 ::: {.tight-list}
-- pseudocode and flowchart ordering checks
-- identifying selection phrases and repetition phrases
-- tracing gift-buying algorithm outcomes
-- <span class="term">2.1.4 Coding Challenge: Algorithms</span>
+- A. gift card, small cake, candy, card
+- B. small cake and candy
+- C. small cake, candy, and card
+- D. two cakes, a card, and $1 change
 :::
+
+Answer: <span class="mark">D</span>. The repetition allows the $10 cake rule to run twice.
+
+## Student Response Task
+
+### Snack algorithm
+
+Write pseudocode for choosing a snack. It must include both:
+
+::: {.tight-list}
+- one selection rule using `if`
+- one repetition rule using `repeat`, `while`, `until`, `all`, or `keep`
+:::
+
+Example starting point:
+
+```text
+Repeat while I am still hungry:
+    If the snack is healthy, choose it.
+    Otherwise, look for another snack.
+```
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- define <span class="term">sequencing</span>, <span class="term">selection</span>, and <span class="term">repetition</span>
-- explain that selection depends on a true/false decision
-- explain that repetition continues until a stopping condition is met
-- recognize pseudocode and flowcharts as planning tools
-- explain why order affects algorithm outcome
+- define <span class="term">selection</span> as choosing a path based on true or false
+- define <span class="term">repetition</span> as repeating steps until a stopping condition is met
+- distinguish sequential steps from branch and loop steps
+- trace how repeated selection can change an algorithm result
+- use pseudocode or a flowchart to show control flow before Java syntax
 :::
 
 ## End

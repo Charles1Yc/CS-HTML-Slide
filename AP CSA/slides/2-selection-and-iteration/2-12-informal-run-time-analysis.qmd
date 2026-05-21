@@ -14,108 +14,168 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Loop Analysis
+## Topic Intro
 
-### Run-time analysis begins with careful tracing
+### Count work by counting loop iterations
 
-This topic is not formal Big-O notation.  
-It is about estimating <span class="term">how many times code runs</span>.
+<span class="term">Informal run-time analysis</span> (非正式运行时间分析) asks how much work an algorithm does as the input size grows.
 
-## Tracing Complex Loops
-
-### Multiple variables must be tracked together
-
-![Loop trace table](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png){fig-align="center" width="24%"}
-
-When analyzing a loop, students should track:
+At this level, we count:
 
 ::: {.tight-list}
-- iteration number
-- variable updates
-- loop condition checks
-- output produced
+- how many times a loop body runs
+- whether nested loops multiply work
+- whether a triangular pattern grows like `1 + 2 + 3`
 :::
 
-Short-circuit behavior can also affect whether part of a condition is evaluated.
+## Tracing Loops
+
+### A loop's output depends on its update
+
+```java
+int count = 0;
+while (count < 5)
+{
+    System.out.println(count);
+    count++;
+}
+```
+
+The body runs five times, with `count` values `0`, `1`, `2`, `3`, `4`.
+
+## Trace Table
+
+### Record count, condition, and output
+
+![While loop trace](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png){fig-align="center" width="42%"}
+
+Trace tables make iteration counts visible. They also expose off-by-one errors caused by `<` versus `<=`.
+
+## Quick Check
+
+### Count the iterations
+
+How many times does the body run?
+
+```java
+int x = 1;
+while (x <= 16)
+{
+    x *= 2;
+}
+```
+
+Answer: <span class="mark">5</span> times. The values before update are `1`, `2`, `4`, `8`, `16`.
 
 ## Counting Loop Iterations
 
-### A loop's run count can often be computed directly
-
-For simple counted loops:
-
-::: {.tight-list}
-- if the loop uses `counter <= limit`, the largest running value is `limit`
-- if the loop uses `counter < limit`, the largest running value is `limit - 1`
-- an informal count can be computed as `largest - smallest + 1`
-:::
-
-This is the basic classroom rule for quick iteration counts.
-
-## Analyzing Nested Loops
-
-### Rectangular nested loops multiply counts
+### One loop is usually proportional to its range
 
 ```java
-for (int row = 0; row < 5; row++)
+for (int i = 1; i <= n; i++)
 {
-    for (int col = 0; col < 10; col++)
-    {
-        System.out.print("*");
-    }
+    System.out.println("*");
 }
 ```
 
-::: {.tight-list}
-- outer loop runs 5 times
-- inner loop runs 10 times per outer pass
-- total inner-body executions: `5 * 10 = 50`
-:::
+If `n` doubles, the number of loop iterations doubles. Informally, the work grows with `n`.
+
+## Nested Loops
+
+### Rectangular nested loops multiply
+
+```java
+for (int row = 1; row <= n; row++)
+{
+    for (int col = 1; col <= n; col++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+The inner loop runs `n` times for each of `n` rows, so the body runs `n * n` times.
 
 ## Non-Rectangular Nested Loops
 
-### When the inner limit depends on the outer variable, the count changes each row
+### The inner count can change each row
 
 ```java
-for (int i = 1; i <= 4; i++)
+for (int row = 1; row <= n; row++)
 {
-    for (int j = 1; j <= i; j++)
+    for (int col = 1; col <= row; col++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+For `n = 4`, the row counts are `1`, `2`, `3`, `4`.
+
+## Triangular Total
+
+### Add row counts
+
+![Gauss summation idea](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png){fig-align="center" width="40%"}
+
+For a triangular nested loop:
+
+```text
+1 + 2 + 3 + 4 = 10
+```
+
+In general:
+
+```text
+sum of the integers from 1 through n = n(n + 1) / 2
+```
+
+## Groupwork Analysis
+
+### POGIL loop counting
+
+For each code segment, identify:
+
+::: {.tight-list}
+- the loop variable
+- the start value
+- the stopping condition
+- the update
+- the number of body executions
+:::
+
+Then compare a single loop, a rectangular nested loop, and a triangular nested loop.
+
+## Quick Check
+
+### Compare growth
+
+If `n = 10`, how many times does the starred print run?
+
+```java
+for (int row = 1; row <= n; row++)
+{
+    for (int col = 1; col <= row; col++)
     {
         System.out.print("*");
     }
 }
 ```
 
-This creates a triangle pattern rather than a rectangle because the inner loop length grows with the outer loop.
-
-![Gauss summation idea](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png){fig-align="center" width="44%"}
-
-For this classroom level, the useful takeaway is that the total can be found by adding `1 + 2 + 3 + ... + n`, or by using the formula `n(n+1)/2`.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- tracing loops with multiple changing variables
-- counting stars and loop executions in simple loops
-- multiplying counts in rectangular nested loops
-- summing counts in non-rectangular nested loops
-- <span class="term">2.12.3 Coding Challenge: POGIL Analyzing Loops</span>
-:::
+Answer: `55`, because the sum from `1` through `10` is `10 * 11 / 2`.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- trace loop conditions and variable updates accurately
-- count iterations in simple counted loops
-- multiply outer and inner counts for rectangular nested loops
-- explain why non-rectangular nested loops do not use one fixed inner count
-- connect triangular loop counts to `1 + 2 + ... + n`
+- count loop iterations from initialization, condition, and update
+- explain how trace tables help find iteration counts
+- multiply counts for rectangular nested loops
+- add row counts for triangular nested loops
+- connect triangular loop counts to `n(n + 1) / 2`
 :::
 
 ## End

@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">3.5 Methods: How to Write Them</h1>
-  <p class="subtitle">Class Creation</p>
+  <p class="subtitle">Part 1: Method Basics</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,156 +210,136 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="methods-how-to-write-them" class="slide level2">
-<h2>Methods: How to Write Them</h2>
-<h3 id="methods-provide-the-behaviors-of-an-object">Methods provide the behaviors of an object</h3>
-<p>In object-oriented programming, the textbook keeps three class parts together:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="methods-define-object-behavior">Methods define object behavior</h3>
+<p>In object-oriented programming, a class combines:</p>
 <div class="tight-list">
 <ul>
-<li>instance variables hold the object’s data</li>
-<li>constructors initialize that data</li>
-<li><span class="term">methods</span> define what the object can do</li>
+<li>instance variables: state</li>
+<li>constructors: initialization</li>
+<li><span class="term">methods</span> (方法): behavior</li>
 </ul>
 </div>
-<p>This topic turns class structure into usable behavior.</p>
+<p>This first deck focuses on defining, calling, and classifying methods.</p>
 </section>
 <section id="defining-and-calling-methods" class="slide level2">
 <h2>Defining and Calling Methods</h2>
-<h3 id="students-need-to-track-both-definition-and-use">Students need to track both definition and use</h3>
+<h3 id="a-method-definition-lives-inside-the-class">A method definition lives inside the class</h3>
 
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png" style="width:78.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods in different contexts</p><p>The classroom sequence here is:</p>
-<div class="tight-list">
-<ul>
-<li>create or obtain an object</li>
-<li>call the method with <code>objectName.methodName()</code></li>
-<li>connect that call to the method header and body inside the class</li>
-</ul>
-</div>
+<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods in different contexts</p><p>A method call such as <code>p.print()</code> transfers control to the method body, runs its statements, then returns to the caller.</p>
 </section>
-<section id="void-and-non-void" class="slide level2">
-<h2><code>void</code> and Non-<code>void</code></h2>
-<h3 id="some-methods-perform-actions-others-return-values">Some methods perform actions; others return values</h3>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong><code>void</code> methods</strong></p>
-<ul>
-<li>perform an action</li>
-<li>do not return a value</li>
-<li>often print, update, or change state</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong>non-<code>void</code> methods</strong></p>
-<ul>
-<li>return one value</li>
-<li>must use a <span class="term">return</span> statement</li>
-<li>include a return type in the header</li>
-</ul>
-</div>
-</div>
-<p>Code after a guaranteed <code>return</code> path does not execute.</p>
-</section>
-<section id="accessors-getters" class="slide level2">
-<h2>Accessors / Getters</h2>
-<h3 id="getters-expose-selected-data-without-exposing-the-variable-directly">Getters expose selected data without exposing the variable directly</h3>
-<p>Because instance variables are usually <code>private</code>, outside code needs a public method to read a value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<section id="method-header" class="slide level2">
+<h2>Method Header</h2>
+<h3 id="read-the-method-signature">Read the method signature</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
 <span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key parts:</p>
 <div class="tight-list">
 <ul>
-<li>a getter usually takes <mark>no parameters</mark></li>
-<li>its return type matches the instance variable type</li>
-<li>it returns a copy of the value, not direct outside access to the variable</li>
+<li><code>public</code>: other classes can call it</li>
+<li><code>void</code>: it does not return a value</li>
+<li><code>print</code>: method name</li>
+<li><code>()</code>: parameter list, empty here</li>
 </ul>
 </div>
 </section>
-<section id="tostring" class="slide level2">
-<h2><code>toString</code></h2>
-<h3 id="java-uses-this-method-when-it-needs-a-string-form-of-an-object">Java uses this method when it needs a string form of an object</h3>
-<p><code>toString</code> is not exactly a getter, but it is a key non-<code>void</code> method.</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="add-and-call-an-instance-method">Add and call an instance method</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initialName<span class="op">)</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-7"><a href=""></a>        name <span class="op">=</span> initialName<span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb2-11"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-14"><a href=""></a></span>
+<span id="cb2-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-17"><a href=""></a>        Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Ada"</span><span class="op">);</span></span>
+<span id="cb2-18"><a href=""></a>        p<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
+<span id="cb2-19"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected output: <code>Ada</code>.</p>
+</section>
+<section id="void-methods" class="slide level2">
+<h2><code>void</code> Methods</h2>
+<h3 id="a-void-method-performs-an-action">A <code>void</code> method performs an action</h3>
+<p>Common <code>void</code> method jobs:</p>
 <div class="tight-list">
 <ul>
-<li>it returns a <code>String</code></li>
-<li><code>System.out.println(object)</code> can call it automatically</li>
-<li>it gives a readable summary of the object’s state</li>
+<li>print information</li>
+<li>update object state</li>
+<li>move an object</li>
+<li>draw something</li>
 </ul>
 </div>
-<p>This makes it especially useful for tracing and debugging class behavior.</p>
+<p><code>void</code> methods do not return a value to the caller.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">celebrateBirthday</span><span class="op">()</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    age<span class="op">++;</span></span>
+<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="mutators-setters" class="slide level2">
-<h2>Mutators / Setters</h2>
-<h3 id="a-setter-changes-state-through-a-controlled-public-method">A setter changes state through a controlled public method</h3>
-
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">Getter and setter comparison</p><div class="tight-list">
-<ul>
-<li>a <span class="term">setter</span> is usually a <code>void</code> method</li>
-<li>it usually takes one parameter of the same type as the variable being changed</li>
-<li>not every instance variable should automatically get a setter</li>
-<li>the class should expose only the changes that make sense for the object</li>
-</ul>
-</div>
-</section>
-<section id="parameters-and-arguments" class="slide level2">
-<h2>Parameters and Arguments</h2>
-<h3 id="java-passes-copies-of-argument-values-into-parameter-variables">Java passes copies of argument values into parameter variables</h3>
-
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Arguments become parameters</p><div class="tight-list">
-<ul>
-<li>a <span class="term">parameter</span> appears in the method header</li>
-<li>an <span class="term">argument</span> is the value used in the method call</li>
-<li>arguments must match the number, order, and compatible types in the signature</li>
-<li>with primitives, changes to the parameter do not change the original argument</li>
-</ul>
-</div>
-</section>
-<section id="methods-with-parameters-and-return-values" class="slide level2">
-<h2>Methods with Parameters and Return Values</h2>
-<h3 id="not-every-returned-value-is-a-simple-getter">Not every returned value is a simple getter</h3>
-<p>The textbook keeps one more category:</p>
+<section id="non-void-methods" class="slide level2">
+<h2>Non-<code>void</code> Methods</h2>
+<h3 id="a-non-void-method-returns-one-value">A non-<code>void</code> method returns one value</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getAge</span><span class="op">()</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">return</span> age<span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rules:</p>
 <div class="tight-list">
 <ul>
-<li>some methods use parameters to perform a search or calculation</li>
-<li>they return a result computed from those inputs</li>
-<li>this combines method parameters, algorithm steps, and a final returned value</li>
+<li>the return type is written before the method name</li>
+<li>the method must return a compatible value</li>
+<li>code after a guaranteed <code>return</code> path does not run</li>
 </ul>
 </div>
-<p>This is where method-writing starts to connect back to Unit 2 algorithm work.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Animal clinic design prompt</p><p>Retained classroom work for this topic:</p>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="classify-the-method">Classify the method</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isAdult</span><span class="op">()</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="cf">return</span> age <span class="op">&gt;=</span> <span class="dv">18</span><span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This method is:</p>
 <div class="tight-list">
 <ul>
-<li>distinguish defining a method from calling a method</li>
-<li>classify methods as <code>void</code> or non-<code>void</code></li>
-<li>read and write simple getters, setters, and <code>toString</code></li>
-<li>match arguments to parameters correctly</li>
-<li>analyze methods that compute and return a value</li>
-<li><span class="term">3.5.9 Coding Challenge: Class Pet</span></li>
+<li>non-<code>void</code></li>
+<li>return type <code>boolean</code></li>
+<li>no parameters</li>
+<li>computes a value from instance data</li>
 </ul>
 </div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
+<h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain the difference between <code>void</code> and non-<code>void</code> methods</li>
-<li>identify when a <code>return</code> statement is required</li>
-<li>describe the purpose of getters, setters, and <code>toString</code></li>
-<li>distinguish parameters from arguments</li>
-<li>trace how a method can both use inputs and return a calculated result</li>
+<li>identify a method header and method body</li>
+<li>distinguish a method definition from a method call</li>
+<li>explain what <code>void</code> means</li>
+<li>explain when a <code>return</code> statement is required</li>
+<li>trace control from a call to a method body and back</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
+<p><a href="3-5-part-2-getters-and-tostring.html">Next: Getters and toString</a><br>
+<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 
 </section>
     </div>

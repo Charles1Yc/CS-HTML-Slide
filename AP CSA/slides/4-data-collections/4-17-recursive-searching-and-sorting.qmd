@@ -1,6 +1,6 @@
 ---
 title: "4.17 Recursive Searching and Sorting"
-subtitle: "Data Collections"
+subtitle: "Part 1: Recursive Binary Search"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,131 +14,104 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Recursive Searching and Sorting
+## Topic Intro
 
-### Recursion now applies to two algorithms students already know iteratively
+### Recursion can express search and sort
 
-This topic connects earlier lessons:
-
-::: {.tight-list}
-- binary search from `4.14`
-- sorting from `4.15`
-- recursion from `4.16`
-:::
-
-## Recursive Binary Search
-
-### Keep halving a sorted range until the target is found or no range remains
-
-Retained algorithm story:
+This topic applies recursion to:
 
 ::: {.tight-list}
-- binary search still requires <span class="mark">sorted data</span>
-- check the middle element first
-- recurse into the left half or the right half
-- stop when the middle matches or when the active range is empty
+- binary search
+- merge sort
 :::
 
-## Base Cases and Recursive Calls
+Both algorithms solve a problem by working on smaller ranges.
 
-### A recursive binary search needs two stopping conditions
+## Algorithm Idea
+
+### Recursive binary search chooses a smaller half
+
+Base case:
+
+::: {.tight-list}
+- if `low > high`, target is not found
+- if middle value equals target, return the middle index
+:::
+
+Recursive case:
+
+::: {.tight-list}
+- search the right half if middle is too small
+- search the left half if middle is too large
+:::
+
+## Full Code {.fit-small}
+
+### Recursive binary search
 
 ```java
-if (target == array[middle]) { return middle; }
-if (end < start) { return -1; }
+public static int binarySearch(int[] values, int target, int low, int high)
+{
+    if (low > high)
+    {
+        return -1;
+    }
+
+    int mid = (low + high) / 2;
+    if (values[mid] == target)
+    {
+        return mid;
+    }
+    else if (values[mid] < target)
+    {
+        return binarySearch(values, target, mid + 1, high);
+    }
+    else
+    {
+        return binarySearch(values, target, low, mid - 1);
+    }
+}
 ```
 
-Retained reasoning:
+## Focused Trace
 
-::: {.tight-list}
-- one base case handles <span class="term">found</span>
-- one base case handles <span class="term">not found</span>
-- the recursive calls change `start` or `end` to eliminate half the values
-:::
+### Search for `19`
 
-## Recursive Binary Search on ArrayLists
+For `{2, 5, 8, 12, 15, 19, 24}`:
 
-### The same logic works with method-based access
+| Call | `low` | `high` | `mid` | action |
+|---:|---:|---:|---:|---|
+| 1 | 0 | 6 | 3 | `12` too small |
+| 2 | 4 | 6 | 5 | found `19` |
 
-Retained transfer:
+The recursive call passes the smaller range.
 
-::: {.tight-list}
-- arrays use `array[middle]`
-- `ArrayList`s use `list.get(middle)`
-- the search logic is otherwise the same
-:::
+## ArrayList Version
 
-## Merge Sort
+### Same boundaries, different access method
 
-### Merge sort is a divide-and-conquer recursive sorting algorithm
+```java
+String midValue = words.get(mid);
+int comparison = midValue.compareTo(target);
+```
 
-Retained algorithm story:
-
-::: {.tight-list}
-- split the array into smaller subarrays
-- recurse until each subarray has one element
-- merge the sorted pieces back together
-- merge sort is typically faster than selection sort and usually faster than insertion sort
-:::
-
-## Recognizing Merge Sort
-
-### The AP version has three named responsibilities
-
-Retained structure:
-
-::: {.tight-list}
-- `mergeSort` sets up the helper data structure
-- `mergeSortHelper` performs the recursive splitting
-- `merge` combines two sorted subarrays back into order
-:::
-
-This topic is less about memorizing every line and more about recognizing the control flow.
-
-## Tracing Split and Merge
-
-### Write the split stages first, then the merge stages
-
-Retained trace pattern for `{86, 3, 43, 5}`:
-
-::: {.tight-list}
-- split 1: `{ {86, 3}, {43, 5} }`
-- split 2: `{ {{86}, {3}}, {{43}, {5}} }`
-- merge 1: `{ {3, 86}, {5, 43} }`
-- merge 2: `{3, 5, 43, 86}`
-:::
-
-This is the merge-sort counterpart to tracing recursive binary search ranges.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- identify the base cases in recursive binary search
-- trace the `start`, `end`, and `middle` values through recursive calls
-- explain why sorted order is required for binary search
-- describe the role of `mergeSort`, `mergeSortHelper`, and `merge`
-- trace merge sort by writing split and merge stages
-- <span class="term">4.17.3 Tracing Challenge: Recursive Search and Sort</span>
-:::
+The recursive logic is the same, but `ArrayList` uses `get(mid)` and strings use `compareTo`.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain how recursive binary search eliminates half of the active range
-- identify both recursive binary search base cases
-- explain why binary search requires sorted data
-- describe merge sort as recursive splitting followed by merging
-- trace either a recursive search range sequence or a merge-sort split/merge sequence
+- identify the base case for not found
+- identify the found case
+- update low and high in recursive calls
+- explain why the range gets smaller
+- trace recursive binary search by call boundaries
 :::
 
 ## End
 
-### Return to the course outline
+### Continue or return to the course outline
 
+[Next: Merge Sort](4-17-part-2-merge-sort.html)  
 [← Back to AP CSA / 返回课程目录](../../index.html)

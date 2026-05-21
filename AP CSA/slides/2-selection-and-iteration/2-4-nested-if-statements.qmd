@@ -14,120 +14,193 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Nested Branching
+## Topic Intro
 
-### One conditional can appear inside another
+### More than two outcomes need structured selection
 
-Nested `if` statements let a program refine a decision after the outer condition is true.
+<span class="term">Nested if statements</span> (嵌套条件语句) place one `if` statement inside another. Java also supports <span class="term">multiway selection</span> with `else if`.
+
+Use these structures when a decision has several possible outcomes.
 
 ```java
-if (condition1)
+if (score >= 90)
 {
-    if (condition2)
-    {
-        statement;
-    }
+    grade = "A";
+}
+else if (score >= 80)
+{
+    grade = "B";
+}
+else
+{
+    grade = "C or below";
 }
 ```
-
-The inner test is only evaluated if the outer path is reached first.
 
 ## Multiway Selection
 
-### `else if` is the common pattern for three or more branches
+### `else if` checks conditions in order
 
-![if / else if / else flowchart](../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png){fig-align="center" width="56%"}
+Only the first true branch runs.
 
 ```java
-if (x < 0)
+if (temperature >= 90)
 {
-    System.out.println("negative");
+    System.out.println("Hot");
 }
-else if (x == 0)
+else if (temperature >= 70)
 {
-    System.out.println("zero");
+    System.out.println("Warm");
 }
 else
 {
-    System.out.println("positive");
+    System.out.println("Cool");
 }
 ```
 
-Only the <span class="mark">first true branch</span> runs.
+Order matters because later conditions are skipped once a branch is chosen.
 
-## Reading Order Matters
+## Flowchart
 
-### The sequence of conditions changes the result
+### Three possible branches
 
-In multiway selection:
+![Three-way condition](../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png){fig-align="center" width="38%"}
+
+When tracing, ask:
 
 ::: {.tight-list}
-- conditions are checked top to bottom
-- once one branch runs, the rest are skipped
-- broad conditions placed too early can hide later cases
+- Which condition is checked first?
+- If it is true, what gets skipped?
+- If it is false, what is checked next?
 :::
 
-This is why tracing branch order is part of the lesson, not just syntax practice.
+## Quick Check
 
-## Dangling Else
+### Trace ordered branches
 
-### `else` belongs to the closest unmatched `if`
-
-```java
-if (sunny)
-    if (hot)
-        System.out.println("Head for the beach!");
-    else
-        System.out.println("Bring your umbrella!");
-```
-
-The `else` above belongs to the inner `if`, regardless of indentation.
-
-Use braces to make the intended structure explicit.
-
-## Using Braces to Clarify Structure
-
-### Braces remove ambiguity
+What is printed?
 
 ```java
-if (sunny)
+int x = 8;
+if (x > 10)
 {
-    if (hot)
-        System.out.println("Head for the beach!");
+    System.out.println("large");
+}
+else if (x > 5)
+{
+    System.out.println("medium");
 }
 else
 {
-    System.out.println("Bring your umbrella!");
+    System.out.println("small");
 }
 ```
 
-This is the clean classroom rule: <span class="mark">if nesting can confuse the reader, bracket it</span>.
+Answer: `medium`.
 
-## Classroom Task
+## Debug Task
+
+### Fix branch order
+
+This code has a logic bug.
+
+```java
+int score = 95;
+if (score >= 60)
+{
+    System.out.println("Pass");
+}
+else if (score >= 90)
+{
+    System.out.println("A");
+}
+```
+
+Question: why will `"A"` never print?
+
+## Debug Task
+
+### Corrected branch order
+
+Fix: test the more specific condition first.
+
+```java
+if (score >= 90)
+{
+    System.out.println("A");
+}
+else if (score >= 60)
+{
+    System.out.println("Pass");
+}
+```
+
+## Nested `if`
+
+### One decision can live inside another
+
+```java
+if (hasTicket)
+{
+    if (age >= 13)
+    {
+        System.out.println("Standard admission");
+    }
+    else
+    {
+        System.out.println("Child admission");
+    }
+}
+else
+{
+    System.out.println("Buy a ticket first");
+}
+```
+
+Nested form is useful when the second decision only matters after the first decision is true.
+
+## Dangling `else`
+
+### An `else` matches the nearest unmatched `if`
+
+Without braces, this is easy to misread:
+
+```java
+if (x > 0)
+    if (y > 0)
+        System.out.println("both positive");
+    else
+        System.out.println("which condition failed?");
+```
+
+The `else` belongs to `if (y > 0)`, not `if (x > 0)`. Use braces to show intent.
+
+## Groupwork Coding Challenge
 
 ### Adventure
 
-![Adventure challenge](../../assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg){fig-align="center" width="34%"}
+![Adventure challenge](../../assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg){fig-align="center" width="28%"}
 
-Retained task focus:
+Build a text adventure with at least:
 
 ::: {.tight-list}
-- use `else if` for multiple direction commands
-- add a final `else` for invalid input
-- connect each branch to a different method or location
-- <span class="term">2.4.3 Coding Challenge: Adventure</span>
+- one `if else` decision
+- one `else if` chain
+- one nested decision where a second choice depends on a first choice
 :::
+
+Keep each branch printable so the class can trace possible paths.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain how nested `if` statements work
-- distinguish `if/else if/else` from separate unrelated `if` statements
-- trace multiway selection from top to bottom
-- explain the dangling-else rule
-- use braces to make nested branch structure unambiguous
+- explain why `else if` conditions are checked in order
+- trace which branch runs in a multiway selection
+- distinguish nested `if` from an `else if` chain
+- identify a branch-order bug
+- explain how braces prevent dangling-`else` ambiguity
 :::
 
 ## End

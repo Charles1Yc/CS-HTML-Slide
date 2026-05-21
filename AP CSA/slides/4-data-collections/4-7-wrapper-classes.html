@@ -210,107 +210,93 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="wrapper-classes" class="slide level2">
-<h2>Wrapper Classes</h2>
-<h3 id="wrapper-classes-give-primitive-values-an-object-form">Wrapper classes give primitive values an object form</h3>
-<p>The textbook focuses on <code>Integer</code> and <code>Double</code>.</p>
-<div class="tight-list">
-<ul>
-<li>a <span class="term">wrapper class</span> encloses a primitive value in an object</li>
-<li><code>Integer</code> wraps <code>int</code></li>
-<li><code>Double</code> wraps <code>double</code></li>
-<li>wrapper objects matter when APIs or collections require objects</li>
-</ul>
-</div>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="wrapper-classes-turn-primitives-into-objects">Wrapper classes turn primitives into objects</h3>
+<p><span class="term">Wrapper classes</span> (包装类) provide object versions of primitive values.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Primitive</th>
+<th>Wrapper class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int</code></td>
+<td><code>Integer</code></td>
+</tr>
+<tr class="even">
+<td><code>double</code></td>
+<td><code>Double</code></td>
+</tr>
+<tr class="odd">
+<td><code>boolean</code></td>
+<td><code>Boolean</code></td>
+</tr>
+</tbody>
+</table>
+<p>AP CSA most often uses <code>Integer</code> and <code>Double</code>.</p>
 </section>
-<section id="creating-integer-and-double-objects" class="slide level2">
-<h2>Creating <code>Integer</code> and <code>Double</code> Objects</h2>
-<h3 id="wrapped-values-behave-like-objects-not-raw-primitives">Wrapped values behave like objects, not raw primitives</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Integer</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="bu">Double</span> d <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained ideas:</p>
-<div class="tight-list">
-<ul>
-<li>wrapper classes live in <code>java.lang</code></li>
-<li>wrapper objects are <span class="term">immutable</span></li>
-<li>the classes also expose useful constants like min and max values</li>
-</ul>
-</div>
+<section id="creating-wrapper-objects" class="slide level2">
+<h2>Creating Wrapper Objects</h2>
+<h3 id="prefer-autoboxing-in-modern-java">Prefer autoboxing in modern Java</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Integer</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">Double</span> price <span class="op">=</span> <span class="fl">19.99</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The primitive value is automatically wrapped into an object. This is called <span class="term">autoboxing</span>.</p>
 </section>
-<section id="overflow-and-underflow" class="slide level2">
-<h2>Overflow and Underflow</h2>
-<h3 id="integer-ranges-are-fixed">Integer ranges are fixed</h3>
-<p>The textbook keeps one concrete consequence of fixed-size integer storage:</p>
-<div class="tight-list">
-<ul>
-<li>adding <code>1</code> to <code>Integer.MAX_VALUE</code> rolls over</li>
-<li>subtracting <code>1</code> from <code>Integer.MIN_VALUE</code> also wraps around</li>
-<li>these constants are also useful when initializing min/max searches</li>
-</ul>
-</div>
+<section id="unboxing" class="slide level2">
+<h2>Unboxing</h2>
+<h3 id="wrapper-objects-can-become-primitive-values">Wrapper objects can become primitive values</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">Integer</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">int</span> next <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Java automatically extracts the <code>int</code> value from the <code>Integer</code>. This is called <span class="term">unboxing</span>.</p>
 </section>
-<section id="autoboxing-and-unboxing" class="slide level2">
-<h2>Autoboxing and Unboxing</h2>
-<h3 id="java-can-convert-automatically-between-primitives-and-wrappers">Java can convert automatically between primitives and wrappers</h3>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong>Autoboxing</strong></p>
-<ul>
-<li>primitive to wrapper</li>
-<li>for example <code>int</code> to <code>Integer</code></li>
-<li>happens when an object is required</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong>Unboxing</strong></p>
-<ul>
-<li>wrapper to primitive</li>
-<li>for example <code>Integer</code> to <code>int</code></li>
-<li>happens when a primitive value is required</li>
-</ul>
-</div>
-</div>
-<p>This becomes especially important with <code>ArrayList</code>, which stores objects rather than primitive types.</p>
+<section id="why-wrappers-matter" class="slide level2">
+<h2>Why Wrappers Matter</h2>
+<h3 id="generic-collections-store-objects">Generic collections store objects</h3>
+<p><code>ArrayList</code> cannot use primitive type arguments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> values<span class="op">;</span>      <span class="co">// invalid</span></span>
+<span id="cb3-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values<span class="op">;</span>  <span class="co">// valid</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use wrapper classes when storing primitive-style values in an <code>ArrayList</code>.</p>
 </section>
 <section id="parsing-strings-to-numbers" class="slide level2">
 <h2>Parsing Strings to Numbers</h2>
-<h3 id="wrapper-classes-also-provide-conversion-utilities">Wrapper classes also provide conversion utilities</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> n <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>text<span class="op">);</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">double</span> x <span class="op">=</span> <span class="bu">Double</span><span class="op">.</span><span class="fu">parseDouble</span><span class="op">(</span>text<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained points:</p>
-<div class="tight-list">
-<ul>
-<li>file and scanner input often begins as strings</li>
-<li>parsing turns those strings into values that can be compared or used in arithmetic</li>
-<li>these methods are part of the AP quick-reference expectations</li>
-</ul>
-</div>
+<h3 id="convert-text-input-into-numeric-values">Convert text input into numeric values</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span> ageText <span class="op">=</span> <span class="st">"16"</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>ageText<span class="op">);</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="bu">String</span> priceText <span class="op">=</span> <span class="st">"12.50"</span><span class="op">;</span></span>
+<span id="cb4-5"><a href=""></a><span class="dt">double</span> price <span class="op">=</span> <span class="bu">Double</span><span class="op">.</span><span class="fu">parseDouble</span><span class="op">(</span>priceText<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Parsing is common when reading from text files or CSV data.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>identify what wrapper classes do</li>
-<li>distinguish immutable wrapper objects from primitive values</li>
-<li>explain autoboxing and unboxing</li>
-<li>use <code>Integer.parseInt</code> and <code>Double.parseDouble</code> correctly</li>
-<li>connect wrappers to collections like <code>ArrayList</code></li>
-<li><span class="term">4.7.4 Coding Challenge: Pokemon Speed</span></li>
-</ul>
-</div>
+<section id="debug-task" class="slide level2">
+<h2>Debug Task</h2>
+<h3 id="fix-invalid-parsing">Fix invalid parsing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> speedText <span class="op">=</span> <span class="st">"fast"</span><span class="op">;</span></span>
+<span id="cb5-2"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>speedText<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This causes a runtime error because <code>"fast"</code> is not an integer.</p>
+<p>Fix the data or check input before parsing.</p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="pokemon-speed">Pokemon Speed</h3>
+<p>Given a CSV field for Pokemon speed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> line <span class="op">=</span> <span class="st">"Pikachu,Electric,90"</span><span class="op">;</span></span>
+<span id="cb6-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> parts <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb6-3"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parts<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use parsing to compare speeds and find the fastest Pokemon in a data set.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define a wrapper class</li>
-<li>explain why <code>Integer</code> and <code>Double</code> are objects</li>
-<li>distinguish autoboxing from unboxing</li>
-<li>explain when parsing is needed</li>
-<li>explain why wrapper classes matter for collections</li>
+<li>match <code>int</code> with <code>Integer</code> and <code>double</code> with <code>Double</code></li>
+<li>explain autoboxing and unboxing at a basic level</li>
+<li>explain why <code>ArrayList&lt;Integer&gt;</code> is used instead of <code>ArrayList&lt;int&gt;</code></li>
+<li>parse numeric strings with <code>Integer.parseInt</code> or <code>Double.parseDouble</code></li>
+<li>identify parsing errors caused by nonnumeric strings</li>
 </ul>
 </div>
 </section>

@@ -210,125 +210,128 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="arraylist-methods" class="slide level2">
-<h2>ArrayList Methods</h2>
-<h3 id="arraylist-is-used-when-collection-size-needs-to-change"><code>ArrayList</code> is used when collection size needs to change</h3>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="arraylists-resize-as-elements-are-added-and-removed">ArrayLists resize as elements are added and removed</h3>
 
-<img data-src="../../assets/4-data-collections/4-8-arraylist-methods/lists.jpg" style="width:68.0%" class="r-stretch quarto-figure-center"><p class="caption">Dynamic list idea for changing collections</p><p>The textbook introduces <code>ArrayList</code> as the flexible alternative to fixed-size arrays.</p>
-<div class="tight-list">
-<ul>
-<li>arrays have fixed length</li>
-<li><code>ArrayList</code> can grow and shrink during runtime</li>
-<li>it stores object references, not primitive values</li>
-</ul>
-</div>
+<img data-src="../../assets/4-data-collections/4-8-arraylist-methods/lists.jpg" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Lists</p><p>An <span class="term">ArrayList</span> stores objects in order and can change size during runtime.</p>
+<p>You must import it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="import-and-declaration" class="slide level2">
-<h2>Import and Declaration</h2>
-<h3 id="arraylist-comes-from-java.util"><code>ArrayList</code> comes from <code>java.util</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">ArrayList</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained ideas:</p>
-<div class="tight-list">
-<ul>
-<li>classes like <code>String</code> and <code>Math</code> are already available from <code>java.lang</code></li>
-<li><code>ArrayList</code> must be imported from <code>java.util</code></li>
-<li>the type parameter <code>E</code> or a concrete type such as <code>String</code> identifies what the list stores</li>
-<li>using a typed <code>ArrayList&lt;E&gt;</code> is preferred over a raw <code>ArrayList</code></li>
-</ul>
-</div>
+<section id="declaring-and-creating" class="slide level2">
+<h2>Declaring and Creating</h2>
+<h3 id="use-a-type-argument">Use a type argument</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
+<span id="cb2-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> scores <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>AP CSA uses generic type arguments such as <code>&lt;String&gt;</code> or <code>&lt;Integer&gt;</code> to describe the element type.</p>
 </section>
-<section id="creating-lists-and-size" class="slide level2">
-<h2>Creating Lists and <code>size()</code></h2>
-<h3 id="declaring-a-variable-does-not-create-the-list-object">Declaring a variable does not create the list object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> list <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> n <span class="op">=</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>a new <code>ArrayList()</code> starts empty</li>
-<li><code>size()</code> returns the current number of elements</li>
-<li>calling methods on <code>null</code> still causes <code>NullPointerException</code></li>
-</ul>
-</div>
+<section id="size" class="slide level2">
+<h2><code>size()</code></h2>
+<h3 id="number-of-elements-currently-stored">Number of elements currently stored</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
+<span id="cb3-2"><a href=""></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Ana"</span><span class="op">);</span></span>
+<span id="cb3-3"><a href=""></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Bo"</span><span class="op">);</span></span>
+<span id="cb3-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">size</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>2</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unlike arrays, <code>ArrayList</code> uses <code>size()</code> as a method.</p>
 </section>
-<section id="addobj-and-addindex-obj" class="slide level2">
-<h2><code>add(obj)</code> and <code>add(index, obj)</code></h2>
-<h3 id="items-can-be-appended-or-inserted">Items can be appended or inserted</h3>
-<p>Retained behaviors:</p>
-<div class="tight-list">
-<ul>
-<li><code>add(obj)</code> appends to the end of the list</li>
-<li><code>add(index, obj)</code> inserts at a position</li>
-<li>insertion shifts later elements to the right</li>
-<li>indices start at <code>0</code></li>
-</ul>
-</div>
-<p>Wrapper classes matter here because primitive types are added through autoboxing.</p>
+<section id="addobj" class="slide level2">
+<h2><code>add(obj)</code></h2>
+<h3 id="append-to-the-end">Append to the end</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Cam"</span><span class="op">);</span></span>
+<span id="cb5-2"><a href=""></a>names<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"Dia"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The list grows as new elements are appended.</p>
+<p>For <code>ArrayList&lt;Integer&gt;</code>, Java autoboxes primitive <code>int</code> values into <code>Integer</code> objects.</p>
+</section>
+<section id="addindex-obj" class="slide level2">
+<h2><code>add(index, obj)</code></h2>
+<h3 id="insert-and-shift-later-elements-right">Insert and shift later elements right</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> letters <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
+<span id="cb6-2"><a href=""></a>letters<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
+<span id="cb6-3"><a href=""></a>letters<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="st">"C"</span><span class="op">);</span></span>
+<span id="cb6-4"><a href=""></a>letters<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">"B"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Result:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>[A, B, C]</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="removeindex" class="slide level2">
 <h2><code>remove(index)</code></h2>
-<h3 id="removing-an-element-also-shifts-the-remaining-elements">Removing an element also shifts the remaining elements</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>E removed <span class="op">=</span> list<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>index<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key idea:</p>
+<h3 id="remove-and-shift-later-elements-left">Remove and shift later elements left</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">String</span> removed <span class="op">=</span> letters<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After removing index <code>1</code> from <code>[A, B, C]</code>, the list becomes <code>[A, C]</code>.</p>
+<p>The method returns the removed object.</p>
+</section>
+<section id="get-and-set" class="slide level2">
+<h2><code>get</code> and <code>set</code></h2>
+<h3 id="read-or-replace-one-element">Read or replace one element</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="bu">String</span> first <span class="op">=</span> letters<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb9-2"><a href=""></a>letters<span class="op">.</span><span class="fu">set</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">"D"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight-list">
 <ul>
-<li>the element at the index is removed and returned</li>
-<li>later elements shift left</li>
-<li>the list becomes smaller by one</li>
+<li><code>get(index)</code> returns the element</li>
+<li><code>set(index, obj)</code> replaces the element and returns the old value</li>
 </ul>
 </div>
 </section>
-<section id="getindex-and-setindex-obj" class="slide level2">
-<h2><code>get(index)</code> and <code>set(index, obj)</code></h2>
-<h3 id="access-and-replacement-use-methods-not-square-brackets">Access and replacement use methods, not square brackets</h3>
-<p>Because <code>ArrayList</code> is a class rather than a built-in array type:</p>
-<div class="tight-list">
-<ul>
-<li><code>get(index)</code> reads the element</li>
-<li><code>set(index, obj)</code> replaces the element</li>
-<li>valid indices are <code>0</code> through <code>size() - 1</code></li>
-<li><code>ArrayList</code> uses methods instead of <code>[]</code></li>
-</ul>
-</div>
+<section id="arrays-versus-arraylists" class="slide level2">
+<h2>Arrays versus ArrayLists</h2>
+<h3 id="fixed-size-versus-dynamic-size">Fixed size versus dynamic size</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Array</th>
+<th>ArrayList</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>size</td>
+<td>fixed</td>
+<td>can change</td>
+</tr>
+<tr class="even">
+<td>length</td>
+<td><code>.length</code></td>
+<td><code>.size()</code></td>
+</tr>
+<tr class="odd">
+<td>element access</td>
+<td><code>arr[i]</code></td>
+<td><code>list.get(i)</code></td>
+</tr>
+<tr class="even">
+<td>replace</td>
+<td><code>arr[i] = x</code></td>
+<td><code>list.set(i, x)</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="arrays-vs-arraylist" class="slide level2">
-<h2>Arrays vs <code>ArrayList</code></h2>
-<h3 id="the-choice-depends-on-whether-size-must-change">The choice depends on whether size must change</h3>
-<p>The retained comparison is:</p>
-<div class="tight-list">
-<ul>
-<li>use an array when the number of items is known and stable</li>
-<li>use <code>ArrayList</code> when the size may change</li>
-<li>arrays use <code>length</code> and <code>[]</code></li>
-<li><code>ArrayList</code> uses <code>size()</code>, <code>get</code>, and <code>set</code></li>
-</ul>
-</div>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>import and declare typed <code>ArrayList</code> variables</li>
-<li>distinguish an empty list from a <code>null</code> reference</li>
-<li>use <code>size()</code>, <code>add</code>, <code>remove</code>, <code>get</code>, and <code>set</code> correctly</li>
-<li>explain why wrapper classes are needed for numeric values</li>
-<li>compare the operations of arrays and <code>ArrayList</code></li>
-<li><span class="term">4.8.10 Coding Challenge: FRQ Digits</span></li>
-</ul>
-</div>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="frq-digits">FRQ Digits</h3>
+<p>Build an <code>ArrayList&lt;Integer&gt;</code> containing the digits of a positive integer.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> digits <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb10-2"><a href=""></a><span class="dt">int</span> number <span class="op">=</span> <span class="dv">1234</span><span class="op">;</span></span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb10-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-6"><a href=""></a>    digits<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> number <span class="op">%</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb10-7"><a href=""></a>    number <span class="op">/=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb10-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Trace why inserting at index <code>0</code> keeps the digits in normal order.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain why <code>ArrayList</code> is used instead of an array in dynamic-size situations</li>
-<li>identify the package import needed for <code>ArrayList</code></li>
-<li>explain what the generic type parameter means</li>
-<li>distinguish <code>add(obj)</code> from <code>add(index, obj)</code></li>
-<li>explain how <code>remove</code>, <code>get</code>, <code>set</code>, and <code>size()</code> work</li>
+<li>import and create an <code>ArrayList</code> with a type argument</li>
+<li>use <code>size()</code>, <code>add</code>, <code>remove</code>, <code>get</code>, and <code>set</code></li>
+<li>explain how insertions and removals shift elements</li>
+<li>distinguish array syntax from <code>ArrayList</code> method calls</li>
+<li>use <code>ArrayList&lt;Integer&gt;</code> for integer collections</li>
 </ul>
 </div>
 </section>

@@ -14,105 +14,162 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Constructors
+## Topic Intro
 
-### A constructor creates an object and establishes its starting state
+### Constructors initialize new objects
 
-Students already used constructor calls such as:
+A <span class="term">constructor</span> (构造器) is a special block of code that runs when a new object is created.
 
 ```java
-new World(300, 300)
-new Turtle(world)
-new Person("Pat", "pat@gmail.com", "123-456-7890")
+Student s = new Student("Ana", 11);
 ```
 
-This topic moves from calling constructors to writing our own.
+The constructor receives the arguments and uses them to initialize instance variables.
 
 ## Constructor Signature
 
-### The constructor name must match the class name
+### Same name as the class, no return type
 
 ```java
-public Person(String initName, String initEmail, String initPhoneNumber)
+public class Student
 {
-    name = initName;
-    email = initEmail;
-    phoneNumber = initPhoneNumber;
+    private String name;
+    private int gradeLevel;
+
+    public Student(String initialName, int initialGrade)
+    {
+        name = initialName;
+        gradeLevel = initialGrade;
+    }
 }
 ```
 
-::: {.tight-list}
-- constructors are usually written after instance variables
-- they have <span class="mark">no return type</span>, not even `void`
-- the constructor name is the same as the class name
-- the parameter list receives the arguments from the constructor call
-:::
+The constructor name is `Student`, exactly matching the class name.
 
-## The Job of a Constructor
+## Job of a Constructor
 
-### Put the object into a valid state
+### Set a valid starting state
 
-The textbook centers this topic on <span class="term">state</span>.
+A constructor should put the object into a usable state.
 
 ::: {.tight-list}
-- an object's state is the collection of its instance-variable values at a given time
-- a constructor should initialize those values to something <span class="term">useful</span>
-- a useful starting point means the object is in a <span class="term">valid state</span>
-- once constructed, the object should be ready for its public methods to run
+- initialize each important instance variable
+- use parameter values when needed
+- assign default values when appropriate
+- avoid leaving data uninitialized by accident
 :::
 
-## Default Constructor
+## Identify Task
 
-### Java can supply one only when you do not write your own
+### Which block is the constructor?
 
-If a class has no written constructor, Java provides a <span class="term">default constructor</span> with no parameters.
+```java
+public class Fraction
+{
+    private int numerator;
+    private int denominator;
 
-| Type | Default value |
-|---|---|
-| `int` | `0` |
-| `double` | `0.0` |
-| `boolean` | `false` |
-| object reference | `null` |
+    public Fraction(int n, int d)
+    {
+        numerator = n;
+        denominator = d;
+    }
+}
+```
 
-These defaults only work when they still leave the object in a valid state.
+Answer: the block beginning `public Fraction(int n, int d)`.
 
-## Writing One Changes the Rule
+## Quick Check
 
-### Once you define a constructor, Java stops generating the default one
+### Constructor purpose
+
+Which statement best describes a constructor?
 
 ::: {.tight-list}
-- this protects the class from being created with missing required data
-- `Person` should not be created without the values its design depends on
-- if the class needs multiple useful entry points, write multiple constructors
-- this is called <span class="term">overloading</span>
+- A. It prints an object.
+- B. It initializes a new object.
+- C. It always returns a `String`.
+- D. It must be marked `static`.
 :::
 
-Overloading is justified only when the extra constructor still creates valid objects.
+Answer: <span class="mark">B</span>. Constructors initialize new objects.
 
-## Classroom Tasks
+## Code Task
 
-### Practice worth keeping
+### Complete a `Car` constructor
 
-Retained classroom work for this topic:
+```java
+public class Car
+{
+    private String model;
+    private int year;
+
+    public Car(String carModel, int carYear)
+    {
+        model = carModel;
+        year = carYear;
+    }
+}
+```
+
+Trace the call:
+
+```java
+Car c = new Car("Civic", 2024);
+```
+
+After construction, `model` is `"Civic"` and `year` is `2024`.
+
+## Groupwork Coding Challenge
+
+### Student Class
+
+Complete the class with a constructor.
+
+```java
+public class Student
+{
+    private String name;
+    private int gradeLevel;
+    private double gpa;
+
+    public Student(String studentName, int studentGrade, double studentGpa)
+    {
+        name = studentName;
+        gradeLevel = studentGrade;
+        gpa = studentGpa;
+    }
+}
+```
+
+Then create two `Student` objects with different data.
+
+## Community Class Extension
+
+### Continue your design
+
+Choose one class from the community design task in Topic 3.3.
+
+Add:
 
 ::: {.tight-list}
-- identify the signature rules for constructors
-- explain why constructors should initialize all important instance variables
-- compare default-constructor behavior with custom initialization
-- evaluate whether a constructor leaves an object in a valid state
-- <span class="term">3.4.3 Coding Challenge: Student Class</span>
+- two private instance variables
+- one constructor with parameters
+- assignments from parameters to instance variables
 :::
+
+The constructor should make every new object start in a meaningful state.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- state that a constructor has the same name as the class
-- explain that constructors have no return type
-- define object <span class="term">state</span> and <span class="term">valid state</span>
-- explain when Java provides a default constructor
-- describe what changes after a class defines its own constructor
+- identify a constructor by name and lack of return type
+- explain that constructors run when `new` creates an object
+- map constructor arguments to parameter variables
+- assign parameter values into instance variables
+- explain why constructors should initialize all important object state
 :::
 
 ## End

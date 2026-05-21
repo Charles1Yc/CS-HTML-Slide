@@ -14,100 +14,95 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Ethical and Social Issues Around Data Collection
+## Topic Intro
 
-### Unit 4 starts with the human consequences of storing and using data
+### Data collections affect people
 
-Before students work with arrays and data sets, the textbook frames the question:
+Programs that collect, store, and analyze data can create value, but they can also create risk.
+
+This topic focuses on:
 
 ::: {.tight-list}
-- what personal data is being collected?
-- who can access it?
-- what can go wrong when programs use incomplete or biased data?
+- <span class="term">data privacy</span> (数据隐私)
+- consent and transparency
+- bias in collected data
+- consequences of using incomplete or biased datasets
 :::
 
 ## Data Privacy
 
-### Useful software often depends on personal data
+### Location data can reveal patterns
 
-![Location history and personal-data tracking](../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png){fig-align="center" width="78%"}
+![Google timeline data](../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png){fig-align="center" width="50%"}
 
-Apps for maps, driving directions, purchases, or games may collect:
+Even when a single data point seems harmless, a collection of data points can reveal habits, location history, relationships, and routines.
 
-::: {.tight-list}
-- location history
-- device or usage activity
-- purchase behavior
-- other personal records linked to the user
-:::
+## Student Response
 
-## Privacy, Security, and Permission
+### Privacy tradeoff
 
-### Data collection can be beneficial and harmful at the same time
+Choose one app or system that collects user data.
 
-The textbook keeps these ideas together:
+Respond:
 
 ::: {.tight-list}
-- location tracking can help users navigate or be found in an emergency
-- the same data can create privacy and security risks
-- programmers should <span class="term">safeguard user privacy</span>
-- users should be asked for permission before data is accessed or stored
-- data breaches require disclosure to affected users
+- What data is collected?
+- What useful feature does the data support?
+- What privacy risk could the same data create?
+- What design choice could reduce the risk?
 :::
 
 ## Data and Bias
 
-### Biased data can produce unfair program outcomes
+### A dataset can overrepresent or underrepresent groups
 
-The textbook uses AI and machine learning as a concrete context.
+<span class="term">Bias</span> (偏差) can enter a dataset when the data collection process does not represent the full population or situation.
 
-::: {.tight-list}
-- internet-scale data may already contain social bias
-- systems trained on that data may repeat or amplify the bias
-- this can affect hiring, facial recognition, search results, and other decisions
-:::
-
-<span class="term">Algorithmic bias</span> means repeated program errors that create unfair outcomes for a group of users.
-
-## Dataset Quality Matters
-
-### Not every data set is suitable for every conclusion
-
-Students should evaluate a data set before using it to draw conclusions.
+Examples:
 
 ::: {.tight-list}
-- some data sets are incomplete
-- some contain inaccurate data
-- some are appropriate only for one topic or question
-- using weak data can make a program incorrect, inefficient, or unfair
+- training data collected from only one region
+- survey responses from only one age group
+- images that do not represent different lighting, devices, or users
 :::
 
-Mitigation strategies include representative data, bias testing, transparency, and diverse development teams.
+## Bias Response
 
-## Classroom Tasks
+### Connect data source to outcome
 
-### Practice worth keeping
+Prompt:
 
-Retained classroom work for this topic:
+```text
+If a school prediction tool is trained mostly on data from one type of school,
+what problem might occur when it is used for a different type of school?
+```
+
+A strong answer connects dataset limits to a possible unfair or inaccurate prediction.
+
+## Dataset Questions
+
+### Questions before using data
 
 ::: {.tight-list}
-- discuss when location tracking is beneficial or harmful
-- evaluate privacy risks in everyday software
-- explain what makes a data set biased or incomplete
-- analyze how biased data can create unfair outputs
-- use the short-answer reflection activities on privacy, bias, and dataset quality
+- Who or what is represented in the data?
+- Who or what is missing?
+- How was the data collected?
+- Was permission or consent involved?
+- What harm could occur if predictions are wrong?
 :::
+
+These questions belong in design discussions before implementation.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain why personal privacy is at risk when programs collect user data
-- describe both beneficial and harmful impacts of data collection
-- define <span class="term">algorithmic bias</span>
-- explain why incomplete or inaccurate data can produce weak outcomes
-- describe at least one way programmers can reduce bias or protect privacy
+- explain why data privacy matters when programs collect data
+- distinguish a useful data-driven feature from a privacy risk
+- explain how biased datasets can lead to biased outcomes
+- identify missing or underrepresented data as a design concern
+- propose a concrete mitigation such as minimizing data, anonymizing data, or checking representation
 :::
 
 ## End

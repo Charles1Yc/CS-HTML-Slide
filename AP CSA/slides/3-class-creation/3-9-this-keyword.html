@@ -210,85 +210,111 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="this-keyword" class="slide level2">
-<h2><code>this</code> Keyword</h2>
-<h3 id="this-refers-to-the-current-object"><code>this</code> refers to the current object</h3>
-<p>Within an instance method or constructor, <span class="term"><code>this</code></span> is a reference to the object whose method or constructor is running.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="this-means-the-current-object"><code>this</code> means the current object</h3>
+<p>The keyword <span class="term">this</span> (当前对象) refers to the object whose method or constructor is currently running.</p>
+<p>It is commonly used to:</p>
 <div class="tight-list">
 <ul>
-<li>if <code>p1.setEmail()</code> is called, <code>this</code> refers to <code>p1</code></li>
-<li>if <code>p2.setEmail()</code> is called, <code>this</code> refers to <code>p2</code></li>
-<li>the current object changes with the receiver of the call</li>
+<li>distinguish instance variables from parameters with the same name</li>
+<li>pass the current object as an argument</li>
+<li>make code clearer when an instance variable is being used</li>
 </ul>
 </div>
-</section>
-<section id="where-this-can-be-used" class="slide level2">
-<h2>Where <code>this</code> Can Be Used</h2>
-<h3 id="it-exists-only-in-instance-context">It exists only in instance context</h3>
-<p>The textbook is explicit here:</p>
-<div class="tight-list">
-<ul>
-<li><code>this</code> can be used in <span class="term">instance methods</span></li>
-<li><code>this</code> can be used in <span class="term">constructors</span></li>
-<li>class methods do <mark>not</mark> have a <code>this</code> reference</li>
-</ul>
-</div>
-<p>Static methods are called with the class name, so there is no current object.</p>
 </section>
 <section id="this.instancevariable" class="slide level2">
 <h2><code>this.instanceVariable</code></h2>
-<h3 id="use-this-to-distinguish-fields-from-parameters">Use <code>this</code> to distinguish fields from parameters</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<h3 id="resolve-same-name-variables">Resolve same-name variables</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>the parameter <code>name</code> is the closest local variable</li>
-<li><code>this.name</code> means the instance variable in the current object</li>
-<li>this resolves the naming conflict clearly</li>
-</ul>
-</div>
-<p>This is the natural follow-up to the scope-shadowing rule from Topic 3.8.</p>
+<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>this.name</code> means the instance variable. The plain <code>name</code> on the right side means the constructor parameter.</p>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="constructor-with-this">Constructor with <code>this</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BankAccount</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> owner<span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="bu">String</span> owner<span class="op">,</span> <span class="dt">double</span> balance<span class="op">)</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">owner</span> <span class="op">=</span> owner<span class="op">;</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> balance<span class="op">;</span></span>
+<span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Trace: <code>this.owner</code> is the field of the newly created object.</p>
 </section>
 <section id="this-as-an-argument" class="slide level2">
 <h2><code>this</code> as an Argument</h2>
-<h3 id="the-current-object-can-be-passed-to-another-method-or-constructor">The current object can be passed to another method or constructor</h3>
+<h3 id="pass-the-current-object-to-another-method">Pass the current object to another method</h3>
 
-<img data-src="../../assets/3-class-creation/3-9-this-keyword/thisTrace.png" style="width:76.0%" class="r-stretch quarto-figure-center"><p class="caption">Tracing this as a shared reference</p><div class="tight-list">
-<ul>
-<li><code>this</code> can be used anywhere an object variable could be used</li>
-<li>passing <code>this</code> passes the current object reference</li>
-<li>multiple names may then refer to the same object</li>
-</ul>
-</div>
-<p>This topic ties back to the object-reference ideas from 3.6.</p>
+<img data-src="../../assets/3-class-creation/3-9-this-keyword/thisTrace.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">this trace</p><p>Inside an instance method, <code>this</code> can be passed to a method that expects an object of the same class.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">compareWith</span><span class="op">(</span>BankAccount other<span class="op">)</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    helper<span class="op">.</span><span class="fu">compare</span><span class="op">(</span><span class="kw">this</span><span class="op">,</span> other<span class="op">);</span></span>
+<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-same-name-assignment">Trace same-name assignment</h3>
+<p>What happens if the constructor omits <code>this</code>?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    name <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer: the parameter is assigned to itself. The instance variable is not updated.</p>
+<p>Correct form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="bank-account">Bank Account</h3>
 
-<img data-src="../../assets/3-class-creation/3-9-this-keyword/dollarSign.png" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">Bank account challenge prompt</p><p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>identify what object <code>this</code> refers to in a constructor or instance method</li>
-<li>distinguish <code>name</code> from <code>this.name</code> when parameters shadow fields</li>
-<li>explain why static methods cannot use <code>this</code></li>
-<li>trace <code>this</code> when passed as an argument</li>
-<li><span class="term">3.9.3 Coding Challenge: Bank Account</span></li>
-</ul>
-</div>
+<img data-src="../../assets/3-class-creation/3-9-this-keyword/dollarSign.png" style="width:22.0%" class="r-stretch quarto-figure-center"><p class="caption">Bank account challenge prompt</p><p>Starter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BankAccount</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> owner<span class="op">;</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="bu">String</span> owner<span class="op">,</span> <span class="dt">double</span> balance<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">owner</span> <span class="op">=</span> owner<span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> balance<span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add <code>deposit</code>, <code>withdraw</code>, and <code>toString</code> methods.</p>
+</section>
+<section id="method-example" class="slide level2">
+<h2>Method Example</h2>
+<h3 id="use-this-only-where-it-helps-clarity">Use <code>this</code> only where it helps clarity</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">deposit</span><span class="op">(</span><span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-5"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
+<span id="cb7-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>this.balance</code> and <code>balance</code> refer to the same instance variable here, but <code>this</code> makes the object state explicit.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define <code>this</code> as a reference to the current object</li>
-<li>state that <code>this</code> is available only in constructors and instance methods</li>
-<li>explain how <code>this.instanceVariable</code> resolves a naming conflict</li>
-<li>explain what happens when <code>this</code> is passed as an argument</li>
-<li>connect <code>this</code> back to object-reference tracing</li>
+<li>explain that <code>this</code> refers to the current object</li>
+<li>use <code>this.variableName</code> to distinguish a field from a parameter</li>
+<li>trace why <code>name = name</code> does not update the instance variable</li>
+<li>explain when <code>this</code> can be passed as an object argument</li>
+<li>use <code>this</code> for clarity without treating it as required everywhere</li>
 </ul>
 </div>
 </section>

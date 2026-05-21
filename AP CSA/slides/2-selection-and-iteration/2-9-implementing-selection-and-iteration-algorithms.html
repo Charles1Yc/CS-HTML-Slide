@@ -210,136 +210,188 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="standard-loop-algorithms" class="slide level2">
-<h2>Standard Loop Algorithms</h2>
-<h3 id="this-topic-moves-from-syntax-to-reusable-patterns">This topic moves from syntax to reusable patterns</h3>
-<p>The focus here is not a new keyword.<br>
-It is recognizing standard algorithms that combine:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="syntax-becomes-reusable-algorithm-patterns">Syntax becomes reusable algorithm patterns</h3>
+<p>This topic combines selection and iteration to implement common AP CSA algorithms.</p>
 <div class="tight-list">
 <ul>
-<li>loops</li>
-<li>selection</li>
-<li>accumulators</li>
-<li>counters</li>
+<li><span class="term">accumulator</span> pattern for sum and average</li>
+<li><span class="term">sentinel</span> loops for input</li>
+<li>minimum and maximum search</li>
+<li>divisibility and digit extraction</li>
+<li>random choice and frequency counters</li>
 </ul>
 </div>
-<p>These patterns appear repeatedly in AP-style questions.</p>
 </section>
 <section id="accumulator-pattern" class="slide level2">
 <h2>Accumulator Pattern</h2>
-<h3 id="sum-and-average-use-the-same-four-step-structure">Sum and average use the same four-step structure</h3>
+<h3 id="sum-and-average-share-the-same-structure">Sum and average share the same structure</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb1-3"><a href=""></a><span class="op">{</span></span>
 <span id="cb1-4"><a href=""></a>    sum <span class="op">+=</span> i<span class="op">;</span></span>
 <span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Accumulator pattern steps:</p>
+<p>Pattern:</p>
 <div class="tight-list">
 <ul>
-<li>initialize the accumulator</li>
-<li>loop through the values</li>
-<li>update the accumulator inside the loop</li>
-<li>use the result after the loop</li>
+<li>initialize the accumulator before the loop</li>
+<li>update it inside the loop</li>
+<li>use it after the loop</li>
 </ul>
 </div>
-<p>Average is just sum plus one more final step: divide by the number of values.</p>
+<p>Average adds a final division step.</p>
 </section>
-<section id="input-controlled-accumulation" class="slide level2">
-<h2>Input-Controlled Accumulation</h2>
-<h3 id="sentinel-loops-can-accumulate-and-count-at-the-same-time">Sentinel loops can accumulate and count at the same time</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="complete-sum-and-average">Complete sum and average</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sum</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    sum <span class="op">+=</span> number<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb2-5"><a href=""></a>    number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
-<span id="cb2-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>the sentinel value stops the loop</li>
-<li><code>sum</code> tracks the total</li>
-<li><code>count</code> tracks how many values were seen</li>
-<li>forgetting the input update usually causes an infinite loop</li>
-</ul>
-</div>
+<span id="cb2-3"><a href=""></a>    <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>        sum <span class="op">+=</span> i<span class="op">;</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-8"><a href=""></a>    <span class="cf">return</span> sum<span class="op">;</span></span>
+<span id="cb2-9"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">average</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb2-12"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="dt">int</span> total <span class="op">=</span> <span class="fu">sum</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb2-14"><a href=""></a>    <span class="cf">return</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> total <span class="op">/</span> n<span class="op">;</span></span>
+<span id="cb2-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <code>n = 10</code>, expected results are <code>55</code> and <code>5.5</code>.</p>
 </section>
-<section id="loop-with-if" class="slide level2">
-<h2>Loop with if</h2>
-<h3 id="selection-inside-a-loop-supports-minimum-and-maximum-algorithms">Selection inside a loop supports minimum and maximum algorithms</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>num <span class="op">&lt;</span> min<span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    min <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is the common AP pattern:</p>
-<div class="tight-list">
-<ul>
-<li>loop over many values</li>
-<li>test each value</li>
-<li>update the stored best-so-far result</li>
-</ul>
-</div>
-<p>The same idea works for both minimum and maximum.</p>
+<section id="input-controlled-loop" class="slide level2">
+<h2>Input-Controlled Loop</h2>
+<h3 id="sentinel-input-combines-sum-and-count">Sentinel input combines sum and count</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
+<span id="cb3-2"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a><span class="dt">int</span> number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>    sum <span class="op">+=</span> number<span class="op">;</span></span>
+<span id="cb3-9"><a href=""></a>    count<span class="op">++;</span></span>
+<span id="cb3-10"><a href=""></a>    number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb3-11"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-12"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> count<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The sentinel <code>-1</code> is not included in the average.</p>
 </section>
-<section id="divisibility-and-digits" class="slide level2">
-<h2>Divisibility and Digits</h2>
-<h3 id="and-drive-several-standard-number-algorithms"><code>%</code> and <code>/</code> drive several standard number algorithms</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>num <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb4-2"><a href=""></a>digit <span class="op">=</span> num <span class="op">%</span> <span class="dv">10</span></span>
-<span id="cb4-3"><a href=""></a>num <span class="op">=</span> num <span class="op">/</span> <span class="dv">10</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Core uses:</p>
-<div class="tight-list">
-<ul>
-<li>checking even / odd / divisible</li>
-<li>building prime-number logic</li>
-<li>pulling off digits one at a time</li>
-<li>converting total minutes into hours and leftover minutes</li>
-</ul>
-</div>
+<section id="min-and-max" class="slide level2">
+<h2>Min and Max</h2>
+<h3 id="selection-inside-a-loop-tracks-best-so-far">Selection inside a loop tracks best-so-far</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">MIN_VALUE</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="dt">int</span> num <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>num <span class="op">&gt;</span> max<span class="op">)</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>        max <span class="op">=</span> num<span class="op">;</span></span>
+<span id="cb4-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The variable <code>max</code> stores the best value found so far.</p>
 </section>
-<section id="math.random-and-frequency" class="slide level2">
-<h2><code>Math.random()</code> and Frequency</h2>
-<h3 id="conditions-can-model-probability-and-counters-can-measure-outcomes">Conditions can model probability, and counters can measure outcomes</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">&lt;</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<section id="divisibility" class="slide level2">
+<h2>Divisibility</h2>
+<h3 id="prime-checking-uses">Prime checking uses <code>%</code></h3>
+<div class="code-scroll compact">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">isPrime</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
 <span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Heads"</span><span class="op">);</span></span>
-<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb6-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>Math.random()</code> lets conditionals simulate events by percentage</li>
-<li>frequency problems count how often a criterion is met</li>
-<li>the standard structure is: test inside the loop, increment the counter when true</li>
-</ul>
+<span id="cb5-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> divisor <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> divisor <span class="op">&lt;</span> n<span class="op">;</span> divisor<span class="op">++)</span></span>
+<span id="cb5-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-10"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb5-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-12"><a href=""></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-15"><a href=""></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb5-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>The loop returns <code>false</code> as soon as it finds a divisor.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>accumulator and average-building code</li>
-<li>input-controlled sum / average traces</li>
-<li>min / max update pattern checks</li>
-<li>prime / divisibility logic</li>
-<li>random-choice conditionals</li>
-<li>frequency counters</li>
-<li><span class="term">2.9.8 Coding Challenge: Prime Number Finder</span></li>
-</ul>
-</div>
+<section id="digits-with-and" class="slide level2">
+<h2>Digits with <code>/</code> and <code>%</code></h2>
+<h3 id="peel-off-the-last-digit-repeatedly">Peel off the last digit repeatedly</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">checkDigit</span><span class="op">(</span><span class="dt">int</span> number<span class="op">,</span> <span class="dt">int</span> digit<span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="cf">while</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="dt">int</span> lastDigit <span class="op">=</span> number <span class="op">%</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>lastDigit <span class="op">==</span> digit<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb6-10"><a href=""></a>        number <span class="op">=</span> number <span class="op">/</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb6-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-12"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>% 10</code> gets the last digit; <code>/ 10</code> removes it.</p>
+</section>
+<section id="math.random-with-selection" class="slide level2">
+<h2>Math.random with Selection</h2>
+<h3 id="probabilities-come-from-ranges">Probabilities come from ranges</h3>
+<p>The weather report says a 25% chance of rain.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">&lt;</span> <span class="fl">0.25</span><span class="op">)</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Rain"</span><span class="op">);</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">}</span></span>
+<span id="cb7-5"><a href=""></a><span class="cf">else</span></span>
+<span id="cb7-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"No Rain"</span><span class="op">);</span></span>
+<span id="cb7-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Equivalent condition for rain:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">&gt;</span> <span class="fl">0.75</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>because values above <code>0.75</code> are the top 25% of the range.</p>
+</section>
+<section id="frequency" class="slide level2">
+<h2>Frequency</h2>
+<h3 id="count-how-often-a-condition-is-true">Count how often a condition is true</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb9-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb9-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-6"><a href=""></a>        count<span class="op">++;</span></span>
+<span id="cb9-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Frequency algorithms use a counter inside a loop and increment only when the condition is true.</p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2 fit-small">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="prime-number-finder">Prime Number Finder</h3>
+<p>Complete <code>findPrimes</code> by reusing <code>isPrime</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">findPrimes</span><span class="op">(</span><span class="dt">int</span> num1<span class="op">,</span> <span class="dt">int</span> num2<span class="op">)</span></span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">=</span> num1<span class="op">;</span> n <span class="op">&lt;=</span> num2<span class="op">;</span> n<span class="op">++)</span></span>
+<span id="cb10-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb10-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span><span class="fu">isPrime</span><span class="op">(</span>n<span class="op">))</span></span>
+<span id="cb10-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb10-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb10-9"><a href=""></a>            count<span class="op">++;</span></span>
+<span id="cb10-10"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb10-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb10-12"><a href=""></a>    <span class="cf">return</span> count<span class="op">;</span></span>
+<span id="cb10-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <code>findPrimes(2, 100)</code>, the expected count is <code>25</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain the accumulator pattern for sum and average</li>
-<li>combine looping and <code>if</code> logic for min / max and counting</li>
-<li>use <code>%</code> and <code>/</code> for divisibility and digit algorithms</li>
-<li>explain how <code>Math.random()</code> supports probability-based branches</li>
-<li>recognize frequency as a counter-inside-a-loop pattern</li>
+<li>implement sum and average using an accumulator</li>
+<li>use a sentinel loop without including the sentinel in the data</li>
+<li>update min or max only when a better value is found</li>
+<li>use <code>%</code> and <code>/</code> for divisibility and digit extraction</li>
+<li>combine selection and loops for frequency and prime-number algorithms</li>
 </ul>
 </div>
 </section>

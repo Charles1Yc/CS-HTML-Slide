@@ -1,6 +1,6 @@
 ---
 title: "4.16 Recursion"
-subtitle: "Data Collections"
+subtitle: "Part 1: Recursive Calls and Base Cases"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,137 +14,84 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Recursion
+## Topic Intro
 
-### Recursion is when a method calls itself
+### Recursion is a method calling itself
 
-This topic defines recursion as another form of <span class="term">repetition</span>.
+<span class="term">Recursion</span> (递归) happens when a method calls itself to solve a smaller version of the same problem.
 
-::: {.tight-list}
-- a recursive method contains a call to the same method
-- recursion without a stopping condition becomes <span class="term">infinite recursion</span>
-- in practice, infinite recursion crashes with a stack error
-:::
-
-## Recursive Call and Base Case
-
-### Every useful recursive method needs a stopping point
-
-Retained core rule:
+Every recursive method needs:
 
 ::: {.tight-list}
-- a <span class="term">recursive call</span> solves a smaller version of the same problem
-- a <span class="term">base case</span> returns an answer directly
-- each recursive step must move closer to the base case
-- this is the recursion version of loop progress
+- a <span class="term">base case</span> that stops recursion
+- a recursive call that moves toward the base case
 :::
 
-## Why Use Recursion?
+## Recursive Call
 
-### Recursion is powerful when a problem breaks into similar smaller problems
-
-![Sierpinski-style triangle subdivision](../../assets/4-data-collections/4-16-recursion/triangleSub.png){fig-align="center" width="50%"}
-
-Retained uses:
-
-::: {.tight-list}
-- recursive structure appears in folders, trees, and self-similar graphics
-- recursion can also traverse `String`s, arrays, and `ArrayList`s
-- simple linear tasks can often be written iteratively instead
-:::
-
-## Factorial Method
-
-### Factorial is the standard AP model for reading recursive flow
+### The method appears inside its own body
 
 ```java
-public static int factorial(int n)
+public static void countdown(int n)
 {
     if (n == 0)
-        return 1;
+    {
+        System.out.println("Blastoff");
+    }
     else
-        return n * factorial(n - 1);
+    {
+        System.out.println(n);
+        countdown(n - 1);
+    }
 }
 ```
 
-Students should retain:
+The call `countdown(n - 1)` solves a smaller problem.
+
+## Base Case
+
+### Stop before the calls continue forever
+
+In `countdown`, the base case is:
+
+```java
+if (n == 0)
+{
+    System.out.println("Blastoff");
+}
+```
+
+Without a base case, or without progress toward it, recursion can cause a stack overflow.
+
+## Why Use Recursion?
+
+### Some problems naturally split into smaller copies
+
+![Recursive triangle idea](../../assets/4-data-collections/4-16-recursion/triangleSub.png){fig-align="center" width="42%"}
+
+Recursive thinking is useful when a problem can be described as:
 
 ::: {.tight-list}
-- the base case is `n == 0`
-- the recursive call uses `n - 1`
-- the return value is built while the calls unwind
+- solve a small case directly
+- otherwise solve one or more smaller versions of the same problem
 :::
 
-## Base Case Reasoning
+## Quick Check
 
-### A recursive method must know when it can answer directly
+### Identify the base case
 
-Retained base-case logic:
+```java
+public static int sumToN(int n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n + sumToN(n - 1);
+}
+```
 
-::: {.tight-list}
-- factorial stops at the smallest legal case
-- base cases are often guarded by an `if`
-- if the method never reaches a base case, the recursion does not terminate
-:::
-
-## Call Stack Model
-
-### Each recursive call gets its own frame and local variables
-
-![A stack of cups as a stack metaphor](../../assets/4-data-collections/4-16-recursion/cupStack.jpg){fig-align="center" width="28%"}
-
-![Code that triggers a stack trace](../../assets/4-data-collections/4-16-recursion/codeForCallStack.png){fig-align="center" width="46%"}
-
-Retained model:
-
-::: {.tight-list}
-- the <span class="term">call stack</span> records active method calls
-- each call has its own parameter values
-- execution returns to the caller after the current call finishes
-:::
-
-## Reading Stack Behavior
-
-### Runtime errors expose the order of active calls
-
-![Example runtime call stack](../../assets/4-data-collections/4-16-recursion/errorCallStack.png){fig-align="center" width="72%"}
-
-The retained reasoning is:
-
-::: {.tight-list}
-- the top of the stack is the most recent active call
-- recursive calls accumulate on the stack
-- stack information helps explain both recursion flow and failure points
-:::
-
-## Tracing Recursive Methods
-
-### Write down each call, then substitute return values on the way back
-
-![Call-tree view of recursive expansion](../../assets/4-data-collections/4-16-recursion/callTree.png){fig-align="center" width="34%"}
-
-Retained AP tracing move:
-
-::: {.tight-list}
-- list `factorial(5)`, `factorial(4)`, `factorial(3)` ... down to the base case
-- once the base case returns, substitute values back upward
-- tracing is often the fastest way to answer exam questions about recursion
-:::
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- identify whether a method is actually recursive
-- locate the recursive call and the base case
-- explain why each recursive step gets closer to termination
-- trace factorial-style recursion using a call stack or call tree
-- explain what information each recursive call frame stores
-- <span class="term">4.16.6 Tracing Challenge: Recursion</span>
-:::
+Base case: `n == 1`.
 
 ## Classroom Check
 
@@ -152,14 +99,15 @@ Retained classroom work for this topic:
 
 ::: {.tight-list}
 - define recursion as a method calling itself
-- identify the purpose of a base case
-- explain how recursive calls shrink the problem
-- describe the role of the call stack in recursive execution
-- trace a simple recursive method by following calls down and returns back up
+- identify the base case in a recursive method
+- identify the recursive call
+- explain how the argument moves toward the base case
+- explain why missing progress can cause infinite recursion
 :::
 
 ## End
 
-### Return to the course outline
+### Continue or return to the course outline
 
+[Next: Factorial](4-16-part-2-factorial.html)  
 [← Back to AP CSA / 返回课程目录](../../index.html)

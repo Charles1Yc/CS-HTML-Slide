@@ -1,0 +1,90 @@
+---
+title: "4.16 Recursion"
+subtitle: "Part 3: Tracing Recursive Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Call Stack
+
+### Recursive calls wait for smaller calls to finish
+
+![Cup stack analogy](../../assets/4-data-collections/4-16-recursion/cupStack.jpg){fig-align="center" width="36%"}
+
+Each recursive call has its own parameter values and waits until the call it made returns.
+
+## Code and Stack
+
+### Trace one call frame at a time
+
+![Code for call stack](../../assets/4-data-collections/4-16-recursion/codeForCallStack.png){fig-align="center" width="48%"}
+
+When tracing, write each call with its argument value. Then work backward as return values are produced.
+
+## Error Call Stack
+
+### Stack overflow means calls did not stop
+
+![Error call stack](../../assets/4-data-collections/4-16-recursion/errorCallStack.png){fig-align="center" width="48%"}
+
+Common causes:
+
+::: {.tight-list}
+- no base case
+- base case can never be reached
+- recursive call uses the same argument again
+:::
+
+## Call Tree
+
+### Some recursion branches
+
+![Call tree](../../assets/4-data-collections/4-16-recursion/callTree.png){fig-align="center" width="45%"}
+
+Branching recursion creates more than one recursive call per method call. Trace small inputs first.
+
+## Tracing Challenge
+
+### Fill in call and return values
+
+For:
+
+```java
+public static int mystery(int x)
+{
+    if (x == 0)
+    {
+        return 0;
+    }
+    return x + mystery(x - 1);
+}
+```
+
+Trace `mystery(3)`: `3 + 2 + 1 + 0 = 6`.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- trace recursive calls with separate argument values
+- explain how the call stack grows and shrinks
+- identify stack overflow as uncontrolled recursion
+- distinguish call expansion from returned values
+- trace small inputs before generalizing a recursive pattern
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

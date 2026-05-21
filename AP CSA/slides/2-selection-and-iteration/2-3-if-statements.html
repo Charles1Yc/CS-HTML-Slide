@@ -210,110 +210,159 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="if-statements" class="slide level2">
-<h2>if Statements</h2>
-<h3 id="turn-boolean-conditions-into-branching-code">Turn Boolean conditions into branching code</h3>
-<p>An <span class="term">if statement</span> changes the default sequential flow of execution.</p>
-<div class="tight-list">
-<ul>
-<li>when the condition is <code>true</code>, one branch runs</li>
-<li>when the condition is <code>false</code>, the program skips that branch or takes another one</li>
-</ul>
-</div>
-
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png" style="width:86.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing block-based and Java ifs</p></section>
-<section id="one-way-selection" class="slide level2">
-<h2>One-Way Selection</h2>
-<h3 id="run-code-only-when-the-condition-is-true">Run code only when the condition is true</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption">One-way conditional flow</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Take an umbrella!"</span><span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb1-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Drive carefully"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If the condition is false, the body is skipped and execution continues after the <code>if</code>.</p>
-</section>
-<section id="conditions-inside-if-statements" class="slide level2">
-<h2>Conditions Inside if Statements</h2>
-<h3 id="most-branches-use-relational-operators">Most branches use relational operators</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>number <span class="op">+</span> <span class="st">" is positive!"</span><span class="op">);</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-5"><a href=""></a><span class="cf">if</span> <span class="op">(</span>number <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb2-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>number <span class="op">+</span> <span class="st">" is zero!"</span><span class="op">);</span></span>
-<span id="cb2-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Students need to see that <code>if</code> statements do not create new logic on their own.<br>
-They <mark>consume Boolean expressions</mark>.</p>
-</section>
-<section id="two-way-selection" class="slide level2">
-<h2>Two-Way Selection</h2>
-<h3 id="if-...-else-handles-both-outcomes"><code>if ... else</code> handles both outcomes</h3>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="if-statements-implement-one-way-selection"><code>if</code> statements implement one-way selection</h3>
+<p>An <span class="term">if statement</span> (条件语句) checks a Boolean expression and runs a block only when the expression is true.</p>
 <div class="two-col">
 <div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png" style="width:100.0%"></p>
-<figcaption>if/else flowchart</figcaption>
+<p><img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png" style="width:100.0%"></p>
+<figcaption>If block comparison</figcaption>
 </figure>
 </div>
 </div>
-<div class="soft-box">
-<p>Use <code>if/else</code> when exactly one of two branches must run:</p>
-<ul>
-<li>one branch for <code>true</code></li>
-<li>one branch for <code>false</code></li>
-<li>one test case for each branch</li>
-</ul>
+<div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Bring an umbrella"</span><span class="op">);</span></span>
+<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">16</span><span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You can get a license."</span><span class="op">);</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-5"><a href=""></a><span class="cf">else</span></span>
-<span id="cb3-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You need to wait."</span><span class="op">);</span></span>
-<span id="cb3-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="common-errors-with-if-statements" class="slide level2">
-<h2>Common Errors with if Statements</h2>
-<h3 id="most-mistakes-are-structural-not-conceptual">Most mistakes are structural, not conceptual</h3>
-<div class="tight-list">
-<ul>
-<li>forgetting curly braces for the intended block</li>
-<li>writing <code>if (test);</code> with a stray semicolon</li>
-<li>using <code>=</code> instead of <code>==</code> in the condition</li>
-<li>assuming <code>else</code> matches indentation instead of the actual closest <code>if</code></li>
-</ul>
-</div>
-<p>The AP-style habit is simple: <mark>always use braces</mark>.</p>
+<section id="one-way-selection" class="slide level2">
+<h2>One-Way Selection</h2>
+<h3 id="false-means-skip-the-block">False means skip the block</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png" style="width:32.0%" class="r-stretch quarto-figure-center"><p class="caption">One-way selection</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">boolean</span> isRaining <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Take an umbrella"</span><span class="op">);</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Leave home"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only <code>Leave home</code> prints because the condition is false.</p>
 </section>
-<section id="classroom-task" class="slide level2">
-<h2>Classroom Task</h2>
+<section id="relational-operators-in-if" class="slide level2">
+<h2>Relational Operators in <code>if</code></h2>
+<h3 id="the-condition-can-be-a-comparison">The condition can be a comparison</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">16</span><span class="op">)</span></span>
+<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You can apply for a driver's license."</span><span class="op">);</span></span>
+<span id="cb3-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The body must be inside braces when it contains more than one statement. This course uses braces even for one-line bodies.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-one-way-selection">Trace one-way selection</h3>
+<p>What is printed?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> temp <span class="op">=</span> <span class="dv">72</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>temp <span class="op">&lt;</span> <span class="dv">70</span><span class="op">)</span></span>
+<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Wear a jacket"</span><span class="op">);</span></span>
+<span id="cb4-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Go outside"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Go outside</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reason: <code>72 &lt; 70</code> is false, so the first print is skipped.</p>
+</section>
+<section id="two-way-selection" class="slide level2">
+<h2>Two-Way Selection</h2>
+<h3 id="if-else-handles-both-outcomes"><code>if else</code> handles both outcomes</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">Two-way selection</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>heads<span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Heads"</span><span class="op">);</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">}</span></span>
+<span id="cb6-5"><a href=""></a><span class="cf">else</span></span>
+<span id="cb6-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Tails"</span><span class="op">);</span></span>
+<span id="cb6-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Exactly one branch runs.</p>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="license-age">License age</h3>
+<p>Complete the <code>else</code> branch.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> LicenseCheck</span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-5"><a href=""></a>        <span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb7-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">16</span><span class="op">)</span></span>
+<span id="cb7-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb7-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Can apply for a license"</span><span class="op">);</span></span>
+<span id="cb7-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb7-10"><a href=""></a>        <span class="cf">else</span></span>
+<span id="cb7-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb7-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Wait until age 16"</span><span class="op">);</span></span>
+<span id="cb7-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb7-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected output: <code>Wait until age 16</code>.</p>
+</section>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="even-or-odd">Even or odd</h3>
+<p>Reorder the statements to print whether <code>num</code> is even.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> EvenOdd</span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-5"><a href=""></a>        <span class="dt">int</span> num <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
+<span id="cb8-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb8-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb8-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"even"</span><span class="op">);</span></span>
+<span id="cb8-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb8-10"><a href=""></a>        <span class="cf">else</span></span>
+<span id="cb8-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb8-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"odd"</span><span class="op">);</span></span>
+<span id="cb8-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb8-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key condition: <code>num % 2 == 0</code>.</p>
+</section>
+<section id="common-error" class="slide level2">
+<h2>Common Error</h2>
+<h3 id="missing-braces-can-change-the-logic">Missing braces can change the logic</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
+<span id="cb9-2"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only the first print is controlled by the <code>if</code>. The second print always runs.</p>
+<p>Preferred classroom form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent"</span><span class="op">);</span></span>
+<span id="cb10-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
 <h3 id="magic-8-ball">Magic 8 Ball</h3>
 
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png" style="width:24.0%" class="r-stretch quarto-figure-center"><p class="caption">Magic 8 Ball challenge</p><p>Retained task focus:</p>
-<div class="tight-list">
-<ul>
-<li>use random numbers to choose a branch</li>
-<li>write multiple <code>if</code> checks or <code>if/else</code> logic</li>
-<li>connect Boolean tests to visible program behavior</li>
-<li><span class="term">2.3.5 Coding Challenge: Magic 8 Ball</span></li>
-</ul>
-</div>
+<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png" style="width:22.0%" class="r-stretch quarto-figure-center"><p class="caption">Magic 8 Ball challenge</p><p>Starter idea:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="dt">int</span> answer <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">8</span><span class="op">)</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb11-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>answer <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb11-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"It is certain"</span><span class="op">);</span></span>
+<span id="cb11-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb11-6"><a href=""></a><span class="cf">else</span></span>
+<span id="cb11-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ask again later"</span><span class="op">);</span></span>
+<span id="cb11-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Extend it so several different random answers can print.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain that <code>if</code> statements change control flow</li>
-<li>distinguish one-way and two-way selection</li>
-<li>use relational operators correctly inside conditions</li>
-<li>explain why both branches of <code>if/else</code> need testing</li>
-<li>avoid <code>=</code>, stray semicolons, and missing braces in conditional code</li>
+<li>explain when an <code>if</code> body runs and when it is skipped</li>
+<li>trace one-way and two-way selection</li>
+<li>use braces to keep controlled statements clear</li>
+<li>write <code>if else</code> logic for mutually exclusive outcomes</li>
+<li>use <code>%</code> in selection to test even and odd numbers</li>
 </ul>
 </div>
 </section>

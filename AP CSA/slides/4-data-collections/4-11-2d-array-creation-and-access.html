@@ -210,118 +210,99 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="d-array-creation-and-access" class="slide level2">
-<h2>2D Array Creation and Access</h2>
-<h3 id="two-dimensional-arrays-model-data-in-rows-and-columns">Two-dimensional arrays model data in rows and columns</h3>
-<p>The textbook introduces 2D arrays as the natural structure for grid-like information.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="d-arrays-organize-data-in-rows-and-columns">2D arrays organize data in rows and columns</h3>
 
-<img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">Rows and columns as lockers</p><div class="tight-list">
-<ul>
-<li>rows run horizontally</li>
-<li>columns run vertically</li>
-<li>2D arrays are useful for tables, seats, boards, and pictures</li>
-</ul>
-</div>
+<img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">2D lockers</p><p>A <span class="term">2D array</span> (二维数组) is an array whose elements are arrays.</p>
+<p>Use two indices:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="row-and-column-model" class="slide level2">
+<h2>Row and Column Model</h2>
+<h3 id="first-index-is-row-second-index-is-column">First index is row, second index is column</h3>
+
+<img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Rows and columns</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> nums <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates 3 rows and 4 columns.</p>
 </section>
 <section id="array-storage" class="slide level2">
 <h2>Array Storage</h2>
-<h3 id="java-stores-a-2d-array-as-an-array-of-arrays">Java stores a 2D array as an array of arrays</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png" style="width:68.0%"></p>
-<figcaption>Row-major storage idea</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png" style="width:72.0%"></p>
-<figcaption>Rows and columns as nested arrays</figcaption>
-</figure>
-</div>
-<p>Retained concepts:</p>
-<div class="tight-list">
-<ul>
-<li>2D arrays are arrays whose elements are themselves arrays</li>
-<li>AP questions assume <span class="term">row-major order</span></li>
-<li>the outer array represents rows and the inner arrays represent columns</li>
-</ul>
-</div>
+<h3 id="row-major-view">Row-major view</h3>
+
+<img data-src="../../assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Row major</p><p>Java stores a 2D array as an array of row arrays. The first bracket chooses a row array.</p>
 </section>
-<section id="declaring-and-creating-2d-arrays" class="slide level2">
-<h2>Declaring and Creating 2D Arrays</h2>
-<h3 id="syntax-extends-the-1d-array-pattern">Syntax extends the 1D array pattern</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> ticketInfo <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
-<span id="cb1-2"><a href=""></a><span class="bu">String</span><span class="op">[][]</span> seatingChart <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">3</span><span class="op">][</span><span class="dv">2</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key points kept from the textbook:</p>
-<div class="tight-list">
-<ul>
-<li><code>datatype[][] name</code> declares a 2D array variable</li>
-<li><code>new</code> creates the rows and columns</li>
-<li>elements receive default values</li>
-<li>the total element count is rows times columns</li>
-</ul>
-</div>
+<section id="declaring-2d-arrays" class="slide level2">
+<h2>Declaring 2D Arrays</h2>
+<h3 id="create-with-dimensions">Create with dimensions</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> matrix <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb3-2"><a href=""></a><span class="bu">String</span><span class="op">[][]</span> seats <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">5</span><span class="op">][</span><span class="dv">4</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <code>matrix</code>, valid row indices are <code>0</code> and <code>1</code>; valid column indices are <code>0</code>, <code>1</code>, and <code>2</code>.</p>
 </section>
 <section id="initializer-lists" class="slide level2">
 <h2>Initializer Lists</h2>
-<h3 id="each-row-is-itself-a-1d-initializer-list">Each row is itself a 1D initializer list</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> arr2D <span class="op">=</span> <span class="op">{</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">}</span> <span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Students should connect this to nested 1D arrays rather than treating it as a completely new syntax system.</p>
+<h3 id="fill-rows-explicitly">Fill rows explicitly</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> grid <span class="op">=</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">}</span></span>
+<span id="cb4-5"><a href=""></a><span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>grid[0][0]</code> is <code>1</code>; <code>grid[1][2]</code> is <code>6</code>.</p>
 </section>
-<section id="set-and-get-values" class="slide level2">
-<h2>Set and Get Values</h2>
-<h3 id="use-rowcol-with-row-first-and-column-second">Use <code>[row][col]</code> with row first and column second</h3>
-<p>Retained access rule:</p>
-<div class="tight-list">
-<ul>
-<li>the first index selects the row</li>
-<li>the second index selects the column</li>
-<li>assignment changes one specific cell</li>
-<li>retrieval reads one specific cell</li>
-</ul>
-</div>
-<p>This row-first convention is central for AP CSA tracing.</p>
+<section id="set-values" class="slide level2">
+<h2>Set Values</h2>
+<h3 id="assign-with-row-and-column">Assign with row and column</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> grid <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">2</span><span class="op">][</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb5-2"><a href=""></a>grid<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb5-3"><a href=""></a>grid<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read the access as: row first, column second.</p>
+</section>
+<section id="get-values" class="slide level2">
+<h2>Get Values</h2>
+<h3 id="use-two-brackets">Use two brackets</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="dt">int</span><span class="op">[][]</span> grid <span class="op">=</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">}</span></span>
+<span id="cb6-5"><a href=""></a><span class="op">};</span></span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>grid<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">0</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output: <code>4</code>.</p>
 </section>
 <section id="row-and-column-length" class="slide level2">
 <h2>Row and Column Length</h2>
-<h3 id="the-outer-array-length-gives-rows-a-row-length-gives-columns">The outer array length gives rows; a row length gives columns</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>arr<span class="op">.</span><span class="fu">length</span></span>
-<span id="cb3-2"><a href=""></a>arr<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained rules:</p>
+<h3 id="rows-and-columns-use-different-expressions">Rows and columns use different expressions</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">int</span> rows <span class="op">=</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span></span>
+<span id="cb7-2"><a href=""></a><span class="dt">int</span> cols <span class="op">=</span> grid<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For rectangular 2D arrays:</p>
 <div class="tight-list">
 <ul>
-<li><code>arr.length</code> is the number of rows</li>
-<li><code>arr[0].length</code> is the number of columns in one row</li>
-<li>row indices and column indices both start at <code>0</code></li>
-<li>invalid coordinates cause <code>ArrayIndexOutOfBoundsException</code></li>
+<li><code>grid.length</code> gives number of rows</li>
+<li><code>grid[row].length</code> gives number of columns in that row</li>
 </ul>
 </div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>identify row-major organization in a 2D structure</li>
-<li>declare and create 2D arrays with <code>new</code></li>
-<li>build 2D arrays with initializer lists</li>
-<li>access and modify values with <code>[row][col]</code></li>
-<li>use <code>length</code> correctly for rows and columns</li>
-<li><span class="term">4.11.7 Coding Challenge: ASCII Art</span></li>
-</ul>
-</div>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="ascii-art">ASCII Art</h3>
+<p>Use a 2D array of characters or strings to store an image pattern.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">String</span><span class="op">[][]</span> art <span class="op">=</span></span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="op">{</span><span class="st">"*"</span><span class="op">,</span> <span class="st">" "</span><span class="op">,</span> <span class="st">"*"</span><span class="op">},</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="op">{</span><span class="st">" "</span><span class="op">,</span> <span class="st">"*"</span><span class="op">,</span> <span class="st">" "</span><span class="op">},</span></span>
+<span id="cb8-5"><a href=""></a>    <span class="op">{</span><span class="st">"*"</span><span class="op">,</span> <span class="st">" "</span><span class="op">,</span> <span class="st">"*"</span><span class="op">}</span></span>
+<span id="cb8-6"><a href=""></a><span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Access and modify specific row-column cells to change the design.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain that a 2D array is an array of arrays</li>
-<li>identify row-major order as the AP assumption</li>
-<li>write the syntax for declaring and creating a 2D array</li>
-<li>explain the meaning of <code>[row][col]</code></li>
-<li>distinguish <code>arr.length</code> from <code>arr[0].length</code></li>
+<li>create a 2D array with row and column dimensions</li>
+<li>access values using <code>array[row][col]</code></li>
+<li>distinguish row count from column count</li>
+<li>use initializer lists for small 2D arrays</li>
+<li>explain why row index comes before column index</li>
 </ul>
 </div>
 </section>

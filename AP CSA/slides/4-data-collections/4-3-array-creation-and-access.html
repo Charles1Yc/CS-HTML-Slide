@@ -210,126 +210,101 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="array-creation-and-access" class="slide level2">
-<h2>Array Creation and Access</h2>
-<h3 id="arrays-store-many-related-values-under-one-name">Arrays store many related values under one name</h3>
-<p>Instead of writing <code>score1</code>, <code>score2</code>, <code>score3</code>, and so on, Java uses the array data structure.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="arrays-store-many-values-of-one-type">Arrays store many values of one type</h3>
+<p>An <span class="term">array</span> (数组) is a fixed-size object that stores multiple values of the same type.</p>
+
+<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/rowLockers.jpg" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Row lockers analogy</p><p>Each element is accessed by an index.</p>
+</section>
+<section id="declaring-and-creating-arrays" class="slide level2">
+<h2>Declaring and Creating Arrays</h2>
+<h3 id="type-brackets-and-size">Type, brackets, and size</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> scores <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rules:</p>
 <div class="tight-list">
 <ul>
-<li>an <span class="term">array</span> stores elements of the <mark>same type</mark></li>
-<li>the elements are accessed using an <span class="term">index</span></li>
-<li>arrays are useful when there are many related values</li>
+<li>the array length is fixed after creation</li>
+<li>indices start at <code>0</code></li>
+<li>last valid index is <code>length - 1</code></li>
+<li>numeric arrays created with <code>new</code> start with default values such as <code>0</code></li>
 </ul>
 </div>
 </section>
-<section id="array-analogy" class="slide level2">
-<h2>Array Analogy</h2>
-<h3 id="think-of-an-array-as-a-fixed-row-of-lockers">Think of an array as a fixed row of lockers</h3>
-
-<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/rowLockers.jpg" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">Array as a row of lockers</p><p>Each locker stores one value.<br>
-The array name identifies the whole structure, and the index identifies one position.</p>
-</section>
-<section id="declaring-and-creating-an-array" class="slide level2">
-<h2>Declaring and Creating an Array</h2>
-<h3 id="declaring-the-variable-is-not-the-same-as-creating-the-array-object">Declaring the variable is not the same as creating the array object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> scores<span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a>scores <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="create-an-array">Create an array</h3>
+<p>Which line creates an array that can hold 10 <code>double</code> values?</p>
 <div class="tight-list">
 <ul>
-<li><code>int[] scores</code> declares an array variable</li>
-<li>arrays in Java are <span class="term">objects</span></li>
-<li>before creation, the variable can hold <code>null</code></li>
-<li><code>new</code> allocates memory for the array</li>
+<li>A. <code>double scores = new double[10];</code></li>
+<li>B. <code>double[] scores = new double[10];</code></li>
+<li>C. <code>int[] scores = new double[10];</code></li>
+<li>D. <code>double[] scores = new double;</code></li>
 </ul>
 </div>
+<p>Answer: <mark>B</mark>.</p>
 </section>
-<section id="two-ways-to-create-arrays" class="slide level2">
-<h2>Two Ways to Create Arrays</h2>
-<h3 id="use-new-for-size-first-creation-or-use-an-initializer-list-for-value-first-creation">Use <code>new</code> for size-first creation or use an initializer list for value-first creation</h3>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong>Using <code>new</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> scores <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>size is specified directly</li>
-<li>elements begin with default values</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong>Using an initializer list</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> scores <span class="op">=</span> <span class="op">{</span><span class="dv">90</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">77</span><span class="op">,</span> <span class="dv">92</span><span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>values are given immediately</li>
-<li>size is inferred from the list</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="length-and-default-values" class="slide level2">
-<h2>Length and Default Values</h2>
-<h3 id="array-size-is-fixed-once-the-array-is-created">Array size is fixed once the array is created</h3>
+<section id="array-indices" class="slide level2">
+<h2>Array Indices</h2>
+<h3 id="index-0-is-the-first-element">Index 0 is the first element</h3>
 
-<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/intAndStringArrays.png" style="width:76.0%" class="r-stretch quarto-figure-center"><p class="caption">Primitive and object arrays in memory</p><div class="tight-list">
-<ul>
-<li><code>arrayName.length</code> gives the number of elements</li>
-<li>the length cannot change after creation</li>
-<li><code>new int[...]</code> uses default values like <code>0</code></li>
-<li>reference-type arrays begin with <code>null</code> references</li>
-</ul>
-</div>
+<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/arrayIndicies.png" style="width:56.0%" class="r-stretch quarto-figure-center"><p class="caption">Array indices</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">};</span></span>
+<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb2-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>4</span>
+<span id="cb3-2"><a href=""></a>9</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="initializer-lists" class="slide level2">
+<h2>Initializer Lists</h2>
+<h3 id="create-and-fill-at-the-same-time">Create and fill at the same time</h3>
+
+<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/intAndStringArrays.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Integer and String arrays</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> nums <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">};</span></span>
+<span id="cb4-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> words <span class="op">=</span> <span class="op">{</span><span class="st">"cat"</span><span class="op">,</span> <span class="st">"dog"</span><span class="op">,</span> <span class="st">"bird"</span><span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The length is determined by the number of initializer values.</p>
+</section>
+<section id="array-length" class="slide level2">
+<h2>Array Length</h2>
+<h3 id="use-.length-not-a-method-call">Use <code>.length</code>, not a method call</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> words <span class="op">=</span> <span class="op">{</span><span class="st">"cat"</span><span class="op">,</span> <span class="st">"dog"</span><span class="op">,</span> <span class="st">"bird"</span><span class="op">};</span></span>
+<span id="cb5-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>words<span class="op">.</span><span class="fu">length</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>3</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Arrays use the field <code>.length</code>; strings use the method <code>.length()</code>.</p>
 </section>
 <section id="access-and-modify-values" class="slide level2">
 <h2>Access and Modify Values</h2>
-<h3 id="use-square-brackets-with-a-valid-index">Use square brackets with a valid index</h3>
-
-<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/arrayIndicies.png" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Indexed array access in Java</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>scores<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">95</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="dt">int</span> first <span class="op">=</span> scores<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Indices start at <code>0</code>, and the valid range is:</p>
-<div class="tight-list">
-<ul>
-<li><code>0</code></li>
-<li>through <code>arrayName.length - 1</code></li>
-</ul>
-</div>
+<h3 id="use-an-index-on-the-left-side-to-update">Use an index on the left side to update</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> scores <span class="op">=</span> <span class="op">{</span><span class="dv">80</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">100</span><span class="op">};</span></span>
+<span id="cb7-2"><a href=""></a>scores<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">95</span><span class="op">;</span></span>
+<span id="cb7-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>scores<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>95</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>An index outside <code>0</code> through <code>length - 1</code> causes an <code>ArrayIndexOutOfBoundsException</code>.</p>
 </section>
-<section id="index-range-and-parallel-arrays" class="slide level2">
-<h2>Index Range and Parallel Arrays</h2>
-<h3 id="array-access-depends-on-staying-within-bounds">Array access depends on staying within bounds</h3>
-
-<img data-src="../../assets/4-data-collections/4-3-array-creation-and-access/appinvSelectComparison.png" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing indexed access styles</p><div class="tight-list">
-<ul>
-<li>an invalid index causes an <span class="term">ArrayIndexOutOfBoundsException</span></li>
-<li>variables can be used as indices as long as they hold integers</li>
-<li>related information can be tracked in <span class="term">parallel arrays</span></li>
-</ul>
-</div>
-<p>Parallel arrays work only when the same index always refers to matching information.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>declare an array variable and create it correctly</li>
-<li>compare <code>new</code> creation with initializer-list creation</li>
-<li>use <code>length</code> correctly</li>
-<li>access and modify array elements with valid indices</li>
-<li>explain default values and bounds errors</li>
-<li><span class="term">4.3.6 Coding Challenge: Countries Array</span></li>
-</ul>
-</div>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="countries-array">Countries Array</h3>
+<p>Starter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> countries <span class="op">=</span> <span class="op">{</span><span class="st">"Brazil"</span><span class="op">,</span> <span class="st">"China"</span><span class="op">,</span> <span class="st">"France"</span><span class="op">,</span> <span class="st">"Kenya"</span><span class="op">};</span></span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>countries<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb9-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>countries<span class="op">[</span>countries<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">]);</span></span>
+<span id="cb9-5"><a href=""></a>countries<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="st">"Canada"</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add two more countries, print the length, and modify one element.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define what an array stores</li>
-<li>distinguish declaring an array variable from creating an array object</li>
-<li>explain the two main ways to create an array</li>
-<li>state that indices start at <code>0</code></li>
-<li>explain how to determine the valid index range with <code>length</code></li>
+<li>declare and create arrays with the correct type and size</li>
+<li>explain that array indices start at <code>0</code></li>
+<li>use <code>array.length</code> to find the number of elements</li>
+<li>access and modify values with bracket notation</li>
+<li>identify the last valid index as <code>array.length - 1</code></li>
 </ul>
 </div>
 </section>

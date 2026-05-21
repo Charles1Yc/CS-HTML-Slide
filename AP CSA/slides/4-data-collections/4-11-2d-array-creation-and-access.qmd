@@ -14,122 +14,136 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## 2D Array Creation and Access
+## Topic Intro
 
-### Two-dimensional arrays model data in rows and columns
+### 2D arrays organize data in rows and columns
 
-The textbook introduces 2D arrays as the natural structure for grid-like information.
+![2D lockers](../../assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg){fig-align="center" width="42%"}
 
-![Rows and columns as lockers](../../assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg){fig-align="center" width="74%"}
+A <span class="term">2D array</span> (二维数组) is an array whose elements are arrays.
 
-::: {.tight-list}
-- rows run horizontally
-- columns run vertically
-- 2D arrays are useful for tables, seats, boards, and pictures
-:::
+Use two indices:
+
+```java
+grid[row][col]
+```
+
+## Row and Column Model
+
+### First index is row, second index is column
+
+![Rows and columns](../../assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png){fig-align="center" width="50%"}
+
+```java
+int[][] nums = new int[3][4];
+```
+
+This creates 3 rows and 4 columns.
 
 ## Array Storage
 
-### Java stores a 2D array as an array of arrays
+### Row-major view
 
-![Row-major storage idea](../../assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png){fig-align="center" width="68%"}
+![Row major](../../assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png){fig-align="center" width="48%"}
 
-![Rows and columns as nested arrays](../../assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png){fig-align="center" width="72%"}
+Java stores a 2D array as an array of row arrays. The first bracket chooses a row array.
 
-Retained concepts:
+## Declaring 2D Arrays
 
-::: {.tight-list}
-- 2D arrays are arrays whose elements are themselves arrays
-- AP questions assume <span class="term">row-major order</span>
-- the outer array represents rows and the inner arrays represent columns
-:::
-
-## Declaring and Creating 2D Arrays
-
-### Syntax extends the 1D array pattern
+### Create with dimensions
 
 ```java
-int[][] ticketInfo = new int[2][3];
-String[][] seatingChart = new String[3][2];
+int[][] matrix = new int[2][3];
+String[][] seats = new String[5][4];
 ```
 
-Key points kept from the textbook:
-
-::: {.tight-list}
-- `datatype[][] name` declares a 2D array variable
-- `new` creates the rows and columns
-- elements receive default values
-- the total element count is rows times columns
-:::
+For `matrix`, valid row indices are `0` and `1`; valid column indices are `0`, `1`, and `2`.
 
 ## Initializer Lists
 
-### Each row is itself a 1D initializer list
+### Fill rows explicitly
 
 ```java
-int[][] arr2D = { {1, 2, 3}, {4, 5, 6} };
+int[][] grid =
+{
+    {1, 2, 3},
+    {4, 5, 6}
+};
 ```
 
-Students should connect this to nested 1D arrays rather than treating it as a completely new syntax system.
+`grid[0][0]` is `1`; `grid[1][2]` is `6`.
 
-## Set and Get Values
+## Set Values
 
-### Use `[row][col]` with row first and column second
+### Assign with row and column
 
-Retained access rule:
+```java
+int[][] grid = new int[2][3];
+grid[0][1] = 7;
+grid[1][2] = 9;
+```
 
-::: {.tight-list}
-- the first index selects the row
-- the second index selects the column
-- assignment changes one specific cell
-- retrieval reads one specific cell
-:::
+Read the access as: row first, column second.
 
-This row-first convention is central for AP CSA tracing.
+## Get Values
+
+### Use two brackets
+
+```java
+int[][] grid =
+{
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+System.out.println(grid[1][0]);
+```
+
+Output: `4`.
 
 ## Row and Column Length
 
-### The outer array length gives rows; a row length gives columns
+### Rows and columns use different expressions
 
 ```java
-arr.length
-arr[0].length
+int rows = grid.length;
+int cols = grid[0].length;
 ```
 
-Retained rules:
+For rectangular 2D arrays:
 
 ::: {.tight-list}
-- `arr.length` is the number of rows
-- `arr[0].length` is the number of columns in one row
-- row indices and column indices both start at `0`
-- invalid coordinates cause `ArrayIndexOutOfBoundsException`
+- `grid.length` gives number of rows
+- `grid[row].length` gives number of columns in that row
 :::
 
-## Classroom Tasks
+## Groupwork Coding Challenge
 
-### Practice worth keeping
+### ASCII Art
 
-Retained classroom work for this topic:
+Use a 2D array of characters or strings to store an image pattern.
 
-::: {.tight-list}
-- identify row-major organization in a 2D structure
-- declare and create 2D arrays with `new`
-- build 2D arrays with initializer lists
-- access and modify values with `[row][col]`
-- use `length` correctly for rows and columns
-- <span class="term">4.11.7 Coding Challenge: ASCII Art</span>
-:::
+```java
+String[][] art =
+{
+    {"*", " ", "*"},
+    {" ", "*", " "},
+    {"*", " ", "*"}
+};
+```
+
+Access and modify specific row-column cells to change the design.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain that a 2D array is an array of arrays
-- identify row-major order as the AP assumption
-- write the syntax for declaring and creating a 2D array
-- explain the meaning of `[row][col]`
-- distinguish `arr.length` from `arr[0].length`
+- create a 2D array with row and column dimensions
+- access values using `array[row][col]`
+- distinguish row count from column count
+- use initializer lists for small 2D arrays
+- explain why row index comes before column index
 :::
 
 ## End

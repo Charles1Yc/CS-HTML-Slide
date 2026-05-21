@@ -14,141 +14,195 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## String Processing
+## Topic Intro
 
-### Loops can traverse strings character by character
+### Loops can process strings one character at a time
 
-This topic combines:
-
-::: {.tight-list}
-- string indexing
-- substring methods
-- conditionals
-- loops
-:::
-
-The goal is to recognize standard <span class="term">string-processing algorithms</span>.
-
-## String Indices and Useful Methods
-
-### Most string loops start at index 0
-
-![String indices](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png){fig-align="center" width="58%"}
-
-The core methods reused in this topic are:
+String algorithms combine:
 
 ::: {.tight-list}
+- string indices
 - `length()`
-- `indexOf(...)`
-- `substring(from, to)`
-- `substring(from)`
+- `indexOf(target)`
+- `substring(start, end)`
+- loops and conditionals
 :::
 
-## while Find and Replace
+![String indices](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png){fig-align="center" width="52%"}
 
-### Use `indexOf` to keep searching until the target is gone
+## While Find and Replace
+
+### Use `indexOf` when the number of matches is unknown
+
+Algorithm:
+
+::: {.tight-list}
+- search for the target substring
+- while the target exists, process it
+- rebuild the string without or with replacement text
+- search again after the string changes
+:::
 
 ```java
 while (s.indexOf("a") >= 0)
 {
-    index = s.indexOf("a");
+    int index = s.indexOf("a");
     s = s.substring(0, index) + s.substring(index + 1);
 }
 ```
 
-This pattern works when:
+## Mixed-Up Code
 
-::: {.tight-list}
-- you do not know how many matches there will be
-- each match is processed and removed or replaced
-- the string changes after each pass
-:::
+### Remove all `a` characters
 
-## Replacement Algorithms
-
-### A loop can repeatedly clean or rewrite text
+Reorder the method.
 
 ```java
-String firstpart = message.substring(0, index);
-String lastpart = message.substring(index + 1);
-message = firstpart + "l" + lastpart;
+String s = "are apples tasty without an a?";
+System.out.println("Original string: " + s);
+
+while (s.indexOf("a") >= 0)
+{
+    int index = s.indexOf("a");
+    s = s.substring(0, index) + s.substring(index + 1);
+}
+
+System.out.println("String with a's removed: " + s);
 ```
 
-The important teaching move is not the exact example.  
-It is the algorithm:
+Trace the first replacement before running the full loop.
 
-::: {.tight-list}
-- find the target
-- split the string around it
-- rebuild a new string
-- repeat until no target remains
-:::
+## Code Task {.fit-small}
 
-## `for` Loops over Strings
+### Count replacements while cleaning text
 
-### Use `for` when you intend to visit every character
+Add a counter to the find-and-replace loop.
 
 ```java
-for (int i = 0; i < s.length(); i++)
+String message = "Have a 1ong and happy 1ife";
+int count = 0;
+
+while (message.indexOf("1") >= 0)
 {
-    String ithLetter = s.substring(i, i + 1);
+    int index = message.indexOf("1");
+    String first = message.substring(0, index);
+    String last = message.substring(index + 1);
+    message = first + "l" + last;
+    count++;
+}
+
+System.out.println("Cleaned text: " + message);
+System.out.println("Replacements: " + count);
+```
+
+Expected final message: `Have a long and happy life`.
+
+## For Loops over Strings
+
+### Use `for` when every index should be visited
+
+```java
+for (int i = 0; i < message.length(); i++)
+{
+    String letter = message.substring(i, i + 1);
+    System.out.println(letter);
 }
 ```
 
-The standard loop shape is:
+Standard bounds:
 
 ::: {.tight-list}
-- start at 0
-- continue while `i < s.length()`
-- process the character at `i`
+- start at index `0`
+- stop while `i < message.length()`
+- use `substring(i, i + 1)` for one character
 :::
 
-## Reversing a String
+## Mixed-Up Code
 
-### Build a new string one character at a time
+### Count the letter `e`
 
 ```java
+String message = "e is the most frequent English letter.";
+int count = 0;
+
+for (int i = 0; i < message.length(); i++)
+{
+    if (message.substring(i, i + 1).equalsIgnoreCase("e"))
+    {
+        count++;
+    }
+}
+
+System.out.println(count);
+```
+
+Class focus: the `if` is inside the loop because each character must be tested.
+
+## Reverse String
+
+### Concatenation order changes the result
+
+```java
+String s = "Hello";
 String sReversed = "";
+
 for (int i = 0; i < s.length(); i++)
 {
     String ithLetter = s.substring(i, i + 1);
     sReversed = ithLetter + sReversed;
 }
+
+System.out.println(s + " reversed is " + sReversed);
 ```
 
-This is a good example of:
+Expected output: `Hello reversed is olleH`.
 
-::: {.tight-list}
-- traversal
-- building a result gradually
-- order mattering in concatenation
-:::
+## Trace Checkpoint
 
-## Classroom Task
+### Build the reversed string
+
+Trace `s = "cat"`.
+
+| `i` | `ithLetter` | `sReversed` after update |
+|---:|---|---|
+| 0 | `"c"` | `"c"` |
+| 1 | `"a"` | `"ac"` |
+| 2 | `"t"` | `"tac"` |
+
+If the update were `sReversed = sReversed + ithLetter`, the result would stay in original order.
+
+## Groupwork Coding Challenge {.fit-small .image-fit}
 
 ### String Replacement: Cats and Dogs
 
-![Cats and dogs challenge](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg){fig-align="center" width="28%"}
+![Cats and dogs challenge](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg){fig-align="center" width="24%"}
 
-Retained task focus:
+Starter:
 
-::: {.tight-list}
-- find every occurrence of a target substring
-- replace it with a new substring
-- trace repeated string rebuilding
-- <span class="term">2.10.3 Coding Challenge: String Replacement Cats and Dogs</span>
-:::
+```java
+String message = "I love cats! I have a cat named Coco. My cat's very smart!";
+
+while (message.indexOf("cat") >= 0)
+{
+    int index = message.indexOf("cat");
+    message = message.substring(0, index) + "dog" + message.substring(index + 3);
+}
+
+System.out.println(message);
+```
+
+Do not use the shortcut `.replace`.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain when string algorithms use `while` versus `for`
-- apply `indexOf` and `substring` to locate and rebuild strings
-- use correct index bounds when traversing a string
-- explain how a reversed string is built character by character
-- recognize string-processing loops as repeated search-and-update patterns
+- choose `while` when repeated `indexOf` search controls the loop
+- choose `for` when every string index should be visited
+- use correct `substring` bounds for one-character extraction
+- rebuild strings by concatenating prefix, replacement, and suffix
+- trace how concatenation order affects a reversed string
 :::
 
 ## End

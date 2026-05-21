@@ -14,113 +14,106 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Wrapper Classes
+## Topic Intro
 
-### Wrapper classes give primitive values an object form
+### Wrapper classes turn primitives into objects
 
-The textbook focuses on `Integer` and `Double`.
+<span class="term">Wrapper classes</span> (包装类) provide object versions of primitive values.
 
-::: {.tight-list}
-- a <span class="term">wrapper class</span> encloses a primitive value in an object
-- `Integer` wraps `int`
-- `Double` wraps `double`
-- wrapper objects matter when APIs or collections require objects
-:::
+| Primitive | Wrapper class |
+|---|---|
+| `int` | `Integer` |
+| `double` | `Double` |
+| `boolean` | `Boolean` |
 
-## Creating `Integer` and `Double` Objects
+AP CSA most often uses `Integer` and `Double`.
 
-### Wrapped values behave like objects, not raw primitives
+## Creating Wrapper Objects
+
+### Prefer autoboxing in modern Java
 
 ```java
-Integer i = 2;
-Double d = 3.5;
+Integer count = 5;
+Double price = 19.99;
 ```
 
-Retained ideas:
+The primitive value is automatically wrapped into an object. This is called <span class="term">autoboxing</span>.
 
-::: {.tight-list}
-- wrapper classes live in `java.lang`
-- wrapper objects are <span class="term">immutable</span>
-- the classes also expose useful constants like min and max values
-:::
+## Unboxing
 
-## Overflow and Underflow
+### Wrapper objects can become primitive values
 
-### Integer ranges are fixed
+```java
+Integer count = 5;
+int next = count + 1;
+```
 
-The textbook keeps one concrete consequence of fixed-size integer storage:
+Java automatically extracts the `int` value from the `Integer`. This is called <span class="term">unboxing</span>.
 
-::: {.tight-list}
-- adding `1` to `Integer.MAX_VALUE` rolls over
-- subtracting `1` from `Integer.MIN_VALUE` also wraps around
-- these constants are also useful when initializing min/max searches
-:::
+## Why Wrappers Matter
 
-## Autoboxing and Unboxing
+### Generic collections store objects
 
-### Java can convert automatically between primitives and wrappers
+`ArrayList` cannot use primitive type arguments:
 
-::: {.compare-grid}
-::: {.soft-box}
-**Autoboxing**
+```java
+ArrayList<int> values;      // invalid
+ArrayList<Integer> values;  // valid
+```
 
-- primitive to wrapper
-- for example `int` to `Integer`
-- happens when an object is required
-:::
-::: {.soft-box}
-**Unboxing**
-
-- wrapper to primitive
-- for example `Integer` to `int`
-- happens when a primitive value is required
-:::
-:::
-
-This becomes especially important with `ArrayList`, which stores objects rather than primitive types.
+Use wrapper classes when storing primitive-style values in an `ArrayList`.
 
 ## Parsing Strings to Numbers
 
-### Wrapper classes also provide conversion utilities
+### Convert text input into numeric values
 
 ```java
-int n = Integer.parseInt(text);
-double x = Double.parseDouble(text);
+String ageText = "16";
+int age = Integer.parseInt(ageText);
+
+String priceText = "12.50";
+double price = Double.parseDouble(priceText);
 ```
 
-Retained points:
+Parsing is common when reading from text files or CSV data.
 
-::: {.tight-list}
-- file and scanner input often begins as strings
-- parsing turns those strings into values that can be compared or used in arithmetic
-- these methods are part of the AP quick-reference expectations
-:::
+## Debug Task
 
-## Classroom Tasks
+### Fix invalid parsing
 
-### Practice worth keeping
+```java
+String speedText = "fast";
+int speed = Integer.parseInt(speedText);
+```
 
-Retained classroom work for this topic:
+This causes a runtime error because `"fast"` is not an integer.
 
-::: {.tight-list}
-- identify what wrapper classes do
-- distinguish immutable wrapper objects from primitive values
-- explain autoboxing and unboxing
-- use `Integer.parseInt` and `Double.parseDouble` correctly
-- connect wrappers to collections like `ArrayList`
-- <span class="term">4.7.4 Coding Challenge: Pokemon Speed</span>
-:::
+Fix the data or check input before parsing.
+
+## Groupwork Coding Challenge
+
+### Pokemon Speed
+
+Given a CSV field for Pokemon speed:
+
+```java
+String line = "Pikachu,Electric,90";
+String[] parts = line.split(",");
+int speed = Integer.parseInt(parts[2]);
+```
+
+Use parsing to compare speeds and find the fastest Pokemon in a data set.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- define a wrapper class
-- explain why `Integer` and `Double` are objects
-- distinguish autoboxing from unboxing
-- explain when parsing is needed
-- explain why wrapper classes matter for collections
+- match `int` with `Integer` and `double` with `Double`
+- explain autoboxing and unboxing at a basic level
+- explain why `ArrayList<Integer>` is used instead of `ArrayList<int>`
+- parse numeric strings with `Integer.parseInt` or `Double.parseDouble`
+- identify parsing errors caused by nonnumeric strings
 :::
 
 ## End

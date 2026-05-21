@@ -14,134 +14,193 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
+## Topic Intro
+
+### Different expressions can mean the same thing
+
+Two Boolean expressions are <span class="term">equivalent</span> (等价) if they always evaluate to the same value for the same inputs.
+
+This topic focuses on:
+
+::: {.tight-list}
+- De Morgan's Laws
+- simplifying Boolean expressions
+- comparing objects and strings
+- safe `null` checks
+:::
+
 ## De Morgan's Laws
 
-### Move the NOT inside and flip the connector
+### Distributing `!` flips the operator
 
-![De Morgan's Laws](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png){fig-align="center" width="48%"}
+![De Morgan's Laws](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png){fig-align="center" width="45%"}
 
-The goal is to show that two different-looking Boolean expressions can be logically equivalent.
-
-::: {.tight-list}
-- `!(a && b)` is equivalent to `!a || !b`
-- `!(a || b)` is equivalent to `!a && !b`
-:::
-
-## Flipping Relational Operators
-
-### Moving `!` inward also changes comparison signs
-
-::: {.tight-list}
-- `!(c == d)` becomes `c != d`
-- `!(c < d)` becomes `c >= d`
-- `!(c > d)` becomes `c <= d`
-:::
-
-The classroom shortcut is: <span class="mark">move the NOT, flip the sign</span>.
-
-## Simplifying Expressions
-
-### Equivalent code can be easier to read
-
-![Example simplification](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png){fig-align="center" width="52%"}
+Core identities:
 
 ```java
-!(x < 3 && y > 2)
+!(a && b)  is equivalent to  !a || !b
+!(a || b)  is equivalent to  !a && !b
 ```
 
-can be simplified step by step into:
+The operator changes when the negation moves inward.
+
+## Truth Table Method
+
+### Prove equivalence by matching result columns
+
+| `a` | `b` | `!(a && b)` | `!a || !b` |
+|---|---|---|---|
+| true | true | false | false |
+| true | false | true | true |
+| false | true | true | true |
+| false | false | true | true |
+
+Because the result columns match in every row, the two expressions are equivalent.
+
+## Simplifying Boolean Expressions
+
+### Choose the more readable form
+
+![Simplifying with De Morgan](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png){fig-align="center" width="42%"}
+
+Example:
 
 ```java
-x >= 3 || y <= 2
+!(score >= 60 && submitted)
 ```
 
-## Truth Tables and Equivalence
+Equivalent form:
 
-### Matching outputs prove two expressions are equivalent
+```java
+score < 60 || !submitted
+```
 
-Truth tables matter here because they let students compare:
+## Quick Check
 
-::: {.tight-list}
-- the original compound expression
-- the negated version
-- the simplified version
-:::
+### Apply De Morgan's Laws
 
-If every row matches, the expressions are equivalent.
-
-## Comparing Objects and Strings
-
-### `equals` is usually the right comparison for object content
-
-![String aliases](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png){fig-align="center" width="34%"}
+Which expression is equivalent to `!(x < 5 || y == 0)`?
 
 ::: {.tight-list}
-- objects can have many internal values
-- `==` checks whether two references point to the same object
-- `equals(...)` checks whether two objects should count as equal in content
+- A. `x >= 5 && y != 0`
+- B. `x >= 5 || y != 0`
+- C. `x < 5 && y == 0`
+- D. `x > 5 && y != 0`
 :::
 
-With strings, you almost always want `equals(...)`.
+Answer: <span class="mark">A</span>. Negate both comparisons and change `||` to `&&`.
 
-## String Equality Cases
+## Comparing Objects
 
-### Same content is not always the same reference
+### `==` asks whether references are identical
+
+For object variables, `==` compares references.
+
+![String reference comparison](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png){fig-align="center" width="40%"}
+
+With strings, you almost always want:
+
+```java
+s1.equals(s2)
+```
+
+because it checks whether the character sequences are equal.
+
+## String Equality
+
+### Same characters, different references
+
+```java
+String s1 = new String("hi");
+String s2 = new String("hi");
+
+System.out.println(s1 == s2);
+System.out.println(s1.equals(s2));
+```
+
+Expected output:
+
+```text
+false
+true
+```
+
+`equals` checks content equality.
+
+## Reference Diagrams {.image-fit}
+
+### Trace what each variable points to
 
 ::: {.two-col}
 ::: {}
-![Alias case](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg){width="100%"}
+![s1 and s2](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg){width="84%"}
 :::
-::: {.soft-box}
-Two useful cases:
-
-- alias case: `s2 == s3` can be true
-- new-string case: `s1 == s2` can be false even when `s1.equals(s2)` is true
+::: {}
+![s2 and s3](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg){width="84%"}
 :::
 :::
 
-![New strings with same characters](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg){fig-align="center" width="40%"}
+When a question uses `==` with objects, draw arrows to objects before answering.
 
 ## Comparing with `null`
 
-### Use short circuiting to stay safe
+### Check `null` before calling a method
+
+This can crash if `s` is `null`:
 
 ```java
-if (s != null && s.indexOf("a") >= 0)
+if (s.equals("yes"))
 {
-    System.out.println(s + " contains an a");
+    System.out.println("matched");
 }
 ```
 
-::: {.tight-list}
-- `null` means no object is there
-- calling a method on `null` causes a <span class="term">NullPointerException</span>
-- `s != null && ...` is safe because of short circuit evaluation
-:::
+Safe pattern:
 
-## Classroom Tasks
+```java
+if (s != null && s.equals("yes"))
+{
+    System.out.println("matched");
+}
+```
 
-### Practice worth keeping
+Short circuiting prevents the method call when `s` is `null`.
 
-Retained classroom work for this topic:
+## Student Response Task
 
-::: {.tight-list}
-- De Morgan transformation checks
-- truth-table comparisons for equivalent conditions
-- `==` versus `equals(...)` examples with strings
-- `null` guard tracing with short-circuit logic
-- <span class="term">2.6.8 Coding Challenge: Truth and Tracing Tables POGIL</span>
-:::
+### Truth and tracing table
+
+Complete the reasoning for the code.
+
+```java
+String a = new String("cat");
+String b = new String("cat");
+String c = a;
+System.out.println(a == b);
+System.out.println(a == c);
+System.out.println(a.equals(b));
+```
+
+Answer:
+
+```text
+false
+true
+true
+```
+
+Explain each line using references versus contents.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- apply De Morgan's Laws correctly
-- flip relational operators when moving negation inward
-- explain expression equivalence with truth-table reasoning
-- distinguish `==` from `equals(...)` for strings
-- explain why `obj != null && ...` is the safe pattern
+- apply De Morgan's Laws by flipping both the comparison and the operator
+- use a truth table to test Boolean equivalence
+- distinguish `==` from `equals` for strings
+- explain why two different string objects can have equal contents
+- write safe `obj != null && obj.method()` checks
 :::
 
 ## End

@@ -210,98 +210,232 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="compound-conditions" class="slide level2">
-<h2>Compound Conditions</h2>
-<h3 id="one-branch-can-depend-on-more-than-one-test">One branch can depend on more than one test</h3>
-<p>Sometimes a single Boolean test is not enough.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="combine-conditions-to-make-richer-decisions">Combine conditions to make richer decisions</h3>
+<p>A <span class="term">compound Boolean expression</span> (复合布尔表达式) combines smaller Boolean expressions using:</p>
 <div class="tight-list">
 <ul>
-<li>both conditions must be true</li>
-<li>at least one condition must be true</li>
-<li>one condition must be false</li>
+<li><code>&amp;&amp;</code> for <span class="term">and</span></li>
+<li><code>||</code> for <span class="term">or</span></li>
+<li><code>!</code> for <span class="term">not</span></li>
 </ul>
 </div>
-<p>This topic combines simple Boolean expressions into <span class="term">compound Boolean expressions</span>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">13</span> <span class="op">&amp;&amp;</span> age <span class="op">&lt;=</span> <span class="dv">19</span><span class="op">)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"teenager"</span><span class="op">);</span></span>
+<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="and" class="slide level2">
-<h2><code>&amp;&amp;</code>, <code>||</code>, and <code>!</code></h2>
-<h3 id="the-three-core-logical-operators">The three core logical operators</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>cleanedRoom <span class="op">&amp;&amp;</span> didHomework<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>walking <span class="op">||</span> carIsAvailable<span class="op">)</span></span>
-<span id="cb1-3"><a href=""></a><span class="cf">if</span> <span class="op">(!</span>homeworkDone<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>&amp;&amp;</code> means <span class="term">and</span></li>
-<li><code>||</code> means <span class="term">or</span></li>
-<li><code>!</code> means <span class="term">not</span></li>
-</ul>
-</div>
-<p>In Java, <code>||</code> is inclusive OR, so it is true when either side is true or when both sides are true.</p>
+<h2>And</h2>
+<h3 id="is-true-only-when-both-sides-are-true"><code>&amp;&amp;</code> is true only when both sides are true</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">boolean</span> hasTicket <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">13</span> <span class="op">&amp;&amp;</span> hasTicket<span class="op">)</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Enter the event"</span><span class="op">);</span></span>
+<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Truth rule:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th><code>A &amp;&amp; B</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="odd">
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr class="even">
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="common-uses-with-numbers" class="slide level2">
-<h2>Common Uses with Numbers</h2>
-<h3 id="or-often-checks-for-error-ranges-and-often-checks-valid-ranges"><code>or</code> often checks for error ranges, <code>and</code> often checks valid ranges</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>score <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">||</span> score <span class="op">&gt;</span> <span class="dv">100</span></span>
-<span id="cb2-2"><a href=""></a>score <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> score <span class="op">&lt;=</span> <span class="dv">100</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>use <code>||</code> when a value can be invalid on either end</li>
-<li>use <code>&amp;&amp;</code> when a value must stay inside a range</li>
-<li>use parentheses when the grouping is not obvious</li>
-</ul>
-</div>
+<section id="or" class="slide level2">
+<h2>Or</h2>
+<h3 id="is-true-when-at-least-one-side-is-true"><code>||</code> is true when at least one side is true</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">boolean</span> isWeekend <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="dt">boolean</span> isHoliday <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isWeekend <span class="op">||</span> isHoliday<span class="op">)</span></span>
+<span id="cb3-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"No school"</span><span class="op">);</span></span>
+<span id="cb3-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Truth rule:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th><code>A || B</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>true</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="truth-tables" class="slide level2">
-<h2>Truth Tables</h2>
-<h3 id="a-truth-table-shows-every-possible-combination">A truth table shows every possible combination</h3>
-<p>For two Boolean values <code>P</code> and <code>Q</code>:</p>
-<div class="tight-list">
-<ul>
-<li><code>P &amp;&amp; Q</code> is only true when <mark>both</mark> are true</li>
-<li><code>P || Q</code> is true when <mark>either</mark> one is true</li>
-<li><code>!P</code> flips true to false and false to true</li>
-</ul>
-</div>
-<p>Truth tables are the cleanest way to explain why a compound condition works.</p>
+<section id="number-range" class="slide level2">
+<h2>Number Range</h2>
+<h3 id="is-the-standard-inside-range-pattern"><code>&amp;&amp;</code> is the standard inside-range pattern</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;=</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> x <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">)</span></span>
+<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"inside range"</span><span class="op">);</span></span>
+<span id="cb4-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For outside the range, use <code>||</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">1</span> <span class="op">||</span> x <span class="op">&gt;</span> <span class="dv">10</span><span class="op">)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"outside range"</span><span class="op">);</span></span>
+<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="not" class="slide level2">
+<h2>Not</h2>
+<h3 id="flips-a-boolean-value"><code>!</code> flips a Boolean value</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="dt">boolean</span> finished <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a><span class="cf">if</span> <span class="op">(!</span>finished<span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Keep working"</span><span class="op">);</span></span>
+<span id="cb6-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>!</code> is useful, but it can make expressions harder to read. Prefer a direct condition when the direct form is clearer.</p>
+</section>
+<section id="truth-table-checkpoint" class="slide level2">
+<h2>Truth Table Checkpoint</h2>
+<h3 id="fill-in-the-result-column">Fill in the result column</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><code>x</code></th>
+<th style="text-align: right;"><code>y</code></th>
+<th>Expression</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
+<td><code>x &lt; 5 &amp;&amp; y &gt; 5</code></td>
+<td><code>true</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
+<td><code>x &lt; 5 || y &lt; 5</code></td>
+<td><code>true</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
+<td><code>!(x &lt; 5)</code></td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
+<td><code>x &gt;= 5 &amp;&amp; y &gt;= 5</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Class move: evaluate the smaller comparisons first, then combine the Boolean results.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-compound-booleans">Trace compound booleans</h3>
+<p>What is printed?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">6</span><span class="op">;</span></span>
+<span id="cb7-2"><a href=""></a><span class="dt">int</span> b <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb7-3"><a href=""></a><span class="cf">if</span> <span class="op">(</span>a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> b <span class="op">&gt;</span> <span class="dv">8</span><span class="op">)</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
+<span id="cb7-6"><a href=""></a><span class="op">}</span></span>
+<span id="cb7-7"><a href=""></a><span class="cf">if</span> <span class="op">(</span>a <span class="op">&gt;</span> <span class="dv">6</span> <span class="op">||</span> b <span class="op">==</span> <span class="dv">10</span><span class="op">)</span></span>
+<span id="cb7-8"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-9"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"B"</span><span class="op">);</span></span>
+<span id="cb7-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>A</span>
+<span id="cb8-2"><a href=""></a>B</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="short-circuit-evaluation" class="slide level2">
 <h2>Short Circuit Evaluation</h2>
-<h3 id="java-sometimes-skips-the-second-test">Java sometimes skips the second test</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>y <span class="op">/</span> x<span class="op">)</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> <span class="op">(</span>y <span class="op">/</span> x<span class="op">)</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>with <code>&amp;&amp;</code>, if the left side is false, Java stops</li>
-<li>with <code>||</code>, if the left side is true, Java stops</li>
-<li>this is called <span class="term">short circuit evaluation</span></li>
-<li>short circuiting can prevent errors such as division by zero</li>
-</ul>
-</div>
+<h3 id="java-may-skip-the-second-condition">Java may skip the second condition</h3>
+<p>For <code>&amp;&amp;</code>, if the first condition is false, the whole expression is false.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">!=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="dv">10</span> <span class="op">/</span> x <span class="op">&gt;</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"safe"</span><span class="op">);</span></span>
+<span id="cb9-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <code>||</code>, if the first condition is true, the whole expression is true.</p>
+<p>Short circuiting prevents unnecessary or unsafe checks.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="coding-challenge" class="slide level2">
+<h2>Coding Challenge</h2>
+<h3 id="truth-tables-pogil">Truth Tables POGIL</h3>
+<p>Write an <code>if</code> statement that prints <code>true</code> only when:</p>
 <div class="tight-list">
 <ul>
-<li>tracing <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code> in simple conditionals</li>
-<li>range checks with numeric examples</li>
-<li>truth-table completion and branch prediction</li>
-<li>short-circuit reasoning with divide-by-zero cases</li>
-<li><span class="term">2.5.4 Coding Challenge: Truth Tables POGIL</span></li>
+<li><code>x</code> is between <code>1</code> and <code>10</code>, inclusive</li>
+<li><code>y</code> is not equal to <code>0</code></li>
 </ul>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb10-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;=</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> x <span class="op">&lt;=</span> <span class="dv">10</span> <span class="op">&amp;&amp;</span> y <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb10-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-6"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"true"</span><span class="op">);</span></span>
+<span id="cb10-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Test at least one boundary value such as <code>x = 1</code> or <code>x = 10</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>distinguish <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code></li>
-<li>explain the difference between range checks and error checks</li>
-<li>use truth-table reasoning for compound conditions</li>
-<li>explain Java short circuit evaluation</li>
-<li>recognize why short circuiting can avoid runtime errors</li>
+<li>explain the truth rules for <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code></li>
+<li>use <code>&amp;&amp;</code> for an inside range and <code>||</code> for an outside range</li>
+<li>evaluate compound Boolean expressions step by step</li>
+<li>explain short circuit evaluation for <code>&amp;&amp;</code> and <code>||</code></li>
+<li>write readable compound conditions with correct operator placement</li>
 </ul>
 </div>
 </section>

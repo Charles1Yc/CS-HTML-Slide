@@ -1,6 +1,6 @@
 ---
 title: "3.5 Methods: How to Write Them"
-subtitle: "Class Creation"
+subtitle: "Part 1: Method Basics"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,161 +14,153 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Methods: How to Write Them
+## Topic Intro
 
-### Methods provide the behaviors of an object
+### Methods define object behavior
 
-In object-oriented programming, the textbook keeps three class parts together:
+In object-oriented programming, a class combines:
 
 ::: {.tight-list}
-- instance variables hold the object's data
-- constructors initialize that data
-- <span class="term">methods</span> define what the object can do
+- instance variables: state
+- constructors: initialization
+- <span class="term">methods</span> (方法): behavior
 :::
 
-This topic turns class structure into usable behavior.
+This first deck focuses on defining, calling, and classifying methods.
 
 ## Defining and Calling Methods
 
-### Students need to track both definition and use
+### A method definition lives inside the class
 
-![Calling methods in different contexts](../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png){fig-align="center" width="78%"}
+![Calling methods in different contexts](../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png){fig-align="center" width="66%"}
 
-The classroom sequence here is:
+A method call such as `p.print()` transfers control to the method body, runs its statements, then returns to the caller.
 
-::: {.tight-list}
-- create or obtain an object
-- call the method with `objectName.methodName()`
-- connect that call to the method header and body inside the class
-:::
+## Method Header
 
-## `void` and Non-`void`
-
-### Some methods perform actions; others return values
-
-::: {.compare-grid}
-::: {.soft-box}
-**`void` methods**
-
-- perform an action
-- do not return a value
-- often print, update, or change state
-:::
-::: {.soft-box}
-**non-`void` methods**
-
-- return one value
-- must use a <span class="term">return</span> statement
-- include a return type in the header
-:::
-:::
-
-Code after a guaranteed `return` path does not execute.
-
-## Accessors / Getters
-
-### Getters expose selected data without exposing the variable directly
-
-Because instance variables are usually `private`, outside code needs a public method to read a value.
+### Read the method signature
 
 ```java
-public String getName()
+public void print()
 {
-    return name;
+    System.out.println(name);
 }
 ```
 
+Key parts:
+
 ::: {.tight-list}
-- a getter usually takes <span class="mark">no parameters</span>
-- its return type matches the instance variable type
-- it returns a copy of the value, not direct outside access to the variable
+- `public`: other classes can call it
+- `void`: it does not return a value
+- `print`: method name
+- `()`: parameter list, empty here
 :::
 
-## `toString`
+## Code Task
 
-### Java uses this method when it needs a string form of an object
+### Add and call an instance method
 
-`toString` is not exactly a getter, but it is a key non-`void` method.
+```java
+public class Person
+{
+    private String name;
+
+    public Person(String initialName)
+    {
+        name = initialName;
+    }
+
+    public void print()
+    {
+        System.out.println(name);
+    }
+
+    public static void main(String[] args)
+    {
+        Person p = new Person("Ada");
+        p.print();
+    }
+}
+```
+
+Expected output: `Ada`.
+
+## `void` Methods
+
+### A `void` method performs an action
+
+Common `void` method jobs:
 
 ::: {.tight-list}
-- it returns a `String`
-- `System.out.println(object)` can call it automatically
-- it gives a readable summary of the object's state
+- print information
+- update object state
+- move an object
+- draw something
 :::
 
-This makes it especially useful for tracing and debugging class behavior.
+`void` methods do not return a value to the caller.
 
-## Mutators / Setters
+```java
+public void celebrateBirthday()
+{
+    age++;
+}
+```
 
-### A setter changes state through a controlled public method
+## Non-`void` Methods
 
-![Getter and setter comparison](../../assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png){fig-align="center" width="74%"}
+### A non-`void` method returns one value
+
+```java
+public int getAge()
+{
+    return age;
+}
+```
+
+Rules:
 
 ::: {.tight-list}
-- a <span class="term">setter</span> is usually a `void` method
-- it usually takes one parameter of the same type as the variable being changed
-- not every instance variable should automatically get a setter
-- the class should expose only the changes that make sense for the object
+- the return type is written before the method name
+- the method must return a compatible value
+- code after a guaranteed `return` path does not run
 :::
 
-## Parameters and Arguments
+## Quick Check
 
-### Java passes copies of argument values into parameter variables
+### Classify the method
 
-![Arguments become parameters](../../assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png){fig-align="center" width="72%"}
+```java
+public boolean isAdult()
+{
+    return age >= 18;
+}
+```
 
-::: {.tight-list}
-- a <span class="term">parameter</span> appears in the method header
-- an <span class="term">argument</span> is the value used in the method call
-- arguments must match the number, order, and compatible types in the signature
-- with primitives, changes to the parameter do not change the original argument
-:::
-
-## Methods with Parameters and Return Values
-
-### Not every returned value is a simple getter
-
-The textbook keeps one more category:
+This method is:
 
 ::: {.tight-list}
-- some methods use parameters to perform a search or calculation
-- they return a result computed from those inputs
-- this combines method parameters, algorithm steps, and a final returned value
-:::
-
-This is where method-writing starts to connect back to Unit 2 algorithm work.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-![Animal clinic design prompt](../../assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png){fig-align="center" width="46%"}
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- distinguish defining a method from calling a method
-- classify methods as `void` or non-`void`
-- read and write simple getters, setters, and `toString`
-- match arguments to parameters correctly
-- analyze methods that compute and return a value
-- <span class="term">3.5.9 Coding Challenge: Class Pet</span>
+- non-`void`
+- return type `boolean`
+- no parameters
+- computes a value from instance data
 :::
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should...
 
 ::: {.tight-list}
-- explain the difference between `void` and non-`void` methods
-- identify when a `return` statement is required
-- describe the purpose of getters, setters, and `toString`
-- distinguish parameters from arguments
-- trace how a method can both use inputs and return a calculated result
+- identify a method header and method body
+- distinguish a method definition from a method call
+- explain what `void` means
+- explain when a `return` statement is required
+- trace control from a call to a method body and back
 :::
 
 ## End
 
-### Return to the course outline
+### Continue or return to the course outline
 
+[Next: Getters and toString](3-5-part-2-getters-and-tostring.html)  
 [← Back to AP CSA / 返回课程目录](../../index.html)

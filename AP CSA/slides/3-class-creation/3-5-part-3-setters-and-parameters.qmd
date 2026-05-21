@@ -1,0 +1,161 @@
+---
+title: "3.5 Methods: How to Write Them"
+subtitle: "Part 3: Setters and Parameters"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Methods can change state or calculate from inputs
+
+This deck focuses on:
+
+::: {.tight-list}
+- <span class="term">mutators</span> or setters
+- parameters and arguments
+- methods that return calculated values
+:::
+
+These methods connect class behavior to Unit 1 method signatures and Unit 2 algorithms.
+
+## Mutators / Setters
+
+### A setter changes object state
+
+![Getter and setter comparison](../../assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png){fig-align="center" width="58%"}
+
+```java
+public void setGradeLevel(int newGradeLevel)
+{
+    gradeLevel = newGradeLevel;
+}
+```
+
+A setter is usually `void` and takes a parameter with the new value.
+
+## Setter Design
+
+### Do not add setters automatically
+
+Only write a setter when outside code should be allowed to change that value.
+
+```java
+public void setGpa(double newGpa)
+{
+    if (newGpa >= 0.0 && newGpa <= 4.0)
+    {
+        gpa = newGpa;
+    }
+}
+```
+
+The method controls how state can change.
+
+## Quick Check
+
+### Pick the correct setter signature
+
+Which method header best sets an `int gradeLevel`?
+
+::: {.tight-list}
+- A. `public int setGradeLevel()`
+- B. `public void setGradeLevel(int newGradeLevel)`
+- C. `public String setGradeLevel(String newGradeLevel)`
+- D. `private void getGradeLevel(int newGradeLevel)`
+:::
+
+Answer: <span class="mark">B</span>.
+
+## Parameters and Arguments
+
+### Arguments are copied into parameters
+
+![Arguments become parameters](../../assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png){fig-align="center" width="62%"}
+
+::: {.tight-list}
+- a <span class="term">parameter</span> is declared in the method header
+- an <span class="term">argument</span> is supplied in the method call
+- number, order, and type must match the signature
+:::
+
+## Parameter Trace
+
+### Follow the value into the method
+
+```java
+public void setName(String newName)
+{
+    name = newName;
+}
+
+student.setName("Nora");
+```
+
+Trace:
+
+::: {.tight-list}
+- argument value: `"Nora"`
+- parameter variable: `newName`
+- assignment: `name = newName`
+- object state after call: `name` stores `"Nora"`
+:::
+
+## Methods with Calculated Return Values
+
+### A method can use parameters and return a result
+
+```java
+public boolean contains(String phrase, String target)
+{
+    return phrase.indexOf(target) >= 0;
+}
+```
+
+This is not a getter because it does not just return an instance variable. It computes a result from input values.
+
+## Code Task
+
+### Find a substring
+
+```java
+public class StringFind
+{
+    public static boolean containsIgnoreCase(String phrase, String target)
+    {
+        String lowerPhrase = phrase.toLowerCase();
+        String lowerTarget = target.toLowerCase();
+        return lowerPhrase.indexOf(lowerTarget) >= 0;
+    }
+}
+```
+
+Test with `containsIgnoreCase("Computer Science", "science")`.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- explain how a setter changes object state
+- choose a correct setter header for a variable type
+- distinguish parameters from arguments
+- trace an argument value into a parameter variable
+- explain how a method can return a calculated value rather than a stored field
+:::
+
+## End
+
+### Continue or return to the course outline
+
+[Next: Class Pet Challenge](3-5-part-4-class-pet-challenge.html)  
+[← Back to AP CSA / 返回课程目录](../../index.html)

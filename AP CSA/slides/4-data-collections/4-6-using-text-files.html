@@ -210,125 +210,131 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="using-text-files" class="slide level2">
-<h2>Using Text Files</h2>
-<h3 id="files-let-programs-work-with-data-that-persists-after-the-program-stops">Files let programs work with data that persists after the program stops</h3>
-<p>The textbook uses files as the bridge from hard-coded collections to real stored data.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="files-let-programs-use-external-data">Files let programs use external data</h3>
+<p>Text files store data outside the Java program. A program can read a file, parse values, and save them into arrays or objects.</p>
+<p>Core classes:</p>
 <div class="tight-list">
 <ul>
-<li>a <span class="term">file</span> stores data outside the running program</li>
-<li>the data can be loaded during execution</li>
-<li>this separates data from code and supports larger data sets</li>
+<li><code>File</code></li>
+<li><code>Scanner</code></li>
+<li><code>IOException</code></li>
 </ul>
 </div>
 </section>
-<section id="file-scanner-and-ioexception" class="slide level2">
-<h2><code>File</code>, <code>Scanner</code>, and <code>IOException</code></h2>
-<h3 id="java-needs-both-file-access-and-input-reading-tools">Java needs both file access and input-reading tools</h3>
+<section id="file-and-scanner" class="slide level2">
+<h2>File and Scanner</h2>
+<h3 id="open-a-file-for-reading">Open a file for reading</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">File</span><span class="op">;</span></span>
 <span id="cb1-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb1-3"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Core ideas retained from the textbook:</p>
-<div class="tight-list">
-<ul>
-<li><code>File</code> identifies the file to open</li>
-<li><code>Scanner</code> reads the data</li>
-<li>invalid file names can trigger exceptions</li>
-<li>one common AP-level strategy is adding <code>throws IOException</code></li>
-</ul>
-</div>
+<span id="cb1-3"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ReadFile</span>
+<span id="cb1-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>        <span class="bu">File</span> file <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"data.txt"</span><span class="op">);</span></span>
+<span id="cb1-10"><a href=""></a>        <span class="bu">Scanner</span> input <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>file<span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>throws IOException</code> acknowledges that file input can fail.</p>
 </section>
-<section id="reading-data-with-scanner" class="slide level2">
-<h2>Reading Data with <code>Scanner</code></h2>
-<h3 id="different-methods-read-different-shapes-of-input">Different methods read different shapes of input</h3>
-<p>Important <code>Scanner</code> operations kept here:</p>
+<section id="reading-values" class="slide level2">
+<h2>Reading Values</h2>
+<h3 id="scanner-reads-tokens-or-lines">Scanner reads tokens or lines</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">())</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>line<span class="op">);</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Common scanner methods:</p>
 <div class="tight-list">
 <ul>
-<li><code>nextLine()</code> reads an entire line</li>
-<li><code>next()</code> reads the next token</li>
-<li><code>nextInt()</code> and <code>nextDouble()</code> read numeric values</li>
-<li><code>hasNext()</code> checks whether more input remains</li>
-<li><code>close()</code> closes the file stream</li>
+<li><code>hasNextLine()</code></li>
+<li><code>nextLine()</code></li>
+<li><code>hasNextInt()</code></li>
+<li><code>nextInt()</code></li>
 </ul>
 </div>
-<p>Mixing <code>nextLine()</code> with numeric reads often requires extra care because of leftover whitespace.</p>
 </section>
 <section id="loop-to-read-a-file" class="slide level2">
 <h2>Loop to Read a File</h2>
-<h3 id="use-a-while-loop-until-there-is-no-more-input">Use a while loop until there is no more input</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>scan<span class="op">.</span><span class="fu">hasNext</span><span class="op">())</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-5"><a href=""></a>scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is the retained pattern for multi-line file processing.</p>
+<h3 id="file-reading-is-usually-a-loop">File reading is usually a loop</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">())</span></span>
+<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb3-5"><a href=""></a>    count<span class="op">++;</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The loop continues until there is no more file input.</p>
 </section>
 <section id="save-file-data-into-an-array" class="slide level2">
 <h2>Save File Data into an Array</h2>
-<h3 id="files-can-feed-arrays-or-arrays-of-objects">Files can feed arrays or arrays of objects</h3>
-<p>The textbook keeps two stages together:</p>
-<div class="tight-list">
-<ul>
-<li>read each line from the file</li>
-<li>store lines or extracted values into an array</li>
-<li>later move from raw text into object-oriented structures</li>
-</ul>
-</div>
-<p>This topic also previews why <code>ArrayList</code> can be useful when the final size is not known in advance.</p>
+<h3 id="store-data-for-later-processing">Store data for later processing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb4-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">()</span> <span class="op">&amp;&amp;</span> count <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">length</span><span class="op">)</span></span>
+<span id="cb4-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-6"><a href=""></a>    names<span class="op">[</span>count<span class="op">]</span> <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb4-7"><a href=""></a>    count<span class="op">++;</span></span>
+<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>count</code> variable records how many array slots were actually filled.</p>
 </section>
-<section id="split-strings-and-csv-data" class="slide level2">
-<h2>Split Strings and CSV Data</h2>
-<h3 id="one-line-can-contain-several-fields-separated-by-a-delimiter">One line can contain several fields separated by a delimiter</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> data <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained ideas:</p>
-<div class="tight-list">
-<ul>
-<li>CSV means <span class="term">Comma Separated Values</span></li>
-<li><code>split</code> breaks one line into fields</li>
-<li>the resulting array lets the program identify specific attributes by index</li>
-<li>string fields can later be converted into numbers if needed</li>
-</ul>
-</div>
+<section id="split-strings" class="slide level2">
+<h2>Split Strings</h2>
+<h3 id="csv-data-becomes-fields">CSV data becomes fields</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> line <span class="op">=</span> <span class="st">"Pikachu,35,Electric"</span><span class="op">;</span></span>
+<span id="cb5-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> parts <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="bu">String</span> name <span class="op">=</span> parts<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb5-5"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parts<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
+<span id="cb5-6"><a href=""></a><span class="bu">String</span> type <span class="op">=</span> parts<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>split</code> returns an array of substrings.</p>
 </section>
-<section id="object-oriented-design-with-csv-files" class="slide level2">
-<h2>Object-Oriented Design with CSV Files</h2>
-<h3 id="split-fields-can-become-objects-not-just-raw-strings">Split fields can become objects, not just raw strings</h3>
-<p>The textbook’s final move for this topic is:</p>
-<div class="tight-list">
-<ul>
-<li>define a class that matches the important columns</li>
-<li>split each line into attributes</li>
-<li>construct an object for that row</li>
-<li>store those objects in an array</li>
-</ul>
-</div>
-<p>This is the clean bridge from input files to structured program design.</p>
+<section id="object-oriented-design-with-csv" class="slide level2">
+<h2>Object-Oriented Design with CSV</h2>
+<h3 id="convert-rows-into-objects">Convert rows into objects</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Pokemon</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> speed<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Pokemon</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> speed<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> speed<span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each row can become one object after parsing.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="array-of-pokemon-from-input-file">Array of Pokemon from input file</h3>
+<p>Starter task:</p>
 <div class="tight-list">
 <ul>
-<li>fix file-reading code by adding <code>throws IOException</code></li>
-<li>choose the right <code>Scanner</code> method for a given input type</li>
-<li>use a while loop with <code>hasNext()</code> to read a file</li>
-<li>split CSV lines into fields and identify important indices</li>
-<li>convert file rows into arrays or arrays of objects</li>
-<li><span class="term">4.6.7 Coding Challenge: Array of Pokemon from Input File</span></li>
+<li>read each line from a Pokemon file</li>
+<li>split the line by commas</li>
+<li>parse numeric fields</li>
+<li>create a <code>Pokemon</code> object</li>
+<li>store it in an array</li>
 </ul>
 </div>
+<p>Class focus: file input, arrays, parsing, and class design working together.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define a file as persistent storage</li>
-<li>explain the roles of <code>File</code>, <code>Scanner</code>, and <code>IOException</code></li>
-<li>describe the standard while-loop pattern for file reading</li>
-<li>explain what <code>split</code> does for CSV data</li>
-<li>explain how one row of file data can become one object</li>
+<li>open a text file using <code>File</code> and <code>Scanner</code></li>
+<li>explain why file-reading code may throw <code>IOException</code></li>
+<li>use a loop with <code>hasNextLine</code></li>
+<li>store file data into an array with a count variable</li>
+<li>split a CSV line and parse numeric fields</li>
 </ul>
 </div>
 </section>

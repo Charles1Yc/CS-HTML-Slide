@@ -210,111 +210,96 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="arraylist-traversals" class="slide level2">
-<h2>ArrayList Traversals</h2>
-<h3 id="array-traversal-ideas-carry-over-but-list-access-uses-methods">Array traversal ideas carry over, but list access uses methods</h3>
-<p>The textbook keeps the bridge explicit:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="traversal-patterns-also-apply-to-arraylists">Traversal patterns also apply to ArrayLists</h3>
+<p><code>ArrayList</code> traversal can use:</p>
 <div class="tight-list">
 <ul>
-<li><code>ArrayList</code> can be traversed with enhanced <code>for</code>, indexed <code>for</code>, or <code>while</code></li>
-<li>indices still start at <code>0</code></li>
-<li>element access uses methods such as <code>get(index)</code></li>
+<li>enhanced for loop</li>
+<li>indexed for loop</li>
+<li>while loop</li>
 </ul>
 </div>
-<p>The main shift is that the collection size can change during runtime.</p>
+<p>Choose the loop based on whether you need the index, whether the list changes, and whether you are reading objects.</p>
 </section>
 <section id="enhanced-for-loop" class="slide level2">
 <h2>Enhanced For Loop</h2>
-<h3 id="use-for-each-when-reading-all-values-without-changing-list-size">Use for-each when reading all values without changing list size</h3>
-<p>The retained rule is simple:</p>
-<div class="tight-list">
-<ul>
-<li>enhanced <code>for</code> works when students only need the values</li>
-<li>it is concise and avoids index bookkeeping</li>
-<li>it should <mark>not</mark> be used when the list size changes during traversal</li>
-</ul>
-</div>
-<p>Adding or removing elements during an enhanced <code>for</code> traversal can cause a <span class="term">ConcurrentModificationException</span>.</p>
-</section>
-<section id="indexed-for-loops-and-bounds" class="slide level2">
-<h2>Indexed For Loops and Bounds</h2>
-<h3 id="use-indexed-access-when-position-matters">Use indexed access when position matters</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<h3 id="best-for-reading-every-element">Best for reading every element</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> name <span class="op">:</span> names<span class="op">)</span></span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
 <span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key retained ideas:</p>
-<div class="tight-list">
-<ul>
-<li><code>ArrayList</code> indices run from <code>0</code> to <code>size() - 1</code></li>
-<li>access uses <code>get(index)</code> rather than <code>[]</code></li>
-<li>invalid indices cause <span class="term">IndexOutOfBoundsException</span></li>
-</ul>
-</div>
+<p>Use this when you do not need the index and do not need to add or remove while traversing.</p>
 </section>
-<section id="while-loops-and-removal" class="slide level2">
-<h2>While Loops and Removal</h2>
-<h3 id="size-changing-traversals-need-careful-index-control">Size-changing traversals need careful index control</h3>
-<p>The textbook keeps a specific removal warning:</p>
-<div class="tight-list">
-<ul>
-<li>removing an element shifts later elements left</li>
-<li>if the index is always incremented, the next shifted element may be skipped</li>
-<li>after a remove, the index often needs to stay in place for the next pass</li>
-</ul>
-</div>
-<p>This is one of the core tracing patterns students must learn for mutable lists.</p>
+<section id="indexed-for-loop" class="slide level2">
+<h2>Indexed For Loop</h2>
+<h3 id="use-geti-and-size">Use <code>get(i)</code> and <code>size()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
+<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Common error: using <code>names.length</code> or <code>names[i]</code>, which are array syntax, not <code>ArrayList</code> syntax.</p>
 </section>
-<section id="reading-files-with-java.nio.file" class="slide level2">
-<h2>Reading Files with <code>java.nio.file</code></h2>
-<h3 id="this-is-enrichment-but-it-clarifies-why-lists-are-useful">This is enrichment, but it clarifies why lists are useful</h3>
-<p>The retained teaching idea is:</p>
-<div class="tight-list">
-<ul>
-<li><code>readAllLines</code> can return a <code>List&lt;String&gt;</code></li>
-<li>dynamic list storage avoids knowing the final size in advance</li>
-<li>this reinforces why <code>ArrayList</code> is useful for real input data</li>
-</ul>
-</div>
-<p>This part is not the AP core, but it supports the conceptual transition from files to dynamic collections.</p>
+<section id="while-loop" class="slide level2">
+<h2>While Loop</h2>
+<h3 id="useful-when-index-movement-is-conditional">Useful when index movement is conditional</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">size</span><span class="op">())</span></span>
+<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
+<span id="cb3-5"><a href=""></a>    i<span class="op">++;</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>while</code> can be useful when the loop might skip, stop early, or remove elements with careful index control.</p>
+</section>
+<section id="insert-while-traversing" class="slide level2">
+<h2>Insert While Traversing</h2>
+<h3 id="insertion-changes-later-indices">Insertion changes later indices</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>words<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span><span class="st">"target"</span><span class="op">))</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        words<span class="op">.</span><span class="fu">add</span><span class="op">(</span>i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"found"</span><span class="op">);</span></span>
+<span id="cb4-6"><a href=""></a>        i<span class="op">++;</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After insertion, increment carefully so the loop does not immediately process the new element by accident.</p>
 </section>
 <section id="arraylist-of-objects" class="slide level2">
 <h2>ArrayList of Objects</h2>
-<h3 id="traversal-works-for-object-lists-as-well-as-primitive-wrapper-lists">Traversal works for object lists as well as primitive-wrapper lists</h3>
-<p>Students should be able to:</p>
-<div class="tight-list">
-<ul>
-<li>traverse a list of objects</li>
-<li>call methods on each object in the list</li>
-<li>connect this back to earlier <code>Student</code> and <code>WordPair</code> class work</li>
-</ul>
-</div>
+<h3 id="use-object-methods-during-traversal">Use object methods during traversal</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span>Student s <span class="op">:</span> students<span class="op">)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">getGpa</span><span class="op">()</span> <span class="op">&gt;=</span> <span class="fl">3.5</span><span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The loop variable stores one object reference at a time.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
+<section id="groupwork-coding-challenge" class="slide level2 image-fit">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="frq-word-pairs">FRQ Word Pairs</h3>
 
-<img data-src="../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png" style="width:54.0%" class="r-stretch quarto-figure-center"><p class="caption">Word pair construction pattern</p><p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>compare enhanced <code>for</code>, indexed <code>for</code>, and <code>while</code> traversals</li>
-<li>identify when list-size changes break enhanced <code>for</code></li>
-<li>trace removals without skipping shifted elements</li>
-<li>read and traverse lists of objects</li>
-<li><span class="term">4.9.6 Coding Challenge: FRQ Word Pairs</span></li>
-</ul>
-</div>
+<img data-src="../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">Word pair construction pattern</p><p>Build every pair of words with nested loops:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        pairs<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">WordPair</span><span class="op">(</span>words<span class="op">[</span>i<span class="op">],</span> words<span class="op">[</span>j<span class="op">]));</span></span>
+<span id="cb6-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain how <code>ArrayList</code> traversal differs from array traversal</li>
-<li>identify when an enhanced <code>for</code> loop is appropriate</li>
-<li>explain why removing items during traversal can skip elements</li>
-<li>state the valid index range using <code>size()</code></li>
-<li>explain how object lists are traversed and used</li>
+<li>traverse an <code>ArrayList</code> with enhanced for and indexed loops</li>
+<li>use <code>size()</code> and <code>get(i)</code> correctly</li>
+<li>explain why insertion or removal changes later indices</li>
+<li>traverse an <code>ArrayList</code> of objects using object methods</li>
+<li>use nested loops to create unique pairs</li>
 </ul>
 </div>
 </section>

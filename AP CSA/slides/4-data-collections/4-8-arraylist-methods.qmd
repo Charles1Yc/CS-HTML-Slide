@@ -14,135 +14,146 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## ArrayList Methods
+## Topic Intro
 
-### `ArrayList` is used when collection size needs to change
+### ArrayLists resize as elements are added and removed
 
-![Dynamic list idea for changing collections](../../assets/4-data-collections/4-8-arraylist-methods/lists.jpg){fig-align="center" width="68%"}
+![Lists](../../assets/4-data-collections/4-8-arraylist-methods/lists.jpg){fig-align="center" width="36%"}
 
-The textbook introduces `ArrayList` as the flexible alternative to fixed-size arrays.
+An <span class="term">ArrayList</span> stores objects in order and can change size during runtime.
 
-::: {.tight-list}
-- arrays have fixed length
-- `ArrayList` can grow and shrink during runtime
-- it stores object references, not primitive values
-:::
-
-## Import and Declaration
-
-### `ArrayList` comes from `java.util`
+You must import it:
 
 ```java
 import java.util.ArrayList;
-ArrayList<String> names = new ArrayList<String>();
 ```
 
-Retained ideas:
+## Declaring and Creating
 
-::: {.tight-list}
-- classes like `String` and `Math` are already available from `java.lang`
-- `ArrayList` must be imported from `java.util`
-- the type parameter `E` or a concrete type such as `String` identifies what the list stores
-- using a typed `ArrayList<E>` is preferred over a raw `ArrayList`
-:::
-
-## Creating Lists and `size()`
-
-### Declaring a variable does not create the list object
+### Use a type argument
 
 ```java
-ArrayList<String> list = new ArrayList<String>();
-int n = list.size();
+ArrayList<String> names = new ArrayList<String>();
+ArrayList<Integer> scores = new ArrayList<Integer>();
 ```
 
-::: {.tight-list}
-- a new `ArrayList()` starts empty
-- `size()` returns the current number of elements
-- calling methods on `null` still causes `NullPointerException`
-:::
+AP CSA uses generic type arguments such as `<String>` or `<Integer>` to describe the element type.
 
-## `add(obj)` and `add(index, obj)`
+## `size()`
 
-### Items can be appended or inserted
+### Number of elements currently stored
 
-Retained behaviors:
+```java
+ArrayList<String> names = new ArrayList<String>();
+names.add("Ana");
+names.add("Bo");
+System.out.println(names.size());
+```
 
-::: {.tight-list}
-- `add(obj)` appends to the end of the list
-- `add(index, obj)` inserts at a position
-- insertion shifts later elements to the right
-- indices start at `0`
-:::
+Output:
 
-Wrapper classes matter here because primitive types are added through autoboxing.
+```text
+2
+```
+
+Unlike arrays, `ArrayList` uses `size()` as a method.
+
+## `add(obj)`
+
+### Append to the end
+
+```java
+names.add("Cam");
+names.add("Dia");
+```
+
+The list grows as new elements are appended.
+
+For `ArrayList<Integer>`, Java autoboxes primitive `int` values into `Integer` objects.
+
+## `add(index, obj)`
+
+### Insert and shift later elements right
+
+```java
+ArrayList<String> letters = new ArrayList<String>();
+letters.add("A");
+letters.add("C");
+letters.add(1, "B");
+```
+
+Result:
+
+```text
+[A, B, C]
+```
 
 ## `remove(index)`
 
-### Removing an element also shifts the remaining elements
+### Remove and shift later elements left
 
 ```java
-E removed = list.remove(index);
+String removed = letters.remove(1);
 ```
 
-Key idea:
+After removing index `1` from `[A, B, C]`, the list becomes `[A, C]`.
+
+The method returns the removed object.
+
+## `get` and `set`
+
+### Read or replace one element
+
+```java
+String first = letters.get(0);
+letters.set(1, "D");
+```
 
 ::: {.tight-list}
-- the element at the index is removed and returned
-- later elements shift left
-- the list becomes smaller by one
+- `get(index)` returns the element
+- `set(index, obj)` replaces the element and returns the old value
 :::
 
-## `get(index)` and `set(index, obj)`
+## Arrays versus ArrayLists
 
-### Access and replacement use methods, not square brackets
+### Fixed size versus dynamic size
 
-Because `ArrayList` is a class rather than a built-in array type:
+| Feature | Array | ArrayList |
+|---|---|---|
+| size | fixed | can change |
+| length | `.length` | `.size()` |
+| element access | `arr[i]` | `list.get(i)` |
+| replace | `arr[i] = x` | `list.set(i, x)` |
 
-::: {.tight-list}
-- `get(index)` reads the element
-- `set(index, obj)` replaces the element
-- valid indices are `0` through `size() - 1`
-- `ArrayList` uses methods instead of `[]`
-:::
+## Groupwork Coding Challenge
 
-## Arrays vs `ArrayList`
+### FRQ Digits
 
-### The choice depends on whether size must change
+Build an `ArrayList<Integer>` containing the digits of a positive integer.
 
-The retained comparison is:
+```java
+ArrayList<Integer> digits = new ArrayList<Integer>();
+int number = 1234;
 
-::: {.tight-list}
-- use an array when the number of items is known and stable
-- use `ArrayList` when the size may change
-- arrays use `length` and `[]`
-- `ArrayList` uses `size()`, `get`, and `set`
-:::
+while (number > 0)
+{
+    digits.add(0, number % 10);
+    number /= 10;
+}
+```
 
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- import and declare typed `ArrayList` variables
-- distinguish an empty list from a `null` reference
-- use `size()`, `add`, `remove`, `get`, and `set` correctly
-- explain why wrapper classes are needed for numeric values
-- compare the operations of arrays and `ArrayList`
-- <span class="term">4.8.10 Coding Challenge: FRQ Digits</span>
-:::
+Trace why inserting at index `0` keeps the digits in normal order.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain why `ArrayList` is used instead of an array in dynamic-size situations
-- identify the package import needed for `ArrayList`
-- explain what the generic type parameter means
-- distinguish `add(obj)` from `add(index, obj)`
-- explain how `remove`, `get`, `set`, and `size()` work
+- import and create an `ArrayList` with a type argument
+- use `size()`, `add`, `remove`, `get`, and `set`
+- explain how insertions and removals shift elements
+- distinguish array syntax from `ArrayList` method calls
+- use `ArrayList<Integer>` for integer collections
 :::
 
 ## End

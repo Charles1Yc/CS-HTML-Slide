@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit4-shared.css">
@@ -144,112 +210,122 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="implementing-arraylist-algorithms" class="slide level2">
-<h2>Implementing ArrayList Algorithms</h2>
-<h3 id="standard-array-algorithm-patterns-carry-over-to-dynamic-lists">Standard array algorithm patterns carry over to dynamic lists</h3>
-<p>This topic maps familiar ideas onto <code>ArrayList</code>:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="arraylist-algorithms-must-respect-shifting">ArrayList algorithms must respect shifting</h3>
+<p>The same collection patterns appear again:</p>
 <div class="tight-list">
 <ul>
-<li>sum, average, min, and max</li>
-<li>property tests</li>
-<li>duplicates and pairs</li>
-<li>shift, rotate, and reverse</li>
-<li>parallel data-structure traversal</li>
+<li>add and remove elements</li>
+<li>min, max, sum, average</li>
+<li>count properties</li>
+<li>find duplicates</li>
+<li>rotate and reverse</li>
 </ul>
 </div>
-<p>The main change is method-based access and size-changing behavior.</p>
+<p>The main extra risk is that <code>ArrayList</code> indices shift after insertions and removals.</p>
 </section>
-<section id="add-and-remove-during-algorithms" class="slide level2">
-<h2>Add and Remove During Algorithms</h2>
-<h3 id="students-need-to-trace-list-mutation-precisely">Students need to trace list mutation precisely</h3>
-<p>The textbook retains direct tracing of:</p>
-<div class="tight-list">
-<ul>
-<li><code>add</code></li>
-<li><code>add(index, obj)</code></li>
-<li><code>remove</code></li>
-<li>shifting side effects after insertion or deletion</li>
-</ul>
-</div>
-<p>This is foundational because later algorithms depend on understanding how list contents move.</p>
+<section id="remove-in-a-loop" class="slide level2">
+<h2>Remove in a Loop</h2>
+<h3 id="traverse-backward-when-removing">Traverse backward when removing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> list<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        list<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Backward traversal avoids skipping elements after removal.</p>
 </section>
-<section id="min-max-sum-and-average" class="slide level2">
-<h2>Min, Max, Sum, and Average</h2>
-<h3 id="the-same-loop-patterns-still-apply">The same loop patterns still apply</h3>
-<p>Retained structure:</p>
-<div class="tight-list">
-<ul>
-<li>use traversal to visit each list element</li>
-<li>maintain accumulators or current best values</li>
-<li>combine loops with <code>if</code> conditions as needed</li>
-<li>use wrapper values because the list stores objects</li>
-</ul>
-</div>
-<p>Students should recognize that the pattern is familiar even though the collection type changed.</p>
+<section id="sum-and-average" class="slide level2">
+<h2>Sum and Average</h2>
+<h3 id="accumulate-values-from-geti">Accumulate values from <code>get(i)</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>    sum <span class="op">+=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-6"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>values.size()</code> for the divisor.</p>
 </section>
-<section id="finding-a-property" class="slide level2">
-<h2>Finding a Property</h2>
-<h3 id="list-algorithms-still-rely-on-boolean-checks-inside-loops">List algorithms still rely on boolean checks inside loops</h3>
-<p>The AP-style patterns are the same as with arrays:</p>
-<div class="tight-list">
-<ul>
-<li>determine whether at least one element has a property</li>
-<li>determine whether all elements have a property</li>
-<li>count how many elements have a property</li>
-</ul>
-</div>
-<p>Only the access syntax changes from <code>array[i]</code> to <code>list.get(i)</code> or an enhanced <code>for</code> variable.</p>
+<section id="max" class="slide level2">
+<h2>Max</h2>
+<h3 id="initialize-from-an-existing-element">Initialize from an existing element</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">&gt;</span> max<span class="op">)</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>        max <span class="op">=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This works for negative numbers too.</p>
 </section>
-<section id="pairs-duplicates-and-nested-loops" class="slide level2">
-<h2>Pairs, Duplicates, and Nested Loops</h2>
-<h3 id="some-list-problems-still-need-two-level-iteration">Some list problems still need two-level iteration</h3>
-<p>The textbook keeps nested-loop reasoning for:</p>
-<div class="tight-list">
-<ul>
-<li>consecutive pairs</li>
-<li>duplicate detection</li>
-<li>pair generation</li>
-</ul>
-</div>
-<p>Students should explicitly justify when one loop is insufficient.</p>
+<section id="count-a-property" class="slide level2">
+<h2>Count a Property</h2>
+<h3 id="selection-inside-traversal">Selection inside traversal</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> oddCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> values<span class="op">)</span></span>
+<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>value <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-6"><a href=""></a>        oddCount<span class="op">++;</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is a frequency counter for an <code>ArrayList</code>.</p>
 </section>
-<section id="shift-rotate-reverse-and-parallel-structures" class="slide level2">
-<h2>Shift, Rotate, Reverse, and Parallel Structures</h2>
-<h3 id="reordering-and-multi-list-traversal-combine-several-earlier-ideas">Reordering and multi-list traversal combine several earlier ideas</h3>
-<p>Retained algorithm families:</p>
-<div class="tight-list">
-<ul>
-<li>shift or rotate values in a list</li>
-<li>reverse list order</li>
-<li>traverse multiple arrays or <code>ArrayList</code> objects in sync</li>
-</ul>
-</div>
-<p>This is where students need to balance index control, method use, and mutation effects.</p>
+<section id="duplicates" class="slide level2">
+<h2>Duplicates</h2>
+<h3 id="compare-each-pair-once">Compare each pair once</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> j<span class="op">++)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>j<span class="op">)))</span></span>
+<span id="cb5-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb5-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-10"><a href=""></a><span class="op">}</span></span>
+<span id="cb5-11"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>equals</code> for objects such as strings.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>trace mutation caused by add/remove operations inside list algorithms</li>
-<li>write min/max/sum/average loops over <code>ArrayList</code></li>
-<li>implement boolean-property and counting patterns</li>
-<li>use nested loops for duplicate and pair algorithms</li>
-<li>explain how parallel data structures are traversed together</li>
-</ul>
-</div>
+<section id="rotate-right" class="slide level2">
+<h2>Rotate Right</h2>
+<h3 id="remove-from-one-end-and-add-to-the-other">Remove from one end and add to the other</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> last <span class="op">=</span> list<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>list<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb6-2"><a href=""></a>list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> last<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For a new list version, add elements into a separate <code>ArrayList</code> instead of modifying the original.</p>
+</section>
+<section id="reverse-into-a-new-list" class="slide level2">
+<h2>Reverse into a New List</h2>
+<h3 id="build-in-opposite-order">Build in opposite order</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> reversed <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
+<span id="cb7-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> item <span class="op">:</span> list<span class="op">)</span></span>
+<span id="cb7-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-4"><a href=""></a>    reversed<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> item<span class="op">);</span></span>
+<span id="cb7-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each new item is inserted at the front.</p>
+</section>
+<section id="parallel-data-structures" class="slide level2">
+<h2>Parallel Data Structures</h2>
+<h3 id="same-index-connects-related-lists">Same index connects related lists</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
+<span id="cb8-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> scores <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> scores<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Parallel lists require careful index consistency. A class is often a cleaner design.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain how familiar array algorithms transfer to <code>ArrayList</code></li>
-<li>distinguish when traversal can use enhanced <code>for</code> versus indexed loops</li>
-<li>explain the mutation effects of insertion and removal</li>
-<li>identify when nested loops are needed</li>
-<li>explain how two parallel lists can be traversed in step</li>
+<li>remove safely by traversing backward when needed</li>
+<li>compute sum, average, min, and max with <code>ArrayList</code> methods</li>
+<li>count elements that match a property</li>
+<li>use nested loops to detect duplicates</li>
+<li>rotate or reverse a list while explaining how indices change</li>
 </ul>
 </div>
 </section>

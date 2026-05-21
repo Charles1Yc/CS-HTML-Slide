@@ -210,96 +210,129 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="loop-analysis" class="slide level2">
-<h2>Loop Analysis</h2>
-<h3 id="run-time-analysis-begins-with-careful-tracing">Run-time analysis begins with careful tracing</h3>
-<p>This topic is not formal Big-O notation.<br>
-It is about estimating <span class="term">how many times code runs</span>.</p>
-</section>
-<section id="tracing-complex-loops" class="slide level2">
-<h2>Tracing Complex Loops</h2>
-<h3 id="multiple-variables-must-be-tracked-together">Multiple variables must be tracked together</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png" style="width:24.0%" class="r-stretch quarto-figure-center"><p class="caption">Loop trace table</p><p>When analyzing a loop, students should track:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="count-work-by-counting-loop-iterations">Count work by counting loop iterations</h3>
+<p><span class="term">Informal run-time analysis</span> (非正式运行时间分析) asks how much work an algorithm does as the input size grows.</p>
+<p>At this level, we count:</p>
 <div class="tight-list">
 <ul>
-<li>iteration number</li>
-<li>variable updates</li>
-<li>loop condition checks</li>
-<li>output produced</li>
+<li>how many times a loop body runs</li>
+<li>whether nested loops multiply work</li>
+<li>whether a triangular pattern grows like <code>1 + 2 + 3</code></li>
 </ul>
 </div>
-<p>Short-circuit behavior can also affect whether part of a condition is evaluated.</p>
+</section>
+<section id="tracing-loops" class="slide level2">
+<h2>Tracing Loops</h2>
+<h3 id="a-loops-output-depends-on-its-update">A loop’s output depends on its update</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb1-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
+<span id="cb1-5"><a href=""></a>    count<span class="op">++;</span></span>
+<span id="cb1-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The body runs five times, with <code>count</code> values <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>.</p>
+</section>
+<section id="trace-table" class="slide level2">
+<h2>Trace Table</h2>
+<h3 id="record-count-condition-and-output">Record count, condition, and output</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">While loop trace</p><p>Trace tables make iteration counts visible. They also expose off-by-one errors caused by <code>&lt;</code> versus <code>&lt;=</code>.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="count-the-iterations">Count the iterations</h3>
+<p>How many times does the body run?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>x <span class="op">&lt;=</span> <span class="dv">16</span><span class="op">)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>    x <span class="op">*=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer: <mark>5</mark> times. The values before update are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>.</p>
 </section>
 <section id="counting-loop-iterations" class="slide level2">
 <h2>Counting Loop Iterations</h2>
-<h3 id="a-loops-run-count-can-often-be-computed-directly">A loop’s run count can often be computed directly</h3>
-<p>For simple counted loops:</p>
-<div class="tight-list">
-<ul>
-<li>if the loop uses <code>counter &lt;= limit</code>, the largest running value is <code>limit</code></li>
-<li>if the loop uses <code>counter &lt; limit</code>, the largest running value is <code>limit - 1</code></li>
-<li>an informal count can be computed as <code>largest - smallest + 1</code></li>
-</ul>
-</div>
-<p>This is the basic classroom rule for quick iteration counts.</p>
+<h3 id="one-loop-is-usually-proportional-to-its-range">One loop is usually proportional to its range</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If <code>n</code> doubles, the number of loop iterations doubles. Informally, the work grows with <code>n</code>.</p>
 </section>
-<section id="analyzing-nested-loops" class="slide level2">
-<h2>Analyzing Nested Loops</h2>
-<h3 id="rectangular-nested-loops-multiply-counts">Rectangular nested loops multiply counts</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>outer loop runs 5 times</li>
-<li>inner loop runs 10 times per outer pass</li>
-<li>total inner-body executions: <code>5 * 10 = 50</code></li>
-</ul>
-</div>
+<section id="nested-loops" class="slide level2">
+<h2>Nested Loops</h2>
+<h3 id="rectangular-nested-loops-multiply">Rectangular nested loops multiply</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> n<span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> n<span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The inner loop runs <code>n</code> times for each of <code>n</code> rows, so the body runs <code>n * n</code> times.</p>
 </section>
 <section id="non-rectangular-nested-loops" class="slide level2">
 <h2>Non-Rectangular Nested Loops</h2>
-<h3 id="when-the-inner-limit-depends-on-the-outer-variable-the-count-changes-each-row">When the inner limit depends on the outer variable, the count changes each row</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> i<span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This creates a triangle pattern rather than a rectangle because the inner loop length grows with the outer loop.</p>
-
-<img data-src="../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">Gauss summation idea</p><p>For this classroom level, the useful takeaway is that the total can be found by adding <code>1 + 2 + 3 + ... + n</code>, or by using the formula <code>n(n+1)/2</code>.</p>
+<h3 id="the-inner-count-can-change-each-row">The inner count can change each row</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> n<span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> row<span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb5-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <code>n = 4</code>, the row counts are <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
+<section id="triangular-total" class="slide level2">
+<h2>Triangular Total</h2>
+<h3 id="add-row-counts">Add row counts</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png" style="width:40.0%" class="r-stretch quarto-figure-center"><p class="caption">Gauss summation idea</p><p>For a triangular nested loop:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>1 + 2 + 3 + 4 = 10</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In general:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>sum of the integers from 1 through n = n(n + 1) / 2</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="groupwork-analysis" class="slide level2">
+<h2>Groupwork Analysis</h2>
+<h3 id="pogil-loop-counting">POGIL loop counting</h3>
+<p>For each code segment, identify:</p>
 <div class="tight-list">
 <ul>
-<li>tracing loops with multiple changing variables</li>
-<li>counting stars and loop executions in simple loops</li>
-<li>multiplying counts in rectangular nested loops</li>
-<li>summing counts in non-rectangular nested loops</li>
-<li><span class="term">2.12.3 Coding Challenge: POGIL Analyzing Loops</span></li>
+<li>the loop variable</li>
+<li>the start value</li>
+<li>the stopping condition</li>
+<li>the update</li>
+<li>the number of body executions</li>
 </ul>
 </div>
+<p>Then compare a single loop, a rectangular nested loop, and a triangular nested loop.</p>
+</section>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="compare-growth">Compare growth</h3>
+<p>If <code>n = 10</code>, how many times does the starred print run?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> n<span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> row<span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb8-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer: <code>55</code>, because the sum from <code>1</code> through <code>10</code> is <code>10 * 11 / 2</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>trace loop conditions and variable updates accurately</li>
-<li>count iterations in simple counted loops</li>
-<li>multiply outer and inner counts for rectangular nested loops</li>
-<li>explain why non-rectangular nested loops do not use one fixed inner count</li>
-<li>connect triangular loop counts to <code>1 + 2 + ... + n</code></li>
+<li>count loop iterations from initialization, condition, and update</li>
+<li>explain how trace tables help find iteration counts</li>
+<li>multiply counts for rectangular nested loops</li>
+<li>add row counts for triangular nested loops</li>
+<li>connect triangular loop counts to <code>n(n + 1) / 2</code></li>
 </ul>
 </div>
 </section>

@@ -14,96 +14,109 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Impact of Program Design
+## Topic Intro
 
-### Programs affect people, systems, and decisions
+### Design choices affect people
 
-This topic keeps the textbook focus on how software work reaches beyond code quality alone.
+Program design is not only a technical activity. The structure, data choices, and behavior of a program can affect users, communities, and society.
 
-::: {.tight-list}
-- programs operate in real social settings
-- developers should consider <span class="term">harm</span>, <span class="term">privacy</span>, and reliability
-- technical choices can produce both intended and unintended consequences
-:::
-
-## System Reliability
-
-### Reliable software performs as expected under stated conditions
-
-<span class="term">System reliability</span> means a program can perform its tasks without failure under the conditions it was designed for.
+This topic connects class design to:
 
 ::: {.tight-list}
-- reliability does not happen by accident
-- programmers improve reliability through <span class="mark">testing with a variety of conditions</span>
-- edge cases matter because failures often appear outside the normal path
+- user needs
+- accessibility
+- privacy
+- reliability
+- unintended consequences
 :::
 
-## Beneficial and Harmful Impacts
+## Impact Questions
 
-### The same program can solve one problem and create another
+### Ask before and during implementation
 
-The textbook keeps two ideas together:
+For any program, ask:
 
 ::: {.tight-list}
-- programs can improve life, work, communication, safety, and access
-- programs can also cause unintended harmful effects beyond their intended use
-- impacts reach society, the economy, and culture
+- Who will use this program?
+- What assumptions does the design make about the user?
+- What data is collected or stored?
+- What could go wrong if the program behaves incorrectly?
+- Who benefits, and who might be excluded or harmed?
 :::
 
-Students should evaluate software by looking at both benefits and risks.
+These questions shape what classes, data, and methods should exist.
 
-## Legal Use and Open Source
+## Data Choices
 
-### Reusing code still carries responsibility
+### Instance variables are design decisions
+
+A class should store only the data it needs.
+
+```java
+public class UserProfile
+{
+    private String displayName;
+    private int preferredTextSize;
+}
+```
+
+Adding sensitive fields such as exact location or personal identifiers changes the program's risk. Data design is part of program design.
+
+## Behavior Choices
+
+### Methods decide what the program can do
+
+Method design affects safety and user experience.
 
 ::: {.tight-list}
-- <span class="term">Open source</span> code is published for reuse under its license terms
-- code that is <span class="mark">not</span> open source may require permission or purchase
-- intellectual property and legal constraints are part of program design work
+- A setter can validate a value before changing state.
+- A getter can return only the information other code should see.
+- A method can provide accessible alternatives such as text output.
+- A class can avoid exposing private implementation details.
 :::
 
-Using existing code is normal, but using it correctly is part of professional practice.
+The public interface should support useful behavior without unnecessary risk.
 
-## AI and Ethical Decisions
+## Groupwork
 
-### Technical systems may force hard choices
+### Impacts of CS
 
-The textbook uses self-driving cars as a concrete example.
+Choose one computing system used in school, transportation, health, finance, entertainment, or communication.
+
+Respond in groups:
 
 ::: {.tight-list}
-- AI and machine learning can improve safety and efficiency
-- those same systems may face ethical tradeoffs
-- questions about responsibility do not disappear when decisions are automated
+- What problem does the system solve?
+- What data does it use?
+- What design choice could improve access or fairness?
+- What design choice could create privacy or reliability risk?
 :::
 
-Students should be ready to discuss who is accountable: the software, the organization, or the programmers who built it.
+## Student Response Task
 
-## Classroom Tasks
+### Connect impact to design
 
-### Practice worth keeping
+Write a short answer:
 
-Retained classroom work for this topic:
+```text
+The program I chose is:
+One useful design decision is:
+One possible risk is:
+One class or method design choice that could reduce the risk is:
+```
 
-::: {.tight-list}
-- evaluate software applications for beneficial and harmful effects
-- discuss how testing relates to <span class="term">system reliability</span>
-- distinguish open-source reuse from code that needs permission
-- examine ethical issues in AI within a specific domain
-- <span class="term">3.2.1 Groupwork: Impacts of CS</span>
-:::
-
-The linked videos in the textbook work as optional openers, not required core deck content.
+Class goal: make the connection between social impact and concrete program design visible.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- define <span class="term">system reliability</span> accurately
-- explain why testing under varied conditions matters
-- describe both beneficial and harmful impacts of a program
-- identify the difference between open-source reuse and restricted code use
-- discuss one ethical issue raised by AI in a concrete application area
+- explain that program design decisions can affect real users
+- connect data collection to privacy and risk
+- connect method behavior to access, fairness, or reliability
+- identify an assumption in a system's design
+- propose a concrete class or method design improvement
 :::
 
 ## End

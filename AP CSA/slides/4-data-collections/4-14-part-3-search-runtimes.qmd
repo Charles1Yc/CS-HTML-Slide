@@ -1,0 +1,98 @@
+---
+title: "4.14 Searching Algorithms"
+subtitle: "Part 3: Search Runtimes"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Runtime Idea
+
+### Count how many values may be checked
+
+Search runtime depends on the algorithm and the input size.
+
+::: {.tight-list}
+- linear search may check every element
+- binary search cuts the remaining data roughly in half each step
+:::
+
+## Linear Search Runtime
+
+### Worst case grows with `n`
+
+For an array of length `n`, linear search checks:
+
+::: {.tight-list}
+- best case: 1 element
+- worst case: `n` elements
+- average case: about half the elements
+:::
+
+If `n` doubles, worst-case work doubles.
+
+## Binary Search Runtime
+
+### Halving grows slowly
+
+For 64 sorted values:
+
+```text
+64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+```
+
+Only a small number of comparisons are needed compared with checking all 64 values.
+
+## Quick Checks
+
+### Search reasoning
+
+1. Which search can be used on unsorted data?  
+   Answer: linear search.
+
+2. Which search needs sorted data but usually checks fewer values?  
+   Answer: binary search.
+
+3. If binary search checks a middle value too small, which side remains?  
+   Answer: the right side.
+
+## Groupwork Coding Challenge
+
+### Search runtimes
+
+Compare linear search and binary search on the same sorted array.
+
+Task:
+
+::: {.tight-list}
+- count comparisons for a target near the beginning
+- count comparisons for a target near the end
+- count comparisons for a missing target
+- explain when binary search is worth the sorting requirement
+:::
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- compare linear and binary search by number of checks
+- explain best, worst, and average cases informally
+- explain why binary search grows more slowly
+- justify when binary search cannot be used
+- connect runtime reasoning to trace tables or comparison counts
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

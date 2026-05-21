@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit3-shared.css">
@@ -144,133 +210,131 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="abstraction-and-program-design" class="slide level2">
-<h2>Abstraction and Program Design</h2>
-<h3 id="design-classes-before-writing-code">Design classes before writing code</h3>
-<p>In Unit 1, students used built-in classes such as <code>String</code> and <code>Turtle</code>.<br>
-This topic shifts to writing our own classes by planning:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="program-design-starts-before-code">Program design starts before code</h3>
+<p><span class="term">Object-oriented design</span> (面向对象设计) organizes programs around objects that store data and provide behaviors.</p>
+<p>Before writing Java, decide:</p>
 <div class="tight-list">
 <ul>
-<li>what <span class="term">objects</span> the program needs</li>
-<li>what <span class="term">attributes</span> each object should store</li>
-<li>what <span class="term">behaviors</span> each object should provide</li>
+<li>what objects the program needs</li>
+<li>what data each object stores</li>
+<li>what behaviors each object should provide</li>
+<li>how objects interact</li>
 </ul>
 </div>
 </section>
 <section id="object-oriented-design" class="slide level2">
 <h2>Object-Oriented Design</h2>
-<h3 id="start-from-nouns-then-map-data-and-methods">Start from nouns, then map data and methods</h3>
-<p>In <span class="term">object-oriented design</span>, programmers identify likely classes from the problem description.</p>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong>Look for nouns</strong></p>
+<h3 id="identify-nouns-and-verbs">Identify nouns and verbs</h3>
+<p>A useful first pass is to read a problem statement:</p>
+<div class="tight-list">
 <ul>
-<li><code>Student</code></li>
-<li><code>Course</code></li>
-<li><code>Turtle</code></li>
-<li><code>World</code></li>
+<li>nouns often suggest classes or objects</li>
+<li>verbs often suggest methods</li>
+<li>descriptive facts often suggest instance variables</li>
 </ul>
 </div>
-<div class="soft-box">
-<p><strong>Then plan</strong></p>
-<ul>
-<li>data to track in each class</li>
-<li>methods each class should provide</li>
-<li>how the classes work together</li>
-</ul>
-</div>
-</div>
-<p>Students should treat nouns as class candidates and verbs as clues for methods.</p>
+<p>Student response task: for a game with players, scores, and turns, list two possible classes and two behaviors each class should have.</p>
 </section>
 <section id="uml-class-diagrams" class="slide level2">
 <h2>UML Class Diagrams</h2>
-<h3 id="a-diagram-can-show-the-class-at-a-glance">A diagram can show the class at a glance</h3>
+<h3 id="a-compact-design-sketch">A compact design sketch</h3>
 
-<img data-src="../../assets/3-class-creation/3-1-abstraction-and-program-design/turtleUMLClassDiagram.png" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">UML class diagram for Turtle</p><div class="tight-list">
+<img data-src="../../assets/3-class-creation/3-1-abstraction-and-program-design/turtleUMLClassDiagram.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle UML class diagram</p><p>A simple class diagram can show:</p>
+<div class="tight-list">
 <ul>
-<li><span class="term">Class diagrams</span> summarize a class without showing implementation details</li>
-<li>attributes stand for the data in the class</li>
-<li>methods stand for the behaviors in the class</li>
-<li><code>-</code> means private and <code>+</code> means public, but detailed UML syntax is <mark>not the AP CSA focus</mark></li>
+<li>class name</li>
+<li>instance variables</li>
+<li>constructors</li>
+<li>methods</li>
 </ul>
 </div>
+<p>The diagram is a planning tool, not a full Java program.</p>
 </section>
 <section id="abstraction" class="slide level2">
 <h2>Abstraction</h2>
-<h3 id="focus-on-the-main-idea-and-hide-irrelevant-detail">Focus on the main idea and hide irrelevant detail</h3>
-<p><span class="term">Abstraction</span> reduces complexity by keeping attention on the idea that matters right now.</p>
+<h3 id="hide-details-so-the-important-idea-is-visible">Hide details so the important idea is visible</h3>
+<p><span class="term">Abstraction</span> (抽象) means managing complexity by focusing on the important ideas and hiding unnecessary details.</p>
+<p>In Java classes, abstraction appears when:</p>
 <div class="tight-list">
 <ul>
-<li>the Turtle diagram shows what the class contains</li>
-<li>it does <mark>not</mark> show how every method is implemented</li>
-<li>this makes planning and communication easier</li>
+<li>an object exposes methods instead of internal implementation details</li>
+<li>a method name describes a task without showing every statement at the call site</li>
+<li>a class stores private data and offers controlled public behaviors</li>
 </ul>
 </div>
-<p>The class diagram itself is an example of abstraction.</p>
 </section>
-<section id="data-and-procedural-abstraction" class="slide level2">
-<h2>Data and Procedural Abstraction</h2>
-<h3 id="manage-complexity-through-names-structure-and-reusable-actions">Manage complexity through names, structure, and reusable actions</h3>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong>Data abstraction</strong></p>
-<ul>
-<li>gives data a meaningful name</li>
-<li>separates what the data represents from its implementation</li>
-<li>includes attributes such as instance variables</li>
-<li>can include shared <span class="term">class variables</span></li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong>Procedural abstraction</strong></p>
-<ul>
-<li>gives a process a method name</li>
-<li>lets us use a method without knowing every internal step</li>
-<li>supports <span class="term">method decomposition</span></li>
-<li>improves reuse when methods accept parameters</li>
-</ul>
-</div>
-</div>
-<p>Examples from earlier work include <code>forward()</code> on <code>Turtle</code> and song methods such as <code>chorus()</code>.</p>
+<section id="data-abstraction" class="slide level2">
+<h2>Data Abstraction</h2>
+<h3 id="represent-an-objects-state-with-selected-variables">Represent an object’s state with selected variables</h3>
+<p>Data abstraction means choosing what information belongs in an object.</p>
+<p>Example: a <code>Student</code> class may store:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">private</span> <span class="dt">int</span> gradeLevel<span class="op">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="kw">private</span> <span class="dt">double</span> gpa<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The class does not need to store every possible fact about a student. It stores the data needed by the program.</p>
 </section>
-<section id="why-procedural-abstraction-matters" class="slide level2">
-<h2>Why Procedural Abstraction Matters</h2>
-<h3 id="smaller-methods-make-programs-easier-to-build-and-revise">Smaller methods make programs easier to build and revise</h3>
-<p>Retained reasons from the textbook:</p>
+<section id="procedural-abstraction" class="slide level2">
+<h2>Procedural Abstraction</h2>
+<h3 id="replace-repeated-steps-with-a-named-method">Replace repeated steps with a named method</h3>
+<p>Repeated version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Old MacDonald had a farm"</span><span class="op">);</span></span>
+<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"E-I-E-I-O"</span><span class="op">);</span></span>
+<span id="cb2-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on that farm he had a cow"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Method version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">verse</span><span class="op">(</span><span class="bu">String</span> animal<span class="op">)</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Old MacDonald had a farm"</span><span class="op">);</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"E-I-E-I-O"</span><span class="op">);</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on that farm he had a "</span> <span class="op">+</span> animal<span class="op">);</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="use-the-method-abstraction">Use the method abstraction</h3>
+<p>Call the method for two animals.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Song</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">verse</span><span class="op">(</span><span class="bu">String</span> animal<span class="op">)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Old MacDonald had a farm"</span><span class="op">);</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"E-I-E-I-O"</span><span class="op">);</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"And on that farm he had a "</span> <span class="op">+</span> animal<span class="op">);</span></span>
+<span id="cb4-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a></span>
+<span id="cb4-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-12"><a href=""></a>        <span class="fu">verse</span><span class="op">(</span><span class="st">"cow"</span><span class="op">);</span></span>
+<span id="cb4-13"><a href=""></a>        <span class="fu">verse</span><span class="op">(</span><span class="st">"duck"</span><span class="op">);</span></span>
+<span id="cb4-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="group-challenge" class="slide level2">
+<h2>Group Challenge</h2>
+<h3 id="game-design">Game design</h3>
+<p>Design a small game using object-oriented thinking.</p>
+<p>Your group should produce:</p>
 <div class="tight-list">
 <ul>
-<li><span class="term">Organization</span>: divide a large problem into smaller parts</li>
-<li><span class="term">Code reuse</span>: avoid repeating the same code</li>
-<li><span class="term">Maintainability and debugging</span>: smaller methods are easier to trace and fix</li>
-<li><span class="term">Flexibility</span>: parameters generalize one method for many inputs</li>
+<li>two or more classes</li>
+<li>at least two instance variables for each class</li>
+<li>at least two behaviors for each class</li>
+<li>one sentence explaining how the objects interact</li>
 </ul>
 </div>
-<p>As long as the method signature and behavior stay consistent, the implementation can change internally.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>identify likely classes from nouns in a problem description</li>
-<li>infer attributes and methods for sample classes such as <code>Student</code> and <code>Course</code></li>
-<li>review procedural abstraction with method decomposition and parameters</li>
-<li><span class="term">3.1.2 Coding Exercise: Old MacDonald Song Repeated</span></li>
-<li><span class="term">3.1.6 Group Challenge: Game Design</span></li>
-</ul>
-</div>
+<p>Keep the design small enough that another group could start coding it.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain how abstraction reduces complexity</li>
-<li>distinguish <span class="term">data abstraction</span> from <span class="term">procedural abstraction</span></li>
-<li>identify possible classes from nouns in a specification</li>
-<li>describe how attributes and methods support class design</li>
-<li>explain why decomposition and parameters improve reuse</li>
+<li>explain how object-oriented design uses objects, data, and behaviors</li>
+<li>identify likely classes, instance variables, and methods from a problem</li>
+<li>explain how a UML-style class diagram supports planning</li>
+<li>distinguish data abstraction from procedural abstraction</li>
+<li>explain how a method reduces repeated code</li>
 </ul>
 </div>
 </section>

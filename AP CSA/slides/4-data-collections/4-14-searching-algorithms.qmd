@@ -1,6 +1,6 @@
 ---
 title: "4.14 Searching Algorithms"
-subtitle: "Data Collections"
+subtitle: "Part 1: Linear Search"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,149 +14,141 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Searching Algorithms
+## Topic Intro
 
-### Searching means locating a target efficiently in stored data
+### Search means find a target
 
-This topic frames searching as an <span class="term">algorithm family</span>.
+A <span class="term">searching algorithm</span> examines data to determine whether a target value is present, or where it appears.
 
-::: {.tight-list}
-- <span class="term">linear search</span> works on unsorted data
-- <span class="term">binary search</span> requires sorted data
-- the choice depends on the structure of the data and the allowed assumptions
-:::
+This deck focuses on <span class="term">linear search</span>, which checks elements one at a time.
 
-## Linear Search
+## Algorithm Idea
 
-### Check elements in order until the target is found or the data ends
+### Check each element from left to right
+
+Linear search works on unsorted or sorted data.
+
+```text
+For each element:
+    If the element equals the target:
+        Return the index or true.
+After all elements are checked:
+    Return not found.
+```
+
+Worst case: the target is last or not present.
+
+## Full Code
+
+### Linear search with array index
 
 ```java
-for (int j = 0; j < elements.length; j++)
+public static int linearSearch(int[] values, int target)
 {
-    if (elements[j] == target)
+    for (int i = 0; i < values.length; i++)
     {
-        return j;
+        if (values[i] == target)
+        {
+            return i;
+        }
     }
+    return -1;
 }
-return -1;
 ```
 
-Retained rules:
+Returning `-1` is a common signal for not found.
 
-::: {.tight-list}
-- it can begin from either end if the algorithm is written that way
-- if no element matches, the search checks everything and returns `-1`
-- with `String` values, use <span class="term">`equals`</span> instead of `==`
-:::
+## Focused Trace
 
-## Linear Search with 2D Arrays
-
-### Search each row, then each column position inside that row
-
-Retained extension:
-
-::: {.tight-list}
-- a 2D search still uses linear search logic
-- each row must be accessed before checking values in that row
-- this is another case of reusing a 1D pattern inside nested loops
-:::
-
-## Binary Search
-
-### Binary search only works when the data is already sorted
-
-![Binary search shrinks the search space by halves](../../assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif){fig-align="center" width="58%"}
-
-Core idea retained from the textbook:
-
-::: {.tight-list}
-- check the <span class="mark">middle</span> element first
-- if the target is smaller, discard the right half
-- if the target is larger, discard the left half
-- each step removes about half of the remaining candidates
-:::
-
-## Binary Search Control Variables
-
-### `left`, `right`, and `middle` define the active search range
+### Search for `9`
 
 ```java
-int left = 0;
-int right = elements.length - 1;
-while (left <= right)
+int[] values = {4, 7, 9, 2};
+int index = linearSearch(values, 9);
+```
+
+| `i` | `values[i]` | result |
+|---:|---:|---|
+| 0 | 4 | keep searching |
+| 1 | 7 | keep searching |
+| 2 | 9 | return `2` |
+
+## ArrayList Linear Search
+
+### Use `get(i)` and `size()`
+
+```java
+public static int linearSearch(ArrayList<String> list, String target)
 {
-    int middle = (left + right) / 2;
-    ...
+    for (int i = 0; i < list.size(); i++)
+    {
+        if (list.get(i).equals(target))
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 ```
 
-Students should retain:
+Use `equals` for strings and other objects.
 
-::: {.tight-list}
-- `left` starts at the first valid index
-- `right` starts at the last valid index
-- `middle` is recomputed each pass
-- if the range disappears, the target was not found
-:::
+## String Search
 
-## Strings in Binary Search
+### Search for a character or substring
 
-### Ordered strings use `compareTo`, not numeric comparison operators
+```java
+public static boolean containsA(String text)
+{
+    for (int i = 0; i < text.length(); i++)
+    {
+        if (text.substring(i, i + 1).equals("a"))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+```
 
-Retained AP rule:
+String traversal is linear search over character positions.
 
-::: {.tight-list}
-- `target.compareTo(elements[middle]) < 0` means target belongs to the left side
-- `> 0` means target belongs to the right side
-- `== 0` in `compareTo` terms means the strings match
-:::
+## 2D Linear Search
 
-## Runtime Comparison
+### Search every row and column
 
-### The main tradeoff is flexibility versus speed
-
-| Algorithm | Works on unsorted data? | Worst-case idea |
-|---|---|---|
-| Linear search | Yes | Check all `n` elements |
-| Binary search | No, must be sorted | Repeatedly cut the range in half |
-
-Retained conclusion:
-
-::: {.tight-list}
-- linear search is more general
-- binary search is typically more efficient on sorted data
-- runtime comparisons often use the <span class="term">worst case</span>, especially “target not found”
-:::
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- trace linear search on arrays and `ArrayList`s
-- explain why `String` search uses `equals` or `compareTo`
-- adapt linear search to a 2D array
-- trace `left`, `right`, and `middle` through binary search
-- compare worst-case steps for linear and binary search
-- <span class="term">4.14.5 Coding Challenge: Search Runtimes</span>
-:::
+```java
+public static boolean contains(int[][] grid, int target)
+{
+    for (int row = 0; row < grid.length; row++)
+    {
+        for (int col = 0; col < grid[row].length; col++)
+        {
+            if (grid[row][col] == target)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain when linear search is appropriate
-- state the sorting precondition for binary search
-- describe how binary search updates `left` and `right`
-- distinguish `equals` from `compareTo` in string search contexts
-- compare the worst-case behavior of linear and binary search
+- explain linear search as checking elements one by one
+- write linear search for arrays and `ArrayList`
+- return immediately when the target is found
+- place the not-found return after the loop
+- adapt linear search to strings and 2D arrays
 :::
 
 ## End
 
-### Return to the course outline
+### Continue or return to the course outline
 
+[Next: Binary Search](4-14-part-2-binary-search.html)  
 [← Back to AP CSA / 返回课程目录](../../index.html)

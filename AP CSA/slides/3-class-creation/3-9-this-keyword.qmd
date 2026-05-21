@@ -14,91 +14,144 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## `this` Keyword
+## Topic Intro
 
-### `this` refers to the current object
+### `this` means the current object
 
-Within an instance method or constructor, <span class="term">`this`</span> is a reference to the object whose method or constructor is running.
+The keyword <span class="term">this</span> (当前对象) refers to the object whose method or constructor is currently running.
 
-::: {.tight-list}
-- if `p1.setEmail()` is called, `this` refers to `p1`
-- if `p2.setEmail()` is called, `this` refers to `p2`
-- the current object changes with the receiver of the call
-:::
-
-## Where `this` Can Be Used
-
-### It exists only in instance context
-
-The textbook is explicit here:
+It is commonly used to:
 
 ::: {.tight-list}
-- `this` can be used in <span class="term">instance methods</span>
-- `this` can be used in <span class="term">constructors</span>
-- class methods do <span class="mark">not</span> have a `this` reference
+- distinguish instance variables from parameters with the same name
+- pass the current object as an argument
+- make code clearer when an instance variable is being used
 :::
-
-Static methods are called with the class name, so there is no current object.
 
 ## `this.instanceVariable`
 
-### Use `this` to distinguish fields from parameters
+### Resolve same-name variables
+
+```java
+public class Person
+{
+    private String name;
+
+    public Person(String name)
+    {
+        this.name = name;
+    }
+}
+```
+
+`this.name` means the instance variable. The plain `name` on the right side means the constructor parameter.
+
+## Code Task
+
+### Constructor with `this`
+
+```java
+public class BankAccount
+{
+    private String owner;
+    private double balance;
+
+    public BankAccount(String owner, double balance)
+    {
+        this.owner = owner;
+        this.balance = balance;
+    }
+}
+```
+
+Trace: `this.owner` is the field of the newly created object.
+
+## `this` as an Argument
+
+### Pass the current object to another method
+
+![this trace](../../assets/3-class-creation/3-9-this-keyword/thisTrace.png){fig-align="center" width="48%"}
+
+Inside an instance method, `this` can be passed to a method that expects an object of the same class.
+
+```java
+public void compareWith(BankAccount other)
+{
+    helper.compare(this, other);
+}
+```
+
+## Quick Check
+
+### Trace same-name assignment
+
+What happens if the constructor omits `this`?
 
 ```java
 public Person(String name)
 {
-    this.name = name;
+    name = name;
 }
 ```
 
-::: {.tight-list}
-- the parameter `name` is the closest local variable
-- `this.name` means the instance variable in the current object
-- this resolves the naming conflict clearly
-:::
+Answer: the parameter is assigned to itself. The instance variable is not updated.
 
-This is the natural follow-up to the scope-shadowing rule from Topic 3.8.
+Correct form:
 
-## `this` as an Argument
+```java
+this.name = name;
+```
 
-### The current object can be passed to another method or constructor
+## Groupwork Coding Challenge {.fit-small .image-fit}
 
-![Tracing this as a shared reference](../../assets/3-class-creation/3-9-this-keyword/thisTrace.png){fig-align="center" width="76%"}
+### Bank Account
 
-::: {.tight-list}
-- `this` can be used anywhere an object variable could be used
-- passing `this` passes the current object reference
-- multiple names may then refer to the same object
-:::
+![Bank account challenge prompt](../../assets/3-class-creation/3-9-this-keyword/dollarSign.png){fig-align="center" width="22%"}
 
-This topic ties back to the object-reference ideas from 3.6.
+Starter:
 
-## Classroom Tasks
+```java
+public class BankAccount
+{
+    private String owner;
+    private double balance;
 
-### Practice worth keeping
+    public BankAccount(String owner, double balance)
+    {
+        this.owner = owner;
+        this.balance = balance;
+    }
+}
+```
 
-![Bank account challenge prompt](../../assets/3-class-creation/3-9-this-keyword/dollarSign.png){fig-align="center" width="34%"}
+Add `deposit`, `withdraw`, and `toString` methods.
 
-Retained classroom work for this topic:
+## Method Example
 
-::: {.tight-list}
-- identify what object `this` refers to in a constructor or instance method
-- distinguish `name` from `this.name` when parameters shadow fields
-- explain why static methods cannot use `this`
-- trace `this` when passed as an argument
-- <span class="term">3.9.3 Coding Challenge: Bank Account</span>
-:::
+### Use `this` only where it helps clarity
+
+```java
+public void deposit(double amount)
+{
+    if (amount > 0)
+    {
+        this.balance += amount;
+    }
+}
+```
+
+`this.balance` and `balance` refer to the same instance variable here, but `this` makes the object state explicit.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- define `this` as a reference to the current object
-- state that `this` is available only in constructors and instance methods
-- explain how `this.instanceVariable` resolves a naming conflict
-- explain what happens when `this` is passed as an argument
-- connect `this` back to object-reference tracing
+- explain that `this` refers to the current object
+- use `this.variableName` to distinguish a field from a parameter
+- trace why `name = name` does not update the instance variable
+- explain when `this` can be passed as an object argument
+- use `this` for clarity without treating it as required everywhere
 :::
 
 ## End

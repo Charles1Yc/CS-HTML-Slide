@@ -84,7 +84,12 @@
               {"code": "3.2", "cn": "程序设计的影响", "en": "Impact of Program Design", "decks": [{"cn": "程序设计的影响", "en": "Impact of Program Design", "href": "slides/3-class-creation/3-2-impact-of-program-design.html"}]},
               {"code": "3.3", "cn": "类的结构", "en": "Anatomy of a Class", "decks": [{"cn": "类的结构", "en": "Anatomy of a Class", "href": "slides/3-class-creation/3-3-anatomy-of-a-class.html"}]},
               {"code": "3.4", "cn": "构造器", "en": "Constructors", "decks": [{"cn": "构造器", "en": "Constructors", "href": "slides/3-class-creation/3-4-constructors.html"}]},
-              {"code": "3.5", "cn": "方法：如何编写", "en": "Methods: How to Write Them", "decks": [{"cn": "方法：如何编写", "en": "Methods: How to Write Them", "href": "slides/3-class-creation/3-5-methods-how-to-write-them.html"}]},
+              {"code": "3.5", "cn": "方法：如何编写", "en": "Methods: How to Write Them", "decks": [
+                {"cn": "方法基础", "en": "Method Basics", "href": "slides/3-class-creation/3-5-methods-how-to-write-them.html"},
+                {"cn": "Getter 与 toString", "en": "Getters and toString", "href": "slides/3-class-creation/3-5-part-2-getters-and-tostring.html"},
+                {"cn": "Setter 与参数", "en": "Setters and Parameters", "href": "slides/3-class-creation/3-5-part-3-setters-and-parameters.html"},
+                {"cn": "Class Pet 挑战", "en": "Class Pet Challenge", "href": "slides/3-class-creation/3-5-part-4-class-pet-challenge.html"}
+              ]},
               {"code": "3.6", "cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "decks": [{"cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "href": "slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.html"}]},
               {"code": "3.7", "cn": "类变量与类方法", "en": "Class Variables and Methods", "decks": [{"cn": "类变量与类方法", "en": "Class Variables and Methods", "href": "slides/3-class-creation/3-7-class-variables-and-methods.html"}]},
               {"code": "3.8", "cn": "作用域与访问", "en": "Scope and Access", "decks": [{"cn": "作用域与访问", "en": "Scope and Access", "href": "slides/3-class-creation/3-8-scope-and-access.html"}]},
@@ -119,10 +124,21 @@
               {"code": "4.11", "cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "decks": [{"cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "href": "slides/4-data-collections/4-11-2d-array-creation-and-access.html"}]},
               {"code": "4.12", "cn": "二维数组遍历", "en": "2D Array Traversals", "decks": [{"cn": "二维数组遍历", "en": "2D Array Traversals", "href": "slides/4-data-collections/4-12-2d-array-traversals.html"}]},
               {"code": "4.13", "cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "decks": [{"cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "href": "slides/4-data-collections/4-13-implementing-2d-array-algorithms.html"}]},
-              {"code": "4.14", "cn": "搜索算法", "en": "Searching Algorithms", "decks": [{"cn": "搜索算法", "en": "Searching Algorithms", "href": "slides/4-data-collections/4-14-searching-algorithms.html"}]},
+              {"code": "4.14", "cn": "搜索算法", "en": "Searching Algorithms", "decks": [
+                {"cn": "线性搜索", "en": "Linear Search", "href": "slides/4-data-collections/4-14-searching-algorithms.html"},
+                {"cn": "二分搜索", "en": "Binary Search", "href": "slides/4-data-collections/4-14-part-2-binary-search.html"},
+                {"cn": "搜索运行时间", "en": "Search Runtimes", "href": "slides/4-data-collections/4-14-part-3-search-runtimes.html"}
+              ]},
               {"code": "4.15", "cn": "排序算法", "en": "Sorting Algorithms", "decks": [{"cn": "排序算法", "en": "Sorting Algorithms", "href": "slides/4-data-collections/4-15-sorting-algorithms.html"}]},
-              {"code": "4.16", "cn": "递归", "en": "Recursion", "decks": [{"cn": "递归", "en": "Recursion", "href": "slides/4-data-collections/4-16-recursion.html"}]},
-              {"code": "4.17", "cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "decks": [{"cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "href": "slides/4-data-collections/4-17-recursive-searching-and-sorting.html"}]}
+              {"code": "4.16", "cn": "递归", "en": "Recursion", "decks": [
+                {"cn": "递归调用与基本情形", "en": "Recursive Calls and Base Cases", "href": "slides/4-data-collections/4-16-recursion.html"},
+                {"cn": "阶乘递归", "en": "Factorial Method", "href": "slides/4-data-collections/4-16-part-2-factorial.html"},
+                {"cn": "递归追踪", "en": "Tracing Recursive Methods", "href": "slides/4-data-collections/4-16-part-3-tracing-recursion.html"}
+              ]},
+              {"code": "4.17", "cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "decks": [
+                {"cn": "递归二分搜索", "en": "Recursive Binary Search", "href": "slides/4-data-collections/4-17-recursive-searching-and-sorting.html"},
+                {"cn": "归并排序", "en": "Merge Sort", "href": "slides/4-data-collections/4-17-part-2-merge-sort.html"}
+              ]}
             ]
           }
         ]

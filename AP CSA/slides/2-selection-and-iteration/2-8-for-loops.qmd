@@ -14,111 +14,178 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## for Loops
+## Topic Intro
 
-### Use `for` when the repetition pattern is counted
+### `for` loops package counting logic into the header
 
-`for` loops are the standard Java pattern when students know the counting structure in advance.
+A <span class="term">for loop</span> (for 循环) is usually used when the number of repetitions is known or countable.
 
-![App Inventor and Java for loops](../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png){fig-align="center" width="84%"}
-
-## Three Parts in One Line
-
-### Initialize, test, and update sit together in the header
+![Loop in App Inventor](../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png){fig-align="center" width="36%"}
 
 ```java
-for (initialize; test; update)
-{
-    loop body
-}
-```
-
-::: {.tight-list}
-- initialization runs once
-- the Boolean test controls whether the body continues
-- the update runs after each iteration
-:::
-
-The semicolons are required even when one part is omitted.
-
-## `for` and `while`
-
-### They can express the same loop in different forms
-
-::: {.two-col}
-::: {}
-![for-to-while mapping](../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png){width="100%"}
-:::
-::: {}
-![for-loop flow](../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png){width="64%"}
-:::
-:::
-
-Students should be able to rewrite:
-
-::: {.tight-list}
-- a counted `while` loop as a `for` loop
-- a `for` loop as an equivalent `while` loop
-:::
-
-## Common Counting Patterns
-
-### Start value determines the stopping comparison
-
-```java
-for (int i = 0; i < 10; i++)
-for (int i = 1; i <= 10; i++)
-```
-
-::: {.tight-list}
-- if you start at `0`, a common pattern uses `<`
-- if you start at `1`, a common pattern uses `<=`
-- `i` is often used as the loop control variable
-:::
-
-## Decrementing Loops
-
-### Count backward by changing all three parts together
-
-```java
-for (int i = 5; i > 0; i--)
+for (int i = 1; i <= 5; i++)
 {
     System.out.println(i);
 }
 ```
 
-To loop backward correctly:
+## Three Parts
+
+### Initialization, condition, update
+
+![Compare for and while](../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png){fig-align="center" width="46%"}
+
+```java
+for (int i = 1; i <= 5; i++)
+{
+    System.out.println(i);
+}
+```
 
 ::: {.tight-list}
-- initialize at the high value
-- test against the lower stopping point
-- update with `i--` or another decrement
+- `int i = 1`: initialize once
+- `i <= 5`: test before each repetition
+- `i++`: update after each body execution
 :::
 
-## Classroom Tasks
+## For Loop Flow
 
-### Practice worth keeping
+### Same loop idea, compact syntax
 
-Retained classroom work for this topic:
+![For loop flow](../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png){fig-align="center" width="42%"}
+
+The condition still decides whether the loop body runs again. The update still must move the loop toward stopping.
+
+## Code Task
+
+### Convert `while` to `for`
+
+`while` version:
+
+```java
+int count = 1;
+while (count <= 5)
+{
+    System.out.println(count);
+    count++;
+}
+```
+
+Equivalent `for` version:
+
+```java
+for (int count = 1; count <= 5; count++)
+{
+    System.out.println(count);
+}
+```
+
+## Quick Check
+
+### Count iterations
+
+How many times does the loop body run?
+
+```java
+for (int i = 0; i < 10; i += 2)
+{
+    System.out.println(i);
+}
+```
+
+Answer: <span class="mark">5</span> times. The values are `0`, `2`, `4`, `6`, `8`.
+
+## Mixed-Up Code
+
+### Print even numbers
+
+Reorder the lines to print even numbers from `2` through `10`.
+
+```java
+public class PrintEvens
+{
+    public static void main(String[] args)
+    {
+        for (int num = 2; num <= 10; num += 2)
+        {
+            System.out.println(num);
+        }
+    }
+}
+```
+
+Key: the update is `num += 2`.
+
+## Decrementing Loops
+
+### A loop can count down
+
+```java
+for (int bottles = 5; bottles > 0; bottles--)
+{
+    System.out.println(bottles + " bottles");
+}
+```
+
+Trace the header:
 
 ::: {.tight-list}
-- converting counted while loops to `for` loops
-- tracing `for` loop output and iteration counts
-- even-number and counter-step construction checks
-- decrementing-loop reading
-- <span class="term">2.8.3 Coding Challenge: Turtles Drawing Shapes</span>
+- starts at `5`
+- continues while greater than `0`
+- subtracts one after each pass
 :::
+
+## Quick Check
+
+### Equivalent loop reasoning
+
+Which loop prints the same values as `count = 2, 4, 6`?
+
+```java
+for (int count = 2; count <= 6; count += 2)
+{
+    System.out.println(count);
+}
+```
+
+Equivalent:
+
+```java
+int count = 2;
+while (count <= 6)
+{
+    System.out.println(count);
+    count += 2;
+}
+```
+
+## Groupwork Coding Challenge
+
+### Turtle drawing shapes
+
+Use a `for` loop to draw a polygon.
+
+```java
+int sides = 6;
+for (int i = 1; i <= sides; i++)
+{
+    yertle.forward(50);
+    yertle.turn(360 / sides);
+}
+```
+
+Change `sides` to draw a triangle, square, pentagon, and hexagon.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- identify the three parts of a `for` loop header
-- explain the execution order of initialize, test, body, update
-- convert simple counted `while` loops into `for` loops
-- trace loop output and iteration counts correctly
-- write decrementing loops by changing start, test, and update together
+- identify the initialization, condition, and update in a `for` loop
+- convert between equivalent `while` and `for` loops
+- count loop iterations from start, stop, and update values
+- trace incrementing and decrementing loops
+- choose `for` when the repetition count is known or countable
 :::
 
 ## End

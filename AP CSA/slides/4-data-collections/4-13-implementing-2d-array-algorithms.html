@@ -210,112 +210,124 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="implementing-2d-array-algorithms" class="slide level2">
-<h2>Implementing 2D Array Algorithms</h2>
-<h3 id="reuse-1d-patterns-inside-nested-traversal">Reuse 1D patterns inside nested traversal</h3>
-<p>This topic turns familiar array algorithms into <span class="term">2D array</span> algorithms.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="d-algorithms-combine-nested-loops-with-array-patterns">2D algorithms combine nested loops with array patterns</h3>
+<p>Common 2D array algorithms include:</p>
 <div class="tight-list">
 <ul>
-<li>the goal is still to search, count, total, compare, or rearrange values</li>
-<li>the main change is that traversal now needs <span class="term">nested loops</span></li>
-<li>row and column boundaries decide the part of the structure we are allowed to process</li>
+<li>sum and average</li>
+<li>min and max</li>
+<li>search a subsection</li>
+<li>detect duplicates</li>
+<li>rotate or reverse rows and columns</li>
 </ul>
 </div>
 </section>
-<section id="pattern-shift" class="slide level2">
-<h2>Pattern Shift</h2>
-<h3 id="the-algorithm-idea-stays-the-same-but-the-traversal-shape-changes">The algorithm idea stays the same, but the traversal shape changes</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> array<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> array<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="co">// use array[row][col]</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained teaching point:</p>
-<div class="tight-list">
-<ul>
-<li>1D logic becomes 2D by wrapping it inside an outer row loop</li>
-<li>indexed <code>for</code> loops are usually preferred because they expose <code>row</code> and <code>col</code></li>
-<li>enhanced <code>for</code> can work when exact positions are not needed</li>
-</ul>
-</div>
+<section id="sum" class="slide level2">
+<h2>Sum</h2>
+<h3 id="accumulate-every-cell">Accumulate every cell</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb1-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-6"><a href=""></a>        sum <span class="op">+=</span> grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">];</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The nested loop visits every element exactly once.</p>
 </section>
-<section id="sum-average-min-max" class="slide level2">
-<h2>Sum, Average, Min, Max</h2>
-<h3 id="accumulator-and-comparison-patterns-work-across-the-whole-grid">Accumulator and comparison patterns work across the whole grid</h3>
-<p>Core patterns retained from the textbook:</p>
-<div class="tight-list">
-<ul>
-<li>keep a running <code>total</code> for sums and averages</li>
-<li>initialize <code>min</code> or <code>max</code> from a real element such as <code>arr[0][0]</code></li>
-<li>update the tracked value when a better candidate appears</li>
-<li>the same logic can target the whole array or one row or one column</li>
-</ul>
-</div>
+<section id="average" class="slide level2">
+<h2>Average</h2>
+<h3 id="count-cells-as-well-as-total">Count cells as well as total</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-3"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> grid<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-7"><a href=""></a>        sum <span class="op">+=</span> value<span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a>        count<span class="op">++;</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-11"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> count<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Counting works even if rows have different lengths.</p>
 </section>
-<section id="working-with-a-subsection" class="slide level2">
-<h2>Working with a Subsection</h2>
-<h3 id="row-and-column-ranges-let-us-process-only-part-of-the-2d-array">Row and column ranges let us process only part of the 2D array</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> rowStart<span class="op">;</span> row <span class="op">&lt;=</span> rowEnd<span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> colStart<span class="op">;</span> col <span class="op">&lt;=</span> colEnd<span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>a<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> value<span class="op">)</span> <span class="op">{</span> count<span class="op">++;</span> <span class="op">}</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is the retained pattern for questions about a <span class="term">designated row, column, or subsection</span>.</p>
+<section id="max" class="slide level2">
+<h2>Max</h2>
+<h3 id="initialize-from-an-existing-cell">Initialize from an existing cell</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> grid<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">&gt;</span> max<span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>            max <span class="op">=</span> grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">];</span></span>
+<span id="cb3-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="property-and-duplicate-checks" class="slide level2">
-<h2>Property and Duplicate Checks</h2>
-<h3 id="ap-questions-often-ask-whether-values-satisfy-a-condition">AP questions often ask whether values satisfy a condition</h3>
-<p>Retained uses:</p>
-<div class="tight-list">
-<ul>
-<li>determine whether <mark>at least one</mark> element has a property</li>
-<li>determine whether <mark>all</mark> elements have a property</li>
-<li>count how many elements satisfy a property</li>
-<li>detect duplicate values by comparing pairs reached through systematic traversal</li>
-</ul>
-</div>
+<section id="search-a-subsection" class="slide level2">
+<h2>Search a Subsection</h2>
+<h3 id="bounds-can-restrict-rows-or-columns">Bounds can restrict rows or columns</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-10"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-11"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Only the first three rows are searched.</p>
+</section>
+<section id="duplicates" class="slide level2">
+<h2>Duplicates</h2>
+<h3 id="use-a-seen-structure-or-compare-cells">Use a seen structure or compare cells</h3>
+<p>For small classroom examples, use a helper list of seen values:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> seen <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb5-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> grid<span class="op">)</span></span>
+<span id="cb5-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
+<span id="cb5-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>seen<span class="op">.</span><span class="fu">contains</span><span class="op">(</span>value<span class="op">))</span></span>
+<span id="cb5-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-8"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb5-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-10"><a href=""></a>        seen<span class="op">.</span><span class="fu">add</span><span class="op">(</span>value<span class="op">);</span></span>
+<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-12"><a href=""></a><span class="op">}</span></span>
+<span id="cb5-13"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="rotate-and-reverse" class="slide level2">
 <h2>Rotate and Reverse</h2>
-<h3 id="rearrangement-algorithms-usually-stay-local-to-a-row-or-a-column">Rearrangement algorithms usually stay local to a row or a column</h3>
-<p>The textbook keeps these transformations:</p>
-<div class="tight-list">
-<ul>
-<li>shift or rotate elements <span class="term">left/right</span> within a row</li>
-<li>shift or rotate elements <span class="term">up/down</span> within a column</li>
-<li>reverse the order of elements in one row or one column</li>
-<li>these are still ordered-movement problems, so index control matters</li>
-</ul>
-</div>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>convert a 1D algorithm into a nested-loop 2D algorithm</li>
-<li>total a row, total a column, and compare cells to a tracked min or max</li>
-<li>count values inside a defined subsection</li>
-<li>test whether some or all cells satisfy a property</li>
-<li>explain how duplicate checks and rotation patterns depend on index control</li>
-</ul>
-</div>
+<h3 id="trace-positions-before-coding">Trace positions before coding</h3>
+<p>For a single row:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-2"><a href=""></a><span class="dt">int</span> right <span class="op">=</span> row<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb6-3"><a href=""></a><span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;</span> right<span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="dt">int</span> temp <span class="op">=</span> row<span class="op">[</span>left<span class="op">];</span></span>
+<span id="cb6-6"><a href=""></a>    row<span class="op">[</span>left<span class="op">]</span> <span class="op">=</span> row<span class="op">[</span>right<span class="op">];</span></span>
+<span id="cb6-7"><a href=""></a>    row<span class="op">[</span>right<span class="op">]</span> <span class="op">=</span> temp<span class="op">;</span></span>
+<span id="cb6-8"><a href=""></a>    left<span class="op">++;</span></span>
+<span id="cb6-9"><a href=""></a>    right<span class="op">--;</span></span>
+<span id="cb6-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Start with one row before generalizing to the whole 2D array.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain that 2D algorithms reuse 1D patterns inside nested loops</li>
-<li>distinguish whole-array traversal from subsection traversal</li>
-<li>describe how to track sum, average, min, or max in a 2D array</li>
-<li>explain the difference between checking any element and checking all elements</li>
-<li>identify why row and column indices matter for rotate and reverse algorithms</li>
+<li>use nested loops for 2D sum, average, min, and max</li>
+<li>initialize min or max from an existing cell</li>
+<li>count cells when computing an average</li>
+<li>restrict traversal bounds for subsection searches</li>
+<li>trace index movement before rotating or reversing data</li>
 </ul>
 </div>
 </section>

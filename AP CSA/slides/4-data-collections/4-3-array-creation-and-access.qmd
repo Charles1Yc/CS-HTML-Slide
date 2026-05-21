@@ -14,140 +14,142 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Array Creation and Access
+## Topic Intro
 
-### Arrays store many related values under one name
+### Arrays store many values of one type
 
-Instead of writing `score1`, `score2`, `score3`, and so on, Java uses the array data structure.
+An <span class="term">array</span> (数组) is a fixed-size object that stores multiple values of the same type.
 
-::: {.tight-list}
-- an <span class="term">array</span> stores elements of the <span class="mark">same type</span>
-- the elements are accessed using an <span class="term">index</span>
-- arrays are useful when there are many related values
-:::
+![Row lockers analogy](../../assets/4-data-collections/4-3-array-creation-and-access/rowLockers.jpg){fig-align="center" width="42%"}
 
-## Array Analogy
+Each element is accessed by an index.
 
-### Think of an array as a fixed row of lockers
+## Declaring and Creating Arrays
 
-![Array as a row of lockers](../../assets/4-data-collections/4-3-array-creation-and-access/rowLockers.jpg){fig-align="center" width="74%"}
-
-Each locker stores one value.  
-The array name identifies the whole structure, and the index identifies one position.
-
-## Declaring and Creating an Array
-
-### Declaring the variable is not the same as creating the array object
-
-```java
-int[] scores;
-scores = new int[5];
-```
-
-::: {.tight-list}
-- `int[] scores` declares an array variable
-- arrays in Java are <span class="term">objects</span>
-- before creation, the variable can hold `null`
-- `new` allocates memory for the array
-:::
-
-## Two Ways to Create Arrays
-
-### Use `new` for size-first creation or use an initializer list for value-first creation
-
-::: {.compare-grid}
-::: {.soft-box}
-**Using `new`**
+### Type, brackets, and size
 
 ```java
 int[] scores = new int[5];
+String[] names = new String[3];
 ```
 
-- size is specified directly
-- elements begin with default values
-:::
-::: {.soft-box}
-**Using an initializer list**
-
-```java
-int[] scores = {90, 85, 100, 77, 92};
-```
-
-- values are given immediately
-- size is inferred from the list
-:::
-:::
-
-## Length and Default Values
-
-### Array size is fixed once the array is created
-
-![Primitive and object arrays in memory](../../assets/4-data-collections/4-3-array-creation-and-access/intAndStringArrays.png){fig-align="center" width="76%"}
+Rules:
 
 ::: {.tight-list}
-- `arrayName.length` gives the number of elements
-- the length cannot change after creation
-- `new int[...]` uses default values like `0`
-- reference-type arrays begin with `null` references
+- the array length is fixed after creation
+- indices start at `0`
+- last valid index is `length - 1`
+- numeric arrays created with `new` start with default values such as `0`
 :::
+
+## Quick Check
+
+### Create an array
+
+Which line creates an array that can hold 10 `double` values?
+
+::: {.tight-list}
+- A. `double scores = new double[10];`
+- B. `double[] scores = new double[10];`
+- C. `int[] scores = new double[10];`
+- D. `double[] scores = new double;`
+:::
+
+Answer: <span class="mark">B</span>.
+
+## Array Indices
+
+### Index 0 is the first element
+
+![Array indices](../../assets/4-data-collections/4-3-array-creation-and-access/arrayIndicies.png){fig-align="center" width="56%"}
+
+```java
+int[] values = {4, 7, 9};
+System.out.println(values[0]);
+System.out.println(values[2]);
+```
+
+Output:
+
+```text
+4
+9
+```
+
+## Initializer Lists
+
+### Create and fill at the same time
+
+![Integer and String arrays](../../assets/4-data-collections/4-3-array-creation-and-access/intAndStringArrays.png){fig-align="center" width="48%"}
+
+```java
+int[] nums = {1, 2, 3, 4};
+String[] words = {"cat", "dog", "bird"};
+```
+
+The length is determined by the number of initializer values.
+
+## Array Length
+
+### Use `.length`, not a method call
+
+```java
+String[] words = {"cat", "dog", "bird"};
+System.out.println(words.length);
+```
+
+Output:
+
+```text
+3
+```
+
+Arrays use the field `.length`; strings use the method `.length()`.
 
 ## Access and Modify Values
 
-### Use square brackets with a valid index
-
-![Indexed array access in Java](../../assets/4-data-collections/4-3-array-creation-and-access/arrayIndicies.png){fig-align="center" width="72%"}
+### Use an index on the left side to update
 
 ```java
-scores[0] = 95;
-int first = scores[0];
+int[] scores = {80, 90, 100};
+scores[1] = 95;
+System.out.println(scores[1]);
 ```
 
-Indices start at `0`, and the valid range is:
+Output:
 
-::: {.tight-list}
-- `0`
-- through `arrayName.length - 1`
-:::
+```text
+95
+```
 
-## Index Range and Parallel Arrays
+An index outside `0` through `length - 1` causes an `ArrayIndexOutOfBoundsException`.
 
-### Array access depends on staying within bounds
+## Groupwork Coding Challenge
 
-![Comparing indexed access styles](../../assets/4-data-collections/4-3-array-creation-and-access/appinvSelectComparison.png){fig-align="center" width="74%"}
+### Countries Array
 
-::: {.tight-list}
-- an invalid index causes an <span class="term">ArrayIndexOutOfBoundsException</span>
-- variables can be used as indices as long as they hold integers
-- related information can be tracked in <span class="term">parallel arrays</span>
-:::
+Starter:
 
-Parallel arrays work only when the same index always refers to matching information.
+```java
+String[] countries = {"Brazil", "China", "France", "Kenya"};
 
-## Classroom Tasks
+System.out.println(countries[0]);
+System.out.println(countries[countries.length - 1]);
+countries[1] = "Canada";
+```
 
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- declare an array variable and create it correctly
-- compare `new` creation with initializer-list creation
-- use `length` correctly
-- access and modify array elements with valid indices
-- explain default values and bounds errors
-- <span class="term">4.3.6 Coding Challenge: Countries Array</span>
-:::
+Add two more countries, print the length, and modify one element.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- define what an array stores
-- distinguish declaring an array variable from creating an array object
-- explain the two main ways to create an array
-- state that indices start at `0`
-- explain how to determine the valid index range with `length`
+- declare and create arrays with the correct type and size
+- explain that array indices start at `0`
+- use `array.length` to find the number of elements
+- access and modify values with bracket notation
+- identify the last valid index as `array.length - 1`
 :::
 
 ## End

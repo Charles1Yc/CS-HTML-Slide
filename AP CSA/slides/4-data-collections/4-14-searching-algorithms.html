@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">4.14 Searching Algorithms</h1>
-  <p class="subtitle">Data Collections</p>
+  <p class="subtitle">Part 1: Linear Search</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,166 +210,139 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="searching-algorithms" class="slide level2">
-<h2>Searching Algorithms</h2>
-<h3 id="searching-means-locating-a-target-efficiently-in-stored-data">Searching means locating a target efficiently in stored data</h3>
-<p>This topic frames searching as an <span class="term">algorithm family</span>.</p>
-<div class="tight-list">
-<ul>
-<li><span class="term">linear search</span> works on unsorted data</li>
-<li><span class="term">binary search</span> requires sorted data</li>
-<li>the choice depends on the structure of the data and the allowed assumptions</li>
-</ul>
-</div>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="search-means-find-a-target">Search means find a target</h3>
+<p>A <span class="term">searching algorithm</span> examines data to determine whether a target value is present, or where it appears.</p>
+<p>This deck focuses on <span class="term">linear search</span>, which checks elements one at a time.</p>
 </section>
-<section id="linear-search" class="slide level2">
-<h2>Linear Search</h2>
-<h3 id="check-elements-in-order-until-the-target-is-found-or-the-data-ends">Check elements in order until the target is found or the data ends</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>elements<span class="op">[</span>j<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="cf">return</span> j<span class="op">;</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a><span class="op">}</span></span>
-<span id="cb1-8"><a href=""></a><span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained rules:</p>
-<div class="tight-list">
-<ul>
-<li>it can begin from either end if the algorithm is written that way</li>
-<li>if no element matches, the search checks everything and returns <code>-1</code></li>
-<li>with <code>String</code> values, use <span class="term"><code>equals</code></span> instead of <code>==</code></li>
-</ul>
-</div>
+<section id="algorithm-idea" class="slide level2">
+<h2>Algorithm Idea</h2>
+<h3 id="check-each-element-from-left-to-right">Check each element from left to right</h3>
+<p>Linear search works on unsorted or sorted data.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>For each element:</span>
+<span id="cb1-2"><a href=""></a>    If the element equals the target:</span>
+<span id="cb1-3"><a href=""></a>        Return the index or true.</span>
+<span id="cb1-4"><a href=""></a>After all elements are checked:</span>
+<span id="cb1-5"><a href=""></a>    Return not found.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Worst case: the target is last or not present.</p>
 </section>
-<section id="linear-search-with-2d-arrays" class="slide level2">
-<h2>Linear Search with 2D Arrays</h2>
-<h3 id="search-each-row-then-each-column-position-inside-that-row">Search each row, then each column position inside that row</h3>
-<p>Retained extension:</p>
-<div class="tight-list">
-<ul>
-<li>a 2D search still uses linear search logic</li>
-<li>each row must be accessed before checking values in that row</li>
-<li>this is another case of reusing a 1D pattern inside nested loops</li>
-</ul>
-</div>
+<section id="full-code" class="slide level2">
+<h2>Full Code</h2>
+<h3 id="linear-search-with-array-index">Linear search with array index</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">linearSearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-7"><a href=""></a>            <span class="cf">return</span> i<span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Returning <code>-1</code> is a common signal for not found.</p>
 </section>
-<section id="binary-search" class="slide level2">
-<h2>Binary Search</h2>
-<h3 id="binary-search-only-works-when-the-data-is-already-sorted">Binary search only works when the data is already sorted</h3>
-
-<img data-src="../../assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Binary search shrinks the search space by halves</p><p>Core idea retained from the textbook:</p>
-<div class="tight-list">
-<ul>
-<li>check the <mark>middle</mark> element first</li>
-<li>if the target is smaller, discard the right half</li>
-<li>if the target is larger, discard the left half</li>
-<li>each step removes about half of the remaining candidates</li>
-</ul>
-</div>
-</section>
-<section id="binary-search-control-variables" class="slide level2">
-<h2>Binary Search Control Variables</h2>
-<h3 id="left-right-and-middle-define-the-active-search-range"><code>left</code>, <code>right</code>, and <code>middle</code> define the active search range</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> right <span class="op">=</span> elements<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-3"><a href=""></a><span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;=</span> right<span class="op">)</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>    <span class="dt">int</span> middle <span class="op">=</span> <span class="op">(</span>left <span class="op">+</span> right<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="kw">...</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Students should retain:</p>
-<div class="tight-list">
-<ul>
-<li><code>left</code> starts at the first valid index</li>
-<li><code>right</code> starts at the last valid index</li>
-<li><code>middle</code> is recomputed each pass</li>
-<li>if the range disappears, the target was not found</li>
-</ul>
-</div>
-</section>
-<section id="strings-in-binary-search" class="slide level2">
-<h2>Strings in Binary Search</h2>
-<h3 id="ordered-strings-use-compareto-not-numeric-comparison-operators">Ordered strings use <code>compareTo</code>, not numeric comparison operators</h3>
-<p>Retained AP rule:</p>
-<div class="tight-list">
-<ul>
-<li><code>target.compareTo(elements[middle]) &lt; 0</code> means target belongs to the left side</li>
-<li><code>&gt; 0</code> means target belongs to the right side</li>
-<li><code>== 0</code> in <code>compareTo</code> terms means the strings match</li>
-</ul>
-</div>
-</section>
-<section id="runtime-comparison" class="slide level2">
-<h2>Runtime Comparison</h2>
-<h3 id="the-main-tradeoff-is-flexibility-versus-speed">The main tradeoff is flexibility versus speed</h3>
+<section id="focused-trace" class="slide level2">
+<h2>Focused Trace</h2>
+<h3 id="search-for-9">Search for <code>9</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
+<span id="cb3-2"><a href=""></a><span class="dt">int</span> index <span class="op">=</span> <span class="fu">linearSearch</span><span class="op">(</span>values<span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Algorithm</th>
-<th>Works on unsorted data?</th>
-<th>Worst-case idea</th>
+<th style="text-align: right;"><code>i</code></th>
+<th style="text-align: right;"><code>values[i]</code></th>
+<th>result</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Linear search</td>
-<td>Yes</td>
-<td>Check all <code>n</code> elements</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td>keep searching</td>
 </tr>
 <tr class="even">
-<td>Binary search</td>
-<td>No, must be sorted</td>
-<td>Repeatedly cut the range in half</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+<td>keep searching</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9</td>
+<td>return <code>2</code></td>
 </tr>
 </tbody>
 </table>
-<p>Retained conclusion:</p>
-<div class="tight-list">
-<ul>
-<li>linear search is more general</li>
-<li>binary search is typically more efficient on sorted data</li>
-<li>runtime comparisons often use the <span class="term">worst case</span>, especially “target not found”</li>
-</ul>
-</div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>trace linear search on arrays and <code>ArrayList</code>s</li>
-<li>explain why <code>String</code> search uses <code>equals</code> or <code>compareTo</code></li>
-<li>adapt linear search to a 2D array</li>
-<li>trace <code>left</code>, <code>right</code>, and <code>middle</code> through binary search</li>
-<li>compare worst-case steps for linear and binary search</li>
-<li><span class="term">4.14.5 Coding Challenge: Search Runtimes</span></li>
-</ul>
-</div>
+<section id="arraylist-linear-search" class="slide level2">
+<h2>ArrayList Linear Search</h2>
+<h3 id="use-geti-and-size">Use <code>get(i)</code> and <code>size()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">linearSearch</span><span class="op">(</span><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span>target<span class="op">))</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>            <span class="cf">return</span> i<span class="op">;</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>equals</code> for strings and other objects.</p>
+</section>
+<section id="string-search" class="slide level2">
+<h2>String Search</h2>
+<h3 id="search-for-a-character-or-substring">Search for a character or substring</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">containsA</span><span class="op">(</span><span class="bu">String</span> text<span class="op">)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> text<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>text<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">).</span><span class="fu">equals</span><span class="op">(</span><span class="st">"a"</span><span class="op">))</span></span>
+<span id="cb5-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb5-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-10"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>String traversal is linear search over character positions.</p>
+</section>
+<section id="d-linear-search" class="slide level2">
+<h2>2D Linear Search</h2>
+<h3 id="search-every-row-and-column">Search every row and column</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">contains</span><span class="op">(</span><span class="dt">int</span><span class="op">[][]</span> grid<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb6-7"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb6-8"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb6-9"><a href=""></a>                <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb6-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-13"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain when linear search is appropriate</li>
-<li>state the sorting precondition for binary search</li>
-<li>describe how binary search updates <code>left</code> and <code>right</code></li>
-<li>distinguish <code>equals</code> from <code>compareTo</code> in string search contexts</li>
-<li>compare the worst-case behavior of linear and binary search</li>
+<li>explain linear search as checking elements one by one</li>
+<li>write linear search for arrays and <code>ArrayList</code></li>
+<li>return immediately when the target is found</li>
+<li>place the not-found return after the loop</li>
+<li>adapt linear search to strings and 2D arrays</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
+<p><a href="4-14-part-2-binary-search.html">Next: Binary Search</a><br>
+<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 
 </section>
     </div>

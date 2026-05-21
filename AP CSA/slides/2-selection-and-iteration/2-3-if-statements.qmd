@@ -14,119 +14,205 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## if Statements
+## Topic Intro
 
-### Turn Boolean conditions into branching code
+### `if` statements implement one-way selection
 
-An <span class="term">if statement</span> changes the default sequential flow of execution.
-
-::: {.tight-list}
-- when the condition is `true`, one branch runs
-- when the condition is `false`, the program skips that branch or takes another one
-:::
-
-![Comparing block-based and Java ifs](../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png){fig-align="center" width="86%"}
-
-## One-Way Selection
-
-### Run code only when the condition is true
-
-![One-way conditional flow](../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png){fig-align="center" width="30%"}
-
-```java
-if (isRaining)
-{
-    System.out.println("Take an umbrella!");
-}
-System.out.println("Drive carefully");
-```
-
-If the condition is false, the body is skipped and execution continues after the `if`.
-
-## Conditions Inside if Statements
-
-### Most branches use relational operators
-
-```java
-if (number > 0)
-{
-    System.out.println(number + " is positive!");
-}
-if (number == 0)
-{
-    System.out.println(number + " is zero!");
-}
-```
-
-Students need to see that `if` statements do not create new logic on their own.  
-They <span class="mark">consume Boolean expressions</span>.
-
-## Two-Way Selection
-
-### `if ... else` handles both outcomes
+An <span class="term">if statement</span> (条件语句) checks a Boolean expression and runs a block only when the expression is true.
 
 ::: {.two-col}
 ::: {}
-![if/else flowchart](../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png){width="100%"}
+![If block comparison](../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png){width="100%"}
 :::
-::: {.soft-box}
-Use `if/else` when exactly one of two branches must run:
+::: {}
+```java
+if (isRaining)
+{
+    System.out.println("Bring an umbrella");
+}
+```
+:::
+:::
 
-- one branch for `true`
-- one branch for `false`
-- one test case for each branch
-:::
-:::
+## One-Way Selection
+
+### False means skip the block
+
+![One-way selection](../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png){fig-align="center" width="32%"}
 
 ```java
+boolean isRaining = false;
+if (isRaining)
+{
+    System.out.println("Take an umbrella");
+}
+System.out.println("Leave home");
+```
+
+Only `Leave home` prints because the condition is false.
+
+## Relational Operators in `if`
+
+### The condition can be a comparison
+
+```java
+int age = 16;
 if (age >= 16)
 {
-    System.out.println("You can get a license.");
-}
-else
-{
-    System.out.println("You need to wait.");
+    System.out.println("You can apply for a driver's license.");
 }
 ```
 
-## Common Errors with if Statements
+The body must be inside braces when it contains more than one statement. This course uses braces even for one-line bodies.
 
-### Most mistakes are structural, not conceptual
+## Quick Check
 
-::: {.tight-list}
-- forgetting curly braces for the intended block
-- writing `if (test);` with a stray semicolon
-- using `=` instead of `==` in the condition
-- assuming `else` matches indentation instead of the actual closest `if`
-:::
+### Trace one-way selection
 
-The AP-style habit is simple: <span class="mark">always use braces</span>.
+What is printed?
 
-## Classroom Task
+```java
+int temp = 72;
+if (temp < 70)
+{
+    System.out.println("Wear a jacket");
+}
+System.out.println("Go outside");
+```
+
+Answer:
+
+```text
+Go outside
+```
+
+Reason: `72 < 70` is false, so the first print is skipped.
+
+## Two-Way Selection
+
+### `if else` handles both outcomes
+
+![Two-way selection](../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png){fig-align="center" width="34%"}
+
+```java
+if (heads)
+{
+    System.out.println("Heads");
+}
+else
+{
+    System.out.println("Tails");
+}
+```
+
+Exactly one branch runs.
+
+## Code Task
+
+### License age
+
+Complete the `else` branch.
+
+```java
+public class LicenseCheck
+{
+    public static void main(String[] args)
+    {
+        int age = 15;
+        if (age >= 16)
+        {
+            System.out.println("Can apply for a license");
+        }
+        else
+        {
+            System.out.println("Wait until age 16");
+        }
+    }
+}
+```
+
+Expected output: `Wait until age 16`.
+
+## Mixed-Up Code
+
+### Even or odd
+
+Reorder the statements to print whether `num` is even.
+
+```java
+public class EvenOdd
+{
+    public static void main(String[] args)
+    {
+        int num = 12;
+        if (num % 2 == 0)
+        {
+            System.out.println("even");
+        }
+        else
+        {
+            System.out.println("odd");
+        }
+    }
+}
+```
+
+Key condition: `num % 2 == 0`.
+
+## Common Error
+
+### Missing braces can change the logic
+
+```java
+if (score >= 90)
+    System.out.println("A");
+    System.out.println("Excellent");
+```
+
+Only the first print is controlled by the `if`. The second print always runs.
+
+Preferred classroom form:
+
+```java
+if (score >= 90)
+{
+    System.out.println("A");
+    System.out.println("Excellent");
+}
+```
+
+## Groupwork Coding Challenge
 
 ### Magic 8 Ball
 
-![Magic 8 Ball challenge](../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png){fig-align="center" width="24%"}
+![Magic 8 Ball challenge](../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png){fig-align="center" width="22%"}
 
-Retained task focus:
+Starter idea:
 
-::: {.tight-list}
-- use random numbers to choose a branch
-- write multiple `if` checks or `if/else` logic
-- connect Boolean tests to visible program behavior
-- <span class="term">2.3.5 Coding Challenge: Magic 8 Ball</span>
-:::
+```java
+int answer = (int)(Math.random() * 8) + 1;
+if (answer == 1)
+{
+    System.out.println("It is certain");
+}
+else
+{
+    System.out.println("Ask again later");
+}
+```
+
+Extend it so several different random answers can print.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain that `if` statements change control flow
-- distinguish one-way and two-way selection
-- use relational operators correctly inside conditions
-- explain why both branches of `if/else` need testing
-- avoid `=`, stray semicolons, and missing braces in conditional code
+- explain when an `if` body runs and when it is skipped
+- trace one-way and two-way selection
+- use braces to keep controlled statements clear
+- write `if else` logic for mutually exclusive outcomes
+- use `%` in selection to test even and odd numbers
 :::
 
 ## End

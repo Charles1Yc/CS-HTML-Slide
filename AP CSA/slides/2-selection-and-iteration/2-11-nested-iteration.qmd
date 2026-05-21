@@ -14,23 +14,19 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Nested Loops
+## Topic Intro
 
-### A loop can run inside another loop
+### A loop can contain another loop
 
-![Nested loops overview](../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png){fig-align="center" width="44%"}
+<span class="term">Nested iteration</span> (嵌套迭代) means one loop is placed inside another loop.
 
-In nested iteration:
+![Nested loops](../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png){fig-align="center" width="38%"}
 
-::: {.tight-list}
-- the outer loop controls larger repetitions
-- the inner loop restarts for each outer-loop pass
-- the inner loop must finish before the outer loop advances
-:::
+The outer loop controls how many groups are produced. The inner loop controls what happens inside each group.
 
-## Rows and Columns
+## Rectangle Pattern
 
-### Nested loops naturally model two dimensions
+### Outer loop rows, inner loop columns
 
 ```java
 for (int row = 1; row <= 3; row++)
@@ -43,33 +39,102 @@ for (int row = 1; row <= 3; row++)
 }
 ```
 
-This is why nested loops are the standard pattern for:
+Output:
 
-::: {.tight-list}
-- grids
-- rectangles of output
-- row/column reasoning
-- repeated shapes
-:::
+```text
+*****
+*****
+*****
+```
 
-## Tracing Nested Iteration
+## Code Task
 
-### Outer iterations and inner iterations are separate counts
+### Change rows and columns
 
-Students need to answer two questions:
-
-::: {.tight-list}
-- how many times does the outer loop run?
-- how many times does the inner loop run for each outer pass?
-:::
-
-That structure is the foundation for later loop-analysis work.
-
-## Nested Loops with Turtles
-
-### Repeated shapes plus a small turn create larger patterns
+Modify the rectangle code to print `10` rows and `8` columns.
 
 ```java
+for (int row = 1; row <= 10; row++)
+{
+    for (int col = 1; col <= 8; col++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+The total number of stars is `10 * 8 = 80`.
+
+## Quick Check
+
+### Count nested-loop output
+
+What does this print?
+
+```java
+for (int i = 1; i < 7; i++)
+{
+    for (int y = 1; y <= 5; y++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+Answer: `6` rows with `5` stars per row.
+
+## Quick Check
+
+### Count down inside each row
+
+```java
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 3; j >= 1; j--)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+Answer: `5` rows with `3` stars per row.
+
+## Mixed-Up Code
+
+### Ten rows, five stars each
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        for (int x = 0; x < 10; x++)
+        {
+            for (int y = 0; y < 5; y++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+Watch for the extra wrong block `y <= 5`, which would print six stars.
+
+## Turtle Nested Loop
+
+### Repeat a shape, then turn
+
+::: {.code-scroll .compact}
+```java
+World world = new World(300, 300);
+Turtle yertle = new Turtle(world);
+yertle.setColor(Color.blue);
+
 for (int i = 1; i <= 12; i++)
 {
     for (int sides = 1; sides <= 4; sides++)
@@ -79,35 +144,46 @@ for (int i = 1; i <= 12; i++)
     }
     yertle.turn(30);
 }
+
+world.show(true);
+```
+:::
+
+The inner loop draws one square; the outer loop repeats squares around the center.
+
+## Groupwork Coding Challenge
+
+### Turtle snowflakes
+
+Use nested `for` loops to draw repeated polygons.
+
+```java
+int n = 6;
+int turnAmount = 360 / n;
+
+for (int shape = 1; shape <= n; shape++)
+{
+    for (int side = 1; side <= n; side++)
+    {
+        yertle.forward(30);
+        yertle.turn(turnAmount);
+    }
+    yertle.turn(turnAmount);
+}
 ```
 
-The inner loop draws one shape.  
-The outer loop repeats the shape with a new orientation.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- tracing rows and columns in printed-star patterns
-- distinguishing outer-loop count from inner-loop count
-- adjusting nested loop bounds for different rectangles
-- turtle-based repeated-shape reasoning
-- <span class="term">2.11.2 Coding Challenge: Turtle Snowflakes</span>
-:::
+Change `n` to test different polygon snowflakes.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- define nested iteration as a loop inside another loop
-- explain that the inner loop restarts for each outer iteration
-- connect nested loops to row/column style output
-- trace how many times inner work is repeated
-- explain the role split between outer pattern control and inner shape control
+- explain which loop is outer and which loop is inner
+- connect rows and columns to nested loop counts
+- compute total iterations by multiplying loop counts for rectangular loops
+- trace nested loops that increment or decrement
+- explain how nested turtle loops separate drawing a shape from repeating the shape
 :::
 
 ## End

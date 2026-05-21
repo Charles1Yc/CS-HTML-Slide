@@ -14,107 +14,196 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Compound Conditions
+## Topic Intro
 
-### One branch can depend on more than one test
+### Combine conditions to make richer decisions
 
-Sometimes a single Boolean test is not enough.
+A <span class="term">compound Boolean expression</span> (复合布尔表达式) combines smaller Boolean expressions using:
 
 ::: {.tight-list}
-- both conditions must be true
-- at least one condition must be true
-- one condition must be false
+- `&&` for <span class="term">and</span>
+- `||` for <span class="term">or</span>
+- `!` for <span class="term">not</span>
 :::
-
-This topic combines simple Boolean expressions into <span class="term">compound Boolean expressions</span>.
-
-## `&&`, `||`, and `!`
-
-### The three core logical operators
 
 ```java
-if (cleanedRoom && didHomework)
-if (walking || carIsAvailable)
-if (!homeworkDone)
+if (age >= 13 && age <= 19)
+{
+    System.out.println("teenager");
+}
 ```
 
-::: {.tight-list}
-- `&&` means <span class="term">and</span>
-- `||` means <span class="term">or</span>
-- `!` means <span class="term">not</span>
-:::
+## And
 
-In Java, `||` is inclusive OR, so it is true when either side is true or when both sides are true.
-
-## Common Uses with Numbers
-
-### `or` often checks for error ranges, `and` often checks valid ranges
+### `&&` is true only when both sides are true
 
 ```java
-score < 0 || score > 100
-score >= 0 && score <= 100
+int age = 15;
+boolean hasTicket = true;
+
+if (age >= 13 && hasTicket)
+{
+    System.out.println("Enter the event");
+}
 ```
 
-::: {.tight-list}
-- use `||` when a value can be invalid on either end
-- use `&&` when a value must stay inside a range
-- use parentheses when the grouping is not obvious
-:::
+Truth rule:
 
-## Truth Tables
+| A | B | `A && B` |
+|---|---|---|
+| true | true | true |
+| true | false | false |
+| false | true | false |
+| false | false | false |
 
-### A truth table shows every possible combination
+## Or
 
-For two Boolean values `P` and `Q`:
+### `||` is true when at least one side is true
 
-::: {.tight-list}
-- `P && Q` is only true when <span class="mark">both</span> are true
-- `P || Q` is true when <span class="mark">either</span> one is true
-- `!P` flips true to false and false to true
-:::
+```java
+boolean isWeekend = false;
+boolean isHoliday = true;
 
-Truth tables are the cleanest way to explain why a compound condition works.
+if (isWeekend || isHoliday)
+{
+    System.out.println("No school");
+}
+```
+
+Truth rule:
+
+| A | B | `A || B` |
+|---|---|---|
+| true | true | true |
+| true | false | true |
+| false | true | true |
+| false | false | false |
+
+## Number Range
+
+### `&&` is the standard inside-range pattern
+
+```java
+int x = 7;
+if (x >= 1 && x <= 10)
+{
+    System.out.println("inside range");
+}
+```
+
+For outside the range, use `||`:
+
+```java
+if (x < 1 || x > 10)
+{
+    System.out.println("outside range");
+}
+```
+
+## Not
+
+### `!` flips a Boolean value
+
+```java
+boolean finished = false;
+
+if (!finished)
+{
+    System.out.println("Keep working");
+}
+```
+
+`!` is useful, but it can make expressions harder to read. Prefer a direct condition when the direct form is clearer.
+
+## Truth Table Checkpoint
+
+### Fill in the result column
+
+| `x` | `y` | Expression | Result |
+|---:|---:|---|---|
+| 4 | 9 | `x < 5 && y > 5` | `true` |
+| 4 | 9 | `x < 5 || y < 5` | `true` |
+| 4 | 9 | `!(x < 5)` | `false` |
+| 4 | 9 | `x >= 5 && y >= 5` | `false` |
+
+Class move: evaluate the smaller comparisons first, then combine the Boolean results.
+
+## Quick Check
+
+### Trace compound booleans
+
+What is printed?
+
+```java
+int a = 6;
+int b = 10;
+if (a % 2 == 0 && b > 8)
+{
+    System.out.println("A");
+}
+if (a > 6 || b == 10)
+{
+    System.out.println("B");
+}
+```
+
+Answer:
+
+```text
+A
+B
+```
 
 ## Short Circuit Evaluation
 
-### Java sometimes skips the second test
+### Java may skip the second condition
+
+For `&&`, if the first condition is false, the whole expression is false.
 
 ```java
-if (x > 0 && (y / x) == 3)
-if (x == 0 || (y / x) == 3)
+if (x != 0 && 10 / x > 1)
+{
+    System.out.println("safe");
+}
 ```
 
-::: {.tight-list}
-- with `&&`, if the left side is false, Java stops
-- with `||`, if the left side is true, Java stops
-- this is called <span class="term">short circuit evaluation</span>
-- short circuiting can prevent errors such as division by zero
-:::
+For `||`, if the first condition is true, the whole expression is true.
 
-## Classroom Tasks
+Short circuiting prevents unnecessary or unsafe checks.
 
-### Practice worth keeping
+## Coding Challenge
 
-Retained classroom work for this topic:
+### Truth Tables POGIL
+
+Write an `if` statement that prints `true` only when:
 
 ::: {.tight-list}
-- tracing `&&`, `||`, and `!` in simple conditionals
-- range checks with numeric examples
-- truth-table completion and branch prediction
-- short-circuit reasoning with divide-by-zero cases
-- <span class="term">2.5.4 Coding Challenge: Truth Tables POGIL</span>
+- `x` is between `1` and `10`, inclusive
+- `y` is not equal to `0`
 :::
+
+```java
+int x = 5;
+int y = 2;
+
+if (x >= 1 && x <= 10 && y != 0)
+{
+    System.out.println("true");
+}
+```
+
+Test at least one boundary value such as `x = 1` or `x = 10`.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- distinguish `&&`, `||`, and `!`
-- explain the difference between range checks and error checks
-- use truth-table reasoning for compound conditions
-- explain Java short circuit evaluation
-- recognize why short circuiting can avoid runtime errors
+- explain the truth rules for `&&`, `||`, and `!`
+- use `&&` for an inside range and `||` for an outside range
+- evaluate compound Boolean expressions step by step
+- explain short circuit evaluation for `&&` and `||`
+- write readable compound conditions with correct operator placement
 :::
 
 ## End

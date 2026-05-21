@@ -14,108 +14,152 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Scope and Access
+## Topic Intro
 
-### Scope tells us where a variable exists and can be used
+### Scope decides where a name can be used
 
-The textbook defines <span class="term">scope</span> as where a variable is accessible.
+<span class="term">Scope</span> (作用域) is the region of code where a variable or method name can be accessed.
 
-When students declare a variable, the first check is:
-
-::: {.tight-list}
-- where was the variable declared?
-- what is the closest enclosing pair of `{ }`?
-:::
-
-That boundary determines where the variable lives.
-
-## Three Levels of Scope
-
-### Java uses class, method, and block scope
-
-![Three levels of scope](../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png){fig-align="center" width="78%"}
+This topic covers:
 
 ::: {.tight-list}
-- <span class="term">class-level scope</span> for instance variables
-- <span class="term">method-level scope</span> for local variables and parameters
-- <span class="term">block-level scope</span> for loop variables and inner-block variables
+- class-level scope
+- method-level scope
+- block-level scope
+- local variables
+- access modifiers
 :::
 
-## Class Scope vs Local Scope
+## Scope Diagram
 
-### Instance variables live with the object; local variables live inside one method or block
+### Different levels have different lifetimes
+
+![Scope diagram](../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png){fig-align="center" width="50%"}
+
+Instance variables are declared in the class but outside constructors and methods. Local variables are declared inside methods or blocks.
+
+## Class-Level Scope
+
+### Instance variables can be used by instance methods
+
+```java
+public class Person
+{
+    private String name;
+
+    public void printName()
+    {
+        System.out.println(name);
+    }
+}
+```
+
+`name` has class-level scope within the object and can be used by instance methods.
+
+## Method-Level Scope
+
+### Parameters and locals live inside one method
+
+```java
+public void setName(String newName)
+{
+    String trimmed = newName.trim();
+    name = trimmed;
+}
+```
+
+`newName` and `trimmed` can be used only inside `setName`.
+
+## Block-Level Scope
+
+### Variables inside braces stay inside braces
+
+```java
+if (score >= 90)
+{
+    String letter = "A";
+    System.out.println(letter);
+}
+
+// letter cannot be used here
+```
+
+The variable `letter` exists only inside the `if` block.
+
+## Local Variable Error
+
+### Do not use a local outside its scope
+
+Problem:
+
+```java
+public void printTwice()
+{
+    String message = "Hi";
+}
+
+public void printLater()
+{
+    System.out.println(message);
+}
+```
+
+`message` is local to `printTwice`; `printLater` cannot access it.
+
+## Access Modifiers
+
+### Access is different from scope
+
+Scope is where a name exists. Access is who is allowed to use it.
 
 ::: {.compare-grid}
 ::: {.soft-box}
-**Instance variables**
+**`private`**
 
-- declared in the class body
-- available to methods in the class
-- can be marked `public` or `private`
+- accessible only inside the class
+- used for instance variables
 :::
 ::: {.soft-box}
-**Local variables**
+**`public`**
 
-- declared in a method, constructor, or block
-- only usable inside that region
-- cannot be declared `public` or `private`
+- accessible from other classes
+- used for constructors and intended methods
 :::
 :::
 
-Parameters are also local variables.
+## Groupwork Coding Challenge
 
-## Local Variables
+### Debugging scope
 
-### Local variables exist only for the duration of that method or block
+Fix the class by moving variables to the right scope or passing values as parameters.
 
-The textbook keeps two linked ideas:
+```java
+public class ScopeBug
+{
+    public void methodOne()
+    {
+        int count = 5;
+    }
 
-::: {.tight-list}
-- local variables are good for data used by only one method
-- variables outside the scope do not merely become hidden; they do not exist there
-- block variables such as loop counters disappear outside the block
-:::
+    public void methodTwo()
+    {
+        System.out.println(count);
+    }
+}
+```
 
-This is a frequent source of debugging errors.
-
-## Name Shadowing
-
-### The closer local name wins
-
-If a local variable or parameter has the same name as an instance variable:
-
-::: {.tight-list}
-- the bare variable name refers to the <span class="mark">local</span> variable
-- the instance variable is shadowed inside that method or constructor
-- the next topic uses `this` to resolve that conflict clearly
-:::
-
-Students usually miss this when constructors use the same names as fields.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- identify the scope of variables by reading braces and declarations
-- distinguish class, method, and block scope
-- classify parameters as local variables
-- trace what happens when a local variable shadows an instance variable
-- <span class="term">3.8.3 Coding Challenge: Debugging</span>
-:::
+One fix is to make `count` an instance variable if both methods need it.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- define scope as where a variable can be accessed
 - distinguish class-level, method-level, and block-level scope
-- explain why parameters are local variables
-- state that local variables cannot be `public` or `private`
-- explain what happens when a local name shadows an instance variable
+- identify instance variables versus local variables
+- explain why a variable declared in one method cannot be used in another method
+- distinguish scope from access modifiers
+- debug a variable access problem by moving the declaration or passing a parameter
 :::
 
 ## End

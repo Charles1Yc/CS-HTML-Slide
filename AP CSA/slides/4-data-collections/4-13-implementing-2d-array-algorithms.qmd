@@ -14,119 +14,148 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Implementing 2D Array Algorithms
+## Topic Intro
 
-### Reuse 1D patterns inside nested traversal
+### 2D algorithms combine nested loops with array patterns
 
-This topic turns familiar array algorithms into <span class="term">2D array</span> algorithms.
+Common 2D array algorithms include:
 
 ::: {.tight-list}
-- the goal is still to search, count, total, compare, or rearrange values
-- the main change is that traversal now needs <span class="term">nested loops</span>
-- row and column boundaries decide the part of the structure we are allowed to process
+- sum and average
+- min and max
+- search a subsection
+- detect duplicates
+- rotate or reverse rows and columns
 :::
 
-## Pattern Shift
+## Sum
 
-### The algorithm idea stays the same, but the traversal shape changes
+### Accumulate every cell
 
 ```java
-for (int row = 0; row < array.length; row++)
+int sum = 0;
+for (int row = 0; row < grid.length; row++)
 {
-    for (int col = 0; col < array[0].length; col++)
+    for (int col = 0; col < grid[row].length; col++)
     {
-        // use array[row][col]
+        sum += grid[row][col];
     }
 }
 ```
 
-Retained teaching point:
+The nested loop visits every element exactly once.
 
-::: {.tight-list}
-- 1D logic becomes 2D by wrapping it inside an outer row loop
-- indexed `for` loops are usually preferred because they expose `row` and `col`
-- enhanced `for` can work when exact positions are not needed
-:::
+## Average
 
-## Sum, Average, Min, Max
-
-### Accumulator and comparison patterns work across the whole grid
-
-Core patterns retained from the textbook:
-
-::: {.tight-list}
-- keep a running `total` for sums and averages
-- initialize `min` or `max` from a real element such as `arr[0][0]`
-- update the tracked value when a better candidate appears
-- the same logic can target the whole array or one row or one column
-:::
-
-## Working with a Subsection
-
-### Row and column ranges let us process only part of the 2D array
+### Count cells as well as total
 
 ```java
-for (int row = rowStart; row <= rowEnd; row++)
+int sum = 0;
+int count = 0;
+for (int[] row : grid)
 {
-    for (int col = colStart; col <= colEnd; col++)
+    for (int value : row)
     {
-        if (a[row][col] == value) { count++; }
+        sum += value;
+        count++;
+    }
+}
+double average = (double) sum / count;
+```
+
+Counting works even if rows have different lengths.
+
+## Max
+
+### Initialize from an existing cell
+
+```java
+int max = grid[0][0];
+for (int row = 0; row < grid.length; row++)
+{
+    for (int col = 0; col < grid[row].length; col++)
+    {
+        if (grid[row][col] > max)
+        {
+            max = grid[row][col];
+        }
     }
 }
 ```
 
-This is the retained pattern for questions about a <span class="term">designated row, column, or subsection</span>.
+## Search a Subsection
 
-## Property and Duplicate Checks
+### Bounds can restrict rows or columns
 
-### AP questions often ask whether values satisfy a condition
+```java
+for (int row = 0; row < 3; row++)
+{
+    for (int col = 0; col < grid[row].length; col++)
+    {
+        if (grid[row][col] == target)
+        {
+            return true;
+        }
+    }
+}
+return false;
+```
 
-Retained uses:
+Only the first three rows are searched.
 
-::: {.tight-list}
-- determine whether <span class="mark">at least one</span> element has a property
-- determine whether <span class="mark">all</span> elements have a property
-- count how many elements satisfy a property
-- detect duplicate values by comparing pairs reached through systematic traversal
-:::
+## Duplicates
+
+### Use a seen structure or compare cells
+
+For small classroom examples, use a helper list of seen values:
+
+```java
+ArrayList<Integer> seen = new ArrayList<Integer>();
+for (int[] row : grid)
+{
+    for (int value : row)
+    {
+        if (seen.contains(value))
+        {
+            return true;
+        }
+        seen.add(value);
+    }
+}
+return false;
+```
 
 ## Rotate and Reverse
 
-### Rearrangement algorithms usually stay local to a row or a column
+### Trace positions before coding
 
-The textbook keeps these transformations:
+For a single row:
 
-::: {.tight-list}
-- shift or rotate elements <span class="term">left/right</span> within a row
-- shift or rotate elements <span class="term">up/down</span> within a column
-- reverse the order of elements in one row or one column
-- these are still ordered-movement problems, so index control matters
-:::
+```java
+int left = 0;
+int right = row.length - 1;
+while (left < right)
+{
+    int temp = row[left];
+    row[left] = row[right];
+    row[right] = temp;
+    left++;
+    right--;
+}
+```
 
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- convert a 1D algorithm into a nested-loop 2D algorithm
-- total a row, total a column, and compare cells to a tracked min or max
-- count values inside a defined subsection
-- test whether some or all cells satisfy a property
-- explain how duplicate checks and rotation patterns depend on index control
-:::
+Start with one row before generalizing to the whole 2D array.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain that 2D algorithms reuse 1D patterns inside nested loops
-- distinguish whole-array traversal from subsection traversal
-- describe how to track sum, average, min, or max in a 2D array
-- explain the difference between checking any element and checking all elements
-- identify why row and column indices matter for rotate and reverse algorithms
+- use nested loops for 2D sum, average, min, and max
+- initialize min or max from an existing cell
+- count cells when computing an average
+- restrict traversal bounds for subsection searches
+- trace index movement before rotating or reversing data
 :::
 
 ## End

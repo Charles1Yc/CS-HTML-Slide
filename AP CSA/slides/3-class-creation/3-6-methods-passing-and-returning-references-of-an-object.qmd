@@ -14,140 +14,176 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Passing and Returning Object References
+## Topic Intro
 
-### Classes often interact through other objects
+### Object variables store references
 
-This topic keeps the textbook shift from single-class examples to interacting classes.
+When an object variable is passed to a method, Java passes a copy of the <span class="term">reference</span> (引用).
+
+The copy still points to the same object.
+
+This topic explains:
 
 ::: {.tight-list}
-- one object can be stored inside another object
-- one object reference can be passed into a method
-- a method can also return an object reference
+- objects as instance variables
+- objects as arguments
+- copying parameter objects
+- parameters of the same class type
+- returning objects
 :::
-
-That power creates both flexibility and risk.
 
 ## Objects as Instance Variables
 
-### A class can have a has-a relationship with another class
+### A class can store another object
 
-Example from the textbook:
+```java
+public class Person
+{
+    private String name;
+    private Address homeAddress;
 
-::: {.tight-list}
-- a `Person` can have an `Address`
-- the `Address` object has its own instance variables
-- the `Person` class stores that object as part of its own state
-:::
+    public Person(String personName, Address address)
+    {
+        name = personName;
+        homeAddress = address;
+    }
+}
+```
 
-This is a <span class="term">has-a relationship</span>.
+`homeAddress` is an instance variable whose type is another class.
 
 ## Objects as Arguments
 
-### Java still uses call by value, but the copied value may be a reference
+### The parameter receives a copy of the reference
 
-![Aliasing with object references](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png){fig-align="center" width="74%"}
+![Object reference equality](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png){fig-align="center" width="36%"}
 
-::: {.tight-list}
-- when an argument is an object reference, Java copies the <span class="mark">reference</span>
-- it does <span class="mark">not</span> copy the whole object
-- the parameter and argument can become <span class="term">aliases</span> for the same object
-:::
+If a method receives an object reference, it can call methods on the same object.
 
-This is why object parameters behave differently from primitive parameters.
+```java
+public void moveTurtle(Turtle t)
+{
+    t.forward(50);
+}
+```
 
-## Mutable vs Immutable
+The parameter `t` points to the same turtle object as the argument.
 
-### Shared references matter only when the object can change
+## Code Task
 
-::: {.compare-grid}
-::: {.soft-box}
-**Immutable**
+### Address object as an argument
 
-- examples include `String`
-- methods do not change the original object
-- sharing the reference is usually safe
-:::
-::: {.soft-box}
-**Mutable**
+```java
+public void updateAddress(Address newAddress)
+{
+    homeAddress = newAddress;
+}
+```
 
-- custom classes with setters are often mutable
-- one reference can change the object's state
-- all aliases see that changed state
-:::
-:::
+Trace:
 
-The textbook's rule of thumb is not to modify mutable parameter objects unless the specification requires it.
+```java
+Address a = new Address("Main St");
+Person p = new Person("Kai", a);
+p.updateAddress(new Address("Oak St"));
+```
+
+After the call, `p` refers to the new `Address` object.
 
 ## Copying Parameter Objects
 
-### Copy when the class should not share outside state
+### Copying a reference is not the same as copying an object
 
-When a constructor receives a mutable object, storing the original reference can cause surprising side effects.
+```java
+public Person(String personName, Address address)
+{
+    name = personName;
+    homeAddress = address;
+}
+```
 
-::: {.tight-list}
-- changing the original object later may also change the object's internal state
-- one fix is to create a new object using values from the parameter object
-- another fix is to use a <span class="term">copy constructor</span>
-:::
+This stores the same `Address` object reference.
 
-For AP CSA, this protects the instance variable from pointing at the caller's original mutable object.
+If the class needs an independent object, it should construct a new one from the parameter's data.
 
-## Same-Class Parameters
+## Same Class Type Parameter
 
-### A method can access private data of another object only when it is the same class type
+### Methods can compare this object to another object
 
-The textbook makes this boundary explicit:
+```java
+public boolean sameName(Person other)
+{
+    return name.equals(other.name);
+}
+```
 
-::: {.tight-list}
-- `Person` methods can access private fields of another `Person` object
-- they cannot directly access private fields of an `Address` object
-- access still depends on the enclosing class type
-:::
-
-This is a precise rule that students often miss.
+Because this method is inside the `Person` class, it can access private instance variables of another `Person` object.
 
 ## Returning Objects
 
-### Returning a reference shares access to the same object
+### A method can return an object reference
 
-If a method returns an object reference:
+```java
+public Address getHomeAddress()
+{
+    return homeAddress;
+}
+```
+
+This returns a reference to an `Address` object. Callers can store it:
+
+```java
+Address saved = p.getHomeAddress();
+```
+
+## Reference Safety
+
+### Returning a mutable object can expose state
+
+If the returned object can be changed, outside code may affect the original object's internal state.
+
+Design choices:
 
 ::: {.tight-list}
-- the returned value is the reference, not a copied object
-- the caller may now have another alias to the same object
-- if the object is mutable, the caller may change it through that returned reference
+- return the reference when sharing is intended
+- return a copy when protection is needed
+- provide specific methods instead of exposing the whole object
 :::
 
-Returning objects is powerful, but it reintroduces the same mutability concern seen with parameters.
+## Groupwork Coding Challenge {.fit-small .image-fit}
 
-## Classroom Tasks
+### Friends and Birthdays
 
-### Practice worth keeping
+![Friends and birthdays challenge](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg){fig-align="center" width="28%"}
 
-![Friends and birthdays challenge](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg){fig-align="center" width="42%"}
+Starter design:
 
-Retained classroom work for this topic:
+```java
+public class Friend
+{
+    private String name;
+    private Date birthday;
 
-::: {.tight-list}
-- identify has-a relationships between classes
-- trace aliasing when object references are passed as arguments
-- explain when a mutable object should be copied
-- distinguish returning a reference from returning a copied object
-- apply same-class private-access rules correctly
-- <span class="term">3.6.7 Coding Challenge: Friends and Birthdays</span>
-:::
+    public Friend(String friendName, Date friendBirthday)
+    {
+        name = friendName;
+        birthday = friendBirthday;
+    }
+}
+```
+
+Add methods that compare birthdays or return birthday information.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain that object arguments pass a copied reference, not a copied object
-- define aliasing in the context of object references
-- distinguish mutable from immutable objects
-- explain why copying a parameter object can protect class state
-- describe the risk of returning a mutable object reference directly
+- explain that object variables store references
+- trace what happens when an object reference is passed as an argument
+- distinguish copying a reference from copying an object
+- use a parameter of the same class type for comparison
+- explain what it means for a method to return an object reference
 :::
 
 ## End

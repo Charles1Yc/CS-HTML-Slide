@@ -1,0 +1,227 @@
+---
+title: "3.5 Methods: How to Write Them"
+subtitle: "Part 4: Class Pet Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Challenge Context
+
+### Build a class with useful behavior
+
+![Animal clinic design prompt](../../assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png){fig-align="center" width="42%"}
+
+The Class Pet challenge asks you to combine:
+
+::: {.tight-list}
+- private instance variables
+- a constructor
+- getters
+- setters or mutators
+- `toString`
+- methods that compute or update state
+:::
+
+## Starter Class
+
+### Keep state private
+
+```java
+public class Pet
+{
+    private String name;
+    private int age;
+    private int hunger;
+
+    public Pet(String petName, int petAge)
+    {
+        name = petName;
+        age = petAge;
+        hunger = 5;
+    }
+}
+```
+
+Start with state that the methods can read or change.
+
+## Add Getters
+
+### Expose selected values
+
+```java
+public String getName()
+{
+    return name;
+}
+
+public int getAge()
+{
+    return age;
+}
+
+public int getHunger()
+{
+    return hunger;
+}
+```
+
+These are non-`void` methods with return values.
+
+## Add Mutators
+
+### Change state in controlled ways
+
+```java
+public void feed()
+{
+    if (hunger > 0)
+    {
+        hunger--;
+    }
+}
+
+public void play()
+{
+    hunger++;
+}
+```
+
+The method names describe actions in the domain of the class.
+
+## Add `toString`
+
+### Make object state readable
+
+```java
+public String toString()
+{
+    return name + " is " + age + " years old and has hunger " + hunger;
+}
+```
+
+Use `toString` to check whether method calls changed the object as expected.
+
+## Full Code Page
+
+### State, constructor, and getters
+
+```java
+public class Pet
+{
+    private String name;
+    private int age;
+    private int hunger;
+
+    public Pet(String petName, int petAge)
+    {
+        name = petName;
+        age = petAge;
+        hunger = 5;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getAge()
+    {
+        return age;
+    }
+}
+```
+
+## Full Code Page
+
+### Mutators and `toString`
+
+```java
+public class Pet
+{
+    private String name;
+    private int age;
+    private int hunger;
+
+    public void feed()
+    {
+        if (hunger > 0)
+        {
+            hunger--;
+        }
+    }
+
+    public void play()
+    {
+        hunger++;
+    }
+
+    public String toString()
+    {
+        return name + " is " + age + " years old and has hunger " + hunger;
+    }
+}
+```
+
+## Focused Trace
+
+### Track state changes
+
+```java
+Pet p = new Pet("Coco", 3);
+System.out.println(p);
+p.feed();
+p.play();
+p.play();
+System.out.println(p);
+```
+
+Trace:
+
+| Step | `hunger` |
+|---|---:|
+| after constructor | 5 |
+| after `feed()` | 4 |
+| after first `play()` | 5 |
+| after second `play()` | 6 |
+
+## Community Class Extension
+
+### Continue your own class
+
+For the class you designed earlier, add:
+
+::: {.tight-list}
+- one getter
+- one mutator
+- one method with a parameter
+- one `toString` method
+:::
+
+Each method should support the purpose of the class, not just exist to satisfy a task list.
+
+## Classroom Check
+
+### A complete answer should...
+
+::: {.tight-list}
+- combine constructor, getters, mutators, and `toString` in one class
+- explain how each method supports the class design
+- trace how method calls change instance variable values
+- keep instance variables private and access them through methods
+- avoid adding public setters that do not make sense for the object's model
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

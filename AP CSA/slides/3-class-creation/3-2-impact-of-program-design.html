@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit3-shared.css">
@@ -144,93 +210,95 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="impact-of-program-design" class="slide level2">
-<h2>Impact of Program Design</h2>
-<h3 id="programs-affect-people-systems-and-decisions">Programs affect people, systems, and decisions</h3>
-<p>This topic keeps the textbook focus on how software work reaches beyond code quality alone.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="design-choices-affect-people">Design choices affect people</h3>
+<p>Program design is not only a technical activity. The structure, data choices, and behavior of a program can affect users, communities, and society.</p>
+<p>This topic connects class design to:</p>
 <div class="tight-list">
 <ul>
-<li>programs operate in real social settings</li>
-<li>developers should consider <span class="term">harm</span>, <span class="term">privacy</span>, and reliability</li>
-<li>technical choices can produce both intended and unintended consequences</li>
+<li>user needs</li>
+<li>accessibility</li>
+<li>privacy</li>
+<li>reliability</li>
+<li>unintended consequences</li>
 </ul>
 </div>
 </section>
-<section id="system-reliability" class="slide level2">
-<h2>System Reliability</h2>
-<h3 id="reliable-software-performs-as-expected-under-stated-conditions">Reliable software performs as expected under stated conditions</h3>
-<p><span class="term">System reliability</span> means a program can perform its tasks without failure under the conditions it was designed for.</p>
+<section id="impact-questions" class="slide level2">
+<h2>Impact Questions</h2>
+<h3 id="ask-before-and-during-implementation">Ask before and during implementation</h3>
+<p>For any program, ask:</p>
 <div class="tight-list">
 <ul>
-<li>reliability does not happen by accident</li>
-<li>programmers improve reliability through <mark>testing with a variety of conditions</mark></li>
-<li>edge cases matter because failures often appear outside the normal path</li>
+<li>Who will use this program?</li>
+<li>What assumptions does the design make about the user?</li>
+<li>What data is collected or stored?</li>
+<li>What could go wrong if the program behaves incorrectly?</li>
+<li>Who benefits, and who might be excluded or harmed?</li>
+</ul>
+</div>
+<p>These questions shape what classes, data, and methods should exist.</p>
+</section>
+<section id="data-choices" class="slide level2">
+<h2>Data Choices</h2>
+<h3 id="instance-variables-are-design-decisions">Instance variables are design decisions</h3>
+<p>A class should store only the data it needs.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> UserProfile</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> displayName<span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> preferredTextSize<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Adding sensitive fields such as exact location or personal identifiers changes the program’s risk. Data design is part of program design.</p>
+</section>
+<section id="behavior-choices" class="slide level2">
+<h2>Behavior Choices</h2>
+<h3 id="methods-decide-what-the-program-can-do">Methods decide what the program can do</h3>
+<p>Method design affects safety and user experience.</p>
+<div class="tight-list">
+<ul>
+<li>A setter can validate a value before changing state.</li>
+<li>A getter can return only the information other code should see.</li>
+<li>A method can provide accessible alternatives such as text output.</li>
+<li>A class can avoid exposing private implementation details.</li>
+</ul>
+</div>
+<p>The public interface should support useful behavior without unnecessary risk.</p>
+</section>
+<section id="groupwork" class="slide level2">
+<h2>Groupwork</h2>
+<h3 id="impacts-of-cs">Impacts of CS</h3>
+<p>Choose one computing system used in school, transportation, health, finance, entertainment, or communication.</p>
+<p>Respond in groups:</p>
+<div class="tight-list">
+<ul>
+<li>What problem does the system solve?</li>
+<li>What data does it use?</li>
+<li>What design choice could improve access or fairness?</li>
+<li>What design choice could create privacy or reliability risk?</li>
 </ul>
 </div>
 </section>
-<section id="beneficial-and-harmful-impacts" class="slide level2">
-<h2>Beneficial and Harmful Impacts</h2>
-<h3 id="the-same-program-can-solve-one-problem-and-create-another">The same program can solve one problem and create another</h3>
-<p>The textbook keeps two ideas together:</p>
-<div class="tight-list">
-<ul>
-<li>programs can improve life, work, communication, safety, and access</li>
-<li>programs can also cause unintended harmful effects beyond their intended use</li>
-<li>impacts reach society, the economy, and culture</li>
-</ul>
-</div>
-<p>Students should evaluate software by looking at both benefits and risks.</p>
-</section>
-<section id="legal-use-and-open-source" class="slide level2">
-<h2>Legal Use and Open Source</h2>
-<h3 id="reusing-code-still-carries-responsibility">Reusing code still carries responsibility</h3>
-<div class="tight-list">
-<ul>
-<li><span class="term">Open source</span> code is published for reuse under its license terms</li>
-<li>code that is <mark>not</mark> open source may require permission or purchase</li>
-<li>intellectual property and legal constraints are part of program design work</li>
-</ul>
-</div>
-<p>Using existing code is normal, but using it correctly is part of professional practice.</p>
-</section>
-<section id="ai-and-ethical-decisions" class="slide level2">
-<h2>AI and Ethical Decisions</h2>
-<h3 id="technical-systems-may-force-hard-choices">Technical systems may force hard choices</h3>
-<p>The textbook uses self-driving cars as a concrete example.</p>
-<div class="tight-list">
-<ul>
-<li>AI and machine learning can improve safety and efficiency</li>
-<li>those same systems may face ethical tradeoffs</li>
-<li>questions about responsibility do not disappear when decisions are automated</li>
-</ul>
-</div>
-<p>Students should be ready to discuss who is accountable: the software, the organization, or the programmers who built it.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>evaluate software applications for beneficial and harmful effects</li>
-<li>discuss how testing relates to <span class="term">system reliability</span></li>
-<li>distinguish open-source reuse from code that needs permission</li>
-<li>examine ethical issues in AI within a specific domain</li>
-<li><span class="term">3.2.1 Groupwork: Impacts of CS</span></li>
-</ul>
-</div>
-<p>The linked videos in the textbook work as optional openers, not required core deck content.</p>
+<section id="student-response-task" class="slide level2">
+<h2>Student Response Task</h2>
+<h3 id="connect-impact-to-design">Connect impact to design</h3>
+<p>Write a short answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>The program I chose is:</span>
+<span id="cb2-2"><a href=""></a>One useful design decision is:</span>
+<span id="cb2-3"><a href=""></a>One possible risk is:</span>
+<span id="cb2-4"><a href=""></a>One class or method design choice that could reduce the risk is:</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Class goal: make the connection between social impact and concrete program design visible.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define <span class="term">system reliability</span> accurately</li>
-<li>explain why testing under varied conditions matters</li>
-<li>describe both beneficial and harmful impacts of a program</li>
-<li>identify the difference between open-source reuse and restricted code use</li>
-<li>discuss one ethical issue raised by AI in a concrete application area</li>
+<li>explain that program design decisions can affect real users</li>
+<li>connect data collection to privacy and risk</li>
+<li>connect method behavior to access, fairness, or reliability</li>
+<li>identify an assumption in a system’s design</li>
+<li>propose a concrete class or method design improvement</li>
 </ul>
 </div>
 </section>

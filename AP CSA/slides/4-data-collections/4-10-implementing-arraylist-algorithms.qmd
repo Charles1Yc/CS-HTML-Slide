@@ -14,118 +14,155 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Implementing ArrayList Algorithms
+## Topic Intro
 
-### Standard array algorithm patterns carry over to dynamic lists
+### ArrayList algorithms must respect shifting
 
-This topic maps familiar ideas onto `ArrayList`:
-
-::: {.tight-list}
-- sum, average, min, and max
-- property tests
-- duplicates and pairs
-- shift, rotate, and reverse
-- parallel data-structure traversal
-:::
-
-The main change is method-based access and size-changing behavior.
-
-## Add and Remove During Algorithms
-
-### Students need to trace list mutation precisely
-
-The textbook retains direct tracing of:
+The same collection patterns appear again:
 
 ::: {.tight-list}
-- `add`
-- `add(index, obj)`
-- `remove`
-- shifting side effects after insertion or deletion
+- add and remove elements
+- min, max, sum, average
+- count properties
+- find duplicates
+- rotate and reverse
 :::
 
-This is foundational because later algorithms depend on understanding how list contents move.
+The main extra risk is that `ArrayList` indices shift after insertions and removals.
 
-## Min, Max, Sum, and Average
+## Remove in a Loop
 
-### The same loop patterns still apply
+### Traverse backward when removing
 
-Retained structure:
+```java
+for (int i = list.size() - 1; i >= 0; i--)
+{
+    if (list.get(i) < 0)
+    {
+        list.remove(i);
+    }
+}
+```
 
-::: {.tight-list}
-- use traversal to visit each list element
-- maintain accumulators or current best values
-- combine loops with `if` conditions as needed
-- use wrapper values because the list stores objects
-:::
+Backward traversal avoids skipping elements after removal.
 
-Students should recognize that the pattern is familiar even though the collection type changed.
+## Sum and Average
 
-## Finding a Property
+### Accumulate values from `get(i)`
 
-### List algorithms still rely on boolean checks inside loops
+```java
+int sum = 0;
+for (int i = 0; i < values.size(); i++)
+{
+    sum += values.get(i);
+}
+double average = (double) sum / values.size();
+```
 
-The AP-style patterns are the same as with arrays:
+Use `values.size()` for the divisor.
 
-::: {.tight-list}
-- determine whether at least one element has a property
-- determine whether all elements have a property
-- count how many elements have a property
-:::
+## Max
 
-Only the access syntax changes from `array[i]` to `list.get(i)` or an enhanced `for` variable.
+### Initialize from an existing element
 
-## Pairs, Duplicates, and Nested Loops
+```java
+int max = values.get(0);
+for (int i = 1; i < values.size(); i++)
+{
+    if (values.get(i) > max)
+    {
+        max = values.get(i);
+    }
+}
+```
 
-### Some list problems still need two-level iteration
+This works for negative numbers too.
 
-The textbook keeps nested-loop reasoning for:
+## Count a Property
 
-::: {.tight-list}
-- consecutive pairs
-- duplicate detection
-- pair generation
-:::
+### Selection inside traversal
 
-Students should explicitly justify when one loop is insufficient.
+```java
+int oddCount = 0;
+for (int value : values)
+{
+    if (value % 2 != 0)
+    {
+        oddCount++;
+    }
+}
+```
 
-## Shift, Rotate, Reverse, and Parallel Structures
+This is a frequency counter for an `ArrayList`.
 
-### Reordering and multi-list traversal combine several earlier ideas
+## Duplicates
 
-Retained algorithm families:
+### Compare each pair once
 
-::: {.tight-list}
-- shift or rotate values in a list
-- reverse list order
-- traverse multiple arrays or `ArrayList` objects in sync
-:::
+```java
+for (int i = 0; i < list.size(); i++)
+{
+    for (int j = i + 1; j < list.size(); j++)
+    {
+        if (list.get(i).equals(list.get(j)))
+        {
+            return true;
+        }
+    }
+}
+return false;
+```
 
-This is where students need to balance index control, method use, and mutation effects.
+Use `equals` for objects such as strings.
 
-## Classroom Tasks
+## Rotate Right
 
-### Practice worth keeping
+### Remove from one end and add to the other
 
-Retained classroom work for this topic:
+```java
+String last = list.remove(list.size() - 1);
+list.add(0, last);
+```
 
-::: {.tight-list}
-- trace mutation caused by add/remove operations inside list algorithms
-- write min/max/sum/average loops over `ArrayList`
-- implement boolean-property and counting patterns
-- use nested loops for duplicate and pair algorithms
-- explain how parallel data structures are traversed together
-:::
+For a new list version, add elements into a separate `ArrayList` instead of modifying the original.
+
+## Reverse into a New List
+
+### Build in opposite order
+
+```java
+ArrayList<String> reversed = new ArrayList<String>();
+for (String item : list)
+{
+    reversed.add(0, item);
+}
+```
+
+Each new item is inserted at the front.
+
+## Parallel Data Structures
+
+### Same index connects related lists
+
+```java
+ArrayList<String> names = new ArrayList<String>();
+ArrayList<Integer> scores = new ArrayList<Integer>();
+
+System.out.println(names.get(i) + ": " + scores.get(i));
+```
+
+Parallel lists require careful index consistency. A class is often a cleaner design.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain how familiar array algorithms transfer to `ArrayList`
-- distinguish when traversal can use enhanced `for` versus indexed loops
-- explain the mutation effects of insertion and removal
-- identify when nested loops are needed
-- explain how two parallel lists can be traversed in step
+- remove safely by traversing backward when needed
+- compute sum, average, min, and max with `ArrayList` methods
+- count elements that match a property
+- use nested loops to detect duplicates
+- rotate or reverse a list while explaining how indices change
 :::
 
 ## End

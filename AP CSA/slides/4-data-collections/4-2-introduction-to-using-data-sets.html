@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit4-shared.css">
@@ -144,115 +210,98 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="introduction-to-using-data-sets" class="slide level2">
-<h2>Introduction to Using Data Sets</h2>
-<h3 id="a-data-set-is-a-collection-of-specific-pieces-of-information">A data set is a collection of specific pieces of information</h3>
-<p>This topic keeps the textbook introduction before Java data structures appear.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="data-sets-need-algorithms">Data sets need algorithms</h3>
+<p>A <span class="term">data set</span> (数据集) is a collection of related data values.</p>
+<p>In AP CSA, a data set is often processed with:</p>
 <div class="tight-list">
 <ul>
-<li>a <span class="term">data set</span> stores related pieces of information</li>
-<li>the information can be organized in a chart or table</li>
-<li>the table helps students plan how an algorithm should process the values</li>
+<li>arrays</li>
+<li><code>ArrayList</code></li>
+<li>text files</li>
+<li>loops</li>
+<li>selection logic</li>
 </ul>
 </div>
 </section>
-<section id="tables-and-charts-represent-data" class="slide level2">
-<h2>Tables and Charts Represent Data</h2>
-<h3 id="structured-data-is-easier-to-inspect-and-process">Structured data is easier to inspect and process</h3>
+<section id="algorithm-task" class="slide level2">
+<h2>Algorithm Task</h2>
+<h3 id="average-gpa-pseudocode">Average GPA pseudocode</h3>
+<p>Reorder the algorithm for computing an average.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Initialize total to 0.</span>
+<span id="cb1-2"><a href=""></a>Initialize count to 0.</span>
+<span id="cb1-3"><a href=""></a>For each GPA in the data set:</span>
+<span id="cb1-4"><a href=""></a>    Add the GPA to total.</span>
+<span id="cb1-5"><a href=""></a>    Add 1 to count.</span>
+<span id="cb1-6"><a href=""></a>Divide total by count.</span>
+<span id="cb1-7"><a href=""></a>Return or print the average.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is the same accumulator pattern from Unit 2 applied to a data collection.</p>
+</section>
+<section id="honor-roll-prompt" class="slide level2">
+<h2>Honor Roll Prompt</h2>
+<h3 id="filter-data-by-a-property">Filter data by a property</h3>
+<p>Write pseudocode for printing all students with a GPA at least <code>3.5</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>For each student in the data set:</span>
+<span id="cb2-2"><a href=""></a>    If the student's GPA is at least 3.5:</span>
+<span id="cb2-3"><a href=""></a>        Print the student's name.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Class focus: filtering is selection inside traversal.</p>
+</section>
+<section id="data-set-operations" class="slide level2">
+<h2>Data Set Operations</h2>
+<h3 id="common-classroom-algorithms">Common classroom algorithms</h3>
+<div class="tight-list">
+<ul>
+<li>count how many items match a condition</li>
+<li>compute sum or average</li>
+<li>find a minimum or maximum</li>
+<li>search for a target item</li>
+<li>build a new collection from selected items</li>
+</ul>
+</div>
+<p>The rest of Unit 4 gives Java structures for implementing these operations.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="match-task-to-pattern">Match task to pattern</h3>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>First Name</th>
-<th>Last Name</th>
-<th>Email</th>
-<th style="text-align: right;">GPA</th>
+<th>Task</th>
+<th>Pattern</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ana</td>
-<td>Li</td>
-<td>ana@example.com</td>
-<td style="text-align: right;">3.9</td>
+<td>total all GPAs</td>
+<td>accumulator</td>
 </tr>
 <tr class="even">
-<td>Marco</td>
-<td>Diaz</td>
-<td>marco@example.com</td>
-<td style="text-align: right;">3.4</td>
+<td>print all honor roll students</td>
+<td>filter</td>
 </tr>
 <tr class="odd">
-<td>Priya</td>
-<td>Shah</td>
-<td>priya@example.com</td>
-<td style="text-align: right;">3.7</td>
+<td>find highest score</td>
+<td>max</td>
+</tr>
+<tr class="even">
+<td>find a named student</td>
+<td>search</td>
 </tr>
 </tbody>
 </table>
-<p>Spreadsheet software stores data in this tabular form and provides tools to calculate with it.</p>
-</section>
-<section id="plan-the-algorithm-from-the-table" class="slide level2">
-<h2>Plan the Algorithm from the Table</h2>
-<h3 id="students-process-one-value-at-a-time">Students process one value at a time</h3>
-<p>To find an average GPA, the algorithm needs to:</p>
-<div class="tight-list">
-<ul>
-<li>visit each row</li>
-<li>access each GPA value</li>
-<li>add the values together</li>
-<li>divide by the number of rows</li>
-</ul>
-</div>
-<p>This is the core transition from table reading to algorithm design.</p>
-</section>
-<section id="loops-and-selection-in-dataset-reasoning" class="slide level2">
-<h2>Loops and Selection in Dataset Reasoning</h2>
-<h3 id="data-processing-often-combines-repetition-and-filtering">Data processing often combines repetition and filtering</h3>
-<p>The textbook retains two main reasoning patterns:</p>
-<div class="tight-list">
-<ul>
-<li>use <span class="term">loops</span> to process each value in sequence</li>
-<li>use <span class="term">selection</span> when only some rows meet a condition</li>
-</ul>
-</div>
-<p>For example, an honor-roll algorithm would examine each GPA and print only those at <code>3.5</code> or higher.</p>
-</section>
-<section id="bridge-to-java-data-structures" class="slide level2">
-<h2>Bridge to Java Data Structures</h2>
-<h3 id="the-same-reasoning-will-soon-move-into-arrays">The same reasoning will soon move into arrays</h3>
-<p>This topic is intentionally lightweight because it prepares students for the next step:</p>
-<div class="tight-list">
-<ul>
-<li>represent many values together</li>
-<li>access them one at a time</li>
-<li>combine loops with conditions to answer a question</li>
-</ul>
-</div>
-<p>The next lessons transfer that same logic into Java arrays.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>add another row to a simple spreadsheet-style table</li>
-<li>order the pseudocode steps for average GPA</li>
-<li>write short pseudocode for an honor-roll filter</li>
-<li>explain how one value is accessed and processed at a time</li>
-</ul>
-</div>
+<p>Use the task verb to choose the algorithm pattern.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>define a <span class="term">data set</span></li>
-<li>explain why tables and charts help with algorithm planning</li>
-<li>describe how an algorithm processes one value at a time</li>
-<li>explain how loops support dataset analysis</li>
-<li>explain how a condition can filter rows in a data set</li>
+<li>explain that a data set is a collection of related values</li>
+<li>connect data set processing to traversal with loops</li>
+<li>use an accumulator for averages</li>
+<li>use selection inside a loop to filter data</li>
+<li>identify common data set tasks such as count, search, min, max, and average</li>
 </ul>
 </div>
 </section>

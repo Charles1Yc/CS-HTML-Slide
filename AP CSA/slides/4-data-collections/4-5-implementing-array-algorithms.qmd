@@ -14,117 +14,172 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Implementing Array Algorithms
+## Topic Intro
 
-### This topic turns traversal into reusable problem-solving patterns
+### Arrays reuse familiar algorithm patterns
 
-The textbook keeps a common AP set of array algorithms together:
+Array algorithms combine traversals with Unit 2 patterns:
 
 ::: {.tight-list}
 - sum and average
-- min, max, and search
-- property tests
+- min and max
+- search
+- test a property
 - pairs and duplicates
 - rotate and reverse
 :::
 
-Students should recognize the pattern first, then write the loop.
+## Sum and Average
 
-## Accumulator Pattern
+### Accumulate while traversing
 
-### Initialize, traverse, update, then use the result
+```java
+int sum = 0;
+for (int value : values)
+{
+    sum += value;
+}
+double average = (double) sum / values.length;
+```
 
-The <span class="term">accumulator pattern</span> is retained as the first major array algorithm.
+Use an enhanced for loop when the index is not needed.
 
-::: {.tight-list}
-- initialize an accumulator before the loop
-- traverse the array
-- update the accumulator inside the loop
-- use the total after the loop finishes
-:::
+## Mixed-Up Algorithm
 
-This pattern supports both sums and averages.
+### Average of an array
 
-## Min, Max, and Search
+```java
+public static double average(int[] values)
+{
+    int sum = 0;
+    for (int value : values)
+    {
+        sum += value;
+    }
+    return (double) sum / values.length;
+}
+```
 
-### Loop plus selection is the core pattern
+Key decisions: initialize before loop, update inside loop, divide after loop.
 
-To find a minimum, maximum, or target element:
+## Min and Max
 
-::: {.tight-list}
-- start with a meaningful initial value
-- examine each array element
-- use an `if` statement to decide whether to replace the current answer
-- avoid returning too early before the correct answer is known
-:::
+### Store the best value seen so far
 
-Enhanced for-loops work well for value-based search, but not when the algorithm must return an index.
+```java
+int max = values[0];
+for (int i = 1; i < values.length; i++)
+{
+    if (values[i] > max)
+    {
+        max = values[i];
+    }
+}
+```
 
-## Backward Traversal and Property Tests
+Start with an existing element so the algorithm works with negative numbers.
 
-### Not every algorithm moves left to right
+## Search and Early Return
 
-The retained algorithm families here include:
+### Return when the target is found
 
-::: {.tight-list}
-- scanning from back to front
-- testing whether <span class="term">at least one</span> element has a property
-- testing whether <span class="term">all</span> elements have a property
-- counting how many elements satisfy a property
-:::
+```java
+public static boolean contains(int[] values, int target)
+{
+    for (int value : values)
+    {
+        if (value == target)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+```
 
-The logic for “all” often depends on checking the negation and returning `false` at the right time.
+The final `return false` belongs after the loop.
 
-## Pairs, Duplicates, and Nested Loops
+## Back-to-Front Traversal
 
-### Some problems require comparing more than one element at once
+### Some algorithms move backward
 
-The textbook keeps two related cases:
+```java
+for (int i = values.length - 1; i >= 0; i--)
+{
+    System.out.println(values[i]);
+}
+```
 
-::: {.tight-list}
-- consecutive pairs such as `array[i]` and `array[i + 1]`
-- duplicates anywhere in the array using nested loops
-:::
+Backward traversal is useful when shifting, removing, or comparing with earlier elements.
 
-This is one of the first places where students need to justify when a single loop is not enough.
+## Test a Property
 
-## Rotate and Reverse
+### Check whether all elements satisfy a condition
 
-### Reordering an array depends on careful index movement
+```java
+public static boolean allOdd(int[] values)
+{
+    for (int value : values)
+    {
+        if (value % 2 == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+```
 
-![Swapping values with a temporary variable](../../assets/4-data-collections/4-5-implementing-array-algorithms/swap.png){fig-align="center" width="52%"}
+One counterexample is enough to return `false`.
 
-::: {.tight-list}
-- rotation shifts all values left or right
-- reversing swaps symmetric positions
-- both patterns often need a <span class="term">temporary variable</span>
-- arrays are passed by reference, so in-place changes affect the original array
-:::
+## Pairs and Duplicates
 
-## Classroom Tasks
+### Nested loops compare combinations
 
-### Practice worth keeping
+```java
+for (int i = 0; i < values.length; i++)
+{
+    for (int j = i + 1; j < values.length; j++)
+    {
+        if (values[i] == values[j])
+        {
+            System.out.println("duplicate");
+        }
+    }
+}
+```
 
-Retained classroom work for this topic:
+The inner loop starts at `i + 1` to avoid comparing an element with itself.
 
-::: {.tight-list}
-- identify the correct loop pattern for sum, average, min, max, and search
-- distinguish forward and backward traversal use cases
-- write “at least one”, “all”, and “count” property checks
-- explain when nested loops are needed for duplicate detection
-- trace rotate and reverse algorithms with a temporary variable
-:::
+## Reverse an Array
+
+### Swap from both ends
+
+![Swap array values](../../assets/4-data-collections/4-5-implementing-array-algorithms/swap.png){fig-align="center" width="34%"}
+
+```java
+int left = 0;
+int right = values.length - 1;
+while (left < right)
+{
+    int temp = values[left];
+    values[left] = values[right];
+    values[right] = temp;
+    left++;
+    right--;
+}
+```
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain the four-step accumulator pattern
-- describe how min, max, and search rely on loop-plus-if structure
-- distinguish “at least one” from “all” in array-property tests
-- explain when an indexed loop is required instead of an enhanced for-loop
-- explain why rotate and reverse often require a temporary variable
+- implement sum and average with an accumulator
+- initialize min or max from an existing array element
+- place early returns correctly in search algorithms
+- use nested loops for pairs and duplicate checks
+- reverse an array by swapping values from both ends
 :::
 
 ## End

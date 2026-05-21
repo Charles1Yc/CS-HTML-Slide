@@ -14,107 +14,106 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## 2D Array Traversals
+## Topic Intro
 
-### Traversing a 2D array requires nested loops
+### 2D traversal uses nested loops
 
-This topic extends 1D traversal logic into row-and-column structures.
+A 2D array traversal usually has:
 
 ::: {.tight-list}
-- a 2D traversal visits all elements or a defined sequence of elements
-- because there are rows and columns, one loop is not enough
-- nested loops are the standard pattern
+- outer loop for rows
+- inner loop for columns
+- body that uses `array[row][col]`
 :::
 
-## Nested Loops
+## Row-Major Traversal
 
-### One loop controls rows and one loop controls columns
-
-The retained structure is:
+### Visit one full row at a time
 
 ```java
-for (int row = 0; row < arr.length; row++)
+for (int row = 0; row < grid.length; row++)
 {
-    for (int col = 0; col < arr[0].length; col++)
+    for (int col = 0; col < grid[row].length; col++)
     {
-        // use arr[row][col]
+        System.out.println(grid[row][col]);
     }
 }
 ```
 
-Students should connect the total number of iterations to rows times columns.
+This is the most common AP CSA traversal order.
 
-## Row-Major and Column-Major Traversals
+## Column-Major Traversal
 
-### Traversal order depends on which loop is outside
+### Visit one full column at a time
 
-Retained distinction:
+```java
+for (int col = 0; col < grid[0].length; col++)
+{
+    for (int row = 0; row < grid.length; row++)
+    {
+        System.out.println(grid[row][col]);
+    }
+}
+```
+
+This assumes a rectangular 2D array.
+
+## Quick Check
+
+### Which order is row-major?
+
+Row-major means:
 
 ::: {.tight-list}
-- <span class="term">row-major</span>: move across a row before going to the next row
-- <span class="term">column-major</span>: move down a column before going to the next column
-- the loop order determines the traversal order
+- choose a row
+- visit each column in that row
+- move to the next row
 :::
 
-This is a frequent AP tracing target.
+In code, the outer loop is usually `row`, and the inner loop is usually `col`.
 
-## Enhanced For-Each Loop for 2D Arrays
+## Enhanced For-Each
 
-### The outer loop visits rows, and the inner loop visits elements in each row
+### Read each row, then each value
 
-The textbook keeps one exact mental model:
+```java
+for (int[] row : grid)
+{
+    for (int value : row)
+    {
+        System.out.println(value);
+    }
+}
+```
 
-::: {.tight-list}
-- the outer enhanced `for` variable must be a 1D array type
-- the inner enhanced `for` variable must be the element type
-- enhanced `for` is good for reading all values
-- assigning to the loop variable does not change stored primitive values
-:::
+For-each is clear for reading all values, but not for changing values by index.
 
-## 2D Arrays of Objects
+## 2D Array of Objects
 
-### Traversal can also manipulate object state
+### Each cell can store an object reference
 
-![A pixel inside an image grid](../../assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg){fig-align="center" width="44%"}
+![Pixel image](../../assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg){fig-align="center" width="36%"}
 
-When a 2D array stores object references, traversal can call methods on those objects.
+Image processing can treat pixels as objects in a 2D grid.
 
-::: {.tight-list}
-- a picture can be modeled as a 2D array of `Pixel` objects
-- nested traversal can visit every pixel
-- method calls can change object attributes such as RGB values
-:::
+```java
+Pixel[][] pixels = picture.getPixels2D();
+```
 
-## Picture Lab Pattern
+## Groupwork Coding Challenge {.image-fit}
 
-### 2D traversal becomes a concrete image-processing workflow
+### Picture Lab
 
-![Picture Lab source image](../../assets/4-data-collections/4-12-2d-array-traversals/arch.jpg){fig-align="center" width="58%"}
+![Arch image](../../assets/4-data-collections/4-12-2d-array-traversals/arch.jpg){fig-align="center" width="38%"}
 
-The retained teaching idea is:
+Use nested loops over pixels to modify an image.
 
-::: {.tight-list}
-- visit every pixel in the picture
-- read red, green, and blue values
-- modify one or more color channels
-- observe the transformed image
-:::
-
-This makes nested loops concrete instead of abstract.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
+Class focus:
 
 ::: {.tight-list}
-- write and trace nested loops for full 2D traversal
-- distinguish row-major and column-major order
-- explain the variable types in nested enhanced `for` loops
-- explain why enhanced `for` does not modify primitive values directly
-- traverse 2D arrays of objects and call mutator methods
-- <span class="term">4.12.5 Coding Challenge: Picture Lab</span>
+- row and column traversal
+- object methods on each `Pixel`
+- changing state inside the nested loop
 :::
 
 ## Classroom Check
@@ -122,11 +121,11 @@ Retained classroom work for this topic:
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain why 2D traversal needs nested loops
-- distinguish row-major from column-major traversal
-- describe the outer and inner variable types in a nested enhanced `for` loop
-- explain why enhanced `for` cannot directly replace primitive 2D array values
-- explain how a 2D array of objects can still be modified through method calls
+- write row-major traversal with nested loops
+- write column-major traversal for rectangular arrays
+- use `array.length` for rows and `array[row].length` for columns
+- explain when enhanced for-each is appropriate
+- connect 2D object arrays to image or grid processing
 :::
 
 ## End

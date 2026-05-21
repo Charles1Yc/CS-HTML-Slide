@@ -210,130 +210,179 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="different-expressions-can-mean-the-same-thing">Different expressions can mean the same thing</h3>
+<p>Two Boolean expressions are <span class="term">equivalent</span> (等价) if they always evaluate to the same value for the same inputs.</p>
+<p>This topic focuses on:</p>
+<div class="tight-list">
+<ul>
+<li>De Morgan’s Laws</li>
+<li>simplifying Boolean expressions</li>
+<li>comparing objects and strings</li>
+<li>safe <code>null</code> checks</li>
+</ul>
+</div>
+</section>
 <section id="de-morgans-laws" class="slide level2">
 <h2>De Morgan’s Laws</h2>
-<h3 id="move-the-not-inside-and-flip-the-connector">Move the NOT inside and flip the connector</h3>
+<h3 id="distributing-flips-the-operator">Distributing <code>!</code> flips the operator</h3>
 
-<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">De Morgan’s Laws</p><p>The goal is to show that two different-looking Boolean expressions can be logically equivalent.</p>
+<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">De Morgan’s Laws</p><p>Core identities:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="op">!(</span>a <span class="op">&amp;&amp;</span> b<span class="op">)</span>  is equivalent to  <span class="op">!</span>a <span class="op">||</span> <span class="op">!</span>b</span>
+<span id="cb1-2"><a href=""></a><span class="op">!(</span>a <span class="op">||</span> b<span class="op">)</span>  is equivalent to  <span class="op">!</span>a <span class="op">&amp;&amp;</span> <span class="op">!</span>b</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The operator changes when the negation moves inward.</p>
+</section>
+<section id="truth-table-method" class="slide level2">
+<h2>Truth Table Method</h2>
+<h3 id="prove-equivalence-by-matching-result-columns">Prove equivalence by matching result columns</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><code>a</code></th>
+<th><code>b</code></th>
+<th><code>!(a &amp;&amp; b)</code></th>
+<th><code>!a || !b</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>true</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="even">
+<td>true</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="odd">
+<td>false</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr class="even">
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<p>Because the result columns match in every row, the two expressions are equivalent.</p>
+</section>
+<section id="simplifying-boolean-expressions" class="slide level2">
+<h2>Simplifying Boolean Expressions</h2>
+<h3 id="choose-the-more-readable-form">Choose the more readable form</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Simplifying with De Morgan</p><p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="op">!(</span>score <span class="op">&gt;=</span> <span class="dv">60</span> <span class="op">&amp;&amp;</span> submitted<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Equivalent form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>score <span class="op">&lt;</span> <span class="dv">60</span> <span class="op">||</span> <span class="op">!</span>submitted</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="apply-de-morgans-laws">Apply De Morgan’s Laws</h3>
+<p>Which expression is equivalent to <code>!(x &lt; 5 || y == 0)</code>?</p>
 <div class="tight-list">
 <ul>
-<li><code>!(a &amp;&amp; b)</code> is equivalent to <code>!a || !b</code></li>
-<li><code>!(a || b)</code> is equivalent to <code>!a &amp;&amp; !b</code></li>
+<li>A. <code>x &gt;= 5 &amp;&amp; y != 0</code></li>
+<li>B. <code>x &gt;= 5 || y != 0</code></li>
+<li>C. <code>x &lt; 5 &amp;&amp; y == 0</code></li>
+<li>D. <code>x &gt; 5 &amp;&amp; y != 0</code></li>
 </ul>
 </div>
+<p>Answer: <mark>A</mark>. Negate both comparisons and change <code>||</code> to <code>&amp;&amp;</code>.</p>
 </section>
-<section id="flipping-relational-operators" class="slide level2">
-<h2>Flipping Relational Operators</h2>
-<h3 id="moving-inward-also-changes-comparison-signs">Moving <code>!</code> inward also changes comparison signs</h3>
-<div class="tight-list">
-<ul>
-<li><code>!(c == d)</code> becomes <code>c != d</code></li>
-<li><code>!(c &lt; d)</code> becomes <code>c &gt;= d</code></li>
-<li><code>!(c &gt; d)</code> becomes <code>c &lt;= d</code></li>
-</ul>
-</div>
-<p>The classroom shortcut is: <mark>move the NOT, flip the sign</mark>.</p>
-</section>
-<section id="simplifying-expressions" class="slide level2">
-<h2>Simplifying Expressions</h2>
-<h3 id="equivalent-code-can-be-easier-to-read">Equivalent code can be easier to read</h3>
+<section id="comparing-objects" class="slide level2">
+<h2>Comparing Objects</h2>
+<h3 id="asks-whether-references-are-identical"><code>==</code> asks whether references are identical</h3>
+<p>For object variables, <code>==</code> compares references.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png" style="width:52.0%" class="r-stretch quarto-figure-center"><p class="caption">Example simplification</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="op">!(</span>x <span class="op">&lt;</span> <span class="dv">3</span> <span class="op">&amp;&amp;</span> y <span class="op">&gt;</span> <span class="dv">2</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>can be simplified step by step into:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>x <span class="op">&gt;=</span> <span class="dv">3</span> <span class="op">||</span> y <span class="op">&lt;=</span> <span class="dv">2</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png" style="width:40.0%" class="r-stretch quarto-figure-center"><p class="caption">String reference comparison</p><p>With strings, you almost always want:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>s1<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>s2<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>because it checks whether the character sequences are equal.</p>
 </section>
-<section id="truth-tables-and-equivalence" class="slide level2">
-<h2>Truth Tables and Equivalence</h2>
-<h3 id="matching-outputs-prove-two-expressions-are-equivalent">Matching outputs prove two expressions are equivalent</h3>
-<p>Truth tables matter here because they let students compare:</p>
-<div class="tight-list">
-<ul>
-<li>the original compound expression</li>
-<li>the negated version</li>
-<li>the simplified version</li>
-</ul>
-</div>
-<p>If every row matches, the expressions are equivalent.</p>
+<section id="string-equality" class="slide level2">
+<h2>String Equality</h2>
+<h3 id="same-characters-different-references">Same characters, different references</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> s1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"hi"</span><span class="op">);</span></span>
+<span id="cb5-2"><a href=""></a><span class="bu">String</span> s2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"hi"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1 <span class="op">==</span> s2<span class="op">);</span></span>
+<span id="cb5-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>s2<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>false</span>
+<span id="cb6-2"><a href=""></a>true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>equals</code> checks content equality.</p>
 </section>
-<section id="comparing-objects-and-strings" class="slide level2">
-<h2>Comparing Objects and Strings</h2>
-<h3 id="equals-is-usually-the-right-comparison-for-object-content"><code>equals</code> is usually the right comparison for object content</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">String aliases</p><div class="tight-list">
-<ul>
-<li>objects can have many internal values</li>
-<li><code>==</code> checks whether two references point to the same object</li>
-<li><code>equals(...)</code> checks whether two objects should count as equal in content</li>
-</ul>
-</div>
-<p>With strings, you almost always want <code>equals(...)</code>.</p>
-</section>
-<section id="string-equality-cases" class="slide level2">
-<h2>String Equality Cases</h2>
-<h3 id="same-content-is-not-always-the-same-reference">Same content is not always the same reference</h3>
+<section id="reference-diagrams" class="slide level2 image-fit">
+<h2>Reference Diagrams</h2>
+<h3 id="trace-what-each-variable-points-to">Trace what each variable points to</h3>
 <div class="two-col">
 <div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg" style="width:100.0%"></p>
-<figcaption>Alias case</figcaption>
+<p><img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg" style="width:84.0%"></p>
+<figcaption>s1 and s2</figcaption>
 </figure>
 </div>
 </div>
-<div class="soft-box">
-<p>Two useful cases:</p>
-<ul>
-<li>alias case: <code>s2 == s3</code> can be true</li>
-<li>new-string case: <code>s1 == s2</code> can be false even when <code>s1.equals(s2)</code> is true</li>
-</ul>
-</div>
-</div>
+<div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg" style="width:40.0%"></p>
-<figcaption>New strings with same characters</figcaption>
+<p><img data-src="../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg" style="width:84.0%"></p>
+<figcaption>s2 and s3</figcaption>
 </figure>
 </div>
+</div>
+</div>
+<p>When a question uses <code>==</code> with objects, draw arrows to objects before answering.</p>
 </section>
 <section id="comparing-with-null" class="slide level2">
 <h2>Comparing with <code>null</code></h2>
-<h3 id="use-short-circuiting-to-stay-safe">Use short circuiting to stay safe</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>s <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s <span class="op">+</span> <span class="st">" contains an a"</span><span class="op">);</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>null</code> means no object is there</li>
-<li>calling a method on <code>null</code> causes a <span class="term">NullPointerException</span></li>
-<li><code>s != null &amp;&amp; ...</code> is safe because of short circuit evaluation</li>
-</ul>
-</div>
+<h3 id="check-null-before-calling-a-method">Check <code>null</code> before calling a method</h3>
+<p>This can crash if <code>s</code> is <code>null</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"yes"</span><span class="op">))</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"matched"</span><span class="op">);</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Safe pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>s <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> s<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"yes"</span><span class="op">))</span></span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"matched"</span><span class="op">);</span></span>
+<span id="cb8-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Short circuiting prevents the method call when <code>s</code> is <code>null</code>.</p>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>De Morgan transformation checks</li>
-<li>truth-table comparisons for equivalent conditions</li>
-<li><code>==</code> versus <code>equals(...)</code> examples with strings</li>
-<li><code>null</code> guard tracing with short-circuit logic</li>
-<li><span class="term">2.6.8 Coding Challenge: Truth and Tracing Tables POGIL</span></li>
-</ul>
-</div>
+<section id="student-response-task" class="slide level2">
+<h2>Student Response Task</h2>
+<h3 id="truth-and-tracing-table">Truth and tracing table</h3>
+<p>Complete the reasoning for the code.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="bu">String</span> a <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"cat"</span><span class="op">);</span></span>
+<span id="cb9-2"><a href=""></a><span class="bu">String</span> b <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"cat"</span><span class="op">);</span></span>
+<span id="cb9-3"><a href=""></a><span class="bu">String</span> c <span class="op">=</span> a<span class="op">;</span></span>
+<span id="cb9-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a <span class="op">==</span> b<span class="op">);</span></span>
+<span id="cb9-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a <span class="op">==</span> c<span class="op">);</span></span>
+<span id="cb9-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>b<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>false</span>
+<span id="cb10-2"><a href=""></a>true</span>
+<span id="cb10-3"><a href=""></a>true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Explain each line using references versus contents.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>apply De Morgan’s Laws correctly</li>
-<li>flip relational operators when moving negation inward</li>
-<li>explain expression equivalence with truth-table reasoning</li>
-<li>distinguish <code>==</code> from <code>equals(...)</code> for strings</li>
-<li>explain why <code>obj != null &amp;&amp; ...</code> is the safe pattern</li>
+<li>apply De Morgan’s Laws by flipping both the comparison and the operator</li>
+<li>use a truth table to test Boolean equivalence</li>
+<li>distinguish <code>==</code> from <code>equals</code> for strings</li>
+<li>explain why two different string objects can have equal contents</li>
+<li>write safe <code>obj != null &amp;&amp; obj.method()</code> checks</li>
 </ul>
 </div>
 </section>

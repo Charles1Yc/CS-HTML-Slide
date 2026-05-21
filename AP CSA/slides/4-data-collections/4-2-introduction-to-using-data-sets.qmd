@@ -14,95 +14,91 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Introduction to Using Data Sets
+## Topic Intro
 
-### A data set is a collection of specific pieces of information
+### Data sets need algorithms
 
-This topic keeps the textbook introduction before Java data structures appear.
+A <span class="term">data set</span> (数据集) is a collection of related data values.
 
-::: {.tight-list}
-- a <span class="term">data set</span> stores related pieces of information
-- the information can be organized in a chart or table
-- the table helps students plan how an algorithm should process the values
-:::
-
-## Tables and Charts Represent Data
-
-### Structured data is easier to inspect and process
-
-| First Name | Last Name | Email | GPA |
-|---|---|---|---:|
-| Ana | Li | ana@example.com | 3.9 |
-| Marco | Diaz | marco@example.com | 3.4 |
-| Priya | Shah | priya@example.com | 3.7 |
-
-Spreadsheet software stores data in this tabular form and provides tools to calculate with it.
-
-## Plan the Algorithm from the Table
-
-### Students process one value at a time
-
-To find an average GPA, the algorithm needs to:
+In AP CSA, a data set is often processed with:
 
 ::: {.tight-list}
-- visit each row
-- access each GPA value
-- add the values together
-- divide by the number of rows
+- arrays
+- `ArrayList`
+- text files
+- loops
+- selection logic
 :::
 
-This is the core transition from table reading to algorithm design.
+## Algorithm Task
 
-## Loops and Selection in Dataset Reasoning
+### Average GPA pseudocode
 
-### Data processing often combines repetition and filtering
+Reorder the algorithm for computing an average.
 
-The textbook retains two main reasoning patterns:
+```text
+Initialize total to 0.
+Initialize count to 0.
+For each GPA in the data set:
+    Add the GPA to total.
+    Add 1 to count.
+Divide total by count.
+Return or print the average.
+```
+
+This is the same accumulator pattern from Unit 2 applied to a data collection.
+
+## Honor Roll Prompt
+
+### Filter data by a property
+
+Write pseudocode for printing all students with a GPA at least `3.5`.
+
+```text
+For each student in the data set:
+    If the student's GPA is at least 3.5:
+        Print the student's name.
+```
+
+Class focus: filtering is selection inside traversal.
+
+## Data Set Operations
+
+### Common classroom algorithms
 
 ::: {.tight-list}
-- use <span class="term">loops</span> to process each value in sequence
-- use <span class="term">selection</span> when only some rows meet a condition
+- count how many items match a condition
+- compute sum or average
+- find a minimum or maximum
+- search for a target item
+- build a new collection from selected items
 :::
 
-For example, an honor-roll algorithm would examine each GPA and print only those at `3.5` or higher.
+The rest of Unit 4 gives Java structures for implementing these operations.
 
-## Bridge to Java Data Structures
+## Quick Check
 
-### The same reasoning will soon move into arrays
+### Match task to pattern
 
-This topic is intentionally lightweight because it prepares students for the next step:
+| Task | Pattern |
+|---|---|
+| total all GPAs | accumulator |
+| print all honor roll students | filter |
+| find highest score | max |
+| find a named student | search |
 
-::: {.tight-list}
-- represent many values together
-- access them one at a time
-- combine loops with conditions to answer a question
-:::
-
-The next lessons transfer that same logic into Java arrays.
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
-
-::: {.tight-list}
-- add another row to a simple spreadsheet-style table
-- order the pseudocode steps for average GPA
-- write short pseudocode for an honor-roll filter
-- explain how one value is accessed and processed at a time
-:::
+Use the task verb to choose the algorithm pattern.
 
 ## Classroom Check
 
 ### A strong answer should...
 
 ::: {.tight-list}
-- define a <span class="term">data set</span>
-- explain why tables and charts help with algorithm planning
-- describe how an algorithm processes one value at a time
-- explain how loops support dataset analysis
-- explain how a condition can filter rows in a data set
+- explain that a data set is a collection of related values
+- connect data set processing to traversal with loops
+- use an accumulator for averages
+- use selection inside a loop to filter data
+- identify common data set tasks such as count, search, min, max, and average
 :::
 
 ## End

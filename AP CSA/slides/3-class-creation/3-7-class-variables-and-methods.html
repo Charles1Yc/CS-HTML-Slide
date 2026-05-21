@@ -210,98 +210,129 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="class-variables-and-methods" class="slide level2">
-<h2>Class Variables and Methods</h2>
-<h3 id="static-belongs-to-the-class-not-to-one-object"><code>static</code> belongs to the class, not to one object</h3>
-<p>The textbook connects this topic back to familiar examples:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="static-belongs-to-the-class"><code>static</code> belongs to the class</h3>
+<p>A <span class="term">static</span> member belongs to the class itself, not to one individual object.</p>
 <div class="tight-list">
 <ul>
-<li><code>Math.random()</code> is a <span class="term">class method</span></li>
-<li><code>main</code> is also a static method</li>
-<li>static members are associated with the <mark>class itself</mark></li>
+<li>static method: called on the class</li>
+<li>static variable: shared by all objects of the class</li>
+<li>instance variable: each object has its own copy</li>
 </ul>
 </div>
-<p>This topic separates shared class behavior from per-object behavior.</p>
 </section>
 <section id="class-methods" class="slide level2">
 <h2>Class Methods</h2>
 <h3 id="static-methods-are-called-with-the-class-name">Static methods are called with the class name</h3>
 
-<img data-src="../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png" style="width:78.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling static and instance methods</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>ClassName<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>class methods belong to the class, not to any particular object</li>
-<li>there is only one copy for the whole class</li>
-<li>they can call other static methods directly</li>
-<li>they can access <span class="term">class variables</span></li>
-</ul>
-</div>
+<img data-src="../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png" style="width:55.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">double</span> root <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">25</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Math.sqrt</code> is a static method. You do not create a <code>Math</code> object before calling it.</p>
 </section>
-<section id="static-context-rules" class="slide level2">
-<h2>Static Context Rules</h2>
-<h3 id="a-static-method-cannot-directly-use-instance-state">A static method cannot directly use instance state</h3>
-<p>The key AP rule here is:</p>
-<div class="tight-list">
-<ul>
-<li>static methods cannot directly access <mark>instance variables</mark></li>
-<li>static methods cannot directly call <mark>instance methods</mark></li>
-<li>they need an object reference passed in or created first</li>
-</ul>
-</div>
-<p>This is why <code>main</code> must construct an object before calling instance methods on it.</p>
+<section id="static-method-example" class="slide level2">
+<h2>Static Method Example</h2>
+<h3 id="no-instance-variables-required">No instance variables required</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Temperature</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">celsiusToFahrenheit</span><span class="op">(</span><span class="dt">double</span> celsius<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="cf">return</span> celsius <span class="op">*</span> <span class="fl">9.0</span> <span class="op">/</span> <span class="fl">5.0</span> <span class="op">+</span> <span class="dv">32</span><span class="op">;</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">double</span> f <span class="op">=</span> Temperature<span class="op">.</span><span class="fu">celsiusToFahrenheit</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Static methods should not depend on one object’s instance state.</p>
 </section>
 <section id="class-variables" class="slide level2">
 <h2>Class Variables</h2>
-<h3 id="one-shared-copy-exists-for-the-whole-class">One shared copy exists for the whole class</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> personCounter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>class variables are marked with <code>static</code></li>
-<li>every object shares the same class variable</li>
-<li>they are useful for counters, totals, min/max tracking, and similar shared state</li>
-<li>public static variables are accessed with <code>ClassName.variableName</code></li>
-</ul>
-</div>
+<h3 id="one-shared-value-for-the-whole-class">One shared value for the whole class</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> personCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>        name <span class="op">=</span> personName<span class="op">;</span></span>
+<span id="cb4-9"><a href=""></a>        personCount<span class="op">++;</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href=""></a></span>
+<span id="cb4-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getPersonCount</span><span class="op">()</span></span>
+<span id="cb4-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-14"><a href=""></a>        <span class="cf">return</span> personCount<span class="op">;</span></span>
+<span id="cb4-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Every constructor call updates the same shared counter.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="trace-the-static-counter">Trace the static counter</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Person a <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Ana"</span><span class="op">);</span></span>
+<span id="cb5-2"><a href=""></a>Person b <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Bo"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href=""></a>Person c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Cam"</span><span class="op">);</span></span>
+<span id="cb5-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>Person<span class="op">.</span><span class="fu">getPersonCount</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Answer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>3</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>There is one <code>personCount</code> for the class, not one per object.</p>
+</section>
+<section id="debug-task" class="slide level2">
+<h2>Debug Task</h2>
+<h3 id="static-method-cannot-use-instance-state-directly">Static method cannot use instance state directly</h3>
+<p>Problem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printName</span><span class="op">()</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>name</code> is an instance variable. A static method has no specific object.</p>
+<p>Fix: make the method an instance method, or pass needed data as a parameter.</p>
 </section>
 <section id="final-keyword" class="slide level2">
 <h2><code>final</code> Keyword</h2>
-<h3 id="use-final-for-constants-that-should-not-change">Use <code>final</code> for constants that should not change</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">double</span> PI <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="constants-should-not-change">Constants should not change</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">double</span> PI <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>final</code> means the value cannot be reassigned after initialization.</p>
+<p>Class constants are often:</p>
 <div class="tight-list">
 <ul>
-<li><code>final</code> means the value cannot be modified</li>
-<li>constants are traditionally written in capital letters</li>
-<li><code>static final</code> is a common pattern for shared constants</li>
+<li><code>public</code></li>
+<li><code>static</code></li>
+<li><code>final</code></li>
+<li>named with uppercase words</li>
 </ul>
 </div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>distinguish static methods from instance methods</li>
-<li>explain why static methods cannot directly use instance state</li>
-<li>trace shared behavior of a static counter across multiple objects</li>
-<li>identify appropriate uses for <code>static</code> and <code>final</code></li>
-<li><span class="term">3.7.4 Coding Challenge: Static Song and counter</span></li>
-</ul>
-</div>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="static-song-and-counter">Static song and counter</h3>
+<p>Design a class that tracks how many song objects have been created.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Song</span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
+<span id="cb9-5"><a href=""></a></span>
+<span id="cb9-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Song</span><span class="op">(</span><span class="bu">String</span> songTitle<span class="op">)</span></span>
+<span id="cb9-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-8"><a href=""></a>        title <span class="op">=</span> songTitle<span class="op">;</span></span>
+<span id="cb9-9"><a href=""></a>        count<span class="op">++;</span></span>
+<span id="cb9-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-11"><a href=""></a></span>
+<span id="cb9-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getCount</span><span class="op">()</span></span>
+<span id="cb9-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-14"><a href=""></a>        <span class="cf">return</span> count<span class="op">;</span></span>
+<span id="cb9-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add one instance method that prints the song title.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain what makes a method or variable <code>static</code></li>
-<li>state that static methods cannot directly access instance variables</li>
-<li>explain that class variables are shared across all objects</li>
-<li>identify when the class name should be used to access a member</li>
-<li>explain what <code>final</code> means for a variable</li>
+<li>distinguish static members from instance members</li>
+<li>call a static method with the class name</li>
+<li>explain why a static variable is shared by all objects</li>
+<li>trace a static counter across multiple constructor calls</li>
+<li>explain why <code>final</code> is used for constants</li>
 </ul>
 </div>
 </section>

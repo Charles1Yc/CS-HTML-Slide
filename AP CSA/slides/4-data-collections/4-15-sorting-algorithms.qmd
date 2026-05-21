@@ -14,124 +14,130 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Sorting Algorithms
+## Topic Intro
 
-### Sorting puts values into numeric or alphabetic order
+### Sorting puts data in order
 
-This topic keeps two iterative AP sorting algorithms in focus:
+<span class="term">Sorting algorithms</span> reorder data, usually from smallest to largest or alphabetically.
 
-::: {.tight-list}
-- <span class="term">selection sort</span>
-- <span class="term">insertion sort</span>
-- merge sort is previewed here and handled fully in `4.17`
-:::
-
-## Selection Sort
-
-### Repeatedly choose the smallest remaining value and swap it forward
-
-Retained algorithm story:
+This topic focuses on:
 
 ::: {.tight-list}
-- the outer loop marks the start of the unsorted region
-- `minIndex` starts at the outer-loop index
-- the inner loop scans the remaining unsorted values
-- after the scan, swap the smallest found value into its final position
+- selection sort
+- insertion sort
+- tracing how an array changes
+- informal runtime comparison
 :::
 
-## Recognizing Selection Sort
+## Selection Sort Idea
 
-### AP questions often test pattern recognition, not just memorized code
+### Repeatedly select the smallest remaining value
+
+Algorithm:
+
+```text
+For each position from left to right:
+    Find the smallest value in the unsorted part.
+    Swap it into the current position.
+```
+
+After each pass, one more value is in its final position.
+
+## Selection Sort Code {.fit-small}
+
+### Find min index, then swap
 
 ```java
-for (int j = 0; j < elements.length - 1; j++)
+for (int i = 0; i < values.length - 1; i++)
 {
-    int minIndex = j;
-    for (int k = j + 1; k < elements.length; k++)
+    int minIndex = i;
+    for (int j = i + 1; j < values.length; j++)
     {
-        if (elements[k] < elements[minIndex]) { minIndex = k; }
+        if (values[j] < values[minIndex])
+        {
+            minIndex = j;
+        }
     }
-    // swap elements[j] and elements[minIndex]
+    int temp = values[i];
+    values[i] = values[minIndex];
+    values[minIndex] = temp;
 }
 ```
 
-Key signal: the selected minimum goes into its <span class="mark">final</span> location each pass.
+## Selection Sort Trace
 
-## Insertion Sort
+### First pass
 
-### Insert each new element into the already sorted left side
-
-Retained algorithm story:
+For `{5, 2, 7, 1}`:
 
 ::: {.tight-list}
-- the sorted region grows from left to right
-- store the current value in `temp`
-- shift larger values rightward
-- place `temp` into the open location
+- current position: index `0`
+- smallest remaining value: `1` at index `3`
+- swap indices `0` and `3`
+- array becomes `{1, 2, 7, 5}`
 :::
 
-## Recognizing Insertion Sort
+## Insertion Sort Idea
 
-### The inner action is shifting, not choosing one minimum
+### Insert each value into the sorted left side
+
+Algorithm:
+
+```text
+Start with the left side considered sorted.
+Take the next value.
+Shift larger values right.
+Insert the value into the open spot.
+```
+
+Insertion sort resembles sorting cards in your hand.
+
+## Insertion Sort Code {.fit-small}
+
+### Shift until the correct position opens
 
 ```java
-for (int j = 1; j < elements.length; j++)
+for (int i = 1; i < values.length; i++)
 {
-    int temp = elements[j];
-    int possibleIndex = j;
-    while (possibleIndex > 0 && temp < elements[possibleIndex - 1])
+    int current = values[i];
+    int j = i - 1;
+
+    while (j >= 0 && values[j] > current)
     {
-        elements[possibleIndex] = elements[possibleIndex - 1];
-        possibleIndex--;
+        values[j + 1] = values[j];
+        j--;
     }
-    elements[possibleIndex] = temp;
+    values[j + 1] = current;
 }
 ```
 
-Key signal: the algorithm opens space by <span class="term">shifting</span> values to the right.
+## Insertion Sort Trace
 
-## Compare the Two Sorts
+### Insert `2`
 
-### They both use nested control flow, but they improve order differently
-
-| Algorithm | Main action | Best mental model |
-|---|---|---|
-| Selection sort | find min, then swap | choose the next final value |
-| Insertion sort | shift, then insert | grow a sorted left side |
-
-Retained contrast:
+For `{5, 2, 7, 1}` at `i = 1`:
 
 ::: {.tight-list}
-- selection sort does the same comparison pattern regardless of data order
-- insertion sort can do less work when data is already mostly sorted
-- both are iterative and traceable by index movement
+- `current = 2`
+- compare with `5`
+- shift `5` right
+- insert `2` at index `0`
+- array becomes `{2, 5, 7, 1}`
 :::
 
-## Runtime Framing
+## Groupwork Coding Challenge
 
-### Both algorithms are much slower than binary-style divide-and-conquer methods
+### Sort runtimes
 
-Retained conclusion:
+Trace selection sort and insertion sort on the same small array.
 
-::: {.tight-list}
-- both algorithms revisit the data many times
-- informal runtime comparison often comes from counting inner-loop work
-- they are useful because their control flow is visible and easy to trace
-:::
-
-## Classroom Tasks
-
-### Practice worth keeping
-
-Retained classroom work for this topic:
+Record:
 
 ::: {.tight-list}
-- identify selection sort from outer-loop and `minIndex` behavior
-- identify insertion sort from `temp`, `possibleIndex`, and shifting behavior
-- trace one full pass of each algorithm
-- compare how already sorted data affects insertion sort
-- explain why selection sort still performs the same comparison structure
-- <span class="term">4.15.3 Coding Challenge: Sort Runtimes</span>
+- comparisons
+- swaps or shifts
+- array after each outer loop pass
+- which algorithm feels easier to trace and why
 :::
 
 ## Classroom Check
@@ -139,11 +145,11 @@ Retained classroom work for this topic:
 ### A strong answer should...
 
 ::: {.tight-list}
-- explain how selection sort chooses and places the next smallest value
-- explain how insertion sort shifts values and inserts `temp`
-- distinguish swapping from shifting
-- identify the loop structure that reveals each algorithm
-- compare the informal runtime behavior of the two iterative sorts
+- explain selection sort as choosing the minimum remaining value
+- trace a selection sort swap
+- explain insertion sort as inserting into a sorted left side
+- trace an insertion sort shift
+- compare sorting algorithms using passes, comparisons, swaps, and shifts
 :::
 
 ## End

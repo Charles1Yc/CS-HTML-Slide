@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit3-shared.css">
@@ -144,133 +210,133 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="passing-and-returning-object-references" class="slide level2">
-<h2>Passing and Returning Object References</h2>
-<h3 id="classes-often-interact-through-other-objects">Classes often interact through other objects</h3>
-<p>This topic keeps the textbook shift from single-class examples to interacting classes.</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="object-variables-store-references">Object variables store references</h3>
+<p>When an object variable is passed to a method, Java passes a copy of the <span class="term">reference</span> (引用).</p>
+<p>The copy still points to the same object.</p>
+<p>This topic explains:</p>
 <div class="tight-list">
 <ul>
-<li>one object can be stored inside another object</li>
-<li>one object reference can be passed into a method</li>
-<li>a method can also return an object reference</li>
+<li>objects as instance variables</li>
+<li>objects as arguments</li>
+<li>copying parameter objects</li>
+<li>parameters of the same class type</li>
+<li>returning objects</li>
 </ul>
 </div>
-<p>That power creates both flexibility and risk.</p>
 </section>
 <section id="objects-as-instance-variables" class="slide level2">
 <h2>Objects as Instance Variables</h2>
-<h3 id="a-class-can-have-a-has-a-relationship-with-another-class">A class can have a has-a relationship with another class</h3>
-<p>Example from the textbook:</p>
-<div class="tight-list">
-<ul>
-<li>a <code>Person</code> can have an <code>Address</code></li>
-<li>the <code>Address</code> object has its own instance variables</li>
-<li>the <code>Person</code> class stores that object as part of its own state</li>
-</ul>
-</div>
-<p>This is a <span class="term">has-a relationship</span>.</p>
+<h3 id="a-class-can-store-another-object">A class can store another object</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> Address homeAddress<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a></span>
+<span id="cb1-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">,</span> Address address<span class="op">)</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-8"><a href=""></a>        name <span class="op">=</span> personName<span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a>        homeAddress <span class="op">=</span> address<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>homeAddress</code> is an instance variable whose type is another class.</p>
 </section>
 <section id="objects-as-arguments" class="slide level2">
 <h2>Objects as Arguments</h2>
-<h3 id="java-still-uses-call-by-value-but-the-copied-value-may-be-a-reference">Java still uses call by value, but the copied value may be a reference</h3>
+<h3 id="the-parameter-receives-a-copy-of-the-reference">The parameter receives a copy of the reference</h3>
 
-<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png" style="width:74.0%" class="r-stretch quarto-figure-center"><p class="caption">Aliasing with object references</p><div class="tight-list">
-<ul>
-<li>when an argument is an object reference, Java copies the <mark>reference</mark></li>
-<li>it does <mark>not</mark> copy the whole object</li>
-<li>the parameter and argument can become <span class="term">aliases</span> for the same object</li>
-</ul>
-</div>
-<p>This is why object parameters behave differently from primitive parameters.</p>
+<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Object reference equality</p><p>If a method receives an object reference, it can call methods on the same object.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">moveTurtle</span><span class="op">(</span>Turtle t<span class="op">)</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    t<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The parameter <code>t</code> points to the same turtle object as the argument.</p>
 </section>
-<section id="mutable-vs-immutable" class="slide level2">
-<h2>Mutable vs Immutable</h2>
-<h3 id="shared-references-matter-only-when-the-object-can-change">Shared references matter only when the object can change</h3>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong>Immutable</strong></p>
-<ul>
-<li>examples include <code>String</code></li>
-<li>methods do not change the original object</li>
-<li>sharing the reference is usually safe</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong>Mutable</strong></p>
-<ul>
-<li>custom classes with setters are often mutable</li>
-<li>one reference can change the object’s state</li>
-<li>all aliases see that changed state</li>
-</ul>
-</div>
-</div>
-<p>The textbook’s rule of thumb is not to modify mutable parameter objects unless the specification requires it.</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="address-object-as-an-argument">Address object as an argument</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">updateAddress</span><span class="op">(</span>Address newAddress<span class="op">)</span></span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    homeAddress <span class="op">=</span> newAddress<span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Trace:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>Address a <span class="op">=</span> <span class="kw">new</span> <span class="fu">Address</span><span class="op">(</span><span class="st">"Main St"</span><span class="op">);</span></span>
+<span id="cb4-2"><a href=""></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Kai"</span><span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb4-3"><a href=""></a>p<span class="op">.</span><span class="fu">updateAddress</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Address</span><span class="op">(</span><span class="st">"Oak St"</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After the call, <code>p</code> refers to the new <code>Address</code> object.</p>
 </section>
 <section id="copying-parameter-objects" class="slide level2">
 <h2>Copying Parameter Objects</h2>
-<h3 id="copy-when-the-class-should-not-share-outside-state">Copy when the class should not share outside state</h3>
-<p>When a constructor receives a mutable object, storing the original reference can cause surprising side effects.</p>
-<div class="tight-list">
-<ul>
-<li>changing the original object later may also change the object’s internal state</li>
-<li>one fix is to create a new object using values from the parameter object</li>
-<li>another fix is to use a <span class="term">copy constructor</span></li>
-</ul>
-</div>
-<p>For AP CSA, this protects the instance variable from pointing at the caller’s original mutable object.</p>
+<h3 id="copying-a-reference-is-not-the-same-as-copying-an-object">Copying a reference is not the same as copying an object</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">,</span> Address address<span class="op">)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    name <span class="op">=</span> personName<span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a>    homeAddress <span class="op">=</span> address<span class="op">;</span></span>
+<span id="cb5-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This stores the same <code>Address</code> object reference.</p>
+<p>If the class needs an independent object, it should construct a new one from the parameter’s data.</p>
 </section>
-<section id="same-class-parameters" class="slide level2">
-<h2>Same-Class Parameters</h2>
-<h3 id="a-method-can-access-private-data-of-another-object-only-when-it-is-the-same-class-type">A method can access private data of another object only when it is the same class type</h3>
-<p>The textbook makes this boundary explicit:</p>
-<div class="tight-list">
-<ul>
-<li><code>Person</code> methods can access private fields of another <code>Person</code> object</li>
-<li>they cannot directly access private fields of an <code>Address</code> object</li>
-<li>access still depends on the enclosing class type</li>
-</ul>
-</div>
-<p>This is a precise rule that students often miss.</p>
+<section id="same-class-type-parameter" class="slide level2">
+<h2>Same Class Type Parameter</h2>
+<h3 id="methods-can-compare-this-object-to-another-object">Methods can compare this object to another object</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">sameName</span><span class="op">(</span>Person other<span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="cf">return</span> name<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>other<span class="op">.</span><span class="fu">name</span><span class="op">);</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Because this method is inside the <code>Person</code> class, it can access private instance variables of another <code>Person</code> object.</p>
 </section>
 <section id="returning-objects" class="slide level2">
 <h2>Returning Objects</h2>
-<h3 id="returning-a-reference-shares-access-to-the-same-object">Returning a reference shares access to the same object</h3>
-<p>If a method returns an object reference:</p>
-<div class="tight-list">
-<ul>
-<li>the returned value is the reference, not a copied object</li>
-<li>the caller may now have another alias to the same object</li>
-<li>if the object is mutable, the caller may change it through that returned reference</li>
-</ul>
-</div>
-<p>Returning objects is powerful, but it reintroduces the same mutability concern seen with parameters.</p>
+<h3 id="a-method-can-return-an-object-reference">A method can return an object reference</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> Address <span class="fu">getHomeAddress</span><span class="op">()</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="cf">return</span> homeAddress<span class="op">;</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This returns a reference to an <code>Address</code> object. Callers can store it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>Address saved <span class="op">=</span> p<span class="op">.</span><span class="fu">getHomeAddress</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-
-<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Friends and birthdays challenge</p><p>Retained classroom work for this topic:</p>
+<section id="reference-safety" class="slide level2">
+<h2>Reference Safety</h2>
+<h3 id="returning-a-mutable-object-can-expose-state">Returning a mutable object can expose state</h3>
+<p>If the returned object can be changed, outside code may affect the original object’s internal state.</p>
+<p>Design choices:</p>
 <div class="tight-list">
 <ul>
-<li>identify has-a relationships between classes</li>
-<li>trace aliasing when object references are passed as arguments</li>
-<li>explain when a mutable object should be copied</li>
-<li>distinguish returning a reference from returning a copied object</li>
-<li>apply same-class private-access rules correctly</li>
-<li><span class="term">3.6.7 Coding Challenge: Friends and Birthdays</span></li>
+<li>return the reference when sharing is intended</li>
+<li>return a copy when protection is needed</li>
+<li>provide specific methods instead of exposing the whole object</li>
 </ul>
 </div>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="friends-and-birthdays">Friends and Birthdays</h3>
+
+<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg" style="width:28.0%" class="r-stretch quarto-figure-center"><p class="caption">Friends and birthdays challenge</p><p>Starter design:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Friend</span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">Date</span> birthday<span class="op">;</span></span>
+<span id="cb9-5"><a href=""></a></span>
+<span id="cb9-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Friend</span><span class="op">(</span><span class="bu">String</span> friendName<span class="op">,</span> <span class="bu">Date</span> friendBirthday<span class="op">)</span></span>
+<span id="cb9-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-8"><a href=""></a>        name <span class="op">=</span> friendName<span class="op">;</span></span>
+<span id="cb9-9"><a href=""></a>        birthday <span class="op">=</span> friendBirthday<span class="op">;</span></span>
+<span id="cb9-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add methods that compare birthdays or return birthday information.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-complete-answer-should">A complete answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain that object arguments pass a copied reference, not a copied object</li>
-<li>define aliasing in the context of object references</li>
-<li>distinguish mutable from immutable objects</li>
-<li>explain why copying a parameter object can protect class state</li>
-<li>describe the risk of returning a mutable object reference directly</li>
+<li>explain that object variables store references</li>
+<li>trace what happens when an object reference is passed as an argument</li>
+<li>distinguish copying a reference from copying an object</li>
+<li>use a parameter of the same class type for comparison</li>
+<li>explain what it means for a method to return an object reference</li>
 </ul>
 </div>
 </section>

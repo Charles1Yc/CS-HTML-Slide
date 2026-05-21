@@ -14,155 +14,230 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Standard Loop Algorithms
+## Topic Intro
 
-### This topic moves from syntax to reusable patterns
+### Syntax becomes reusable algorithm patterns
 
-The focus here is not a new keyword.  
-It is recognizing standard algorithms that combine:
+This topic combines selection and iteration to implement common AP CSA algorithms.
 
 ::: {.tight-list}
-- loops
-- selection
-- accumulators
-- counters
+- <span class="term">accumulator</span> pattern for sum and average
+- <span class="term">sentinel</span> loops for input
+- minimum and maximum search
+- divisibility and digit extraction
+- random choice and frequency counters
 :::
-
-These patterns appear repeatedly in AP-style questions.
 
 ## Accumulator Pattern
 
-### Sum and average use the same four-step structure
+### Sum and average share the same structure
 
 ```java
 int sum = 0;
-for (int i = 1; i <= 100; i++)
+for (int i = 1; i <= n; i++)
 {
     sum += i;
 }
 ```
 
-Accumulator pattern steps:
+Pattern:
 
 ::: {.tight-list}
-- initialize the accumulator
-- loop through the values
-- update the accumulator inside the loop
-- use the result after the loop
+- initialize the accumulator before the loop
+- update it inside the loop
+- use it after the loop
 :::
 
-Average is just sum plus one more final step: divide by the number of values.
+Average adds a final division step.
 
-## Input-Controlled Accumulation
+## Code Task
 
-### Sentinel loops can accumulate and count at the same time
+### Complete sum and average
 
 ```java
+public static int sum(int n)
+{
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum += i;
+    }
+    return sum;
+}
+
+public static double average(int n)
+{
+    int total = sum(n);
+    return (double) total / n;
+}
+```
+
+For `n = 10`, expected results are `55` and `5.5`.
+
+## Input-Controlled Loop
+
+### Sentinel input combines sum and count
+
+```java
+Scanner scan = new Scanner(System.in);
+int sum = 0;
+int count = 0;
+int number = scan.nextInt();
+
 while (number != -1)
 {
     sum += number;
     count++;
     number = scan.nextInt();
 }
+double average = (double) sum / count;
 ```
 
-::: {.tight-list}
-- the sentinel value stops the loop
-- `sum` tracks the total
-- `count` tracks how many values were seen
-- forgetting the input update usually causes an infinite loop
-:::
+The sentinel `-1` is not included in the average.
 
-## Loop with if
+## Min and Max
 
-### Selection inside a loop supports minimum and maximum algorithms
+### Selection inside a loop tracks best-so-far
 
 ```java
-if (num < min)
+int max = Integer.MIN_VALUE;
+for (int i = 0; i < n; i++)
 {
-    min = num;
+    int num = (int)(Math.random() * 100);
+    if (num > max)
+    {
+        max = num;
+    }
 }
 ```
 
-This is the common AP pattern:
+The variable `max` stores the best value found so far.
 
-::: {.tight-list}
-- loop over many values
-- test each value
-- update the stored best-so-far result
-:::
+## Divisibility
 
-The same idea works for both minimum and maximum.
+### Prime checking uses `%`
 
-## Divisibility and Digits
-
-### `%` and `/` drive several standard number algorithms
-
+::: {.code-scroll .compact}
 ```java
-num % divisor == 0
-digit = num % 10
-num = num / 10
-```
-
-Core uses:
-
-::: {.tight-list}
-- checking even / odd / divisible
-- building prime-number logic
-- pulling off digits one at a time
-- converting total minutes into hours and leftover minutes
-:::
-
-## `Math.random()` and Frequency
-
-### Conditions can model probability, and counters can measure outcomes
-
-```java
-if (Math.random() < 0.5)
+public static boolean isPrime(int n)
 {
-    System.out.println("Heads");
+    if (n <= 1)
+    {
+        return false;
+    }
+
+    for (int divisor = 2; divisor < n; divisor++)
+    {
+        if (n % divisor == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+```
+:::
+
+The loop returns `false` as soon as it finds a divisor.
+
+## Digits with `/` and `%`
+
+### Peel off the last digit repeatedly
+
+```java
+public static boolean checkDigit(int number, int digit)
+{
+    while (number > 0)
+    {
+        int lastDigit = number % 10;
+        if (lastDigit == digit)
+        {
+            return true;
+        }
+        number = number / 10;
+    }
+    return false;
 }
 ```
 
+`% 10` gets the last digit; `/ 10` removes it.
+
+## Math.random with Selection
+
+### Probabilities come from ranges
+
+The weather report says a 25% chance of rain.
+
 ```java
-if (i % 2 == 0)
+if (Math.random() < 0.25)
 {
-    count++;
+    System.out.println("Rain");
+}
+else
+{
+    System.out.println("No Rain");
 }
 ```
 
-::: {.tight-list}
-- `Math.random()` lets conditionals simulate events by percentage
-- frequency problems count how often a criterion is met
-- the standard structure is: test inside the loop, increment the counter when true
-:::
+Equivalent condition for rain:
 
-## Classroom Tasks
+```java
+Math.random() > 0.75
+```
 
-### Practice worth keeping
+because values above `0.75` are the top 25% of the range.
 
-Retained classroom work for this topic:
+## Frequency
 
-::: {.tight-list}
-- accumulator and average-building code
-- input-controlled sum / average traces
-- min / max update pattern checks
-- prime / divisibility logic
-- random-choice conditionals
-- frequency counters
-- <span class="term">2.9.8 Coding Challenge: Prime Number Finder</span>
-:::
+### Count how often a condition is true
+
+```java
+int count = 0;
+for (int i = 1; i <= 100; i++)
+{
+    if (i % 2 == 0)
+    {
+        count++;
+    }
+}
+```
+
+Frequency algorithms use a counter inside a loop and increment only when the condition is true.
+
+## Groupwork Coding Challenge {.fit-small}
+
+### Prime Number Finder
+
+Complete `findPrimes` by reusing `isPrime`.
+
+```java
+public static int findPrimes(int num1, int num2)
+{
+    int count = 0;
+    for (int n = num1; n <= num2; n++)
+    {
+        if (isPrime(n))
+        {
+            System.out.println(n);
+            count++;
+        }
+    }
+    return count;
+}
+```
+
+For `findPrimes(2, 100)`, the expected count is `25`.
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain the accumulator pattern for sum and average
-- combine looping and `if` logic for min / max and counting
-- use `%` and `/` for divisibility and digit algorithms
-- explain how `Math.random()` supports probability-based branches
-- recognize frequency as a counter-inside-a-loop pattern
+- implement sum and average using an accumulator
+- use a sentinel loop without including the sentinel in the data
+- update min or max only when a better value is found
+- use `%` and `/` for divisibility and digit extraction
+- combine selection and loops for frequency and prime-number algorithms
 :::
 
 ## End

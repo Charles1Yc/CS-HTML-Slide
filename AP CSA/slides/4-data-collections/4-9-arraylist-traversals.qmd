@@ -14,119 +14,122 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## ArrayList Traversals
+## Topic Intro
 
-### Array traversal ideas carry over, but list access uses methods
+### Traversal patterns also apply to ArrayLists
 
-The textbook keeps the bridge explicit:
+`ArrayList` traversal can use:
 
 ::: {.tight-list}
-- `ArrayList` can be traversed with enhanced `for`, indexed `for`, or `while`
-- indices still start at `0`
-- element access uses methods such as `get(index)`
+- enhanced for loop
+- indexed for loop
+- while loop
 :::
 
-The main shift is that the collection size can change during runtime.
+Choose the loop based on whether you need the index, whether the list changes, and whether you are reading objects.
 
 ## Enhanced For Loop
 
-### Use for-each when reading all values without changing list size
-
-The retained rule is simple:
-
-::: {.tight-list}
-- enhanced `for` works when students only need the values
-- it is concise and avoids index bookkeeping
-- it should <span class="mark">not</span> be used when the list size changes during traversal
-:::
-
-Adding or removing elements during an enhanced `for` traversal can cause a <span class="term">ConcurrentModificationException</span>.
-
-## Indexed For Loops and Bounds
-
-### Use indexed access when position matters
+### Best for reading every element
 
 ```java
-for (int i = 0; i < list.size(); i++)
+for (String name : names)
 {
-    System.out.println(list.get(i));
+    System.out.println(name);
 }
 ```
 
-Key retained ideas:
+Use this when you do not need the index and do not need to add or remove while traversing.
 
-::: {.tight-list}
-- `ArrayList` indices run from `0` to `size() - 1`
-- access uses `get(index)` rather than `[]`
-- invalid indices cause <span class="term">IndexOutOfBoundsException</span>
-:::
+## Indexed For Loop
 
-## While Loops and Removal
+### Use `get(i)` and `size()`
 
-### Size-changing traversals need careful index control
+```java
+for (int i = 0; i < names.size(); i++)
+{
+    System.out.println(names.get(i));
+}
+```
 
-The textbook keeps a specific removal warning:
+Common error: using `names.length` or `names[i]`, which are array syntax, not `ArrayList` syntax.
 
-::: {.tight-list}
-- removing an element shifts later elements left
-- if the index is always incremented, the next shifted element may be skipped
-- after a remove, the index often needs to stay in place for the next pass
-:::
+## While Loop
 
-This is one of the core tracing patterns students must learn for mutable lists.
+### Useful when index movement is conditional
 
-## Reading Files with `java.nio.file`
+```java
+int i = 0;
+while (i < names.size())
+{
+    System.out.println(names.get(i));
+    i++;
+}
+```
 
-### This is enrichment, but it clarifies why lists are useful
+`while` can be useful when the loop might skip, stop early, or remove elements with careful index control.
 
-The retained teaching idea is:
+## Insert While Traversing
 
-::: {.tight-list}
-- `readAllLines` can return a `List<String>`
-- dynamic list storage avoids knowing the final size in advance
-- this reinforces why `ArrayList` is useful for real input data
-:::
+### Insertion changes later indices
 
-This part is not the AP core, but it supports the conceptual transition from files to dynamic collections.
+```java
+for (int i = 0; i < words.size(); i++)
+{
+    if (words.get(i).equals("target"))
+    {
+        words.add(i + 1, "found");
+        i++;
+    }
+}
+```
+
+After insertion, increment carefully so the loop does not immediately process the new element by accident.
 
 ## ArrayList of Objects
 
-### Traversal works for object lists as well as primitive-wrapper lists
+### Use object methods during traversal
 
-Students should be able to:
+```java
+for (Student s : students)
+{
+    if (s.getGpa() >= 3.5)
+    {
+        System.out.println(s.getName());
+    }
+}
+```
 
-::: {.tight-list}
-- traverse a list of objects
-- call methods on each object in the list
-- connect this back to earlier `Student` and `WordPair` class work
-:::
+The loop variable stores one object reference at a time.
 
-## Classroom Tasks
+## Groupwork Coding Challenge {.image-fit}
 
-### Practice worth keeping
+### FRQ Word Pairs
 
-![Word pair construction pattern](../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png){fig-align="center" width="54%"}
+![Word pair construction pattern](../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png){fig-align="center" width="45%"}
 
-Retained classroom work for this topic:
+Build every pair of words with nested loops:
 
-::: {.tight-list}
-- compare enhanced `for`, indexed `for`, and `while` traversals
-- identify when list-size changes break enhanced `for`
-- trace removals without skipping shifted elements
-- read and traverse lists of objects
-- <span class="term">4.9.6 Coding Challenge: FRQ Word Pairs</span>
-:::
+```java
+for (int i = 0; i < words.length; i++)
+{
+    for (int j = i + 1; j < words.length; j++)
+    {
+        pairs.add(new WordPair(words[i], words[j]));
+    }
+}
+```
 
 ## Classroom Check
 
 ### A complete answer should...
 
 ::: {.tight-list}
-- explain how `ArrayList` traversal differs from array traversal
-- identify when an enhanced `for` loop is appropriate
-- explain why removing items during traversal can skip elements
-- state the valid index range using `size()`
-- explain how object lists are traversed and used
+- traverse an `ArrayList` with enhanced for and indexed loops
+- use `size()` and `get(i)` correctly
+- explain why insertion or removal changes later indices
+- traverse an `ArrayList` of objects using object methods
+- use nested loops to create unique pairs
 :::
 
 ## End

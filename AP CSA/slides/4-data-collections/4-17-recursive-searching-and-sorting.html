@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">4.17 Recursive Searching and Sorting</h1>
-  <p class="subtitle">Data Collections</p>
+  <p class="subtitle">Part 1: Recursive Binary Search</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,129 +210,119 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="recursive-searching-and-sorting" class="slide level2">
-<h2>Recursive Searching and Sorting</h2>
-<h3 id="recursion-now-applies-to-two-algorithms-students-already-know-iteratively">Recursion now applies to two algorithms students already know iteratively</h3>
-<p>This topic connects earlier lessons:</p>
+<section id="topic-intro" class="slide level2">
+<h2>Topic Intro</h2>
+<h3 id="recursion-can-express-search-and-sort">Recursion can express search and sort</h3>
+<p>This topic applies recursion to:</p>
 <div class="tight-list">
 <ul>
-<li>binary search from <code>4.14</code></li>
-<li>sorting from <code>4.15</code></li>
-<li>recursion from <code>4.16</code></li>
+<li>binary search</li>
+<li>merge sort</li>
+</ul>
+</div>
+<p>Both algorithms solve a problem by working on smaller ranges.</p>
+</section>
+<section id="algorithm-idea" class="slide level2">
+<h2>Algorithm Idea</h2>
+<h3 id="recursive-binary-search-chooses-a-smaller-half">Recursive binary search chooses a smaller half</h3>
+<p>Base case:</p>
+<div class="tight-list">
+<ul>
+<li>if <code>low &gt; high</code>, target is not found</li>
+<li>if middle value equals target, return the middle index</li>
+</ul>
+</div>
+<p>Recursive case:</p>
+<div class="tight-list">
+<ul>
+<li>search the right half if middle is too small</li>
+<li>search the left half if middle is too large</li>
 </ul>
 </div>
 </section>
-<section id="recursive-binary-search" class="slide level2">
-<h2>Recursive Binary Search</h2>
-<h3 id="keep-halving-a-sorted-range-until-the-target-is-found-or-no-range-remains">Keep halving a sorted range until the target is found or no range remains</h3>
-<p>Retained algorithm story:</p>
-<div class="tight-list">
-<ul>
-<li>binary search still requires <mark>sorted data</mark></li>
-<li>check the middle element first</li>
-<li>recurse into the left half or the right half</li>
-<li>stop when the middle matches or when the active range is empty</li>
-</ul>
-</div>
+<section id="full-code" class="slide level2 fit-small">
+<h2>Full Code</h2>
+<h3 id="recursive-binary-search">Recursive binary search</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">binarySearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> target<span class="op">,</span> <span class="dt">int</span> low<span class="op">,</span> <span class="dt">int</span> high<span class="op">)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>low <span class="op">&gt;</span> high<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a>    <span class="dt">int</span> mid <span class="op">=</span> <span class="op">(</span>low <span class="op">+</span> high<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>mid<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="cf">return</span> mid<span class="op">;</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>mid<span class="op">]</span> <span class="op">&lt;</span> target<span class="op">)</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-15"><a href=""></a>        <span class="cf">return</span> <span class="fu">binarySearch</span><span class="op">(</span>values<span class="op">,</span> target<span class="op">,</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> high<span class="op">);</span></span>
+<span id="cb1-16"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-17"><a href=""></a>    <span class="cf">else</span></span>
+<span id="cb1-18"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-19"><a href=""></a>        <span class="cf">return</span> <span class="fu">binarySearch</span><span class="op">(</span>values<span class="op">,</span> target<span class="op">,</span> low<span class="op">,</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="base-cases-and-recursive-calls" class="slide level2">
-<h2>Base Cases and Recursive Calls</h2>
-<h3 id="a-recursive-binary-search-needs-two-stopping-conditions">A recursive binary search needs two stopping conditions</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>target <span class="op">==</span> array<span class="op">[</span>middle<span class="op">])</span> <span class="op">{</span> <span class="cf">return</span> middle<span class="op">;</span> <span class="op">}</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>end <span class="op">&lt;</span> start<span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span> <span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Retained reasoning:</p>
-<div class="tight-list">
-<ul>
-<li>one base case handles <span class="term">found</span></li>
-<li>one base case handles <span class="term">not found</span></li>
-<li>the recursive calls change <code>start</code> or <code>end</code> to eliminate half the values</li>
-</ul>
-</div>
+<section id="focused-trace" class="slide level2">
+<h2>Focused Trace</h2>
+<h3 id="search-for-19">Search for <code>19</code></h3>
+<p>For <code>{2, 5, 8, 12, 15, 19, 24}</code>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Call</th>
+<th style="text-align: right;"><code>low</code></th>
+<th style="text-align: right;"><code>high</code></th>
+<th style="text-align: right;"><code>mid</code></th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
+<td><code>12</code> too small</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+<td>found <code>19</code></td>
+</tr>
+</tbody>
+</table>
+<p>The recursive call passes the smaller range.</p>
 </section>
-<section id="recursive-binary-search-on-arraylists" class="slide level2">
-<h2>Recursive Binary Search on ArrayLists</h2>
-<h3 id="the-same-logic-works-with-method-based-access">The same logic works with method-based access</h3>
-<p>Retained transfer:</p>
-<div class="tight-list">
-<ul>
-<li>arrays use <code>array[middle]</code></li>
-<li><code>ArrayList</code>s use <code>list.get(middle)</code></li>
-<li>the search logic is otherwise the same</li>
-</ul>
-</div>
-</section>
-<section id="merge-sort" class="slide level2">
-<h2>Merge Sort</h2>
-<h3 id="merge-sort-is-a-divide-and-conquer-recursive-sorting-algorithm">Merge sort is a divide-and-conquer recursive sorting algorithm</h3>
-<p>Retained algorithm story:</p>
-<div class="tight-list">
-<ul>
-<li>split the array into smaller subarrays</li>
-<li>recurse until each subarray has one element</li>
-<li>merge the sorted pieces back together</li>
-<li>merge sort is typically faster than selection sort and usually faster than insertion sort</li>
-</ul>
-</div>
-</section>
-<section id="recognizing-merge-sort" class="slide level2">
-<h2>Recognizing Merge Sort</h2>
-<h3 id="the-ap-version-has-three-named-responsibilities">The AP version has three named responsibilities</h3>
-<p>Retained structure:</p>
-<div class="tight-list">
-<ul>
-<li><code>mergeSort</code> sets up the helper data structure</li>
-<li><code>mergeSortHelper</code> performs the recursive splitting</li>
-<li><code>merge</code> combines two sorted subarrays back into order</li>
-</ul>
-</div>
-<p>This topic is less about memorizing every line and more about recognizing the control flow.</p>
-</section>
-<section id="tracing-split-and-merge" class="slide level2">
-<h2>Tracing Split and Merge</h2>
-<h3 id="write-the-split-stages-first-then-the-merge-stages">Write the split stages first, then the merge stages</h3>
-<p>Retained trace pattern for <code>{86, 3, 43, 5}</code>:</p>
-<div class="tight-list">
-<ul>
-<li>split 1: <code>{ {86, 3}, {43, 5} }</code></li>
-<li>split 2: <code>{ {{86}, {3}}, {{43}, {5}} }</code></li>
-<li>merge 1: <code>{ {3, 86}, {5, 43} }</code></li>
-<li>merge 2: <code>{3, 5, 43, 86}</code></li>
-</ul>
-</div>
-<p>This is the merge-sort counterpart to tracing recursive binary search ranges.</p>
-</section>
-<section id="classroom-tasks" class="slide level2">
-<h2>Classroom Tasks</h2>
-<h3 id="practice-worth-keeping">Practice worth keeping</h3>
-<p>Retained classroom work for this topic:</p>
-<div class="tight-list">
-<ul>
-<li>identify the base cases in recursive binary search</li>
-<li>trace the <code>start</code>, <code>end</code>, and <code>middle</code> values through recursive calls</li>
-<li>explain why sorted order is required for binary search</li>
-<li>describe the role of <code>mergeSort</code>, <code>mergeSortHelper</code>, and <code>merge</code></li>
-<li>trace merge sort by writing split and merge stages</li>
-<li><span class="term">4.17.3 Tracing Challenge: Recursive Search and Sort</span></li>
-</ul>
-</div>
+<section id="arraylist-version" class="slide level2">
+<h2>ArrayList Version</h2>
+<h3 id="same-boundaries-different-access-method">Same boundaries, different access method</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">String</span> midValue <span class="op">=</span> words<span class="op">.</span><span class="fu">get</span><span class="op">(</span>mid<span class="op">);</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">int</span> comparison <span class="op">=</span> midValue<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>target<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The recursive logic is the same, but <code>ArrayList</code> uses <code>get(mid)</code> and strings use <code>compareTo</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
 <h3 id="a-strong-answer-should">A strong answer should…</h3>
 <div class="tight-list">
 <ul>
-<li>explain how recursive binary search eliminates half of the active range</li>
-<li>identify both recursive binary search base cases</li>
-<li>explain why binary search requires sorted data</li>
-<li>describe merge sort as recursive splitting followed by merging</li>
-<li>trace either a recursive search range sequence or a merge-sort split/merge sequence</li>
+<li>identify the base case for not found</li>
+<li>identify the found case</li>
+<li>update low and high in recursive calls</li>
+<li>explain why the range gets smaller</li>
+<li>trace recursive binary search by call boundaries</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
+<p><a href="4-17-part-2-merge-sort.html">Next: Merge Sort</a><br>
+<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 
 </section>
     </div>

@@ -14,24 +14,25 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Anatomy of a Class
+## Topic Intro
 
-### A class is the blueprint for making objects
+### A class is a blueprint for objects
 
-In Java, a <span class="term">class</span> defines the structure and behaviors for objects.
+In Java, a <span class="term">class</span> defines what objects of that type store and what they can do.
+
+The core parts are:
 
 ::: {.tight-list}
-- objects are <span class="term">instances</span> of a class
-- each object can hold its own data
-- the class decides what the object can do
+- instance variables: object data
+- constructors: object initialization
+- methods: object behaviors
 :::
-
-This topic keeps the textbook move from using built-in classes to designing our own.
 
 ## Parts of a Class
 
-### Instance variables, constructors, and methods form the main structure
+### Read the class body by role
 
+::: {.code-scroll .compact}
 ```java
 public class Person
 {
@@ -50,68 +51,82 @@ public class Person
     {
         System.out.println(name);
         System.out.println(email);
+        System.out.println(phoneNumber);
+    }
+}
+```
+:::
+
+## Designing a Class
+
+### Choose data based on the problem
+
+The same real-world object can be modeled differently in different programs.
+
+::: {.tight-list}
+- address book: `name`, `email`, `phoneNumber`
+- school system: `studentId`, `gradeLevel`, `gpa`
+- game: `health`, `location`, `score`
+:::
+
+Good design stores the information the program actually needs.
+
+## Data Encapsulation
+
+### Keep instance variables private
+
+<span class="term">Data encapsulation</span> (数据封装) means protecting an object's internal state.
+
+::: {.compare-grid}
+::: {.soft-box}
+**`private` instance variables**
+
+- accessible inside the class
+- protected from direct outside changes
+- standard AP CSA class design
+:::
+::: {.soft-box}
+**`public` constructors and methods**
+
+- used by other classes
+- form the public interface
+- can validate or control changes
+:::
+:::
+
+## Instance Variables
+
+### Each object has its own data
+
+![Person class and separate object data](../../assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png){fig-align="center" width="62%"}
+
+Two `Person` objects can have different names and emails because each object has its own copy of the instance variables.
+
+## Identify Task
+
+### Find the instance variables
+
+In this class, which lines declare instance variables?
+
+```java
+public class Pet
+{
+    private String name;
+    private int age;
+
+    public Pet(String petName, int petAge)
+    {
+        name = petName;
+        age = petAge;
     }
 }
 ```
 
-At this level, students need to identify the role of the class body, instance variables, constructors, and methods.
-
-## Designing a Class
-
-### The data depends on the problem the class is solving
-
-The textbook uses `Person` as a simple model.
-
-::: {.tight-list}
-- an address-book program might track `name`, `email`, and `phoneNumber`
-- a medical program might track very different data
-- class design begins with deciding <span class="mark">what information matters</span>
-:::
-
-This is why class design happens before full implementation.
-
-## Data Encapsulation
-
-### Keep implementation details inside the class
-
-<span class="term">Data encapsulation</span> means the class hides its internal details from outside code.
-
-::: {.compare-grid}
-::: {.soft-box}
-**`public`**
-
-- accessible from other classes
-- used for class declarations in this course
-- commonly used on constructors and methods
-:::
-::: {.soft-box}
-**`private`**
-
-- accessible only inside the declaring class
-- preferred for instance variables
-- protects the internal state of the object
-:::
-:::
-
-For AP CSA, instance variables should generally be declared `private`.
-
-## Instance Variables
-
-### Each object gets its own copy of the data
-
-![Person class and separate object data](../../assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png){fig-align="center" width="76%"}
-
-::: {.tight-list}
-- instance variables are also called attributes, fields, or properties
-- they belong to the object, not to all objects together
-- each instance can store different values
-:::
-
-This is why two `Person` objects can share the same class definition but still hold different data.
+Answer: `private String name;` and `private int age;`.
 
 ## Instance Methods
 
-### Methods act on the specific object that receives the call
+### Methods act on one specific object
 
 ```java
 public void print()
@@ -122,28 +137,62 @@ public void print()
 }
 ```
 
-::: {.tight-list}
-- instance methods are called on objects such as `p1.print()`
-- they are <span class="mark">not</span> marked `static`
-- they have direct access to the object's instance variables
-- `void` means the method performs an action but returns no value
-:::
+An instance method is called on an object:
 
-## Classroom Tasks
+```java
+p1.print();
+```
 
-### Practice worth keeping
+It can use that object's instance variables directly.
 
-![Virtual pet prompt](../../assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg){fig-align="center" width="42%"}
+## Code Task
 
-Retained classroom work for this topic:
+### Add a print method
 
-::: {.tight-list}
-- identify the main parts of a class definition
-- read and trace the `Person` example
-- explain why instance variables are usually `private`
-- add or analyze a simple `print` instance method
-- <span class="term">3.3.6 Coding Challenge: Virtual Pet Class</span>
-:::
+Add a `print` method to the class.
+
+```java
+public class Person
+{
+    private String name;
+
+    public Person(String initialName)
+    {
+        name = initialName;
+    }
+
+    public void print()
+    {
+        System.out.println(name);
+    }
+}
+```
+
+Then call it with `new Person("Ada").print();`.
+
+## Groupwork Coding Challenge {.fit-small .image-fit}
+
+### Virtual Pet Class
+
+![Virtual pet prompt](../../assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg){fig-align="center" width="28%"}
+
+Starter design:
+
+```java
+public class VirtualPet
+{
+    private String name;
+    private int hunger;
+
+    public VirtualPet(String petName)
+    {
+        name = petName;
+        hunger = 5;
+    }
+}
+```
+
+Add at least one method that changes or prints the pet's state.
 
 ## Classroom Check
 
@@ -151,10 +200,10 @@ Retained classroom work for this topic:
 
 ::: {.tight-list}
 - identify the roles of instance variables, constructors, and methods
-- explain the difference between `public` and `private`
-- justify why instance variables are usually private
-- explain what makes a method an <span class="term">instance method</span>
-- trace how one method call uses the data of one specific object
+- explain why instance variables are usually `private`
+- explain that each object has its own copy of instance data
+- distinguish class design from object creation
+- add a simple instance method that uses instance variables
 :::
 
 ## End
