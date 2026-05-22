@@ -1,0 +1,164 @@
+---
+title: "2.9 Implementing Selection and Iteration Algorithms"
+subtitle: "Part 4: Prime Number Finder"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Prime Number Finder
+
+Prime numbers, numbers that are only divisible by `1` and themselves, are used every day in encryption algorithms that safely transmit your username and password whenever you login on the internet.
+
+Two large prime numbers are multiplied together to generate partial keys for encoding and decoding in encryption algorithms.
+
+## Prime Number Context
+
+### Large primes are hard to find
+
+If you have the key, you can use it to divide a large number that represents something encrypted to decode it.
+
+If you don't have the key, it's very hard to guess the prime factors of a large number to decode it.
+
+Small prime numbers can be easily guessed, so encryption only uses very large prime numbers with hundreds of digits.
+
+Finding these large prime numbers is a very hard problem.
+
+## Challenge Steps
+
+### `challenge-find-primes`
+
+In the challenge below:
+
+::: {.tight-list}
+1. First, copy your `isPrime` method from the exercise above to check if a number is prime.
+2. Then, write a method `findPrimes` that takes two integers as arguments and prints the prime numbers between them. It should return a count of the prime numbers found.
+:::
+
+## Code Task
+
+### `activecode:: challenge-find-primes`
+
+Textbook prompt: Copy your `isPrime` method from the previous exercise and write a method `findPrimes` that takes two integers as arguments and prints the prime numbers between them.
+
+It should return a count of the prime numbers found.
+
+## Code Window
+
+### `activecode:: challenge-find-primes`
+
+::: {.code-scroll .compact}
+```java
+public class FindPrimeNumbers
+{
+    // isPrime checks whether n is a prime number
+    public static boolean isPrime(int n)
+    {
+        // 1. Copy your isPrime method here
+        // It should have a loop from 2 to n-1 or Math.sqrt(n)
+        //   if n is divisible by the loop variable i
+        //        return false
+
+
+
+        // if no divisor found after loop, return true
+        return true;
+    }
+
+    // 2. Complete findPrimes to print and return
+    // the number of prime numbers between num1 and num2
+    public static int findPrimes(int num1, int num2)
+    {
+        int count = 0;
+        // Add a loop from num1 to num2 to check
+        // if each number is prime using isPrime
+        // If it is prime, print it and increment count
+
+
+        return count;
+    }
+
+    public static void main(String[] args)
+    {
+        System.out.println("There are " + findPrimes(2, 100) + " prime numbers between 2 and 100.");
+        // You may see the grader's test runs in the output.
+    }
+}
+```
+:::
+
+## Focus Block
+
+### `isPrime`
+
+The `isPrime` method is copied from the previous exercise.
+
+```java
+// 1. Copy your isPrime method here
+// It should have a loop from 2 to n-1 or Math.sqrt(n)
+//   if n is divisible by the loop variable i
+//        return false
+
+// if no divisor found after loop, return true
+return true;
+```
+
+## Focus Block
+
+### `findPrimes`
+
+The `findPrimes` method uses `isPrime` as the test inside a loop.
+
+```java
+public static int findPrimes(int num1, int num2)
+{
+    int count = 0;
+    // Add a loop from num1 to num2 to check
+    // if each number is prime using isPrime
+    // If it is prime, print it and increment count
+
+    return count;
+}
+```
+
+## Test Requirements
+
+### `activecode:: challenge-find-primes`
+
+Runestone checks that:
+
+::: {.tight-list}
+- each method has a `for` loop
+- `main` output includes `There are 25 prime numbers between 2 and 100.`
+- `findPrimes(10000,10100)` returns `11`
+- the code contains a call to `isPrime`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- copy the prior `isPrime` method into the challenge starter
+- write a loop that checks every number from `num1` to `num2`
+- call `isPrime` for each candidate number
+- print each prime number found
+- increment `count` only when the candidate is prime
+- return the total count from `findPrimes`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

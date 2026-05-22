@@ -1,0 +1,216 @@
+---
+title: "2.9 Implementing Selection and Iteration Algorithms"
+subtitle: "Part 2: Min, Max, Divisibility, and Prime"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Loop with if
+
+### Minimum and maximum
+
+A common variation of the accumulator pattern is to have an `if` statement inside the loop that tests each value being considered in the loop.
+
+This is a very common pattern in the AP exam for FRQ #1.
+
+To determine the minimum or maximum value in a sequence of numbers, use a variable to store the current minimum or maximum value.
+
+## Minimum Example
+
+### Update when a lower value is found
+
+Use a loop to go through the sequence of numbers and update the minimum or maximum value if you find a number that is lower or higher than the current minimum or maximum.
+
+```java
+int min = Integer.MAX_VALUE;
+for (int i = 0; i < 10; i++)
+{
+    int num = (int)(Math.random() * 100);
+    System.out.println(num);
+    if (num < min)
+    {
+        min = num;
+    }
+}
+System.out.println("The minimum value is " + min);
+```
+
+## Code Task
+
+### `activecode:: min-max-practice`
+
+Textbook prompt: Run to see the `min` method in action.
+
+Then, complete the `max` method below to find the maximum of a set of random numbers.
+
+## Code Window
+
+### `activecode:: min-max-practice`
+
+::: {.code-scroll}
+```java
+public class MinMax
+{
+    // min calculates and returns the minimum of n random numbers
+    public static int min(int n)
+    {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++)
+        {
+            int num = (int)(Math.random() * 100);
+            System.out.println(num);
+            if (num < min)
+            {
+                min = num;
+            }
+        }
+
+        return min;
+    }
+
+    // max calculates and returns the maximum of n random numbers
+    public static int max(int n)
+    {
+        int max = Integer.MIN_VALUE;
+        // TODO: write a loop to find the maximum value
+        // of n random numbers from 0 to 100
+
+
+        return max;
+    }
+
+    public static void main(String[] args)
+    {
+        int n = 10;
+        System.out.println("The minimum value is " + min(n));
+        System.out.println("The maximum value is " + max(n));
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: min-max-practice`
+
+Runestone checks that:
+
+::: {.tight-list}
+- each method has a `for` loop that uses `n`
+- the submitted code contains `num > max`
+:::
+
+## Divisibility
+
+### Remainder operator
+
+To determine if an integer is evenly divisible by another integer, you can use the remainder operator `%`.
+
+If you divide two numbers and there is no remainder, then the first number is evenly divisible by the second number.
+
+The remainder operator is often used to check if a number is even or odd: if `num % 2 == 0` is true, then `num` is even.
+
+## Divisibility Example
+
+### No remainder means evenly divisible
+
+```java
+int num1 = 10;
+int num2 = 5;
+if (num1 % num2 == 0)
+{
+    System.out.println(num1 + " is evenly divisible by " + num2);
+}
+else
+{
+    System.out.println(num1 + " is not evenly divisible by " + num2);
+}
+```
+
+## Divisibility and Prime
+
+### Put the selection statement in a loop
+
+The selection statement above can be put in a loop to determine if a number is divisible by a range of numbers.
+
+For example, you can determine if a number is prime by checking if it is divisible by any number between `2` and `n-1`, or even the square root of the number since multiples of numbers repeat after the square root.
+
+Remember that a <span class="term">prime number</span> is a number that is only divisible by `1` and itself, so if you find any other divisor, the number is not prime.
+
+## Code Task
+
+### `activecode:: isPrimeLoop`
+
+Textbook prompt: Complete the `isPrime` method below to determine if a number `n` is prime by checking if it is evenly divisible by any number between `2` and `n-1` or the square root of `n`.
+
+## Code Window
+
+### `activecode:: isPrimeLoop`
+
+::: {.code-scroll}
+```java
+public class PrimeNumbers
+{
+    // isPrime checks whether n is a prime number
+    public static boolean isPrime(int n)
+    {
+        // Add a loop from 2 to n-1 or Math.sqrt(n)
+        //   if n is divisible by the loop variable i
+        //        return false
+
+
+
+        // if no divisor found after loop, return true
+        return true;
+    }
+
+
+    public static void main(String[] args)
+    {
+        System.out.println("Is 4 prime? " + isPrime(4));
+        System.out.println("Is 5 prime? " + isPrime(5));
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: isPrimeLoop`
+
+Runestone checks that:
+
+::: {.tight-list}
+- the code contains a `for` loop
+- `main` prints `Is 4 prime? false` and `Is 5 prime? true`
+- `isPrime(9)` returns `false`
+- the code contains the divisor test `n % i == 0`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why min starts with `Integer.MAX_VALUE`
+- explain why max starts with `Integer.MIN_VALUE`
+- update min or max only inside an `if` when a better value is found
+- use `%` to test whether one integer is evenly divisible by another
+- describe prime checking as searching for any divisor other than `1` and itself
+- return `false` as soon as a divisor is found
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Digits, random, and frequency →](2-9-part-3-digits-random-and-frequency.html)

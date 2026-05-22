@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.2 Boolean Expressions</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Equality, Relational Operators, and Remainder</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,163 +210,307 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="conditions-produce-true-or-false">Conditions produce true or false</h3>
-<p>A <span class="term">Boolean expression</span> (布尔表达式) is an expression that evaluates to either <code>true</code> or <code>false</code>.</p>
-<p>Boolean expressions are used by selection and iteration:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The code inside the block runs only when the condition is true.</p>
-</section>
 <section id="testing-equality" class="slide level2">
 <h2>Testing Equality</h2>
-<h3 id="compares-primitive-values"><code>==</code> compares primitive values</h3>
-<p>Use <code>==</code> to test whether two primitive values are equal.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">==</span> <span class="dv">15</span><span class="op">);</span></span>
-<span id="cb2-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">==</span> <span class="dv">16</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>true</span>
-<span id="cb3-2"><a href=""></a>false</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>=</code> assigns a value; <code>==</code> asks an equality question.</p>
+<h3 id="and-return-boolean-values"><code>==</code> and <code>!=</code> return Boolean values</h3>
+<p>The relational operators <code>==</code> and <code>!=</code> (not equal) can be used to compare values.</p>
+<p>They return <code>true</code> or <code>false</code> <span class="term">boolean values</span> (布尔值).</p>
+<p>Note from the textbook:</p>
+<div class="tight-list">
+<ul>
+<li>one <code>=</code> sign changes the value of a variable</li>
+<li>two <code>==</code> equal signs test if a variable holds a certain value without changing it</li>
+</ul>
+</div>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-bool1"><code>activecode:: bool1</code></h3>
+<p>Textbook prompt: What will the code below print out? Try to guess before you run it. Then add 3 more lines of code that sets <code>year</code> to <code>15</code> and prints out whether <code>age</code> is equal to <code>year</code> and whether <code>age</code> is not equal to <code>year</code>.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BoolTest1</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="dt">int</span> year <span class="op">=</span> <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="co">// Will this print true or false?</span></span>
+<span id="cb1-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">==</span> year<span class="op">);</span></span>
+<span id="cb1-9"><a href=""></a>        <span class="co">// Will this print true or false?</span></span>
+<span id="cb1-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">!=</span> year<span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a></span>
+<span id="cb1-12"><a href=""></a>        <span class="co">// 1. Add code that sets year to 15</span></span>
+<span id="cb1-13"><a href=""></a>        <span class="co">// 2. Print out whether age equals year</span></span>
+<span id="cb1-14"><a href=""></a>        <span class="co">// 3. Print out whether age does not equal year</span></span>
+<span id="cb1-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="booltest1"><code>BoolTest1</code></h3>
+<p>The Runestone test expects this <code>main</code> output after the three added lines:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>false</span>
+<span id="cb2-2"><a href=""></a>true</span>
+<span id="cb2-3"><a href=""></a>true</span>
+<span id="cb2-4"><a href=""></a>false</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The first two lines come from comparing <code>15</code> and <code>14</code>; the last two lines come after setting <code>year</code> to <code>15</code>.</p>
 </section>
 <section id="object-references" class="slide level2">
 <h2>Object References</h2>
-<h3 id="with-objects-checks-whether-references-point-to-the-same-object"><code>==</code> with objects checks whether references point to the same object</h3>
+<h3 id="can-compare-references-to-objects"><code>==</code> can compare references to objects</h3>
+<p>We can also use <code>==</code> or <code>!=</code> to test if two reference values, like <code>Turtle</code> and <code>String</code> objects, refer to the same object.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png" style="width:43.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle reference equality</p><p>For reference types, <code>==</code> checks whether two variables refer to the same object, not whether two objects have equal-looking contents.</p>
-<p>This distinction becomes important for <code>String</code> in Topic 2.6.</p>
+<img data-src="../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle Reference Equality</p><p>If two reference variables refer to the same object like the turtle on the right in the image, the test with <code>==</code> will return <code>true</code>.</p>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-boolref"><code>activecode:: boolRef</code></h3>
+<p>Textbook prompt: Guess the output. Then add another <code>Turtle friend2</code> and set it to <code>juan</code>. Does <code>friend2 == juan</code>? Does <code>friend2 == friend</code>?</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BoolTestRef</span>
+<span id="cb3-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb3-9"><a href=""></a>        Turtle juan <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
+<span id="cb3-10"><a href=""></a>        Turtle mia <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a>        <span class="co">// Will these print true or false?</span></span>
+<span id="cb3-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>juan <span class="op">==</span> mia<span class="op">);</span></span>
+<span id="cb3-14"><a href=""></a>        Turtle friend <span class="op">=</span> mia<span class="op">;</span> <span class="co">// set friend to be an alias for mia</span></span>
+<span id="cb3-15"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>friend <span class="op">==</span> mia<span class="op">);</span></span>
+<span id="cb3-16"><a href=""></a>        <span class="co">// Create another Turtle friend2 and set it to juan</span></span>
+<span id="cb3-17"><a href=""></a>        <span class="co">// Does friend2 == juan?</span></span>
+<span id="cb3-18"><a href=""></a>        <span class="co">// Does friend2 == friend?</span></span>
+<span id="cb3-19"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="expected-output-1" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="booltestref"><code>BoolTestRef</code></h3>
+<p>The Runestone test expects this <code>main</code> output after adding <code>friend2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>false</span>
+<span id="cb4-2"><a href=""></a>true</span>
+<span id="cb4-3"><a href=""></a>true</span>
+<span id="cb4-4"><a href=""></a>false</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The result depends on whether two variables refer to the same object in memory.</p>
 </section>
 <section id="relational-operators" class="slide level2">
 <h2>Relational Operators</h2>
-<h3 id="compare-numeric-values">Compare numeric values</h3>
+<h3 id="numeric-comparisons">Numeric comparisons</h3>
+<p>The <span class="term">relational operators</span> below are used to compare numeric values or arithmetic expressions.</p>
+<div class="table-fit">
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Operator</th>
-<th>Meaning</th>
+<th>operator</th>
+<th>meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>&lt;</code></td>
-<td>less than</td>
+<td>Less Than</td>
 </tr>
 <tr class="even">
 <td><code>&gt;</code></td>
-<td>greater than</td>
+<td>Greater Than</td>
 </tr>
 <tr class="odd">
 <td><code>&lt;=</code></td>
-<td>less than or equal to</td>
+<td>Less than or equal to</td>
 </tr>
 <tr class="even">
 <td><code>&gt;=</code></td>
-<td>greater than or equal to</td>
+<td>Greater than or equal to</td>
 </tr>
 <tr class="odd">
 <td><code>==</code></td>
-<td>equal to</td>
+<td>Equals</td>
 </tr>
 <tr class="even">
 <td><code>!=</code></td>
-<td>not equal to</td>
+<td>Does not equal</td>
 </tr>
 </tbody>
 </table>
-<p>Relational expressions also evaluate to <code>true</code> or <code>false</code>.</p>
+</div>
+<p>Java uses <code>compareTo</code> and <code>equals</code> for comparing <code>String</code> values.</p>
 </section>
-<section id="code-task" class="slide level2">
+<section id="relational-operator-notes" class="slide level2">
+<h2>Relational Operator Notes</h2>
+<h3 id="remembering-and">Remembering <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code></h3>
+<p>Textbook notes:</p>
+<div class="tight-list">
+<ul>
+<li>Think of <code>&lt;</code> and <code>&gt;</code> as arrows where the pointy end should point to the smaller value.</li>
+<li>A <code>&lt;</code> expression is true if the smaller number is on the left.</li>
+<li>A <code>&gt;</code> expression is true only if the smaller number is on the right hand side.</li>
+<li>Write <code>&lt;=</code> and <code>&gt;=</code> in the same order you say them in English: less than or equal to, greater than or equal to.</li>
+</ul>
+</div>
+</section>
+<section id="code-task-2" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="predict-relational-results">Predict relational results</h3>
-<p>Predict the output before running.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BooleanTrace</span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        <span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb4-6"><a href=""></a>        <span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb4-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">);</span></span>
-<span id="cb4-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x <span class="op">+</span> <span class="dv">2</span> <span class="op">==</span> y<span class="op">);</span></span>
-<span id="cb4-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y <span class="op">!=</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb4-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y <span class="op">&gt;=</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb4-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output: <code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>.</p>
+<h3 id="activecode-bool2"><code>activecode:: bool2</code></h3>
+<p>Textbook prompt: Try to guess what the code below will print out before you run it. Then, set <code>year</code> to <code>15</code> and print whether <code>age</code> is less than or equal to <code>year</code>.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BoolTest2</span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>        <span class="dt">int</span> year <span class="op">=</span> <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb5-7"><a href=""></a>        <span class="co">// Will these print true or false?</span></span>
+<span id="cb5-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">&lt;</span> year<span class="op">);</span></span>
+<span id="cb5-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>age <span class="op">&gt;</span> year<span class="op">);</span></span>
+<span id="cb5-10"><a href=""></a>        <span class="co">// 1. Set year to 15</span></span>
+<span id="cb5-11"><a href=""></a>        <span class="co">// 2. Print whether age is less than or equal to year</span></span>
+<span id="cb5-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="expected-output-2" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="booltest2"><code>BoolTest2</code></h3>
+<p>The Runestone tests require:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>false</span>
+<span id="cb6-2"><a href=""></a>true</span>
+<span id="cb6-3"><a href=""></a>true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>They also check that the code contains <code>&lt;=</code>.</p>
+</section>
+<section id="boolean-expressions" class="slide level2">
+<h2>Boolean Expressions</h2>
+<h3 id="positive-and-negative-tests">Positive and negative tests</h3>
+<p><span class="term">Boolean</span> variables or expressions have <code>true</code> or <code>false</code> values.</p>
+<p>Relational operators can compare two variables or compare a variable against a constant value or expression.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="co">// Test if a number is positive</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb7-3"><a href=""></a><span class="co">// Test if a number is negative</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">(</span>number <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="match-the-expression" class="slide level2">
+<h2>Match the Expression</h2>
+<h3 id="dragndrop-booleanexps"><code>dragndrop:: BooleanExps</code></h3>
+<p>Textbook prompt: Drag the boolean expression from the left and drop it on what it is testing.</p>
+<div class="table-fit">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Boolean expression</th>
+<th>What it tests</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x &gt; 0</code></td>
+<td><code>x</code> is positive</td>
+</tr>
+<tr class="even">
+<td><code>x == y</code></td>
+<td><code>x</code> equals <code>y</code></td>
+</tr>
+<tr class="odd">
+<td><code>x &lt; 0</code></td>
+<td><code>x</code> is negative</td>
+</tr>
+<tr class="even">
+<td><code>x != y</code></td>
+<td><code>x</code> does not equal <code>y</code></td>
+</tr>
+<tr class="odd">
+<td><code>x &lt; y</code></td>
+<td><code>x</code> is less than <code>y</code></td>
+</tr>
+<tr class="even">
+<td><code>x &gt; y</code></td>
+<td><code>x</code> is greater than <code>y</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block"><code>x &gt;= y</code> | <code>x</code> is greater than or equal to <code>y</code> |</div>
 </section>
 <section id="testing-with-remainder" class="slide level2">
 <h2>Testing with Remainder</h2>
-<h3 id="turns-divisibility-into-a-boolean-expression"><code>%</code> turns divisibility into a Boolean expression</h3>
-<p>The remainder operator is useful for number tests.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="dt">int</span> n <span class="op">=</span> <span class="dv">17</span><span class="op">;</span></span>
-<span id="cb5-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb5-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>n % 2 == 0</code> tests whether <code>n</code> is even</li>
-<li><code>n % divisor == 0</code> tests divisibility</li>
-<li>prime-number logic starts by checking possible divisors</li>
-</ul>
+<h3 id="supports-divisibility-checks"><code>%</code> supports divisibility checks</h3>
+<p>The remainder operator <code>%</code> is useful in coding. These Boolean expressions can test whether a number is even, odd, or divisible by another number:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="co">// Test if a number is even by seeing if the remainder is 0 when divided by 2</span></span>
+<span id="cb8-2"><a href=""></a><span class="op">(</span>number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb8-3"><a href=""></a><span class="co">// Test if a number is odd by seeing if there is a remainder when divided by 2</span></span>
+<span id="cb8-4"><a href=""></a><span class="op">(</span>number <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb8-5"><a href=""></a><span class="co">// Test if a number is a multiple of x</span></span>
+<span id="cb8-6"><a href=""></a><span class="op">(</span>number <span class="op">%</span> x <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-3" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-boolrem"><code>activecode:: boolRem</code></h3>
+<p>Textbook prompt: Try the expressions containing <code>%</code>. Then add another expression that tests to see if <code>age1</code> is divisible by <code>3</code>.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BoolRem</span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb9-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb9-5"><a href=""></a>        <span class="dt">int</span> age1 <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb9-6"><a href=""></a>        <span class="dt">int</span> age2 <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Remainder of "</span> <span class="op">+</span> age1 <span class="op">+</span> <span class="st">"/2 is "</span> <span class="op">+</span> <span class="op">(</span>age1 <span class="op">%</span> <span class="dv">2</span><span class="op">));</span></span>
+<span id="cb9-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Remainder of "</span> <span class="op">+</span> age2 <span class="op">+</span> <span class="st">"/2 is "</span> <span class="op">+</span> <span class="op">(</span>age2 <span class="op">%</span> <span class="dv">2</span><span class="op">));</span></span>
+<span id="cb9-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Is "</span> <span class="op">+</span> age1 <span class="op">+</span> <span class="st">" even? "</span> <span class="op">+</span> <span class="op">(</span>age1 <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">));</span></span>
+<span id="cb9-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Is "</span> <span class="op">+</span> age2 <span class="op">+</span> <span class="st">" even? "</span> <span class="op">+</span> <span class="op">(</span>age2 <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">));</span></span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a>        <span class="co">// Add a line that prints out whether age1 is divisible by 3</span></span>
+<span id="cb9-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb9-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="coding-challenge" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="prime-numbers-pogil-starter">Prime Numbers POGIL starter</h3>
-<p>Complete the method by testing divisibility from <code>2</code> through <code>number - 1</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> PrimeCheck</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">isPrime</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>number <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-9"><a href=""></a></span>
-<span id="cb6-10"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> divisor <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> divisor <span class="op">&lt;</span> number<span class="op">;</span> divisor<span class="op">++)</span></span>
-<span id="cb6-11"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-12"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb6-13"><a href=""></a>            <span class="op">{</span></span>
-<span id="cb6-14"><a href=""></a>                <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb6-15"><a href=""></a>            <span class="op">}</span></span>
-<span id="cb6-16"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-17"><a href=""></a>        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb6-18"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-19"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="boolrem"><code>BoolRem</code></h3>
+<p>The Runestone tests expect the output to include:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>Remainder of 15/2 is 1</span>
+<span id="cb10-2"><a href=""></a>Remainder of 16/2 is 0</span>
+<span id="cb10-3"><a href=""></a>Is 15 even? false</span>
+<span id="cb10-4"><a href=""></a>Is 16 even? true</span>
+<span id="cb10-5"><a href=""></a>true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>They also check for <code>age1 % 3 == 0</code>.</p>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="prime-reasoning">Prime reasoning</h3>
-<p>For <code>isPrime(9)</code>, which divisor first proves the number is not prime?</p>
-<div class="tight-list">
-<ul>
-<li>A. <code>2</code></li>
-<li>B. <code>3</code></li>
-<li>C. <code>4</code></li>
-<li>D. no divisor</li>
-</ul>
-</div>
-<p>Answer: <mark>B</mark>. <code>9 % 3 == 0</code>, so <code>9</code> is not prime.</p>
+<section id="remainder-warning" class="slide level2">
+<h2>Remainder Warning</h2>
+<h3 id="odd-numbers-can-be-negative">Odd numbers can be negative</h3>
+<p>Textbook warning: Java’s <code>%</code> is a remainder operator and not a true mathematical modulo operator.</p>
+<p>Do not check if a number is odd with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a>num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="remainder-warning-1" class="slide level2">
+<h2>Remainder Warning</h2>
+<h3 id="correct-odd-test">Correct odd test</h3>
+<p>That expression works for positive odd values, but a negative odd number has remainder <code>-1</code>. Use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a>num <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that a Boolean expression evaluates to <code>true</code> or <code>false</code></li>
 <li>distinguish assignment <code>=</code> from equality testing <code>==</code></li>
-<li>use relational operators correctly with numeric values</li>
-<li>explain how <code>%</code> supports even, odd, divisibility, and prime checks</li>
-<li>avoid assuming object reference equality means object content equality</li>
+<li>predict the output of Boolean expressions involving <code>==</code> and <code>!=</code></li>
+<li>explain that object reference equality checks whether variables refer to the same object</li>
+<li>use relational operators only for numeric comparisons in Java</li>
+<li>use <code>%</code> to test even, odd, and divisibility conditions</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
+<p><a href="2-2-part-2-prime-numbers-pogil.html">Next: Prime Numbers POGIL</a><br>
+<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 
 </section>
     </div>

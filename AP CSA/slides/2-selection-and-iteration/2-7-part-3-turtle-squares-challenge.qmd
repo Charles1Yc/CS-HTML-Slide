@@ -1,0 +1,141 @@
+---
+title: "2.7 while Loops"
+subtitle: "Part 3: Turtle Squares Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Turtle Squares
+
+Do you remember when we used the turtle objects to draw shapes?
+
+To create a square without loops we had to repeat code to go forward and turn `90` degrees to the right 4 times. This is a lot of repeated code.
+
+## Repeated Code Task
+
+### `clickablearea:: repeatedcode-square`
+
+Textbook prompt: Click on the lines of code that are repeated after the first two lines.
+
+```java
+yertle.forward(100);
+yertle.turn(90);
+yertle.forward(100);
+yertle.turn(90);
+yertle.forward(100);
+yertle.turn(90);
+yertle.forward(100);
+yertle.turn(90);
+```
+
+Correct repeated lines: every `forward` and `turn` pair after the first pair.
+
+## Challenge Prompt
+
+### Remove repeated lines
+
+Can you change the code below to remove the repeated lines of code and use a while loop to draw 4 sides of the square?
+
+You should only need <span class="mark">1 call to `forward`</span> and <span class="mark">1 call to `turn`</span> in the loop.
+
+Whenever you find yourself repeating code, try to use a loop instead.
+
+## Code Task
+
+### `activecode:: challenge-turtle-square-while`
+
+Textbook prompt: Can you change the code below to remove the repeated lines of code and use a while loop to draw 4 sides of the square?
+
+Data file: `turtleClasses.jar`.
+
+## Code Window
+
+### `activecode:: challenge-turtle-square-while`
+
+::: {.code-scroll}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleDrawSquare
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        Turtle yertle = new Turtle(world);
+
+        // Change the following code to use a while loop to draw the square
+        // Remember to initialize a counter variable, test it, and increment it.
+
+        yertle.forward();
+        yertle.turn(90);
+        yertle.forward();
+        yertle.turn(90);
+        yertle.forward();
+        yertle.turn(90);
+        yertle.forward();
+        yertle.turn(90);
+
+        world.show(true);
+    }
+}
+```
+:::
+
+## Focused Work Block
+
+### Replace repetition with a while loop
+
+Use the 3 loop-writing steps:
+
+::: {.tight-list}
+1. initialize a counter variable
+2. test that the counter has not reached 4 sides
+3. increment the counter in the loop body
+:::
+
+The loop body should keep only one `forward()` call and one `turn(90)` call.
+
+## Test Requirements
+
+### Runestone tests
+
+Runestone checks that the completed code has:
+
+::: {.tight-list}
+- a while loop that counts to `4`
+- exactly `1` occurrence of `.forward()`
+- exactly `1` occurrence of `.turn(90)`
+- `++` to increment the counter
+- `<` to test the counter
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify the repeated turtle movement pair
+- preserve the `World` and `Turtle` setup
+- write a while loop for exactly 4 square sides
+- keep one `forward()` and one `turn(90)` inside the loop body
+- include initialize, test, and update steps for the counter
+- verify the static checks before running visually
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

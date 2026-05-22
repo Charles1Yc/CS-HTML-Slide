@@ -1,6 +1,6 @@
 ---
 title: "2.9 Implementing Selection and Iteration Algorithms"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Accumulator and Input-Controlled Loops"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,232 +16,249 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Syntax becomes reusable algorithm patterns
+### Standard loop-and-selection algorithms
 
-This topic combines selection and iteration to implement common AP CSA algorithms.
+In this lesson, you will learn how to implement algorithms that use loops to solve problems.
+
+You will learn how to use the accumulator pattern to calculate sums and averages, how to find minimum and maximum values, how to determine if a number is evenly divisible by another number, and how to count the frequency of a specific criterion.
+
+## Standard Algorithms
+
+### Loops and selection can be used to
 
 ::: {.tight-list}
-- <span class="term">accumulator</span> pattern for sum and average
-- <span class="term">sentinel</span> loops for input
-- minimum and maximum search
-- divisibility and digit extraction
-- random choice and frequency counters
+- compute a sum or average of a set of values
+- determine a minimum or maximum value
+- identify if an integer is or is not evenly divisible by another integer
+- identify the individual digits in an integer
+- determine the frequency with which a specific criterion is met
 :::
 
 ## Accumulator Pattern
 
-### Sum and average share the same structure
+### Four steps
+
+The <span class="term">accumulator pattern</span> (累加器模式) is an algorithm that iterates through a set of values using a loop and updates an accumulator variable with those values, for example to compute a sum or average of a set of values.
+
+::: {.tight-list}
+1. Initialize the accumulator variable before the loop.
+2. Loop through the values.
+3. Update the accumulator variable inside the loop.
+4. Print or use the accumulated value when the loop is done.
+:::
+
+## Sum Example
+
+### The `sum` variable is the accumulator
+
+For example, this loop calculates the sum of `1` through `100`.
 
 ```java
 int sum = 0;
-for (int i = 1; i <= n; i++)
+for (int i = 1; i <= 100; i++)
 {
     sum += i;
 }
+System.out.println("The sum of 1 through 100 is " + sum);
 ```
 
-Pattern:
+## Average Example
 
-::: {.tight-list}
-- initialize the accumulator before the loop
-- update it inside the loop
-- use it after the loop
-:::
+### Add values, then divide by the number of values
 
-Average adds a final division step.
+The accumulator pattern can also be used to calculate the average of a set of values by adding them together and then dividing by the number of values.
+
+```java
+int sum = 0;
+for (int i = 0; i < 10; i++)
+{
+    int num = (int)(Math.random() * 100);
+    sum += num;
+}
+double average = (double)sum / 10;
+System.out.println("The average of 10 random numbers is " + average);
+```
 
 ## Code Task
 
-### Complete sum and average
+### `activecode:: accumulator-practice`
 
+Textbook prompt: Complete the methods below to compute the sum and average of a set of numbers.
+
+## Code Window
+
+### `activecode:: accumulator-practice`
+
+::: {.code-scroll}
 ```java
-public static int sum(int n)
+public class Accumulator
 {
-    int sum = 0;
-    for (int i = 1; i <= n; i++)
+    // sum calculates and returns the sum of the numbers 1 to n
+    public static int sum(int n)
     {
-        sum += i;
-    }
-    return sum;
-}
+        int sum = 0;
+        // 1. Add a loop to calculate the sum of 1 to n
 
-public static double average(int n)
-{
-    int total = sum(n);
-    return (double) total / n;
-}
-```
 
-For `n = 10`, expected results are `55` and `5.5`.
-
-## Input-Controlled Loop
-
-### Sentinel input combines sum and count
-
-```java
-Scanner scan = new Scanner(System.in);
-int sum = 0;
-int count = 0;
-int number = scan.nextInt();
-
-while (number != -1)
-{
-    sum += number;
-    count++;
-    number = scan.nextInt();
-}
-double average = (double) sum / count;
-```
-
-The sentinel `-1` is not included in the average.
-
-## Min and Max
-
-### Selection inside a loop tracks best-so-far
-
-```java
-int max = Integer.MIN_VALUE;
-for (int i = 0; i < n; i++)
-{
-    int num = (int)(Math.random() * 100);
-    if (num > max)
-    {
-        max = num;
-    }
-}
-```
-
-The variable `max` stores the best value found so far.
-
-## Divisibility
-
-### Prime checking uses `%`
-
-::: {.code-scroll .compact}
-```java
-public static boolean isPrime(int n)
-{
-    if (n <= 1)
-    {
-        return false;
+        return sum;
     }
 
-    for (int divisor = 2; divisor < n; divisor++)
+    // average calculates and returns the average of numbers 1 to n
+    public static double average(int n)
     {
-        if (n % divisor == 0)
-        {
-            return false;
-        }
+        int sum = 0;
+        // 2. Add a loop to calculate the sum of 1 to n
+
+
+
+        // 3. Calculate the average using sum and n
+        double average = 0;
+
+        return average;
     }
-    return true;
+
+    public static void main(String[] args)
+    {
+        int n = 10;
+        System.out.println("The sum of 1 to " + n + " is " + sum(n));
+        System.out.println("The average of 1 to " + n + " is " + average(n));
+    }
 }
 ```
 :::
 
-The loop returns `false` as soon as it finds a divisor.
+## Test Requirements
 
-## Digits with `/` and `%`
+### `activecode:: accumulator-practice`
 
-### Peel off the last digit repeatedly
+Runestone checks that:
 
+::: {.tight-list}
+- each method has a `for` loop that counts from `1` to `n`
+- `main` prints `The sum of 1 to 10 is 55`
+- `main` prints `The average of 1 to 10 is 5.5`
+- `sum(5)` returns `15`
+:::
+
+## Input-Controlled Loop
+
+### Sentinel value
+
+Here's an example of an <span class="term">input-controlled loop</span> that calculates the average of positive numbers using the accumulator pattern with a `while` loop.
+
+The number `-1` is used as the <span class="term">sentinel value</span> (哨兵值). The `while` loop will run while the user does not input `-1`.
+
+What would happen if you forgot step 3, update the loop variable by getting a new input?
+
+Remember that skipping step 3 will often lead to an infinite loop.
+
+## Input-Controlled Loop
+
+### Three loop steps
+
+::: {.code-scroll}
 ```java
-public static boolean checkDigit(int number, int digit)
+// 1. initialize the loop variable (get the first number)
+System.out.print("Please enter a number to average in or -1 to stop: ");
+number = scan.nextInt();
+
+// 2. test the loop variable (against sentinel value)
+while (number != -1)
 {
-    while (number > 0)
-    {
-        int lastDigit = number % 10;
-        if (lastDigit == digit)
-        {
-            return true;
-        }
-        number = number / 10;
-    }
-    return false;
+  sum += number; // add number to sum
+  count++; // count the number
+  // 3. Update the loop variable (get a new number)
+  System.out.print("Please enter a number to average in or -1 to stop: ");
+  number = scan.nextInt();
+}
+System.out.println(count);
+// calculate average
+average = (double) sum/count;
+System.out.println("The average is " + average);
+```
+:::
+
+## Code Task
+
+### `activecode:: input-controlled-loop`
+
+Textbook prompt: Try the code below with an input-controlled loop that prints out the numbers entered by the user until `-1` is entered.
+
+Then, change it to calculate the sum and average of the numbers entered.
+
+Input stream: `80 90 100 -1`
+
+## Code Window
+
+### `activecode:: input-controlled-loop`
+
+::: {.code-scroll}
+```java
+import java.util.Scanner;
+
+public class InputLoop
+{
+  public static void main(String[] args)
+  {
+      Scanner scan = new Scanner(System.in);
+      // Initialize the accumulators
+      int sum = 0;
+      int count = 0;
+
+      // Initialize the loop variable (get the first number)
+      System.out.print("Please enter a number to average in or -1 to stop: ");
+      int number = scan.nextInt();
+
+      // Test the loop variable against sentinel value
+      while (number != -1)
+      {
+          // 1. TODO: add number to sum and increment count
+
+
+          // Update the loop variable (get a new number)
+          System.out.println("You entered " + number);
+          System.out.print("Please enter a number to average in or -1 to stop: ");
+          number = scan.nextInt();
+      }
+      System.out.println("You entered " + count + " numbers.");
+      System.out.println("Their sum is " + sum);
+
+      // 2. TODO: calculate average
+      double average = 0;
+
+      System.out.println("The average is " + average);
+  }
 }
 ```
+:::
 
-`% 10` gets the last digit; `/ 10` removes it.
+## Test Requirements
 
-## Math.random with Selection
+### `activecode:: input-controlled-loop`
 
-### Probabilities come from ranges
+Runestone checks that:
 
-The weather report says a 25% chance of rain.
-
-```java
-if (Math.random() < 0.25)
-{
-    System.out.println("Rain");
-}
-else
-{
-    System.out.println("No Rain");
-}
-```
-
-Equivalent condition for rain:
-
-```java
-Math.random() > 0.75
-```
-
-because values above `0.75` are the top 25% of the range.
-
-## Frequency
-
-### Count how often a condition is true
-
-```java
-int count = 0;
-for (int i = 1; i <= 100; i++)
-{
-    if (i % 2 == 0)
-    {
-        count++;
-    }
-}
-```
-
-Frequency algorithms use a counter inside a loop and increment only when the condition is true.
-
-## Groupwork Coding Challenge {.fit-small}
-
-### Prime Number Finder
-
-Complete `findPrimes` by reusing `isPrime`.
-
-```java
-public static int findPrimes(int num1, int num2)
-{
-    int count = 0;
-    for (int n = num1; n <= num2; n++)
-    {
-        if (isPrime(n))
-        {
-            System.out.println(n);
-            count++;
-        }
-    }
-    return count;
-}
-```
-
-For `findPrimes(2, 100)`, the expected count is `25`.
+::: {.tight-list}
+- input `80 90 100 -1` produces `The average is 90.0`
+- input `1 4 -1` produces `The average is 2.5`
+- the average uses a `double` result, not integer division
+:::
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- implement sum and average using an accumulator
-- use a sentinel loop without including the sentinel in the data
-- update min or max only when a better value is found
-- use `%` and `/` for divisibility and digit extraction
-- combine selection and loops for frequency and prime-number algorithms
+- list the four accumulator-pattern steps
+- identify the accumulator variable in a sum or average loop
+- keep the final average calculation after the loop
+- explain that `-1` is a sentinel and is not included in the data
+- update the input variable inside the `while` loop
+- cast to `double` when needed for an average
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Min, max, divisibility, and prime →](2-9-part-2-min-max-divisibility-and-prime.html)

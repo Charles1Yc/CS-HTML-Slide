@@ -1,6 +1,6 @@
 ---
 title: "2.2 Boolean Expressions"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Equality, Relational Operators, and Remainder"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,167 +14,316 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
-
-### Conditions produce true or false
-
-A <span class="term">Boolean expression</span> (布尔表达式) is an expression that evaluates to either `true` or `false`.
-
-Boolean expressions are used by selection and iteration:
-
-```java
-if (score >= 90)
-{
-    System.out.println("A");
-}
-```
-
-The code inside the block runs only when the condition is true.
-
 ## Testing Equality
 
-### `==` compares primitive values
+### `==` and `!=` return Boolean values
 
-Use `==` to test whether two primitive values are equal.
+The relational operators `==` and `!=` (not equal) can be used to compare values.
 
+They return `true` or `false` <span class="term">boolean values</span> (布尔值).
+
+Note from the textbook:
+
+::: {.tight-list}
+- one `=` sign changes the value of a variable
+- two `==` equal signs test if a variable holds a certain value without changing it
+:::
+
+## Code Task
+
+### `activecode:: bool1`
+
+Textbook prompt: What will the code below print out? Try to guess before you run it. Then add 3 more lines of code that sets `year` to `15` and prints out whether `age` is equal to `year` and whether `age` is not equal to `year`.
+
+::: {.code-scroll}
 ```java
-int age = 15;
-System.out.println(age == 15);
-System.out.println(age == 16);
-```
+public class BoolTest1
+{
+    public static void main(String[] args)
+    {
+        int age = 15;
+        int year = 14;
+        // Will this print true or false?
+        System.out.println(age == year);
+        // Will this print true or false?
+        System.out.println(age != year);
 
-Expected output:
+        // 1. Add code that sets year to 15
+        // 2. Print out whether age equals year
+        // 3. Print out whether age does not equal year
+    }
+}
+```
+:::
+
+## Expected Output
+
+### `BoolTest1`
+
+The Runestone test expects this `main` output after the three added lines:
 
 ```text
+false
+true
 true
 false
 ```
 
-`=` assigns a value; `==` asks an equality question.
+The first two lines come from comparing `15` and `14`; the last two lines come after setting `year` to `15`.
 
 ## Object References
 
-### `==` with objects checks whether references point to the same object
+### `==` can compare references to objects
 
-![Turtle reference equality](../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png){fig-align="center" width="43%"}
+We can also use `==` or `!=` to test if two reference values, like `Turtle` and `String` objects, refer to the same object.
 
-For reference types, `==` checks whether two variables refer to the same object, not whether two objects have equal-looking contents.
+![Turtle Reference Equality](../../assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png){fig-align="center" width="46%"}
 
-This distinction becomes important for `String` in Topic 2.6.
-
-## Relational Operators
-
-### Compare numeric values
-
-| Operator | Meaning |
-|---|---|
-| `<` | less than |
-| `>` | greater than |
-| `<=` | less than or equal to |
-| `>=` | greater than or equal to |
-| `==` | equal to |
-| `!=` | not equal to |
-
-Relational expressions also evaluate to `true` or `false`.
+If two reference variables refer to the same object like the turtle on the right in the image, the test with `==` will return `true`.
 
 ## Code Task
 
-### Predict relational results
+### `activecode:: boolRef`
 
-Predict the output before running.
+Textbook prompt: Guess the output. Then add another `Turtle friend2` and set it to `juan`. Does `friend2 == juan`? Does `friend2 == friend`?
 
+::: {.code-scroll}
 ```java
-public class BooleanTrace
+import java.awt.*;
+import java.util.*;
+
+public class BoolTestRef
 {
     public static void main(String[] args)
     {
-        int x = 3;
-        int y = 5;
-        System.out.println(x < y);
-        System.out.println(x + 2 == y);
-        System.out.println(y != 5);
-        System.out.println(y >= x * 2);
+        World world = new World(300, 300);
+        Turtle juan = new Turtle(world);
+        Turtle mia = new Turtle(world);
+
+        // Will these print true or false?
+        System.out.println(juan == mia);
+        Turtle friend = mia; // set friend to be an alias for mia
+        System.out.println(friend == mia);
+        // Create another Turtle friend2 and set it to juan
+        // Does friend2 == juan?
+        // Does friend2 == friend?
     }
 }
 ```
+:::
 
-Expected output: `true`, `true`, `false`, `false`.
+## Expected Output
+
+### `BoolTestRef`
+
+The Runestone test expects this `main` output after adding `friend2`:
+
+```text
+false
+true
+true
+false
+```
+
+The result depends on whether two variables refer to the same object in memory.
+
+## Relational Operators
+
+### Numeric comparisons
+
+The <span class="term">relational operators</span> below are used to compare numeric values or arithmetic expressions.
+
+::: {.table-fit}
+| operator | meaning |
+|---|---|
+| `<` | Less Than |
+| `>` | Greater Than |
+| `<=` | Less than or equal to |
+| `>=` | Greater than or equal to |
+| `==` | Equals |
+| `!=` | Does not equal |
+:::
+
+Java uses `compareTo` and `equals` for comparing `String` values.
+
+## Relational Operator Notes
+
+### Remembering `<`, `>`, `<=`, and `>=`
+
+Textbook notes:
+
+::: {.tight-list}
+- Think of `<` and `>` as arrows where the pointy end should point to the smaller value.
+- A `<` expression is true if the smaller number is on the left.
+- A `>` expression is true only if the smaller number is on the right hand side.
+- Write `<=` and `>=` in the same order you say them in English: less than or equal to, greater than or equal to.
+:::
+
+## Code Task
+
+### `activecode:: bool2`
+
+Textbook prompt: Try to guess what the code below will print out before you run it. Then, set `year` to `15` and print whether `age` is less than or equal to `year`.
+
+::: {.code-scroll}
+```java
+public class BoolTest2
+{
+    public static void main(String[] args)
+    {
+        int age = 15;
+        int year = 14;
+        // Will these print true or false?
+        System.out.println(age < year);
+        System.out.println(age > year);
+        // 1. Set year to 15
+        // 2. Print whether age is less than or equal to year
+    }
+}
+```
+:::
+
+## Expected Output
+
+### `BoolTest2`
+
+The Runestone tests require:
+
+```text
+false
+true
+true
+```
+
+They also check that the code contains `<=`.
+
+## Boolean Expressions
+
+### Positive and negative tests
+
+<span class="term">Boolean</span> variables or expressions have `true` or `false` values.
+
+Relational operators can compare two variables or compare a variable against a constant value or expression.
+
+```java
+// Test if a number is positive
+(number > 0)
+// Test if a number is negative
+(number < 0)
+```
+
+## Match the Expression
+
+### `dragndrop:: BooleanExps`
+
+Textbook prompt: Drag the boolean expression from the left and drop it on what it is testing.
+
+::: {.table-fit}
+| Boolean expression | What it tests |
+|---|---|
+| `x > 0` | `x` is positive |
+| `x == y` | `x` equals `y` |
+| `x < 0` | `x` is negative |
+| `x != y` | `x` does not equal `y` |
+| `x < y` | `x` is less than `y` |
+| `x > y` | `x` is greater than `y` |
+:::
+| `x >= y` | `x` is greater than or equal to `y` |
 
 ## Testing with Remainder
 
-### `%` turns divisibility into a Boolean expression
+### `%` supports divisibility checks
 
-The remainder operator is useful for number tests.
+The remainder operator `%` is useful in coding. These Boolean expressions can test whether a number is even, odd, or divisible by another number:
 
 ```java
-int n = 17;
-System.out.println(n % 2 == 0);
-System.out.println(n % 5 == 2);
+// Test if a number is even by seeing if the remainder is 0 when divided by 2
+(number % 2 == 0)
+// Test if a number is odd by seeing if there is a remainder when divided by 2
+(number % 2 != 0)
+// Test if a number is a multiple of x
+(number % x == 0)
 ```
 
-::: {.tight-list}
-- `n % 2 == 0` tests whether `n` is even
-- `n % divisor == 0` tests divisibility
-- prime-number logic starts by checking possible divisors
-:::
+## Code Task
 
-## Coding Challenge
+### `activecode:: boolRem`
 
-### Prime Numbers POGIL starter
+Textbook prompt: Try the expressions containing `%`. Then add another expression that tests to see if `age1` is divisible by `3`.
 
-Complete the method by testing divisibility from `2` through `number - 1`.
-
+::: {.code-scroll}
 ```java
-public class PrimeCheck
+public class BoolRem
 {
-    public static boolean isPrime(int number)
+    public static void main(String[] args)
     {
-        if (number <= 1)
-        {
-            return false;
-        }
+        int age1 = 15;
+        int age2 = 16;
 
-        for (int divisor = 2; divisor < number; divisor++)
-        {
-            if (number % divisor == 0)
-            {
-                return false;
-            }
-        }
-        return true;
+        System.out.println("Remainder of " + age1 + "/2 is " + (age1 % 2));
+        System.out.println("Remainder of " + age2 + "/2 is " + (age2 % 2));
+        System.out.println("Is " + age1 + " even? " + (age1 % 2 == 0));
+        System.out.println("Is " + age2 + " even? " + (age2 % 2 == 0));
+
+        // Add a line that prints out whether age1 is divisible by 3
     }
 }
 ```
-
-## Quick Check
-
-### Prime reasoning
-
-For `isPrime(9)`, which divisor first proves the number is not prime?
-
-::: {.tight-list}
-- A. `2`
-- B. `3`
-- C. `4`
-- D. no divisor
 :::
 
-Answer: <span class="mark">B</span>. `9 % 3 == 0`, so `9` is not prime.
+## Test Requirements
+
+### `BoolRem`
+
+The Runestone tests expect the output to include:
+
+```text
+Remainder of 15/2 is 1
+Remainder of 16/2 is 0
+Is 15 even? false
+Is 16 even? true
+true
+```
+
+They also check for `age1 % 3 == 0`.
+
+## Remainder Warning
+
+### Odd numbers can be negative
+
+Textbook warning: Java's `%` is a remainder operator and not a true mathematical modulo operator.
+
+Do not check if a number is odd with:
+
+```java
+num % 2 == 1
+```
+
+## Remainder Warning
+
+### Correct odd test
+
+That expression works for positive odd values, but a negative odd number has remainder `-1`. Use:
+
+```java
+num % 2 != 0
+```
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that a Boolean expression evaluates to `true` or `false`
 - distinguish assignment `=` from equality testing `==`
-- use relational operators correctly with numeric values
-- explain how `%` supports even, odd, divisibility, and prime checks
-- avoid assuming object reference equality means object content equality
+- predict the output of Boolean expressions involving `==` and `!=`
+- explain that object reference equality checks whether variables refer to the same object
+- use relational operators only for numeric comparisons in Java
+- use `%` to test even, odd, and divisibility conditions
 :::
 
 ## End
 
-### Return to the course outline
+### Continue or return to the course outline
 
+[Next: Prime Numbers POGIL](2-2-part-2-prime-numbers-pogil.html)  
 [← Back to AP CSA / 返回课程目录](../../index.html)

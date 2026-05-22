@@ -1,0 +1,210 @@
+---
+title: "2.11 Nested Iteration"
+subtitle: "Part 2: Turtle Nested Loops and Snowflakes"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Nested Loops with Turtles
+
+### A snowflake design
+
+Try nested loops with turtles to create a snowflake design.
+
+The turtle below is trying to draw a square many times to create a snowflake pattern.
+
+Textbook prompt: Can you change the outer loop so that the pattern completes all the way around?
+
+Try different ending values for the counter `i` to find the smallest number that works between `5` and `15`.
+
+## Code Task
+
+### `activecode:: TurtleNestedLoop`
+
+To make the drawing faster, you can call the `World` or `Turtle` object's `setSpeed` method with a `0-100` delay value where `0` is the fastest.
+
+Datafile: `turtleClasses.jar`
+
+## Code Window
+
+### `activecode:: TurtleNestedLoop`
+
+::: {.code-scroll}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleDrawSnowflake
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        Turtle yertle = new Turtle(world);
+        yertle.setSpeed(25); // fast 0 - 100 slow
+        yertle.setColor(Color.blue);
+
+        // Outer loop will do inner loop to draw a square,
+        // and then turn a little each time
+        // How many times should the outer loop run to complete the pattern? Try
+        // some numbers between 5 and 15.
+        for (int i = 1; i <= 5; i++)
+        {
+
+            // inner loop draws a square
+            for (int sides = 1; sides <= 4; sides++)
+            {
+                yertle.forward();
+                yertle.turn(90);
+            }
+            // turn a little before drawing square again
+            yertle.turn(30);
+        }
+        world.show(true);
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: TurtleNestedLoop`
+
+Runestone checks that the outer loop condition contains a number high enough to complete the drawing.
+
+The checker looks for an `i <= ?;` pattern and expects the parsed ending value to be at least `12`.
+
+## Groupwork Coding Challenge
+
+### Turtle Snowflakes
+
+In the last exercise, you used nested for-loops to have the turtle draw a square repeatedly to make a snowflake.
+
+Use the Active Code window below to have `yertle` draw shapes using nested loops.
+
+Textbook note: We encourage you to work in pairs on this.
+
+## Challenge Steps
+
+### Tasks 1-2
+
+::: {.tight-list}
+1. Complete the code to draw a snowflake of triangles. Triangles have 3 sides and you will need to turn 120 degrees, external angle, 3 times to draw the triangle. Use the `turnAmount` variable for the single turn after drawing a triangle. Try changing `turnAmount` to `40` to see how many times you need to loop with a wider distance between the triangles.
+2. Change the outer loop so that it runs the number of times needed by using a formula with the `turnAmount` variable and `360`. Can you draw a snowflake using more or less triangles than before by just changing the `turnAmount` value?
+:::
+
+## Challenge Steps
+
+### Tasks 3-5
+
+::: {.tight-list}
+3. Create another variable called `n` for the number of sides in the polygon the inner loop draws. Change the angle in the inner loop to also use a formula with `360` and this new variable. Can you change your snowflake to draw squares or pentagons instead?
+4. Add an `if`/`else` statement that changes the color of the pen before the inner loop depending on whether the outer loop variable is odd or even.
+5. Be creative and design a unique snowflake.
+:::
+
+## Code Task
+
+### `activecode:: challenge-Turtle-Nested-Loop-Snowflakes`
+
+Textbook prompt: Use nested for-loops to have the turtle draw a snowflake of polygons.
+
+Use the variable `turnAmount` to turn after each shape and the variable `n` for the sides of the polygon.
+
+Datafile: `turtleClasses.jar`
+
+## Code Window
+
+### `activecode:: challenge-Turtle-Nested-Loop-Snowflakes`
+
+::: {.code-scroll}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleSnowflakes
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        Turtle yertle = new Turtle(world);
+        yertle.setSpeed(25); // fast 0 - 100 slow
+        yertle.setColor(Color.blue);
+
+        // Use this variable in the loops
+        int turnAmount = 30;
+
+        // 1. Write a for loop that runs many times
+        // 2. Change it to use turnAmount to figure out how many times to run
+
+        // 1 & 2. Write an inner loop that draws a triangle (3 sides, 120 degree
+        // turns)
+        // 3. Then change it to be any polygon with a variable n
+
+        // turn turnAmount degrees before drawing the polygon again
+
+        // 4. Add an if statement that changes the colors depending on the loop
+        // variables
+
+        world.show(true);
+    }
+}
+```
+:::
+
+## Focus Block
+
+### Outer and inner loops
+
+The outer loop repeats the shape around the full 360-degree turn.
+
+The inner loop draws one polygon.
+
+```java
+int turnAmount = 30;
+
+// outer loop count should use 360/turnAmount
+
+// inner loop draws triangle first, then any n-sided polygon
+```
+
+## Test Requirements
+
+### `activecode:: challenge-Turtle-Nested-Loop-Snowflakes`
+
+Runestone checks that the submitted code includes:
+
+::: {.tight-list}
+- 2 `for` loops, nested
+- an `if` statement to change colors
+- only 1 Turtle forward call
+- only 2 Turtle turn calls
+- the expression `360/turnAmount`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain that the inner loop draws one square, triangle, or polygon
+- explain that the outer loop repeats that shape around the center
+- use `turnAmount` to control the spacing between repeated shapes
+- use `360/turnAmount` to calculate how many outer-loop iterations are needed
+- use `n` to generalize the number of polygon sides
+- place the color-changing `if` before the inner loop
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

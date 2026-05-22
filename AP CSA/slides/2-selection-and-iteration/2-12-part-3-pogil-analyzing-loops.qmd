@@ -1,0 +1,197 @@
+---
+title: "2.12 Informal Run-Time Analysis"
+subtitle: "Part 3: POGIL Analyzing Loops"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### POGIL Analyzing Loops
+
+We encourage you to do this activity as a POGIL, Process Oriented Guided Inquiry Learning, group activity.
+
+POGIL groups are self-managed teams of up to 4 students where everyone has a role and works together to solve the problems, making sure that everyone in the team participates and learns.
+
+## Group Directions
+
+### Trace tables and formulas
+
+Do the following exercises in your group.
+
+Make sure you draw the trace tables keeping track of all the variables in the loops.
+
+Use the formulas to determine how many times the loops run.
+
+## POGIL Question
+
+### `mchoice:: qln1`
+
+How many times does the following code print a `*`?
+
+```java
+for (int i = 3; i < 8; i++)
+{
+    for (int y = 1; y < 5; y++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+::: {.tight-list}
+- A. `40`
+- B. `20`
+- C. `24`
+- D. `30`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: qln1`
+
+Correct answer: <span class="mark">B. `20`</span>
+
+The outer loop executes `7 - 3 + 1 = 5` times and the inner loop executes `4 - 1 + 1 = 4` times.
+
+This will print `5 * 4 = 20` stars.
+
+## POGIL Question
+
+### `mchoice:: qln2`
+
+What does the following code print?
+
+```java
+for (int i = 2; i < 8; i++)
+{
+    for (int y = 1; y <= 5; y++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+```
+
+::: {.tight-list}
+- A. A rectangle of 8 rows with 5 stars per row.
+- B. A rectangle of 8 rows with 4 stars per row.
+- C. A rectangle of 6 rows with 5 stars per row.
+- D. A rectangle of 6 rows with 4 stars per row.
+:::
+
+## Answer Reasoning
+
+### `mchoice:: qln2`
+
+Correct answer: <span class="mark">C. A rectangle of 6 rows with 5 stars per row.</span>
+
+The outer loop executes `8 - 2 + 1 = 6` times, so there are `6` rows.
+
+The inner loop executes `5 - 1 + 1 = 5` times, so there are `5` columns.
+
+## POGIL Question
+
+### `mchoice:: qln3`
+
+What does the following print?
+
+```java
+for (int i = 3; i <= 9; i++)
+{
+   for (int j = 6; j > 0; j--)
+   {
+       System.out.print("*");
+   }
+   System.out.println();
+}
+```
+
+::: {.tight-list}
+- A. A rectangle of 9 rows and 5 stars per row.
+- B. A rectangle of 6 rows and 6 stars per row.
+- C. A rectangle of 7 rows and 5 stars per row.
+- D. A rectangle of 7 rows and 6 stars per row.
+:::
+
+## Answer Reasoning
+
+### `mchoice:: qln3`
+
+Correct answer: <span class="mark">D. A rectangle of 7 rows and 6 stars per row.</span>
+
+The outer loop executes `9 - 3 + 1 = 7` times.
+
+The inner loop executes `6 - 1 + 1 = 6` times.
+
+## POGIL Question
+
+### `mchoice:: qln4`
+
+Consider the following code segment.
+
+How many times is the string `"Hi!"` printed as a result of executing the code segment?
+
+```java
+int i = 0;
+while (i <= 4)
+{
+  for (int j = 0; j < 3; j++)
+  {
+    System.out.println("Hi!");
+  }
+  i++;
+}
+```
+
+## POGIL Choices
+
+### `mchoice:: qln4`
+
+::: {.tight-list}
+- A. `15`
+- B. `12`
+- C. `10`
+- D. `8`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: qln4`
+
+Correct answer: <span class="mark">A. `15`</span>
+
+The outer loop executes `4 - 0 + 1 = 5` times.
+
+The inner loop runs `3` times for `j = 0`, `1`, and `2`.
+
+So `"Hi!"` is printed `5 * 3 = 15` times.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- draw trace tables before choosing an answer
+- convert `<` loop bounds into the largest value that enters the body
+- multiply rectangular nested-loop counts
+- identify rows and columns in printed rectangle outputs
+- handle decrementing inner loops by listing valid counter values
+- combine a `while` outer loop with a `for` inner loop by counting both loops
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

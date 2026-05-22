@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.11 Nested Iteration</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Rectangle Nested Loops</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,144 +212,196 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="a-loop-can-contain-another-loop">A loop can contain another loop</h3>
-<p><span class="term">Nested iteration</span> (嵌套迭代) means one loop is placed inside another loop.</p>
-
-<img data-src="../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png" style="width:38.0%" class="r-stretch quarto-figure-center"><p class="caption">Nested loops</p><p>The outer loop controls how many groups are produced. The inner loop controls what happens inside each group.</p>
+<h3 id="a-loop-inside-another-loop">A loop inside another loop</h3>
+<p><span class="term">Nested iteration statements</span>, or <span class="term">nested loops</span> (嵌套循环), are iteration statements that appear in the body of another iteration statement.</p>
+<p>Or in simpler terms, a loop inside of another loop.</p>
+<p>Nested loops are typically used for working with two dimensions, for example printing a rectangle of stars in rows and columns.</p>
 </section>
-<section id="rectangle-pattern" class="slide level2">
-<h2>Rectangle Pattern</h2>
-<h3 id="outer-loop-rows-inner-loop-columns">Outer loop rows, inner loop columns</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
-<span id="cb1-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>*****</span>
-<span id="cb2-2"><a href=""></a>*****</span>
-<span id="cb2-3"><a href=""></a>*****</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="nested-loop-flow" class="slide level2">
+<h2>Nested Loop Flow</h2>
+<h3 id="inner-loop-restarts-for-each-outer-iteration">Inner loop restarts for each outer iteration</h3>
+<p>When a loop is nested inside another loop, the inner loop runs many times inside the outer loop.</p>
+<p>In each iteration of the outer loop, the inner loop will be re-started.</p>
+<p>The inner loop must finish all of its iterations before the outer loop can continue to its next iteration.</p>
+</section>
+<section id="nested-loop-diagram" class="slide level2">
+<h2>Nested Loop Diagram</h2>
+<h3 id="nested-loops">Nested Loops</h3>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png" style="width:48.0%"></p>
+<figcaption>Nested Loops</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
+<h3 id="activecode-lcfcnl1"><code>activecode:: lcfcnl1</code></h3>
+<p>Textbook prompt: What does the following code print out?</p>
+<p>Notice how the inner loop is started over for each row.</p>
+<p>Can you predict how many rows and columns of stars there will be?</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-lcfcnl1-1"><code>activecode:: lcfcnl1</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> NestedLoops</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-8"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb1-9"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb1-10"><a href=""></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb1-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb1-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
 <h3 id="change-rows-and-columns">Change rows and columns</h3>
-<p>Modify the rectangle code to print <code>10</code> rows and <code>8</code> columns.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> row <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> row<span class="op">++)</span></span>
+<p>Textbook prompt: Can you change the code to print a rectangle with <code>10</code> rows and <code>8</code> columns of stars?</p>
+<p>You can also try replacing line 10 with this print statement to see the rows and columns:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>row <span class="op">+</span> <span class="st">"-"</span> <span class="op">+</span> col <span class="op">+</span> <span class="st">" "</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-lcfcnl1-2"><code>activecode:: lcfcnl1</code></h3>
+<p>Runestone checks that the submitted code contains:</p>
+<div class="tight-list">
+<ul>
+<li><code>row &lt;= 10</code></li>
+<li><code>col &lt;= 8</code></li>
+</ul>
+</div>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-nested1"><code>mchoice:: nested1</code></h3>
+<p>What does the following code print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">7</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> col <span class="op">&lt;=</span> <span class="dv">8</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
 <span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
 <span id="cb3-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
 <span id="cb3-6"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb3-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
 <span id="cb3-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The total number of stars is <code>10 * 8 = 80</code>.</p>
+<div class="tight-list">
+<ul>
+<li>A. A rectangle of 7 rows with 5 stars per row.</li>
+<li>B. A rectangle of 7 rows with 4 stars per row.</li>
+<li>C. A rectangle of 6 rows with 5 stars per row.</li>
+<li>D. A rectangle of 6 rows with 4 stars per row.</li>
+</ul>
+</div>
 </section>
-<section id="quick-check" class="slide level2">
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-nested1-1"><code>mchoice:: nested1</code></h3>
+<p>Correct answer: <mark>C. A rectangle of 6 rows with 5 stars per row.</mark></p>
+<p>The outer loop runs from <code>1</code> up to <code>7</code> but not including <code>7</code>, so there are <code>6</code> rows.</p>
+<p>The inner loop runs <code>1</code> to <code>5</code> including <code>5</code>, so there are <code>5</code> columns.</p>
+</section>
+<section id="quick-check-1" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="count-nested-loop-output">Count nested-loop output</h3>
-<p>What does this print?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">7</span><span class="op">;</span> i<span class="op">++)</span></span>
+<h3 id="mchoice-nested2"><code>mchoice:: nested2</code></h3>
+<p>What does the following code print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> j <span class="op">&gt;=</span> <span class="dv">1</span><span class="op">;</span> j<span class="op">--)</span></span>
 <span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
 <span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
 <span id="cb4-6"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb4-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
 <span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>6</code> rows with <code>5</code> stars per row.</p>
+<div class="tight-list">
+<ul>
+<li>A. A rectangle of 4 rows with 3 star per row.</li>
+<li>B. A rectangle of 5 rows with 3 stars per row.</li>
+<li>C. A rectangle of 4 rows with 1 star per row.</li>
+<li>D. The loops have errors.</li>
+</ul>
+</div>
 </section>
-<section id="quick-check-1" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="count-down-inside-each-row">Count down inside each row</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> j <span class="op">&gt;=</span> <span class="dv">1</span><span class="op">;</span> j<span class="op">--)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
-<span id="cb5-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>5</code> rows with <code>3</code> stars per row.</p>
+<section id="answer-reasoning-1" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-nested2-1"><code>mchoice:: nested2</code></h3>
+<p>Correct answer: <mark>B. A rectangle of 5 rows with 3 stars per row.</mark></p>
+<p>The outer loop runs from <code>0</code> up to <code>5</code> but not including <code>5</code>, so there are <code>5</code> rows.</p>
+<p>The inner loop runs when <code>j</code> is <code>3</code>, <code>2</code>, and <code>1</code>, so there are <code>3</code> stars per row.</p>
 </section>
 <section id="mixed-up-code" class="slide level2">
 <h2>Mixed-Up Code</h2>
-<h3 id="ten-rows-five-stars-each">Ten rows, five stars each</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> x<span class="op">++)</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-7"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
-<span id="cb6-8"><a href=""></a>            <span class="op">{</span></span>
-<span id="cb6-9"><a href=""></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
-<span id="cb6-10"><a href=""></a>            <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
-<span id="cb6-12"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-13"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Watch for the extra wrong block <code>y &lt;= 5</code>, which would print six stars.</p>
+<h3 id="parsonsprob-nestedparsons1"><code>parsonsprob:: nestedParsons1</code></h3>
+<p>Textbook prompt: The main method in the following class should print <code>10</code> rows with <code>5</code> <code>*</code>s in each row.</p>
+<p>The blocks have been mixed up and include one extra block that isn’t needed in the solution.</p>
 </section>
-<section id="turtle-nested-loop" class="slide level2">
-<h2>Turtle Nested Loop</h2>
-<h3 id="repeat-a-shape-then-turn">Repeat a shape, then turn</h3>
-<div class="code-scroll compact">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb7-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb7-3"><a href=""></a>yertle<span class="op">.</span><span class="fu">setColor</span><span class="op">(</span><span class="bu">Color</span><span class="op">.</span><span class="fu">blue</span><span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a></span>
-<span id="cb7-5"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">12</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb7-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-7"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> sides <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> sides <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> sides<span class="op">++)</span></span>
-<span id="cb7-8"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb7-9"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb7-10"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">90</span><span class="op">);</span></span>
-<span id="cb7-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-12"><a href=""></a>    yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
-<span id="cb7-13"><a href=""></a><span class="op">}</span></span>
-<span id="cb7-14"><a href=""></a></span>
-<span id="cb7-15"><a href=""></a>world<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="mixed-blocks" class="slide level2">
+<h2>Mixed Blocks</h2>
+<h3 id="parsonsprob-nestedparsons1-1"><code>parsonsprob:: nestedParsons1</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> x<span class="op">++)</span></span>
+<span id="cb6-2"><a href=""></a>        <span class="op">{</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
+<span id="cb7-2"><a href=""></a>            <span class="op">{</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
+<span id="cb8-2"><a href=""></a>            <span class="op">{</span> <span class="co">// extra block not needed</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a>            <span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a>        <span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb13-2"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The inner loop draws one square; the outer loop repeats squares around the center.</p>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="turtle-snowflakes">Turtle snowflakes</h3>
-<p>Use nested <code>for</code> loops to draw repeated polygons.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="dt">int</span> n <span class="op">=</span> <span class="dv">6</span><span class="op">;</span></span>
-<span id="cb8-2"><a href=""></a><span class="dt">int</span> turnAmount <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> shape <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> shape <span class="op">&lt;=</span> n<span class="op">;</span> shape<span class="op">++)</span></span>
-<span id="cb8-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-6"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> side <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> side <span class="op">&lt;=</span> n<span class="op">;</span> side<span class="op">++)</span></span>
-<span id="cb8-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb8-8"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
-<span id="cb8-9"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span>turnAmount<span class="op">);</span></span>
-<span id="cb8-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb8-11"><a href=""></a>    yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span>turnAmount<span class="op">);</span></span>
-<span id="cb8-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Change <code>n</code> to test different polygon snowflakes.</p>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="parsonsprob-nestedparsons1-2"><code>parsonsprob:: nestedParsons1</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb14-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb14-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb14-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb14-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> x<span class="op">++)</span></span>
+<span id="cb14-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb14-7"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> y<span class="op">++)</span></span>
+<span id="cb14-8"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb14-9"><a href=""></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb14-10"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb14-11"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">();</span></span>
+<span id="cb14-12"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb14-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb14-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain which loop is outer and which loop is inner</li>
-<li>connect rows and columns to nested loop counts</li>
-<li>compute total iterations by multiplying loop counts for rectangular loops</li>
-<li>trace nested loops that increment or decrement</li>
-<li>explain how nested turtle loops separate drawing a shape from repeating the shape</li>
+<li>define nested iteration as a loop inside another loop</li>
+<li>explain that the inner loop restarts for each outer-loop iteration</li>
+<li>identify rows as the outer loop and columns as the inner loop in rectangle patterns</li>
+<li>count rows and columns from inclusive and exclusive loop bounds</li>
+<li>reject the extra <code>y &lt;= 5</code> block because it would print 6 stars per row</li>
+<li>connect rectangular total work to outer iterations times inner iterations</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-11-part-2-turtle-nested-loops-and-snowflakes.html">Next: Turtle nested loops and snowflakes →</a></p>
 
 </section>
     </div>

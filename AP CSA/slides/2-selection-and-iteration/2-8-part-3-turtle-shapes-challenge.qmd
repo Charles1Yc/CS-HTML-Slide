@@ -1,0 +1,227 @@
+---
+title: "2.8 for Loops"
+subtitle: "Part 3: Turtle Shapes Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Turtles Drawing Shapes
+
+Let's use a `for` loop to have a Turtle draw different shapes.
+
+Textbook note: We encourage you to work in pairs.
+
+The following code has 4 methods to draw shapes using a Turtle `t` passed in as an argument.
+
+## Challenge Steps
+
+### Tasks 1-3
+
+::: {.tight-list}
+1. Complete the `drawSquare` method to use a `for` loop to have the Turtle `t` draw a square.
+2. Complete the `drawTriangle` method to use a `for` loop to draw an equilateral triangle. It ran 4 times for a square, so how many for a triangle? What angle should you use for the turns?
+3. Complete the `drawPentagon` method to use a `for` loop to draw a pentagon. What external angle should you use for the turns? Remember they have to add up to 360 degrees after 5 turns.
+:::
+
+## Challenge Steps
+
+### Tasks 4-5
+
+::: {.tight-list}
+4. Complete the `drawPolygon` method to use a `for` loop to draw any polygon with `n` sides of length `pixels` given as arguments. Use `n` in your loop for the number of sides. Use `pixels` for the amount to move forward. Calculate the angle to turn by using a formula that uses `n` and `360`.
+5. In the main method, call the `drawPolygon` method to draw a hexagon, 6 sides. This method can draw a variety of shapes by just changing the value of the argument `n`.
+:::
+
+## Code Task
+
+### `activecode:: challenge-TurtleLoopShapes`
+
+Textbook prompt: Complete the methods below with for-loops to draw a square, triangle, pentagon, and then any polygon using a variable `n` that holds the number of sides.
+
+Call 1 more call to the method `drawShapes` in `main`.
+
+Note that the angles in the turns have to add up to `360`.
+
+Datafile: `turtleClasses.jar`
+
+## Code Window
+
+### `activecode:: challenge-TurtleLoopShapes`
+
+::: {.code-scroll .compact}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleDrawShapes
+{
+
+    public static void drawSquare(Turtle t)
+    {
+        t.setColor(Color.blue);
+        // 1. Complete the following for loop to draw a square with 4 sides
+        for(int i = 0;                )
+        {
+            t.forward(100);
+            t.turn(90);
+        }
+    }
+
+    public static void drawTriangle(Turtle t)
+    {
+        t.setColor(Color.green);
+        // 2. Use a for loop to draw a triangle
+        // External angles of 3 sides add up to 360.
+
+
+
+    }
+
+    public static void drawPentagon(Turtle t)
+    {
+        t.setColor(Color.red);
+        // 3. Use a for loop to draw a pentagon
+        // External angles of 5 sides add up to 360.
+
+
+
+    }
+
+    public static void drawShape(Turtle t, int n, int pixels)
+    {
+        t.setColor(Color.black);
+        // 4. Use a for loop to draw a polygon with n sides.
+        // Use the argument pixels to move forward.
+        // Use 360 and n to determine the angle to turn.
+
+
+
+    }
+
+    public static void main(String[] args)
+    {
+        World world = new World(400, 400);
+        Turtle yertle = new Turtle(world);
+        yertle.penUp();
+        //move a little to the left
+        yertle.moveTo(100, 200);
+        yertle.penDown();
+        yertle.setSpeed(25); // fast 0 - 100 slow
+
+        // Draw a square
+        drawSquare(yertle);
+        // Draw a triangle
+        drawTriangle(yertle);
+        // Draw a pentagon
+        drawPentagon(yertle);
+
+        // Draw shapes of any number of sides and pixels
+        drawShape(yertle, 4, 50);
+
+        // 5. Call drawShapes to draw a hexagon (6 sides) of length 20
+
+
+
+        world.show(true);
+    }
+}
+```
+:::
+
+## Focus Block
+
+### `drawSquare`
+
+The first method gives the loop body and the turn angle.
+
+Students complete the `for` header so the square has 4 sides.
+
+```java
+public static void drawSquare(Turtle t)
+{
+    t.setColor(Color.blue);
+    // 1. Complete the following for loop to draw a square with 4 sides
+    for(int i = 0;                )
+    {
+        t.forward(100);
+        t.turn(90);
+    }
+}
+```
+
+## Focus Block
+
+### `drawTriangle` and `drawPentagon`
+
+The exterior angles should add up to `360` degrees.
+
+::: {.tight-list}
+- triangle: 3 sides, so decide how many iterations and what turn angle
+- pentagon: 5 sides, so decide how many iterations and what turn angle
+:::
+
+```java
+// External angles of 3 sides add up to 360.
+// External angles of 5 sides add up to 360.
+```
+
+## Focus Block
+
+### `drawShape` and the hexagon call
+
+For any polygon, use `n` as the number of sides or iterations.
+
+Use `pixels` for the forward distance.
+
+Calculate the angle with `360` and `n`, so that `n` turns add up to `360` degrees.
+
+```java
+drawShape(yertle, 4, 50);
+
+// 5. Call drawShapes to draw a hexagon (6 sides) of length 20
+```
+
+## Test Requirements
+
+### `activecode:: challenge-TurtleLoopShapes`
+
+Runestone checks that the submitted code includes:
+
+::: {.tight-list}
+- 4 `for` loops, one in each method
+- square count up to `4`
+- triangle count up to `3`
+- pentagon count up to `5`
+- a formula using `360/n` in `drawShape`
+- a call `drawShape(yertle, 6, 20);`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why a square loop needs 4 iterations and 90-degree turns
+- compute triangle and pentagon exterior turns from 360 degrees
+- use `n` as the loop count in a general polygon method
+- use `pixels` as the forward distance in the general method
+- write `drawShape(yertle, 6, 20);` to draw a hexagon
+- keep the original Turtle setup and method calls intact
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

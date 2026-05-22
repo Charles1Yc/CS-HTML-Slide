@@ -1,6 +1,6 @@
 ---
 title: "2.11 Nested Iteration"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Rectangle Nested Loops"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,61 +16,92 @@ lang: zh-CN
 
 ## Topic Intro
 
-### A loop can contain another loop
+### A loop inside another loop
 
-<span class="term">Nested iteration</span> (嵌套迭代) means one loop is placed inside another loop.
+<span class="term">Nested iteration statements</span>, or <span class="term">nested loops</span> (嵌套循环), are iteration statements that appear in the body of another iteration statement.
 
-![Nested loops](../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png){fig-align="center" width="38%"}
+Or in simpler terms, a loop inside of another loop.
 
-The outer loop controls how many groups are produced. The inner loop controls what happens inside each group.
+Nested loops are typically used for working with two dimensions, for example printing a rectangle of stars in rows and columns.
 
-## Rectangle Pattern
+## Nested Loop Flow
 
-### Outer loop rows, inner loop columns
+### Inner loop restarts for each outer iteration
+
+When a loop is nested inside another loop, the inner loop runs many times inside the outer loop.
+
+In each iteration of the outer loop, the inner loop will be re-started.
+
+The inner loop must finish all of its iterations before the outer loop can continue to its next iteration.
+
+## Nested Loop Diagram
+
+### Nested Loops
+
+::: {.image-fit}
+![Nested Loops](../../assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png){fig-align="center" width="48%"}
+:::
+
+## Code Task
+
+### `activecode:: lcfcnl1`
+
+Textbook prompt: What does the following code print out?
+
+Notice how the inner loop is started over for each row.
+
+Can you predict how many rows and columns of stars there will be?
+
+## Code Window
+
+### `activecode:: lcfcnl1`
 
 ```java
-for (int row = 1; row <= 3; row++)
+public class NestedLoops
 {
-    for (int col = 1; col <= 5; col++)
+
+    public static void main(String[] args)
     {
-        System.out.print("*");
+        for (int row = 1; row <= 3; row++)
+        {
+            for (int col = 1; col <= 5; col++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
-    System.out.println();
 }
-```
-
-Output:
-
-```text
-*****
-*****
-*****
 ```
 
 ## Code Task
 
 ### Change rows and columns
 
-Modify the rectangle code to print `10` rows and `8` columns.
+Textbook prompt: Can you change the code to print a rectangle with `10` rows and `8` columns of stars?
+
+You can also try replacing line 10 with this print statement to see the rows and columns:
 
 ```java
-for (int row = 1; row <= 10; row++)
-{
-    for (int col = 1; col <= 8; col++)
-    {
-        System.out.print("*");
-    }
-    System.out.println();
-}
+System.out.print(row + "-" + col + " ");
 ```
 
-The total number of stars is `10 * 8 = 80`.
+## Test Requirements
+
+### `activecode:: lcfcnl1`
+
+Runestone checks that the submitted code contains:
+
+::: {.tight-list}
+- `row <= 10`
+- `col <= 8`
+:::
 
 ## Quick Check
 
-### Count nested-loop output
+### `mchoice:: nested1`
 
-What does this print?
+What does the following code print?
 
 ```java
 for (int i = 1; i < 7; i++)
@@ -83,11 +114,28 @@ for (int i = 1; i < 7; i++)
 }
 ```
 
-Answer: `6` rows with `5` stars per row.
+::: {.tight-list}
+- A. A rectangle of 7 rows with 5 stars per row.
+- B. A rectangle of 7 rows with 4 stars per row.
+- C. A rectangle of 6 rows with 5 stars per row.
+- D. A rectangle of 6 rows with 4 stars per row.
+:::
+
+## Answer Reasoning
+
+### `mchoice:: nested1`
+
+Correct answer: <span class="mark">C. A rectangle of 6 rows with 5 stars per row.</span>
+
+The outer loop runs from `1` up to `7` but not including `7`, so there are `6` rows.
+
+The inner loop runs `1` to `5` including `5`, so there are `5` columns.
 
 ## Quick Check
 
-### Count down inside each row
+### `mchoice:: nested2`
+
+What does the following code print?
 
 ```java
 for (int i = 0; i < 5; i++)
@@ -100,12 +148,85 @@ for (int i = 0; i < 5; i++)
 }
 ```
 
-Answer: `5` rows with `3` stars per row.
+::: {.tight-list}
+- A. A rectangle of 4 rows with 3 star per row.
+- B. A rectangle of 5 rows with 3 stars per row.
+- C. A rectangle of 4 rows with 1 star per row.
+- D. The loops have errors.
+:::
+
+## Answer Reasoning
+
+### `mchoice:: nested2`
+
+Correct answer: <span class="mark">B. A rectangle of 5 rows with 3 stars per row.</span>
+
+The outer loop runs from `0` up to `5` but not including `5`, so there are `5` rows.
+
+The inner loop runs when `j` is `3`, `2`, and `1`, so there are `3` stars per row.
 
 ## Mixed-Up Code
 
-### Ten rows, five stars each
+### `parsonsprob:: nestedParsons1`
 
+Textbook prompt: The main method in the following class should print `10` rows with `5` `*`s in each row.
+
+The blocks have been mixed up and include one extra block that isn't needed in the solution.
+
+## Mixed Blocks
+
+### `parsonsprob:: nestedParsons1`
+
+::: {.code-scroll}
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+```
+
+```java
+        for (int x = 0; x < 10; x++)
+        {
+```
+
+```java
+            for (int y = 0; y < 5; y++)
+            {
+```
+
+```java
+            for (int y = 0; y <= 5; y++)
+            { // extra block not needed
+```
+
+```java
+                System.out.print("*");
+```
+
+```java
+            }
+```
+
+```java
+            System.out.println();
+```
+
+```java
+        }
+```
+
+```java
+    }
+}
+```
+:::
+
+## Correct Order
+
+### `parsonsprob:: nestedParsons1`
+
+::: {.code-scroll}
 ```java
 public class Test1
 {
@@ -122,72 +243,23 @@ public class Test1
     }
 }
 ```
-
-Watch for the extra wrong block `y <= 5`, which would print six stars.
-
-## Turtle Nested Loop
-
-### Repeat a shape, then turn
-
-::: {.code-scroll .compact}
-```java
-World world = new World(300, 300);
-Turtle yertle = new Turtle(world);
-yertle.setColor(Color.blue);
-
-for (int i = 1; i <= 12; i++)
-{
-    for (int sides = 1; sides <= 4; sides++)
-    {
-        yertle.forward();
-        yertle.turn(90);
-    }
-    yertle.turn(30);
-}
-
-world.show(true);
-```
 :::
-
-The inner loop draws one square; the outer loop repeats squares around the center.
-
-## Groupwork Coding Challenge
-
-### Turtle snowflakes
-
-Use nested `for` loops to draw repeated polygons.
-
-```java
-int n = 6;
-int turnAmount = 360 / n;
-
-for (int shape = 1; shape <= n; shape++)
-{
-    for (int side = 1; side <= n; side++)
-    {
-        yertle.forward(30);
-        yertle.turn(turnAmount);
-    }
-    yertle.turn(turnAmount);
-}
-```
-
-Change `n` to test different polygon snowflakes.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain which loop is outer and which loop is inner
-- connect rows and columns to nested loop counts
-- compute total iterations by multiplying loop counts for rectangular loops
-- trace nested loops that increment or decrement
-- explain how nested turtle loops separate drawing a shape from repeating the shape
+- define nested iteration as a loop inside another loop
+- explain that the inner loop restarts for each outer-loop iteration
+- identify rows as the outer loop and columns as the inner loop in rectangle patterns
+- count rows and columns from inclusive and exclusive loop bounds
+- reject the extra `y <= 5` block because it would print 6 stars per row
+- connect rectangular total work to outer iterations times inner iterations
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Turtle nested loops and snowflakes →](2-11-part-2-turtle-nested-loops-and-snowflakes.html)

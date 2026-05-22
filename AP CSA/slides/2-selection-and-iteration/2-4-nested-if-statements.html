@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.4 Nested if Statements</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Multiway Selection and Trace Questions</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,162 +212,193 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="more-than-two-outcomes-need-structured-selection">More than two outcomes need structured selection</h3>
-<p><span class="term">Nested if statements</span> (嵌套条件语句) place one <code>if</code> statement inside another. Java also supports <span class="term">multiway selection</span> with <code>else if</code>.</p>
-<p>Use these structures when a decision has several possible outcomes.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    grade <span class="op">=</span> <span class="st">"A"</span><span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb1-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">80</span><span class="op">)</span></span>
-<span id="cb1-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-7"><a href=""></a>    grade <span class="op">=</span> <span class="st">"B"</span><span class="op">;</span></span>
-<span id="cb1-8"><a href=""></a><span class="op">}</span></span>
-<span id="cb1-9"><a href=""></a><span class="cf">else</span></span>
-<span id="cb1-10"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-11"><a href=""></a>    grade <span class="op">=</span> <span class="st">"C or below"</span><span class="op">;</span></span>
-<span id="cb1-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="nested-if-statements">Nested if statements</h3>
+<p>If statements can be nested inside other if statements.</p>
+<p><span class="term">Nested if statements</span> consist of if, if-else, or if-else-if statements within if, if-else, or if-else-if statements.</p>
+<p>The Boolean expression of the inner nested if statement is evaluated only if the Boolean expression of the outer if statement evaluates to <mark>true</mark>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span>   <span class="co">// This nested if is executed if outer if is true</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        statement<span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="multiway-selection" class="slide level2">
 <h2>Multiway Selection</h2>
-<h3 id="else-if-checks-conditions-in-order"><code>else if</code> checks conditions in order</h3>
-<p>Only the first true branch runs.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>temperature <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hot"</span><span class="op">);</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>temperature <span class="op">&gt;=</span> <span class="dv">70</span><span class="op">)</span></span>
-<span id="cb2-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Warm"</span><span class="op">);</span></span>
-<span id="cb2-8"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-9"><a href=""></a><span class="cf">else</span></span>
-<span id="cb2-10"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-11"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Cool"</span><span class="op">);</span></span>
-<span id="cb2-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Order matters because later conditions are skipped once a branch is chosen.</p>
+<h3 id="else-if"><code>else if</code></h3>
+<p>A single if/else statement allows us to select between 2 branches of code.</p>
+<p>With nested if/else statements, we can pick between 3 or more branches of code.</p>
+<p>A <span class="term">multi-way selection</span> (if-else-if) is used when there are a series of expressions with different segments of code for each condition.</p>
+</section>
+<section id="multiway-execution" class="slide level2">
+<h2>Multiway Execution</h2>
+<h3 id="first-true-expression-wins">First true expression wins</h3>
+<p>Multi-way selection is performed such that <mark>no more than one segment</mark> of code is executed based on the first expression that evaluates to true.</p>
+<p>If no expression evaluates to true and there is a trailing else statement, then the body of the else is executed.</p>
+</section>
+<section id="else-if-pattern" class="slide level2">
+<h2>Else If Pattern</h2>
+<h3 id="three-way-choice">Three-way choice</h3>
+<p>Just add <code>else if</code> for each possibility after the first <code>if</code>, and <code>else</code> before the last possibility.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="co">// 3 way choice with else if</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>   statement1<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-6"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb2-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>   statement2<span class="op">;</span></span>
+<span id="cb2-9"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a><span class="cf">else</span></span>
+<span id="cb2-11"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-12"><a href=""></a>   statement3<span class="op">;</span></span>
+<span id="cb2-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-tryelseif"><code>activecode:: TryElseIf</code></h3>
+<p>Textbook prompt: Run the code below and try changing the value of <code>x</code> to get each of the three possible lines in the conditional to print.</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-tryelseif-1"><code>activecode:: TryElseIf</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TryElseIf</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="dt">int</span> x <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is negative"</span><span class="op">);</span></span>
+<span id="cb3-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-10"><a href=""></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is 0"</span><span class="op">);</span></span>
+<span id="cb3-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-14"><a href=""></a>        <span class="cf">else</span></span>
+<span id="cb3-15"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-16"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is positive"</span><span class="op">);</span></span>
+<span id="cb3-17"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-18"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"after conditional"</span><span class="op">);</span></span>
+<span id="cb3-19"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-tryelseif-2"><code>activecode:: TryElseIf</code></h3>
+<p>Runestone checks that:</p>
+<div class="tight-list">
+<ul>
+<li><code>x = 2;</code> has been changed</li>
+<li>the new <code>x</code> assignment is zero or negative</li>
+<li>the first output line matches <code>x is negative</code> when <code>x</code> is negative</li>
+<li>the first output line matches <code>x is zero</code> when <code>x</code> is zero</li>
+</ul>
+</div>
 </section>
 <section id="flowchart" class="slide level2">
 <h2>Flowchart</h2>
-<h3 id="three-possible-branches">Three possible branches</h3>
+<h3 id="conditional-with-3-options">Conditional with 3 options</h3>
+<p>Here is a flowchart for a conditional with 3 options like in the code above.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png" style="width:38.0%" class="r-stretch quarto-figure-center"><p class="caption">Three-way condition</p><p>When tracing, ask:</p>
-<div class="tight-list">
-<ul>
-<li>Which condition is checked first?</li>
-<li>If it is true, what gets skipped?</li>
-<li>If it is false, what is checked next?</li>
-</ul>
-</div>
-</section>
+<img data-src="../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">The order that statements execute in a conditional with 3 options: if, else if, and else</p></section>
 <section id="quick-check" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="trace-ordered-branches">Trace ordered branches</h3>
-<p>What is printed?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">8</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">10</span><span class="op">)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"large"</span><span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-6"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"medium"</span><span class="op">);</span></span>
-<span id="cb3-9"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-10"><a href=""></a><span class="cf">else</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-12"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"small"</span><span class="op">);</span></span>
-<span id="cb3-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>medium</code>.</p>
+<h3 id="mchoice-trace-nested-if"><code>mchoice:: trace-nested-if</code></h3>
+<p>What does the following code print when <code>x</code> has been set to <code>-5</code>?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is negative"</span><span class="op">);</span></span>
+<span id="cb4-4"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is zero"</span><span class="op">);</span></span>
+<span id="cb4-8"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a><span class="cf">else</span></span>
+<span id="cb4-10"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-11"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is positive"</span><span class="op">);</span></span>
+<span id="cb4-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Options: <code>x is negative</code>, <code>x is zero</code>, <code>x is positive</code>.</p>
 </section>
-<section id="debug-task" class="slide level2">
-<h2>Debug Task</h2>
-<h3 id="fix-branch-order">Fix branch order</h3>
-<p>This code has a logic bug.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> score <span class="op">=</span> <span class="dv">95</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">60</span><span class="op">)</span></span>
-<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Pass"</span><span class="op">);</span></span>
-<span id="cb4-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb4-6"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb4-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
-<span id="cb4-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Question: why will <code>"A"</code> never print?</p>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-trace-nested-if-1"><code>mchoice:: trace-nested-if</code></h3>
+<p>Correct answer: <code>x is negative</code>.</p>
+<p>When <code>x</code> is equal to <code>-5</code>, the condition <code>x &lt; 0</code> is true. The later else-if and else branches do not execute.</p>
 </section>
-<section id="debug-task-1" class="slide level2">
-<h2>Debug Task</h2>
-<h3 id="corrected-branch-order">Corrected branch order</h3>
-<p>Fix: test the more specific condition first.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-trace-nested-ifs2"><code>mchoice:: trace-nested-ifs2</code></h3>
+<p>What does the following code print when <code>x</code> has been set to <code>2000</code>?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
 <span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is negative"</span><span class="op">);</span></span>
 <span id="cb5-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb5-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">60</span><span class="op">)</span></span>
+<span id="cb5-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
 <span id="cb5-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Pass"</span><span class="op">);</span></span>
-<span id="cb5-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-7"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is zero"</span><span class="op">);</span></span>
+<span id="cb5-8"><a href=""></a><span class="op">}</span></span>
+<span id="cb5-9"><a href=""></a><span class="cf">else</span></span>
+<span id="cb5-10"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-11"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"x is positive"</span><span class="op">);</span></span>
+<span id="cb5-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Options: <code>x is negative</code>, <code>x is zero</code>, <code>x is positive</code>.</p>
 </section>
-<section id="nested-if" class="slide level2">
-<h2>Nested <code>if</code></h2>
-<h3 id="one-decision-can-live-inside-another">One decision can live inside another</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>hasTicket<span class="op">)</span></span>
+<section id="answer-reasoning-1" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-trace-nested-ifs2-1"><code>mchoice:: trace-nested-ifs2</code></h3>
+<p>Correct answer: <code>x is positive</code>.</p>
+<p>The first condition is false and <code>x</code> is not equal to zero, so the else branch executes.</p>
+</section>
+<section id="quick-check-2" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-trace-nested-ifs3"><code>mchoice:: trace-nested-ifs3</code></h3>
+<p>What does the following code print when <code>x</code> has been set to <code>.8</code>?</p>
+<div class="code-scroll compact">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="fl">.25</span><span class="op">)</span></span>
 <span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">13</span><span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Standard admission"</span><span class="op">);</span></span>
-<span id="cb6-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="cf">else</span></span>
-<span id="cb6-8"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Child admission"</span><span class="op">);</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a><span class="op">}</span></span>
-<span id="cb6-12"><a href=""></a><span class="cf">else</span></span>
-<span id="cb6-13"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-14"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Buy a ticket first"</span><span class="op">);</span></span>
-<span id="cb6-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Nested form is useful when the second decision only matters after the first decision is true.</p>
-</section>
-<section id="dangling-else" class="slide level2">
-<h2>Dangling <code>else</code></h2>
-<h3 id="an-else-matches-the-nearest-unmatched-if">An <code>else</code> matches the nearest unmatched <code>if</code></h3>
-<p>Without braces, this is easy to misread:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-2"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>y <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-3"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"both positive"</span><span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="cf">else</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"which condition failed?"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>else</code> belongs to <code>if (y &gt; 0)</code>, not <code>if (x &gt; 0)</code>. Use braces to show intent.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="adventure">Adventure</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg" style="width:28.0%" class="r-stretch quarto-figure-center"><p class="caption">Adventure challenge</p><p>Build a text adventure with at least:</p>
-<div class="tight-list">
-<ul>
-<li>one <code>if else</code> decision</li>
-<li>one <code>else if</code> chain</li>
-<li>one nested decision where a second choice depends on a first choice</li>
-</ul>
+<span id="cb6-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"first quartile"</span><span class="op">);</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">}</span></span>
+<span id="cb6-5"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="fl">.5</span><span class="op">)</span></span>
+<span id="cb6-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"second quartile"</span><span class="op">);</span></span>
+<span id="cb6-8"><a href=""></a><span class="op">}</span></span>
+<span id="cb6-9"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="fl">.75</span><span class="op">)</span></span>
+<span id="cb6-10"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-11"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"third quartile"</span><span class="op">);</span></span>
+<span id="cb6-12"><a href=""></a><span class="op">}</span></span>
+<span id="cb6-13"><a href=""></a><span class="cf">else</span></span>
+<span id="cb6-14"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-15"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"fourth quartile"</span><span class="op">);</span></span>
+<span id="cb6-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Keep each branch printable so the class can trace possible paths.</p>
+</section>
+<section id="answer-reasoning-2" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-trace-nested-ifs3-1"><code>mchoice:: trace-nested-ifs3</code></h3>
+<p>Correct answer: <code>fourth quartile</code>.</p>
+<p>The first three conditions are false for <code>.8</code>; the else branch prints whenever <code>x</code> is greater than or equal to <code>.75</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain why <code>else if</code> conditions are checked in order</li>
-<li>trace which branch runs in a multiway selection</li>
-<li>distinguish nested <code>if</code> from an <code>else if</code> chain</li>
-<li>identify a branch-order bug</li>
-<li>explain how braces prevent dangling-<code>else</code> ambiguity</li>
+<li>explain when the inner nested if is evaluated</li>
+<li>describe multiway selection as first-true-branch execution</li>
+<li>use <code>else if</code> branches for 3 or more choices</li>
+<li>trace why later branches are skipped after a true condition</li>
+<li>identify the final else as the branch for no true condition</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-4-part-2-debugging-and-dangling-else.html">Next: Debugging and dangling else →</a></p>
 
 </section>
     </div>

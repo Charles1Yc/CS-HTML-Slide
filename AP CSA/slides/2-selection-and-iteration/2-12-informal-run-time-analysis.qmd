@@ -1,6 +1,6 @@
 ---
 title: "2.12 Informal Run-Time Analysis"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Loop Tracing and Iteration Counting"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,170 +16,249 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Count work by counting loop iterations
+### Trace loops and count runs
 
-<span class="term">Informal run-time analysis</span> (非正式运行时间分析) asks how much work an algorithm does as the input size grows.
-
-At this level, we count:
-
-::: {.tight-list}
-- how many times a loop body runs
-- whether nested loops multiply work
-- whether a triangular pattern grows like `1 + 2 + 3`
-:::
+In this lesson, you will practice tracing through code with loops and analyzing loops to determine how many times they run.
 
 ## Tracing Loops
 
-### A loop's output depends on its update
+### Keep track of variables, iterations, and output
+
+Let's practice tracing through loops with many variables.
+
+Remember to make a tracing table to keep track of all the variables, the iterations, and the output.
+
+## Code Task
+
+### `activecode:: example_trace_loop`
+
+Textbook prompt: Here is a complex loop.
+
+See if you can trace the code on paper by making a tracing table to predict what the code will do when you run it.
+
+Add output statements before the loop and inside the loop at the end to keep track of the variables and run.
 
 ```java
-int count = 0;
-while (count < 5)
+System.out.println("var1: " + var1 + " var2: " + var2);
+```
+
+## Code Window
+
+### `activecode:: example_trace_loop`
+
+```java
+public class Trace
 {
-    System.out.println(count);
-    count++;
+    public static void main(String[] args)
+    {
+        int var1 = 3;
+        int var2 = 2;
+
+        while ((var2 != 0) && ((var1 / var2) >= 0))
+        {
+            var1 = var1 + 1;
+            var2 = var2 - 1;
+        }
+    }
 }
 ```
 
-The body runs five times, with `count` values `0`, `1`, `2`, `3`, `4`.
+## Test Requirements
+
+### `activecode:: example_trace_loop`
+
+Runestone expects this output after adding the requested print statements:
+
+```text
+var1: 3 var2: 2
+var1: 4 var2: 1
+var1: 5 var2: 0
+```
 
 ## Trace Table
 
-### Record count, condition, and output
+### `example_trace_loop`
 
-![While loop trace](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png){fig-align="center" width="42%"}
+Did your trace table look like the following?
 
-Trace tables make iteration counts visible. They also expose off-by-one errors caused by `<` versus `<=`.
+::: {.image-fit}
+![A table showing the values of all of the variables each time through the loop](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png){fig-align="center" width="34%"}
+:::
+
+The `0` means before the first loop.
 
 ## Quick Check
 
-### Count the iterations
+### `mchoice:: loop-trace-count`
 
-How many times does the body run?
+What are the values of `var1` and `var2` when the code finishes executing?
 
 ```java
-int x = 1;
-while (x <= 16)
+int var1 = 0;
+int var2 = 2;
+
+while ((var2 != 0) && ((var1 / var2) >= 0))
 {
-    x *= 2;
+   var1 = var1 + 1;
+   var2 = var2 -1;
 }
 ```
 
-Answer: <span class="mark">5</span> times. The values before update are `1`, `2`, `4`, `8`, `16`.
+## Quick Check Choices
+
+### `mchoice:: loop-trace-count`
+
+::: {.tight-list}
+- A. `var1 = 1, var2 = 1`
+- B. `var1 = 2, var2 = 0`
+- C. `var1 = 3, var2 = -1`
+- D. `var1 = 0, var2 = 2`
+- E. The loop will cause a run-time error with a division by zero
+:::
+
+## Answer Reasoning
+
+### `mchoice:: loop-trace-count`
+
+Correct answer: <span class="mark">B. `var1 = 2, var2 = 0`</span>
+
+The loop stopped because `var2 = 0`.
+
+After the first execution of the loop `var1 = 1` and `var2 = 1`. After the second execution, `var1 = 2` and `var2 = 0`.
+
+This does not cause a run-time error because of short-circuit evaluation: when `var2` is `0`, the first condition in the `&&` is false, so the second condition is not executed.
+
+## Quick Check
+
+### `mchoice:: loop-trace-count2`
+
+What are the values of `x` and `y` when the code finishes executing?
+
+```java
+int x = 2;
+int y = 5;
+
+while (y > 2 && x < y)
+{
+   x = x + 1;
+   y = y - 1;
+}
+```
+
+## Quick Check Choices
+
+### `mchoice:: loop-trace-count2`
+
+::: {.tight-list}
+- A. `x = 5, y = 2`
+- B. `x = 2, y = 5`
+- C. `x = 5, y = 2`
+- D. `x = 3, y = 4`
+- E. `x = 4, y = 3`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: loop-trace-count2`
+
+Correct answer: <span class="mark">E. `x = 4, y = 3`</span>
+
+The first time the loop changes to `x = 3`, `y = 4`.
+
+The second time `x = 4`, `y = 3`, and then the loop stops since `x` is not less than `y` anymore.
 
 ## Counting Loop Iterations
 
-### One loop is usually proportional to its range
+### Statement execution count
+
+Loops can be also analyzed to determine how many times they run.
+
+This is called <span class="term">run-time analysis</span> or a <span class="term">statement execution count</span>.
+
+A statement execution count indicates the number of times a statement is executed by the program.
+
+Statement execution counts are often calculated informally through tracing and analysis of the iterative statements.
+
+## Code Task
+
+### `activecode:: countstars1`
+
+Textbook prompt: How many stars are printed out in this loop?
+
+How many times does the loop run?
+
+Figure it out on paper before you run the code.
+
+## Code Window
+
+### `activecode:: countstars1`
 
 ```java
-for (int i = 1; i <= n; i++)
+public class CountLoop
 {
-    System.out.println("*");
-}
-```
 
-If `n` doubles, the number of loop iterations doubles. Informally, the work grows with `n`.
-
-## Nested Loops
-
-### Rectangular nested loops multiply
-
-```java
-for (int row = 1; row <= n; row++)
-{
-    for (int col = 1; col <= n; col++)
+    public static void main(String[] args)
     {
-        System.out.print("*");
+        for (int i = 3; i < 7; i++)
+        {
+            System.out.print("*");
+        }
     }
-    System.out.println();
 }
 ```
 
-The inner loop runs `n` times for each of `n` rows, so the body runs `n * n` times.
+## Test Requirements
 
-## Non-Rectangular Nested Loops
+### `activecode:: countstars1`
 
-### The inner count can change each row
-
-```java
-for (int row = 1; row <= n; row++)
-{
-    for (int col = 1; col <= row; col++)
-    {
-        System.out.print("*");
-    }
-    System.out.println();
-}
-```
-
-For `n = 4`, the row counts are `1`, `2`, `3`, `4`.
-
-## Triangular Total
-
-### Add row counts
-
-![Gauss summation idea](../../assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png){fig-align="center" width="40%"}
-
-For a triangular nested loop:
+Runestone expects the output:
 
 ```text
-1 + 2 + 3 + 4 = 10
+****
 ```
 
-In general:
+## Counting Formula
+
+### Largest value minus smallest value plus one
+
+If you made a trace table, you would know that the loop runs when `i = 3`, `4`, `5`, `6` but finishes as soon as `i` becomes `7` since that is not less than `7`.
+
+So, the loop runs 4 times.
+
+The number of times a loop executes can be calculated by:
 
 ```text
-sum of the integers from 1 through n = n(n + 1) / 2
+largestValue - smallestValue + 1
 ```
 
-## Groupwork Analysis
+## Counting Formula
 
-### POGIL loop counting
-
-For each code segment, identify:
+### `<` and `<=`
 
 ::: {.tight-list}
-- the loop variable
-- the start value
-- the stopping condition
-- the update
-- the number of body executions
+- If the loop uses `counter <= limit`, `limit` is the largest value.
+- If the loop uses `counter < limit`, `limit - 1` is the largest value that allows the loop to run.
 :::
 
-Then compare a single loop, a rectangular nested loop, and a triangular nested loop.
+In the code above the largest value that allows the loop to run is `6`, the largest value less than `7`, and the smallest value that allows the loop to execute is `3`.
 
-## Quick Check
-
-### Compare growth
-
-If `n = 10`, how many times does the starred print run?
-
-```java
-for (int row = 1; row <= n; row++)
-{
-    for (int col = 1; col <= row; col++)
-    {
-        System.out.print("*");
-    }
-}
-```
-
-Answer: `55`, because the sum from `1` through `10` is `10 * 11 / 2`.
+So this loop executes `6 - 3 + 1 = 4` times.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- count loop iterations from initialization, condition, and update
-- explain how trace tables help find iteration counts
-- multiply counts for rectangular nested loops
-- add row counts for triangular nested loops
-- connect triangular loop counts to `n(n + 1) / 2`
+- make a tracing table for variables, iterations, and output
+- explain why short-circuit evaluation prevents division by zero in the trace check
+- distinguish loop tracing from simply reading the final condition
+- define statement execution count
+- count a single loop using the actual counter values that enter the body
+- apply `largestValue - smallestValue + 1` with `<` and `<=` correctly
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Nested loop runtime →](2-12-part-2-nested-loop-runtime.html)

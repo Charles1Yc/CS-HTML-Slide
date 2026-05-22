@@ -212,132 +212,168 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="algorithms-can-choose-and-repeat">Algorithms can choose and repeat</h3>
-<p>An <span class="term">algorithm</span> (算法) is a step-by-step process for solving a problem. Unit 2 adds two control moves that make algorithms less linear:</p>
-<div class="tight-list">
-<ul>
-<li><span class="term">selection</span> (选择): execute steps only when a condition is true</li>
-<li><span class="term">repetition</span> (重复): execute steps again until the work is finished</li>
-</ul>
-</div>
+<h3 id="algorithms-do-not-always-stay-in-sequence">Algorithms do not always stay in sequence</h3>
+<p>Every <span class="term">algorithm</span> (算法) consists of a sequence of steps. Up until now, we have been writing code one line at a time in sequence which then gets executed by the computer in that sequential order by default.</p>
+<p>However, we can create more complex algorithms that do not follow the default sequential order.</p>
+<p>In this unit, we will learn to branch the code into different paths or repeat a block of code.</p>
+</section>
+<section id="building-blocks" class="slide level2">
+<h2>Building Blocks</h2>
+<h3 id="sequencing-selection-and-repetition">Sequencing, selection, and repetition</h3>
+<p>The building blocks of algorithms are <span class="term">sequencing</span> (顺序), <span class="term">selection</span> (选择), and <span class="term">repetition</span> (重复).</p>
+<p>Algorithms can contain selection, through decision making, and repetition, via looping. All algorithms for problems that can be solved on a computer can be constructed by using just these three control structures.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">Sequencing, selection, and repetition</p></section>
+<img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Sequence, Selection, and Repetition</p></section>
 <section id="selection" class="slide level2">
 <h2>Selection</h2>
-<h3 id="a-branch-depends-on-a-boolean-decision">A branch depends on a Boolean decision</h3>
-<p>Selection phrases usually include a condition:</p>
+<h3 id="making-a-true-or-false-decision">Making a true or false decision</h3>
+<p>Selection is the process of making a choice based on a true or false decision.</p>
+<p>In programming, selection, also called <span class="term">branching</span> (分支), occurs when a choice of how the execution of an algorithm will proceed is based on a true or false decision.</p>
+<p>An algorithm may take different paths based on certain conditions, often using true/false logic.</p>
+</section>
+<section id="selection-task" class="slide level2">
+<h2>Selection Task</h2>
+<h3 id="click-on-selection-phrases">Click on selection phrases</h3>
+<p>Textbook prompt: Click on all of the selection (decision or branching) phrases in the following algorithm.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Morning routine:</span>
+<span id="cb1-2"><a href=""></a>1. Wake up.</span>
+<span id="cb1-3"><a href=""></a>2. Snooze for 5 more minutes.</span>
+<span id="cb1-4"><a href=""></a>3. Check your phone and the weather.</span>
+<span id="cb1-5"><a href=""></a>4. If there is a text from your friend, answer it.</span>
+<span id="cb1-6"><a href=""></a>5. Brush teeth and shower.</span>
+<span id="cb1-7"><a href=""></a>6. If it’s cold, wear a sweater.</span>
+<span id="cb1-8"><a href=""></a>7. Check if you have homework due. If so, pack it in your bag.</span>
+<span id="cb1-9"><a href=""></a>8. Put on your sunglasses if it's sunny.</span>
+<span id="cb1-10"><a href=""></a>9. Leave for school or work.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="selection-task-answer" class="slide level2">
+<h2>Selection Task Answer</h2>
+<h3 id="lines-controlled-by-a-decision">Lines controlled by a decision</h3>
+<p>A correct response identifies these selection phrases:</p>
 <div class="tight-list">
 <ul>
-<li>If there is a text from your friend, answer it.</li>
-<li>If it is cold, wear a sweater.</li>
-<li>Check if you have homework due. If so, pack it.</li>
-<li>Put on sunglasses if it is sunny.</li>
+<li><code>4. If there is a text from your friend, answer it.</code></li>
+<li><code>6. If it’s cold, wear a sweater.</code></li>
+<li><code>7. Check if you have homework due. If so, pack it in your bag.</code></li>
+<li><code>8. Put on your sunglasses if it's sunny.</code></li>
 </ul>
 </div>
-<p>The next action depends on whether the condition evaluates to <mark>true or false</mark>.</p>
+<p>The textbook feedback says to look for the word <code>if</code> to identify selections.</p>
 </section>
 <section id="repetition" class="slide level2">
 <h2>Repetition</h2>
-<h3 id="a-loop-keeps-doing-work">A loop keeps doing work</h3>
-<p>Repetition phrases describe repeated action:</p>
+<h3 id="repeating-until-a-desired-outcome">Repeating until a desired outcome</h3>
+<p>Repetition is when a process repeats itself until a desired outcome is reached.</p>
+<p>In programming, repetition is achieved through <span class="term">loops</span> (循环). A loop allows an algorithm to repeat certain actions until a specified condition is met.</p>
+<p>Another term commonly used for repetition is <span class="term">iteration</span> (迭代).</p>
+</section>
+<section id="repetition-task" class="slide level2">
+<h2>Repetition Task</h2>
+<h3 id="click-on-repetition-phrases">Click on repetition phrases</h3>
+<p>Textbook prompt: Click on all of the repetition phrases in the following algorithm.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Morning routine 2:</span>
+<span id="cb2-2"><a href=""></a>1. Wake up.</span>
+<span id="cb2-3"><a href=""></a>2. Snooze for 5 more minutes. Keep waking up and snoozing for the next 15 minutes.</span>
+<span id="cb2-4"><a href=""></a>3. If there is a text from your friend, answer it. Do this for all of your texts.</span>
+<span id="cb2-5"><a href=""></a>4. Brush teeth and shower.</span>
+<span id="cb2-6"><a href=""></a>5. If it’s cold, wear a sweater.</span>
+<span id="cb2-7"><a href=""></a>6. Check if you have homework due. If so, pack it in your bag.</span>
+<span id="cb2-8"><a href=""></a>7. Repeat packing items until your bag is ready.</span>
+<span id="cb2-9"><a href=""></a>8. Leave for school or work.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="repetition-task-answer" class="slide level2">
+<h2>Repetition Task Answer</h2>
+<h3 id="lines-that-repeat-work">Lines that repeat work</h3>
+<p>A correct response identifies these repetition phrases:</p>
 <div class="tight-list">
 <ul>
-<li>Keep waking up and snoozing for the next 15 minutes.</li>
-<li>If there is a text from your friend, answer it for all texts.</li>
-<li>Repeat packing items until your bag is ready.</li>
+<li><code>2. Keep waking up and snoozing for the next 15 minutes.</code></li>
+<li><code>3. Do this for all of your texts.</code></li>
+<li><code>7. Repeat packing items until your bag is ready.</code></li>
 </ul>
 </div>
-<p>In Java, repetition is implemented with <span class="term">loops</span>, especially <code>while</code> and <code>for</code>.</p>
+<p>The textbook feedback says to look for <code>repeat</code>, <code>all</code>, or <code>keep</code>.</p>
 </section>
 <section id="pseudocode-and-flowcharts" class="slide level2">
 <h2>Pseudocode and Flowcharts</h2>
-<h3 id="plan-the-control-flow-before-java-syntax">Plan the control flow before Java syntax</h3>
-<div class="two-col">
-<div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png" style="width:100.0%"></p>
-<figcaption>Control-flow branching</figcaption>
-</figure>
-</div>
-</div>
-<div class="soft-box">
-<p>Use pseudocode and flowcharts to:</p>
-<ul>
-<li>show the order of actions</li>
-<li>mark branch points</li>
-<li>mark repeated work</li>
-<li>test the algorithm before coding</li>
-</ul>
-</div>
-</div>
+<h3 id="plan-before-writing-java">Plan before writing Java</h3>
+<p>For complex problems, it is important to plan your solution before writing code.</p>
+<p><span class="term">Pseudocode</span> (伪代码) is an informal way of describing the steps in an algorithm in a human language like English while following the sequence, selection, and repetition structure of a programming language.</p>
+<p><span class="term">Flowcharts</span> (流程图) are diagrams that represent the steps in an algorithm.</p>
+</section>
+<section id="flowchart-branching" class="slide level2">
+<h2>Flowchart Branching</h2>
+<h3 id="selection-branches-the-code-into-two-paths">Selection branches the code into two paths</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Flowchart for selection branching the code into two paths</p><p>Selection is usually represented as a triangle in a flowchart, and arrows are used to show repetition.</p>
+<p>Both pseudocode and flowcharts are tools that help you plan your algorithm before writing code.</p>
 </section>
 <section id="mixed-up-algorithm" class="slide level2">
 <h2>Mixed-Up Algorithm</h2>
 <h3 id="buying-a-birthday-gift">Buying a birthday gift</h3>
-<p>Reorder the pseudocode. Indent the buying rules inside the repetition.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Initialize total amount of money.</span>
-<span id="cb1-2"><a href=""></a>Repeat while still money in total:</span>
-<span id="cb1-3"><a href=""></a>    If total more than $25, buy a gift card and subtract 25.</span>
-<span id="cb1-4"><a href=""></a>    If total more than $10, buy a small cake and subtract 10.</span>
-<span id="cb1-5"><a href=""></a>    If total more than $5, buy some candy and subtract 5.</span>
-<span id="cb1-6"><a href=""></a>    If total more than $1, buy a card and subtract 1.</span>
-<span id="cb1-7"><a href=""></a>    Otherwise, give them the change.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Class focus: the repeated loop contains several selection checks.</p>
+<p>Textbook prompt: Put the following pseudocode algorithm steps for buying a birthday gift for your friend in order. Make sure some of the steps are indented to be inside the repetition and that you buy the more expensive gifts first.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>Initialize total amount of money.</span>
+<span id="cb3-2"><a href=""></a>Repeat while still money in total:</span>
+<span id="cb3-3"><a href=""></a>    If total more than $25, buy a gift card and subtract 25 from total.</span>
+<span id="cb3-4"><a href=""></a>    If total more than $10, buy a small cake and subtract 10 from total.</span>
+<span id="cb3-5"><a href=""></a>    If total more than $5, buy some candy and subtract 5 from total.</span>
+<span id="cb3-6"><a href=""></a>    If total more than $1, buy a card and subtract 1 from total.</span>
+<span id="cb3-7"><a href=""></a>    Otherwise, give them the change.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-the-gift-algorithm-with-16">Trace the gift algorithm with $16</h3>
-<p>Given the gift algorithm, assume <code>total = 16</code>. What is the outcome?</p>
+<section id="trace-quick-check" class="slide level2">
+<h2>Trace Quick Check</h2>
+<h3 id="gift-algorithm-with-16">Gift algorithm with <code>$16</code></h3>
+<p>Given the pseudocode for buying a gift, assume you have <code>$16</code> to spend. What will be the outcome of the algorithm?</p>
 <div class="tight-list">
 <ul>
-<li>A. gift card, small cake, candy, card</li>
-<li>B. small cake and candy</li>
-<li>C. small cake, candy, and card</li>
-<li>D. two cakes and candy</li>
+<li>A. You will buy a gift card, a small cake, some candy, and a card.</li>
+<li>B. You will buy a small cake and some candy.</li>
+<li>C. You will buy a small cake, some candy, and a card.</li>
+<li>D. You will buy 2 cakes and some candy.</li>
 </ul>
 </div>
-<p>Answer: <mark>C</mark>. The algorithm buys a $10 cake, then $5 candy, then a $1 card.</p>
+<p>Answer: <mark>C</mark>. You still have <code>$1</code> left after the small cake and candy, so the card rule can run.</p>
 </section>
-<section id="quick-check-1" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-the-gift-algorithm-with-22">Trace the gift algorithm with $22</h3>
-<p>Given the same algorithm, assume <code>total = 22</code>. What is the outcome?</p>
+<section id="trace-quick-check-1" class="slide level2">
+<h2>Trace Quick Check</h2>
+<h3 id="gift-algorithm-with-22">Gift algorithm with <code>$22</code></h3>
+<p>Given the pseudocode for buying a gift, assume you have <code>$22</code> to spend. What will be the outcome of the algorithm?</p>
 <div class="tight-list">
 <ul>
-<li>A. gift card, small cake, candy, card</li>
-<li>B. small cake and candy</li>
-<li>C. small cake, candy, and card</li>
-<li>D. two cakes, a card, and $1 change</li>
+<li>A. You will give them a gift card, a small cake, some candy, and a card.</li>
+<li>B. You will give them a small cake and some candy.</li>
+<li>C. You will give them a small cake, some candy, and a card.</li>
+<li>D. You will give them 2 cakes, a card, and <code>$1</code>.</li>
 </ul>
 </div>
-<p>Answer: <mark>D</mark>. The repetition allows the $10 cake rule to run twice.</p>
+<p>Answer: <mark>D</mark>. The textbook feedback says: <code>Yep! That's a lot of cake!</code></p>
+</section>
+<section id="groupwork-coding-challenge" class="slide level2">
+<h2>Groupwork Coding Challenge</h2>
+<h3 id="algorithms-choosing-a-snack">Algorithms: choosing a snack</h3>
+<p>In this group activity, you will work together to create an algorithm for a common problem: choosing a snack.</p>
+<p>Create pseudocode for this problem. Make sure you include <span class="term">selection</span> and <span class="term">repetition</span> in your algorithm.</p>
+<p>For example, if there is no chocolate, you may want to keep searching for another snack. If you’re thirsty, you may want to consider the drinks in the fridge. You may want to consider every item in the fridge or your leftover Halloween candy stash before deciding on the perfect snack.</p>
 </section>
 <section id="student-response-task" class="slide level2">
 <h2>Student Response Task</h2>
-<h3 id="snack-algorithm">Snack algorithm</h3>
-<p>Write pseudocode for choosing a snack. It must include both:</p>
-<div class="tight-list">
-<ul>
-<li>one selection rule using <code>if</code></li>
-<li>one repetition rule using <code>repeat</code>, <code>while</code>, <code>until</code>, <code>all</code>, or <code>keep</code></li>
-</ul>
-</div>
-<p>Example starting point:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Repeat while I am still hungry:</span>
-<span id="cb2-2"><a href=""></a>    If the snack is healthy, choose it.</span>
-<span id="cb2-3"><a href=""></a>    Otherwise, look for another snack.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="write-the-snack-pseudocode">Write the snack pseudocode</h3>
+<p>Textbook prompt:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>Write your pseudocode for choosing a snack here.</span>
+<span id="cb4-2"><a href=""></a>Include selection and repetition in your algorithm.</span>
+<span id="cb4-3"><a href=""></a>Be creative!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A complete response should show at least one decision and at least one repeated action.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>define <span class="term">selection</span> as choosing a path based on true or false</li>
-<li>define <span class="term">repetition</span> as repeating steps until a stopping condition is met</li>
-<li>distinguish sequential steps from branch and loop steps</li>
-<li>trace how repeated selection can change an algorithm result</li>
-<li>use pseudocode or a flowchart to show control flow before Java syntax</li>
+<li>identify sequencing, selection, and repetition as algorithm building blocks</li>
+<li>explain selection as choosing an execution path based on a true or false decision</li>
+<li>explain repetition as repeating actions until a desired outcome is reached</li>
+<li>trace how the gift algorithm outcome changes when the starting money changes</li>
+<li>write pseudocode that includes both selection and repetition</li>
 </ul>
 </div>
 </section>

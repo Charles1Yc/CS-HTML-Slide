@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.10 Implementing String Algorithms</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Find and Replace with while</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,187 +212,199 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="loops-can-process-strings-one-character-at-a-time">Loops can process strings one character at a time</h3>
-<p>String algorithms combine:</p>
+<h3 id="string-traversal-and-string-processing">String traversal and string processing</h3>
+<p>Loops are often used for <span class="term">String Traversals</span> or <span class="term">String Processing</span> algorithms where the code steps through a string character by character.</p>
+<p>In previous lessons, we learned to use <code>String</code> objects and built-in string methods to process strings.</p>
+<p>In this lesson, we will write our own loops to process strings.</p>
+</section>
+<section id="standard-string-algorithms" class="slide level2">
+<h2>Standard String Algorithms</h2>
+<h3 id="loops-can-be-used-to">Loops can be used to</h3>
 <div class="tight-list">
 <ul>
-<li>string indices</li>
-<li><code>length()</code></li>
-<li><code>indexOf(target)</code></li>
-<li><code>substring(start, end)</code></li>
-<li>loops and conditionals</li>
+<li>find if one or more substrings has a particular property</li>
+<li>determine the number of substrings that meet specific criteria</li>
+<li>create a new string with the characters reversed</li>
 </ul>
 </div>
-
-<img data-src="../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png" style="width:52.0%" class="r-stretch quarto-figure-center"><p class="caption">String indices</p></section>
-<section id="while-find-and-replace" class="slide level2">
-<h2>While Find and Replace</h2>
-<h3 id="use-indexof-when-the-number-of-matches-is-unknown">Use <code>indexOf</code> when the number of matches is unknown</h3>
-<p>Algorithm:</p>
+</section>
+<section id="string-indices" class="slide level2">
+<h2>String Indices</h2>
+<h3 id="positions-start-at-0">Positions start at 0</h3>
+<p>Remember that strings are a sequence of characters where each character is at a position or <span class="term">index</span> starting at <code>0</code>.</p>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png" style="width:70.0%"></p>
+<figcaption>A string with the position index shown above each character</figcaption>
+</figure>
+</div>
+</div>
+<p>The first character in a Java <code>String</code> is at index <code>0</code> and the last character is at <code>length() - 1</code>, so loops processing strings should start at <code>0</code>.</p>
+</section>
+<section id="string-methods" class="slide level2">
+<h2>String Methods</h2>
+<h3 id="methods-often-used-to-process-strings">Methods often used to process strings</h3>
 <div class="tight-list">
 <ul>
-<li>search for the target substring</li>
-<li>while the target exists, process it</li>
-<li>rebuild the string without or with replacement text</li>
-<li>search again after the string changes</li>
+<li><code>int length()</code> returns the number of characters in a <code>String</code> object.</li>
+<li><code>int indexOf(String str)</code> returns the index of the first occurrence of <code>str</code> or <code>-1</code> if <code>str</code> is not found.</li>
+<li><code>String substring(int from, int to)</code> returns the substring beginning at index <code>from</code> and ending at index <code>to - 1</code>.</li>
+<li><code>String substring(int from)</code> returns <code>substring(from, length())</code>.</li>
 </ul>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="dt">int</span> index <span class="op">=</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a>    s <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> index<span class="op">)</span> <span class="op">+</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that <code>s.substring(i,i+1)</code> returns the character at index <code>i</code>.</p>
+</section>
+<section id="while-find-and-replace-loop" class="slide level2">
+<h2>While Find and Replace Loop</h2>
+<h3 id="indexof-controls-the-loop"><code>indexOf</code> controls the loop</h3>
+<p>A while loop can be used with the <code>String</code> <code>indexOf</code> method to find certain characters in a string and process them, usually using the <code>substring</code> method.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"example"</span><span class="op">;</span></span>
+<span id="cb1-2"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">// while there is an a in s</span></span>
+<span id="cb1-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="co">// Find and save the next index for an a</span></span>
+<span id="cb1-7"><a href=""></a>  i <span class="op">=</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">);</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="co">// Process the string at that index</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="bu">String</span> ithLetter <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span>i<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb1-10"><a href=""></a>  <span class="co">// process the letter or rebuild the string here</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="mixed-up-code" class="slide level2">
 <h2>Mixed-Up Code</h2>
-<h3 id="remove-all-a-characters">Remove all <code>a</code> characters</h3>
-<p>Reorder the method.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"are apples tasty without an a?"</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Original string: "</span> <span class="op">+</span> s<span class="op">);</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="dt">int</span> index <span class="op">=</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">);</span></span>
-<span id="cb2-7"><a href=""></a>    s <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> index<span class="op">)</span> <span class="op">+</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb2-8"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"String with a's removed: "</span> <span class="op">+</span> s<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace the first replacement before running the full loop.</p>
+<h3 id="parsonsprob-removea"><code>parsonsprob:: removeA</code></h3>
+<p>Textbook prompt: The following program removes all the <code>a</code>’s from a string, but the code is mixed up.</p>
+<p>Drag the blocks from the left area into the correct order in the right area.</p>
 </section>
-<section id="code-task" class="slide level2 fit-small">
-<h2>Code Task</h2>
-<h3 id="count-replacements-while-cleaning-text">Count replacements while cleaning text</h3>
-<p>Add a counter to the find-and-replace loop.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">String</span> message <span class="op">=</span> <span class="st">"Have a 1ong and happy 1ife"</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"1"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb3-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-6"><a href=""></a>    <span class="dt">int</span> index <span class="op">=</span> message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"1"</span><span class="op">);</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="bu">String</span> first <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> index<span class="op">);</span></span>
-<span id="cb3-8"><a href=""></a>    <span class="bu">String</span> last <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb3-9"><a href=""></a>    message <span class="op">=</span> first <span class="op">+</span> <span class="st">"l"</span> <span class="op">+</span> last<span class="op">;</span></span>
-<span id="cb3-10"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-12"><a href=""></a></span>
-<span id="cb3-13"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Cleaned text: "</span> <span class="op">+</span> message<span class="op">);</span></span>
-<span id="cb3-14"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Replacements: "</span> <span class="op">+</span> count<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected final message: <code>Have a long and happy life</code>.</p>
-</section>
-<section id="for-loops-over-strings" class="slide level2">
-<h2>For Loops over Strings</h2>
-<h3 id="use-for-when-every-index-should-be-visited">Use <code>for</code> when every index should be visited</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> message<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="bu">String</span> letter <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>letter<span class="op">);</span></span>
-<span id="cb4-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Standard bounds:</p>
-<div class="tight-list">
-<ul>
-<li>start at index <code>0</code></li>
-<li>stop while <code>i &lt; message.length()</code></li>
-<li>use <code>substring(i, i + 1)</code> for one character</li>
-</ul>
+<section id="mixed-blocks" class="slide level2">
+<h2>Mixed Blocks</h2>
+<h3 id="parsonsprob-removea-1"><code>parsonsprob:: removeA</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>   <span class="bu">String</span> s <span class="op">=</span> <span class="st">"are apples tasty without an a?"</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a>   <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Original string: "</span> <span class="op">+</span> s<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>   <span class="co">// while there is an a in s</span></span>
+<span id="cb4-2"><a href=""></a>   <span class="cf">while</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-3"><a href=""></a>   <span class="op">{</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>      <span class="co">// Find the next index for an a</span></span>
+<span id="cb5-2"><a href=""></a>      index <span class="op">=</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>      <span class="co">// Remove the a at index by concatenating</span></span>
+<span id="cb6-2"><a href=""></a>      <span class="co">// substring up to index and then rest of the string.</span></span>
+<span id="cb6-3"><a href=""></a>      s <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span>index<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb6-4"><a href=""></a>          s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>   <span class="op">}</span> <span class="co">// end loop</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"String with a's removed:"</span> <span class="op">+</span> s<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="mixed-up-code-1" class="slide level2">
-<h2>Mixed-Up Code</h2>
-<h3 id="count-the-letter-e">Count the letter <code>e</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> message <span class="op">=</span> <span class="st">"e is the most frequent English letter."</span><span class="op">;</span></span>
-<span id="cb5-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> message<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb5-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">).</span><span class="fu">equalsIgnoreCase</span><span class="op">(</span><span class="st">"e"</span><span class="op">))</span></span>
-<span id="cb5-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-8"><a href=""></a>        count<span class="op">++;</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-10"><a href=""></a><span class="op">}</span></span>
-<span id="cb5-11"><a href=""></a></span>
-<span id="cb5-12"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Class focus: the <code>if</code> is inside the loop because each character must be tested.</p>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="parsonsprob-removea-2"><code>parsonsprob:: removeA</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>   <span class="bu">String</span> s <span class="op">=</span> <span class="st">"are apples tasty without an a?"</span><span class="op">;</span></span>
+<span id="cb10-4"><a href=""></a>   <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-5"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Original string: "</span> <span class="op">+</span> s<span class="op">);</span></span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a>   <span class="co">// while there is an a in s</span></span>
+<span id="cb10-8"><a href=""></a>   <span class="cf">while</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb10-9"><a href=""></a>   <span class="op">{</span></span>
+<span id="cb10-10"><a href=""></a>      <span class="co">// Find the next index for an a</span></span>
+<span id="cb10-11"><a href=""></a>      index <span class="op">=</span> s<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"a"</span><span class="op">);</span></span>
+<span id="cb10-12"><a href=""></a>      <span class="co">// Remove the a at index by concatenating</span></span>
+<span id="cb10-13"><a href=""></a>      <span class="co">// substring up to index and then rest of the string.</span></span>
+<span id="cb10-14"><a href=""></a>      s <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span>index<span class="op">)</span> <span class="op">+</span></span>
+<span id="cb10-15"><a href=""></a>          s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-16"><a href=""></a>   <span class="op">}</span> <span class="co">// end loop</span></span>
+<span id="cb10-17"><a href=""></a></span>
+<span id="cb10-18"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"String with a's removed:"</span> <span class="op">+</span> s<span class="op">);</span></span>
+<span id="cb10-19"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="reverse-string" class="slide level2">
-<h2>Reverse String</h2>
-<h3 id="concatenation-order-changes-the-result">Concatenation order changes the result</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span>
-<span id="cb6-2"><a href=""></a><span class="bu">String</span> sReversed <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb6-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-6"><a href=""></a>    <span class="bu">String</span> ithLetter <span class="op">=</span> s<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-7"><a href=""></a>    sReversed <span class="op">=</span> ithLetter <span class="op">+</span> sReversed<span class="op">;</span></span>
-<span id="cb6-8"><a href=""></a><span class="op">}</span></span>
-<span id="cb6-9"><a href=""></a></span>
-<span id="cb6-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s <span class="op">+</span> <span class="st">" reversed is "</span> <span class="op">+</span> sReversed<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output: <code>Hello reversed is olleH</code>.</p>
+<section id="find-and-replace" class="slide level2">
+<h2>Find and Replace</h2>
+<h3 id="scanning-mistakes">Scanning mistakes</h3>
+<p>Google has been scanning old books and then using software to read the scanned text.</p>
+<p>But, the software can get things mixed up like using the number <code>1</code> for the letter <code>l</code>.</p>
+<p>The following code loops through a string replacing all <code>1</code>’s with <code>l</code>’s.</p>
+<p>Trace through the code below with a partner and explain how it works on the given message.</p>
 </section>
-<section id="trace-checkpoint" class="slide level2">
-<h2>Trace Checkpoint</h2>
-<h3 id="build-the-reversed-string">Build the reversed string</h3>
-<p>Trace <code>s = "cat"</code>.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"><code>i</code></th>
-<th><code>ithLetter</code></th>
-<th><code>sReversed</code> after update</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td><code>"c"</code></td>
-<td><code>"c"</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td><code>"a"</code></td>
-<td><code>"ac"</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td><code>"t"</code></td>
-<td><code>"tac"</code></td>
-</tr>
-</tbody>
-</table>
-<p>If the update were <code>sReversed = sReversed + ithLetter</code>, the result would stay in original order.</p>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-string-replace1"><code>activecode:: string-replace1</code></h3>
+<p>Textbook prompt: Change the code to add code for a counter variable to count the number of <code>1</code>’s replaced in the message and print it out.</p>
+<p>Change the message to have more mistakes with <code>1</code>’s to test it.</p>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="string-replacement-cats-and-dogs">String Replacement: Cats and Dogs</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg" style="width:24.0%" class="r-stretch quarto-figure-center"><p class="caption">Cats and dogs challenge</p><p>Starter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">String</span> message <span class="op">=</span> <span class="st">"I love cats! I have a cat named Coco. My cat's very smart!"</span><span class="op">;</span></span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="cf">while</span> <span class="op">(</span>message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"cat"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-5"><a href=""></a>    <span class="dt">int</span> index <span class="op">=</span> message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"cat"</span><span class="op">);</span></span>
-<span id="cb7-6"><a href=""></a>    message <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> index<span class="op">)</span> <span class="op">+</span> <span class="st">"dog"</span> <span class="op">+</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index <span class="op">+</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb7-7"><a href=""></a><span class="op">}</span></span>
-<span id="cb7-8"><a href=""></a></span>
-<span id="cb7-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Do not use the shortcut <code>.replace</code>.</p>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-string-replace1-1"><code>activecode:: string-replace1</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> FindAndReplace</span>
+<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb11-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb11-5"><a href=""></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Have a 1ong and happy 1ife"</span><span class="op">;</span></span>
+<span id="cb11-6"><a href=""></a>        <span class="dt">int</span> index <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-7"><a href=""></a></span>
+<span id="cb11-8"><a href=""></a>        <span class="co">// while more 1's in the message</span></span>
+<span id="cb11-9"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"1"</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb11-10"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb11-11"><a href=""></a>            <span class="co">// Find the next index for 1</span></span>
+<span id="cb11-12"><a href=""></a>            index <span class="op">=</span> message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"1"</span><span class="op">);</span></span>
+<span id="cb11-13"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Found a 1 at index: "</span> <span class="op">+</span> index<span class="op">);</span></span>
+<span id="cb11-14"><a href=""></a>            <span class="co">// Replace the 1 with a l at index by concatenating substring up to</span></span>
+<span id="cb11-15"><a href=""></a>            <span class="co">// index and then the rest of the string.</span></span>
+<span id="cb11-16"><a href=""></a>            <span class="bu">String</span> firstpart <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> index<span class="op">);</span></span>
+<span id="cb11-17"><a href=""></a>            <span class="bu">String</span> lastpart <span class="op">=</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb11-18"><a href=""></a>            message <span class="op">=</span> firstpart <span class="op">+</span> <span class="st">"l"</span> <span class="op">+</span> lastpart<span class="op">;</span></span>
+<span id="cb11-19"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Replaced 1 with l at index "</span> <span class="op">+</span> index<span class="op">);</span></span>
+<span id="cb11-20"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span></span>
+<span id="cb11-21"><a href=""></a>                    <span class="st">"The message is currently "</span></span>
+<span id="cb11-22"><a href=""></a>                            <span class="op">+</span> message</span>
+<span id="cb11-23"><a href=""></a>                            <span class="op">+</span> <span class="st">" but we aren't done looping yet!"</span><span class="op">);</span></span>
+<span id="cb11-24"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb11-25"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Cleaned text: "</span> <span class="op">+</span> message<span class="op">);</span></span>
+<span id="cb11-26"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb11-27"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-string-replace1-2"><code>activecode:: string-replace1</code></h3>
+<p>Runestone’s original trace output for the starting message is:</p>
+<div class="scroll-block">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>Found a 1 at index: 7</span>
+<span id="cb12-2"><a href=""></a>Replaced 1 with l at index 7</span>
+<span id="cb12-3"><a href=""></a>The message is currently Have a long and happy 1ife but we aren't done looping yet!</span>
+<span id="cb12-4"><a href=""></a>Found a 1 at index: 22</span>
+<span id="cb12-5"><a href=""></a>Replaced 1 with l at index 22</span>
+<span id="cb12-6"><a href=""></a>The message is currently Have a long and happy life but we aren't done looping yet!</span>
+<span id="cb12-7"><a href=""></a>Cleaned text: Have a long and happy life</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The test expects the final submitted output to be different because the prompt asks you to add a counter and change the message to have more <code>1</code> mistakes.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>choose <code>while</code> when repeated <code>indexOf</code> search controls the loop</li>
-<li>choose <code>for</code> when every string index should be visited</li>
-<li>use correct <code>substring</code> bounds for one-character extraction</li>
-<li>rebuild strings by concatenating prefix, replacement, and suffix</li>
-<li>trace how concatenation order affects a reversed string</li>
+<li>identify <code>indexOf</code> as the loop test for repeated find-and-replace</li>
+<li>use <code>indexOf("a") &gt;= 0</code> or <code>indexOf("1") &gt;= 0</code> to keep searching while a target remains</li>
+<li>use <code>substring(0,index)</code> and <code>substring(index+1)</code> to remove a character</li>
+<li>rebuild a string by concatenating the prefix, replacement, and suffix</li>
+<li>explain why the next <code>indexOf</code> search can find the next occurrence after the string changes</li>
+<li>add a counter update inside the replacement loop</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-10-part-2-reverse-and-cats-dogs-challenge.html">Next: Reverse and Cats/Dogs Challenge →</a></p>
 
 </section>
     </div>

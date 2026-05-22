@@ -1,0 +1,224 @@
+---
+title: "2.2 Boolean Expressions"
+subtitle: "Part 2: Prime Numbers POGIL"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Prime Numbers POGIL
+
+The textbook encourages this activity as a <span class="term">POGIL</span> group activity or using Think-Pair-Share collaboration.
+
+POGIL groups are self-managed teams of 4 students where everyone has a role and works together to solve the problems, making sure that everyone in the team participates and learns.
+
+## Activity Goal
+
+### Determine if a number is prime
+
+In this activity, you will write a Java program that uses boolean expressions to determine if a number is prime.
+
+A <span class="term">prime number</span> (质数) is an integer number that is only divisible by 1 and itself.
+
+Examples from the textbook:
+
+::: {.tight-list}
+- `3` is prime because it is only divisible by `1` and `3`.
+- `4` is not prime because it is divisible by `2` as well as `1` and `4`.
+:::
+
+## Method Tasks
+
+### Build Boolean helper methods
+
+You will write methods that test whether a number is:
+
+::: {.tight-list}
+- positive
+- negative
+- odd
+- even
+- divisible by another number
+:::
+
+Then you will experiment with these methods to determine if the numbers `5`, `6`, and `7` are prime, and ask questions such as whether all odd numbers are prime.
+
+## Code Task
+
+### `activecode:: challenge-primeNumbers`
+
+Textbook prompt: Complete the methods below to determine if a number is positive, negative, odd, even, or divisible by another number by returning boolean expressions testing the argument number.
+
+## Code Window
+
+### `activecode:: challenge-primeNumbers`
+
+::: {.code-scroll .compact}
+```java
+public class PrimeNumbers
+{
+    // isPositive checks whether number is greater than 0
+    public static boolean isPositive(int number)
+    {
+        return (number > 0);
+    }
+
+    public static boolean isNegative(int number)
+    {
+        // 1. Replace true with an expression that checks
+        //    whether number is negative
+        return true;
+    }
+
+    // isOdd checks whether number divided by 2
+    // has a remainder.
+    public static boolean isOdd(int number)
+    {
+        return (number % 2 != 0);
+    }
+
+    public static boolean isEven(int number)
+    {
+        // 2. Replace true with an expression that checks
+        //    whether number is divisible by 2
+        return true;
+    }
+
+    public static boolean isDivisible(int number, int divisor)
+    {
+        // 3. Replace true with an expression that checks
+        //    whether number is divisible by divisor
+        return true;
+    }
+
+    public static void main(String[] args)
+    {
+        // 4. Change number to experiment
+        int number = 5;
+        System.out.println("A prime number is only divisible by 1 and itself.");
+        System.out.println(number + " is negative? " + isNegative(number));
+        System.out.println(number + " is even? " + isEven(number));
+
+        System.out.println("Divisible by 1? " + isDivisible(number,1) );
+        System.out.println("Divisible by 2? " + isDivisible(number,2) );
+        System.out.println("Divisible by 3? " + isDivisible(number,3) );
+        System.out.println("Divisible by 4? " + isDivisible(number,4) );
+        System.out.println("Divisible by 5? " + isDivisible(number,5) );
+
+        // 5. Add 2 print statements with calls to isDivisible to check
+        //    whether number is divisible by 6 and 7.
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### Runestone tests
+
+The tests check that student code contains these Boolean expressions and method call:
+
+::: {.tight-list}
+- `number < 0` for `isNegative`
+- `number % 2 == 0` for `isEven`
+- `number % divisor == 0` for `isDivisible`
+- `isDivisible(number,7)` in `main`
+:::
+
+These are source requirements, not optional hints.
+
+## POGIL Questions
+
+### Experiment with `5`, `6`, and `7`
+
+With your POGIL group, use the code above to experiment to see if `5`, `6`, and `7` are prime.
+
+Question 1: Is `5` prime?
+
+::: {.tight-list}
+- A. Yes, `5` is prime.
+- B. No, `5` is not prime.
+:::
+
+Answer: <span class="mark">A</span>. `5` is only divisible by `1` and `5`.
+
+## POGIL Questions
+
+### More prime checks
+
+Question 2: Is `6` prime?
+
+::: {.tight-list}
+- A. Yes, `6` is prime.
+- B. No, `6` is not prime.
+:::
+
+Answer: <span class="mark">B</span>. `6` is divisible by `1`, `2`, `3`, and `6`.
+
+Question 3: Is `7` prime?
+
+Answer: <span class="mark">Yes</span>. `7` is only divisible by `1` and `7`.
+
+## Fill-In Checkpoint
+
+### Odd numbers
+
+Textbook prompt:
+
+```text
+Are all odd numbers prime?
+Can you find an odd number that is not prime by using your code above?
+What is the smallest odd number that is not prime and has divisors other than 1 and itself?
+```
+
+Expected response: `9`, because `9` is odd and is divisible by `3`.
+
+## Fill-In Checkpoint
+
+### Even numbers
+
+Textbook prompt:
+
+```text
+Are all even numbers not prime?
+Can you find an even prime number using your code above?
+What is the smallest even number that is prime?
+```
+
+Expected response: `2`, because `2` is only divisible by `1` and `2`.
+
+## Encryption Note
+
+### Why prime numbers matter
+
+Prime numbers are very useful in encryption algorithms because they can be used as keys for encoding and decoding.
+
+If you have the key, you can use it to divide a large number that represents something encrypted to decode it. If you do not have the key, it is hard to guess the factors of a large number to decode it.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- write Boolean expressions for negative, even, and divisible checks
+- preserve `isOdd` as a remainder-not-zero test
+- use `isDivisible(number, divisor)` to test candidate divisors
+- explain why `5` and `7` are prime but `6` and `9` are not
+- identify `2` as the smallest even prime number
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

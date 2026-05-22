@@ -16,141 +16,210 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Algorithms can choose and repeat
+### Algorithms do not always stay in sequence
 
-An <span class="term">algorithm</span> (算法) is a step-by-step process for solving a problem. Unit 2 adds two control moves that make algorithms less linear:
+Every <span class="term">algorithm</span> (算法) consists of a sequence of steps. Up until now, we have been writing code one line at a time in sequence which then gets executed by the computer in that sequential order by default.
 
-::: {.tight-list}
-- <span class="term">selection</span> (选择): execute steps only when a condition is true
-- <span class="term">repetition</span> (重复): execute steps again until the work is finished
-:::
+However, we can create more complex algorithms that do not follow the default sequential order.
 
-![Sequencing, selection, and repetition](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png){fig-align="center" width="44%"}
+In this unit, we will learn to branch the code into different paths or repeat a block of code.
+
+## Building Blocks
+
+### Sequencing, selection, and repetition
+
+The building blocks of algorithms are <span class="term">sequencing</span> (顺序), <span class="term">selection</span> (选择), and <span class="term">repetition</span> (重复).
+
+Algorithms can contain selection, through decision making, and repetition, via looping. All algorithms for problems that can be solved on a computer can be constructed by using just these three control structures.
+
+![Sequence, Selection, and Repetition](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png){fig-align="center" width="42%"}
 
 ## Selection
 
-### A branch depends on a Boolean decision
+### Making a true or false decision
 
-Selection phrases usually include a condition:
+Selection is the process of making a choice based on a true or false decision.
+
+In programming, selection, also called <span class="term">branching</span> (分支), occurs when a choice of how the execution of an algorithm will proceed is based on a true or false decision.
+
+An algorithm may take different paths based on certain conditions, often using true/false logic.
+
+## Selection Task
+
+### Click on selection phrases
+
+Textbook prompt: Click on all of the selection (decision or branching) phrases in the following algorithm.
+
+```text
+Morning routine:
+1. Wake up.
+2. Snooze for 5 more minutes.
+3. Check your phone and the weather.
+4. If there is a text from your friend, answer it.
+5. Brush teeth and shower.
+6. If it’s cold, wear a sweater.
+7. Check if you have homework due. If so, pack it in your bag.
+8. Put on your sunglasses if it's sunny.
+9. Leave for school or work.
+```
+
+## Selection Task Answer
+
+### Lines controlled by a decision
+
+A correct response identifies these selection phrases:
 
 ::: {.tight-list}
-- If there is a text from your friend, answer it.
-- If it is cold, wear a sweater.
-- Check if you have homework due. If so, pack it.
-- Put on sunglasses if it is sunny.
+- `4. If there is a text from your friend, answer it.`
+- `6. If it’s cold, wear a sweater.`
+- `7. Check if you have homework due. If so, pack it in your bag.`
+- `8. Put on your sunglasses if it's sunny.`
 :::
 
-The next action depends on whether the condition evaluates to <span class="mark">true or false</span>.
+The textbook feedback says to look for the word `if` to identify selections.
 
 ## Repetition
 
-### A loop keeps doing work
+### Repeating until a desired outcome
 
-Repetition phrases describe repeated action:
+Repetition is when a process repeats itself until a desired outcome is reached.
+
+In programming, repetition is achieved through <span class="term">loops</span> (循环). A loop allows an algorithm to repeat certain actions until a specified condition is met.
+
+Another term commonly used for repetition is <span class="term">iteration</span> (迭代).
+
+## Repetition Task
+
+### Click on repetition phrases
+
+Textbook prompt: Click on all of the repetition phrases in the following algorithm.
+
+```text
+Morning routine 2:
+1. Wake up.
+2. Snooze for 5 more minutes. Keep waking up and snoozing for the next 15 minutes.
+3. If there is a text from your friend, answer it. Do this for all of your texts.
+4. Brush teeth and shower.
+5. If it’s cold, wear a sweater.
+6. Check if you have homework due. If so, pack it in your bag.
+7. Repeat packing items until your bag is ready.
+8. Leave for school or work.
+```
+
+## Repetition Task Answer
+
+### Lines that repeat work
+
+A correct response identifies these repetition phrases:
 
 ::: {.tight-list}
-- Keep waking up and snoozing for the next 15 minutes.
-- If there is a text from your friend, answer it for all texts.
-- Repeat packing items until your bag is ready.
+- `2. Keep waking up and snoozing for the next 15 minutes.`
+- `3. Do this for all of your texts.`
+- `7. Repeat packing items until your bag is ready.`
 :::
 
-In Java, repetition is implemented with <span class="term">loops</span>, especially `while` and `for`.
+The textbook feedback says to look for `repeat`, `all`, or `keep`.
 
 ## Pseudocode and Flowcharts
 
-### Plan the control flow before Java syntax
+### Plan before writing Java
 
-::: {.two-col}
-::: {}
-![Control-flow branching](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png){width="100%"}
-:::
-::: {.soft-box}
-Use pseudocode and flowcharts to:
+For complex problems, it is important to plan your solution before writing code.
 
-- show the order of actions
-- mark branch points
-- mark repeated work
-- test the algorithm before coding
-:::
-:::
+<span class="term">Pseudocode</span> (伪代码) is an informal way of describing the steps in an algorithm in a human language like English while following the sequence, selection, and repetition structure of a programming language.
+
+<span class="term">Flowcharts</span> (流程图) are diagrams that represent the steps in an algorithm.
+
+## Flowchart Branching
+
+### Selection branches the code into two paths
+
+![Flowchart for selection branching the code into two paths](../../assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png){fig-align="center" width="48%"}
+
+Selection is usually represented as a triangle in a flowchart, and arrows are used to show repetition.
+
+Both pseudocode and flowcharts are tools that help you plan your algorithm before writing code.
 
 ## Mixed-Up Algorithm
 
 ### Buying a birthday gift
 
-Reorder the pseudocode. Indent the buying rules inside the repetition.
+Textbook prompt: Put the following pseudocode algorithm steps for buying a birthday gift for your friend in order. Make sure some of the steps are indented to be inside the repetition and that you buy the more expensive gifts first.
 
 ```text
 Initialize total amount of money.
 Repeat while still money in total:
-    If total more than $25, buy a gift card and subtract 25.
-    If total more than $10, buy a small cake and subtract 10.
-    If total more than $5, buy some candy and subtract 5.
-    If total more than $1, buy a card and subtract 1.
+    If total more than $25, buy a gift card and subtract 25 from total.
+    If total more than $10, buy a small cake and subtract 10 from total.
+    If total more than $5, buy some candy and subtract 5 from total.
+    If total more than $1, buy a card and subtract 1 from total.
     Otherwise, give them the change.
 ```
 
-Class focus: the repeated loop contains several selection checks.
+## Trace Quick Check
 
-## Quick Check
+### Gift algorithm with `$16`
 
-### Trace the gift algorithm with $16
-
-Given the gift algorithm, assume `total = 16`. What is the outcome?
+Given the pseudocode for buying a gift, assume you have `$16` to spend. What will be the outcome of the algorithm?
 
 ::: {.tight-list}
-- A. gift card, small cake, candy, card
-- B. small cake and candy
-- C. small cake, candy, and card
-- D. two cakes and candy
+- A. You will buy a gift card, a small cake, some candy, and a card.
+- B. You will buy a small cake and some candy.
+- C. You will buy a small cake, some candy, and a card.
+- D. You will buy 2 cakes and some candy.
 :::
 
-Answer: <span class="mark">C</span>. The algorithm buys a $10 cake, then $5 candy, then a $1 card.
+Answer: <span class="mark">C</span>. You still have `$1` left after the small cake and candy, so the card rule can run.
 
-## Quick Check
+## Trace Quick Check
 
-### Trace the gift algorithm with $22
+### Gift algorithm with `$22`
 
-Given the same algorithm, assume `total = 22`. What is the outcome?
+Given the pseudocode for buying a gift, assume you have `$22` to spend. What will be the outcome of the algorithm?
 
 ::: {.tight-list}
-- A. gift card, small cake, candy, card
-- B. small cake and candy
-- C. small cake, candy, and card
-- D. two cakes, a card, and $1 change
+- A. You will give them a gift card, a small cake, some candy, and a card.
+- B. You will give them a small cake and some candy.
+- C. You will give them a small cake, some candy, and a card.
+- D. You will give them 2 cakes, a card, and `$1`.
 :::
 
-Answer: <span class="mark">D</span>. The repetition allows the $10 cake rule to run twice.
+Answer: <span class="mark">D</span>. The textbook feedback says: `Yep! That's a lot of cake!`
+
+## Groupwork Coding Challenge
+
+### Algorithms: choosing a snack
+
+In this group activity, you will work together to create an algorithm for a common problem: choosing a snack.
+
+Create pseudocode for this problem. Make sure you include <span class="term">selection</span> and <span class="term">repetition</span> in your algorithm.
+
+For example, if there is no chocolate, you may want to keep searching for another snack. If you're thirsty, you may want to consider the drinks in the fridge. You may want to consider every item in the fridge or your leftover Halloween candy stash before deciding on the perfect snack.
 
 ## Student Response Task
 
-### Snack algorithm
+### Write the snack pseudocode
 
-Write pseudocode for choosing a snack. It must include both:
-
-::: {.tight-list}
-- one selection rule using `if`
-- one repetition rule using `repeat`, `while`, `until`, `all`, or `keep`
-:::
-
-Example starting point:
+Textbook prompt:
 
 ```text
-Repeat while I am still hungry:
-    If the snack is healthy, choose it.
-    Otherwise, look for another snack.
+Write your pseudocode for choosing a snack here.
+Include selection and repetition in your algorithm.
+Be creative!
 ```
+
+A complete response should show at least one decision and at least one repeated action.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- define <span class="term">selection</span> as choosing a path based on true or false
-- define <span class="term">repetition</span> as repeating steps until a stopping condition is met
-- distinguish sequential steps from branch and loop steps
-- trace how repeated selection can change an algorithm result
-- use pseudocode or a flowchart to show control flow before Java syntax
+- identify sequencing, selection, and repetition as algorithm building blocks
+- explain selection as choosing an execution path based on a true or false decision
+- explain repetition as repeating actions until a desired outcome is reached
+- trace how the gift algorithm outcome changes when the starting money changes
+- write pseudocode that includes both selection and repetition
 :::
 
 ## End

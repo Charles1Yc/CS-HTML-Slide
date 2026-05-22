@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 
 const root = process.cwd();
 const courseRoot = path.join(root, "AP CSA");
@@ -185,6 +186,23 @@ function checkRebuiltDeck(deckPath) {
   }
 }
 
+function checkSourceFidelityGate() {
+  const scriptPath = path.join(root, "scripts", "check-ap-csa-source-fidelity.mjs");
+  if (!fs.existsSync(scriptPath)) {
+    fail("Strict AP CSA source fidelity gate is missing: scripts/check-ap-csa-source-fidelity.mjs");
+    return;
+  }
+
+  const result = spawnSync(process.execPath, [scriptPath], {
+    cwd: root,
+    stdio: "inherit",
+  });
+
+  if (result.status !== 0) {
+    fail("Strict AP CSA source fidelity gate failed.");
+  }
+}
+
 const rebuiltDecks = extractRebuiltDecksFromAudit();
 checkCourseDataLinks();
 
@@ -193,6 +211,7 @@ for (const deckPath of rebuiltDecks) {
 }
 
 ok(`rebuilt deck content checks scanned (${rebuiltDecks.size} decks).`);
+checkSourceFidelityGate();
 
 if (failures > 0) {
   console.error(`Content quality check failed with ${failures} issue(s).`);

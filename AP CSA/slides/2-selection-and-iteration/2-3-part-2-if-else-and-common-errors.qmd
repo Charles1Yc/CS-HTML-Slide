@@ -1,0 +1,329 @@
+---
+title: "2.3 if Statements"
+subtitle: "Part 2: if-else and Common Errors"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Two-Way Selection
+
+### Pick between two possibilities
+
+What if you want to pick between two possibilities?
+
+In programming, you can use the <span class="term">if</span> keyword followed by a statement or block of statements and then the <span class="term">else</span> keyword also followed by a statement or block of statements.
+
+## If Else Syntax
+
+### Block and single-statement forms
+
+```java
+// A block if/else statement
+if (boolean expression)
+{
+   statement1;
+   statement2;
+}
+else
+{
+   do other statement;
+   and another one;
+}
+
+// A single if/else statement
+if (boolean expression)
+    Do statement;
+else
+    Do other statement;
+```
+
+## Two-Way Selection
+
+### Exactly one segment executes
+
+A <span class="term">two-way selection</span> (if-else statement) is used when there are two segments of code: one to be executed when the Boolean expression is true and another segment for when the Boolean expression is false.
+
+The body of the if is executed when the Boolean expression is true, and the body of the else is executed when the Boolean expression is false.
+
+![The order that statements execute in an if/else statement](../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png){fig-align="center" width="34%"}
+
+## Code Task
+
+### `activecode:: ifHeads`
+
+Textbook prompt:
+
+::: {.tight-list}
+- Try the following code.
+- If `isHeads` is true it will print `Let's go to the game`.
+- Then it will print `after conditional`.
+:::
+
+## Code Window
+
+### `activecode:: ifHeads`
+
+::: {.code-scroll}
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        boolean isHeads = true;
+        if (isHeads)
+        {
+            System.out.println("Let's go to the game");
+        }
+        else
+        {
+            System.out.println("Let's watch a movie");
+        }
+        System.out.println("after conditional");
+    }
+}
+```
+:::
+
+## Expected Output
+
+### `ifHeads`
+
+The Runestone test expects:
+
+```text
+Let's go to the game
+after conditional
+```
+
+Changing `isHeads` to `false` makes the else branch execute before `after conditional`.
+
+## Trace Checkpoint
+
+### `fillintheblank:: falseElse`
+
+Textbook prompt: Try changing the code above to `boolean isHeads = false;`. What line will be printed before the `after conditional`?
+
+Correct response:
+
+```text
+Let's watch a movie
+```
+
+Reasoning: If the Boolean value is false, the statement following the else will execute.
+
+## Relational If Else
+
+### Test both parts of the code
+
+If/else statements can also be used with relational operators and numbers.
+
+If your code has an if/else statement, you need to test it with <span class="mark">2 test-cases</span> to make sure that both parts of the code work.
+
+## Code Task
+
+### `activecode:: licenseifelse`
+
+Textbook prompt: Run the following code to see what it prints out when `age` is `16`. Change `age` to `15` and run it again to see the result of the print statement in the else part.
+
+Can you change the if-statement to indicate that you can get a license at age `15` instead of `16`?
+
+## Code Window
+
+### `activecode:: licenseifelse`
+
+::: {.code-scroll}
+```java
+public class DriversLicenseTest
+{
+    public static void main(String[] args)
+    {
+        int age = 16;
+        if (age >= 16)
+        {
+            System.out.println("You can get a driver's license in most states!");
+        }
+        else
+        {
+            System.out.println(
+                    "Sorry, you need to be older to get a driver's license.");
+        }
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: licenseifelse`
+
+Runestone checks that the code contains:
+
+```java
+age >= 15
+```
+
+Use 2 test cases for the value of `age` to test your code and see the results of both print statements.
+
+## Mixed-Up Code
+
+### `parsonsprob:: ifelseevenOdd`
+
+Textbook prompt: The following program should print out `"x is even"` if the remainder of `x` divided by `2` is `0` and `"x is odd"` otherwise, but the code is mixed up.
+
+## Mixed Blocks
+
+### `parsonsprob:: ifelseevenOdd`
+
+Reorder these blocks:
+
+```text
+public class EvenOrOdd
+{
+public static void main(String[] args)
+{
+int x = 92;
+if (x % 2 == 0)
+{
+System.out.println("x is even");
+}
+else
+{
+System.out.println("x is odd");
+}
+}
+}
+```
+
+## Correct Order
+
+### `parsonsprob:: ifelseevenOdd`
+
+```java
+public class EvenOrOdd
+{
+    public static void main(String[] args)
+    {
+        int x = 92;
+        if (x % 2 == 0)
+        {
+            System.out.println("x is even");
+        }
+        else
+        {
+            System.out.println("x is odd");
+        }
+    }
+}
+```
+
+## Code Task
+
+### `activecode:: scoreifelse`
+
+Textbook prompt: Try the following code. Add an else statement to the if statement that prints out `"Good job!"` if the score is greater than `9`. Change the value of `score` to test it.
+
+Can you change the Boolean test to only print out `"Good job"` if the score is greater than `20`?
+
+## Code Window
+
+### `activecode:: scoreifelse`
+
+```java
+public class ScoreTest
+{
+    public static void main(String[] args)
+    {
+        int score = 8;
+        if (score <= 9)
+        {
+            System.out.println("Try for a higher score!");
+        }
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: scoreifelse`
+
+Runestone checks that student code:
+
+::: {.tight-list}
+- changes the original code
+- contains `else`
+- contains either `score <= 20` or `score > 20`
+- prints `Good job!` when `score` is changed to `25`
+- prints `Try for a higher score!` when `score` is changed to `5`
+:::
+
+## Common Errors
+
+### Rules to follow with if statements
+
+::: {.tight-list}
+- Always use curly braces `{` and `}` to enclose the block of statements under the if condition.
+- Don't put in a semicolon `;` after the first line of the if statement, `if (test);`.
+- Always use `==`, not `=`, in the condition of an if statement to test a variable.
+- The `else` statement matches with the closest `if` statement.
+:::
+
+If you want to match an `else` with a different `if` statement, use curly braces to group the `if` and `else` together.
+
+## Debug Task
+
+### `activecode:: if-missing-curlies`
+
+Textbook prompt: The code below doesn't work as expected. Fix it to only print `Wear a coat` and `Wear gloves` when `isCold` is true.
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        boolean isCold = false;
+        if (isCold = true);
+            System.out.println("Wear a coat");
+            System.out.println("Wear gloves");
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: if-missing-curlies`
+
+Runestone expects empty output when `isCold` is false:
+
+```text
+
+```
+
+It also checks that the fixed code has at least `3` opening braces `{`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- describe a two-way selection as choosing exactly one of two segments
+- test both true and false paths for an if/else statement
+- use `% 2 == 0` to separate even and odd outcomes
+- preserve starter code blanks until students complete the task
+- identify missing braces, stray semicolons, and `=` versus `==`
+- explain which `if` an `else` matches
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Magic 8 Ball challenge →](2-3-part-3-magic-8-ball.html)

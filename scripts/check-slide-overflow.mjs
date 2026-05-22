@@ -195,8 +195,13 @@ async function checkDeck(page, filePath) {
       const horizontalOverflow = Math.ceil((slide?.scrollWidth || 0) - (slide?.clientWidth || 0));
       const slideRect = slide.getBoundingClientRect();
       const candidates = Array.from(slide.querySelectorAll("*")).filter((element) => {
-        const scroller = element.closest(".code-scroll, .scroll-block, pre");
-        return !scroller || element === scroller;
+        const allowedScroller = element.closest(".code-scroll, .scroll-block");
+        if (allowedScroller) {
+          return element === allowedScroller;
+        }
+
+        const plainCodeBlock = element.closest("pre");
+        return !plainCodeBlock || element === plainCodeBlock;
       });
 
       let visualBottomOverflow = 0;

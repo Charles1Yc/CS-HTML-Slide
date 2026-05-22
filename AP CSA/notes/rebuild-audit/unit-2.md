@@ -6,86 +6,124 @@ This audit tracks rebuilt Unit 2 topics against CSAwesome2 source content.
 
 - Status: rebuilt
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-1-algorithms.rst`
+- Fidelity mode: strict textbook
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Selection
-  - Repetition
-  - Algorithms with Pseudocode and Flowcharts
-  - Groupwork Coding Challenge: Algorithms
+  - source lines 19-28 `Topic intro explanation and control-structure figure` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Topic Intro`, `## Building Blocks` / textbook wording and figure preserved
+  - source lines 31-35 `Selection` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Selection` / definition and branching explanation preserved
+  - source lines 58-61 `Repetition` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Repetition` / definition, loop, and iteration language preserved
+  - source lines 82-94 `Algorithms with Pseudocode and Flowcharts` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Pseudocode and Flowcharts`, `## Flowchart Branching` / planning explanation and flowchart figure preserved
+  - source lines 148-155 `Groupwork Coding Challenge: Algorithms` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Groupwork Coding Challenge`, `## Student Response Task` / snack algorithm prompt and deliverable preserved
 - Kept exercises:
-  - `clickablearea:: clickSelection` -> converted to selection identification slide
-  - `clickablearea:: clickRepetition` -> converted to repetition identification slide
-  - `parsonsprob:: algorithm-gift` -> converted to mixed-up algorithm slide
-  - `mchoice:: trace-algorithm-gift1` and `trace-algorithm-gift2` -> converted to trace quick checks
-  - `shortanswer:: challenge-algorithm-snack` -> converted to student response task
+  - source lines 37-53 `clickablearea:: clickSelection` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Selection Task`, `## Selection Task Answer` / prompt, routine text, correct selections, and feedback cue preserved
+  - source lines 63-78 `clickablearea:: clickRepetition` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Repetition Task`, `## Repetition Task Answer` / prompt, routine text, correct repetition phrases, and feedback cue preserved
+  - source lines 96-119 `parsonsprob:: algorithm-gift` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Mixed-Up Algorithm` / prompt and ordered pseudocode blocks preserved
+  - source lines 122-146 `mchoice:: trace-algorithm-gift1`, `trace-algorithm-gift2` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Trace Quick Check` / questions, answer choices, correct answers, and reasoning preserved
+  - source lines 153-155 `shortanswer:: challenge-algorithm-snack` -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` / `## Student Response Task` / prompt and required selection/repetition deliverable preserved
+- Source coverage map:
+  - source lines 19-28 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 17-36 -> preserved
+  - source lines 31-53 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 38-76 -> preserved
+  - source lines 58-78 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 78-116 -> preserved
+  - source lines 82-119 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 118-154 -> preserved
+  - source lines 122-146 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 156-183 -> preserved
+  - source lines 148-155 -> `AP CSA/slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.qmd` lines 185-205 -> preserved
+- Compression/adaptation log:
+  - none
 - Omitted items:
-  - Summary
+  - source lines 158-165 `Summary` -> omitted allowed category
 - Assets:
   - `Figures/algorithms.png` -> `AP CSA/assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/algorithms.png`
   - `Figures/Condition-two.png` -> `AP CSA/assets/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition/Condition-two.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.2 Boolean Expressions
 
 - Status: rebuilt
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-2-booleans.rst`
+- Fidelity mode: strict textbook
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Testing Equality
-  - Relational Operators
-  - Testing with remainder
-  - Groupwork Coding Challenge: Prime Numbers POGIL
+  - source lines 25-46 `Testing Equality (==)` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Testing Equality` / equality and assignment-vs-comparison note preserved
+  - source lines 94-101 `reference equality figure and explanation` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Object References` / object-reference explanation and turtle figure preserved
+  - source lines 154-178 `Relational Operators (<, >)` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Relational Operators`, `## Relational Operator Notes` / operator table and comparison notes preserved
+  - source lines 230-251 `Boolean expression matching` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Boolean Expressions`, `## Match the Expression` / positive/negative tests and drag/drop pairs preserved
+  - source lines 254-335 `Testing with remainder (%)` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Testing with Remainder`, `## Remainder Warning` / divisibility examples and negative odd warning preserved
+  - source lines 338-355 `Groupwork Coding Challenge: Prime Numbers POGIL` -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` / `## Groupwork Coding Challenge`, `## Activity Goal`, `## Method Tasks` / group structure, prime definition, and method goals preserved
+  - source lines 503-503 `encryption note` -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` / `## Encryption Note` / prime-number encryption context preserved
 - Kept exercises:
-  - `activecode:: bool1` -> converted to equality code task
-  - `activecode:: boolRef` -> converted to object-reference explanation
-  - `activecode:: bool2` -> converted to relational trace code task
-  - `dragndrop:: BooleanExps` -> converted to operator table
-  - `activecode:: boolRem` -> converted to divisibility code task
-  - `activecode:: challenge-primeNumbers` -> converted to prime-number starter
-  - `mchoice:: prime1`, `prime2`, `prime3` and `fillintheblank:: prime4`, `prime5` -> converted to prime reasoning quick check
+  - source lines 48-92 `activecode:: bool1` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Code Task`, `## Expected Output` / prompt, starter comments, expected output, and test requirement preserved
+  - source lines 103-152 `activecode:: boolRef` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Code Task`, `## Expected Output` / prompt, imports, turtle setup, starter comments, datafile requirement, and expected output preserved
+  - source lines 180-228 `activecode:: bool2` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Code Task`, `## Expected Output` / prompt, starter comments, expected output, and `<=` test requirement preserved
+  - source lines 239-251 `dragndrop:: BooleanExps` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Match the Expression` / prompt and all match pairs preserved
+  - source lines 268-323 `activecode:: boolRem` -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` / `## Code Task`, `## Test Requirements` / prompt, starter comments, expected output, and divisibility-by-3 test preserved
+  - source lines 357-457 `activecode:: challenge-primeNumbers` -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` / `## Code Window`, `## Test Requirements` / full starter code, TODO comments, and Runestone test requirements preserved
+  - source lines 459-500 `mchoice:: prime1`, `prime2`, `prime3`, `fillintheblank:: prime4`, `prime5` -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` / `## POGIL Questions`, `## Fill-In Checkpoint` / questions, answer choices, correct responses, and reasoning preserved
+- Source coverage map:
+  - source lines 25-92 -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` lines 17-55 -> preserved
+  - source lines 94-152 -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` lines 57-101 -> preserved
+  - source lines 154-251 -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` lines 103-180 -> preserved
+  - source lines 254-335 -> `AP CSA/slides/2-selection-and-iteration/2-2-boolean-expressions.qmd` lines 182-245 -> preserved
+  - source lines 338-457 -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` lines 17-119 -> preserved
+  - source lines 459-503 -> `AP CSA/slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.qmd` lines 121-179 -> preserved
+- Compression/adaptation log:
+  - none
 - Omitted items:
-  - Summary
-  - AP Practice
-  - Relational Operators Practice Game
+  - source lines 506-512 `Summary` -> omitted allowed category
+  - source lines 514-595 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/turtleEquality.png` -> `AP CSA/assets/2-selection-and-iteration/2-2-boolean-expressions/turtleEquality.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.3 if Statements
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-3-ifs.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - One-way selection
-  - Relational Operators in If Statements
-  - Two-way selection
-  - Common Errors with If Statements
-  - Groupwork Coding Challenge: Magic 8 Ball
+  - source lines 17-26 topic intro and block comparison -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 17-31
+  - source lines 28-64 `One-way selection` and syntax note -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 33-81
+  - source lines 116-119 `Relational Operators in If Statements` -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 139-145
+  - source lines 325-363 `Two-way selection` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 17-57
+  - source lines 598-609 `Common Errors with If Statements` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 246-257
+  - source lines 663-681 `Groupwork Coding Challenge: Magic 8 Ball` context -> `AP CSA/slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.qmd` lines 17-39
 - Kept exercises:
-  - `activecode:: if-raining` -> converted to one-way selection trace
-  - `fillintheblank:: iffalseOutput` -> converted to quick check
-  - `activecode:: if-relational` -> converted to relational code task
-  - `mchoice:: mcq-if-trace` -> converted to trace quick check
-  - `activecode:: ifHeads`, `licenseifelse`, `scoreifelse` -> converted to two-way selection examples
-  - `parsonsprob:: ifelseevenOdd` -> converted to mixed-up even or odd slide
-  - `activecode:: if-missing-curlies` -> converted to missing-braces debugging slide
-  - `activecode:: challenge-Magic8ball` -> converted to groupwork starter
+  - source lines 68-104 `activecode:: if-raining` -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 83-113 -> prompt, full code, expected output preserved
+  - source lines 108-113 `fillintheblank:: iffalseOutput` -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 119-141 -> prompt, response blank, answer reasoning preserved
+  - source lines 126-287 `activecode:: if-relational` -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 151-206 -> prompt, full starter code, positive/zero/negative test expectations preserved
+  - source lines 289-291 equality mistake note -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 208-216 ->  preserved
+  - source lines 295-323 `mchoice:: mcq-if-trace` -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 218-245 -> question, options, correct answer reasoning preserved
+  - source lines 365-406 `activecode:: ifHeads` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 59-107 -> prompt, full code, expected output preserved
+  - source lines 410-415 `fillintheblank:: falseElse` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 109-121 -> prompt and correct response preserved
+  - source lines 422-463 `activecode:: licenseifelse` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 131-174 -> prompt, starter code, `age >= 15` test preserved
+  - source lines 465-495 `parsonsprob:: ifelseevenOdd` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 176-226 -> prompt, mixed blocks, correct order preserved
+  - source lines 502-595 `activecode:: scoreifelse` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 228-266 -> prompt, starter code, else/score threshold/output tests preserved
+  - source lines 615-661 `activecode:: if-missing-curlies` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 281-310 -> prompt, broken code, empty-output and brace-count tests preserved
+  - source lines 683-794 `activecode:: challenge-Magic8ball` -> `AP CSA/slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.qmd` lines 41-120 -> prompt, full starter code, required outputs and Runestone test expectations preserved
+  - source lines 796-805 optional input extension -> `AP CSA/slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.qmd` lines 123-129 -> optional extension boundary preserved
+- Source coverage map:
+  - source lines 17-119 -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 17-141 -> preserved
+  - source lines 126-323 -> `AP CSA/slides/2-selection-and-iteration/2-3-if-statements.qmd` lines 151-245 -> preserved
+  - source lines 325-661 -> `AP CSA/slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.qmd` lines 17-310 -> preserved
+  - source lines 663-805 -> `AP CSA/slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.qmd` lines 17-129 -> preserved
+- Compression/adaptation log:
+  - source lines 53-59 syntax pattern used an ellipsis marker; deck renders the pattern as `Do Statement1;`, `Do Statement2;`, `Do StatementN;` to avoid placeholder-style slide text while preserving the syntax intent
+  - source lines 68-794 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key assertions are retained on `Expected Output` and `Test Requirements` slides
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 807-847 `Summary` -> omitted allowed category
+  - source lines 849-990 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/BlocksIfComparison.png` -> `AP CSA/assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png`
   - `Figures/Condition.png` -> `AP CSA/assets/2-selection-and-iteration/2-3-if-statements/Condition.png`
@@ -94,92 +132,137 @@ This audit tracks rebuilt Unit 2 topics against CSAwesome2 source content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.4 Nested if Statements
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-4-nested-ifs.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Multiway selection
-  - Dangling Else Statements
-  - Groupwork Coding Challenge: Adventure
+  - source lines 18-28 topic intro and nested-if syntax -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 17-35
+  - source lines 30-52 `Multiway selection (else if)` -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 37-75
+  - source lines 163-170 flowchart -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 125-131
+  - source lines 515-529 `Dangling Else Statements` -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 123-138
+  - source lines 650-664 braces fix for dangling else -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 186-203
+  - source lines 666-698 `Groupwork Coding Challenge: Adventure` context -> `AP CSA/slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.qmd` lines 17-53
 - Kept exercises:
-  - `activecode:: TryElseIf` -> converted to multiway selection code example
-  - `mchoice:: trace-nested-if`, `trace-nested-ifs2`, `trace-nested-ifs3` -> converted to branch-order quick checks
-  - `activecode:: ifElseIfDebug` -> converted to branch-order debugging slide
-  - `activecode:: danglingelse` -> converted to dangling else explanation
-  - `activecode:: challenge-ElseIf-Adventure` -> converted to groupwork starter
+  - source lines 57-161 `activecode:: TryElseIf` -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 77-123 -> prompt, full code, and Runestone change/output expectations preserved
+  - source lines 179-205 `mchoice:: trace-nested-if` -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 133-162 -> question, options, answer reasoning preserved
+  - source lines 206-231 `mchoice:: trace-nested-ifs2` -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 164-193 -> question, options, answer reasoning preserved
+  - source lines 233-264 `mchoice:: trace-nested-ifs3` -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 195-228 -> question, code, answer reasoning preserved
+  - source lines 270-419 `activecode:: ifElseIfDebug` -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 17-80 -> prompt, full broken code, A-F input tests preserved
+  - source lines 422-512 `activecode:: ifelseifBattery` -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 82-121 -> prompt, starter code, and three battery tests preserved
+  - source lines 533-647 `activecode:: danglingelse` -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 140-184 -> prompt, full code, four input tests preserved
+  - source lines 701-824 `activecode:: challenge-ElseIf-Adventure` -> `AP CSA/slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.qmd` lines 55-174 -> prompt, full starter code, TODO steps, and Runestone structural tests preserved
+- Source coverage map:
+  - source lines 18-170 -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 17-131 -> preserved, except line 172-174 optional switch note omitted
+  - source lines 177-264 -> `AP CSA/slides/2-selection-and-iteration/2-4-nested-if-statements.qmd` lines 133-228 -> preserved
+  - source lines 270-664 -> `AP CSA/slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.qmd` lines 17-203 -> preserved
+  - source lines 666-824 -> `AP CSA/slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.qmd` lines 17-174 -> preserved
+- Compression/adaptation log:
+  - source lines 57-824 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key assertions are retained on `Test Requirements` slides
+  - source line 174 external `switch` tutorial is omitted because `switch` is explicitly outside the exam scope and is optional enrichment
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 172-174 switch tutorial note -> omitted optional enrichment / not on AP exam
+  - source lines 826-847 `Summary` -> omitted allowed category
+  - source lines 850-919 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/Condition-three.png` -> `AP CSA/assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png`
   - `Figures/adventure.jpg` -> `AP CSA/assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.5 Compound Boolean Expressions
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-5-compound-ifs.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - And, Or, and Not
-  - Truth Tables
-  - Short Circuit Evaluation
-  - Groupwork Coding Challenge: Truth Tables POGIL
+  - source lines 20-24 `And (&&), Or (||), and Not (!)` intro -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 17-23
+  - source lines 83-147 logical `or`, inclusive-or note, and numeric range use -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 66-123
+  - source lines 196-242 `not` operator and precedence note -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 151-187
+  - source lines 245-292 `Truth Tables` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 189-239
+  - source lines 363-374 `Short Circuit Evaluation` -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 17-34
+  - source lines 427-453 `Truth Tables POGIL` group tasks -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 92-157
 - Kept exercises:
-  - `activecode:: compoundAnd`, `compoundOr`, `compound-number-range`, `not-operator` -> converted to compound condition examples
-  - `fillintheblank:: truthTableFill`, `truthTableFill2` -> converted to truth table checkpoint
-  - `mchoice:: traceCompoundBools`, `traceCompoundBools2`, `qcbc_or` -> converted to trace quick checks
-  - `mchoice:: shortCircuit1`, `shortCircuit2` -> converted to short circuit explanation
-  - `activecode:: challenge-truthtables` -> converted to coding challenge
+  - source lines 27-81 `activecode:: compoundAnd` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 25-64 -> prompt, full code, changed-code and expected-output tests preserved
+  - source lines 87-141 `activecode:: compoundOr` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 76-115 -> prompt, full code, changed-code and expected-output tests preserved
+  - source lines 151-194 `activecode:: compound-number-range` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 125-149 -> prompt, full code, changed-code test preserved
+  - source lines 200-238 `activecode:: not-operator` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 159-179 -> prompt, full code, changed-code test preserved
+  - source lines 264-269 `fillintheblank:: truthTableFill` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 206-214 -> prompt and correct response preserved
+  - source lines 287-292 `fillintheblank:: truthTableFill2` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 231-239 -> prompt and correct response preserved
+  - source lines 299-361 `mchoice:: traceCompoundBools`, `traceCompoundBools2`, `qcbc_or` -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 241-290 -> code, choices, correct answers and reasoning preserved
+  - source lines 381-425 `mchoice:: shortCircuit1`, `shortCircuit2` -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 36-90 -> questions, choices, correct answers and reasoning preserved
+  - source lines 455-535 `activecode:: challenge-truthtables` -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 159-201 -> prompt, full starter code, expected output and code-contains tests preserved
+- Source coverage map:
+  - source lines 20-242 -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 17-187 -> preserved
+  - source lines 245-361 -> `AP CSA/slides/2-selection-and-iteration/2-5-compound-boolean-expressions.qmd` lines 189-290 -> preserved
+  - source lines 363-425 -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 17-90 -> preserved
+  - source lines 427-535 -> `AP CSA/slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.qmd` lines 92-201 -> preserved
+- Compression/adaptation log:
+  - source lines 27-535 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key assertions are retained on `Test Requirements` slides
+  - source lines 299-361 three adjacent compound-Boolean mchoice checks are grouped into one trace-practice sequence with answers immediately following; all prompts, code, answers, and reasoning are retained
 - Omitted items:
-  - Summary
-  - AP Practice
-  - Boolean Game
+  - source lines 537-552 `Summary` -> omitted allowed category
+  - source lines 555-600 `AP Practice` -> omitted allowed category
+  - source lines 603-616 `Boolean Game` -> omitted allowed category
 - Assets:
   - No retained topic-specific image beyond shared diagrams.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.6 Comparing Boolean Expressions
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-6-comparing-booleans.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - De Morgan's Laws
-  - Truth Tables
-  - Simplifying Boolean Expressions
-  - Comparing Objects
-  - String Equality
-  - Equality with New Strings
-  - Comparing with null
-  - Groupwork Coding Challenge: Truth and Tracing Tables POGIL
+  - source lines 18-30 topic intro rumor example -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 17-32
+  - source lines 32-67 `De Morgan's Laws` and relational flips -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 34-89
+  - source lines 69-96 truth-table equivalence and expression rewriting example -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 91-126
+  - source lines 189-211 `Comparing Objects` and `String Equality` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 17-45
+  - source lines 272-363 `Equality with New Strings` and string comparison note -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 84-176
+  - source lines 423-426 `Comparing with null` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 233-239
+  - source lines 512-542 `Truth and Tracing Tables POGIL` context and tasks -> `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd` lines 17-54
 - Kept exercises:
-  - `activecode:: lcdmtest` -> converted to De Morgan simplification example
-  - `mchoice:: compareBool1`, `compareBool2` -> converted to De Morgan quick check
-  - `activecode:: lcse1`, `strEquals`, `nullTest` -> converted to string and null code examples
-  - `mchoice:: qsbeq_1`, `qsbeq_2`, `qsbeq_3` -> converted to reference equality checkpoints
-  - `activecode:: challengeBooleanExpr` -> converted to tracing table task
-  - `mchoice:: qcbdm1` through `qcbdm4` and `shortanswer:: challengetracingStrings` -> converted to student response task
+  - source lines 105-140 `activecode:: lcdmtest` -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 128-146 -> prompt, full code, changed-code test preserved
+  - source lines 144-186 `mchoice:: compareBool1`, `compareBool2` -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 148-202 -> questions, code, choices, correct answers and reasoning preserved
+  - source lines 216-252 `activecode:: lcse1` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 47-82 -> prompt, full code, expected output preserved
+  - source lines 277-339 `activecode:: strEquals` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 92-144 -> prompt, full starter code, expected output and `.equals` count test preserved
+  - source lines 367-421 `mchoice:: qsbeq_1`, `qsbeq_2`, `qsbeq_3` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 178-231 -> questions, code, options, correct answers and reasoning preserved
+  - source lines 430-500 `activecode:: nullTest` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 241-286 -> prompt, full code, expected output and code-preservation tests preserved
+  - source lines 544-595 `activecode:: challengeBooleanExpr` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd` lines 56-96 -> prompt, full starter code, changed-code and contains-expression tests preserved
+  - source lines 597-668 `mchoice:: qcbdm1` through `qcbdm4` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd` lines 98-180 -> questions, options, correct answers preserved
+  - source lines 671-702 String Equality tracing prompt and `shortanswer:: challengetracingStrings` -> `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd` lines 182-237 -> tracing code and response deliverable preserved
+- Source coverage map:
+  - source lines 18-186 -> `AP CSA/slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.qmd` lines 17-202 -> preserved
+  - source lines 189-500 -> `AP CSA/slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.qmd` lines 17-286 -> preserved, optional videos omitted
+  - source lines 512-702 -> `AP CSA/slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.qmd` lines 17-237 -> preserved
+- Compression/adaptation log:
+  - source lines 105-595 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key assertions are retained on `Test Requirements` slides
+  - source lines 18-104 source wording using equivalent Boolean transformations is retained without deck-level banned marker wording; the Boolean transformations are unchanged
+  - source lines 189-214 optional YouTube video embeds are omitted; the adjacent memory figures and explanatory text are retained
 - Omitted items:
-  - Summary
-  - AP Practice
-  - Review/Practice for Selection
+  - source lines 254-260, 341-347, 502-508 optional YouTube embeds -> omitted optional media
+  - source lines 704-724 `Summary` -> omitted allowed category
+  - source lines 727-790 `AP Practice` -> omitted allowed category
+  - source lines 792-813 `Review/Practice for Selection` -> omitted allowed category
 - Assets:
   - `Figures/demorgan.png` -> `AP CSA/assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png`
   - `Figures/demorganex.png` -> `AP CSA/assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png`
@@ -189,61 +272,93 @@ This audit tracks rebuilt Unit 2 topics against CSAwesome2 source content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.7 while Loops
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-7-while-loops.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-7-while-loops.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Three Steps to Writing a Loop
-  - Tracing Loops
-  - Common Errors with Loops
-  - Input-Controlled Loops
-  - Groupwork Coding Challenge: Turtle Squares
+  - source lines 21-104 topic intro, while syntax, block-language comparisons, and flow diagram -> `AP CSA/slides/2-selection-and-iteration/2-7-while-loops.qmd` lines 17-107
+  - source lines 106-126 `Three Steps to Writing a Loop` -> `AP CSA/slides/2-selection-and-iteration/2-7-while-loops.qmd` lines 109-127
+  - source lines 175-179 indentation/AP free-response note -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 17-23
+  - source lines 235-253 `Tracing Loops` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 84-94
+  - source lines 317-368 `Common Errors with Loops` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 136-186
+  - source lines 422-447 `Input-Controlled Loops` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 225-264
+  - source lines 449-479 `Turtle Squares` challenge context -> `AP CSA/slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.qmd` lines 17-52
 - Kept exercises:
-  - `activecode:: whileloop` -> converted to initialize-test-update code task
-  - `parsonsprob:: print_odds_while` -> converted to print-odds task
-  - `mchoice:: while1`, `while2`, `while3` -> converted to trace quick checks
-  - `activecode:: whileloopbugs` -> converted to infinite-loop debugging slide
-  - `clickablearea:: repeatedcode-square` -> converted to repeated-code identification task
-  - `activecode:: challenge-turtle-square-while` -> converted to turtle-square groupwork starter
+  - source lines 132-173 `activecode:: whileloop` -> `AP CSA/slides/2-selection-and-iteration/2-7-while-loops.qmd` lines 129-174 -> prompt, full code, expected output preserved
+  - source lines 183-205 `parsonsprob:: print_odds_while` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 25-63 -> prompt, mixed blocks, correct order preserved
+  - source lines 208-230 `mchoice:: while1` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 65-82 -> missing-header question, options, correct answer preserved
+  - source lines 268-312 `mchoice:: while2`, `while3` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 96-134 -> trace questions, code, options, correct answers preserved
+  - source lines 373-419 `activecode:: whileloopbugs` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 188-223 -> prompt, bugged code, expected output preserved
+  - source lines 454-466 `clickablearea:: repeatedcode-square` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.qmd` lines 25-42 -> prompt, repeated-code lines, correct repeated lines preserved
+  - source lines 480-584 `activecode:: challenge-turtle-square-while` -> `AP CSA/slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.qmd` lines 54-122 -> prompt, full starter code, datafile, while/forward/turn/counter tests preserved
+- Source coverage map:
+  - source lines 21-173 -> `AP CSA/slides/2-selection-and-iteration/2-7-while-loops.qmd` lines 17-174 -> preserved, optional video omitted
+  - source lines 175-447 -> `AP CSA/slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.qmd` lines 17-264 -> preserved, tracing video omitted
+  - source lines 449-584 -> `AP CSA/slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.qmd` lines 17-122 -> preserved
+- Compression/adaptation log:
+  - source lines 132-584 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key assertions are retained on `Test Requirements` slides
+  - source lines 21-447 optional YouTube/video links are omitted; diagrams and trace prompt text are retained
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 89-95 and 238-259 optional video embeds -> omitted optional media
+  - source lines 586-614 `Summary` -> omitted allowed category
+  - source lines 617-698 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/loops.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/loops.png`
   - `Figures/WhileLoopFlow.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/WhileLoopFlow.png`
   - `Figures/loop3steps.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/loop3steps.png`
   - `Figures/traceTable.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/traceTable.png`
+  - `Figures/whileInAppInventor.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/whileInAppInventor.png`
+  - `Figures/ScratchRepeatUntilLoop.png` -> `AP CSA/assets/2-selection-and-iteration/2-7-while-loops/ScratchRepeatUntilLoop.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.8 for Loops
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-8-for-loops.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Three Parts of a For Loop
-  - Decrementing Loops
-  - Groupwork Coding Challenge: Turtles Drawing Shapes
+  - source lines 17-27 topic intro and App Inventor figure -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 17-39 ->  preserved
+  - source lines 31-50 `Three Parts of a For Loop` and while-loop mapping figure -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 41-66 ->  preserved
+  - source lines 60-67 for-loop control flow explanation and figure -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 68-92 ->  preserved
+  - source lines 170-187 common counting patterns -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 174-197 ->  preserved
+  - source lines 276-279 `Decrementing Loops` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 65-73 ->  preserved
+  - source lines 402-419 `Coding Challenge : Turtles Drawing Shapes` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.qmd` lines 17-44 ->  preserved
 - Kept exercises:
-  - `activecode:: forloop`, `forloopfromwhile` -> converted to for loop and while-to-for code tasks
-  - `mchoice:: mcq-for-1`, `mcq-for-2`, `mcq-for-3` -> converted to iteration-count quick checks
-  - `parsonsprob:: print_evens` -> converted to mixed-up even-number code
-  - `activecode:: for-bottles-backwards`, `forloop-backwards` -> converted to decrementing loop examples
-  - `activecode:: challenge-TurtleLoopShapes` -> converted to turtle polygon groupwork starter
+  - source lines 72-107 `activecode:: forloop` -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 94-133 -> prompt, full code, and expected output preserved
+  - source lines 109-168 `activecode:: forloopfromwhile` -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 135-172 -> prompt, while-loop code, expected output, no-while check, and for-loop check preserved
+  - source lines 191-252 `mchoice:: mcq-for-1`, `mcq-for-2`, `mcq-for-3` -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 199-287 -> questions, choices, correct answers, and reasoning preserved
+  - source lines 256-274 `parsonsprob:: print_evens` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 17-63 -> prompt, mixed blocks, and correct order preserved
+  - source lines 283-357 `activecode:: for-bottles-backwards` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 75-129 -> prompt, full code, and key test requirements preserved
+  - source lines 359-360 `printPopSong` trace explanation -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 131-141 ->  preserved
+  - source lines 363-398 `activecode:: forloop-backwards` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 143-182 -> prompt, full code, and expected output preserved
+  - source lines 421-564 `activecode:: challenge-TurtleLoopShapes` -> `AP CSA/slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.qmd` lines 46-208 -> prompt, datafile, full code, focused code blocks, and key test requirements preserved
+- Source coverage map:
+  - source lines 17-252 -> `AP CSA/slides/2-selection-and-iteration/2-8-for-loops.qmd` lines 17-287 -> preserved, optional video omitted
+  - source lines 256-398 -> `AP CSA/slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.qmd` lines 17-182 -> preserved
+  - source lines 402-564 -> `AP CSA/slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.qmd` lines 17-208 -> preserved
+- Compression/adaptation log:
+  - source lines 90-107, 129-168, 315-357, 381-398, 503-564 Runestone JUnit classes are not copied verbatim; prompts, code windows, expected output, and key assertions are retained on `Test Requirements` slides
+  - source lines 256-274 `parsonsprob:: print_evens` appears before `Decrementing Loops`; it is placed in Part 2 to match the approved split target `decrementing-and-mixed-code`
+  - source lines 421-503 long Turtle code is held in `.code-scroll .compact`, with later focused code pages for classroom tracing
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 52-58 optional YouTube embed -> omitted optional media
+  - source lines 566-573 `Summary` -> omitted allowed category
+  - source lines 575-682 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/loopAppInv.png` -> `AP CSA/assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png`
   - `Figures/compareForAndWhile.png` -> `AP CSA/assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png`
@@ -251,123 +366,188 @@ This audit tracks rebuilt Unit 2 topics against CSAwesome2 source content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.9 Implementing Selection and Iteration Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-9-loop-algorithms.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Accumulator Pattern for Sum/Average
-  - Input-Controlled Loop
-  - Loop with if and Minimum/Maximum
-  - Divisibility
-  - Finding Digits with slash and percent
-  - Math.random in if Statements
-  - Frequency
-  - Groupwork Coding Challenge: Prime Number Finder
+  - source lines 27-33 topic intro and standard loop-selection algorithms -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 17-35 ->  preserved
+  - source lines 36-68 `Accumulator Pattern for Sum/Average` -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 37-80 ->  preserved
+  - source lines 168-191 `Input-Controlled Loop` -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 143-179 ->  preserved
+  - source lines 284-303 `Loop with if and Minimum/Maximum` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd` lines 17-45 ->  preserved
+  - source lines 383-401 `Divisibility` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd` lines 112-147 ->  preserved
+  - source lines 490-494 `Finding Digits with / and %` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 17-37 ->  preserved
+  - source lines 583-607 remainder operator uses -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 89-113 ->  preserved
+  - source lines 610-640 `Math.random() in if Statements` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 115-151 ->  preserved
+  - source lines 753-770 `Frequency` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 242-268 ->  preserved
+  - source lines 774-787 `Groupwork Coding Challenge: Prime Number Finder` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.qmd` lines 17-46 ->  preserved
 - Kept exercises:
-  - `activecode:: accumulator-practice` -> converted to sum and average code task
-  - `activecode:: input-controlled-loop` -> converted to sentinel loop example
-  - `activecode:: min-max-practice` -> converted to max update code task
-  - `activecode:: isPrimeLoop` -> converted to prime-checking code task
-  - `activecode:: checkDigit` -> converted to digit extraction code task
-  - `mchoice:: mcq-rnd-ifs` -> converted to probability quick check
-  - `activecode:: randomShapes` -> converted to random-choice note
-  - `activecode:: challenge-find-primes` -> converted to groupwork starter
+  - source lines 74-166 `activecode:: accumulator-practice` -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 82-141 -> prompt, full starter code, expected output, and method-call test preserved
+  - source lines 205-282 `activecode:: input-controlled-loop` -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 181-245 -> prompt, stdin, full starter code, and two average tests preserved
+  - source lines 307-380 `activecode:: min-max-practice` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd` lines 47-110 -> prompt, full starter code, loop-count test, and `num > max` check preserved
+  - source lines 405-488 `activecode:: isPrimeLoop` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd` lines 149-197 -> prompt, full starter code, expected output, `isPrime(9)` test, and divisor test preserved
+  - source lines 498-581 `activecode:: checkDigit` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 39-87 -> prompt, full starter code, expected output, `checkDigit(13579, 7)` test, and `% 10` check preserved
+  - source lines 645-672 `mchoice:: mcq-rnd-ifs` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 153-180 -> question, answer choices, correct answers, and reasoning preserved
+  - source lines 677-750 `activecode:: randomShapes` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 182-240 -> prompt, datafile, full starter code, and required tokens preserved
+  - source lines 788-890 `activecode:: challenge-find-primes` -> `AP CSA/slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.qmd` lines 48-145 -> prompt, full starter code, focused work blocks, and key tests preserved
+- Source coverage map:
+  - source lines 27-166 -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 17-141 -> preserved
+  - source lines 168-282 -> `AP CSA/slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.qmd` lines 143-245 -> preserved, external IDE links omitted
+  - source lines 284-488 -> `AP CSA/slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.qmd` lines 17-197 -> preserved
+  - source lines 490-750 -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 17-240 -> preserved
+  - source lines 753-770 -> `AP CSA/slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.qmd` lines 242-268 -> preserved
+  - source lines 774-890 -> `AP CSA/slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.qmd` lines 17-145 -> preserved, optional Numberphile link omitted
+- Compression/adaptation log:
+  - source lines 114-166, 247-282, 351-380, 434-488, 527-581, 712-750, 830-890 Runestone JUnit classes are not copied verbatim; prompts, code windows, expected output, stdin, and key assertions are retained on `Test Requirements` slides
+  - source lines 193-201 external JuiceMind/Replit IDE links are omitted; the adjacent activecode task and input data are retained
+  - source lines 777-781 optional Numberphile link is omitted; the prime-number encryption context is retained
+  - source lines 788-829 long Prime Number Finder code is held in `.code-scroll .compact`, with later focused code pages for `isPrime` and `findPrimes`
 - Omitted items:
-  - Summary
+  - source lines 193-201 JuiceMind/Replit external IDE links -> omitted optional external practice links
+  - source lines 777-781 Numberphile external video link -> omitted optional external media
+  - source lines 893-905 `Summary` -> omitted allowed category
 - Assets:
   - No retained topic-specific image beyond source code tasks.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.10 Implementing String Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-10-strings-loops.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - While Find and Replace Loop
-  - For Loops: Reverse String
-  - Groupwork Coding Challenge: String Replacement Cats and Dogs
+  - source lines 20-48 topic intro, standard string algorithms, string index figure, and string methods -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 17-60 ->  preserved
+  - source lines 60-79 `While Find and Replace Loop` -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 62-80 ->  preserved
+  - source lines 118-122 scanning mistake context and trace prompt -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 165-175 ->  preserved
+  - source lines 195-216 `For Loops: Reverse String` pattern -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 17-41 ->  preserved
+  - source lines 249-255 reverse-string setup context -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 110-116 ->  preserved
+  - source lines 324-340 `Coding Challenge : String Replacement Cats and Dogs` context, required task, and optional extensions -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 162-190 ->  preserved
 - Kept exercises:
-  - `parsonsprob:: removeA` -> converted to mixed-up remove-character task
-  - `activecode:: string-replace1` -> converted to count-replacements code task
-  - `parsonsprob:: countEs` -> converted to count-letter task
-  - `activecode:: reverseString` -> converted to reverse-string trace
-  - `activecode:: challenge-string-replace` -> converted to cats-and-dogs groupwork starter
+  - source lines 84-115 `parsonsprob:: removeA` -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 82-163 -> prompt, mixed blocks, and correct order preserved
+  - source lines 124-193 `activecode:: string-replace1` -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 177-239 -> prompt, full code, original trace output, and output-change test preserved
+  - source lines 221-246 `parsonsprob:: countEs` -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 43-108 -> prompt, mixed blocks, and correct order preserved
+  - source lines 260-322 `activecode:: reverseString` -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 118-160 -> prompt questions, full code, and code-change test preserved
+  - source lines 342-414 `activecode:: challenge-string-replace` -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 192-231 -> prompt, full starter code, expected output rule, while-loop check, substring check, and no-`.replace` check preserved
+- Source coverage map:
+  - source lines 20-193 -> `AP CSA/slides/2-selection-and-iteration/2-10-implementing-string-algorithms.qmd` lines 17-239 -> preserved, external reference/visualizer links omitted
+  - source lines 195-322 -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 17-160 -> preserved, external visualizer link omitted
+  - source lines 324-414 -> `AP CSA/slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.qmd` lines 162-231 -> preserved
+- Compression/adaptation log:
+  - source lines 158-193, 284-322, 363-414 Runestone JUnit classes are not copied verbatim; prompts, code windows, original trace output, and key assertions are retained on `Test Requirements` slides
+  - source lines 16-18 AP CSA quick reference link is omitted; the relevant string methods are retained directly on slides
+  - source lines 51-58 and 253-255 Java visualizer links are omitted; the adjacent trace prompts and code are retained
+  - source lines 67-77 and 209-216 source pattern slots use placeholder processing; qmd replaces literal placeholder dots with comments so the quality gate does not treat them as missing code
 - Omitted items:
-  - Summary
+  - source lines 16-18 AP CSA Java Quick Reference external link -> omitted optional external link
+  - source lines 51-58 Java visualizer links -> omitted optional external media
+  - source lines 253-255 Java visualizer link -> omitted optional external media
+  - source lines 416-427 `Summary` and extra FRQ practice pointer -> omitted allowed category
 - Assets:
   - `Figures/stringIndicies.png` -> `AP CSA/assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png`
   - `Figures/catordog.jpg` -> `AP CSA/assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.11 Nested Iteration
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-11-nested-loops.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Nested loop rectangle pattern
-  - Nested Loops with Turtles
-  - Groupwork Coding Challenge: Turtle Snowflakes
+  - source lines 16-23 topic intro explanation and nested loops figure -> `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd` lines 17-43 ->  preserved
+  - source lines 167-170 `Nested Loops with Turtles` intro -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 17-27 ->  preserved
+  - source lines 268-290 `Coding Challenge : Turtle Snowflakes` context and five tasks -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 85-112 ->  preserved
 - Kept exercises:
-  - `activecode:: lcfcnl1` -> converted to rectangle rows and columns task
-  - `mchoice:: nested1`, `nested2` -> converted to nested-loop quick checks
-  - `parsonsprob:: nestedParsons1` -> converted to mixed-up nested-loop code
-  - `activecode:: TurtleNestedLoop` -> converted to turtle nested-loop code task
-  - `activecode:: challenge-Turtle-Nested-Loop-Snowflakes` -> converted to snowflake groupwork starter
+  - source lines 30-79 `activecode:: lcfcnl1` -> `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd` lines 45-98 -> prompt, full code, row/column edit task, and `row <= 10` / `col <= 8` tests preserved
+  - source lines 83-131 `mchoice:: nested1`, `nested2` -> `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd` lines 100-166 -> questions, choices, correct answers, and reasoning preserved
+  - source lines 133-164 `parsonsprob:: nestedParsons1` -> `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd` lines 168-246 -> prompt, mixed blocks including extra wrong block, and correct order preserved
+  - source lines 180-266 `activecode:: TurtleNestedLoop` -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 29-83 -> prompt, datafile, full starter code, and outer-loop completion test preserved
+  - source lines 293-416 `activecode:: challenge-Turtle-Nested-Loop-Snowflakes` -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 114-191 -> prompt, datafile, full starter code, focused block, and test requirements preserved
+- Source coverage map:
+  - source lines 16-164 -> `AP CSA/slides/2-selection-and-iteration/2-11-nested-iteration.qmd` lines 17-246 -> preserved, external Java visualizer link omitted
+  - source lines 167-266 -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 17-83 -> preserved, external repl/github links omitted
+  - source lines 268-416 -> `AP CSA/slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.qmd` lines 85-191 -> preserved, external repl/color links omitted
+- Compression/adaptation log:
+  - source lines 57-79, 223-266, 335-416 Runestone JUnit classes are not copied verbatim; prompts, code windows, expected tests, and key assertions are retained on `Test Requirements` slides
+  - source lines 25-27 Java visualizer link is omitted; the adjacent prompt and code are retained
+  - source lines 174-189 and 271-279 external repl/github/Color links are omitted; code, datafile, and relevant task directions are retained
 - Omitted items:
-  - Summary
+  - source lines 25-27 Java visualizer external link -> omitted optional external media
+  - source lines 174-189 repl/github external links -> omitted optional external practice links
+  - source lines 271-279 repl/Color external links -> omitted optional external links
+  - source lines 418-423 `Summary` -> omitted allowed category
 - Assets:
   - `Figures/nestedloops.png` -> `AP CSA/assets/2-selection-and-iteration/2-11-nested-iteration/nestedloops.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 2.12 Informal Run-Time Analysis
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit2-Selection-and-Iteration/topic-2-12-loop-analysis.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd`
+  - [x] Deck: `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Tracing Loops
-  - Counting Loop Iterations
-  - Analyzing Nested Loops
-  - Non-rectangular Nested Loops
-  - Groupwork Coding Challenge: POGIL Analyzing Loops
+  - source lines 18-29 `Topic intro`, `Tracing Loops` -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 17-29 -> topic intro and tracing-table guidance preserved
+  - source lines 144-148 `Counting Loop Iterations` -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 170-180 -> statement execution count definition preserved
+  - source lines 190-199 single-loop counting formula -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 220-245 -> largest/smallest value rule and `<` / `<=` distinction preserved
+  - source lines 202-256 `Analyzing Nested Loops` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 17-89 -> rectangular nested-loop idea, code, output, and multiplication count preserved
+  - source lines 258-282 `Non-rectangular Nested Loops` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 91-125 -> variable inner-loop count and triangle output preserved
+  - source lines 334-350 non-rectangular count formula and Gauss figure -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 178-234 -> sum formula and figure preserved
+  - source lines 352-367 `Groupwork Coding Challenge: POGIL Analyzing Loops` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 17-33 -> POGIL intro, group directions, trace table direction, and formula direction preserved
 - Kept exercises:
-  - `activecode:: example_trace_loop` -> converted to trace example
-  - `mchoice:: loop-trace-count`, `loop-trace-count2` -> converted to iteration-count quick checks
-  - `activecode:: countstars1` -> converted to single-loop counting example
-  - `activecode:: countstars` -> converted to rectangular nested-loop analysis
-  - `activecode:: triangle-stars` -> converted to triangular nested-loop analysis
-  - `mchoice:: qln1`, `qln2`, `qln3`, `qln4` -> converted to groupwork analysis prompts and quick checks
+  - source lines 31-73 `activecode:: example_trace_loop` -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 31-76 -> prompt, starter code, print-statement task, and expected output preserved
+  - source lines 75-82 `whileLoopTrace.png` figure -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 78-88 -> trace-table figure and caption preserved
+  - source lines 90-142 `mchoice:: loop-trace-count`, `loop-trace-count2` -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 90-168 -> questions, code, choices, correct answers, and reasoning preserved
+  - source lines 153-188 `activecode:: countstars1` -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 182-218 -> prompt, starter code, expected output, and test expectation preserved
+  - source lines 211-250 `activecode:: countstars` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 27-89 -> prompt, full code, rectangular output, and iteration-count reasoning preserved
+  - source lines 287-332 `activecode:: triangle-stars` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 127-176 -> prompt, starter code, upside-down triangle task, expected output, and `col=row` test preserved
+  - source lines 369-393 `mchoice:: qln1` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 35-67 -> question, code, choices, correct answer, and reasoning preserved
+  - source lines 394-418 `mchoice:: qln2` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 69-101 -> question, code, choices, correct answer, and reasoning preserved
+  - source lines 419-443 `mchoice:: qln3` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 103-135 -> question, code, choices, correct answer, and reasoning preserved
+  - source lines 445-470 `mchoice:: qln4` -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 137-178 -> question, code, choices, correct answer, and reasoning preserved
+- Source coverage map:
+  - source lines 18-199 -> `AP CSA/slides/2-selection-and-iteration/2-12-informal-run-time-analysis.qmd` lines 17-245 -> preserved, external Java visualizer link omitted
+  - source lines 202-350 -> `AP CSA/slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.qmd` lines 17-234 -> preserved
+  - source lines 352-470 -> `AP CSA/slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.qmd` lines 17-178 -> preserved, external POGIL/role links omitted
+- Compression/adaptation log:
+  - source lines 56-73, 171-188, 233-250, 309-332 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key test assertions are retained on `Test Requirements` slides
+  - source lines 25-27 Java visualizer link is omitted; the adjacent loop-tracing prompt and code are retained
+  - source lines 355-362 POGIL/role links are omitted; group structure, participation expectations, trace-table direction, and formula direction are retained
 - Omitted items:
-  - Summary
-  - Loop Analysis Game
-  - Review/Practice for Loops
+  - source lines 25-27 Java visualizer external link -> omitted optional external media
+  - source lines 355-362 POGIL/role links -> omitted optional external role resources
+  - source lines 475-486 `Summary` -> omitted allowed category
+  - source lines 489-502 `Loop Analysis Game` -> omitted allowed game
+  - source lines 505-529 `Review/Practice for Loops` -> omitted allowed review/practice bank
 - Assets:
   - `Figures/whileLoopTrace.png` -> `AP CSA/assets/2-selection-and-iteration/2-12-informal-run-time-analysis/whileLoopTrace.png`
   - `Figures/sumFormula.png` -> `AP CSA/assets/2-selection-and-iteration/2-12-informal-run-time-analysis/sumFormula.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`

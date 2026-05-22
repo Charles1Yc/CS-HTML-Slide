@@ -1,0 +1,229 @@
+---
+title: "2.5 Compound Boolean Expressions"
+subtitle: "Part 2: Short Circuit and Truth Tables POGIL"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Short Circuit Evaluation
+
+### `&&` and `||`
+
+Both `&&` and `||` use <span class="term">short circuit evaluation</span>.
+
+That means the second expression on the right of the operator isn't necessarily checked, if the result from the first expression is enough to tell if the compound Boolean expression is true or false.
+
+## Short Circuit Rules
+
+### Logical or and logical and
+
+::: {.tight-list}
+- If two Boolean values or expressions are combined with logical **or** (`||`) and the first expression is `true`, then the second expression won’t be executed.
+- If two Boolean values or expressions are combined with logical **and** (`&&`) and the first expression is `false`, then the second expression won't be executed.
+:::
+
+Only one true side is needed for `||`. Both sides need to be true for `&&`.
+
+## Quick Check {.fit-small}
+
+### `mchoice:: shortCircuit1`
+
+What is printed when the following code executes and `x` has been set to `0` and `y` to `3`?
+
+::: {.code-scroll}
+```java
+if (x > 0 && (y / x) == 3)
+{
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
+}
+```
+:::
+
+Options:
+
+::: {.tight-list}
+- `first case`
+- `second case`
+- `You will get a error because you can't divide by zero.`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: shortCircuit1`
+
+Correct answer: `second case`.
+
+Since the first condition is false when `x` is equal to zero, the second condition won't execute. Execution moves to the else.
+
+There is no divide-by-zero error because `(y / x) == 3` is not evaluated.
+
+## Quick Check {.fit-small}
+
+### `mchoice:: shortCircuit2`
+
+What is printed when the following code executes and `x` has been set to zero and `y` is set to `3`?
+
+::: {.code-scroll}
+```java
+if (x == 0 || (y / x) == 3)
+{
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
+}
+```
+:::
+
+Options:
+
+::: {.tight-list}
+- `first case`
+- `second case`
+- `You will get a error because you can't divide by zero.`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: shortCircuit2`
+
+Correct answer: `first case`.
+
+Since `x` is equal to zero, the first expression in the complex conditional is true. The `(y / x) == 3` expression won't be evaluated, so it won't cause a divide-by-zero error.
+
+## Groupwork Coding Challenge
+
+### Truth Tables POGIL
+
+The textbook encourages this activity as a [POGIL](https://pogil.org/about-pogil/what-is-pogil) group activity.
+
+POGIL groups are self-managed teams of up to 4 students where everyone has a role and works together to solve the problems, making sure that everyone in the team participates and learns.
+
+## POGIL Task 1
+
+### Venn diagram comparisons
+
+Draw or print a Venn diagram of 4 intersecting circles.
+
+::: {.tight-list}
+- Put the names of the 4 people in your group one in each circle.
+- Write down each person's age.
+- If two or more people are the same age, put the age in the intersecting parts of their circles.
+- Write Boolean expressions comparing ages using `==`, `<`, `>`, and `&&`.
+- Ask each person their favorite movie and write Boolean expressions comparing movies using `==`, `!=`, and `&&`.
+- Think of 1 more comparison and write it in the circles and as a Boolean expression.
+:::
+
+## POGIL Task 2
+
+### Beach condition
+
+Write this sentence as a Java if statement using an `int` variable `temperature` and Boolean variables `sunny` and `raining`:
+
+> If it's sunny, OR if the temperature is greater than 80 and it's not raining, I will go to the beach.
+
+If the conditional is true, print `Go to the beach!`.
+
+## POGIL Task 3
+
+### Truth table
+
+Complete a truth table for the if statement from Task 2 with columns for:
+
+::: {.tight-list}
+- `sunny`
+- `temperature > 80`
+- `raining`
+- `go to the beach`
+:::
+
+## POGIL Task 4
+
+### Test every row
+
+Write Java code to test your if statement and try all the values in your truth table to see if you filled it out correctly.
+
+You need a test case for each of the 8 rows in your truth table:
+
+::: {.tight-list}
+- `sunny` true and false
+- `raining` true and false
+- `temperature` greater than 80, for example `90`
+- `temperature` less than 80, for example `60`
+:::
+
+## Code Task
+
+### `activecode:: challenge-truthtables`
+
+Textbook prompt: Challenge-truthtables: Test your Boolean expression in an if statement below.
+
+## Code Window
+
+### `activecode:: challenge-truthtables`
+
+::: {.code-scroll}
+```java
+public class TruthTable
+{
+    public static void main(String[] args)
+    {
+        // Test multiple values for these variables
+        boolean sunny = false;
+        int temperature = 90;
+        boolean raining = false;
+
+        // Write an if statement for: If it's sunny,
+        //  OR if the temperature is greater than 80
+        //     and it's not raining, "Go to the beach!"
+
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: challenge-truthtables`
+
+Runestone checks that:
+
+::: {.tight-list}
+- initial input `sunny = false`, `temperature = 90`, `raining = false` prints `Go to the beach!`
+- the code contains an `if`
+- the code contains `temperature > 80`
+- the code contains `&&`
+- the code contains `||`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- state when `&&` and `||` skip the second expression
+- explain why short circuit avoids divide-by-zero in the two checks
+- translate the beach sentence using `||`, `&&`, and `!`
+- build all 8 truth-table rows for three Boolean conditions
+- test the activecode with values from every truth-table row
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

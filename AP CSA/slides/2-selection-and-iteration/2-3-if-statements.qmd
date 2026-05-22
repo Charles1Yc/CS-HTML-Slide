@@ -1,6 +1,6 @@
 ---
 title: "2.3 if Statements"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: One-Way Selection and Relational Ifs"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,207 +16,249 @@ lang: zh-CN
 
 ## Topic Intro
 
-### `if` statements implement one-way selection
+### Selection changes sequential execution
 
-An <span class="term">if statement</span> (条件语句) checks a Boolean expression and runs a block only when the expression is true.
+<span class="term">If statements</span> (条件语句) are found in all programming languages as a way to choose between different paths in an algorithm.
 
-::: {.two-col}
-::: {}
-![If block comparison](../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png){width="100%"}
-:::
-::: {}
-```java
-if (isRaining)
-{
-    System.out.println("Bring an umbrella");
-}
-```
-:::
-:::
+An if statement is a type of <span class="term">selection</span> statement that changes the sequential execution. It affects the <span class="term">flow of control</span> by executing different segments of code based on the value of a <span class="term">Boolean expression</span>.
+
+## If Blocks and Java Ifs
+
+### App Inventor, AP CSP, and Java
+
+If you took an AP CSP course or used a block programming language like Scratch, you've probably seen if blocks or statements before.
+
+![Comparison of App Inventor if block, AP CSP ifs, and Java if statements](../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png){width="100%"}
 
 ## One-Way Selection
 
-### False means skip the block
+### Body runs only when the Boolean expression is true
 
-![One-way selection](../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png){fig-align="center" width="32%"}
+A <span class="term">one-way selection</span> (if statement) is used when there is a segment of code, called the <span class="term">body</span> of the if statement, to execute under a certain condition.
 
-```java
-boolean isRaining = false;
-if (isRaining)
-{
-    System.out.println("Take an umbrella");
-}
-System.out.println("Leave home");
-```
+If the Boolean expression is <span class="mark">true</span>, the body is executed. If the Boolean expression is <span class="mark">false</span>, the body is skipped and the program continues with the next statement after the if statement.
 
-Only `Leave home` prints because the condition is false.
+![The order that statements execute in a conditional](../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png){fig-align="center" width="28%"}
 
-## Relational Operators in `if`
+## One-Way Syntax
 
-### The condition can be a comparison
+### Braces group the body
 
-```java
-int age = 16;
-if (age >= 16)
-{
-    System.out.println("You can apply for a driver's license.");
-}
-```
+The open curly brace `{` and close curly brace `}` are used to group a block of statements together as the body of the if statement.
 
-The body must be inside braces when it contains more than one statement. This course uses braces even for one-line bodies.
+It is recommended to always put in the curly braces even if you have just one statement under the if statement. The AP exam uses curly braces.
 
-## Quick Check
+## One-Way Syntax Patterns
 
-### Trace one-way selection
-
-What is printed?
+### Single statement and block forms
 
 ```java
-int temp = 72;
-if (temp < 70)
+// A single if statement
+if (boolean expression)
+    Do statement;
+
+// Or a single if with {}
+if (boolean expression)
 {
-    System.out.println("Wear a jacket");
+   Do statement;
 }
-System.out.println("Go outside");
-```
 
-Answer:
-
-```text
-Go outside
-```
-
-Reason: `72 < 70` is false, so the first print is skipped.
-
-## Two-Way Selection
-
-### `if else` handles both outcomes
-
-![Two-way selection](../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png){fig-align="center" width="34%"}
-
-```java
-if (heads)
+// A block if statement: { } required
+if (boolean expression)
 {
-    System.out.println("Heads");
-}
-else
-{
-    System.out.println("Tails");
+   Do Statement1;
+   Do Statement2;
+   Do StatementN;
 }
 ```
 
-Exactly one branch runs.
+## If Statement Note
+
+### No semicolon after the Boolean expression
+
+There is no semicolon `;` at the end of the Boolean expression in an if statement, even if it is the end of that line.
+
+The semicolon goes at the end of the whole if statement, often on the next line. Or `{ }` are used to mark the beginning and end of the block of code under the if condition.
 
 ## Code Task
 
-### License age
+### `activecode:: if-raining`
 
-Complete the `else` branch.
+Textbook prompt: The variable `isRaining` is a Boolean variable that is either true or false. If it is true then the message `Take an umbrella!` will be printed and then execution will continue with the next statement which will print `Drive carefully`.
 
+::: {.code-scroll}
 ```java
-public class LicenseCheck
+public class Test1
 {
     public static void main(String[] args)
     {
-        int age = 15;
-        if (age >= 16)
+        boolean isRaining = true;
+        if (isRaining)
         {
-            System.out.println("Can apply for a license");
+            System.out.println("Take an umbrella!");
         }
-        else
-        {
-            System.out.println("Wait until age 16");
-        }
+        System.out.println("Drive carefully");
     }
 }
 ```
+:::
 
-Expected output: `Wait until age 16`.
+## Expected Output
 
-## Mixed-Up Code
+### `if-raining`
 
-### Even or odd
+The Runestone test expects this `main` output:
 
-Reorder the statements to print whether `num` is even.
+```text
+Take an umbrella!
+Drive carefully
+```
 
+Execution continues after the if statement whether the body ran or was skipped.
+
+## Trace Checkpoint
+
+### `fillintheblank:: iffalseOutput`
+
+Textbook prompt: Try changing the code above to `boolean isRaining = false;`. What will it print?
+
+Student response:
+
+```text
+____________________________
+```
+
+## Trace Answer
+
+### `fillintheblank:: iffalseOutput`
+
+Correct response:
+
+```text
+Drive carefully
+```
+
+Reasoning: If the Boolean is false, Java skips the print statement inside the if body and continues with the next statement.
+
+## Relational Operators in If Statements
+
+### Conditions often compare values
+
+Most if statements have a Boolean condition that uses relational operators like `==`, `!=`, `<`, `>`, `<=`, `>=`, as in the last lesson.
+
+The condition may compare a variable to a constant value, another variable, or an arithmetic expression.
+
+## Code Task
+
+### `activecode:: if-relational`
+
+Textbook prompt: Run the following active code a couple times until you see all the possible outputs. It prints out whether a random number is positive or equal to `0`. Add another if statement that tests if it is a negative number.
+
+## Code Window
+
+### `activecode:: if-relational`
+
+::: {.code-scroll .compact}
 ```java
-public class EvenOdd
+public class TestNumbers
 {
     public static void main(String[] args)
     {
-        int num = 12;
-        if (num % 2 == 0)
+        // Get a random number from -10 up to 10.
+        int number = (int) (Math.random() * 21) - 10;
+        System.out.println("The number is " + number);
+
+        // is it positive?
+        if (number > 0)
         {
-            System.out.println("even");
+            System.out.println(number + " is positive!");
         }
-        else
+        // is it 0?
+        if (number == 0)
         {
-            System.out.println("odd");
+            System.out.println(number + " is zero!");
         }
+        // is it negative?
+        // Add another if statement
+
     }
 }
 ```
+:::
 
-Key condition: `num % 2 == 0`.
+## Test Requirements
 
-## Common Error
+### `activecode:: if-relational`
 
-### Missing braces can change the logic
+Runestone repeatedly runs `main` until it sees these cases:
 
-```java
-if (score >= 90)
-    System.out.println("A");
-    System.out.println("Excellent");
+::: {.tight-list}
+- a positive number output that contains `positive`
+- zero output that contains `zero`
+- a negative number output that contains `negative`
+:::
+
+Expected output pattern for the negative case after the missing if is added:
+
+```text
+The number is -3
+-3 is negative!
 ```
 
-Only the first print is controlled by the `if`. The second print always runs.
+## Common Equality Mistake
 
-Preferred classroom form:
+### Use `==`, not `=`, in a condition
 
-```java
-if (score >= 90)
-{
-    System.out.println("A");
-    System.out.println("Excellent");
-}
-```
+A common mistake in if statements is using `=` instead of `==` in the condition by mistake.
 
-## Groupwork Coding Challenge
+You should always <span class="mark">use `==`, not `=`</span>, in the condition of an if statement to test a variable.
 
-### Magic 8 Ball
+One equal sign `=` assigns a value to a variable, and two equal signs `==` test if a variable has a certain value.
 
-![Magic 8 Ball challenge](../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png){fig-align="center" width="22%"}
+## Quick Check
 
-Starter idea:
+### `mchoice:: mcq-if-trace`
+
+Consider the following code segment. What is printed as a result of executing the code segment?
 
 ```java
-int answer = (int)(Math.random() * 8) + 1;
-if (answer == 1)
+int x = 3;
+if (x > 2)
 {
-    System.out.println("It is certain");
+   x = x * 2;
 }
-else
+if (x > 4)
 {
-    System.out.println("Ask again later");
+   x = 0;
 }
+System.out.print(x);
 ```
 
-Extend it so several different random answers can print.
+Options: `3`, `6`, `0`, `4`, `The code will not compile`.
+
+## Answer Reasoning
+
+### `mchoice:: mcq-if-trace`
+
+Correct answer: `0`.
+
+Reasoning: If `x` is greater than `2`, it is doubled. Then that result is greater than `4`, so `x` is set to `0` in the second if statement.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain when an `if` body runs and when it is skipped
-- trace one-way and two-way selection
-- use braces to keep controlled statements clear
-- write `if else` logic for mutually exclusive outcomes
-- use `%` in selection to test even and odd numbers
+- define an `if statement` as selection that changes sequential execution
+- explain when a one-way selection body runs and when it is skipped
+- use braces to group the body of an if statement
+- avoid a semicolon immediately after the Boolean expression
+- use `==`, not `=`, when testing equality in a condition
+- trace consecutive if statements in source order
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: if-else and common errors →](2-3-part-2-if-else-and-common-errors.html)

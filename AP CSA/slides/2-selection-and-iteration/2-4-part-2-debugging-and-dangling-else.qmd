@@ -1,0 +1,222 @@
+---
+title: "2.4 Nested if Statements"
+subtitle: "Part 2: Debugging and Dangling Else"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Debug Task
+
+### `activecode:: ifElseIfDebug`
+
+Textbook prompt: The else-if connection is necessary if you want to hook up conditionals together. In the following code, there are 4 separate if statements instead of the if-else-if pattern.
+
+Will this code print out the correct grade? First, trace through the code to see why it prints out the incorrect grade. Then, fix the code by adding in 3 `else` keywords to connect the if statements and see if it works.
+
+## Code Window
+
+### `activecode:: ifElseIfDebug`
+
+::: {.code-scroll .compact}
+```java
+import java.util.Scanner;
+
+public class IfDebug
+{
+   public static void main(String[] args)
+   {
+       Scanner scan = new Scanner(System.in);
+       int score = scan.nextInt();
+       String grade = "";
+
+       if (score >= 90)
+       {
+           grade = "A";
+       }
+       if (score >= 80)
+       {
+           grade = "B";
+       }
+       if (score >= 70)
+       {
+           grade = "C";
+       }
+       if (score >= 60)
+       {
+           grade = "D";
+       }
+       else
+       {
+           grade = "F";
+       }
+
+       System.out.println(grade);
+   }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: ifElseIfDebug`
+
+Runestone checks the fixed program with these inputs:
+
+| input score | expected grade |
+|---|---|
+| `95` | `A` |
+| `85` | `B` |
+| `75` | `C` |
+| `65` | `D` |
+| `55` | `F` |
+
+## Battery Task
+
+### `activecode:: ifelseifBattery`
+
+Textbook prompt: Finish the following code so that it prints `"Plug in your phone!"` if the battery is below `50`, `"Unplug your phone!"` if it is above `100`, and `"All okay!"` otherwise.
+
+Change the battery value to test all 3 conditions.
+
+## Code Window
+
+### `activecode:: ifelseifBattery`
+
+```java
+import java.util.Scanner;
+
+public class BatteryTest
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        int battery = scan.nextInt();
+
+        System.out.println("All okay!");
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: ifelseifBattery`
+
+Runestone checks these inputs:
+
+| input battery | expected output |
+|---|---|
+| `95` | `All okay!` |
+| `100` | `Unplug your phone!` |
+| `45` | `Plug in your phone!` |
+
+The source prompt says "above 100"; the Runestone test boundary uses `100`.
+
+## Dangling Else Statements
+
+### Closest unmatched if
+
+Sometimes with nested ifs we find a <span class="term">dangling else</span> that could potentially belong to either if statement.
+
+The rule is that the else clause will always be a part of the <span class="mark">closest unmatched if statement</span> in the same block of code, regardless of indentation.
+
+```java
+// Nested if with dangling else
+if (boolean expression)
+   if (boolean expression)
+      Do statement;
+   else  // belongs to closest if
+      Do other statement;
+```
+
+## Debug Task
+
+### `activecode:: danglingelse`
+
+Textbook prompt: Try the following code with a dangling else. Notice that the indentation does not matter to the compiler. How could you get the else to belong to the first if statement?
+
+## Code Window
+
+### `activecode:: danglingelse`
+
+::: {.code-scroll}
+```java
+import java.util.Scanner;
+
+public class DanglingElseTest
+{
+    public static void main(String[] args)
+    {
+       Scanner in = new Scanner(System.in);
+
+       boolean sunny = in.nextBoolean();
+       boolean hot = in.nextBoolean();
+
+       if (sunny)
+           if (hot)
+              System.out.println("Head for the beach!");
+         else // Which if is else attached to??
+           System.out.println("Bring your umbrella!");
+   }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: danglingelse`
+
+Runestone checks the fixed program with these inputs:
+
+| input | expected output |
+|---|---|
+| `true false` | empty output |
+| `true true` | `Head for the beach!` |
+| `false false` | `Bring your umbrella!` |
+| `false true` | `Bring your umbrella!` |
+
+## Braces Fix
+
+### Make else belong to the top-level if
+
+You can use curly braces `{}` to enclose a nested if and have the else clause belong to the top level if clause like below:
+
+```java
+// Nested if with dangling else
+if (boolean expression)
+{
+   if (boolean expression)
+      Do this statement;
+}
+else  // belongs to first if
+  Do that statement;
+```
+
+Many experienced Java programmers always use curly braces, even when they are not technically required to avoid this kind of confusion.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why separate if statements can overwrite earlier grade assignments
+- connect mutually exclusive grade ranges with `else if`
+- preserve the battery prompt and test boundary when writing conditions
+- state that `else` attaches to the closest unmatched `if`
+- use braces to force an else to belong to the top-level if
+- test dangling-else code with all four Boolean input pairs
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Adventure challenge →](2-4-part-3-adventure-challenge.html)

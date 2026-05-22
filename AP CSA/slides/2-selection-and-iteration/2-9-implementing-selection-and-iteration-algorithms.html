@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.9 Implementing Selection and Iteration Algorithms</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Accumulator and Input-Controlled Loops</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,193 +212,226 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="syntax-becomes-reusable-algorithm-patterns">Syntax becomes reusable algorithm patterns</h3>
-<p>This topic combines selection and iteration to implement common AP CSA algorithms.</p>
+<h3 id="standard-loop-and-selection-algorithms">Standard loop-and-selection algorithms</h3>
+<p>In this lesson, you will learn how to implement algorithms that use loops to solve problems.</p>
+<p>You will learn how to use the accumulator pattern to calculate sums and averages, how to find minimum and maximum values, how to determine if a number is evenly divisible by another number, and how to count the frequency of a specific criterion.</p>
+</section>
+<section id="standard-algorithms" class="slide level2">
+<h2>Standard Algorithms</h2>
+<h3 id="loops-and-selection-can-be-used-to">Loops and selection can be used to</h3>
 <div class="tight-list">
 <ul>
-<li><span class="term">accumulator</span> pattern for sum and average</li>
-<li><span class="term">sentinel</span> loops for input</li>
-<li>minimum and maximum search</li>
-<li>divisibility and digit extraction</li>
-<li>random choice and frequency counters</li>
+<li>compute a sum or average of a set of values</li>
+<li>determine a minimum or maximum value</li>
+<li>identify if an integer is or is not evenly divisible by another integer</li>
+<li>identify the individual digits in an integer</li>
+<li>determine the frequency with which a specific criterion is met</li>
 </ul>
 </div>
 </section>
 <section id="accumulator-pattern" class="slide level2">
 <h2>Accumulator Pattern</h2>
-<h3 id="sum-and-average-share-the-same-structure">Sum and average share the same structure</h3>
+<h3 id="four-steps">Four steps</h3>
+<p>The <span class="term">accumulator pattern</span> (累加器模式) is an algorithm that iterates through a set of values using a loop and updates an accumulator variable with those values, for example to compute a sum or average of a set of values.</p>
+<div class="tight-list">
+<ol type="1">
+<li>Initialize the accumulator variable before the loop.</li>
+<li>Loop through the values.</li>
+<li>Update the accumulator variable inside the loop.</li>
+<li>Print or use the accumulated value when the loop is done.</li>
+</ol>
+</div>
+</section>
+<section id="sum-example" class="slide level2">
+<h2>Sum Example</h2>
+<h3 id="the-sum-variable-is-the-accumulator">The <code>sum</code> variable is the accumulator</h3>
+<p>For example, this loop calculates the sum of <code>1</code> through <code>100</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb1-3"><a href=""></a><span class="op">{</span></span>
 <span id="cb1-4"><a href=""></a>    sum <span class="op">+=</span> i<span class="op">;</span></span>
-<span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Pattern:</p>
-<div class="tight-list">
-<ul>
-<li>initialize the accumulator before the loop</li>
-<li>update it inside the loop</li>
-<li>use it after the loop</li>
-</ul>
-</div>
-<p>Average adds a final division step.</p>
+<span id="cb1-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The sum of 1 through 100 is "</span> <span class="op">+</span> sum<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="average-example" class="slide level2">
+<h2>Average Example</h2>
+<h3 id="add-values-then-divide-by-the-number-of-values">Add values, then divide by the number of values</h3>
+<p>The accumulator pattern can also be used to calculate the average of a set of values by adding them together and then dividing by the number of values.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="dt">int</span> num <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb2-5"><a href=""></a>    sum <span class="op">+=</span> num<span class="op">;</span></span>
+<span id="cb2-6"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-7"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span>sum <span class="op">/</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The average of 10 random numbers is "</span> <span class="op">+</span> average<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="complete-sum-and-average">Complete sum and average</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sum</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb2-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-6"><a href=""></a>        sum <span class="op">+=</span> i<span class="op">;</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-8"><a href=""></a>    <span class="cf">return</span> sum<span class="op">;</span></span>
-<span id="cb2-9"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">average</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
-<span id="cb2-12"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-13"><a href=""></a>    <span class="dt">int</span> total <span class="op">=</span> <span class="fu">sum</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb2-14"><a href=""></a>    <span class="cf">return</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> total <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb2-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For <code>n = 10</code>, expected results are <code>55</code> and <code>5.5</code>.</p>
+<h3 id="activecode-accumulator-practice"><code>activecode:: accumulator-practice</code></h3>
+<p>Textbook prompt: Complete the methods below to compute the sum and average of a set of numbers.</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-accumulator-practice-1"><code>activecode:: accumulator-practice</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Accumulator</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="co">// sum calculates and returns the sum of the numbers 1 to n</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sum</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="co">// 1. Add a loop to calculate the sum of 1 to n</span></span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a></span>
+<span id="cb3-10"><a href=""></a>        <span class="cf">return</span> sum<span class="op">;</span></span>
+<span id="cb3-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a>    <span class="co">// average calculates and returns the average of numbers 1 to n</span></span>
+<span id="cb3-14"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">average</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb3-15"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-16"><a href=""></a>        <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-17"><a href=""></a>        <span class="co">// 2. Add a loop to calculate the sum of 1 to n</span></span>
+<span id="cb3-18"><a href=""></a></span>
+<span id="cb3-19"><a href=""></a></span>
+<span id="cb3-20"><a href=""></a></span>
+<span id="cb3-21"><a href=""></a>        <span class="co">// 3. Calculate the average using sum and n</span></span>
+<span id="cb3-22"><a href=""></a>        <span class="dt">double</span> average <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-23"><a href=""></a></span>
+<span id="cb3-24"><a href=""></a>        <span class="cf">return</span> average<span class="op">;</span></span>
+<span id="cb3-25"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-26"><a href=""></a></span>
+<span id="cb3-27"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-28"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-29"><a href=""></a>        <span class="dt">int</span> n <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb3-30"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The sum of 1 to "</span> <span class="op">+</span> n <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> <span class="fu">sum</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb3-31"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The average of 1 to "</span> <span class="op">+</span> n <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> <span class="fu">average</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb3-32"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-33"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-accumulator-practice-2"><code>activecode:: accumulator-practice</code></h3>
+<p>Runestone checks that:</p>
+<div class="tight-list">
+<ul>
+<li>each method has a <code>for</code> loop that counts from <code>1</code> to <code>n</code></li>
+<li><code>main</code> prints <code>The sum of 1 to 10 is 55</code></li>
+<li><code>main</code> prints <code>The average of 1 to 10 is 5.5</code></li>
+<li><code>sum(5)</code> returns <code>15</code></li>
+</ul>
+</div>
 </section>
 <section id="input-controlled-loop" class="slide level2">
 <h2>Input-Controlled Loop</h2>
-<h3 id="sentinel-input-combines-sum-and-count">Sentinel input combines sum and count</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
-<span id="cb3-2"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-3"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a><span class="dt">int</span> number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>    sum <span class="op">+=</span> number<span class="op">;</span></span>
-<span id="cb3-9"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb3-10"><a href=""></a>    number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-12"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> count<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The sentinel <code>-1</code> is not included in the average.</p>
+<h3 id="sentinel-value">Sentinel value</h3>
+<p>Here’s an example of an <span class="term">input-controlled loop</span> that calculates the average of positive numbers using the accumulator pattern with a <code>while</code> loop.</p>
+<p>The number <code>-1</code> is used as the <span class="term">sentinel value</span> (哨兵值). The <code>while</code> loop will run while the user does not input <code>-1</code>.</p>
+<p>What would happen if you forgot step 3, update the loop variable by getting a new input?</p>
+<p>Remember that skipping step 3 will often lead to an infinite loop.</p>
 </section>
-<section id="min-and-max" class="slide level2">
-<h2>Min and Max</h2>
-<h3 id="selection-inside-a-loop-tracks-best-so-far">Selection inside a loop tracks best-so-far</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">MIN_VALUE</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="dt">int</span> num <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">100</span><span class="op">);</span></span>
-<span id="cb4-5"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>num <span class="op">&gt;</span> max<span class="op">)</span></span>
-<span id="cb4-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-7"><a href=""></a>        max <span class="op">=</span> num<span class="op">;</span></span>
-<span id="cb4-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The variable <code>max</code> stores the best value found so far.</p>
-</section>
-<section id="divisibility" class="slide level2">
-<h2>Divisibility</h2>
-<h3 id="prime-checking-uses">Prime checking uses <code>%</code></h3>
-<div class="code-scroll compact">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">isPrime</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;=</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> divisor <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> divisor <span class="op">&lt;</span> n<span class="op">;</span> divisor<span class="op">++)</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-10"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb5-11"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb5-12"><a href=""></a>            <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb5-13"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb5-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-15"><a href=""></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb5-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="input-controlled-loop-1" class="slide level2">
+<h2>Input-Controlled Loop</h2>
+<h3 id="three-loop-steps">Three loop steps</h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="co">// 1. initialize the loop variable (get the first number)</span></span>
+<span id="cb4-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Please enter a number to average in or -1 to stop: "</span><span class="op">);</span></span>
+<span id="cb4-3"><a href=""></a>number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a><span class="co">// 2. test the loop variable (against sentinel value)</span></span>
+<span id="cb4-6"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>  sum <span class="op">+=</span> number<span class="op">;</span> <span class="co">// add number to sum</span></span>
+<span id="cb4-9"><a href=""></a>  count<span class="op">++;</span> <span class="co">// count the number</span></span>
+<span id="cb4-10"><a href=""></a>  <span class="co">// 3. Update the loop variable (get a new number)</span></span>
+<span id="cb4-11"><a href=""></a>  <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Please enter a number to average in or -1 to stop: "</span><span class="op">);</span></span>
+<span id="cb4-12"><a href=""></a>  number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb4-13"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-14"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
+<span id="cb4-15"><a href=""></a><span class="co">// calculate average</span></span>
+<span id="cb4-16"><a href=""></a>average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum<span class="op">/</span>count<span class="op">;</span></span>
+<span id="cb4-17"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The average is "</span> <span class="op">+</span> average<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The loop returns <code>false</code> as soon as it finds a divisor.</p>
 </section>
-<section id="digits-with-and" class="slide level2">
-<h2>Digits with <code>/</code> and <code>%</code></h2>
-<h3 id="peel-off-the-last-digit-repeatedly">Peel off the last digit repeatedly</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">checkDigit</span><span class="op">(</span><span class="dt">int</span> number<span class="op">,</span> <span class="dt">int</span> digit<span class="op">)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="cf">while</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="dt">int</span> lastDigit <span class="op">=</span> number <span class="op">%</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>lastDigit <span class="op">==</span> digit<span class="op">)</span></span>
-<span id="cb6-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-8"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-10"><a href=""></a>        number <span class="op">=</span> number <span class="op">/</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb6-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-12"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb6-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>% 10</code> gets the last digit; <code>/ 10</code> removes it.</p>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-input-controlled-loop"><code>activecode:: input-controlled-loop</code></h3>
+<p>Textbook prompt: Try the code below with an input-controlled loop that prints out the numbers entered by the user until <code>-1</code> is entered.</p>
+<p>Then, change it to calculate the sum and average of the numbers entered.</p>
+<p>Input stream: <code>80 90 100 -1</code></p>
 </section>
-<section id="math.random-with-selection" class="slide level2">
-<h2>Math.random with Selection</h2>
-<h3 id="probabilities-come-from-ranges">Probabilities come from ranges</h3>
-<p>The weather report says a 25% chance of rain.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">&lt;</span> <span class="fl">0.25</span><span class="op">)</span></span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Rain"</span><span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb7-5"><a href=""></a><span class="cf">else</span></span>
-<span id="cb7-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"No Rain"</span><span class="op">);</span></span>
-<span id="cb7-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Equivalent condition for rain:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">&gt;</span> <span class="fl">0.75</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>because values above <code>0.75</code> are the top 25% of the range.</p>
+<section id="code-window-1" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-input-controlled-loop-1"><code>activecode:: input-controlled-loop</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> InputLoop</span>
+<span id="cb5-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-6"><a href=""></a>  <span class="op">{</span></span>
+<span id="cb5-7"><a href=""></a>      <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
+<span id="cb5-8"><a href=""></a>      <span class="co">// Initialize the accumulators</span></span>
+<span id="cb5-9"><a href=""></a>      <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-10"><a href=""></a>      <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a>      <span class="co">// Initialize the loop variable (get the first number)</span></span>
+<span id="cb5-13"><a href=""></a>      <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Please enter a number to average in or -1 to stop: "</span><span class="op">);</span></span>
+<span id="cb5-14"><a href=""></a>      <span class="dt">int</span> number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb5-15"><a href=""></a></span>
+<span id="cb5-16"><a href=""></a>      <span class="co">// Test the loop variable against sentinel value</span></span>
+<span id="cb5-17"><a href=""></a>      <span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb5-18"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb5-19"><a href=""></a>          <span class="co">// 1. </span><span class="al">TODO</span><span class="co">: add number to sum and increment count</span></span>
+<span id="cb5-20"><a href=""></a></span>
+<span id="cb5-21"><a href=""></a></span>
+<span id="cb5-22"><a href=""></a>          <span class="co">// Update the loop variable (get a new number)</span></span>
+<span id="cb5-23"><a href=""></a>          <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You entered "</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb5-24"><a href=""></a>          <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Please enter a number to average in or -1 to stop: "</span><span class="op">);</span></span>
+<span id="cb5-25"><a href=""></a>          number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb5-26"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb5-27"><a href=""></a>      <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You entered "</span> <span class="op">+</span> count <span class="op">+</span> <span class="st">" numbers."</span><span class="op">);</span></span>
+<span id="cb5-28"><a href=""></a>      <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Their sum is "</span> <span class="op">+</span> sum<span class="op">);</span></span>
+<span id="cb5-29"><a href=""></a></span>
+<span id="cb5-30"><a href=""></a>      <span class="co">// 2. </span><span class="al">TODO</span><span class="co">: calculate average</span></span>
+<span id="cb5-31"><a href=""></a>      <span class="dt">double</span> average <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-32"><a href=""></a></span>
+<span id="cb5-33"><a href=""></a>      <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The average is "</span> <span class="op">+</span> average<span class="op">);</span></span>
+<span id="cb5-34"><a href=""></a>  <span class="op">}</span></span>
+<span id="cb5-35"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="frequency" class="slide level2">
-<h2>Frequency</h2>
-<h3 id="count-how-often-a-condition-is-true">Count how often a condition is true</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb9-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb9-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-6"><a href=""></a>        count<span class="op">++;</span></span>
-<span id="cb9-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Frequency algorithms use a counter inside a loop and increment only when the condition is true.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2 fit-small">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="prime-number-finder">Prime Number Finder</h3>
-<p>Complete <code>findPrimes</code> by reusing <code>isPrime</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">findPrimes</span><span class="op">(</span><span class="dt">int</span> num1<span class="op">,</span> <span class="dt">int</span> num2<span class="op">)</span></span>
-<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb10-3"><a href=""></a>    <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n <span class="op">=</span> num1<span class="op">;</span> n <span class="op">&lt;=</span> num2<span class="op">;</span> n<span class="op">++)</span></span>
-<span id="cb10-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb10-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span><span class="fu">isPrime</span><span class="op">(</span>n<span class="op">))</span></span>
-<span id="cb10-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb10-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb10-9"><a href=""></a>            count<span class="op">++;</span></span>
-<span id="cb10-10"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb10-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb10-12"><a href=""></a>    <span class="cf">return</span> count<span class="op">;</span></span>
-<span id="cb10-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For <code>findPrimes(2, 100)</code>, the expected count is <code>25</code>.</p>
+<section id="test-requirements-1" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-input-controlled-loop-2"><code>activecode:: input-controlled-loop</code></h3>
+<p>Runestone checks that:</p>
+<div class="tight-list">
+<ul>
+<li>input <code>80 90 100 -1</code> produces <code>The average is 90.0</code></li>
+<li>input <code>1 4 -1</code> produces <code>The average is 2.5</code></li>
+<li>the average uses a <code>double</code> result, not integer division</li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>implement sum and average using an accumulator</li>
-<li>use a sentinel loop without including the sentinel in the data</li>
-<li>update min or max only when a better value is found</li>
-<li>use <code>%</code> and <code>/</code> for divisibility and digit extraction</li>
-<li>combine selection and loops for frequency and prime-number algorithms</li>
+<li>list the four accumulator-pattern steps</li>
+<li>identify the accumulator variable in a sum or average loop</li>
+<li>keep the final average calculation after the loop</li>
+<li>explain that <code>-1</code> is a sentinel and is not included in the data</li>
+<li>update the input variable inside the <code>while</code> loop</li>
+<li>cast to <code>double</code> when needed for an average</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-9-part-2-min-max-divisibility-and-prime.html">Next: Min, max, divisibility, and prime →</a></p>
 
 </section>
     </div>

@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.7 while Loops</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: while Loop Intro and Three Loop-Writing Steps</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,135 +212,148 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="while-repeats-while-a-condition-is-true"><code>while</code> repeats while a condition is true</h3>
-<p>A <span class="term">while loop</span> (while 循环) repeatedly executes a block as long as its Boolean condition remains true.</p>
+<h3 id="loops-repeat-statements">Loops repeat statements</h3>
 
-<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/loops.png" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Loop overview</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>condition<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="co">// repeated statements</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When the condition becomes false, execution continues after the loop.</p>
+<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/loops.png" style="width:20.0%" class="r-stretch quarto-figure-center"><p class="caption">Loop overview</p><p>When you play a song, you can set it to loop, which means that when it reaches the end it starts over at the beginning.</p>
+<p>A <span class="term">loop</span> in programming, also called <span class="term">iteration</span> or <span class="term">repetition</span>, is a way to repeat one or more statements.</p>
 </section>
+<section id="control-structures" class="slide level2">
+<h2>Control Structures</h2>
+<h3 id="sequence-selection-repetition">Sequence, selection, repetition</h3>
+<p>If you didn’t have loops to allow you to repeat code, your programs would get very long very quickly.</p>
+<p>Using a sequence of code, selection (ifs), and repetition (loops), the <span class="term">control structures</span> in programming, you can construct an algorithm to solve almost any programming problem.</p>
+</section>
+<section id="while-loop" class="slide level2">
+<h2>while Loop</h2>
+<h3 id="executes-while-the-condition-is-true">Executes while the condition is true</h3>
+<p>A <code>while</code> loop executes the body of the loop as long as, or while, a Boolean condition is true.</p>
+<p>When the condition is false, we exit the loop and continue with the statements that are after the body of the <code>while</code> loop.</p>
+<p>If the condition is false the first time you check it, the body of the loop will not execute.</p>
+</section>
+<section id="if-vs-while" class="slide level2">
+<h2>if vs while</h2>
+<h3 id="one-time-versus-zero-or-more-times">One time versus zero or more times</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// The statements in an if run one time if the condition</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">// is true and zero times if it is false.</span></span>
+<span id="cb1-3"><a href=""></a><span class="cf">if</span> <span class="op">(</span>condition<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>    statements<span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co">// The statements in a while loop run zero or more times,</span></span>
+<span id="cb1-9"><a href=""></a><span class="co">// determined by how many times the condition is true</span></span>
+<span id="cb1-10"><a href=""></a><span class="cf">while</span> <span class="op">(</span>condition<span class="op">)</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-12"><a href=""></a>    statements<span class="op">;</span></span>
+<span id="cb1-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="while-loop-syntax" class="slide level2">
+<h2>while Loop Syntax</h2>
+<h3 id="braces-on-the-ap-exam">Braces on the AP exam</h3>
+<p>The <code>while</code> statement looks a lot like an <code>if</code> statement, but it runs more than once.</p>
+<p>The curly braces <code>{}</code> are optional when there is just 1 statement following the condition, but required if there are more than 1 statement in the loop.</p>
+<p>In the AP exam, they will always use curly braces, which is a good practice to follow.</p>
+</section>
+<section id="app-inventor-and-java" class="slide level2">
+<h2>App Inventor and Java</h2>
+<h3 id="while-loop-comparison">while loop comparison</h3>
+<p>Almost every programming language has a <code>while</code> loop.</p>
+
+<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/whileInAppInventor.png" style="width:88.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing App Inventor and Java for while loops</p></section>
+<section id="repeat-until-vs-while" class="slide level2">
+<h2>Repeat Until vs while</h2>
+<h3 id="opposite-tests">Opposite tests</h3>
+<p>If you’re used to Snap! or Scratch, you may be familiar with the Repeat Until loop.</p>
+<p>The <code>while</code> test is the opposite of the repeat until test.</p>
+<p>If you are repeatedly moving until reaching x position <code>100</code>, you must create a Java <code>while</code> loop that repeatedly moves while it has <mark>not yet</mark> reached x position <code>100</code>, or is less than <code>100</code>.</p>
+</section>
+<section id="repeat-until-diagram" class="slide level2">
+<h2>Repeat Until Diagram</h2>
+<h3 id="scratch-to-java-while">Scratch to Java while</h3>
+
+<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/ScratchRepeatUntilLoop.png" style="width:88.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing Scratch Repeat Until Loop to Java while loop</p></section>
 <section id="flow-of-a-while-loop" class="slide level2">
-<h2>Flow of a While Loop</h2>
-<h3 id="test-before-each-repetition">Test before each repetition</h3>
+<h2>Flow of a while Loop</h2>
+<h3 id="condition-before-each-iteration">Condition before each iteration</h3>
+<p>Iteration statements change the flow of control by repeating a segment of code zero or more times as long as the Boolean expression controlling the loop evaluates to true.</p>
+<p>In while loops, the Boolean expression is evaluated before each iteration of the loop body, including the first.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/WhileLoopFlow.png" style="width:38.0%" class="r-stretch quarto-figure-center"><p class="caption">While loop flow</p><p>Important rule: if the condition is false before the first check, the loop body runs zero times.</p>
-</section>
+<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/WhileLoopFlow.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption">Control Flow in a while Loop</p></section>
+<section id="three-steps-to-writing-a-loop" class="slide level2">
+<h2>Three Steps to Writing a Loop</h2>
+<h3 id="counter-controlled-loops">Counter-controlled loops</h3>
+<p>The simplest loops are <span class="term">counter-controlled loops</span>, where the <span class="term">loop control variable</span> is a counter that controls how many times to repeat the loop.</p>
+
+<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/loop3steps.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">Three Steps of Writing a Loop</p></section>
 <section id="three-steps" class="slide level2">
 <h2>Three Steps</h2>
 <h3 id="initialize-test-update">Initialize, test, update</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/loop3steps.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Three steps to writing a loop</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>              <span class="co">// initialize</span></span>
-<span id="cb2-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">)</span>          <span class="co">// test</span></span>
-<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb2-5"><a href=""></a>    count<span class="op">++;</span>                <span class="co">// update</span></span>
-<span id="cb2-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Missing the update often causes an infinite loop.</p>
+<p>Remember these 3 steps to writing a loop:</p>
+<div class="tight-list">
+<ol type="1">
+<li>Initialize the loop variable before the <code>while</code> loop.</li>
+<li>Test the loop variable in the loop header.</li>
+<li>Update the loop variable in the while loop body at the end.</li>
+</ol>
+</div>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="print-odd-numbers-with-while">Print odd numbers with <code>while</code></h3>
-<p>Starter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> PrintOdds</span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-5"><a href=""></a>        <span class="dt">int</span> num <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-6"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>num <span class="op">&lt;=</span> <span class="dv">9</span><span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
-<span id="cb3-9"><a href=""></a>            num <span class="op">+=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb3-10"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb3-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Modify it to print odd numbers from <code>1</code> through <code>15</code>.</p>
+<h3 id="activecode-whileloop"><code>activecode:: whileloop</code></h3>
+<p>Textbook prompt: Here is a while loop that counts from <code>1</code> to <code>5</code> that demonstrates the 3 steps of writing a loop. Can you change it to count from <code>2</code> to <code>10</code>?</p>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-a-while-loop">Trace a <code>while</code> loop</h3>
-<p>What is printed?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>x <span class="op">+</span> <span class="st">" "</span><span class="op">);</span></span>
-<span id="cb4-5"><a href=""></a>    x <span class="op">=</span> x <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb4-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>1 3</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The next value would be <code>5</code>, and <code>5 &lt; 5</code> is false.</p>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-whileloop-1"><code>activecode:: whileloop</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> LoopTest1</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="co">// 1. initialize the loop variable</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="dt">int</span> count <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-7"><a href=""></a></span>
+<span id="cb2-8"><a href=""></a>        <span class="co">// 2. test the loop variable</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb2-10"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-11"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
+<span id="cb2-12"><a href=""></a>            <span class="co">// 3. update the loop variable</span></span>
+<span id="cb2-13"><a href=""></a>            count<span class="op">++;</span></span>
+<span id="cb2-14"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="trace-table" class="slide level2">
-<h2>Trace Table</h2>
-<h3 id="track-the-variable-after-each-update">Track the variable after each update</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-7-while-loops/traceTable.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption">Trace table</p><p>Trace columns should show:</p>
-<div class="tight-list">
-<ul>
-<li>loop variable before the condition</li>
-<li>whether the condition is true</li>
-<li>output or body effect</li>
-<li>loop variable after update</li>
-</ul>
-</div>
-</section>
-<section id="common-errors" class="slide level2">
-<h2>Common Errors</h2>
-<h3 id="infinite-loops-and-off-by-one-errors">Infinite loops and off-by-one errors</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb6-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb6-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Problem: <code>i</code> never changes.</p>
-<p>Fix:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>i<span class="op">++;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Put the update where every successful loop pass can reach it.</p>
-</section>
-<section id="input-controlled-loops" class="slide level2">
-<h2>Input-Controlled Loops</h2>
-<h3 id="sentinel-values-decide-when-to-stop">Sentinel values decide when to stop</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
-<span id="cb8-2"><a href=""></a><span class="dt">int</span> number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>number <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb8-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-6"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You entered "</span> <span class="op">+</span> number<span class="op">);</span></span>
-<span id="cb8-7"><a href=""></a>    number <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
-<span id="cb8-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>-1</code> is the <span class="term">sentinel</span> (哨兵值): it signals that input is finished.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="turtle-squares-with-repeated-code">Turtle squares with repeated code</h3>
-<p>Use a <code>while</code> loop to replace repeated movement commands.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">int</span> sides <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>sides <span class="op">&lt;</span> <span class="dv">4</span><span class="op">)</span></span>
-<span id="cb9-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-4"><a href=""></a>    yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb9-5"><a href=""></a>    yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">90</span><span class="op">);</span></span>
-<span id="cb9-6"><a href=""></a>    sides<span class="op">++;</span></span>
-<span id="cb9-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Class goal: identify the repeated square-drawing pattern, then control it with initialize-test-update.</p>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-whileloop-2"><code>activecode:: whileloop</code></h3>
+<p>Runestone expects:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>2</span>
+<span id="cb3-2"><a href=""></a>3</span>
+<span id="cb3-3"><a href=""></a>4</span>
+<span id="cb3-4"><a href=""></a>5</span>
+<span id="cb3-5"><a href=""></a>6</span>
+<span id="cb3-6"><a href=""></a>7</span>
+<span id="cb3-7"><a href=""></a>8</span>
+<span id="cb3-8"><a href=""></a>9</span>
+<span id="cb3-9"><a href=""></a>10</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that a <code>while</code> loop tests before each repetition</li>
-<li>write the initialize-test-update structure</li>
-<li>trace loop variable changes with a table</li>
-<li>identify infinite-loop and off-by-one mistakes</li>
-<li>explain how a sentinel controls an input loop</li>
+<li>define a loop as iteration or repetition</li>
+<li>explain that a <code>while</code> body can execute zero or more times</li>
+<li>compare <code>if</code> and <code>while</code> control flow</li>
+<li>list initialize, test, and update as the three loop-writing steps</li>
+<li>identify the loop control variable</li>
+<li>change all needed loop parts when changing the count range</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-7-part-2-tracing-and-common-errors.html">Next: Tracing and common errors →</a></p>
 
 </section>
     </div>

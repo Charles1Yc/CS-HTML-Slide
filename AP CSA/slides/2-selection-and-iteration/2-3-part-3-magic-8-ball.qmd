@@ -1,0 +1,148 @@
+---
+title: "2.3 if Statements"
+subtitle: "Part 3: Magic 8 Ball Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Magic 8 Ball
+
+![Magic 8 Ball](../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png){fig-align="center" width="18%"}
+
+Have you ever seen a Magic 8 ball? You ask it a yes-no question and then shake it to get a random response like `Signs point to yes!`, `Very doubtful`, etc.
+
+If you've never seen a Magic 8 ball, check out this [simulator](https://magic-8ball.com/).
+
+## Challenge Context
+
+### Random responses from 1 to 8
+
+In the exercise below, come up with <span class="mark">8 responses</span> to yes-no questions.
+
+Write a program that chooses a random number from `1` to `8` and then uses if statements to test the number and print out the associated random response from `1-8`.
+
+If you need help with random numbers, remember the formula:
+
+```java
+(int) (Math.random() * max) + min
+```
+
+## Code Task
+
+### `activecode:: challenge-Magic8ball`
+
+Textbook prompt: Complete the `printRandomResponse()` method to print out 1 of 8 random responses and the `lucky()` method to toss a coin and print out `"Lucky!"` or `"No Luck!"` based on the result.
+
+Run the code multiple times to see the responses.
+
+## Code Window
+
+### `activecode:: challenge-Magic8ball`
+
+::: {.code-scroll}
+```java
+public class Magic8Ball
+{
+    public static void printRandomResponse()
+    {
+        // 1. Get a random number from 1 to 8
+
+        // 2. Use if statements to test the random number
+        //    and print out 1 of 8 random responses
+
+     }
+
+     public static void lucky()
+     {
+         // 3. Use Math.random() to toss a coin to choose between 2 choices
+         // 4. Use an if/else statement to test the random number
+         //    and print out "Lucky!" or else "No Luck!"
+
+     }
+
+     public static void main(String[] args)
+     {
+         String question = "Will it rain tomorrow?";
+         System.out.println(question);
+         printRandomResponse();
+         lucky();
+     }
+}
+```
+:::
+
+## Expected Behavior
+
+### `challenge-Magic8ball`
+
+The completed program should:
+
+::: {.tight-list}
+- print the question from `main`
+- print 1 of 8 random Magic 8 Ball responses
+- print either `Lucky!` or `No Luck!`
+- show different responses when run multiple times
+:::
+
+## Test Requirements
+
+### Runestone tests
+
+Runestone checks that:
+
+::: {.tight-list}
+- `main` prints a statement with output length greater than `0`
+- running `main` 200 times produces at least `8` unique outputs
+- the code has at least `8` if statements
+- the `lucky()` method contains an `else` statement
+:::
+
+## Student Deliverable
+
+### Required steps
+
+::: {.tight-list}
+- choose a random integer from `1` to `8`
+- write 8 if statements that connect the random number to 8 different responses
+- use `Math.random()` again to choose between 2 lucky outcomes
+- use an if/else statement to print `"Lucky!"` or `"No Luck!"`
+- run multiple times and check that responses vary
+:::
+
+## Optional Extension
+
+### User input version
+
+The textbook notes that you can make this code more interactive by using the `Scanner` class to have the user ask a question first.
+
+Try your code with input in JuiceMind, replit, or a local IDE. This extension is optional for classroom completion.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- keep the `Magic8Ball` class structure and method names
+- use `(int) (Math.random() * max) + min` to produce a bounded random integer
+- connect random values `1` through `8` to 8 different printed responses
+- use separate if statements for the 8 response cases
+- use if/else in `lucky()` for the two lucky outcomes
+- test repeated runs instead of judging from one output
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.8 for Loops</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: Structure, Flow, and Iteration Counts</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,139 +212,254 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="for-loops-package-counting-logic-into-the-header"><code>for</code> loops package counting logic into the header</h3>
-<p>A <span class="term">for loop</span> (for 循环) is usually used when the number of repetitions is known or countable.</p>
-
-<img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Loop in App Inventor</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="count-controlled-iteration">Count-controlled iteration</h3>
+<p>Another type of loop, or iteration, in Java is a <span class="term">for loop</span> (for 循环).</p>
+<p>It is usually used when you know how many times you want the loop to execute, as a simple <span class="term">counter-controlled loop</span> (计数控制循环) to do the loop body a set number of times.</p>
+</section>
+<section id="repeat-blocks" class="slide level2">
+<h2>Repeat Blocks</h2>
+<h3 id="app-inventor-scratch-and-java">App Inventor, Scratch, and Java</h3>
+<p>If you took AP CSP with a block programming language like App Inventor, you probably used a for loop block like below that looks very similar to Java for loops.</p>
+<p>If you have used Scratch or Snap!, you may remember the <code>repeat(n)</code> block where you type in a number of times you want the code to be repeated, just like the AP pseudocode <code>REPEAT</code> block.</p>
+</section>
+<section id="repeat-blocks-figure" class="slide level2">
+<h2>Repeat Blocks Figure</h2>
+<h3 id="app-inventor-and-java">App Inventor and Java</h3>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png" style="width:66.0%"></p>
+<figcaption>Comparing App Inventor and Java for loops</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="three-parts" class="slide level2">
 <h2>Three Parts</h2>
-<h3 id="initialization-condition-update">Initialization, condition, update</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Compare for and while</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>int i = 1</code>: initialize once</li>
-<li><code>i &lt;= 5</code>: test before each repetition</li>
-<li><code>i++</code>: update after each body execution</li>
-</ul>
+<h3 id="initialize-test-update">Initialize, test, update</h3>
+<p>A for-loop combines all 3 parts of writing a loop in one line to initialize, test, and update the loop control variable.</p>
+<p>The 3 parts are separated by semicolons (<code>;</code>). Each of the three parts of a <code>for</code> loop declaration is optional, but the semicolons are <mark>not optional</mark>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span>initialize<span class="op">;</span> test<span class="op">;</span> update<span class="op">)</span></span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>   loop body</span>
+<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="for-and-while" class="slide level2">
+<h2>for and while</h2>
+<h3 id="equivalent-loop-structure">Equivalent loop structure</h3>
+<p>The for-loop is almost a shortcut way to write a while loop with all three steps that you need in one line.</p>
+<p>A <code>for</code> loop can be rewritten into an equivalent <code>while</code> loop, and vice versa.</p>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png" style="width:84.0%"></p>
+<figcaption>Showing how a for loop maps to a while loop</figcaption>
+</figure>
+</div>
 </div>
 </section>
 <section id="for-loop-flow" class="slide level2">
 <h2>For Loop Flow</h2>
-<h3 id="same-loop-idea-compact-syntax">Same loop idea, compact syntax</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">For loop flow</p><p>The condition still decides whether the loop body runs again. The update still must move the loop toward stopping.</p>
+<h3 id="initialization-runs-once">Initialization runs once</h3>
+<p>In a <code>for</code> loop, the initialization statement is only executed once before the first Boolean expression evaluation.</p>
+<p>The variable being initialized is referred to as a <span class="term">loop control variable</span> (循环控制变量).</p>
+</section>
+<section id="for-loop-flow-diagram" class="slide level2">
+<h2>For Loop Flow Diagram</h2>
+<h3 id="control-flow-in-a-for-loop">Control flow in a for loop</h3>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png" style="width:30.0%"></p>
+<figcaption>Control flow in a for loop</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="for-loop-flow-1" class="slide level2">
+<h2>For Loop Flow</h2>
+<h3 id="test-body-update-repeat">Test, body, update, repeat</h3>
+<p>The Boolean expression is evaluated immediately after the loop control variable is initialized and then followed by each execution of the increment statement until it is false.</p>
+<p>In each iteration, the update is executed after the entire loop body is executed and before the Boolean expression is evaluated again.</p>
+<p>When the loop condition is finally false, we jump out of the loop and continue at the next statement after the body of the loop.</p>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="convert-while-to-for">Convert <code>while</code> to <code>for</code></h3>
-<p><code>while</code> version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Equivalent <code>for</code> version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> count <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> count <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> count<span class="op">++)</span></span>
+<h3 id="activecode-forloop"><code>activecode:: forloop</code></h3>
+<p>Textbook prompt: Here is a for loop that counts from <code>1</code> to <code>5</code>. Can you change it to count from <code>2</code> to <code>10</code>?</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-forloop-1"><code>activecode:: forloop</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ForLoop</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> count <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> count <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> count<span class="op">++)</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-7"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-forloop-2"><code>activecode:: forloop</code></h3>
+<p>Runestone expects the main method output to be:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>2</span>
+<span id="cb3-2"><a href=""></a>3</span>
+<span id="cb3-3"><a href=""></a>4</span>
+<span id="cb3-4"><a href=""></a>5</span>
+<span id="cb3-5"><a href=""></a>6</span>
+<span id="cb3-6"><a href=""></a>7</span>
+<span id="cb3-7"><a href=""></a>8</span>
+<span id="cb3-8"><a href=""></a>9</span>
+<span id="cb3-9"><a href=""></a>10</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-forloopfromwhile"><code>activecode:: forloopfromwhile</code></h3>
+<p>Textbook prompt: Here is a while loop that counts from <code>5</code> to <code>10</code>. Run it and see what it does.</p>
+<p>Can you change it to a for-loop? Run your for-loop. Does it do the same thing?</p>
+</section>
+<section id="code-window-1" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-forloopfromwhile-1"><code>activecode:: forloopfromwhile</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ForLoopFromWhile</span>
 <span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="dt">int</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
+<span id="cb4-9"><a href=""></a>            count<span class="op">++;</span></span>
+<span id="cb4-10"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="count-iterations">Count iterations</h3>
-<p>How many times does the loop body run?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">2</span><span class="op">)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <mark>5</mark> times. The values are <code>0</code>, <code>2</code>, <code>4</code>, <code>6</code>, <code>8</code>.</p>
-</section>
-<section id="mixed-up-code" class="slide level2">
-<h2>Mixed-Up Code</h2>
-<h3 id="print-even-numbers">Print even numbers</h3>
-<p>Reorder the lines to print even numbers from <code>2</code> through <code>10</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> PrintEvens</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> num <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> num <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> num <span class="op">+=</span> <span class="dv">2</span><span class="op">)</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-7"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num<span class="op">);</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key: the update is <code>num += 2</code>.</p>
-</section>
-<section id="decrementing-loops" class="slide level2">
-<h2>Decrementing Loops</h2>
-<h3 id="a-loop-can-count-down">A loop can count down</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> bottles <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> bottles <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span> bottles<span class="op">--)</span></span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>bottles <span class="op">+</span> <span class="st">" bottles"</span><span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace the header:</p>
+<section id="test-requirements-1" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-forloopfromwhile-2"><code>activecode:: forloopfromwhile</code></h3>
+<p>Runestone checks three things:</p>
 <div class="tight-list">
 <ul>
-<li>starts at <code>5</code></li>
-<li>continues while greater than <code>0</code></li>
-<li>subtracts one after each pass</li>
+<li>output from <code>main</code> is <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, each on its own line</li>
+<li>the submitted code does not contain a <code>while</code> loop</li>
+<li>the submitted code contains a <code>for</code> loop</li>
 </ul>
 </div>
 </section>
+<section id="common-patterns" class="slide level2">
+<h2>Common Patterns</h2>
+<h3 id="starting-at-0-or-starting-at-1">Starting at 0 or starting at 1</h3>
+<p>Two common patterns in for-loops are to count from <code>0</code> up to a number using <code>&lt;</code>, or count from <code>1</code> to the number including the number using <code>&lt;=</code>.</p>
+<p>Remember that if you start at <code>0</code> use <code>&lt;</code>, and if you start at <code>1</code>, use <code>&lt;=</code>.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="co">// These loops both run 10 times</span></span>
+<span id="cb5-2"><a href=""></a><span class="co">// If you start at 0, use &lt;</span></span>
+<span id="cb5-3"><a href=""></a><span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb5-6"><a href=""></a><span class="op">}</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co">// If you start at 1, use &lt;=</span></span>
+<span id="cb5-9"><a href=""></a><span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-10"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-11"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb5-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-mcq-for-1"><code>mchoice:: mcq-for-1</code></h3>
+<p>What does the following code print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">8</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>i <span class="op">+</span> <span class="st">" "</span><span class="op">);</span></span>
+<span id="cb6-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight-list">
+<ul>
+<li>A. <code>3 4 5 6 7 8</code></li>
+<li>B. <code>0 1 2 3 4 5 6 7 8</code></li>
+<li>C. <code>8 8 8 8 8</code></li>
+<li>D. <code>3 4 5 6 7</code></li>
+</ul>
+</div>
+</section>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-mcq-for-1-1"><code>mchoice:: mcq-for-1</code></h3>
+<p>Correct answer: <mark>D. <code>3 4 5 6 7</code></mark></p>
+<p>The value of <code>i</code> is set to <code>3</code> before the loop executes and the loop stops when <code>i</code> is equal to <code>8</code>.</p>
+<p>The last time through the loop, <code>i</code> is equal to <code>7</code>.</p>
+</section>
 <section id="quick-check-1" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="equivalent-loop-reasoning">Equivalent loop reasoning</h3>
-<p>Which loop prints the same values as <code>count = 2, 4, 6</code>?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> count <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> count <span class="op">&lt;=</span> <span class="dv">6</span><span class="op">;</span> count <span class="op">+=</span> <span class="dv">2</span><span class="op">)</span></span>
-<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb8-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Equivalent:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb9-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>count <span class="op">&lt;=</span> <span class="dv">6</span><span class="op">)</span></span>
-<span id="cb9-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb9-5"><a href=""></a>    count <span class="op">+=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb9-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="mchoice-mcq-for-2"><code>mchoice:: mcq-for-2</code></h3>
+<p>What does the following code print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>i <span class="op">+</span> <span class="st">" "</span><span class="op">);</span></span>
+<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight-list">
+<ul>
+<li>A. <code>3 4 5 6 7 8</code></li>
+<li>B. <code>0 1 2 3 4 5 6 7 8 9</code></li>
+<li>C. <code>1 2 3 4 5 6 7 8 9 10</code></li>
+<li>D. <code>1 3 5 7 9</code></li>
+</ul>
+</div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="turtle-drawing-shapes">Turtle drawing shapes</h3>
-<p>Use a <code>for</code> loop to draw a polygon.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="dt">int</span> sides <span class="op">=</span> <span class="dv">6</span><span class="op">;</span></span>
-<span id="cb10-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> sides<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb10-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb10-4"><a href=""></a>    yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
-<span id="cb10-5"><a href=""></a>    yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">360</span> <span class="op">/</span> sides<span class="op">);</span></span>
-<span id="cb10-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Change <code>sides</code> to draw a triangle, square, pentagon, and hexagon.</p>
+<section id="answer-reasoning-1" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-mcq-for-2-1"><code>mchoice:: mcq-for-2</code></h3>
+<p>Correct answer: <mark>C. <code>1 2 3 4 5 6 7 8 9 10</code></mark></p>
+<p>The value of <code>i</code> starts at <code>1</code>, and this loop will execute until <code>i</code> equals <code>11</code>.</p>
+<p>The last time through the loop, the value of <code>i</code> is <code>10</code>.</p>
+</section>
+<section id="quick-check-2" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-mcq-for-3"><code>mchoice:: mcq-for-3</code></h3>
+<p>How many times does the following method print a <code>*</code>?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">9</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>   <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"*"</span><span class="op">);</span></span>
+<span id="cb8-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight-list">
+<ul>
+<li>A. <code>10</code></li>
+<li>B. <code>6</code></li>
+<li>C. <code>7</code></li>
+<li>D. <code>9</code></li>
+</ul>
+</div>
+</section>
+<section id="answer-reasoning-2" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-mcq-for-3-1"><code>mchoice:: mcq-for-3</code></h3>
+<p>Correct answer: <mark>C. <code>7</code></mark></p>
+<p>Since <code>i</code> starts at <code>3</code> and the last time through the loop it is <code>9</code>, the loop executes 7 times.</p>
+<p>Counting inclusively: <code>9 - 3 + 1 = 7</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>identify the initialization, condition, and update in a <code>for</code> loop</li>
-<li>convert between equivalent <code>while</code> and <code>for</code> loops</li>
-<li>count loop iterations from start, stop, and update values</li>
-<li>trace incrementing and decrementing loops</li>
-<li>choose <code>for</code> when the repetition count is known or countable</li>
+<li>state that a <code>for</code> loop is usually used when the repetition count is known</li>
+<li>identify the initialization, Boolean expression, and update in a <code>for</code> loop header</li>
+<li>explain that semicolons in the <code>for</code> header are not optional</li>
+<li>trace that initialization runs once, then test, body, update, and test repeat</li>
+<li>convert a counting <code>while</code> loop into a <code>for</code> loop with the same output</li>
+<li>count iterations from the start value, stopping test, and update</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-8-part-2-decrementing-and-mixed-code.html">Next: Decrementing and mixed code →</a></p>
 
 </section>
     </div>

@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">2.3 if Statements</h1>
-  <p class="subtitle">Selection and Iteration</p>
+  <p class="subtitle">Part 1: One-Way Selection and Relational Ifs</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,164 +212,199 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="if-statements-implement-one-way-selection"><code>if</code> statements implement one-way selection</h3>
-<p>An <span class="term">if statement</span> (条件语句) checks a Boolean expression and runs a block only when the expression is true.</p>
-<div class="two-col">
-<div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png" style="width:100.0%"></p>
-<figcaption>If block comparison</figcaption>
-</figure>
-</div>
-</div>
-<div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Bring an umbrella"</span><span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
+<h3 id="selection-changes-sequential-execution">Selection changes sequential execution</h3>
+<p><span class="term">If statements</span> (条件语句) are found in all programming languages as a way to choose between different paths in an algorithm.</p>
+<p>An if statement is a type of <span class="term">selection</span> statement that changes the sequential execution. It affects the <span class="term">flow of control</span> by executing different segments of code based on the value of a <span class="term">Boolean expression</span>.</p>
 </section>
+<section id="if-blocks-and-java-ifs" class="slide level2">
+<h2>If Blocks and Java Ifs</h2>
+<h3 id="app-inventor-ap-csp-and-java">App Inventor, AP CSP, and Java</h3>
+<p>If you took an AP CSP course or used a block programming language like Scratch, you’ve probably seen if blocks or statements before.</p>
+
+<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/BlocksIfComparison.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparison of App Inventor if block, AP CSP ifs, and Java if statements</p></section>
 <section id="one-way-selection" class="slide level2">
 <h2>One-Way Selection</h2>
-<h3 id="false-means-skip-the-block">False means skip the block</h3>
+<h3 id="body-runs-only-when-the-boolean-expression-is-true">Body runs only when the Boolean expression is true</h3>
+<p>A <span class="term">one-way selection</span> (if statement) is used when there is a segment of code, called the <span class="term">body</span> of the if statement, to execute under a certain condition.</p>
+<p>If the Boolean expression is <mark>true</mark>, the body is executed. If the Boolean expression is <mark>false</mark>, the body is skipped and the program continues with the next statement after the if statement.</p>
 
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png" style="width:32.0%" class="r-stretch quarto-figure-center"><p class="caption">One-way selection</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">boolean</span> isRaining <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
-<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Take an umbrella"</span><span class="op">);</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Leave home"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Only <code>Leave home</code> prints because the condition is false.</p>
+<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition.png" style="width:28.0%" class="r-stretch quarto-figure-center"><p class="caption">The order that statements execute in a conditional</p></section>
+<section id="one-way-syntax" class="slide level2">
+<h2>One-Way Syntax</h2>
+<h3 id="braces-group-the-body">Braces group the body</h3>
+<p>The open curly brace <code>{</code> and close curly brace <code>}</code> are used to group a block of statements together as the body of the if statement.</p>
+<p>It is recommended to always put in the curly braces even if you have just one statement under the if statement. The AP exam uses curly braces.</p>
 </section>
-<section id="relational-operators-in-if" class="slide level2">
-<h2>Relational Operators in <code>if</code></h2>
-<h3 id="the-condition-can-be-a-comparison">The condition can be a comparison</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">16</span><span class="op">)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"You can apply for a driver's license."</span><span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The body must be inside braces when it contains more than one statement. This course uses braces even for one-line bodies.</p>
+<section id="one-way-syntax-patterns" class="slide level2">
+<h2>One-Way Syntax Patterns</h2>
+<h3 id="single-statement-and-block-forms">Single statement and block forms</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// A single if statement</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb1-3"><a href=""></a>    Do statement<span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="co">// Or a single if with {}</span></span>
+<span id="cb1-6"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb1-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-8"><a href=""></a>   Do statement<span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-10"><a href=""></a></span>
+<span id="cb1-11"><a href=""></a><span class="co">// A block if statement: { } required</span></span>
+<span id="cb1-12"><a href=""></a><span class="cf">if</span> <span class="op">(</span><span class="dt">boolean</span> expression<span class="op">)</span></span>
+<span id="cb1-13"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-14"><a href=""></a>   Do Statement1<span class="op">;</span></span>
+<span id="cb1-15"><a href=""></a>   Do Statement2<span class="op">;</span></span>
+<span id="cb1-16"><a href=""></a>   Do StatementN<span class="op">;</span></span>
+<span id="cb1-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-one-way-selection">Trace one-way selection</h3>
-<p>What is printed?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> temp <span class="op">=</span> <span class="dv">72</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>temp <span class="op">&lt;</span> <span class="dv">70</span><span class="op">)</span></span>
-<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Wear a jacket"</span><span class="op">);</span></span>
-<span id="cb4-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb4-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Go outside"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Go outside</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Reason: <code>72 &lt; 70</code> is false, so the first print is skipped.</p>
-</section>
-<section id="two-way-selection" class="slide level2">
-<h2>Two-Way Selection</h2>
-<h3 id="if-else-handles-both-outcomes"><code>if else</code> handles both outcomes</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Condition-two.png" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">Two-way selection</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>heads<span class="op">)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Heads"</span><span class="op">);</span></span>
-<span id="cb6-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb6-5"><a href=""></a><span class="cf">else</span></span>
-<span id="cb6-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Tails"</span><span class="op">);</span></span>
-<span id="cb6-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Exactly one branch runs.</p>
+<section id="if-statement-note" class="slide level2">
+<h2>If Statement Note</h2>
+<h3 id="no-semicolon-after-the-boolean-expression">No semicolon after the Boolean expression</h3>
+<p>There is no semicolon <code>;</code> at the end of the Boolean expression in an if statement, even if it is the end of that line.</p>
+<p>The semicolon goes at the end of the whole if statement, often on the next line. Or <code>{ }</code> are used to mark the beginning and end of the block of code under the if condition.</p>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="license-age">License age</h3>
-<p>Complete the <code>else</code> branch.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> LicenseCheck</span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="dt">int</span> age <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
-<span id="cb7-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>age <span class="op">&gt;=</span> <span class="dv">16</span><span class="op">)</span></span>
-<span id="cb7-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb7-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Can apply for a license"</span><span class="op">);</span></span>
-<span id="cb7-9"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb7-10"><a href=""></a>        <span class="cf">else</span></span>
-<span id="cb7-11"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb7-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Wait until age 16"</span><span class="op">);</span></span>
-<span id="cb7-13"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb7-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output: <code>Wait until age 16</code>.</p>
+<h3 id="activecode-if-raining"><code>activecode:: if-raining</code></h3>
+<p>Textbook prompt: The variable <code>isRaining</code> is a Boolean variable that is either true or false. If it is true then the message <code>Take an umbrella!</code> will be printed and then execution will continue with the next statement which will print <code>Drive carefully</code>.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="dt">boolean</span> isRaining <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>isRaining<span class="op">)</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Take an umbrella!"</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Drive carefully"</span><span class="op">);</span></span>
+<span id="cb2-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="mixed-up-code" class="slide level2">
-<h2>Mixed-Up Code</h2>
-<h3 id="even-or-odd">Even or odd</h3>
-<p>Reorder the statements to print whether <code>num</code> is even.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> EvenOdd</span>
-<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb8-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb8-5"><a href=""></a>        <span class="dt">int</span> num <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
-<span id="cb8-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb8-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb8-8"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"even"</span><span class="op">);</span></span>
-<span id="cb8-9"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb8-10"><a href=""></a>        <span class="cf">else</span></span>
-<span id="cb8-11"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb8-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"odd"</span><span class="op">);</span></span>
-<span id="cb8-13"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb8-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb8-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key condition: <code>num % 2 == 0</code>.</p>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="if-raining"><code>if-raining</code></h3>
+<p>The Runestone test expects this <code>main</code> output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>Take an umbrella!</span>
+<span id="cb3-2"><a href=""></a>Drive carefully</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Execution continues after the if statement whether the body ran or was skipped.</p>
 </section>
-<section id="common-error" class="slide level2">
-<h2>Common Error</h2>
-<h3 id="missing-braces-can-change-the-logic">Missing braces can change the logic</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb9-2"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Only the first print is controlled by the <code>if</code>. The second print always runs.</p>
-<p>Preferred classroom form:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb10-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"A"</span><span class="op">);</span></span>
-<span id="cb10-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Excellent"</span><span class="op">);</span></span>
-<span id="cb10-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="trace-checkpoint" class="slide level2">
+<h2>Trace Checkpoint</h2>
+<h3 id="fillintheblank-iffalseoutput"><code>fillintheblank:: iffalseOutput</code></h3>
+<p>Textbook prompt: Try changing the code above to <code>boolean isRaining = false;</code>. What will it print?</p>
+<p>Student response:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>____________________________</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="magic-8-ball">Magic 8 Ball</h3>
-
-<img data-src="../../assets/2-selection-and-iteration/2-3-if-statements/Magic_eight_ball.png" style="width:22.0%" class="r-stretch quarto-figure-center"><p class="caption">Magic 8 Ball challenge</p><p>Starter idea:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="dt">int</span> answer <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">8</span><span class="op">)</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb11-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>answer <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb11-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb11-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"It is certain"</span><span class="op">);</span></span>
-<span id="cb11-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb11-6"><a href=""></a><span class="cf">else</span></span>
-<span id="cb11-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb11-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Ask again later"</span><span class="op">);</span></span>
-<span id="cb11-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Extend it so several different random answers can print.</p>
+<section id="trace-answer" class="slide level2">
+<h2>Trace Answer</h2>
+<h3 id="fillintheblank-iffalseoutput-1"><code>fillintheblank:: iffalseOutput</code></h3>
+<p>Correct response:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Drive carefully</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reasoning: If the Boolean is false, Java skips the print statement inside the if body and continues with the next statement.</p>
+</section>
+<section id="relational-operators-in-if-statements" class="slide level2">
+<h2>Relational Operators in If Statements</h2>
+<h3 id="conditions-often-compare-values">Conditions often compare values</h3>
+<p>Most if statements have a Boolean condition that uses relational operators like <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, as in the last lesson.</p>
+<p>The condition may compare a variable to a constant value, another variable, or an arithmetic expression.</p>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-if-relational"><code>activecode:: if-relational</code></h3>
+<p>Textbook prompt: Run the following active code a couple times until you see all the possible outputs. It prints out whether a random number is positive or equal to <code>0</code>. Add another if statement that tests if it is a negative number.</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-if-relational-1"><code>activecode:: if-relational</code></h3>
+<div class="code-scroll compact">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TestNumbers</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="co">// Get a random number from -10 up to 10.</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="dt">int</span> number <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">()</span> <span class="op">*</span> <span class="dv">21</span><span class="op">)</span> <span class="op">-</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb6-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The number is "</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>        <span class="co">// is it positive?</span></span>
+<span id="cb6-10"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>number <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb6-12"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>number <span class="op">+</span> <span class="st">" is positive!"</span><span class="op">);</span></span>
+<span id="cb6-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb6-14"><a href=""></a>        <span class="co">// is it 0?</span></span>
+<span id="cb6-15"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>number <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb6-16"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb6-17"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>number <span class="op">+</span> <span class="st">" is zero!"</span><span class="op">);</span></span>
+<span id="cb6-18"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb6-19"><a href=""></a>        <span class="co">// is it negative?</span></span>
+<span id="cb6-20"><a href=""></a>        <span class="co">// Add another if statement</span></span>
+<span id="cb6-21"><a href=""></a></span>
+<span id="cb6-22"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-23"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-if-relational-2"><code>activecode:: if-relational</code></h3>
+<p>Runestone repeatedly runs <code>main</code> until it sees these cases:</p>
+<div class="tight-list">
+<ul>
+<li>a positive number output that contains <code>positive</code></li>
+<li>zero output that contains <code>zero</code></li>
+<li>a negative number output that contains <code>negative</code></li>
+</ul>
+</div>
+<p>Expected output pattern for the negative case after the missing if is added:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>The number is -3</span>
+<span id="cb7-2"><a href=""></a>-3 is negative!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="common-equality-mistake" class="slide level2">
+<h2>Common Equality Mistake</h2>
+<h3 id="use-not-in-a-condition">Use <code>==</code>, not <code>=</code>, in a condition</h3>
+<p>A common mistake in if statements is using <code>=</code> instead of <code>==</code> in the condition by mistake.</p>
+<p>You should always <mark>use <code>==</code>, not <code>=</code></mark>, in the condition of an if statement to test a variable.</p>
+<p>One equal sign <code>=</code> assigns a value to a variable, and two equal signs <code>==</code> test if a variable has a certain value.</p>
+</section>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-mcq-if-trace"><code>mchoice:: mcq-if-trace</code></h3>
+<p>Consider the following code segment. What is printed as a result of executing the code segment?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb8-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">2</span><span class="op">)</span></span>
+<span id="cb8-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-4"><a href=""></a>   x <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb8-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb8-6"><a href=""></a><span class="cf">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb8-7"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-8"><a href=""></a>   x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-9"><a href=""></a><span class="op">}</span></span>
+<span id="cb8-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>x<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Options: <code>3</code>, <code>6</code>, <code>0</code>, <code>4</code>, <code>The code will not compile</code>.</p>
+</section>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-mcq-if-trace-1"><code>mchoice:: mcq-if-trace</code></h3>
+<p>Correct answer: <code>0</code>.</p>
+<p>Reasoning: If <code>x</code> is greater than <code>2</code>, it is doubled. Then that result is greater than <code>4</code>, so <code>x</code> is set to <code>0</code> in the second if statement.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain when an <code>if</code> body runs and when it is skipped</li>
-<li>trace one-way and two-way selection</li>
-<li>use braces to keep controlled statements clear</li>
-<li>write <code>if else</code> logic for mutually exclusive outcomes</li>
-<li>use <code>%</code> in selection to test even and odd numbers</li>
+<li>define an <code>if statement</code> as selection that changes sequential execution</li>
+<li>explain when a one-way selection body runs and when it is skipped</li>
+<li>use braces to group the body of an if statement</li>
+<li>avoid a semicolon immediately after the Boolean expression</li>
+<li>use <code>==</code>, not <code>=</code>, when testing equality in a condition</li>
+<li>trace consecutive if statements in source order</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="2-3-part-2-if-else-and-common-errors.html">Next: if-else and common errors →</a></p>
 
 </section>
     </div>

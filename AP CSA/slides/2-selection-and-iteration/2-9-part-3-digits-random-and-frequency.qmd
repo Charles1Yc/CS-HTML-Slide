@@ -1,0 +1,287 @@
+---
+title: "2.9 Implementing Selection and Iteration Algorithms"
+subtitle: "Part 3: Digits, Remainder, Math.random, and Frequency"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Finding Digits
+
+### Use `/` and `%` with 10
+
+We can also use division (`/`) and remainder (`%`) to find the digits of a number by dividing by `10`.
+
+For example, `1234` divided by `10` is `123` with a remainder of `4`.
+
+In integer division the result truncates everything to the right of the decimal point, so we get the number without the last digit when we divide by `10`. The remainder is the last digit of the number.
+
+## Digit Algorithms
+
+### Reuse the same idea
+
+You could use this algorithm to add the digits of a number, reverse the digits of a number, or check if a digit is equal to a certain number.
+
+::: {.tight-list}
+- `num % 10` gives the rightmost digit
+- `num / 10` removes the rightmost digit when `num` is an integer
+- a loop can repeat those two steps while digits remain
+:::
+
+## Code Task
+
+### `activecode:: checkDigit`
+
+Textbook prompt: Complete the `checkDigit` method below to determine if a positive number has a given single-digit number as one of its digits.
+
+## Code Window
+
+### `activecode:: checkDigit`
+
+::: {.code-scroll}
+```java
+public class CheckDigitTest
+{
+      // checkDigit checks whether a number has a given digit in it
+      public static boolean checkDigit(int number, int digit)
+      {
+          // 1. Use a while loop: while number is greater than 0
+
+             // 2. Get the last digit of number with % 10
+             // 3. if it equals the argument digit, return true
+             // 4. remove the last digit of number with / 10
+
+        // if loop finishes, return false
+        return false; // Digit not found
+    }
+
+
+    public static void main(String[] args)
+    {
+        System.out.println(checkDigit(12345, 3)); // true
+        System.out.println(checkDigit(9876, 2));  // false
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: checkDigit`
+
+Runestone checks that:
+
+::: {.tight-list}
+- the code contains a `while` loop
+- `main` prints `true` and `false`
+- `checkDigit(13579, 7)` returns `true`
+- the code contains `number % 10`
+:::
+
+## Remainder Uses
+
+### Keep `%` in mind
+
+The <span class="term">remainder</span> operator has been used quite a bit on the AP CSA exam.
+
+::: {.tight-list}
+- Use remainder to check for odd or even numbers.
+- Use remainder to check if any number is evenly divisible by any other.
+- Use it to get the last digit from an integer number.
+:::
+
+## Remainder Uses
+
+### Hours, minutes, and wraparound
+
+```java
+int totalMinutes = 345;
+int hours = totalMinutes / 60;   // Number of whole hours, i.e. 5
+int minutes = totalMinutes % 60; // Number of minutes left over, i.e. 45
+```
+
+Use `%` whenever you have a limit in the value, and you need to wrap around to zero if the value goes over the limit.
+
+The value of `num % limit` will always be in the range from `0` inclusive to `limit` exclusive as long as `num` and `limit` are both positive.
+
+## Math.random in if Statements
+
+### Random ranges represent probabilities
+
+The `Math.random()` method returns a random number between `0.0` and `1.0`.
+
+You can use this method with `if` statements to simulate a coin flip or an event occuring a certain percentage of the time.
+
+```java
+if (Math.random() < 0.5)
+{
+    System.out.println("Heads");
+}
+else
+{
+    System.out.println("Tails");
+}
+```
+
+## Math.random Example
+
+### 90 percent of the time
+
+If you want to simulate an event occuring 90% of the time, you can check the random number to see if it is less than `0.9`.
+
+```java
+if (Math.random() < 0.9)
+{
+    // 90% of the time
+    System.out.println("Event happened");
+}
+else
+{
+    // 10% of the time
+    System.out.println("Event did not happen");
+}
+```
+
+## Quick Check
+
+### `mchoice:: mcq-rnd-ifs`
+
+The weather report says there is approximately 25% chance of rain today.
+
+Which of the following `if` statements would print Rain or No Rain to simulate a day with the correct percentages following the weather report?
+
+::: {.tight-list}
+- A. `if (Math.random() < 0.25) { System.out.println("Rain"); }`
+- B. `if (Math.random() > 0.75) { System.out.println("Rain"); }`
+- C. `if (Math.random() > 0.25) { System.out.println("Rain"); }`
+- D. `if (Math.random() < 0.75) { System.out.println("No Rain"); }`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: mcq-rnd-ifs`
+
+Correct choices from Runestone:
+
+::: {.tight-list}
+- A: this code will print `Rain` 25% of the time.
+- B: this code will print `Rain` 25%, because `1 - 0.75 = 0.25`.
+- D: this code will print `No Rain` 75% of the time, so it will rain 25% of the time.
+:::
+
+Choice C prints `Rain` 75% of the time.
+
+## Code Task
+
+### `activecode:: randomShapes`
+
+Textbook prompt: Add an if/else statement that uses `Math.random()` to do a coin flip to decide whether to call `yertle.turnRight()` or `yertle.turnLeft`.
+
+Run the code to see the turtle draw a random shape.
+
+Datafile: `turtleClasses.jar`
+
+## Code Window
+
+### `activecode:: randomShapes`
+
+::: {.code-scroll}
+```java
+import java.util.*;
+import java.awt.*;
+
+public class RandomTurns
+{
+    public static void main(String[] args)
+    {
+        World world = new World(500,400);
+        Turtle yertle = new Turtle(world);
+
+        // This is a loop that runs 10 times to draw a random shape
+        for(int i = 1; i <= 10; i++)
+        {
+            yertle.forward(20);
+
+            // Write an if/else statement that uses
+            // Math.random() to do a coin flip (50%) to choose
+            // between yertle.turnRight() or turnLeft()
+
+
+
+
+
+
+        } // end of loop
+        world.show(true);
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: randomShapes`
+
+Runestone checks that the submitted code contains:
+
+::: {.tight-list}
+- `if`
+- `else`
+- `Math.random()`
+- `.5`
+:::
+
+## Frequency
+
+### Counter inside a loop
+
+You can use a counter variable inside a loop to determine the frequency with which a specific criteria is met.
+
+For example, you can count the number of even numbers in a sequence of numbers.
+
+```java
+int count = 0;
+for (int i = 0; i < 100; i++)
+{
+    if (i % 2 == 0)
+    {
+        count++;
+    }
+}
+System.out.println("There are " + count + " even numbers from 1 to 100.");
+```
+
+## Frequency and Boolean Methods
+
+### Use a method as the criterion
+
+The AP exam often gives a boolean method for students to use to determine some criteria in a set of values.
+
+For example, in the following challenge, you can count the number of prime numbers from `1` to `100` given a boolean method to use `isPrime(n)` which returns `true` or `false`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `% 10` to get the rightmost digit of an integer
+- use `/ 10` to remove the rightmost digit during integer division
+- identify which `Math.random()` inequalities represent a given probability
+- keep Turtle random-turn code inside the existing loop
+- increment a frequency counter only when a criterion is met
+- use a boolean method such as `isPrime(n)` as the condition for a frequency count
+:::
+
+## End
+
+### Continue to Part 4
+
+[Next: Prime Number Finder →](2-9-part-4-prime-number-finder.html)

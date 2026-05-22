@@ -1,0 +1,201 @@
+---
+title: "2.8 for Loops"
+subtitle: "Part 2: Decrementing and Mixed Code"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Mixed-Up Code
+
+### `parsonsprob:: print_evens`
+
+Textbook prompt: The following method has the correct code to print out all the even values from `0` to the value of `10`, but the code is mixed up.
+
+Drag the blocks into the correct order and indent them correctly. Even though Java doesn't require indention, it is a good habit to get into.
+
+## Mixed Blocks
+
+### `parsonsprob:: print_evens`
+
+```java
+public static void printEvens()
+{
+```
+
+```java
+   for (int i = 0; i <= 10; i+=2)
+   {
+```
+
+```java
+      System.out.println(i);
+```
+
+```java
+   } // end for
+```
+
+```java
+} // end method
+```
+
+## Correct Order
+
+### `parsonsprob:: print_evens`
+
+```java
+public static void printEvens()
+{
+   for (int i = 0; i <= 10; i+=2)
+   {
+      System.out.println(i);
+   } // end for
+} // end method
+```
+
+## Decrementing Loops
+
+### Count backwards
+
+You can also count backwards in a loop starting from the last number and decrementing down to `0` or `1`.
+
+All 3 parts of the loop must change to count backwards including the test of when to stop.
+
+For example, `for (int i=5; i > 0; i--)` counts from `5` down to `1`.
+
+## Code Task
+
+### `activecode:: for-bottles-backwards`
+
+Textbook prompt: What do you think will happen when you run the code below?
+
+How would it change if you changed line 11 to initialize `i`'s value to `3`?
+
+Try the Code Lens button to visualize and trace through this code.
+
+## Code Window
+
+### `activecode:: for-bottles-backwards`
+
+::: {.code-scroll}
+```java
+public class SongTest
+{
+
+    public static void printPopSong()
+    {
+        String line1 = " bottles of pop on the wall";
+        String line2 = " bottles of pop";
+        String line3 = "Take one down and pass it around";
+
+        // loop 5 times (5, 4, 3, 2, 1)
+        for (int i = 5; i > 0; i--)
+        {
+            System.out.println(i + line1);
+            System.out.println(i + line2);
+            System.out.println(line3);
+            System.out.println((i - 1) + line1);
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        SongTest.printPopSong();
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: for-bottles-backwards`
+
+Runestone checks that after the requested edit:
+
+::: {.tight-list}
+- the output contains `3 bottles of pop on the wall`
+- the first printed song line starts from `3`
+- the output does not contain `5 bottles of pop on the wall`
+:::
+
+## Trace Note
+
+### `printPopSong`
+
+The method `printPopSong` prints the words to a song.
+
+It initializes the value of the variable `i` equal to `5` and then checks if `i` is greater than `0`.
+
+Since `5` is greater than `0`, the body of the loop executes. Before the condition is checked again, `i` is decreased by `1`.
+
+When the value in `i` is equal to `0`, the loop stops executing.
+
+## Code Task
+
+### `activecode:: forloop-backwards`
+
+Textbook prompt: Can you make the loop count by 2s backwards?
+
+It should print out `5 3 1`.
+
+Remember to change all 3 parts of the for loop.
+
+## Code Window
+
+### `activecode:: forloop-backwards`
+
+```java
+public class ForLoop
+{
+    public static void main(String[] args)
+    {
+        for (int count = 1; count <= 5; count++)
+        {
+            System.out.println(count);
+        }
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: forloop-backwards`
+
+Runestone expects:
+
+```text
+5
+3
+1
+```
+
+The loop header must change all 3 parts: initialization, Boolean expression, and update.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- order mixed code blocks into a complete `printEvens` method
+- use `i+=2` to visit even values from `0` to `10`
+- explain that decrementing loops must change all 3 header parts
+- trace why `for (int i=5; i > 0; i--)` stops when `i` becomes `0`
+- edit the bottles loop to start at `3`, not `5`
+- change a loop so it prints `5`, `3`, and `1`
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Turtle Shapes Challenge →](2-8-part-3-turtle-shapes-challenge.html)

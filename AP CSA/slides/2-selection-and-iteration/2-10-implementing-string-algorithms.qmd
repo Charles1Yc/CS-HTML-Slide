@@ -1,6 +1,6 @@
 ---
 title: "2.10 Implementing String Algorithms"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Find and Replace with while"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,197 +16,243 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Loops can process strings one character at a time
+### String traversal and string processing
 
-String algorithms combine:
+Loops are often used for <span class="term">String Traversals</span> or <span class="term">String Processing</span> algorithms where the code steps through a string character by character.
 
-::: {.tight-list}
-- string indices
-- `length()`
-- `indexOf(target)`
-- `substring(start, end)`
-- loops and conditionals
-:::
+In previous lessons, we learned to use `String` objects and built-in string methods to process strings.
 
-![String indices](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png){fig-align="center" width="52%"}
+In this lesson, we will write our own loops to process strings.
 
-## While Find and Replace
+## Standard String Algorithms
 
-### Use `indexOf` when the number of matches is unknown
-
-Algorithm:
+### Loops can be used to
 
 ::: {.tight-list}
-- search for the target substring
-- while the target exists, process it
-- rebuild the string without or with replacement text
-- search again after the string changes
+- find if one or more substrings has a particular property
+- determine the number of substrings that meet specific criteria
+- create a new string with the characters reversed
 :::
+
+## String Indices
+
+### Positions start at 0
+
+Remember that strings are a sequence of characters where each character is at a position or <span class="term">index</span> starting at `0`.
+
+::: {.image-fit}
+![A string with the position index shown above each character](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/stringIndicies.png){fig-align="center" width="70%"}
+:::
+
+The first character in a Java `String` is at index `0` and the last character is at `length() - 1`, so loops processing strings should start at `0`.
+
+## String Methods
+
+### Methods often used to process strings
+
+::: {.tight-list}
+- `int length()` returns the number of characters in a `String` object.
+- `int indexOf(String str)` returns the index of the first occurrence of `str` or `-1` if `str` is not found.
+- `String substring(int from, int to)` returns the substring beginning at index `from` and ending at index `to - 1`.
+- `String substring(int from)` returns `substring(from, length())`.
+:::
+
+Note that `s.substring(i,i+1)` returns the character at index `i`.
+
+## While Find and Replace Loop
+
+### `indexOf` controls the loop
+
+A while loop can be used with the `String` `indexOf` method to find certain characters in a string and process them, usually using the `substring` method.
 
 ```java
+String s = "example";
+int i = 0;
+// while there is an a in s
 while (s.indexOf("a") >= 0)
 {
-    int index = s.indexOf("a");
-    s = s.substring(0, index) + s.substring(index + 1);
+  // Find and save the next index for an a
+  i = s.indexOf("a");
+  // Process the string at that index
+  String ithLetter = s.substring(i,i+1);
+  // process the letter or rebuild the string here
 }
 ```
 
 ## Mixed-Up Code
 
-### Remove all `a` characters
+### `parsonsprob:: removeA`
 
-Reorder the method.
+Textbook prompt: The following program removes all the `a`'s from a string, but the code is mixed up.
 
+Drag the blocks from the left area into the correct order in the right area.
+
+## Mixed Blocks
+
+### `parsonsprob:: removeA`
+
+::: {.code-scroll}
 ```java
-String s = "are apples tasty without an a?";
-System.out.println("Original string: " + s);
-
-while (s.indexOf("a") >= 0)
+public static void main(String[] args)
 {
-    int index = s.indexOf("a");
-    s = s.substring(0, index) + s.substring(index + 1);
-}
-
-System.out.println("String with a's removed: " + s);
 ```
 
-Trace the first replacement before running the full loop.
-
-## Code Task {.fit-small}
-
-### Count replacements while cleaning text
-
-Add a counter to the find-and-replace loop.
-
 ```java
-String message = "Have a 1ong and happy 1ife";
-int count = 0;
-
-while (message.indexOf("1") >= 0)
-{
-    int index = message.indexOf("1");
-    String first = message.substring(0, index);
-    String last = message.substring(index + 1);
-    message = first + "l" + last;
-    count++;
-}
-
-System.out.println("Cleaned text: " + message);
-System.out.println("Replacements: " + count);
+   String s = "are apples tasty without an a?";
+   int index = 0;
+   System.out.println("Original string: " + s);
 ```
 
-Expected final message: `Have a long and happy life`.
-
-## For Loops over Strings
-
-### Use `for` when every index should be visited
-
 ```java
-for (int i = 0; i < message.length(); i++)
-{
-    String letter = message.substring(i, i + 1);
-    System.out.println(letter);
-}
+   // while there is an a in s
+   while (s.indexOf("a") >= 0)
+   {
 ```
 
-Standard bounds:
+```java
+      // Find the next index for an a
+      index = s.indexOf("a");
+```
 
-::: {.tight-list}
-- start at index `0`
-- stop while `i < message.length()`
-- use `substring(i, i + 1)` for one character
+```java
+      // Remove the a at index by concatenating
+      // substring up to index and then rest of the string.
+      s = s.substring(0,index) +
+          s.substring(index+1);
+```
+
+```java
+   } // end loop
+```
+
+```java
+   System.out.println("String with a's removed:" + s);
+```
+
+```java
+} // end method
+```
 :::
 
-## Mixed-Up Code
+## Correct Order
 
-### Count the letter `e`
+### `parsonsprob:: removeA`
 
+::: {.code-scroll}
 ```java
-String message = "e is the most frequent English letter.";
-int count = 0;
-
-for (int i = 0; i < message.length(); i++)
+public static void main(String[] args)
 {
-    if (message.substring(i, i + 1).equalsIgnoreCase("e"))
+   String s = "are apples tasty without an a?";
+   int index = 0;
+   System.out.println("Original string: " + s);
+
+   // while there is an a in s
+   while (s.indexOf("a") >= 0)
+   {
+      // Find the next index for an a
+      index = s.indexOf("a");
+      // Remove the a at index by concatenating
+      // substring up to index and then rest of the string.
+      s = s.substring(0,index) +
+          s.substring(index+1);
+   } // end loop
+
+   System.out.println("String with a's removed:" + s);
+} // end method
+```
+:::
+
+## Find and Replace
+
+### Scanning mistakes
+
+Google has been scanning old books and then using software to read the scanned text.
+
+But, the software can get things mixed up like using the number `1` for the letter `l`.
+
+The following code loops through a string replacing all `1`'s with `l`'s.
+
+Trace through the code below with a partner and explain how it works on the given message.
+
+## Code Task
+
+### `activecode:: string-replace1`
+
+Textbook prompt: Change the code to add code for a counter variable to count the number of `1`'s replaced in the message and print it out.
+
+Change the message to have more mistakes with `1`'s to test it.
+
+## Code Window
+
+### `activecode:: string-replace1`
+
+::: {.code-scroll}
+```java
+public class FindAndReplace
+{
+    public static void main(String[] args)
     {
-        count++;
+        String message = "Have a 1ong and happy 1ife";
+        int index = 0;
+
+        // while more 1's in the message
+        while (message.indexOf("1") >= 0)
+        {
+            // Find the next index for 1
+            index = message.indexOf("1");
+            System.out.println("Found a 1 at index: " + index);
+            // Replace the 1 with a l at index by concatenating substring up to
+            // index and then the rest of the string.
+            String firstpart = message.substring(0, index);
+            String lastpart = message.substring(index + 1);
+            message = firstpart + "l" + lastpart;
+            System.out.println("Replaced 1 with l at index " + index);
+            System.out.println(
+                    "The message is currently "
+                            + message
+                            + " but we aren't done looping yet!");
+        }
+        System.out.println("Cleaned text: " + message);
     }
 }
-
-System.out.println(count);
 ```
+:::
 
-Class focus: the `if` is inside the loop because each character must be tested.
+## Test Requirements
 
-## Reverse String
+### `activecode:: string-replace1`
 
-### Concatenation order changes the result
+Runestone's original trace output for the starting message is:
 
-```java
-String s = "Hello";
-String sReversed = "";
-
-for (int i = 0; i < s.length(); i++)
-{
-    String ithLetter = s.substring(i, i + 1);
-    sReversed = ithLetter + sReversed;
-}
-
-System.out.println(s + " reversed is " + sReversed);
+::: {.scroll-block}
+```text
+Found a 1 at index: 7
+Replaced 1 with l at index 7
+The message is currently Have a long and happy 1ife but we aren't done looping yet!
+Found a 1 at index: 22
+Replaced 1 with l at index 22
+The message is currently Have a long and happy life but we aren't done looping yet!
+Cleaned text: Have a long and happy life
 ```
+:::
 
-Expected output: `Hello reversed is olleH`.
-
-## Trace Checkpoint
-
-### Build the reversed string
-
-Trace `s = "cat"`.
-
-| `i` | `ithLetter` | `sReversed` after update |
-|---:|---|---|
-| 0 | `"c"` | `"c"` |
-| 1 | `"a"` | `"ac"` |
-| 2 | `"t"` | `"tac"` |
-
-If the update were `sReversed = sReversed + ithLetter`, the result would stay in original order.
-
-## Groupwork Coding Challenge {.fit-small .image-fit}
-
-### String Replacement: Cats and Dogs
-
-![Cats and dogs challenge](../../assets/2-selection-and-iteration/2-10-implementing-string-algorithms/catordog.jpg){fig-align="center" width="24%"}
-
-Starter:
-
-```java
-String message = "I love cats! I have a cat named Coco. My cat's very smart!";
-
-while (message.indexOf("cat") >= 0)
-{
-    int index = message.indexOf("cat");
-    message = message.substring(0, index) + "dog" + message.substring(index + 3);
-}
-
-System.out.println(message);
-```
-
-Do not use the shortcut `.replace`.
+The test expects the final submitted output to be different because the prompt asks you to add a counter and change the message to have more `1` mistakes.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- choose `while` when repeated `indexOf` search controls the loop
-- choose `for` when every string index should be visited
-- use correct `substring` bounds for one-character extraction
-- rebuild strings by concatenating prefix, replacement, and suffix
-- trace how concatenation order affects a reversed string
+- identify `indexOf` as the loop test for repeated find-and-replace
+- use `indexOf("a") >= 0` or `indexOf("1") >= 0` to keep searching while a target remains
+- use `substring(0,index)` and `substring(index+1)` to remove a character
+- rebuild a string by concatenating the prefix, replacement, and suffix
+- explain why the next `indexOf` search can find the next occurrence after the string changes
+- add a counter update inside the replacement loop
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Reverse and Cats/Dogs Challenge →](2-10-part-2-reverse-and-cats-dogs-challenge.html)

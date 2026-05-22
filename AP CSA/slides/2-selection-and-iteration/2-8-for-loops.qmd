@@ -1,6 +1,6 @@
 ---
 title: "2.8 for Loops"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Structure, Flow, and Iteration Counts"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,180 +16,291 @@ lang: zh-CN
 
 ## Topic Intro
 
-### `for` loops package counting logic into the header
+### Count-controlled iteration
 
-A <span class="term">for loop</span> (for 循环) is usually used when the number of repetitions is known or countable.
+Another type of loop, or iteration, in Java is a <span class="term">for loop</span> (for 循环).
 
-![Loop in App Inventor](../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png){fig-align="center" width="36%"}
+It is usually used when you know how many times you want the loop to execute, as a simple <span class="term">counter-controlled loop</span> (计数控制循环) to do the loop body a set number of times.
 
-```java
-for (int i = 1; i <= 5; i++)
-{
-    System.out.println(i);
-}
-```
+## Repeat Blocks
+
+### App Inventor, Scratch, and Java
+
+If you took AP CSP with a block programming language like App Inventor, you probably used a for loop block like below that looks very similar to Java for loops.
+
+If you have used Scratch or Snap!, you may remember the `repeat(n)` block where you type in a number of times you want the code to be repeated, just like the AP pseudocode `REPEAT` block.
+
+## Repeat Blocks Figure
+
+### App Inventor and Java
+
+::: {.image-fit}
+![Comparing App Inventor and Java for loops](../../assets/2-selection-and-iteration/2-8-for-loops/loopAppInv.png){fig-align="center" width="66%"}
+:::
 
 ## Three Parts
 
-### Initialization, condition, update
+### Initialize, test, update
 
-![Compare for and while](../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png){fig-align="center" width="46%"}
+A for-loop combines all 3 parts of writing a loop in one line to initialize, test, and update the loop control variable.
+
+The 3 parts are separated by semicolons (`;`). Each of the three parts of a `for` loop declaration is optional, but the semicolons are <span class="mark">not optional</span>.
 
 ```java
-for (int i = 1; i <= 5; i++)
+for (initialize; test; update)
 {
-    System.out.println(i);
+   loop body
 }
 ```
 
-::: {.tight-list}
-- `int i = 1`: initialize once
-- `i <= 5`: test before each repetition
-- `i++`: update after each body execution
+## for and while
+
+### Equivalent loop structure
+
+The for-loop is almost a shortcut way to write a while loop with all three steps that you need in one line.
+
+A `for` loop can be rewritten into an equivalent `while` loop, and vice versa.
+
+::: {.image-fit}
+![Showing how a for loop maps to a while loop](../../assets/2-selection-and-iteration/2-8-for-loops/compareForAndWhile.png){fig-align="center" width="84%"}
 :::
 
 ## For Loop Flow
 
-### Same loop idea, compact syntax
+### Initialization runs once
 
-![For loop flow](../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png){fig-align="center" width="42%"}
+In a `for` loop, the initialization statement is only executed once before the first Boolean expression evaluation.
 
-The condition still decides whether the loop body runs again. The update still must move the loop toward stopping.
+The variable being initialized is referred to as a <span class="term">loop control variable</span> (循环控制变量).
+
+## For Loop Flow Diagram
+
+### Control flow in a for loop
+
+::: {.image-fit}
+![Control flow in a for loop](../../assets/2-selection-and-iteration/2-8-for-loops/ForLoopFlow.png){fig-align="center" width="30%"}
+:::
+
+## For Loop Flow
+
+### Test, body, update, repeat
+
+The Boolean expression is evaluated immediately after the loop control variable is initialized and then followed by each execution of the increment statement until it is false.
+
+In each iteration, the update is executed after the entire loop body is executed and before the Boolean expression is evaluated again.
+
+When the loop condition is finally false, we jump out of the loop and continue at the next statement after the body of the loop.
 
 ## Code Task
 
-### Convert `while` to `for`
+### `activecode:: forloop`
 
-`while` version:
+Textbook prompt: Here is a for loop that counts from `1` to `5`. Can you change it to count from `2` to `10`?
 
-```java
-int count = 1;
-while (count <= 5)
-{
-    System.out.println(count);
-    count++;
-}
-```
+## Code Window
 
-Equivalent `for` version:
+### `activecode:: forloop`
 
 ```java
-for (int count = 1; count <= 5; count++)
-{
-    System.out.println(count);
-}
-```
-
-## Quick Check
-
-### Count iterations
-
-How many times does the loop body run?
-
-```java
-for (int i = 0; i < 10; i += 2)
-{
-    System.out.println(i);
-}
-```
-
-Answer: <span class="mark">5</span> times. The values are `0`, `2`, `4`, `6`, `8`.
-
-## Mixed-Up Code
-
-### Print even numbers
-
-Reorder the lines to print even numbers from `2` through `10`.
-
-```java
-public class PrintEvens
+public class ForLoop
 {
     public static void main(String[] args)
     {
-        for (int num = 2; num <= 10; num += 2)
+        for (int count = 1; count <= 5; count++)
         {
-            System.out.println(num);
+            System.out.println(count);
         }
     }
 }
 ```
 
-Key: the update is `num += 2`.
+## Test Requirements
 
-## Decrementing Loops
+### `activecode:: forloop`
 
-### A loop can count down
+Runestone expects the main method output to be:
+
+```text
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+## Code Task
+
+### `activecode:: forloopfromwhile`
+
+Textbook prompt: Here is a while loop that counts from `5` to `10`. Run it and see what it does.
+
+Can you change it to a for-loop? Run your for-loop. Does it do the same thing?
+
+## Code Window
+
+### `activecode:: forloopfromwhile`
 
 ```java
-for (int bottles = 5; bottles > 0; bottles--)
+public class ForLoopFromWhile
 {
-    System.out.println(bottles + " bottles");
+    public static void main(String[] args)
+    {
+        int count = 5;
+        while (count <= 10)
+        {
+            System.out.println(count);
+            count++;
+        }
+    }
 }
 ```
 
-Trace the header:
+## Test Requirements
+
+### `activecode:: forloopfromwhile`
+
+Runestone checks three things:
 
 ::: {.tight-list}
-- starts at `5`
-- continues while greater than `0`
-- subtracts one after each pass
+- output from `main` is `5`, `6`, `7`, `8`, `9`, `10`, each on its own line
+- the submitted code does not contain a `while` loop
+- the submitted code contains a `for` loop
+:::
+
+## Common Patterns
+
+### Starting at 0 or starting at 1
+
+Two common patterns in for-loops are to count from `0` up to a number using `<`, or count from `1` to the number including the number using `<=`.
+
+Remember that if you start at `0` use `<`, and if you start at `1`, use `<=`.
+
+::: {.code-scroll}
+```java
+// These loops both run 10 times
+// If you start at 0, use <
+for(int i = 0; i < 10; i++)
+{
+   System.out.println(i);
+}
+
+// If you start at 1, use <=
+for(int i = 1; i <= 10; i++)
+{
+   System.out.println(i);
+}
+```
 :::
 
 ## Quick Check
 
-### Equivalent loop reasoning
+### `mchoice:: mcq-for-1`
 
-Which loop prints the same values as `count = 2, 4, 6`?
+What does the following code print?
 
 ```java
-for (int count = 2; count <= 6; count += 2)
+for (int i = 3; i < 8; i++)
 {
-    System.out.println(count);
+   System.out.print(i + " ");
 }
 ```
 
-Equivalent:
+::: {.tight-list}
+- A. `3 4 5 6 7 8`
+- B. `0 1 2 3 4 5 6 7 8`
+- C. `8 8 8 8 8`
+- D. `3 4 5 6 7`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: mcq-for-1`
+
+Correct answer: <span class="mark">D. `3 4 5 6 7`</span>
+
+The value of `i` is set to `3` before the loop executes and the loop stops when `i` is equal to `8`.
+
+The last time through the loop, `i` is equal to `7`.
+
+## Quick Check
+
+### `mchoice:: mcq-for-2`
+
+What does the following code print?
 
 ```java
-int count = 2;
-while (count <= 6)
+for (int i = 1; i <= 10; i++)
 {
-    System.out.println(count);
-    count += 2;
+   System.out.print(i + " ");
 }
 ```
 
-## Groupwork Coding Challenge
+::: {.tight-list}
+- A. `3 4 5 6 7 8`
+- B. `0 1 2 3 4 5 6 7 8 9`
+- C. `1 2 3 4 5 6 7 8 9 10`
+- D. `1 3 5 7 9`
+:::
 
-### Turtle drawing shapes
+## Answer Reasoning
 
-Use a `for` loop to draw a polygon.
+### `mchoice:: mcq-for-2`
+
+Correct answer: <span class="mark">C. `1 2 3 4 5 6 7 8 9 10`</span>
+
+The value of `i` starts at `1`, and this loop will execute until `i` equals `11`.
+
+The last time through the loop, the value of `i` is `10`.
+
+## Quick Check
+
+### `mchoice:: mcq-for-3`
+
+How many times does the following method print a `*`?
 
 ```java
-int sides = 6;
-for (int i = 1; i <= sides; i++)
+for (int i = 3; i <= 9; i++)
 {
-    yertle.forward(50);
-    yertle.turn(360 / sides);
+   System.out.print("*");
 }
 ```
 
-Change `sides` to draw a triangle, square, pentagon, and hexagon.
+::: {.tight-list}
+- A. `10`
+- B. `6`
+- C. `7`
+- D. `9`
+:::
+
+## Answer Reasoning
+
+### `mchoice:: mcq-for-3`
+
+Correct answer: <span class="mark">C. `7`</span>
+
+Since `i` starts at `3` and the last time through the loop it is `9`, the loop executes 7 times.
+
+Counting inclusively: `9 - 3 + 1 = 7`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- identify the initialization, condition, and update in a `for` loop
-- convert between equivalent `while` and `for` loops
-- count loop iterations from start, stop, and update values
-- trace incrementing and decrementing loops
-- choose `for` when the repetition count is known or countable
+- state that a `for` loop is usually used when the repetition count is known
+- identify the initialization, Boolean expression, and update in a `for` loop header
+- explain that semicolons in the `for` header are not optional
+- trace that initialization runs once, then test, body, update, and test repeat
+- convert a counting `while` loop into a `for` loop with the same output
+- count iterations from the start value, stopping test, and update
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Decrementing and mixed code →](2-8-part-2-decrementing-and-mixed-code.html)

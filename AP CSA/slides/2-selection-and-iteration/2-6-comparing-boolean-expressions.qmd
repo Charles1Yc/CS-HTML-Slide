@@ -1,6 +1,6 @@
 ---
 title: "2.6 Comparing Boolean Expressions"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: De Morgan's Laws and Truth-Table Equivalence"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,195 +16,209 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Different expressions can mean the same thing
+### Negating a compound statement
 
-Two Boolean expressions are <span class="term">equivalent</span> (等价) if they always evaluate to the same value for the same inputs.
+What if you heard a rumor about a senior at your high school? Then you heard that the rumor wasn't true: it wasn't a senior at your high school.
 
-This topic focuses on:
+Which part of `"a senior at your high school"` wasn't true?
 
-::: {.tight-list}
-- De Morgan's Laws
-- simplifying Boolean expressions
-- comparing objects and strings
-- safe `null` checks
-:::
+```java
+!(a && b)
+
+a = "senior"
+b = "at our high school"
+```
+
+This means it is not true that both `(a)` it is a senior and `(b)` someone at our high school.
 
 ## De Morgan's Laws
 
-### Distributing `!` flips the operator
+### Move the NOT inside
 
-![De Morgan's Laws](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png){fig-align="center" width="45%"}
+De Morgan's Laws were developed by Augustus De Morgan in the 1800s.
 
-Core identities:
+They show how to rewrite the negation of a complex Boolean expression when there are multiple expressions joined by `&&` or `||`.
+
+![De Morgan's Laws to rewrite complex expressions](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorgan.png){fig-align="center" width="42%"}
+
+## De Morgan's Laws in Java
+
+### Equivalent expressions
+
+In Java, De Morgan's Laws are written with the following operators:
+
+::: {.tight-list}
+- `!(a && b)` is equivalent to `!a || !b`
+- `!(a || b)` is equivalent to `!a && !b`
+:::
+
+Easy way to remember: <span class="mark">move the NOT inside, AND becomes OR</span> and <span class="mark">move the NOT inside, OR becomes AND</span>.
+
+## Rumor Example
+
+### Senior and high school
+
+Going back to the example:
 
 ```java
-!(a && b)  is equivalent to  !a || !b
-!(a || b)  is equivalent to  !a && !b
+!(a && b) is equivalent to !a || !b
+
+a = "senior"
+b = "at our high school"
 ```
 
-The operator changes when the negation moves inward.
+`!(a senior && at our high school)` is equivalent to `!(a senior) || !(at our high school)`.
 
-## Truth Table Method
+## Relational Operators
 
-### Prove equivalence by matching result columns
+### To move the NOT, flip the sign
 
-| `a` | `b` | `!(a && b)` | `!a || !b` |
+You can also rewrite negated Boolean expressions that have relational operators like `<`, `>`, `==`.
+
+Move the negation inside the parentheses by flipping the relational operator to its opposite sign:
+
+::: {.table-fit}
+| Expression | Equivalent expression |
+|---|---|
+| `!(c == d)` | `c != d` |
+| `!(c != d)` | `c == d` |
+| `!(c < d)` | `c >= d` |
+| `!(c > d)` | `c <= d` |
+| `!(c <= d)` | `c > d` |
+| `!(c >= d)` | `c < d` |
+:::
+
+## Truth Tables
+
+### Proving equivalence
+
+Although you do not have to memorize De Morgan's Laws for the CSA Exam, you should be able to show that two Boolean expressions are equivalent.
+
+One way to do this is by using truth tables.
+
+::: {.table-fit}
+| a | b | `!(a && b)` | `!a || !b` |
 |---|---|---|---|
-| true | true | false | false |
-| true | false | true | true |
-| false | true | true | true |
-| false | false | true | true |
+| `true` | `true` | `false` | `false` |
+| `false` | `true` | `true` | `true` |
+| `true` | `false` | `true` | `true` |
+| `false` | `false` | `true` | `true` |
+:::
 
-Because the result columns match in every row, the two expressions are equivalent.
+The last two columns are identical.
 
-## Simplifying Boolean Expressions
+## Equivalent Expression Example
 
-### Choose the more readable form
+### Two steps
 
-![Simplifying with De Morgan](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png){fig-align="center" width="42%"}
-
-Example:
-
-```java
-!(score >= 60 && submitted)
-```
-
-Equivalent form:
+Applying De Morgan's Laws to `!(x < 3 && y > 2)` yields:
 
 ```java
-score < 60 || !submitted
+!(x < 3) || !(y > 2)
 ```
+
+## Equivalent Expression Example
+
+### Remove the not
+
+Then flip the relational operators to remove the not:
+
+```java
+(x >= 3 || y <= 2)
+```
+
+![An example Boolean expression rewritten](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/demorganex.png){fig-align="center" width="38%"}
+
+## Code Task
+
+### `activecode:: lcdmtest`
+
+Textbook prompt: For what values of `x` and `y` will the code below print true? Try out different values of `x` and `y` to check your answer.
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        int x = 2;
+        int y = 3;
+        System.out.println(!(x < 3 && y > 2));
+    }
+}
+```
+
+Runestone checks that the original code has been changed.
 
 ## Quick Check
 
-### Apply De Morgan's Laws
+### `mchoice:: compareBool1`
 
-Which expression is equivalent to `!(x < 5 || y == 0)`?
-
-::: {.tight-list}
-- A. `x >= 5 && y != 0`
-- B. `x >= 5 || y != 0`
-- C. `x < 5 && y == 0`
-- D. `x > 5 && y != 0`
-:::
-
-Answer: <span class="mark">A</span>. Negate both comparisons and change `||` to `&&`.
-
-## Comparing Objects
-
-### `==` asks whether references are identical
-
-For object variables, `==` compares references.
-
-![String reference comparison](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png){fig-align="center" width="40%"}
-
-With strings, you almost always want:
+What is printed when the following code executes and `x` equals `4` and `y` equals `3`?
 
 ```java
-s1.equals(s2)
-```
-
-because it checks whether the character sequences are equal.
-
-## String Equality
-
-### Same characters, different references
-
-```java
-String s1 = new String("hi");
-String s2 = new String("hi");
-
-System.out.println(s1 == s2);
-System.out.println(s1.equals(s2));
-```
-
-Expected output:
-
-```text
-false
-true
-```
-
-`equals` checks content equality.
-
-## Reference Diagrams {.image-fit}
-
-### Trace what each variable points to
-
-::: {.two-col}
-::: {}
-![s1 and s2](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg){width="84%"}
-:::
-::: {}
-![s2 and s3](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg){width="84%"}
-:::
-:::
-
-When a question uses `==` with objects, draw arrows to objects before answering.
-
-## Comparing with `null`
-
-### Check `null` before calling a method
-
-This can crash if `s` is `null`:
-
-```java
-if (s.equals("yes"))
+int x = 4, y = 3;
+if (!(x < 3 || y > 2))
 {
-    System.out.println("matched");
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
 }
 ```
 
-Safe pattern:
+Options: `first case`, `second case`.
+
+## Answer Reasoning
+
+### `mchoice:: compareBool1`
+
+Correct answer: `second case`.
+
+This will be printed if `x` is less than `3` or `y` is greater than `2`. In this case the first part is false, but the second is true, so the expression with `||` is true.
+
+## Quick Check
+
+### `mchoice:: compareBool2`
+
+What is printed when the following code executes and `x` equals `4` and `y` equals `3`?
 
 ```java
-if (s != null && s.equals("yes"))
+int x = 4, y = 3;
+if (!(x < 3 && y > 2))
 {
-    System.out.println("matched");
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
 }
 ```
 
-Short circuiting prevents the method call when `s` is `null`.
+Options: `first case`, `second case`.
 
-## Student Response Task
+## Answer Reasoning
 
-### Truth and tracing table
+### `mchoice:: compareBool2`
 
-Complete the reasoning for the code.
+Correct answer: `first case`.
 
-```java
-String a = new String("cat");
-String b = new String("cat");
-String c = a;
-System.out.println(a == b);
-System.out.println(a == c);
-System.out.println(a.equals(b));
-```
-
-Answer:
-
-```text
-false
-true
-true
-```
-
-Explain each line using references versus contents.
+This will be printed if `x` is greater than or equal to `3` or `y` is less than or equal to `2`. In this case `x` is greater than `3`, so the first condition is true.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- apply De Morgan's Laws by flipping both the comparison and the operator
-- use a truth table to test Boolean equivalence
-- distinguish `==` from `equals` for strings
-- explain why two different string objects can have equal contents
-- write safe `obj != null && obj.method()` checks
+- state both De Morgan equivalences using `&&`, `||`, and `!`
+- flip relational operators when moving a negation inside
+- use a truth table to prove two Boolean expressions are equivalent
+- trace `!(x < 3 || y > 2)` and `!(x < 3 && y > 2)` differently
+- avoid relying on memorization alone when a truth table can prove equivalence
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Object, String, and null comparisons →](2-6-part-2-object-string-and-null-comparisons.html)

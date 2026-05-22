@@ -1,6 +1,6 @@
 ---
 title: "2.5 Compound Boolean Expressions"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: &&, ||, !, Ranges, and Truth Tables"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,200 +14,296 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## And, Or, and Not
 
-### Combine conditions to make richer decisions
+### Logical operators
 
-A <span class="term">compound Boolean expression</span> (复合布尔表达式) combines smaller Boolean expressions using:
+What if you want two things to be true before the body of the conditional is executed?
 
-::: {.tight-list}
-- `&&` for <span class="term">and</span>
-- `||` for <span class="term">or</span>
-- `!` for <span class="term">not</span>
+Use `&&` as a logical <span class="term">and</span> to join two Boolean expressions. The body of the condition will only be executed if <span class="mark">both are true</span>.
+
+## Code Task
+
+### `activecode:: compoundAnd`
+
+Textbook prompt: What if you want to go out and your parents say you can go out if you clean your room and do your homework?
+
+Run the code below and try different values for `cleanedRoom` and `didHomework` and see what they have to be for it to print `You can go out`.
+
+## Code Window
+
+### `activecode:: compoundAnd`
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        boolean cleanedRoom = true;
+        boolean didHomework = false;
+        if (cleanedRoom && didHomework)
+        {
+            System.out.println("You can go out");
+        }
+        else
+        {
+            System.out.println("No, you can't go out");
+        }
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: compoundAnd`
+
+Runestone checks that the original code has been changed and that `main` prints:
+
+```text
+You can go out
+```
+
+## Logical Or
+
+### Inclusive or
+
+What if it is okay if only one of two things is true?
+
+Use `||` as a logical <span class="term">or</span> to join two Boolean expressions. The body of the condition will be executed if <span class="mark">one or both</span> are true.
+
+In programming, the or-operator is an <span class="term">inclusive-or</span>: the whole expression is true if either one or the other or both conditions are true.
+
+## Code Task
+
+### `activecode:: compoundOr`
+
+Textbook prompt: Your parents might say you can go out if you can walk or they don't need the car.
+
+Try different values for `walking` and `carIsAvailable` and see what the values have to be to print `You can go out`.
+
+## Code Window
+
+### `activecode:: compoundOr`
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        boolean walking = false;
+        boolean carIsAvailable = false;
+        if (walking || carIsAvailable)
+        {
+            System.out.println("You can go out");
+        }
+        else
+        {
+            System.out.println("No, you can't go out");
+        }
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: compoundOr`
+
+Runestone checks that the original code has been changed and that `main` prints:
+
+```text
+You can go out
+```
+
+## Numeric Range Checks
+
+### `||` for error ends, `&&` for in range
+
+With numerical values, the **or** (`||`) operator is often used to check for error conditions on different ends of the number line.
+
+The **and** (`&&`) operator is often used to see if a number is in a range.
+
+## Code Task
+
+### `activecode:: compound-number-range`
+
+Textbook prompt: Explore how `&&` and `||` are used with numbers below. Try different values for `score` like `-10` and `110` in the code below.
+
+```java
+public class TestNum
+{
+    public static void main(String[] args)
+    {
+        int score = 10; // Try -10 and 110
+        if (score < 0 || score > 100)
+        {
+            System.out.println("Score has an illegal value.");
+        }
+        if (score >= 0 && score <= 100)
+        {
+            System.out.println("Score is in the range 0-100");
+        }
+    }
+}
+```
+
+Runestone checks that the original code has been changed.
+
+## Not Operator
+
+### `!` negates a Boolean value
+
+The <span class="term">not</span> (`!`) operator can be used to negate a Boolean value.
+
+We've seen `!` before in `!=` (not equal). If you use `!` in expressions with `&&` and `||`, be careful because the results are often the opposite of what you think it will be at first.
+
+## Code Task
+
+### `activecode:: not-operator`
+
+Textbook prompt: The code below says if homework is not done, you can't go out. Try different values for `homeworkDone`.
+
+```java
+public class TestNot
+{
+    public static void main(String[] args)
+    {
+        boolean homeworkDone = false;
+        if (!homeworkDone)
+        {
+            System.out.println("Sorry, you can't go out!");
+        }
+    }
+}
+```
+
+Runestone checks that the original code has been changed.
+
+## Operator Precedence
+
+### `!`, then `&&`, then `||`
+
+In Java, `!` will be executed before `&&`, and `&&` will be executed before `||`, unless there are parentheses.
+
+Anything inside parentheses is executed first.
+
+## Truth Table
+
+### `P && Q`
+
+An expression involving logical operators like `P && Q` evaluates to a Boolean value, `true` or `false`.
+
+::: {.table-fit}
+| P | Q | P && Q |
+|---|---|---|
+| `true` | `true` | `true` |
+| `false` | `true` | `false` |
+| `true` | `false` | `?` |
+| `false` | `false` | `false` |
 :::
 
-```java
-if (age >= 13 && age <= 19)
-{
-    System.out.println("teenager");
-}
-```
-
-## And
-
-### `&&` is true only when both sides are true
-
-```java
-int age = 15;
-boolean hasTicket = true;
-
-if (age >= 13 && hasTicket)
-{
-    System.out.println("Enter the event");
-}
-```
-
-Truth rule:
-
-| A | B | `A && B` |
-|---|---|---|
-| true | true | true |
-| true | false | false |
-| false | true | false |
-| false | false | false |
-
-## Or
-
-### `||` is true when at least one side is true
-
-```java
-boolean isWeekend = false;
-boolean isHoliday = true;
-
-if (isWeekend || isHoliday)
-{
-    System.out.println("No school");
-}
-```
-
-Truth rule:
-
-| A | B | `A || B` |
-|---|---|---|
-| true | true | true |
-| true | false | true |
-| false | true | true |
-| false | false | false |
-
-## Number Range
-
-### `&&` is the standard inside-range pattern
-
-```java
-int x = 7;
-if (x >= 1 && x <= 10)
-{
-    System.out.println("inside range");
-}
-```
-
-For outside the range, use `||`:
-
-```java
-if (x < 1 || x > 10)
-{
-    System.out.println("outside range");
-}
-```
-
-## Not
-
-### `!` flips a Boolean value
-
-```java
-boolean finished = false;
-
-if (!finished)
-{
-    System.out.println("Keep working");
-}
-```
-
-`!` is useful, but it can make expressions harder to read. Prefer a direct condition when the direct form is clearer.
+The result of `P && Q` is only true if both `P` and `Q` are true.
 
 ## Truth Table Checkpoint
 
-### Fill in the result column
+### `fillintheblank:: truthTableFill`
 
-| `x` | `y` | Expression | Result |
-|---:|---:|---|---|
-| 4 | 9 | `x < 5 && y > 5` | `true` |
-| 4 | 9 | `x < 5 || y < 5` | `true` |
-| 4 | 9 | `!(x < 5)` | `false` |
-| 4 | 9 | `x >= 5 && y >= 5` | `false` |
+Textbook prompt: The truth table above is missing one result. What is the result of `P && Q` when `P=true` and `Q=false`?
 
-Class move: evaluate the smaller comparisons first, then combine the Boolean results.
+Correct response: `false`.
 
-## Quick Check
+Reasoning: Both values must be true for `&&` to return true.
 
-### Trace compound booleans
+## Truth Table
 
-What is printed?
+### `P || Q`
 
-```java
-int a = 6;
-int b = 10;
-if (a % 2 == 0 && b > 8)
-{
-    System.out.println("A");
-}
-if (a > 6 || b == 10)
-{
-    System.out.println("B");
-}
-```
+The result of `P || Q` is true if either `P` or `Q` is true. It is also true when both of them are true.
 
-Answer:
-
-```text
-A
-B
-```
-
-## Short Circuit Evaluation
-
-### Java may skip the second condition
-
-For `&&`, if the first condition is false, the whole expression is false.
-
-```java
-if (x != 0 && 10 / x > 1)
-{
-    System.out.println("safe");
-}
-```
-
-For `||`, if the first condition is true, the whole expression is true.
-
-Short circuiting prevents unnecessary or unsafe checks.
-
-## Coding Challenge
-
-### Truth Tables POGIL
-
-Write an `if` statement that prints `true` only when:
-
-::: {.tight-list}
-- `x` is between `1` and `10`, inclusive
-- `y` is not equal to `0`
+::: {.table-fit}
+| P | Q | P || Q |
+|---|---|---|
+| `true` | `true` | `true` |
+| `false` | `true` | `?` |
+| `true` | `false` | `true` |
+| `false` | `false` | `false` |
 :::
 
-```java
-int x = 5;
-int y = 2;
+## Truth Table Checkpoint
 
-if (x >= 1 && x <= 10 && y != 0)
+### `fillintheblank:: truthTableFill2`
+
+Textbook prompt: The truth table above is missing one result. What is the result of `P || Q` when `P=false` and `Q=true`?
+
+Correct response: `true`.
+
+Reasoning: Only one of the two has to be true with `||`, so this will print true.
+
+## Trace Practice
+
+### Compound Boolean expressions
+
+For each case, choose `first case` or `second case`.
+
+```java
+if (x > 0 && (y / x) == 3)
 {
-    System.out.println("true");
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
 }
 ```
 
-Test at least one boundary value such as `x = 1` or `x = 10`.
+1. `x = 3`, `y = 9`
+2. `x = 3`, `y = 6`
+
+## Trace Answers
+
+### `mchoice:: traceCompoundBools`, `traceCompoundBools2`
+
+1. Correct answer: `first case`.
+   Reasoning: both conditions are true.
+
+2. Correct answer: `second case`.
+   Reasoning: the second condition is false because `6 / 3 == 2`.
+
+## Trace Practice
+
+### `mchoice:: qcbc_or`
+
+What is printed when the following code executes and `x` has been set to `3` and `y` has been set to `6`?
+
+```java
+if (x > 0 || (y / x) == 3)
+{
+   System.out.println("first case");
+}
+else
+{
+   System.out.println("second case");
+}
+```
+
+Correct answer: `first case`.
+
+Reasoning: the first condition is true, even though the second one is not.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain the truth rules for `&&`, `||`, and `!`
-- use `&&` for an inside range and `||` for an outside range
-- evaluate compound Boolean expressions step by step
-- explain short circuit evaluation for `&&` and `||`
-- write readable compound conditions with correct operator placement
+- state that `A && B` is true only when both sides are true
+- state that `A || B` is true when either side or both sides are true
+- use `||` for out-of-range error checks and `&&` for in-range checks
+- use `!` to negate a Boolean value
+- apply Java precedence: `!`, then `&&`, then `||`
+- complete truth-table entries before tracing code
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Short Circuit and Truth Tables POGIL →](2-5-part-2-short-circuit-and-truth-table-pogil.html)

@@ -1,6 +1,6 @@
 ---
 title: "2.7 while Loops"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: while Loop Intro and Three Loop-Writing Steps"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,178 +16,178 @@ lang: zh-CN
 
 ## Topic Intro
 
-### `while` repeats while a condition is true
+### Loops repeat statements
 
-A <span class="term">while loop</span> (while 循环) repeatedly executes a block as long as its Boolean condition remains true.
+![Loop overview](../../assets/2-selection-and-iteration/2-7-while-loops/loops.png){fig-align="center" width="20%"}
 
-![Loop overview](../../assets/2-selection-and-iteration/2-7-while-loops/loops.png){fig-align="center" width="36%"}
+When you play a song, you can set it to loop, which means that when it reaches the end it starts over at the beginning.
+
+A <span class="term">loop</span> in programming, also called <span class="term">iteration</span> or <span class="term">repetition</span>, is a way to repeat one or more statements.
+
+## Control Structures
+
+### Sequence, selection, repetition
+
+If you didn't have loops to allow you to repeat code, your programs would get very long very quickly.
+
+Using a sequence of code, selection (ifs), and repetition (loops), the <span class="term">control structures</span> in programming, you can construct an algorithm to solve almost any programming problem.
+
+## while Loop
+
+### Executes while the condition is true
+
+A `while` loop executes the body of the loop as long as, or while, a Boolean condition is true.
+
+When the condition is false, we exit the loop and continue with the statements that are after the body of the `while` loop.
+
+If the condition is false the first time you check it, the body of the loop will not execute.
+
+## if vs while
+
+### One time versus zero or more times
 
 ```java
+// The statements in an if run one time if the condition
+// is true and zero times if it is false.
+if (condition)
+{
+    statements;
+}
+
+// The statements in a while loop run zero or more times,
+// determined by how many times the condition is true
 while (condition)
 {
-    // repeated statements
+    statements;
 }
 ```
 
-When the condition becomes false, execution continues after the loop.
+## while Loop Syntax
 
-## Flow of a While Loop
+### Braces on the AP exam
 
-### Test before each repetition
+The `while` statement looks a lot like an `if` statement, but it runs more than once.
 
-![While loop flow](../../assets/2-selection-and-iteration/2-7-while-loops/WhileLoopFlow.png){fig-align="center" width="38%"}
+The curly braces `{}` are optional when there is just 1 statement following the condition, but required if there are more than 1 statement in the loop.
 
-Important rule: if the condition is false before the first check, the loop body runs zero times.
+In the AP exam, they will always use curly braces, which is a good practice to follow.
+
+## App Inventor and Java
+
+### while loop comparison
+
+Almost every programming language has a `while` loop.
+
+![Comparing App Inventor and Java for while loops](../../assets/2-selection-and-iteration/2-7-while-loops/whileInAppInventor.png){fig-align="center" width="88%"}
+
+## Repeat Until vs while
+
+### Opposite tests
+
+If you're used to Snap! or Scratch, you may be familiar with the Repeat Until loop.
+
+The `while` test is the opposite of the repeat until test.
+
+If you are repeatedly moving until reaching x position `100`, you must create a Java `while` loop that repeatedly moves while it has <span class="mark">not yet</span> reached x position `100`, or is less than `100`.
+
+## Repeat Until Diagram
+
+### Scratch to Java while
+
+![Comparing Scratch Repeat Until Loop to Java while loop](../../assets/2-selection-and-iteration/2-7-while-loops/ScratchRepeatUntilLoop.png){fig-align="center" width="88%"}
+
+## Flow of a while Loop
+
+### Condition before each iteration
+
+Iteration statements change the flow of control by repeating a segment of code zero or more times as long as the Boolean expression controlling the loop evaluates to true.
+
+In while loops, the Boolean expression is evaluated before each iteration of the loop body, including the first.
+
+![Control Flow in a while Loop](../../assets/2-selection-and-iteration/2-7-while-loops/WhileLoopFlow.png){fig-align="center" width="30%"}
+
+## Three Steps to Writing a Loop
+
+### Counter-controlled loops
+
+The simplest loops are <span class="term">counter-controlled loops</span>, where the <span class="term">loop control variable</span> is a counter that controls how many times to repeat the loop.
+
+![Three Steps of Writing a Loop](../../assets/2-selection-and-iteration/2-7-while-loops/loop3steps.png){fig-align="center" width="44%"}
 
 ## Three Steps
 
 ### Initialize, test, update
 
-![Three steps to writing a loop](../../assets/2-selection-and-iteration/2-7-while-loops/loop3steps.png){fig-align="center" width="42%"}
+Remember these 3 steps to writing a loop:
 
-```java
-int count = 1;              // initialize
-while (count <= 5)          // test
-{
-    System.out.println(count);
-    count++;                // update
-}
-```
-
-Missing the update often causes an infinite loop.
+::: {.tight-list}
+1. Initialize the loop variable before the `while` loop.
+2. Test the loop variable in the loop header.
+3. Update the loop variable in the while loop body at the end.
+:::
 
 ## Code Task
 
-### Print odd numbers with `while`
+### `activecode:: whileloop`
 
-Starter:
+Textbook prompt: Here is a while loop that counts from `1` to `5` that demonstrates the 3 steps of writing a loop. Can you change it to count from `2` to `10`?
+
+## Code Window
+
+### `activecode:: whileloop`
 
 ```java
-public class PrintOdds
+public class LoopTest1
 {
     public static void main(String[] args)
     {
-        int num = 1;
-        while (num <= 9)
+        // 1. initialize the loop variable
+        int count = 1;
+
+        // 2. test the loop variable
+        while (count <= 5)
         {
-            System.out.println(num);
-            num += 2;
+            System.out.println(count);
+            // 3. update the loop variable
+            count++;
         }
     }
 }
 ```
 
-Modify it to print odd numbers from `1` through `15`.
+## Test Requirements
 
-## Quick Check
+### `activecode:: whileloop`
 
-### Trace a `while` loop
-
-What is printed?
-
-```java
-int x = 1;
-while (x < 5)
-{
-    System.out.print(x + " ");
-    x = x + 2;
-}
-```
-
-Answer:
+Runestone expects:
 
 ```text
-1 3
+2
+3
+4
+5
+6
+7
+8
+9
+10
 ```
-
-The next value would be `5`, and `5 < 5` is false.
-
-## Trace Table
-
-### Track the variable after each update
-
-![Trace table](../../assets/2-selection-and-iteration/2-7-while-loops/traceTable.png){fig-align="center" width="30%"}
-
-Trace columns should show:
-
-::: {.tight-list}
-- loop variable before the condition
-- whether the condition is true
-- output or body effect
-- loop variable after update
-:::
-
-## Common Errors
-
-### Infinite loops and off-by-one errors
-
-```java
-int i = 1;
-while (i <= 5)
-{
-    System.out.println(i);
-}
-```
-
-Problem: `i` never changes.
-
-Fix:
-
-```java
-i++;
-```
-
-Put the update where every successful loop pass can reach it.
-
-## Input-Controlled Loops
-
-### Sentinel values decide when to stop
-
-```java
-Scanner scan = new Scanner(System.in);
-int number = scan.nextInt();
-
-while (number != -1)
-{
-    System.out.println("You entered " + number);
-    number = scan.nextInt();
-}
-```
-
-`-1` is the <span class="term">sentinel</span> (哨兵值): it signals that input is finished.
-
-## Groupwork Coding Challenge
-
-### Turtle squares with repeated code
-
-Use a `while` loop to replace repeated movement commands.
-
-```java
-int sides = 0;
-while (sides < 4)
-{
-    yertle.forward();
-    yertle.turn(90);
-    sides++;
-}
-```
-
-Class goal: identify the repeated square-drawing pattern, then control it with initialize-test-update.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that a `while` loop tests before each repetition
-- write the initialize-test-update structure
-- trace loop variable changes with a table
-- identify infinite-loop and off-by-one mistakes
-- explain how a sentinel controls an input loop
+- define a loop as iteration or repetition
+- explain that a `while` body can execute zero or more times
+- compare `if` and `while` control flow
+- list initialize, test, and update as the three loop-writing steps
+- identify the loop control variable
+- change all needed loop parts when changing the count range
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Tracing and common errors →](2-7-part-2-tracing-and-common-errors.html)

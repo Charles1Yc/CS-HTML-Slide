@@ -1,0 +1,305 @@
+---
+title: "2.6 Comparing Boolean Expressions"
+subtitle: "Part 2: Object, String, and null Comparisons"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit2-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Comparing Objects
+
+### Different from primitive values
+
+Comparing objects is a little different than comparing primitive typed values like numbers.
+
+Objects can be very complex and have many attribute values or instance variables inside them.
+
+When comparing two objects, we need a specially written <span class="term">equals</span> method to compare all of these values.
+
+## String Equality
+
+### `equals` compares letters
+
+The `equals` method for Strings compares two strings letter by letter.
+
+`s1.equals(s2)` is true if `s1` and `s2` have all the same characters in the same order.
+
+With `String` objects and other objects, you almost always use `equals` instead of `==` to check their equality.
+
+## Object References
+
+### `==` compares references
+
+When the operator `==` or `!=` is used to compare object variables, it returns true when the two variables <span class="mark">refer to the same object</span>.
+
+These variables are called <span class="term">object references</span> and <span class="term">aliases</span> for the same object.
+
+![String aliases](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/stringEquality.png){fig-align="center" width="38%"}
+
+## Code Task
+
+### `activecode:: lcse1`
+
+Textbook prompt: If you run the following, what will be printed?
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        String s1 = new String("Hello");
+        String s2 = new String("Bye");
+        String s3 = s2; // s3 is now an alias for s2
+        System.out.println(s3);
+        System.out.println(s2 == s3);
+        System.out.println(s2.equals(s3));
+    }
+}
+```
+
+## Expected Output
+
+### `activecode:: lcse1`
+
+Runestone expects:
+
+```text
+Bye
+true
+true
+```
+
+Here is the representation of memory where `s2` and `s3` refer to the same String object.
+
+![s2 and s3 are aliases referring to the same String object](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s2ands3.jpg){fig-align="center" width="44%"}
+
+## Equality with New Strings
+
+### `new` creates a new object
+
+If you use the `new` keyword to create a string, it will always create a new string object.
+
+Even if two string objects created with `new` contain all the same characters in the same order, they will not refer to the same object.
+
+## Code Task
+
+### `activecode:: strEquals`
+
+Textbook prompt: What will the following print? Run the code to see the difference between `==` and `equals` with new Strings that are both `"Hello"`.
+
+Then, write the if statements described below to test the equality of `s1` and `s3` to see if capitalization matters.
+
+## Code Window
+
+### `activecode:: strEquals`
+
+::: {.code-scroll}
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        String s1 = new String("Hello");
+        String s2 = new String("Hello");
+        System.out.println(s1 == s2);
+        System.out.println(s1.equals(s2));
+
+        String s3 = new String("hello");
+        // Write an if statement to test if
+        //  s1 and s2 are equal with equals
+        // If they are, print "Equals"
+
+        // Write an if/else statement to test if
+        //   s1 and s3 are equal with equals
+        // If they are, print "Equals"
+        // else print "Not Equals".
+        // Note that case matters with equals unless you use equalsIgnoreCase
+
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: strEquals`
+
+Runestone expects:
+
+```text
+false
+true
+Equals
+Not Equals
+```
+
+It also checks that the code contains an `if` statement and at least `3` uses of `.equals`.
+
+## Memory Representation
+
+### Same letters, different objects
+
+Since `new` was used, two different `String` objects are created with the characters `Hello`.
+
+`s1 == s2` is false because they do not refer to the same object, but `s1.equals(s2)` is true since they contain the same characters in the same order.
+
+![Two strings that are equal with equals but not with ==](../../assets/2-selection-and-iteration/2-6-comparing-boolean-expressions/s1ands2.jpg){fig-align="center" width="44%"}
+
+## String Literal Note
+
+### AP exam boundary
+
+You can also create Strings using string literals instead of `new`, like:
+
+```java
+String s = "Hello";
+```
+
+String literals behave a little differently because they are re-used if they already exist instead of creating a new object. You should not see questions with string literals and `==` on the AP exam.
+
+## String Comparison Rule
+
+### Use `equals` for letter-by-letter equality
+
+Only use `==` and `!=` with primitive types like `int` or to test if two strings or objects refer to the same object.
+
+Use `equals`, not `==` or `!=`, with strings to test if they are equal letter by letter.
+
+With other objects, use `equals` to see if all of their relevant attributes are equal.
+
+## Quick Check
+
+### `mchoice:: qsbeq_1`
+
+Which of the following is true after the code executes?
+
+```java
+String s1 = new String("hi");
+String s2 = new String("bye");
+String s3 = new String("hi");
+s2 = s1;
+```
+
+Options:
+
+::: {.tight-list}
+- `s1 == s2 && s1 == s3`
+- `s1 == s2 && s1.equals(s3)`
+- `s1 != s2 && s1.equals(s3)`
+:::
+
+Correct answer: `s1 == s2 && s1.equals(s3)`.
+
+## Quick Check
+
+### `mchoice:: qsbeq_2`
+
+Which of the following is true after the code executes?
+
+```java
+String s1 = new String("hi");
+String s2 = new String("bye");
+String s3 = new String("hi");
+```
+
+Correct answer: `s1 != s3 && s1.equals(s3)`.
+
+Reasoning: `s1` and `s3` refer to different string objects but they contain the same characters `"hi"` in the same order.
+
+## Quick Check
+
+### `mchoice:: qsbeq_3`
+
+Which of the following is true after the code executes?
+
+```java
+String s1 = new String("hi");
+String s2 = new String("bye");
+String s3 = new String("hi");
+```
+
+Correct answer: `!(s1 == s2) && !(s1 == s3)`.
+
+Reasoning: all of the variables refer to different objects. But `s1.equals(s3)` would be true since they have the same characters in the same order.
+
+## Comparing with null
+
+### Use `==` or `!=`
+
+One common place to use `==` or `!=` with objects is to compare them to <span class="term">null</span> to see if they really exist.
+
+Sometimes short-circuit evaluation is used to avoid an error if the object doesn't exist.
+
+## Code Task
+
+### `activecode:: nullTest`
+
+Textbook prompt: Try the following code to see a `NullPointerException`. Since `s` is `null`, trying to access `indexOf` on `s` throws a `NullPointerException`.
+
+Comment out the first `if` statement and run the program again. The second `if` statement avoids the error with short-circuit evaluation.
+
+## Code Window
+
+### `activecode:: nullTest`
+
+::: {.code-scroll}
+```java
+public class NullTest
+{
+    public static void main(String[] args)
+    {
+        String s = null;
+        if (s.indexOf("a") >= 0)
+        {
+            System.out.println(s + " contains an a");
+        }
+        if (s != null && s.indexOf("a") >= 0)
+        {
+            System.out.println(s + " contains an a");
+        }
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: nullTest`
+
+The task asks you to change `s` to set it to `"apple"` instead of `null` in the first line and run the code again.
+
+Runestone expects:
+
+```text
+apple contains an a
+apple contains an a
+```
+
+It also checks that the code has not removed `String s =` or the print statement.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- distinguish `==` reference comparison from `equals` content comparison
+- identify aliases when two variables refer to the same object
+- explain why two `new String("Hello")` objects are not `==`
+- use `.equals` for String letter-by-letter comparison
+- compare object references with `null` using `==` or `!=`
+- use short-circuit evaluation to avoid calling a method on `null`
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Truth and Tracing Tables POGIL →](2-6-part-3-truth-and-tracing-tables-pogil.html)

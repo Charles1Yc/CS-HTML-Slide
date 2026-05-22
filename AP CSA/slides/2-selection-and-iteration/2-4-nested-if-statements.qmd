@@ -1,6 +1,6 @@
 ---
 title: "2.4 Nested if Statements"
-subtitle: "Selection and Iteration"
+subtitle: "Part 1: Multiway Selection and Trace Questions"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,195 +16,231 @@ lang: zh-CN
 
 ## Topic Intro
 
-### More than two outcomes need structured selection
+### Nested if statements
 
-<span class="term">Nested if statements</span> (嵌套条件语句) place one `if` statement inside another. Java also supports <span class="term">multiway selection</span> with `else if`.
+If statements can be nested inside other if statements.
 
-Use these structures when a decision has several possible outcomes.
+<span class="term">Nested if statements</span> consist of if, if-else, or if-else-if statements within if, if-else, or if-else-if statements.
+
+The Boolean expression of the inner nested if statement is evaluated only if the Boolean expression of the outer if statement evaluates to <span class="mark">true</span>.
 
 ```java
-if (score >= 90)
-{
-    grade = "A";
-}
-else if (score >= 80)
-{
-    grade = "B";
-}
-else
-{
-    grade = "C or below";
+if (boolean expression)
+{   // This nested if is executed if outer if is true
+    if (boolean expression)
+    {
+        statement;
+    }
 }
 ```
 
 ## Multiway Selection
 
-### `else if` checks conditions in order
+### `else if`
 
-Only the first true branch runs.
+A single if/else statement allows us to select between 2 branches of code.
+
+With nested if/else statements, we can pick between 3 or more branches of code.
+
+A <span class="term">multi-way selection</span> (if-else-if) is used when there are a series of expressions with different segments of code for each condition.
+
+## Multiway Execution
+
+### First true expression wins
+
+Multi-way selection is performed such that <span class="mark">no more than one segment</span> of code is executed based on the first expression that evaluates to true.
+
+If no expression evaluates to true and there is a trailing else statement, then the body of the else is executed.
+
+## Else If Pattern
+
+### Three-way choice
+
+Just add `else if` for each possibility after the first `if`, and `else` before the last possibility.
 
 ```java
-if (temperature >= 90)
+// 3 way choice with else if
+if (boolean expression)
 {
-    System.out.println("Hot");
+   statement1;
 }
-else if (temperature >= 70)
+else if (boolean expression)
 {
-    System.out.println("Warm");
+   statement2;
 }
 else
 {
-    System.out.println("Cool");
+   statement3;
 }
 ```
 
-Order matters because later conditions are skipped once a branch is chosen.
+## Code Task
+
+### `activecode:: TryElseIf`
+
+Textbook prompt: Run the code below and try changing the value of `x` to get each of the three possible lines in the conditional to print.
+
+## Code Window
+
+### `activecode:: TryElseIf`
+
+::: {.code-scroll}
+```java
+public class TryElseIf
+{
+    public static void main(String[] args)
+    {
+        int x = 2;
+        if (x < 0)
+        {
+            System.out.println("x is negative");
+        }
+        else if (x == 0)
+        {
+            System.out.println("x is 0");
+        }
+        else
+        {
+            System.out.println("x is positive");
+        }
+        System.out.println("after conditional");
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: TryElseIf`
+
+Runestone checks that:
+
+::: {.tight-list}
+- `x = 2;` has been changed
+- the new `x` assignment is zero or negative
+- the first output line matches `x is negative` when `x` is negative
+- the first output line matches `x is zero` when `x` is zero
+:::
 
 ## Flowchart
 
-### Three possible branches
+### Conditional with 3 options
 
-![Three-way condition](../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png){fig-align="center" width="38%"}
+Here is a flowchart for a conditional with 3 options like in the code above.
 
-When tracing, ask:
-
-::: {.tight-list}
-- Which condition is checked first?
-- If it is true, what gets skipped?
-- If it is false, what is checked next?
-:::
+![The order that statements execute in a conditional with 3 options: if, else if, and else](../../assets/2-selection-and-iteration/2-4-nested-if-statements/Condition-three.png){fig-align="center" width="44%"}
 
 ## Quick Check
 
-### Trace ordered branches
+### `mchoice:: trace-nested-if`
 
-What is printed?
+What does the following code print when `x` has been set to `-5`?
 
 ```java
-int x = 8;
-if (x > 10)
+if (x < 0)
 {
-    System.out.println("large");
+   System.out.println("x is negative");
 }
-else if (x > 5)
+else if (x == 0)
 {
-    System.out.println("medium");
+   System.out.println("x is zero");
 }
 else
 {
-    System.out.println("small");
+   System.out.println("x is positive");
 }
 ```
 
-Answer: `medium`.
+Options: `x is negative`, `x is zero`, `x is positive`.
 
-## Debug Task
+## Answer Reasoning
 
-### Fix branch order
+### `mchoice:: trace-nested-if`
 
-This code has a logic bug.
+Correct answer: `x is negative`.
 
-```java
-int score = 95;
-if (score >= 60)
-{
-    System.out.println("Pass");
-}
-else if (score >= 90)
-{
-    System.out.println("A");
-}
-```
+When `x` is equal to `-5`, the condition `x < 0` is true. The later else-if and else branches do not execute.
 
-Question: why will `"A"` never print?
+## Quick Check
 
-## Debug Task
+### `mchoice:: trace-nested-ifs2`
 
-### Corrected branch order
-
-Fix: test the more specific condition first.
+What does the following code print when `x` has been set to `2000`?
 
 ```java
-if (score >= 90)
+if (x < 0)
 {
-    System.out.println("A");
+   System.out.println("x is negative");
 }
-else if (score >= 60)
+else if (x == 0)
 {
-    System.out.println("Pass");
-}
-```
-
-## Nested `if`
-
-### One decision can live inside another
-
-```java
-if (hasTicket)
-{
-    if (age >= 13)
-    {
-        System.out.println("Standard admission");
-    }
-    else
-    {
-        System.out.println("Child admission");
-    }
+   System.out.println("x is zero");
 }
 else
 {
-    System.out.println("Buy a ticket first");
+   System.out.println("x is positive");
 }
 ```
 
-Nested form is useful when the second decision only matters after the first decision is true.
+Options: `x is negative`, `x is zero`, `x is positive`.
 
-## Dangling `else`
+## Answer Reasoning
 
-### An `else` matches the nearest unmatched `if`
+### `mchoice:: trace-nested-ifs2`
 
-Without braces, this is easy to misread:
+Correct answer: `x is positive`.
 
+The first condition is false and `x` is not equal to zero, so the else branch executes.
+
+## Quick Check
+
+### `mchoice:: trace-nested-ifs3`
+
+What does the following code print when `x` has been set to `.8`?
+
+::: {.code-scroll .compact}
 ```java
-if (x > 0)
-    if (y > 0)
-        System.out.println("both positive");
-    else
-        System.out.println("which condition failed?");
+if (x < .25)
+{
+    System.out.println("first quartile");
+}
+else if (x < .5)
+{
+    System.out.println("second quartile");
+}
+else if (x < .75)
+{
+    System.out.println("third quartile");
+}
+else
+{
+    System.out.println("fourth quartile");
+}
 ```
-
-The `else` belongs to `if (y > 0)`, not `if (x > 0)`. Use braces to show intent.
-
-## Groupwork Coding Challenge
-
-### Adventure
-
-![Adventure challenge](../../assets/2-selection-and-iteration/2-4-nested-if-statements/adventure.jpg){fig-align="center" width="28%"}
-
-Build a text adventure with at least:
-
-::: {.tight-list}
-- one `if else` decision
-- one `else if` chain
-- one nested decision where a second choice depends on a first choice
 :::
 
-Keep each branch printable so the class can trace possible paths.
+## Answer Reasoning
+
+### `mchoice:: trace-nested-ifs3`
+
+Correct answer: `fourth quartile`.
+
+The first three conditions are false for `.8`; the else branch prints whenever `x` is greater than or equal to `.75`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain why `else if` conditions are checked in order
-- trace which branch runs in a multiway selection
-- distinguish nested `if` from an `else if` chain
-- identify a branch-order bug
-- explain how braces prevent dangling-`else` ambiguity
+- explain when the inner nested if is evaluated
+- describe multiway selection as first-true-branch execution
+- use `else if` branches for 3 or more choices
+- trace why later branches are skipped after a true condition
+- identify the final else as the branch for no true condition
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Debugging and dangling else →](2-4-part-2-debugging-and-dangling-else.html)
