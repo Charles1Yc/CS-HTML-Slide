@@ -1,0 +1,258 @@
+---
+title: "3.3 Virtual Pet and Community Class"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge {.image-fit}
+
+### Virtual Pet Class
+
+![Virtual Pet](../../assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg){fig-align="center" width="28%"}
+
+In the late 1990s and early 2000s, digital pets like in the photo were a huge hit.
+
+You had to feed, play, and interact with your virtual pet in order to keep it healthy and happy.
+
+Let's think about how they were programmed.
+
+## Virtual Pet Design
+
+### Step 1: Object-oriented design
+
+In pairs, brainstorm about the **object-oriented design** for the virtual pet.
+
+What data or instance variables would you need to keep track of for a virtual pet?
+
+What behaviors or methods would the virtual pet have?
+
+You could draw a class diagram, although it is not required.
+
+## Virtual Pet Requirements
+
+### Instance variables
+
+Declare at least three instance variables in the `VirtualPet` class.
+
+Two of the instance variables should be called `name` and `health`.
+
+`health` is a number from 0 to 10.
+
+The rest can be variables from your design.
+
+Do not forget their `private` access modifiers.
+
+## Virtual Pet Methods
+
+### Print, feed, and one more behavior
+
+Complete the `print` method to print out the instance variables of the `VirtualPet` object.
+
+Complete the `feed` method to add `1` to the `health` instance variable.
+
+Create at least one more method that changes one of the instance variables from your design.
+
+## Virtual Pet Main
+
+### Construct and call methods
+
+Complete the `main` method to construct at least two `VirtualPet` objects.
+
+Use the `VirtualPet` constructor given to you with arguments for `name` and `health`.
+
+Then use at least one of the objects to call its `feed` and `print` methods.
+
+## Active Code
+
+### `activecode:: challenge-VirtualPet-Class`
+
+Complete the `VirtualPet` class below.
+
+Add at least three instance variables, a `print` method, a `feed` method, and at least one other method that changes an instance variable.
+
+Then complete the `main` method to construct at least two `VirtualPet` objects and call the `feed` and `print` methods with one of them.
+
+## VirtualPet Starter
+
+::: {.code-scroll}
+```java
+public class VirtualPet
+{
+    // write 3 instance variables for VirtualPet's name,
+    // health (as a number), and at least 1 other from your design
+    // Remember the pattern:  private type variableName;
+
+
+
+    // constructor written for you - do not change
+    public VirtualPet(String initName, int initHealth)
+    {
+        // the constructor sets the instance variables to the init parameter variables
+        name = initName;
+        health = initHealth;
+    }
+
+    // Print the VirtualPet's data (instance variables) with System.out.println
+    public void print()
+    {
+        // print the instance variables with spaces between them
+
+    }
+
+    // Complete the feed method below to add to the health instance variable
+    public void feed()
+    {
+        // add 1 to the health variable
+
+    }
+
+    // Create another public void method that changes one of the instance variables
+
+
+    // get method used for testing - do not change
+    public int getHealth()
+    {
+        return health;
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        VirtualPet p = new VirtualPet("Fluffy", 5);
+        // call the VirtualPet constructor to create another new object with a different name and health
+
+        // call the pet object p's feed() method
+
+        // call the other method that you created
+
+        // call the pet object p's print() method
+
+    }
+}
+```
+:::
+
+## VirtualPet Test Targets
+
+### Runestone checks
+
+The Runestone tests check:
+
+::: {.tight-list}
+- at least three `public void` methods
+- `print()` output contains `Fluffy`
+- `feed()` changes health from `5` to `6`
+- `feed()` changes health from `1` to `2`
+- another `VirtualPet` object is constructed
+- instance variable types include `String int`
+- at least three private instance variables
+:::
+
+## Design a Class for Your Community
+
+### Continuing unit project
+
+In this unit, you will design a class of your own choice that is relevant to your community.
+
+You will improve the class in each lesson of this unit.
+
+The textbook suggests that you work in pairs on this project.
+
+## Community Brainstorm
+
+### Step 1
+
+Brainstorm and ask people in your community what would be important or useful for them to track in a community organization or activity.
+
+Examples include:
+
+::: {.tight-list}
+- community events
+- club activities
+- athletic games or statistics
+- community leaders
+- performers or performances
+- health tracking
+:::
+
+## Community Class Design
+
+### Step 2
+
+Come up with the class name for your community data-tracking class.
+
+It should be a category of people or things, not a specific person or thing.
+
+Come up with at least three instance variables that are attributes of things in that class.
+
+Think about what data type each variable should be.
+
+## Community Active Code
+
+### `activecode:: community-challenge1`
+
+Type in your class name and declare the instance variables for your class in the active code exercise.
+
+Click on run.
+
+Your class will not print out anything yet, but it should run without errors.
+
+You will add constructors and other methods to this class in the next lessons.
+
+## Community Starter
+
+```java
+public class          // Add your class name here!
+{
+    // write 3 instance variables for class: private type variableName;
+
+
+
+    public static void main(String[] args)
+    {
+      // Run your code to check for errors.
+      // It will not print anything yet.
+      // You will add more in the next lesson.
+    }
+}
+```
+
+## Community Test Target
+
+### Runestone private-variable check
+
+The Runestone test checks for at least three private instance variables.
+
+```text
+Expected: 3 Private
+Check: Checking private instance variable(s)
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- list at least three `VirtualPet` instance variables, including `name` and `health`
+- keep `name` and `health` as private instance variables
+- complete `print`, `feed`, and one additional mutating method
+- construct at least two `VirtualPet` objects in `main`
+- design a community class name as a category, not a specific item
+- declare at least three private instance variables for the community class
+:::
+
+## End
+
+### 3.3 complete
+
+Next topic: 3.4 Constructors.

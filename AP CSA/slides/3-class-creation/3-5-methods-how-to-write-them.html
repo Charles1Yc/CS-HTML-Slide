@@ -210,136 +210,243 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="methods-define-object-behavior">Methods define object behavior</h3>
-<p>In object-oriented programming, a class combines:</p>
+<section id="methods-how-to-write-them" class="slide level2">
+<h2>Methods: How to Write Them</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p>In object-oriented programming, the three main parts of a class are:</p>
 <div class="tight-list">
 <ul>
-<li>instance variables: state</li>
-<li>constructors: initialization</li>
-<li><span class="term">methods</span> (方法): behavior</li>
+<li>the <strong>instance variables</strong>, which hold attributes or values associated with each object</li>
+<li>the <strong>constructors</strong>, whose job is to initialize the instance variables</li>
+<li>the <strong>methods</strong>, which contain the code for the behaviors of an object and can use the instance variables defined in the class</li>
 </ul>
 </div>
-<p>This first deck focuses on defining, calling, and classifying methods.</p>
+</section>
+<section id="unit-1-review" class="slide level2">
+<h2>Unit 1 Review</h2>
+<h3 id="turtle-and-static-methods">Turtle and static methods</h3>
+<p>In Unit 1, we used <code>Turtle</code> objects and called methods like <code>forward</code>, which changed the <code>x</code> and <code>y</code> coordinates, the instance variables, of the turtle.</p>
+<p>We also defined static methods that did not work with objects.</p>
+<p>In this unit, we will learn how to write our own methods in our own classes.</p>
 </section>
 <section id="defining-and-calling-methods" class="slide level2">
 <h2>Defining and Calling Methods</h2>
-<h3 id="a-method-definition-lives-inside-the-class">A method definition lives inside the class</h3>
-
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods in different contexts</p><p>A method call such as <code>p.print()</code> transfers control to the method body, runs its statements, then returns to the caller.</p>
+<h3 id="method-definition">Method definition</h3>
+<p>A <strong>method</strong> is a block of code that performs a specific task.</p>
+<p>Methods are defined inside a class and can access the instance variables of the class.</p>
+<p>Methods are usually <code>public</code>.</p>
 </section>
-<section id="method-header" class="slide level2">
-<h2>Method Header</h2>
-<h3 id="read-the-method-signature">Read the method signature</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<section id="person-print-method" class="slide level2">
+<h2>Person <code>print</code> Method</h2>
+<h3 id="example-method-definition-and-call">Example method definition and call</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key parts:</p>
+<span id="cb1-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a>    <span class="co">// Method definition: uses instance variables name and email</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb1-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Name: "</span> <span class="op">+</span> name<span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Email: "</span> <span class="op">+</span> email<span class="op">);</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href=""></a></span>
+<span id="cb1-14"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-15"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-16"><a href=""></a>        Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">();</span></span>
+<span id="cb1-17"><a href=""></a>        p<span class="op">.</span><span class="fu">print</span><span class="op">();</span>  <span class="co">// Method call</span></span>
+<span id="cb1-18"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-19"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="three-steps" class="slide level2">
+<h2>Three Steps</h2>
+<h3 id="creating-and-calling-a-method">Creating and calling a method</h3>
+<p>There are three steps to creating and calling a method:</p>
 <div class="tight-list">
 <ul>
-<li><code>public</code>: other classes can call it</li>
-<li><code>void</code>: it does not return a value</li>
-<li><code>print</code>: method name</li>
-<li><code>()</code>: parameter list, empty here</li>
+<li><strong>Object of the Class</strong></li>
+<li><strong>Method Call</strong></li>
+<li><strong>Method Definition</strong></li>
 </ul>
 </div>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="add-and-call-an-instance-method">Add and call an instance method</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initialName<span class="op">)</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>        name <span class="op">=</span> initialName<span class="op">;</span></span>
-<span id="cb2-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
-<span id="cb2-11"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb2-13"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-14"><a href=""></a></span>
-<span id="cb2-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb2-16"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-17"><a href=""></a>        Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Ada"</span><span class="op">);</span></span>
-<span id="cb2-18"><a href=""></a>        p<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
-<span id="cb2-19"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output: <code>Ada</code>.</p>
+<section id="step-1" class="slide level2">
+<h2>Step 1</h2>
+<h3 id="object-of-the-class">Object of the class</h3>
+<p>Declare an object of your class in the <code>main</code> method or from outside the class.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="co">// Step 1: declare an object in main or from outside the class</span></span>
+<span id="cb2-2"><a href=""></a>Classname objectName <span class="op">=</span> <span class="kw">new</span> <span class="fu">Classname</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-2" class="slide level2">
+<h2>Step 2</h2>
+<h3 id="method-call">Method call</h3>
+<p>Whenever you want to use the method, call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="co">// Step 2: call the object's method</span></span>
+<span id="cb3-2"><a href=""></a>objectName<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span> <span class="co">//Step 2</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-3" class="slide level2">
+<h2>Step 3</h2>
+<h3 id="method-definition-1">Method definition</h3>
+<p>Write the method’s <strong>header</strong> and <strong>body</strong> code.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="co">// Step 3: Define the method in the class</span></span>
+<span id="cb4-2"><a href=""></a><span class="co">// method header</span></span>
+<span id="cb4-3"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">methodName</span><span class="op">()</span></span>
+<span id="cb4-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>      <span class="co">// method body for the code</span></span>
+<span id="cb4-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="calling-methods-flowchart" class="slide level2 image-fit">
+<h2>Calling Methods Flowchart</h2>
+<h3 id="static-instance-and-same-class-calls">Static, instance, and same-class calls</h3>
+
+<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png" style="width:76.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing method calls to static and instance methods</p><p>Class methods are called using the class name.</p>
+<p>Instance methods are called using an object of the class.</p>
+</section>
+<section id="instance-method-calls" class="slide level2">
+<h2>Instance Method Calls</h2>
+<h3 id="from-outside-the-class">From outside the class</h3>
+<p>If you are calling the instance method from the <code>main</code> method or from another class, you must first create an object of that class.</p>
+<p>Then call its methods using:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>object<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="same-class-method-calls" class="slide level2">
+<h2>Same-Class Method Calls</h2>
+<h3 id="from-within-the-same-class">From within the same class</h3>
+<p>If you are calling the method from within the same class, you can just call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="fu">methodName</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will refer to the current object.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-personprint"><code>activecode:: PersonPrint</code></h3>
+<p>Try the following code.</p>
+<p>Add a <code>print()</code> method in the <code>Person</code> class that prints out all the attributes of a person object:</p>
+<div class="tight-list">
+<ul>
+<li><code>name</code></li>
+<li><code>email</code></li>
+<li><code>phonenumber</code></li>
+</ul>
+</div>
+</section>
+<section id="personprint-starter" class="slide level2">
+<h2>PersonPrint Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb7-6"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> phonenumber<span class="op">;</span></span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a>    <span class="co">// Constructor</span></span>
+<span id="cb7-9"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> n<span class="op">,</span> <span class="bu">String</span> e<span class="op">,</span> <span class="bu">String</span> p<span class="op">)</span></span>
+<span id="cb7-10"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-11"><a href=""></a>        name <span class="op">=</span> n<span class="op">;</span></span>
+<span id="cb7-12"><a href=""></a>        email <span class="op">=</span> e<span class="op">;</span></span>
+<span id="cb7-13"><a href=""></a>        phonenumber <span class="op">=</span> p<span class="op">;</span></span>
+<span id="cb7-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-15"><a href=""></a></span>
+<span id="cb7-16"><a href=""></a>    <span class="co">// </span><span class="al">TODO</span><span class="co">: Add a print() method that prints out all the attributes (name, email, phonenumber)</span></span>
+<span id="cb7-17"><a href=""></a></span>
+<span id="cb7-18"><a href=""></a></span>
+<span id="cb7-19"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb7-20"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-21"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Taylor"</span><span class="op">,</span> <span class="st">"swift@gmail.com"</span><span class="op">,</span> <span class="st">"123-456-7890"</span><span class="op">);</span></span>
+<span id="cb7-22"><a href=""></a>        p1<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
+<span id="cb7-23"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-24"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="personprint-test-target" class="slide level2">
+<h2>PersonPrint Test Target</h2>
+<h3 id="runestone-check">Runestone check</h3>
+<p>The Runestone test checks that your code contains this method header:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Keep the starter context: the constructor and <code>main</code> method are already provided.</p>
 </section>
 <section id="void-methods" class="slide level2">
 <h2><code>void</code> Methods</h2>
-<h3 id="a-void-method-performs-an-action">A <code>void</code> method performs an action</h3>
-<p>Common <code>void</code> method jobs:</p>
-<div class="tight-list">
-<ul>
-<li>print information</li>
-<li>update object state</li>
-<li>move an object</li>
-<li>draw something</li>
-</ul>
-</div>
-<p><code>void</code> methods do not return a value to the caller.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">celebrateBirthday</span><span class="op">()</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    age<span class="op">++;</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="performs-an-action-returns-no-value">Performs an action, returns no value</h3>
+<p>A <strong>void method</strong> is a method that does not return a value.</p>
+<p>It is used when you want to perform an action but do not need to return a value.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">methodName</span><span class="op">()</span></span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="co">// method body</span></span>
+<span id="cb9-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="print-is-void" class="slide level2">
+<h2><code>print</code> Is <code>void</code></h2>
+<h3 id="output-is-the-action">Output is the action</h3>
+<p>The <code>print</code> method above is a <code>void</code> method.</p>
+<p>It does not return a value, but it does print out the name and email of the person.</p>
+<p>In later sections, we will learn about setter methods that are also <code>void</code> methods.</p>
 </section>
 <section id="non-void-methods" class="slide level2">
 <h2>Non-<code>void</code> Methods</h2>
-<h3 id="a-non-void-method-returns-one-value">A non-<code>void</code> method returns one value</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getAge</span><span class="op">()</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">return</span> age<span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Rules:</p>
-<div class="tight-list">
-<ul>
-<li>the return type is written before the method name</li>
-<li>the method must return a compatible value</li>
-<li>code after a guaranteed <code>return</code> path does not run</li>
-</ul>
-</div>
+<h3 id="returns-one-value">Returns one value</h3>
+<p>A <strong>non-void method</strong> is a method that returns a single value.</p>
+<p>Its body must have a <strong>return</strong> statement, usually at the end, that returns a variable’s value or an expression.</p>
+<p>Its header includes the <strong>return type</strong>, the type of the value in the return statement, in place of the keyword <code>void</code>.</p>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="classify-the-method">Classify the method</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isAdult</span><span class="op">()</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">return</span> age <span class="op">&gt;=</span> <span class="dv">18</span><span class="op">;</span></span>
-<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This method is:</p>
+<section id="non-void-method-shape" class="slide level2">
+<h2>Non-<code>void</code> Method Shape</h2>
+<h3 id="return-type-and-return-statement">Return type and return statement</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> returnType <span class="fu">methodName</span><span class="op">()</span></span>
+<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="co">// method body</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="cb10-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Unit 1, we used static non-void methods like <code>Math.random()</code>, which returned a random number.</p>
+<p>We also used Turtle methods like <code>getXPos()</code> and <code>getYPos()</code>.</p>
+</section>
+<section id="return-by-value" class="slide level2">
+<h2>Return by Value</h2>
+<h3 id="flow-of-control">Flow of control</h3>
+<p>In non-void methods, a return expression compatible with the return type is evaluated, and the value is returned.</p>
+<p>This is referred to as <strong>return by value</strong>.</p>
+<p>The <code>return</code> keyword is used to return the flow of control to the point where the method or constructor was called.</p>
+</section>
+<section id="return-statement-caution" class="slide level2">
+<h2>Return Statement Caution</h2>
+<h3 id="code-after-return">Code after return</h3>
+<p>Any code that is sequentially after a return statement will never be executed.</p>
+<p>Usually non-void methods end with a return statement.</p>
+<p>Executing a return statement inside a selection or iteration statement will halt the statement and exit the method or constructor.</p>
+</section>
+<section id="common-errors" class="slide level2">
+<h2>Common Errors</h2>
+<h3 id="non-void-methods-1">Non-void methods</h3>
+<p>Some common errors when writing and using non-void methods are:</p>
 <div class="tight-list">
 <ul>
-<li>non-<code>void</code></li>
-<li>return type <code>boolean</code></li>
-<li>no parameters</li>
-<li>computes a value from instance data</li>
+<li>forgetting a return type like <code>int</code> before the method name</li>
+<li>forgetting to use the <code>return</code> keyword to return a value at the end of the method</li>
+<li>returning too soon from a method</li>
+<li>forgetting to do something with the value returned from a method, like assigning it to a variable or printing it out</li>
 </ul>
 </div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>identify a method header and method body</li>
+<li>identify the three class parts: instance variables, constructors, and methods</li>
 <li>distinguish a method definition from a method call</li>
-<li>explain what <code>void</code> means</li>
-<li>explain when a <code>return</code> statement is required</li>
-<li>trace control from a call to a method body and back</li>
+<li>create an object before calling an instance method from <code>main</code> or another class</li>
+<li>write the method header and body inside the class</li>
+<li>preserve the <code>PersonPrint</code> starter and add a <code>public void print()</code> method</li>
+<li>explain the difference between <code>void</code> and non-<code>void</code> methods</li>
+<li>explain why non-<code>void</code> methods need a compatible <code>return</code> value</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
-<p><a href="3-5-part-2-getters-and-tostring.html">Next: Getters and toString</a><br>
-<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.5 Part 1 complete</h3>
+<p>Next: Accessors, getters, and <code>toString</code>.</p>
 
 </section>
     </div>

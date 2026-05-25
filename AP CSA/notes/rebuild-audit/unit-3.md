@@ -5,117 +5,174 @@ This audit tracks rebuilt Unit 3 topics against CSAwesome2 source content.
 ## Topic 3.1 Abstraction and Program Design
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-1-abstraction.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-1-part-2-old-macdonald-and-game-design.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Object-Oriented Design
-  - UML Class Diagrams
-  - Abstraction
-  - Data Abstraction
-  - Procedural Abstraction
-  - Group Challenge: Game Design
+  - source lines 25-28 topic intro -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 17-29 -> Unit 1 built-in classes context, writing own classes/objects, design before implementation, natural-language/diagram design, and abstraction lesson purpose preserved
+  - source lines 30-42 Object-Oriented Design and Turtle noun example -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 31-49 -> class-first OOD, data/method planning, nouns in specification, Turtle/World example preserved
+  - source lines 54-77 UML Class Diagrams and Turtle diagram -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 73-103 -> notebook/whiteboard diagrams, UML, Turtle diagram, class diagrams as class/data/procedural abstraction, attributes/methods, private/public notation, AP boundary preserved; external UML links omitted
+  - source lines 80-85 Abstraction and class diagram example -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 105-121 -> abstraction definition, hiding irrelevant details, Turtle class diagram as abstraction, attributes/methods without implementation details preserved
+  - source lines 88-93 Data Abstraction, attributes, instance variables, and class variables -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 123-147 -> abstract/concrete separation, Turtle implementation hiding, named data, single/collection data, attributes, instance variables, and class variables preserved
+  - source lines 95-110 Procedural Abstraction, method decomposition, reasons, internals, code reuse, and parameters -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 149-197 -> process naming, method decomposition, `forward()`, organization/reuse/maintainability, preserving signature/behavior, avoiding repetition, `chorus`/`verse`, and parameters preserved
 - Kept exercises:
-  - `shortanswer:: OOD1` -> converted to object-oriented design response task
-  - `activecode:: OldMacDonaldSongRepeated` -> converted to procedural abstraction code task
-  - `shortanswer:: OOD2` -> converted to game design group challenge
+  - source lines 43-50 `shortanswer:: OOD1` -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 51-71 -> prompt, two-class/two-attribute deliverable, Student/Course reasoning, sample attributes, and class discussion prompt preserved
+  - source lines 112-215 `activecode:: OldMacDonaldSongRepeated` -> `AP CSA/slides/3-class-creation/3-1-part-2-old-macdonald-and-game-design.qmd` lines 17-93 -> review context, prompt, full starter code with TODO markers, `chorus()`, `verse(String animal, String sound)`, `main`, and all five Runestone checks preserved
+  - source lines 217-230 `shortanswer:: OOD2` -> `AP CSA/slides/3-class-creation/3-1-part-2-old-macdonald-and-game-design.qmd` lines 95-132 -> groupwork context, Monopoly description, noun/class prompt, selected class, two pieces of data, and two methods deliverable preserved
 - Omitted items:
-  - Summary
+  - source lines 232-247 `Summary` -> omitted allowed category
 - Assets:
   - `Figures/turtleUMLClassDiagram.png` -> `AP CSA/assets/3-class-creation/3-1-abstraction-and-program-design/turtleUMLClassDiagram.png`
+- Source coverage map:
+  - source lines 25-110 -> `AP CSA/slides/3-class-creation/3-1-abstraction-and-program-design.qmd` lines 17-216 -> topic intro, OOD, OOD1, UML, abstraction, data abstraction, procedural abstraction, and classroom check preserved
+  - source lines 112-230 -> `AP CSA/slides/3-class-creation/3-1-part-2-old-macdonald-and-game-design.qmd` lines 17-151 -> Old MacDonald activecode, test requirements, Game Design groupwork, OOD2 response task, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 12-22 and 65-67 external UML tool/tutorial links are omitted; UML concept and AP boundary are retained
+  - source lines 163-167 Procedural Abstraction reason list split into dedicated slide; wording and order retained
+  - source lines 165-215 Runestone JUnit class is not copied verbatim; exact variable, method-call, and call-count checks are retained
+  - source line 226 external UML tool/tutorial links are omitted from the game challenge; group deliverable is retained
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.2 Impact of Program Design
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-2-impacts.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Impact of Program Design
-  - Groupwork: Impacts of CS
+  - source lines 24-32 Impact of Program Design -> `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd` lines 17-87 -> technology and automation, developer impact, ACM ethics examples, unintended consequences, system reliability, testing, social/economic/cultural impacts, legal/IP/open source/code permission, AI in coding, AI/ML ethics, and self-driving car scenario preserved
+  - source lines 49-52 Groupwork: Impacts of CS -> `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd` lines 89-101 -> group selection of software application, beneficial/harmful effects, ethical problems, programmer prevention discussion, AI domain narrowing, and class presentation preserved
 - Kept exercises:
-  - `shortanswer:: impacts` -> converted to student response task
+  - source lines 49-57 `shortanswer:: impacts` -> `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd` lines 89-117 -> groupwork context, beneficial/harmful effects, ethical problems, programmer prevention discussion, AI domain narrowing, class presentation, and student response prompt preserved
 - Omitted items:
-  - Summary
+  - source lines 12-22 ACM/Wired/BBC raw external links -> external resources omitted; ethics examples and self-driving scenario retained
+  - source lines 34-46 embedded AI video and additional domain video links -> omitted as external video resources
+  - source lines 59-66 Summary -> omitted allowed category
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 24-32 -> `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd` lines 17-87 -> concept sequence preserved across focused teaching slides
+  - source lines 49-57 -> `AP CSA/slides/3-class-creation/3-2-impact-of-program-design.qmd` lines 89-117 -> groupwork and shortanswer converted to classroom task pages
+- Compression/adaptation log:
+  - source line 24 inline ACM link text converted to plain ACM ethics reference; external link omitted under allowed external-resource category
+  - source line 32 Wired/BBC external resources omitted; the complete self-driving ethical dilemma wording is retained
+  - source lines 34-46 video directions omitted; AI impact concept remains in the retained source lines 30-32 sequence
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.3 Anatomy of a Class
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-3-anatomy-of-class.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-3-part-3-instance-methods.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Parts of a Class
-  - Designing a Class
-  - Data encapsulation
-  - Instance Variables
-  - Instance Methods
-  - Coding Challenge: Virtual Pet Class
-  - Design a Class for your Community
+  - source lines 12-25 topic intro and Unit 1 object review -> `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd` lines 17-41 -> built-in classes/objects, writing own classes, class blueprint, object instances, methods, Turtle variables, and String instances preserved
+  - source lines 34-110 Parts of a Class -> `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd` lines 43-171 -> `public class` definition, class body, Person skeleton, object construction, attributes/behaviors, instance variables, constructors, methods, object-specific method data, anatomy skeleton, and `main` method role preserved
+  - source lines 112-135 Designing a Class -> `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd` lines 173-201 -> class design question, problem-dependent data choices, address book/medical examples, and Person trace setup preserved
+  - source lines 208-260 Data encapsulation and Instance Variables -> `AP CSA/slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.qmd` lines 17-120 -> data encapsulation, public/private access modifiers, private instance variables, instance variable definition, declaration pattern, Person variables, cookie figure, internal access, and public-method interaction preserved
+  - source lines 357-405 Instance Methods -> `AP CSA/slides/3-class-creation/3-3-part-3-instance-methods.qmd` lines 17-111 -> instance method definition, direct instance variable access, static contrast, method location, public/private methods, method header pattern, `print` example, dot-operator call, and object-specific data preserved
+  - source lines 503-519 Groupwork Coding Challenge: Virtual Pet Class -> `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd` lines 17-73 -> digital pet context, pair design, instance variable requirements, print/feed/extra method requirements, and main-method construction/call requirements preserved
+  - source lines 677-699 Design a Class for your Community -> `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd` lines 161-210 -> continuing community project, paired work suggestion, brainstorm examples, class-name category requirement, three instance variables, data types, active-code run expectation, and next-lesson continuation preserved
 - Kept exercises:
-  - `activecode:: PersonClass` -> converted to class anatomy code page
-  - `clickablearea:: name_instance_variables` -> converted to identify instance variables task
-  - `activecode:: PersonClass2` -> converted to instance variable reading task
-  - `clickablearea:: name_methods` -> converted to method identification task
-  - `activecode:: class-add-print-method` -> converted to add print method code task
-  - `activecode:: challenge-VirtualPet-Class` -> converted to virtual pet groupwork starter
-  - `activecode:: community-challenge1` -> converted to community class extension
+  - source lines 137-206 `activecode:: PersonClass` -> `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd` lines 193-268 -> prompt, full Person source, `main` trace purpose, constructor/print calls, and exact expected output preserved
+  - source lines 262-289 `clickablearea:: name_instance_variables` -> `AP CSA/slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.qmd` lines 122-165 -> prompt, full Name code, correct `first`/`last` declarations, and assignment-vs-declaration reasoning preserved
+  - source lines 291-354 `activecode:: PersonClass2` -> `AP CSA/slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.qmd` lines 167-234 -> prompt, full starter code, private variable TODO, unchanged constructor/method direction, and `4 Private` test target preserved
+  - source lines 407-435 `clickablearea:: name_methods` -> `AP CSA/slides/3-class-creation/3-3-part-3-instance-methods.qmd` lines 113-161 -> prompt, full Name code, correct `setFirst`/`setLast` method lines, and constructor distinction preserved
+  - source lines 437-500 `activecode:: class-add-print-method` -> `AP CSA/slides/3-class-creation/3-3-part-3-instance-methods.qmd` lines 163-216 -> prompt, starter class, blank `print` method body, `main`, expected `Ada Lovelace`, and Mickey Mouse print test target preserved
+  - source lines 521-675 `activecode:: challenge-VirtualPet-Class` -> `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd` lines 75-159 -> full prompt, starter with blanks/TODO comments, constructor/getHealth provided code, main TODOs, and all Runestone test targets preserved
+  - source lines 700-739 `activecode:: community-challenge1` -> `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd` lines 200-239 -> prompt, class-name blank, three private instance variable starter, main run comments, and `3 Private` test target preserved
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 26-31 review video -> omitted as external video resource
+  - source lines 513 and 680-691 external worksheet, community lesson, app diagrams, Creately, and class-diagram tutorial links -> omitted as external tools/resources; task requirements preserved
+  - source lines 741-751 Summary -> omitted allowed category
+  - source lines 754-880 AP Practice -> omitted allowed category
+  - source lines 883-893 external class diagram link definitions -> omitted as external tools/resources
 - Assets:
   - `Figures/PersonClassWithCookies.png` -> `AP CSA/assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png`
   - `Figures/virtualpet.jpg` -> `AP CSA/assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg`
+- Source coverage map:
+  - source lines 12-206 -> `AP CSA/slides/3-class-creation/3-3-anatomy-of-a-class.qmd` lines 17-287 -> topic intro, class anatomy, class design, Person activecode, trace focus, expected output, and classroom check preserved
+  - source lines 208-354 -> `AP CSA/slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.qmd` lines 17-253 -> encapsulation, instance variables, image, clickable task, PersonClass2 starter, test target, and classroom check preserved
+  - source lines 357-500 -> `AP CSA/slides/3-class-creation/3-3-part-3-instance-methods.qmd` lines 17-235 -> instance methods, clickable task, class-add-print-method starter, tests, and classroom check preserved
+  - source lines 503-739 -> `AP CSA/slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.qmd` lines 17-258 -> Virtual Pet groupwork/activecode, test targets, community class project/activecode, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 26-31 review video omitted as external video resource; object-oriented vocabulary review is retained in topic intro slides
+  - source lines 181-206, 336-354, 469-500, 580-675, and 719-739 JUnit code is not copied verbatim; prompts, starter code, expected outputs, and exact test targets are preserved as classroom slides
+  - source lines 513 and 680-691 external worksheet/tool links omitted; class design, optional drawing note, and required deliverables are retained
+  - source lines 741-880 Summary and AP Practice omitted under allowed categories
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.4 Constructors
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-4-constructors.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-4-constructors.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-4-part-2-fraction-and-car-constructors.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Constructor Signature
-  - The Job of a Constructor
-  - Coding Challenge: Student Class
-  - Design a Class for your Community
+  - source lines 15-29 Writing Constructors intro -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 17-43 -> Unit 1 constructor-call review, `new`, class name, argument list, World/Turtle/Person examples, and transition to writing constructors preserved
+  - source lines 31-63 Constructor Signature -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 45-89 -> constructor location, no return type, same name as class, `public`, parameter list, ClassName skeleton, and note preserved
+  - source lines 64-134 The Job of a Constructor -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 91-226 -> initial values, object state, valid state, has-a relationship, memory/object reference, parameters, default constructor, default values, Person constructor, missing generated default constructor after writing one, and overloading preserved
+  - source lines 353-365 Coding Challenge: Student Class -> `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd` lines 17-41 -> pair work, OOD brainstorm, four instance variables/data types, constructor, print, main, two objects, and print calls preserved
+  - source lines 473-489 Design a Class for your Community -> `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd` lines 97-125 -> continuation from lesson 3.3, class name/three variables, three-parameter constructor, print method, main method, two objects, and print calls preserved
 - Kept exercises:
-  - `clickablearea:: name_constructor` -> converted to constructor identification task
-  - `mchoice:: constructor-purpose` -> converted to quick check
-  - `activecode:: class-Fraction` -> converted to constructor reading task
-  - `activecode:: class-Car` -> converted to constructor code task
-  - `activecode:: challenge-Student-class` -> converted to Student class groupwork starter
-  - `activecode:: community-challenge2` -> converted to community class constructor extension
+  - source lines 136-164 `clickablearea:: name_constructor` -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 228-269 -> prompt, Name class code, correct constructor block, same-name/no-return-type reasoning preserved
+  - source lines 166-179 `mchoice:: constructor-purpose` -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 271-295 -> question, all four options, correct answer D, and feedback reasoning preserved
+  - source lines 181-280 `activecode:: class-Fraction` -> `AP CSA/slides/3-class-creation/3-4-part-2-fraction-and-car-constructors.qmd` lines 17-108 -> prompt, trace question, full starter with constructor TODOs/blanks, expected `1/1` and `1/2` output, and assignment test targets preserved
+  - source lines 282-350 `activecode:: class-Car` -> `AP CSA/slides/3-class-creation/3-4-part-2-fraction-and-car-constructors.qmd` lines 110-185 -> prompt, full starter with constructor/main blanks, required Ford/Honda objects, and exact expected output preserved
+  - source lines 366-471 `activecode:: challenge-Student-class` -> `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd` lines 43-95 -> prompt, full Student starter with blanks/TODO comments, constructor/print/main requirements, and Runestone test targets preserved
+  - source lines 490-599 `activecode:: community-challenge2` -> `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd` lines 117-165 -> prompt, full community starter with class-name blank and constructor/print/main TODOs, and Runestone test targets preserved
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 476-479 internal HTML link definition -> omitted as external navigation; lesson 3.3 dependency retained in wording
+  - source lines 537-547 commented-out test no longer required -> omitted; active test targets preserved
+  - source lines 601-613 Summary -> omitted allowed category
+  - source lines 616-783 AP Practice -> omitted allowed category
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 15-179 -> `AP CSA/slides/3-class-creation/3-4-constructors.qmd` lines 17-315 -> constructor intro, signature, job, default values, overloading, clickable task, mchoice, and classroom check preserved
+  - source lines 181-350 -> `AP CSA/slides/3-class-creation/3-4-part-2-fraction-and-car-constructors.qmd` lines 17-204 -> Fraction activecode, Car activecode, starter blanks, expected outputs, and classroom check preserved
+  - source lines 353-599 -> `AP CSA/slides/3-class-creation/3-4-part-3-student-and-community-constructors.qmd` lines 17-184 -> Student groupwork/activecode, community groupwork/activecode, test targets, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 233-280, 331-350, 399-471, and 516-599 JUnit code is not copied verbatim; prompts, starter code, expected outputs, and exact test targets are preserved as classroom slides
+  - source lines 476-479 internal HTML link omitted; dependency on Topic 3.3 community class is retained
+  - source lines 537-547 commented-out no-longer-required test omitted; remaining required community tests are retained
+  - source lines 601-783 Summary and AP Practice omitted under allowed categories
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.5 Methods: How to Write Them
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-5-methods.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd`
@@ -123,147 +180,213 @@ This audit tracks rebuilt Unit 3 topics against CSAwesome2 source content.
   - [x] Deck: `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd`
   - [x] Deck: `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Defining and Calling Methods
-  - void Methods
-  - Non-void Methods
-  - Accessors / Getters
-  - toString
-  - Mutators / Setters
-  - Parameters
-  - Methods with Parameters that Return Calculated values
-  - Coding Challenge: Class Pet
-  - Design a Class for your Community
+  - source lines 28-35 topic intro -> `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd` lines 17-37 -> three class parts, Turtle method review, static-method contrast, and writing own methods preserved
+  - source lines 36-99 Defining and Calling Methods -> `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd` lines 39-156 -> method definition, Person `print`, three method-call steps, static/instance/same-class method-call flow, and flowchart preserved
+  - source lines 151-181 void and non-void methods -> `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd` lines 215-298 -> void method definition/template, print example, non-void return type/return statement, return by value, return flow, and common errors preserved
+  - source lines 199-282 Accessors / Getters -> `AP CSA/slides/3-class-creation/3-5-part-2-getters-and-tostring.qmd` lines 17-122 -> getter definition, App Inventor connection, getter template, type rule, Student `getName`, getter call, and multiple-class activecode note preserved
+  - source lines 368-384 `toString` explanation -> `AP CSA/slides/3-class-creation/3-5-part-2-getters-and-tostring.qmd` lines 209-237 -> automatic `toString`, `println`, string concatenation, and Student `toString` context preserved
+  - source lines 443-523 Mutators / Setters -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 17-99 -> setter definition, design caution, Turtle example, setter template, Student `setName`, call pattern, and getter/setter comparison figure preserved
+  - source lines 683-699 Parameters -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 263-291 -> parameter definition, argument definition, signature compatibility, call by value, primitive-copy behavior, and parameter/argument figure preserved
+  - source lines 701-705 Methods with Parameters that Return Calculated values -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 293-315 -> non-getter return methods, parameters, loop-based letter search, counting modification, and return type question preserved
+  - source lines 821-853 Coding Challenge: Class Pet -> `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd` lines 17-90 -> Animal Clinic context, five pet attributes, instance variable/data type requirements, constructor, getters, `toString`, setters, two Pet objects, and method testing preserved
+  - source lines 1004-1022 Design a Class for your Community -> `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd` lines 140-173 -> lesson 3.4 continuation, copy prior class, add get/set, `toString`, parameterized method, `print(format)` example, main testing, and good commenting preserved
 - Kept exercises:
-  - `activecode:: PersonPrint` -> converted to add-and-call method task
-  - `activecode:: StudentObjExample` -> converted to getters deck code task
-  - `activecode:: StudentToString` -> converted to toString code task
-  - `activecode:: StudentObjExample2` -> converted to setter design task
-  - `mchoice:: setSignature` -> converted to setter signature quick check
-  - `activecode:: StringFind` -> converted to calculated-return method task
-  - `activecode:: challenge-Pet-Class` -> converted to Class Pet challenge deck
-  - `activecode:: community-challenge3` -> converted to community method extension
+  - source lines 100-149 `activecode:: PersonPrint` -> `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd` lines 158-213 -> prompt, full Person starter, `print()` TODO, constructor/main context, and `public void print()` test target preserved
+  - source lines 287-366 `activecode:: StudentObjExample` -> `AP CSA/slides/3-class-creation/3-5-part-2-getters-and-tostring.qmd` lines 124-207 -> bug prompt, full two-class starter, private `email` access bug, expected output, and `s1.getEmail()` code target preserved
+  - source lines 386-441 `activecode:: StudentToString` -> `AP CSA/slides/3-class-creation/3-5-part-2-getters-and-tostring.qmd` lines 239-290 -> prompt, full starter, `s2` TODO, `toString` method, and `System.out.println(s2)` test target preserved
+  - source lines 526-638 `activecode:: StudentObjExample2` -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 101-214 -> setter bug prompt, full starter, private `email` mutation bug, `setEmail` target, expected output, and focused fix preserved
+  - source lines 640-683 `mchoice:: setSignature` -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 216-261 -> Party code, all five options, correct answer D, setter signature reasoning, and mutator naming note preserved
+  - source lines 706-819 `activecode:: StringFind` -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 303-369 -> prompt, full starter with boolean `findLetter`, counting-change TODO, return type question, count expected outputs, return-type target, count initialization, and increment target preserved
+  - source lines 855-1002 `activecode:: challenge-Pet-Class` -> `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd` lines 74-138 -> prompt, full Pet/TesterClass starter, constructor/getter/setter/toString/main requirements, and all Runestone test targets preserved
+  - source lines 1023-1175 `activecode:: community-challenge3` -> `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd` lines 175-228 -> prompt, full community starter, get/set/toString/parameterized method TODOs, and all Runestone test targets preserved
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 278-280 Java visualizer external link -> omitted as external tool; multiple-class explanation and starter retained
+  - source lines 1007-1009 internal lesson link definition -> omitted as external navigation; lesson 3.4 dependency retained in wording
+  - source lines 1071-1079 commented-out no-longer-required community test -> omitted; active community tests retained
+  - source lines 1177-1214 Summary and vocabulary drag-and-drop review -> omitted allowed review/summary category
+  - source lines 1216-1370 AP Practice -> omitted allowed category
 - Assets:
   - `Figures/FlowChartCallingMethods.png` -> `AP CSA/assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png`
+  - `Figures/AppInvSetGet.png` -> `AP CSA/assets/3-class-creation/3-5-methods-how-to-write-them/AppInvSetGet.png`
   - `Figures/get-set-comparison.png` -> `AP CSA/assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png`
   - `Figures/method-param-arg.png` -> `AP CSA/assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png`
   - `Figures/animalclinic.png` -> `AP CSA/assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png`
+- Source coverage map:
+  - source lines 28-181 -> `AP CSA/slides/3-class-creation/3-5-methods-how-to-write-them.qmd` lines 17-318 -> topic intro, method definition/call flow, PersonPrint, void/non-void methods, return behavior, common errors, and classroom check preserved
+  - source lines 199-442 -> `AP CSA/slides/3-class-creation/3-5-part-2-getters-and-tostring.qmd` lines 17-309 -> getters, App Inventor figure, StudentObjExample, `toString`, StudentToString, and classroom check preserved
+  - source lines 443-819 -> `AP CSA/slides/3-class-creation/3-5-part-3-setters-and-parameters.qmd` lines 17-389 -> setters, StudentObjExample2, setSignature, parameters/arguments, StringFind, and classroom check preserved
+  - source lines 821-1175 -> `AP CSA/slides/3-class-creation/3-5-part-4-class-pet-challenge.qmd` lines 17-247 -> Class Pet groupwork/activecode, community method challenge, test targets, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 134-149, 341-366, 425-441, 606-638, 749-819, 887-1002, and 1050-1175 JUnit code is not copied verbatim; prompts, starter code, expected output, and exact test targets are preserved as classroom slides
+  - source lines 278-280 external Java visualizer link omitted; the two-class execution context is retained
+  - source lines 1007-1009 internal lesson link omitted; lesson dependency retained
+  - source lines 1071-1079 commented-out no-longer-required test omitted; remaining community test targets retained
+  - source lines 1177-1214 Summary and vocabulary drag-and-drop omitted as summary/review material
+  - source lines 1216-1370 AP Practice omitted under allowed category
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.6 Methods: Passing and Returning References of an Object
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-6-methods-references.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-6-part-2-copying-parameter-objects.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-6-part-4-friends-and-birthdays-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Objects as Instance Variables
-  - Objects as Arguments
-  - Copying Parameter Objects
-  - Parameter of the Same Class Type
-  - Returning Objects
-  - Coding Challenge: Friends and Birthdays
+  - source lines 12-13 topic intro -> `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd` lines 17-27 -> multi-class interaction, object instance variables, object arguments, object returns, and object-oriented interaction purpose preserved
+  - source lines 14-38 Objects as Instance Variables -> `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd` lines 29-78 -> complex instance variables, `Person` has an `Address`, `Address` fields, has-a relationship, separate Java files, same-folder compilation, and Runestone one-area rule preserved
+  - source lines 39-55 Objects as Arguments -> `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd` lines 80-128 -> call by value, primitive copy, object reference copy, alias definition, mutable object caution, immutable `String`, and good programming practice preserved
+  - source lines 157-240 Copying Parameter Objects -> `AP CSA/slides/3-class-creation/3-6-part-2-copying-parameter-objects.qmd` lines 17-125 -> mutable address alias problem, defensive copy idea, copy with getters, copy constructor, and `Person` using the copy constructor preserved
+  - source lines 370-397 Parameter of Same Class Type -> `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd` lines 17-58 -> same-class parameter meaning, method access to private data in any same-class object, `Person.equals(Person other)` comparison, and same-class vs different-class contrast preserved
+  - source lines 550-580 Returning Objects -> `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd` lines 212-264 -> returning object references, `getAddress`, mutable address leak, reference alias after return, and outside mutation trace preserved
+  - source lines 705-719 Coding Challenge: Friends and Birthdays -> `AP CSA/slides/3-class-creation/3-6-part-4-friends-and-birthdays-challenge.qmd` lines 17-84 -> pair work, real friends/celebrities, two classes, `Date` fields, `Friend` fields, constructor copy requirement, getters, `isBirthday`, and `main` tests preserved
 - Kept exercises:
-  - `activecode:: AddressPerson` -> converted to object-as-argument task
-  - `activecode:: PersonAddressCopy` -> converted to copying reference explanation
-  - `activecode:: PersonAddressGet` -> converted to same-class parameter task
-  - `activecode:: PersonReturnAddress` -> converted to returning-object task
-  - `activecode:: challenge-friend-birthday` -> converted to friends and birthdays groupwork starter
+  - source lines 57-153 `activecode:: AddressPerson` -> `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd` lines 130-248 -> prompt, full starter code, `Person` with `Address` instance variable, student `a1.setCity` task, trace question, and exact test target preserved
+  - source lines 242-368 `activecode:: PersonAddressCopy` -> `AP CSA/slides/3-class-creation/3-6-part-2-copying-parameter-objects.qmd` lines 127-259 -> prompt, full starter code, `setAddress` TODO, `a1.setCity` task, `p1.setAddress` task, trace questions, and exact getter/test targets preserved
+  - source lines 399-547 `activecode:: PersonAddressGet` -> `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd` lines 60-210 -> prompt, full starter code, `sameAddress` getter-based fix, `addr.setCity` task, other address trace, and exact test targets preserved
+  - source lines 582-703 `activecode:: PersonReturnAddress` -> `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd` lines 266-379 -> prompt, full starter code, returned-reference trace, `a.setZipcode` task, expected changed zipcode output, and exact test target preserved
+  - source lines 721-806 `activecode:: challenge-friend-birthday` -> `AP CSA/slides/3-class-creation/3-6-part-4-friends-and-birthdays-challenge.qmd` lines 86-175 -> prompt, full `Date`/`Friend` starter, constructor/getter/isBirthday TODOs, main-method test requirements, three-plus getter-call target, true birthday test, and false birthday test preserved
 - Omitted items:
-  - Summary
+  - source lines 810-817 Summary -> omitted allowed category
 - Assets:
   - `Figures/turtleEquality.png` -> `AP CSA/assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png`
   - `Figures/cake.jpg` -> `AP CSA/assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg`
+- Source coverage map:
+  - source lines 12-153 -> `AP CSA/slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.qmd` lines 17-267 -> topic intro, objects as instance variables, objects as arguments, aliasing, AddressPerson starter, test target, and classroom check preserved
+  - source lines 157-368 -> `AP CSA/slides/3-class-creation/3-6-part-2-copying-parameter-objects.qmd` lines 17-278 -> defensive copy concept, copy constructor, PersonAddressCopy starter, test targets, and classroom check preserved
+  - source lines 370-703 -> `AP CSA/slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.qmd` lines 17-398 -> same-class parameters, PersonAddressGet starter, Returning Objects, PersonReturnAddress starter, test targets, and classroom check preserved
+  - source lines 705-806 -> `AP CSA/slides/3-class-creation/3-6-part-4-friends-and-birthdays-challenge.qmd` lines 17-194 -> Friends and Birthdays groupwork context, full starter, required test targets, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 137-153, 338-368, 524-547, 678-703, and 763-806 JUnit code is not copied verbatim; prompts, starter code, expected behavior, and exact test targets are preserved as classroom slides
+  - source lines 810-817 Summary omitted under allowed category
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.7 Class Variables and Methods
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-7-static-vars-methods.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-7-class-variables-and-methods.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Class Methods
-  - Class Variables
-  - final keyword
-  - Coding Challenge: Static Song and counter
+  - source lines 18-19 topic intro -> `AP CSA/slides/3-class-creation/3-7-class-variables-and-methods.qmd` lines 17-27 -> Unit 1 `Math` static method review, static `main`, class-method definition, and compare static members with instance members preserved
+  - source lines 21-64 Class Methods -> `AP CSA/slides/3-class-creation/3-7-class-variables-and-methods.qmd` lines 29-128 -> class-method call syntax, one-copy rule, same-class static call forms, method-call flowchart, `static` declaration placement, and static access rule preserved
+  - source lines 142-155 Class Variables intro -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 17-37 -> class variable definition, shared single copy, `static` keyword, public static dot-operator access, `personCounter` context, and visualizer omission note preserved
+  - source lines 225-284 static variable use and Temperature trace -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 105-165 -> min/max/average use case, Temperature static `maxTemp` code, all multiple-choice options, correct answer, and reasoning preserved
+  - source lines 361-369 final keyword -> `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd` lines 17-25 -> `final` constant definition, capitalization convention, and `PI` declaration preserved
+  - source lines 412-456 Coding Challenge: Static Song and counter -> `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd` lines 55-140 -> song context, three verses, `chorus`, `verse`, static-method design reason, two challenge steps, and `numVerses` counter requirement preserved
 - Kept exercises:
-  - `activecode:: staticmethods` -> converted to static method example
-  - `activecode:: PersonClassStaticCounter` -> converted to static counter code task
-  - `mchoice:: staticTrace` -> converted to quick check
-  - `activecode:: TemperatureBugs` -> converted to static/instance debug task
-  - `activecode:: finalPi` -> converted to final constant example
-  - `activecode:: challenge-static-song` -> converted to static song groupwork starter
+  - source lines 66-140 `activecode:: staticmethods` -> `AP CSA/slides/3-class-creation/3-7-class-variables-and-methods.qmd` lines 130-212 -> prompt, full starter code with static-context errors/TODOs, `printStatic` object-parameter fix, `main` call fix, and exact test targets preserved
+  - source lines 157-223 `activecode:: PersonClassStaticCounter` -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 39-103 -> prompt, full code, constructor counter increment, `Person.printPersonCounter`, and expected `Person counter: 2` output preserved
+  - source lines 229-278 `mchoice:: staticTrace` -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 113-165 -> question, full Temperature code, all answer choices, correct answer C, and textbook reasoning preserved
+  - source lines 288-359 `activecode:: TemperatureBugs` -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 167-245 -> prompt, full broken starter, `public static void printMax()` target, `maxTemp` print target, and expected `100.0` output preserved
+  - source lines 373-409 `activecode:: finalPi` -> `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd` lines 27-53 -> prompt, full starter with illegal reassignment, comment-out task, and expected `3.14` output preserved
+  - source lines 457-640 `activecode:: challenge-static-song` -> `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd` lines 142-202 -> full Song starter, static method requirements, `numVerses` declaration/increment/print targets, three `Song.verse` call target, and expected song-line requirements preserved
 - Omitted items:
-  - Summary
+  - source lines 148-150 and 280-284 Java visualizer raw links -> omitted as external tool links; trace task and code retained
+  - source lines 415-421 external song video and previous-lesson link -> omitted as external video/navigation resources; song text and task context retained
+  - source lines 642-649 Summary -> omitted allowed category
 - Assets:
   - `Figures/FlowChartCallingMethods.png` -> `AP CSA/assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png`
+- Source coverage map:
+  - source lines 18-142 -> `AP CSA/slides/3-class-creation/3-7-class-variables-and-methods.qmd` lines 17-241 -> topic intro, class methods, flowchart, static access rule, staticmethods activecode, test targets, and classroom check preserved
+  - source lines 144-359 -> `AP CSA/slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.qmd` lines 17-265 -> class variables, PersonClassStaticCounter, staticTrace, TemperatureBugs, test targets, and classroom check preserved
+  - source lines 361-640 -> `AP CSA/slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.qmd` lines 17-225 -> final keyword, finalPi, Static Song groupwork/activecode, expected output requirements, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 118-140, 206-223, 322-359, 390-409, and 478-640 JUnit code is not copied verbatim; prompts, starter code, expected output, and exact structural test targets are preserved as classroom slides
+  - source lines 148-150, 280-284, and 415-421 external visualizer/video/navigation links omitted under allowed external-resource category
+  - source lines 642-649 Summary omitted under allowed category
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.8 Scope and Access
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-8-scope-access.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-8-part-2-debugging-scope-violations.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Class, Method, and Block Level Scope
-  - Local Variables
-  - Coding Challenge: Debugging
+  - source lines 18-19 topic intro -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 17-23 -> scope definition, declaration location, and closest enclosing curly braces rule preserved
+  - source lines 20-39 Class, Method, and Block Level Scope -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 25-42 -> three scope levels, instance variables, local/parameter variables, block variables, and scope diagram preserved
+  - source lines 79-89 Local Variables -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 109-143 -> local variable definition, method/body location, parameter variables as local, access-modifier limitation, good local-variable practice, instance variables at class scope, and "where it lives" explanation preserved
+  - source lines 162-163 same-name local variable explanation -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 219-228 -> local variable shadowing, next-lesson `this` connection, and instance/local distinction preserved
+  - source lines 217-227 Coding Challenge: Debugging -> `AP CSA/slides/3-class-creation/3-8-part-2-debugging-scope-violations.qmd` lines 17-25 -> groupwork debugging prompt, need to add/use methods appropriately, and scope-labeling deliverable preserved
 - Kept exercises:
-  - `clickablearea:: name_class_scope` -> converted to class-level scope identification
-  - `clickablearea:: name_method_scope` -> converted to method-level scope identification
-  - `activecode:: PersonScope` -> converted to scope example
-  - `activecode:: PersonLocalVar` -> converted to local variable example
-  - `activecode:: challenge-scope-debug` -> converted to debugging groupwork task
+  - source lines 43-59 `clickablearea:: name_class_scope` -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 44-75 -> full Name code, class-level scope prompt, correct `first`/`last` declarations, and feedback reasoning preserved
+  - source lines 61-77 `clickablearea:: name_method_scope` -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 77-107 -> full Name code, method-level scope prompt, correct parameters/local variable, and feedback reasoning preserved
+  - source lines 96-160 `activecode:: PersonScope` -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 145-217 -> prompt, full starter with scope errors/TODO comments, block variable questions, constructor-parameter question, and exact test targets preserved
+  - source lines 164-215 `activecode:: PersonLocalVar` -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 230-271 -> prompt, full code, local `name` shadowing, and expected `unknown: sana@gmail.com` output preserved
+  - source lines 222-357 `activecode:: challenge-scope-debug` -> `AP CSA/slides/3-class-creation/3-8-part-2-debugging-scope-violations.qmd` lines 27-135 -> full Fraction debugging starter, private-field access violation, `d` and `newNumerator` scope violations, expected output, private-variable test, and scope-label deliverable preserved
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 359-366 Summary -> omitted allowed category
+  - source lines 368-464 AP Practice -> omitted allowed category
 - Assets:
   - `Figures/scopeDiagram.png` -> `AP CSA/assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png`
+- Source coverage map:
+  - source lines 18-216 -> `AP CSA/slides/3-class-creation/3-8-scope-and-access.qmd` lines 17-291 -> topic intro, scope levels, clickable checks, local variables, PersonScope, PersonLocalVar, trace output, and classroom check preserved
+  - source lines 217-357 -> `AP CSA/slides/3-class-creation/3-8-part-2-debugging-scope-violations.qmd` lines 17-156 -> debugging groupwork challenge, full starter, test targets, scope-label task, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 136-160, 198-215, and 273-357 JUnit code is not copied verbatim; prompts, starter code, expected output, and exact test targets are preserved as classroom slides
+  - source lines 359-464 Summary and AP Practice omitted under allowed categories
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 3.9 this Keyword
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit3-Class-Creation/topic-3-9-this.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd`
+  - [x] Deck: `AP CSA/slides/3-class-creation/3-9-part-2-bank-account-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - this.instanceVariable
-  - this as an Argument
-  - Coding Challenge: Bank Account
+  - source lines 12-17 topic intro -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 17-38 -> `this` as current-object reference, `p1`/`p2` trace context, constructor/setter examples, and visualizer omission note preserved
+  - source lines 111-132 `this.instanceVariable` -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 113-165 -> static-method restriction, same-name parameter conflict, closest local variable rule, `this.name = name`, and source note preserved
+  - source lines 134-143 `this` as an Argument -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 167-184 -> using `this` anywhere an object variable is used, passing current object as argument, Pay/Overtime context, and trace image preserved
+  - source lines 294-318 Coding Challenge: Bank Account -> `AP CSA/slides/3-class-creation/3-9-part-2-bank-account-challenge.qmd` lines 17-87 -> bank account context, ATM/app actions, pair work, three fields, two constructors, `toString`, `withdraw`, `deposit`, `this` requirements, and main-method testing preserved
 - Kept exercises:
-  - `activecode:: PersonClassThis` -> converted to constructor with this task
-  - `activecode:: PayClassThis` -> converted to this-as-argument/code example
-  - `mchoice:: AP-this-arg` -> converted to quick check
-  - `activecode:: challenge-BankAccount` -> converted to Bank Account groupwork starter
+  - source lines 18-109 `activecode:: PersonClassThis` -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 40-111 -> prompt, full Person code, constructor/getter/setter uses of `this`, `p1`/`p2` main trace, and expected output preserved
+  - source lines 144-212 `activecode:: PayClassThis` -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 186-258 -> prompt, full Pay/Overtime code, `new Overtime(this)` trace, and expected `150.0` output preserved
+  - source lines 216-288 `mchoice:: AP-this-arg` -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 260-298 -> question context, code segment, all answer choices, correct answer D, and reasoning preserved
+  - source lines 320-438 `activecode:: challenge-BankAccount` -> `AP CSA/slides/3-class-creation/3-9-part-2-bank-account-challenge.qmd` lines 89-173 -> prompt, full starter with TODOs, two constructor checks, private instance-variable check, `toString`, `withdraw`, `deposit`, six-plus `this.` target, and expected output shape preserved
 - Omitted items:
-  - Summary
-  - AP Practice
+  - source lines 301-304 ATM video link -> omitted as external video resource; banking context and task retained
+  - source lines 440-449 Summary -> omitted allowed category
+  - source lines 452-535 AP Practice -> omitted allowed category
 - Assets:
   - `Figures/thisTrace.png` -> `AP CSA/assets/3-class-creation/3-9-this-keyword/thisTrace.png`
   - `Figures/dollarSign.png` -> `AP CSA/assets/3-class-creation/3-9-this-keyword/dollarSign.png`
+- Source coverage map:
+  - source lines 12-290 -> `AP CSA/slides/3-class-creation/3-9-this-keyword.qmd` lines 17-319 -> topic intro, PersonClassThis, this.instanceVariable, this-as-argument, PayClassThis, AP-this-arg, answer reasoning, and classroom check preserved
+  - source lines 294-438 -> `AP CSA/slides/3-class-creation/3-9-part-2-bank-account-challenge.qmd` lines 17-192 -> Bank Account groupwork context, activecode starter, test targets, focused design, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 15, 22, and 148 visualizer directions omitted as external tool directions; trace prompts and code retained
+  - source lines 86-109, 194-212, and 342-438 JUnit code is not copied verbatim; prompts, starter code, expected output, and exact structural test targets are preserved as classroom slides
+  - source lines 301-304 external ATM video omitted under allowed external-resource category
+  - source lines 440-535 Summary and AP Practice omitted under allowed categories
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`

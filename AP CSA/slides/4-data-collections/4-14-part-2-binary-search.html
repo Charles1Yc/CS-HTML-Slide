@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.14 Searching Algorithms</title>
+  <title>4.14 Binary Search</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.14 Searching Algorithms</h1>
-  <p class="subtitle">Part 2: Binary Search</p>
+  <h1 class="title">4.14 Binary Search</h1>
+  <p class="subtitle">Searching Algorithms</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -207,129 +207,167 @@
 </section>
 <section id="course-directory" class="slide level2">
 <h2>Course Directory</h2>
-<h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="algorithm-idea" class="slide level2">
-<h2>Algorithm Idea</h2>
-<h3 id="binary-search-halves-a-sorted-search-space">Binary search halves a sorted search space</h3>
-<p><span class="term">Binary search</span> requires sorted data.</p>
-
-<img data-src="../../assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Binary search animation</p><p>At each step, compare the target with the middle element, then discard half the remaining values.</p>
+<section id="binary-search" class="slide level2">
+<h2>Binary Search</h2>
+<h3 id="sorted-data-required">Sorted data required</h3>
+<p>If your array or list is already in order, binary search will on average find an element or determine that it is missing much more quickly than a linear search.</p>
+<p>Binary search can only be used if the data is sorted.</p>
+<p>It keeps dividing the sorted search space in half.</p>
 </section>
-<section id="full-code" class="slide level2 fit-small">
-<h2>Full Code</h2>
-<h3 id="iterative-binary-search">Iterative binary search</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">binarySearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<section id="binary-search-steps" class="slide level2">
+<h2>Binary Search Steps</h2>
+<h3 id="left-right-middle">Left, right, middle</h3>
+<p>Binary search compares a target value to the value in the middle of a range of indices.</p>
+<p>If the value is not found, it looks again in either the left or right half of the current range.</p>
+<p>Each time through the loop it eliminates half the values in the search area until the value is found or there is no more data to look at.</p>
+</section>
+<section id="middle-index-and-bounds" class="slide level2">
+<h2>Middle Index and Bounds</h2>
+<h3 id="source-explanation">Source explanation</h3>
+<p>Binary search calculates the middle index as <code>(left + right) / 2</code>.</p>
+<p><code>left</code> starts at <code>0</code>.</p>
+<p><code>right</code> starts at the array length minus <code>1</code>.</p>
+<p>If the target is less than the middle value, set <code>right</code> to <code>middle - 1</code>.</p>
+<p>If the target is greater than the middle value, set <code>left</code> to <code>middle + 1</code>.</p>
+<p>If <code>left</code> becomes greater than <code>right</code>, return <code>-1</code>.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-binsearch"><code>activecode:: binSearch</code></h3>
+<p>The code for <code>binarySearch</code> below is from the AP CSA course description.</p>
+<p>A recursive version of this algorithm will be covered in lesson 4.17.</p>
+</section>
+<section id="searchtest-binary-source" class="slide level2">
+<h2>SearchTest Binary Source</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SearchTest</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="dt">int</span> low <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="dt">int</span> high <span class="op">=</span> values<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-5"><a href=""></a></span>
-<span id="cb1-6"><a href=""></a>    <span class="cf">while</span> <span class="op">(</span>low <span class="op">&lt;=</span> high<span class="op">)</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-8"><a href=""></a>        <span class="dt">int</span> mid <span class="op">=</span> <span class="op">(</span>low <span class="op">+</span> high<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-9"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>mid<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
-<span id="cb1-10"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb1-11"><a href=""></a>            <span class="cf">return</span> mid<span class="op">;</span></span>
-<span id="cb1-12"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb1-13"><a href=""></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>mid<span class="op">]</span> <span class="op">&lt;</span> target<span class="op">)</span></span>
-<span id="cb1-14"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb1-15"><a href=""></a>            low <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-16"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb1-17"><a href=""></a>        <span class="cf">else</span></span>
-<span id="cb1-18"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb1-19"><a href=""></a>            high <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-20"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb1-21"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-22"><a href=""></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-23"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">binarySearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> elements<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="dt">int</span> right <span class="op">=</span> elements<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;=</span> right<span class="op">)</span></span>
+<span id="cb1-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>            <span class="dt">int</span> middle <span class="op">=</span> <span class="op">(</span>left <span class="op">+</span> right<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>target <span class="op">&lt;</span> elements<span class="op">[</span>middle<span class="op">])</span></span>
+<span id="cb1-11"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb1-12"><a href=""></a>                right <span class="op">=</span> middle <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-13"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb1-14"><a href=""></a>            <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>target <span class="op">&gt;</span> elements<span class="op">[</span>middle<span class="op">])</span></span>
+<span id="cb1-15"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb1-16"><a href=""></a>                left <span class="op">=</span> middle <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-17"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb1-18"><a href=""></a>            <span class="cf">else</span></span>
+<span id="cb1-19"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb1-20"><a href=""></a>                <span class="cf">return</span> middle<span class="op">;</span></span>
+<span id="cb1-21"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb1-22"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-23"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-24"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-25"><a href=""></a></span>
+<span id="cb1-26"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-27"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-28"><a href=""></a>        <span class="dt">int</span><span class="op">[]</span> arr1 <span class="op">=</span> <span class="op">{-</span><span class="dv">20</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="dv">81</span><span class="op">,</span> <span class="dv">432</span><span class="op">};</span></span>
+<span id="cb1-29"><a href=""></a>        <span class="dt">int</span> index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb1-30"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb1-31"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="op">-</span><span class="dv">20</span><span class="op">);</span></span>
+<span id="cb1-32"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb1-33"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="dv">432</span><span class="op">);</span></span>
+<span id="cb1-34"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb1-35"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="dv">53</span><span class="op">);</span></span>
+<span id="cb1-36"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb1-37"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-38"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="focused-trace" class="slide level2">
-<h2>Focused Trace</h2>
-<h3 id="search-sorted-values-for-15">Search sorted values for <code>15</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="dv">19</span><span class="op">,</span> <span class="dv">24</span><span class="op">};</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Step</th>
-<th style="text-align: right;"><code>low</code></th>
-<th style="text-align: right;"><code>high</code></th>
-<th style="text-align: right;"><code>mid</code></th>
-<th style="text-align: right;"><code>values[mid]</code></th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12</td>
-<td>move <code>low</code> to 4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">19</td>
-<td>move <code>high</code> to 4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">15</td>
-<td>return 4</td>
-</tr>
-</tbody>
-</table>
+<section id="binsearch-test-target" class="slide level2">
+<h2>binSearch Test Target</h2>
+<h3 id="runestone-expected-output">Runestone expected output</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>2</span>
+<span id="cb2-2"><a href=""></a>0</span>
+<span id="cb2-3"><a href=""></a>4</span>
+<span id="cb2-4"><a href=""></a>-1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="binary-search-with-strings" class="slide level2">
 <h2>Binary Search with Strings</h2>
 <h3 id="use-compareto">Use <code>compareTo</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> comparison <span class="op">=</span> words<span class="op">.</span><span class="fu">get</span><span class="op">(</span>mid<span class="op">).</span><span class="fu">compareTo</span><span class="op">(</span>target<span class="op">);</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">if</span> <span class="op">(</span>comparison <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="cf">return</span> mid<span class="op">;</span></span>
-<span id="cb3-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-6"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>comparison <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>    low <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-9"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-10"><a href=""></a><span class="cf">else</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-12"><a href=""></a>    high <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For strings, sorted order is checked with <code>compareTo</code>.</p>
+<p>You can also use binary search with a <code>String</code> array.</p>
+<p>When searching for a <code>String</code>, use <code>compareTo</code> rather than <code>&lt;</code> or <code>&gt;</code>.</p>
+<p><code>compareTo(String other)</code> returns:</p>
+<ul>
+<li>a negative value if the current string is less than <code>other</code></li>
+<li><code>0</code> if the strings have the same characters in the same order</li>
+<li>a positive value if the current string is greater than <code>other</code></li>
+</ul>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="why-sorted-data-matters">Why sorted data matters</h3>
-<p>Binary search decides which half to discard based on the middle value.</p>
-<p>If data is not sorted, discarding half can remove the target by mistake.</p>
-<p>Class prompt: give a small unsorted array where binary search would make the wrong decision after the first comparison.</p>
+<section id="binsearchstrings-source" class="slide level2">
+<h2>BinSearchStrings Source</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BinSearchStrings</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">binarySearch</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> elements<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a>        <span class="dt">int</span> right <span class="op">=</span> elements<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;=</span> right<span class="op">)</span></span>
+<span id="cb3-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-9"><a href=""></a>            <span class="dt">int</span> middle <span class="op">=</span> <span class="op">(</span>left <span class="op">+</span> right<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-10"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>target<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>elements<span class="op">[</span>middle<span class="op">])</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-11"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb3-12"><a href=""></a>                right <span class="op">=</span> middle <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-13"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb3-14"><a href=""></a>            <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>target<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>elements<span class="op">[</span>middle<span class="op">])</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-15"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb3-16"><a href=""></a>                left <span class="op">=</span> middle <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-17"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb3-18"><a href=""></a>            <span class="cf">else</span></span>
+<span id="cb3-19"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb3-20"><a href=""></a>                <span class="cf">return</span> middle<span class="op">;</span></span>
+<span id="cb3-21"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb3-22"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-23"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-24"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-25"><a href=""></a></span>
+<span id="cb3-26"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-27"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-28"><a href=""></a>        <span class="bu">String</span><span class="op">[]</span> arr1 <span class="op">=</span> <span class="op">{</span><span class="st">"apple"</span><span class="op">,</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"cherry"</span><span class="op">,</span> <span class="st">"kiwi"</span><span class="op">,</span> <span class="st">"melon"</span><span class="op">};</span></span>
+<span id="cb3-29"><a href=""></a>        <span class="dt">int</span> index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"cherry"</span><span class="op">);</span></span>
+<span id="cb3-30"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb3-31"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"apple"</span><span class="op">);</span></span>
+<span id="cb3-32"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb3-33"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"melon"</span><span class="op">);</span></span>
+<span id="cb3-34"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb3-35"><a href=""></a>        index <span class="op">=</span> <span class="fu">binarySearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"pear"</span><span class="op">);</span></span>
+<span id="cb3-36"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb3-37"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-38"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="binsearchstrings-test-target" class="slide level2">
+<h2>binSearchStrings Test Target</h2>
+<h3 id="runestone-expected-output-1">Runestone expected output</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>2</span>
+<span id="cb4-2"><a href=""></a>0</span>
+<span id="cb4-3"><a href=""></a>4</span>
+<span id="cb4-4"><a href=""></a>-1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
-<div class="tight-list">
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <ul>
-<li>explain why binary search requires sorted data</li>
-<li>update <code>low</code> and <code>high</code> correctly</li>
-<li>compute and use the middle index</li>
-<li>trace how the search space shrinks</li>
-<li>use <code>compareTo</code> when binary searching strings</li>
+<li>state that binary search requires sorted data</li>
+<li>update <code>right</code> when target is less than the middle value</li>
+<li>update <code>left</code> when target is greater than the middle value</li>
+<li>return <code>middle</code> when the target matches</li>
+<li>use <code>compareTo</code> for <code>String</code> binary search</li>
 </ul>
-</div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
-<p><a href="4-14-part-3-search-runtimes.html">Next: Search Runtimes</a><br>
-<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="binary-search-1">4.14 Binary Search</h3>
+<p>Next: Search runtimes.</p>
 
 </section>
     </div>

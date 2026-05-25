@@ -1,0 +1,215 @@
+---
+title: "4.10 Pairs and Duplicates"
+subtitle: "Implementing ArrayList Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Pairs and Duplicates
+
+### Consecutive pairs and duplicate elements
+
+In the last lesson, the coding challenge involved finding pairs.
+
+You should be able to write code that:
+
+- accesses all consecutive pairs of elements in an `ArrayList`
+- determines the presence or absence of duplicate elements
+
+These problems often require nested loops.
+
+## Mixed-Up Code
+
+### `parsonsprob:: arraylistDuplicatesParsons`
+
+The following method should return `true` if there are any duplicate elements in an `ArrayList` of `Integer` objects.
+
+The blocks have been mixed up and include extra blocks that are not needed.
+
+## Mixed-Up Blocks
+
+### arraylistDuplicatesParsons
+
+::: {.code-scroll .compact style="max-height: 380px;"}
+```java
+public static boolean hasDups(ArrayList<Integer> a)
+{
+=====
+  for (int i = 0; i < a.size(); i++)
+  {
+=====
+    for (int j = i + 1; j < a.size(); j++)
+    {
+=====
+    for (int j = i; j < a.size() - 1; j++)
+    { // extra block
+=====
+     if (a.get(i).equals(a.get(j)))
+     {
+=====
+     if (a.get(i) == a.get(j))
+     { // extra block
+=====
+     if (a[i] == a[j])
+     { // extra block
+=====
+        return true;
+=====
+      } // end if
+=====
+    } // end inner for loop
+=====
+  } // end outer for loop
+=====
+  return false;
+=====
+} // end hasDuplicates method
+```
+:::
+
+## Mixed-Up Code: Correct Order
+
+### arraylistDuplicatesParsons
+
+```java
+public static boolean hasDups(ArrayList<Integer> a)
+{
+  for (int i = 0; i < a.size(); i++)
+  {
+    for (int j = i + 1; j < a.size(); j++)
+    {
+     if (a.get(i).equals(a.get(j)))
+     {
+        return true;
+      } // end if
+    } // end inner for loop
+  } // end outer for loop
+  return false;
+} // end hasDuplicates method
+```
+
+## Coding Exercise
+
+### `activecode:: arraylistDuplicates`
+
+Write a method `hasDuplicates` that returns `true` if there are any duplicate elements in an `ArrayList` of `Integer` objects.
+
+## TestDuplicates Starter
+
+::: {.code-scroll}
+```java
+import java.util.*;
+
+public class TestDuplicates
+{
+    public static boolean hasDuplicates(ArrayList<Integer> nums)
+    {
+        // Add code here
+        return false;
+    }
+
+    public static void main(String[] args)
+    {
+        // instantiate ArrayList and fill with Integers
+        ArrayList<Integer> values1 = new ArrayList<Integer>();
+        ArrayList<Integer> values2 = new ArrayList<Integer>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            values1.add(i);
+            values2.add(i);
+            values2.add(i); // add duplicates to values2
+        }
+        boolean result1 = hasDuplicates(values1);
+        boolean result2 = hasDuplicates(values2);
+        System.out.println("Expected Result: false, true");
+        System.out.println("Your Result: " + result1 + ", " + result2);
+    }
+}
+```
+:::
+
+## TestDuplicates Test Targets
+
+### Output and loop structure
+
+The output from `main` should be:
+
+```text
+Expected Result: false, true
+Your Result: false, true
+```
+
+The Runestone tests also count the number of `for` loops.
+
+Expected loop structure:
+
+```text
+2 loop(s)
+```
+
+## TestDuplicates Extra Calls
+
+### Runestone method tests
+
+Test 2:
+
+```java
+ArrayList<Integer> list = new ArrayList<Integer>();
+list.add(2);
+list.add(4);
+list.add(0);
+TestDuplicates.hasDuplicates(list);
+```
+
+Expected return value:
+
+```text
+false
+```
+
+## TestDuplicates Extra Calls
+
+### Duplicate value test
+
+Test 3:
+
+```java
+ArrayList<Integer> list = new ArrayList<Integer>();
+list.add(2);
+list.add(4);
+list.add(0);
+list.add(4);
+TestDuplicates.hasDuplicates(list);
+```
+
+Expected return value:
+
+```text
+true
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+- use a nested loop when checking every pair of positions
+- start the inner loop at `i + 1` to avoid comparing an item to itself
+- use `a.get(i).equals(a.get(j))` for `Integer` object equality
+- return `true` immediately when a duplicate is found
+- return `false` only after all needed pairs have been checked
+
+## End
+
+### 4.10 Pairs and Duplicates
+
+Next: Shift, rotate, reverse, and parallel data structures.

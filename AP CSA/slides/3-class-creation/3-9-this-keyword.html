@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">3.9 this Keyword</h1>
-  <p class="subtitle">Class Creation</p>
+  <p class="subtitle">Current Object and this as an Argument</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,118 +210,257 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="this-means-the-current-object"><code>this</code> means the current object</h3>
-<p>The keyword <span class="term">this</span> (当前对象) refers to the object whose method or constructor is currently running.</p>
-<p>It is commonly used to:</p>
-<div class="tight-list">
-<ul>
-<li>distinguish instance variables from parameters with the same name</li>
-<li>pass the current object as an argument</li>
-<li>make code clearer when an instance variable is being used</li>
-</ul>
-</div>
+<section id="this-keyword" class="slide level2">
+<h2>this Keyword</h2>
+<h3 id="current-object">Current object</h3>
+<p>Within an instance method or a constructor, the keyword <code>this</code> acts as a special variable that holds a reference to the current object.</p>
+<p>The current object is the object whose method or constructor is being called.</p>
 </section>
-<section id="this.instancevariable" class="slide level2">
-<h2><code>this.instanceVariable</code></h2>
-<h3 id="resolve-same-name-variables">Resolve same-name variables</h3>
+<section id="person-example" class="slide level2">
+<h2>Person Example</h2>
+<h3 id="this-changes-with-the-object"><code>this</code> changes with the object</h3>
+<p>In the following class <code>Person</code>, when we create an object <code>p1</code> and call the constructor or <code>p1.setEmail()</code>, the word <code>this</code> refers to <code>p1</code>.</p>
+<p>When we make the same method calls with object <code>p2</code>, <code>this</code> refers to <code>p2</code>.</p>
+<p>The source Java visualizer direction is omitted; the trace task is retained.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-personclassthis"><code>activecode:: PersonClassThis</code></h3>
+<p>Observe the use of the keyword <code>this</code> in the code below.</p>
+<p>Trace the memory and watch how <code>this</code> refers to different objects when the code is run.</p>
+</section>
+<section id="personclassthis-code" class="slide level2">
+<h2>PersonClassThis Code</h2>
+<div class="code-scroll">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-7"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>this.name</code> means the instance variable. The plain <code>name</code> on the right side means the constructor parameter.</p>
+<span id="cb1-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> phoneNumber<span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a>    <span class="co">// constructor</span></span>
+<span id="cb1-9"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href=""></a></span>
+<span id="cb1-14"><a href=""></a>    <span class="co">// accessor methods - getters</span></span>
+<span id="cb1-15"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb1-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-17"><a href=""></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">name</span><span class="op">;</span></span>
+<span id="cb1-18"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-19"><a href=""></a></span>
+<span id="cb1-20"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getEmail</span><span class="op">()</span></span>
+<span id="cb1-21"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-22"><a href=""></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">email</span><span class="op">;</span></span>
+<span id="cb1-23"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-24"><a href=""></a></span>
+<span id="cb1-25"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getPhoneNumber</span><span class="op">()</span></span>
+<span id="cb1-26"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-27"><a href=""></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">phoneNumber</span><span class="op">;</span></span>
+<span id="cb1-28"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-29"><a href=""></a></span>
+<span id="cb1-30"><a href=""></a>    <span class="co">// mutator methods - setters</span></span>
+<span id="cb1-31"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<span id="cb1-32"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-33"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb1-34"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-35"><a href=""></a></span>
+<span id="cb1-36"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setEmail</span><span class="op">(</span><span class="bu">String</span> email<span class="op">)</span></span>
+<span id="cb1-37"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-38"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">email</span> <span class="op">=</span> email<span class="op">;</span></span>
+<span id="cb1-39"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-40"><a href=""></a></span>
+<span id="cb1-41"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setPhoneNumber</span><span class="op">(</span><span class="bu">String</span> phoneNumber<span class="op">)</span></span>
+<span id="cb1-42"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-43"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">phoneNumber</span> <span class="op">=</span> phoneNumber<span class="op">;</span></span>
+<span id="cb1-44"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-45"><a href=""></a></span>
+<span id="cb1-46"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb1-47"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-48"><a href=""></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">email</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="fu">phoneNumber</span><span class="op">;</span></span>
+<span id="cb1-49"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-50"><a href=""></a></span>
+<span id="cb1-51"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb1-52"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-53"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-54"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Sana"</span><span class="op">);</span></span>
+<span id="cb1-55"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p1<span class="op">);</span></span>
+<span id="cb1-56"><a href=""></a>        Person p2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Jean"</span><span class="op">);</span></span>
+<span id="cb1-57"><a href=""></a>        p2<span class="op">.</span><span class="fu">setEmail</span><span class="op">(</span><span class="st">"jean@gmail.com"</span><span class="op">);</span></span>
+<span id="cb1-58"><a href=""></a>        p2<span class="op">.</span><span class="fu">setPhoneNumber</span><span class="op">(</span><span class="st">"404 899-9955"</span><span class="op">);</span></span>
+<span id="cb1-59"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p2<span class="op">);</span></span>
+<span id="cb1-60"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-61"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="constructor-with-this">Constructor with <code>this</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BankAccount</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> owner<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="bu">String</span> owner<span class="op">,</span> <span class="dt">double</span> balance<span class="op">)</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">owner</span> <span class="op">=</span> owner<span class="op">;</span></span>
-<span id="cb2-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> balance<span class="op">;</span></span>
-<span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace: <code>this.owner</code> is the field of the newly created object.</p>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="runestone-check">Runestone check</h3>
+<p>The expected output from <code>main</code> is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Sana null null</span>
+<span id="cb2-2"><a href=""></a>Jean jean@gmail.com 404 899-9955</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Trace focus: in each constructor or setter call, <code>this</code> is the object receiving the call.</p>
+</section>
+<section id="static-methods-and-this" class="slide level2">
+<h2>Static Methods and this</h2>
+<h3 id="no-current-object-in-class-methods">No current object in class methods</h3>
+<p>The <code>this</code> variable can only be used in instance methods and constructors.</p>
+<p>Class methods cannot refer to <code>this</code> or instance variables because they are called with the class name, not an object.</p>
+<p>Therefore, there is no <code>this</code> object in a class method.</p>
+</section>
+<section id="this.instancevariable" class="slide level2">
+<h2>this.instanceVariable</h2>
+<h3 id="distinguish-same-name-variables">Distinguish same-name variables</h3>
+<p>The keyword <code>this</code> is sometimes used by programmers to distinguish between variables.</p>
+<p>Programmers can give the parameter variables the same names as the instance variables.</p>
+<p><code>this</code> can distinguish them and avoid a naming conflict.</p>
+</section>
+<section id="constructor-pattern" class="slide level2">
+<h2>Constructor Pattern</h2>
+<h3 id="local-parameter-vs-instance-variable">Local parameter vs instance variable</h3>
+<p>Both the instance variable and the parameter variable are called <code>name</code> in the code below.</p>
+<p><code>name</code> on its own looks for the closest local variable, the parameter variable.</p>
+<p><code>this.name</code> refers to this object’s instance variable.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="co">// instance variables</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="co">// constructor</span></span>
+<span id="cb3-5"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="co">// Set this object's instance variable name to the parameter variable name</span></span>
+<span id="cb3-8"><a href=""></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb3-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="note" class="slide level2">
+<h2>Note</h2>
+<h3 id="source-rule">Source rule</h3>
+<p><code>this.instanceVariable</code> can be used to distinguish between this object’s instance variables and local parameter variables that may have the same variable names.</p>
 </section>
 <section id="this-as-an-argument" class="slide level2">
-<h2><code>this</code> as an Argument</h2>
-<h3 id="pass-the-current-object-to-another-method">Pass the current object to another method</h3>
+<h2>this as an Argument</h2>
+<h3 id="pass-the-current-object">Pass the current object</h3>
+<p>The <code>this</code> variable can be used anywhere you would use an object variable.</p>
+<p>You can even pass it to another method as an argument.</p>
+<p>Consider the classes <code>Pay</code> and <code>Overtime</code>.</p>
+<p>The <code>Pay</code> class declares an <code>Overtime</code> object and passes in <code>this</code>, the current <code>Pay</code> object, to its constructor.</p>
+</section>
+<section id="this-trace" class="slide level2 image-fit">
+<h2>this Trace</h2>
+<h3 id="same-object-reference">Same object reference</h3>
 
-<img data-src="../../assets/3-class-creation/3-9-this-keyword/thisTrace.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">this trace</p><p>Inside an instance method, <code>this</code> can be passed to a method that expects an object of the same class.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">compareWith</span><span class="op">(</span>BankAccount other<span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    helper<span class="op">.</span><span class="fu">compare</span><span class="op">(</span><span class="kw">this</span><span class="op">,</span> other<span class="op">);</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<img data-src="../../assets/3-class-creation/3-9-this-keyword/thisTrace.png" style="width:52.0%" class="r-stretch quarto-figure-center"><p class="caption">this, myPay, and p refer to the same object</p><p>The image shows how <code>this</code>, <code>myPay</code>, and <code>p</code> all refer to the same object in memory.</p>
+</section>
+<section id="coding-exercise-1" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-payclassthis"><code>activecode:: PayClassThis</code></h3>
+<p>What does this code print out?</p>
+<p>Trace through the code and notice how the <code>this</code> <code>Pay</code> object is passed to the <code>Overtime</code> constructor.</p>
+</section>
+<section id="payclassthis-code" class="slide level2">
+<h2>PayClassThis Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Pay</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> pay<span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Pay</span><span class="op">(</span><span class="dt">double</span> p<span class="op">)</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>        pay <span class="op">=</span> p<span class="op">;</span></span>
+<span id="cb4-8"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-9"><a href=""></a></span>
+<span id="cb4-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">getPay</span><span class="op">()</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-12"><a href=""></a>        <span class="cf">return</span> pay<span class="op">;</span></span>
+<span id="cb4-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-14"><a href=""></a></span>
+<span id="cb4-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">calculatePayWithOvertime</span><span class="op">()</span></span>
+<span id="cb4-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-17"><a href=""></a>        <span class="co">// this Pay object is passed to the Overtime constructor</span></span>
+<span id="cb4-18"><a href=""></a>        Overtime ot <span class="op">=</span> <span class="kw">new</span> <span class="fu">Overtime</span><span class="op">(</span><span class="kw">this</span><span class="op">);</span></span>
+<span id="cb4-19"><a href=""></a>        pay <span class="op">=</span> ot<span class="op">.</span><span class="fu">getOvertimePay</span><span class="op">();</span></span>
+<span id="cb4-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-21"><a href=""></a></span>
+<span id="cb4-22"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-23"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-24"><a href=""></a>        Pay myPay <span class="op">=</span> <span class="kw">new</span> <span class="fu">Pay</span><span class="op">(</span><span class="fl">100.0</span><span class="op">);</span></span>
+<span id="cb4-25"><a href=""></a>        myPay<span class="op">.</span><span class="fu">calculatePayWithOvertime</span><span class="op">();</span></span>
+<span id="cb4-26"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>myPay<span class="op">.</span><span class="fu">getPay</span><span class="op">());</span></span>
+<span id="cb4-27"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-28"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-29"><a href=""></a></span>
+<span id="cb4-30"><a href=""></a><span class="kw">class</span> Overtime</span>
+<span id="cb4-31"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-32"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> payWithOvertime<span class="op">;</span></span>
+<span id="cb4-33"><a href=""></a></span>
+<span id="cb4-34"><a href=""></a>    <span class="kw">public</span> <span class="fu">Overtime</span><span class="op">(</span>Pay p<span class="op">)</span></span>
+<span id="cb4-35"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-36"><a href=""></a>        payWithOvertime <span class="op">=</span> p<span class="op">.</span><span class="fu">getPay</span><span class="op">()</span> <span class="op">*</span> <span class="fl">1.5</span><span class="op">;</span></span>
+<span id="cb4-37"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-38"><a href=""></a></span>
+<span id="cb4-39"><a href=""></a>    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">getOvertimePay</span><span class="op">()</span></span>
+<span id="cb4-40"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-41"><a href=""></a>        <span class="cf">return</span> payWithOvertime<span class="op">;</span></span>
+<span id="cb4-42"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-43"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="expected-output-1" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="runestone-check-1">Runestone check</h3>
+<p>The expected output from <code>main</code> is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>150.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>myPay</code> starts with <code>100.0</code>, and the <code>Overtime</code> constructor uses that <code>Pay</code> object to calculate <code>100.0 * 1.5</code>.</p>
 </section>
 <section id="quick-check" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="trace-same-name-assignment">Trace same-name assignment</h3>
-<p>What happens if the constructor omits <code>this</code>?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    name <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: the parameter is assigned to itself. The instance variable is not updated.</p>
-<p>Correct form:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="mchoice-ap-this-arg"><code>mchoice:: AP-this-arg</code></h3>
+<p>The following code segment appears in a class other than <code>Pay</code> or <code>Overtime</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>Pay one <span class="op">=</span> <span class="kw">new</span> <span class="fu">Pay</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span>
+<span id="cb6-2"><a href=""></a>one<span class="op">.</span><span class="fu">calculatePayWithOvertime</span><span class="op">();</span></span>
+<span id="cb6-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>one<span class="op">.</span><span class="fu">getPay</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What, if anything, is printed as a result of executing the code segment?</p>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="bank-account">Bank Account</h3>
-
-<img data-src="../../assets/3-class-creation/3-9-this-keyword/dollarSign.png" style="width:22.0%" class="r-stretch quarto-figure-center"><p class="caption">Bank account challenge prompt</p><p>Starter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BankAccount</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> owner<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> balance<span class="op">;</span></span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">BankAccount</span><span class="op">(</span><span class="bu">String</span> owner<span class="op">,</span> <span class="dt">double</span> balance<span class="op">)</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">owner</span> <span class="op">=</span> owner<span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">=</span> balance<span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add <code>deposit</code>, <code>withdraw</code>, and <code>toString</code> methods.</p>
+<section id="answer-choices" class="slide level2">
+<h2>Answer Choices</h2>
+<h3 id="trace-this-as-an-argument">Trace <code>this</code> as an argument</h3>
+<div class="tight-list">
+<ul>
+<li>A. <code>10.0</code></li>
+<li>B. <code>15.0</code></li>
+<li>C. <code>20.0</code></li>
+<li>D. <code>30.0</code></li>
+<li>E. Nothing is printed because the code will not compile.</li>
+</ul>
+</div>
 </section>
-<section id="method-example" class="slide level2">
-<h2>Method Example</h2>
-<h3 id="use-this-only-where-it-helps-clarity">Use <code>this</code> only where it helps clarity</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">deposit</span><span class="op">(</span><span class="dt">double</span> amount<span class="op">)</span></span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">balance</span> <span class="op">+=</span> amount<span class="op">;</span></span>
-<span id="cb7-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>this.balance</code> and <code>balance</code> refer to the same instance variable here, but <code>this</code> makes the object state explicit.</p>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="correct-answer-d">Correct answer: D</h3>
+<p>The pay starts at <code>20.0</code>.</p>
+<p>Then <code>calculatePayWithOvertime()</code> passes the current <code>Pay</code> object to the <code>Overtime</code> constructor.</p>
+<p>The overtime calculation multiplies by <code>1.5</code>, so the printed value is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>30.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that <code>this</code> refers to the current object</li>
-<li>use <code>this.variableName</code> to distinguish a field from a parameter</li>
-<li>trace why <code>name = name</code> does not update the instance variable</li>
-<li>explain when <code>this</code> can be passed as an object argument</li>
-<li>use <code>this</code> for clarity without treating it as required everywhere</li>
+<li>define <code>this</code> as a reference to the current object</li>
+<li>explain why <code>this</code> changes from <code>p1</code> to <code>p2</code> in the Person trace</li>
+<li>state that class methods cannot use <code>this</code></li>
+<li>use <code>this.instanceVariable</code> to distinguish a field from a same-name parameter</li>
+<li>trace <code>Overtime ot = new Overtime(this)</code></li>
+<li>answer the Pay quick check as <code>30.0</code></li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.9 Part 1 complete</h3>
+<p>Next: Bank Account challenge.</p>
 
 </section>
     </div>

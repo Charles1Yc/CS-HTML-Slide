@@ -1,0 +1,156 @@
+---
+title: "3.8 Debugging Scope Violations"
+subtitle: "Scope and Access"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Debugging
+
+Debug the following program that has scope violations.
+
+You may need to add methods or use methods that are in the class `Fraction` appropriately.
+
+Then, add comments that label the variable declarations as class, method, or block scope.
+
+## Challenge Starter
+
+### `activecode:: challenge-scope-debug`
+
+::: {.code-scroll}
+```java
+public class TesterClass
+{
+    public static void main(String[] args)
+    {
+        Fraction f1 = new Fraction();
+        Fraction f2 = new Fraction(1, 2);
+        System.out.println(f1);
+        // TODO: Fix this scope/access violation using Fraction methods appropriately
+        System.out.println(f2.numerator / f2.denominator);
+    }
+}
+
+/** Class Fraction */
+class Fraction
+{
+    // instance variables
+    private int numerator;
+    private int denominator;
+
+    // constructor: set instance variables to default values
+    public Fraction()
+    {
+        int d = 1;
+        numerator = d;
+        denominator = d;
+    }
+
+    // constructor: set instance variables to init parameters
+    public Fraction(int initNumerator, int initDenominator)
+    {
+        numerator = initNumerator;
+        denominator = initDenominator;
+    }
+
+    public String toString()
+    {
+        // if the denominator is 1, then just return the numerator
+        // TODO: Fix the block-scope violation with d
+        if (denominator == d)
+        {
+            int newNumerator = 1;
+        }
+        // TODO: Fix the block-scope violation with newNumerator
+        return newNumerator + "/" + denominator;
+    }
+}
+```
+:::
+
+## Scope Violations to Find
+
+### Classroom debugging targets
+
+The starter has scope/access problems:
+
+::: {.tight-list}
+- `f2.numerator` and `f2.denominator` access private instance variables from `TesterClass`
+- `d` is local to the no-argument constructor and does not exist in `toString`
+- `newNumerator` is local to the `if` block and does not exist after the block
+:::
+
+The source asks students to add comments labeling declarations as class, method, or block scope.
+
+## Test Targets
+
+### Runestone checks
+
+The tests check that:
+
+::: {.tight-list}
+- the original starter code has been changed
+- the output from `main` is exactly two lines: `1` and `1/2`
+- the code still keeps at least two `private` instance variables
+:::
+
+Expected output:
+
+```text
+1
+1/2
+```
+
+## Focused Repair Options
+
+### Keep private data private
+
+The tests require the instance variables to remain `private`.
+
+A valid repair should not make `numerator` and `denominator` public.
+
+Use class methods such as `toString()` or add appropriate accessors/operations in `Fraction` instead of directly using private fields from `TesterClass`.
+
+## Scope Label Check
+
+### Required comments
+
+After fixing the code, add comments that identify:
+
+::: {.tight-list}
+- class scope declarations: `numerator`, `denominator`
+- method scope declarations: constructor parameters such as `initNumerator`, `initDenominator`
+- block scope declarations: loop or `if`-block variables, if any remain in the final solution
+:::
+
+The comments are part of the classroom deliverable from the source challenge.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify private-field access from another class as an access problem
+- identify `d` as out of scope in `toString`
+- identify `newNumerator` as out of scope after the `if` block
+- keep `numerator` and `denominator` private
+- produce the expected output `1` and `1/2`
+- label variable declarations by class, method, or block scope
+:::
+
+## End
+
+### 3.8 complete
+
+Next: `this` keyword.

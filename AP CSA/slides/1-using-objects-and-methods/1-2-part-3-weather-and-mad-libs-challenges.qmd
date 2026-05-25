@@ -1,0 +1,172 @@
+---
+title: "1.2 Variables and Data Types"
+subtitle: "Part 3: Weather and Mad Libs Challenges"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Debugging Challenge
+
+### Weather Report
+
+Debug the following code that reads out a weather report.
+
+Make sure the data types match the values put into the variables.
+
+Can you find all the bugs and get the code to run?
+
+Work with a programming buddy if you get stuck.
+
+## Code Window
+
+### `activecode:: challenge1-2-weather`
+
+```java
+public class Challenge1_2_weather
+{
+   public static void main(String[] args)
+   {
+       int temperature = 70.5;
+       double tvChannel = 101;
+       boolean sunny = 1
+
+       System.out.print("Welcome to the weather report on Channel ")
+       System.out.println(TVchannel);
+       System.out.print("The temperature today is );
+       System.out.println(tempurature);
+       System.out.print("Is it sunny today? ");
+       System.out.println(sunny);
+   }
+}
+```
+
+## Test Requirements
+
+### `activecode:: challenge1-2-weather`
+
+Runestone expects this output from `main`:
+
+```text
+Welcome to the weather report on Channel 101
+The temperature today is 70.5
+Is it sunny today? true
+```
+
+## Debugging Focus
+
+### `activecode:: challenge1-2-weather`
+
+::: {.tight-list}
+- `temperature` must use a data type that can store `70.5`.
+- `tvChannel` should print as `101`, not `101.0`.
+- `sunny` must be a `boolean` value.
+- Statements need semicolons.
+- String literals need closing quotes.
+- Variable names must match spelling and capitalization exactly.
+:::
+
+## Groupwork Coding Challenge
+
+### Mad Libs
+
+Have you ever played MAD LIBS?
+
+In this game, you first choose a bunch of words following clues like give me a color or a plural noun, without looking at the story.
+
+Then those words are filled into the story to make it sound very wacky.
+
+Fill in the variables below with silly words, and then run to see the wacky story.
+
+## Pair Task
+
+### `activecode:: challengeMadLibs`
+
+Working in pairs, come up with another silly story that uses at least <span class="mark">5 new `String` variables</span>.
+
+When you are done, try another team's mad libs code.
+
+Your teacher may ask you to create this program in a Java IDE that can do input, for example with `Scanner`.
+
+External IDE and `Scanner` directions are optional; the classroom slide keeps the static starter task.
+
+## Code Window
+
+### `activecode:: challengeMadLibs`
+
+```java
+public class MadLibs1
+{
+    public static void main(String[] args)
+    {
+        // fill these in with silly words/strings (don't read the poem yet)
+        String pluralnoun1 = "Replace";
+        String color1 = "Replace";
+        String color2 = "Replace";
+        String food = "Replace";
+        String pluralnoun2 = "Replace";
+
+        // Run to see the silly poem!
+        System.out.println("Roses are " + color1);
+        System.out.println(pluralnoun1 + " are " + color2);
+        System.out.println("I like " + food);
+        System.out.println("Do " + pluralnoun2 + " like them too?");
+
+        // Now come up with your own silly poem!
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: challengeMadLibs`
+
+Runestone expects the poem shape:
+
+```text
+Roses are *
+* are *
+I like *
+Do * like them too?
+```
+
+It also checks that all `"Replace"` values have been changed.
+
+## Completion Tasks
+
+### `activecode:: challengeMadLibs`
+
+::: {.tight-list}
+- Replace every `"Replace"` string with a word that matches the variable name.
+- Keep variables outside quotes when printing their values.
+- Preserve the four starter poem output lines.
+- Create your own silly story using at least 5 new `String` variables.
+- Use meaningful names for new variables.
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- debug type mismatches such as assigning `70.5` to `int`
+- debug `boolean` values using `true` or `false`
+- fix missing semicolons and missing string quotes
+- keep variable spelling and capitalization consistent
+- replace placeholder `String` values in Mad Libs
+- add at least five new `String` variables for the paired story
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

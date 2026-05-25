@@ -1,0 +1,226 @@
+---
+title: "3.7 final Constants and Static Song"
+subtitle: "Class Variables and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## final Keyword
+
+### Constant values
+
+The keyword **final** can be used in front of a variable declaration to make it a constant value that cannot be modified.
+
+Constants are traditionally capitalized.
+
+```java
+final double PI = 3.14;
+```
+
+## Coding Exercise
+
+### `activecode:: finalPi`
+
+Try the following code and notice the syntax error when we try to change the constant `PI`.
+
+Put the comment symbols `//` in front of that line to remove the error and run it again.
+
+## finalPi Starter
+
+```java
+public class TestFinal
+{
+    // A static final variable for PI
+    public static final double PI = 3.14;
+
+    public static void main(String[] args)
+    {
+        System.out.println(PI);
+        // TODO: Comment out the reassignment below to remove the syntax error
+        PI = 4.2; // This will cause a syntax error
+    }
+}
+```
+
+## Test Target
+
+### Runestone check
+
+After the reassignment line is commented out, the expected output from `main` is:
+
+```text
+3.14
+```
+
+The classroom focus is that `final` prevents reassignment after initialization.
+
+## Groupwork Coding Challenge
+
+### Static Song and counter
+
+In Unit 1, we wrote a class with methods to print out the song The Ants Go Marching.
+
+Here is the song with three verses, where the chorus is the last two lines of each verse.
+
+The external song video and previous-lesson link from the source are omitted; the song text and coding task are retained.
+
+## Song Text
+
+### Three verses
+
+::: {.scroll-block}
+```text
+Verse 1:
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one
+The little one stops to suck a thumb
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+Verse 2:
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two
+The little one stops to tie a shoe
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+Verse 3:
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three
+The little one stops to climb a tree
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+```
+:::
+
+## Static Song Design
+
+### Why static methods fit
+
+Create a class to print out the song with two methods:
+
+::: {.tight-list}
+- `chorus()`
+- `verse`
+:::
+
+The `verse` method takes two parameters for the numbers and the action.
+
+This is a class where there are no instance variables and we do not really need to generate multiple objects.
+
+With a class printing out a song, we can just make the methods static and have one copy of them.
+
+## Challenge Requirements
+
+### Step 1
+
+Create a class called `Song` with two static methods:
+
+::: {.tight-list}
+- `chorus()`
+- `verse()`
+:::
+
+The `chorus` method prints out the last two lines of each verse.
+
+The `verse` method takes two parameters, a number and an action, and prints out the verse with the number and action.
+
+## Challenge Requirements
+
+### Step 2
+
+Add a public static variable called **numVerses** to the class that keeps track of the number of verses.
+
+Increment this variable in the method `verse` and print it out at the beginning of the verse.
+
+## challenge-static-song Starter
+
+### `activecode:: challenge-static-song`
+
+```java
+public class Song
+{
+    // Add a public static variable called numVerses
+
+    // Add a static chorus method
+
+    // Add a static verse method with two parameters
+
+    public static void main(String args[])
+    {
+        // Print out the static variable numVerses
+        // and call the static methods to print out the Song for 3 verses
+
+
+    }
+}
+```
+
+## Test Targets
+
+### Static structure checks
+
+The tests check for:
+
+::: {.tight-list}
+- a `verse` method header with two `String` parameters
+- at least three calls to `Song.verse(`
+- `public static int numVerses = 0`
+- `numVerses++`
+- a print statement that prints `numVerses`
+:::
+
+## Expected Output
+
+### Test behavior
+
+The output check compares the three verses from the source song text.
+
+It ignores the printed verse numbers when matching the song lines, but it still checks that `numVerses` is incremented and printed.
+
+## Expected Output Lines
+
+### Song lines to preserve
+
+Required song lines include:
+
+::: {.tight-list}
+- `The ants go marching one by one, hurrah, hurrah`
+- `The little one stops to suck a thumb`
+- `The ants go marching two by two, hurrah, hurrah`
+- `The little one stops to tie a shoe`
+- `The ants go marching three by three, hurrah, hurrah`
+- `The little one stops to climb a tree`
+- `To get out of the rain, BOOM! BOOM! BOOM! BOOM!`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why `final` prevents reassignment of `PI`
+- fix `finalPi` by commenting out the reassignment line
+- explain why a song-printing class can use static methods
+- implement `chorus()` once and call it from `verse`
+- implement `verse` with two `String` parameters
+- use a shared static `numVerses` counter that increments and prints
+:::
+
+## End
+
+### 3.7 complete
+
+Next: scope and access.

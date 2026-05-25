@@ -1,0 +1,185 @@
+---
+title: "1.9 Method Signatures"
+subtitle: "Part 4: Song with Parameters Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Groupwork coding challenge
+
+Here is another song, "The Ants Go Marching", that is very similar in its repetitive structure.
+
+The verses have repeated words and phrases.
+
+The words or phrases that are different in each verse will be the arguments that you pass to the methods in your song code.
+
+## Find the Different Phrases
+
+### `clickablearea:: clickDifferentAntSong`
+
+Look for words that are different in verse `1`, `2`, and `3`.
+
+```text
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one
+The little one stops to suck a thumb
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+```
+
+## Find the Different Phrases
+
+### Verse 2
+
+```text
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two
+The little one stops to tie a shoe
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+```
+
+## Find the Different Phrases
+
+### Verse 3
+
+```text
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three
+The little one stops to climb a tree
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+```
+
+## Different Phrases Answer
+
+### Arguments for the methods
+
+The changing phrases are:
+
+::: {.tight-list}
+- `one`, `suck a thumb`
+- `two`, `tie a shoe`
+- `three`, `climb a tree`
+:::
+
+These are the arguments for `chorus(String num)` and `verse(String num, String action)`.
+
+## Code Task
+
+### `activecode:: challenge-1-9-song`
+
+Write code in the `main` method that calls the `verse` method to print out all three verses for the Ants Go Marching song above.
+
+Use the correct arguments for each verse.
+
+## Starter Code
+
+### `challenge-1-9-song`
+
+::: {.code-scroll}
+```java
+public class AntsSong
+{
+    public static void chorus(String num)
+    {
+        System.out.println("The ants go marching " + num
+                         + " by " + num + " hurrah, hurrah");
+        System.out.println("The ants go marching " + num
+                         + " by " + num + " hurrah, hurrah");
+    }
+
+    public static void verse(String num, String action)
+    {
+        System.out.println("The ants go marching " + num + " by " + num);
+        System.out.println("The little one stops to " + action);
+        System.out.println("And they all go marching down to the ground");
+        System.out.println("To get out of the rain, BOOM! BOOM! BOOM! BOOM!\n");
+    }
+
+    public static void main(String args[])
+    {
+        // Call the chorus and verse methods
+        // with the correct arguments
+        // to print out all three verses above.
+        // Write your code here
+
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### Call-count checks
+
+Runestone checks:
+
+::: {.tight-list}
+- code contains `3` calls to `chorus`
+- code contains `3` calls to `verse`
+:::
+
+The intended calls use the phrases identified in the previous slides.
+
+## Expected Output
+
+### `testMain`
+
+::: {.code-scroll .compact}
+```text
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one, hurrah, hurrah
+The ants go marching one by one
+The little one stops to suck a thumb
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two, hurrah, hurrah
+The ants go marching two by two
+The little one stops to tie a shoe
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three, hurrah, hurrah
+The ants go marching three by three
+The little one stops to climb a tree
+And they all go marching down to the ground
+To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+```
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify the changing `num` arguments: `one`, `two`, `three`
+- identify the changing `action` arguments: `suck a thumb`, `tie a shoe`, `climb a tree`
+- call `chorus` three times
+- call `verse` three times
+- pass arguments in the method-signature order
+- match the expected output exactly
+:::
+
+## End
+
+### 1.9 complete
+
+The next topic begins calling class methods.

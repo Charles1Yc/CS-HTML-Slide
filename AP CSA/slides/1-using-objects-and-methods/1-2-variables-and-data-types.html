@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.2 Variables and Data Types</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Variables and Type Choices</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,369 +210,166 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="what-is-a-variable">What is a variable?</h3>
-<p>A <span class="term">variable</span> (变量) is a memory location in the computer that stores a value that can change while the program runs.</p>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/pongScore.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Pong score example</p><p>Scores often start at <code>0</code> and increase, so a score is a natural example of data stored in a variable.</p>
+<section id="what-is-a-variable" class="slide level2">
+<h2>What Is a Variable?</h2>
+<h3 id="memory-location-with-a-changing-value">Memory location with a changing value</h3>
+<p>A <span class="term">variable</span> (变量) is a memory location in the computer that can store a value that can change or vary while the program is running.</p>
+<p>For example, when you play a game, it will often have a score.</p>
+<p>Scores often start at <code>0</code> and increase, so they can change. A score can be stored in a variable.</p>
+</section>
+<section id="variable-example" class="slide level2">
+<h2>Variable Example</h2>
+<h3 id="pong-score">Pong score</h3>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/pongScore.png" style="width:44.0%"></p>
+<figcaption>A pong game in Scratch with a score shown in the upper left</figcaption>
+</figure>
+</div>
+</div>
+<p>A score changes while the program is running, so it is a good example of data stored in a variable.</p>
 </section>
 <section id="data-types" class="slide level2">
 <h2>Data Types</h2>
-<h3 id="name-plus-kind-of-value">Name plus kind of value</h3>
-<p>Every variable has a <span class="term">name</span> and a <span class="term">data type</span> (数据类型). The type determines what kind of value the variable can hold.</p>
+<h3 id="name-plus-type">Name plus type</h3>
+<p>Every variable has a name and a <span class="term">data type</span> (数据类型) that determines the kind of data it can hold.</p>
+<p>There are two types of variables in Java:</p>
 <div class="tight-list">
 <ul>
-<li><code>int</code>: whole numbers such as <code>3</code>, <code>0</code>, <code>-76</code></li>
-<li><code>double</code>: decimal numbers such as <code>6.3</code>, <code>-0.9</code></li>
-<li><code>boolean</code>: only <code>true</code> or <code>false</code></li>
-<li><code>String</code>: a sequence of characters inside double quotes, such as <code>"Hello"</code></li>
+<li><span class="term">primitive variables</span> that hold values of primitive types like numbers</li>
+<li><span class="term">reference variables</span> that hold a reference to a more complex object</li>
+</ul>
+</div>
+<p>A reference is a way to find the object, like a UPS tracking number helps you find your package.</p>
+</section>
+<section id="primitive-types" class="slide level2">
+<h2>Primitive Types</h2>
+<h3 id="ap-csa-primitive-types">AP CSA primitive types</h3>
+<p>The primitive types on the AP CSA exam are:</p>
+<div class="tight-list">
+<ul>
+<li><code>int</code>, which can represent integers: numbers with no fractional part such as <code>3</code>, <code>0</code>, <code>-76</code>, and <code>20393</code></li>
+<li><code>double</code>, which can represent non-integer numbers like <code>6.3</code>, <code>-0.9</code>, and <code>60293.93032</code></li>
+<li><code>boolean</code>, which can represent only two values: <code>true</code> and <code>false</code></li>
 </ul>
 </div>
 </section>
-<section id="primitive-and-reference-types" class="slide level2">
-<h2>Primitive and Reference Types</h2>
-<h3 id="ap-csa-vocabulary">AP CSA vocabulary</h3>
-<div class="tight-list">
-<ul>
-<li><span class="term">Primitive variables</span> hold primitive values directly.</li>
-<li>AP CSA primitive types in this topic are <code>int</code>, <code>double</code>, and <code>boolean</code>.</li>
-<li><span class="term">Reference variables</span> hold a reference to an object.</li>
-<li><code>String</code> is a reference type and the name of a Java class.</li>
-</ul>
-</div>
-<p>A data type is a set of values and a set of operations on those values.</p>
+<section id="double" class="slide level2">
+<h2><code>double</code></h2>
+<h3 id="floating-point-numbers">Floating point numbers</h3>
+<p>Computer people call <code>double</code> values <span class="term">floating point</span> numbers because the decimal point floats relative to the magnitude of the number, similar to scientific notation.</p>
+<p>The name <code>double</code> comes from the fact that <code>double</code> values are represented using <mark>64 bits</mark>, double the 32 bits used for the type <code>float</code>.</p>
+<p><code>float</code> is rarely used these days and is not part of the AP curriculum.</p>
+</section>
+<section id="string" class="slide level2">
+<h2><code>String</code></h2>
+<h3 id="reference-type">Reference type</h3>
+<p><code>String</code> is one of the object types on the exam and is the name of a class in Java.</p>
+<p>A <code>String</code> is written in a Java program as a sequence of characters enclosed in a pair of double quotes, like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="st">"Hello"</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You will learn more about <code>String</code> objects later.</p>
+</section>
+<section id="data-type-domain" class="slide level2">
+<h2>Data Type Domain</h2>
+<h3 id="values-and-operations">Values and operations</h3>
+<p>A data type is a set of values, called a domain, and a set of operations on them.</p>
+<p>For example, you can do addition operations with <code>int</code> values and <code>double</code> values.</p>
+<p>You cannot do addition operations with <code>boolean</code> values and <code>String</code> values in the same numeric way.</p>
 </section>
 <section id="quick-check" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="choose-the-right-type">Choose the right type</h3>
-<p>For each situation, choose <code>int</code>, <code>double</code>, <code>boolean</code>, or <code>String</code>.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 40%">
-<col style="width: 30%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Data to store</th>
-<th style="text-align: right;">Best type</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>average grade for a course</td>
-<td style="text-align: right;"><code>double</code></td>
-<td>averages may have decimals</td>
-</tr>
-<tr class="even">
-<td>number of people in a household</td>
-<td style="text-align: right;"><code>int</code></td>
-<td>people are counted as whole numbers</td>
-</tr>
-<tr class="odd">
-<td>first name of a person</td>
-<td style="text-align: right;"><code>String</code></td>
-<td>names are text</td>
-</tr>
-<tr class="even">
-<td>whether it is raining</td>
-<td style="text-align: right;"><code>boolean</code></td>
-<td>only true or false</td>
-</tr>
-<tr class="odd">
-<td>amount of money</td>
-<td style="text-align: right;"><code>double</code></td>
-<td>cents may require decimals</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="declaring-variables" class="slide level2">
-<h2>Declaring Variables</h2>
-<h3 id="type-first-then-name">Type first, then name</h3>
-<p>To <span class="term">declare</span> (声明) a variable, write the type, at least one space, the variable name, and a semicolon.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> score<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To <span class="term">initialize</span> (初始化) a variable, give it its first value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> score<span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a>score <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="dt">int</span> lives <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="memory-and-type-size" class="slide level2">
-<h2>Memory and Type Size</h2>
-<h3 id="java-reserves-enough-bits">Java reserves enough bits</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/typesAndSpace.png" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Variable types and memory</p><div class="tight-list">
-<ul>
-<li>A <span class="term">bit</span> stores <code>0</code> or <code>1</code>.</li>
-<li>An <code>int</code> uses <mark>32 bits</mark>.</li>
-<li>A <code>double</code> uses <mark>64 bits</mark>.</li>
-<li>Type affects storage and the operations Java allows.</li>
-</ul>
-</div>
-</section>
-<section id="printing-variables" class="slide level2">
-<h2>Printing Variables</h2>
-<h3 id="print-the-value-not-the-name">Print the value, not the name</h3>
-<p>Run the code and predict each output line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-5"><a href=""></a>        <span class="dt">int</span> score<span class="op">;</span></span>
-<span id="cb3-6"><a href=""></a>        score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"The score is "</span><span class="op">);</span></span>
-<span id="cb3-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
-<span id="cb3-9"><a href=""></a></span>
-<span id="cb3-10"><a href=""></a>        <span class="dt">double</span> price <span class="op">=</span> <span class="fl">23.25</span><span class="op">;</span></span>
-<span id="cb3-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The price is "</span> <span class="op">+</span> price<span class="op">);</span></span>
-<span id="cb3-12"><a href=""></a></span>
-<span id="cb3-13"><a href=""></a>        <span class="dt">boolean</span> won <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb3-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>won<span class="op">);</span></span>
-<span id="cb3-15"><a href=""></a>        won <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb3-16"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>won<span class="op">);</span></span>
-<span id="cb3-17"><a href=""></a></span>
-<span id="cb3-18"><a href=""></a>        <span class="bu">String</span> name <span class="op">=</span> <span class="st">"Jose"</span><span class="op">;</span></span>
-<span id="cb3-19"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi "</span> <span class="op">+</span> name<span class="op">);</span></span>
-<span id="cb3-20"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="printing-variables-1" class="slide level2">
-<h2>Printing Variables</h2>
-<h3 id="expected-output-and-common-mistake">Expected output and common mistake</h3>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>The score is 0</span>
-<span id="cb4-2"><a href=""></a>The price is 23.25</span>
-<span id="cb4-3"><a href=""></a>false</span>
-<span id="cb4-4"><a href=""></a>true</span>
-<span id="cb4-5"><a href=""></a>Hi Jose</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Never put variables inside quotes if you want their values. <code>"name"</code> prints the letters <code>name</code>; <code>name</code> prints the value stored in the variable.</p>
-</section>
-<section id="identify-declarations" class="slide level2">
-<h2>Identify Declarations</h2>
-<h3 id="which-lines-create-variables">Which lines create variables?</h3>
-<p>Find all variable declarations in the code.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="dt">int</span> numLives<span class="op">;</span></span>
-<span id="cb5-6"><a href=""></a>        numLives <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>numLives<span class="op">);</span></span>
-<span id="cb5-8"><a href=""></a>        <span class="dt">double</span> health<span class="op">;</span></span>
-<span id="cb5-9"><a href=""></a>        health <span class="op">=</span> <span class="fl">8.5</span><span class="op">;</span></span>
-<span id="cb5-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>health<span class="op">);</span></span>
-<span id="cb5-11"><a href=""></a>        <span class="dt">boolean</span> powerUp<span class="op">;</span></span>
-<span id="cb5-12"><a href=""></a>        powerUp <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb5-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>powerUp<span class="op">);</span></span>
-<span id="cb5-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Correct declaration lines: <code>int numLives;</code>, <code>double health;</code>, <code>boolean powerUp;</code>.</p>
-</section>
-<section id="identify-initializations" class="slide level2">
-<h2>Identify Initializations</h2>
-<h3 id="which-lines-give-the-first-value">Which lines give the first value?</h3>
-<p>Find all variable initializations in the code.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="dt">int</span> numLives<span class="op">;</span></span>
-<span id="cb6-6"><a href=""></a>        numLives <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>numLives<span class="op">);</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="dt">double</span> health <span class="op">=</span> <span class="fl">8.5</span><span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>health<span class="op">);</span></span>
-<span id="cb6-10"><a href=""></a>        <span class="dt">boolean</span> powerUp <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb6-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>powerUp<span class="op">);</span></span>
-<span id="cb6-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Correct initialization lines: <code>numLives = 0;</code>, <code>double health = 8.5;</code>, <code>boolean powerUp = true;</code>.</p>
-</section>
-<section id="assignment-direction" class="slide level2">
-<h2>Assignment Direction</h2>
-<h3 id="variable-on-the-left-value-on-the-right">Variable on the left, value on the right</h3>
-<p>In Java, <code>=</code> means “copy the value on the right into the memory location named on the left.”</p>
-<p>Fix the assignment order.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test3</span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="dt">int</span> score<span class="op">;</span></span>
-<span id="cb7-6"><a href=""></a>        <span class="dv">4</span> <span class="op">=</span> score<span class="op">;</span></span>
-<span id="cb7-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
-<span id="cb7-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>4</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="trace-checkpoints" class="slide level2">
-<h2>Trace Checkpoints</h2>
-<h3 id="fill-the-blanks">Fill the blanks</h3>
-<p>Complete each checkpoint before writing code.</p>
+<h3 id="mchoice-choosetype1"><code>mchoice:: chooseType1</code></h3>
+<p>What type should you use to represent the average grade for a course?</p>
 <div class="tight-list">
 <ul>
-<li><code>[blank] age = [blank];</code> declares <code>age</code> as an integer and sets it to <code>5</code>.</li>
-<li>What type should you use for a shoe size like <code>8.5</code>?</li>
-<li>What type should you use for a number of tickets?</li>
+<li>A. <code>int</code></li>
+<li>B. <code>double</code></li>
+<li>C. <code>boolean</code></li>
+<li>D. <code>String</code></li>
 </ul>
 </div>
-<p>Answers: <code>int age = 5;</code>, <code>double</code>, <code>int</code>.</p>
+<p>Correct answer: <mark>B. <code>double</code></mark></p>
+<p>An average is calculated by summing values and dividing by the number of values. To keep the most information, this should be done with decimal numbers.</p>
 </section>
-<section id="mixed-up-code" class="slide level2">
-<h2>Mixed-Up Code</h2>
-<h3 id="declare-three-variables-in-order">Declare three variables in order</h3>
-<p>Build the correct declarations for number of visits, temperature, and insurance status.</p>
-<p>Needed blocks:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="dt">int</span> numVisits <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb9-2"><a href=""></a><span class="dt">double</span> temp <span class="op">=</span> <span class="fl">101.2</span><span class="op">;</span></span>
-<span id="cb9-3"><a href=""></a><span class="dt">boolean</span> hasInsurance <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Distractors:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a>Int numVisits <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb10-2"><a href=""></a><span class="bu">Double</span> temp <span class="op">=</span> <span class="fl">101.2</span><span class="op">;</span></span>
-<span id="cb10-3"><a href=""></a><span class="bu">Boolean</span> hasInsurance <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Reject the distractors because Java primitive type keywords are lowercase.</p>
-</section>
-<section id="naming-variables" class="slide level2">
-<h2>Naming Variables</h2>
-<h3 id="valid-meaningful-and-readable">Valid, meaningful, and readable</h3>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-choosetype2"><code>mchoice:: chooseType2</code></h3>
+<p>What type should you use to represent the number of people in a household?</p>
 <div class="tight-list">
 <ul>
-<li>Start with a letter.</li>
-<li>Use letters, digits, and <code>_</code>.</li>
-<li>Use one word with no spaces.</li>
-<li>Do not use Java keywords such as <code>for</code>, <code>if</code>, <code>class</code>, <code>static</code>, <code>int</code>, or <code>double</code>.</li>
-<li>Choose meaningful names; <code>score</code> is clearer than <code>x</code>.</li>
+<li>A. <code>int</code></li>
+<li>B. <code>double</code></li>
+<li>C. <code>boolean</code></li>
+<li>D. <code>String</code></li>
 </ul>
 </div>
-<p>Java convention is <span class="term">camelCase</span> (驼峰命名), such as <code>gameScore</code>.</p>
+<p>Correct answer: <mark>A. <code>int</code></mark></p>
+<p>The number of people is a whole number, so using an integer makes sense.</p>
 </section>
-<section id="case-sensitivity" class="slide level2">
-<h2>Case Sensitivity</h2>
-<h3 id="spelling-and-capitalization-must-match">Spelling and capitalization must match</h3>
-<p>Java is <mark>case-sensitive</mark>. <code>gameScore</code> and <code>gamescore</code> are different names.</p>
-<p>Fix the code.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> CaseSensitiveClass</span>
-<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb11-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb11-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb11-5"><a href=""></a>        <span class="dt">int</span> gameScore <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"gameScore is "</span> <span class="op">+</span> gamescore<span class="op">);</span></span>
-<span id="cb11-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb11-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>gameScore is 0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="camel-case-check" class="slide level2">
-<h2>Camel Case Check</h2>
-<h3 id="name-the-variable">Name the variable</h3>
-<p>Give the camelCase variable name.</p>
+<section id="quick-check-2" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-choosetype3"><code>mchoice:: chooseType3</code></h3>
+<p>What type should you use to hold the first name of a person?</p>
 <div class="tight-list">
 <ul>
-<li>variable that represents a shoe size</li>
-<li>variable that represents the top score</li>
+<li>A. <code>int</code></li>
+<li>B. <code>double</code></li>
+<li>C. <code>boolean</code></li>
+<li>D. <code>String</code></li>
 </ul>
 </div>
-<p>Answers:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>shoeSize</span>
-<span id="cb13-2"><a href=""></a>topScore</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start with lowercase, then uppercase the first letter of each additional word.</p>
+<p>Correct answer: <mark>D. <code>String</code></mark></p>
+<p>Strings hold sequences of characters like you have in a person’s name.</p>
 </section>
-<section id="debugging-challenge" class="slide level2">
-<h2>Debugging Challenge</h2>
-<h3 id="weather-report-starter-code">Weather Report starter code</h3>
-<p>Debug the code. Make sure data types match the values, names match exactly, strings close correctly, and statements end correctly.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Challenge1_2_weather</span>
-<span id="cb14-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb14-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb14-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb14-5"><a href=""></a>        <span class="dt">int</span> temperature <span class="op">=</span> <span class="fl">70.5</span><span class="op">;</span></span>
-<span id="cb14-6"><a href=""></a>        <span class="dt">double</span> tvChannel <span class="op">=</span> <span class="dv">101</span><span class="op">;</span></span>
-<span id="cb14-7"><a href=""></a>        <span class="dt">boolean</span> sunny <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb14-8"><a href=""></a></span>
-<span id="cb14-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Welcome to the weather report on Channel "</span><span class="op">)</span></span>
-<span id="cb14-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>TVchannel<span class="op">);</span></span>
-<span id="cb14-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"The temperature today is );</span></span>
-<span id="cb14-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>tempurature<span class="op">);</span></span>
-<span id="cb14-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Is it sunny today? "</span><span class="op">);</span></span>
-<span id="cb14-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>sunny<span class="op">);</span></span>
-<span id="cb14-15"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb14-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="debugging-challenge-1" class="slide level2">
-<h2>Debugging Challenge</h2>
-<h3 id="weather-report-target-output">Weather Report target output</h3>
-<p>Your corrected program should produce this output.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>Welcome to the weather report on Channel 101</span>
-<span id="cb15-2"><a href=""></a>The temperature today is 70.5</span>
-<span id="cb15-3"><a href=""></a>Is it sunny today? true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Checklist:</p>
+<section id="quick-check-3" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-choosetype4"><code>mchoice:: chooseType4</code></h3>
+<p>What type should you use to record if it is raining or not?</p>
 <div class="tight-list">
 <ul>
-<li><code>temperature</code> should be a type that can store <code>70.5</code>.</li>
-<li><code>tvChannel</code> should print as <code>101</code>, not <code>101.0</code>.</li>
-<li><code>sunny</code> should be <code>true</code> or <code>false</code>.</li>
-<li><code>tvChannel</code> and <code>temperature</code> must be spelled and capitalized consistently.</li>
+<li>A. <code>int</code></li>
+<li>B. <code>double</code></li>
+<li>C. <code>boolean</code></li>
+<li>D. <code>String</code></li>
 </ul>
 </div>
+<p>Correct answer: <mark>C. <code>boolean</code></mark></p>
+<p>Java uses <code>boolean</code> for values that are only <code>true</code> or <code>false</code>.</p>
 </section>
-<section id="coding-challenge" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="mad-libs-starter-code">Mad Libs starter code</h3>
-<p>Replace each <code>"Replace"</code> value with a word that matches the variable name, then create another silly story using at least five new <code>String</code> variables.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MadLibs1</span>
-<span id="cb16-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb16-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb16-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb16-5"><a href=""></a>        <span class="bu">String</span> pluralnoun1 <span class="op">=</span> <span class="st">"Replace"</span><span class="op">;</span></span>
-<span id="cb16-6"><a href=""></a>        <span class="bu">String</span> color1 <span class="op">=</span> <span class="st">"Replace"</span><span class="op">;</span></span>
-<span id="cb16-7"><a href=""></a>        <span class="bu">String</span> color2 <span class="op">=</span> <span class="st">"Replace"</span><span class="op">;</span></span>
-<span id="cb16-8"><a href=""></a>        <span class="bu">String</span> food <span class="op">=</span> <span class="st">"Replace"</span><span class="op">;</span></span>
-<span id="cb16-9"><a href=""></a>        <span class="bu">String</span> pluralnoun2 <span class="op">=</span> <span class="st">"Replace"</span><span class="op">;</span></span>
-<span id="cb16-10"><a href=""></a></span>
-<span id="cb16-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Roses are "</span> <span class="op">+</span> color1<span class="op">);</span></span>
-<span id="cb16-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pluralnoun1 <span class="op">+</span> <span class="st">" are "</span> <span class="op">+</span> color2<span class="op">);</span></span>
-<span id="cb16-13"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"I like "</span> <span class="op">+</span> food<span class="op">);</span></span>
-<span id="cb16-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Do "</span> <span class="op">+</span> pluralnoun2 <span class="op">+</span> <span class="st">" like them too?"</span><span class="op">);</span></span>
-<span id="cb16-15"><a href=""></a></span>
-<span id="cb16-16"><a href=""></a>        <span class="co">// Now come up with your own silly poem!</span></span>
-<span id="cb16-17"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb16-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="coding-challenge-1" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="mad-libs-completion-checks">Mad Libs completion checks</h3>
-<p>A successful classroom version should:</p>
+<section id="quick-check-4" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-choosetype5"><code>mchoice:: chooseType5</code></h3>
+<p>What type should you use to represent the amount of money you have?</p>
 <div class="tight-list">
 <ul>
-<li>replace all five <code>"Replace"</code> placeholders</li>
-<li>keep the variables outside quotes when printing their values</li>
-<li>print four poem lines from the starter</li>
-<li>add a new short story or poem using at least <mark>5 new <code>String</code> variables</mark></li>
-<li>use meaningful variable names such as <code>animal</code>, <code>placeName</code>, or <code>favoriteFood</code></li>
+<li>A. <code>int</code></li>
+<li>B. <code>double</code></li>
+<li>C. <code>boolean</code></li>
+<li>D. <code>String</code></li>
 </ul>
 </div>
+<p>Correct answer: <mark>B. <code>double</code></mark></p>
+<p>The <code>double</code> type can be used to represent an amount of money because cents may require decimal values.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>define a <span class="term">variable</span> as a named memory location whose value can change</li>
-<li>identify <code>int</code>, <code>double</code>, <code>boolean</code>, and <code>String</code> from the data being stored</li>
-<li>distinguish <span class="term">primitive</span> and <span class="term">reference</span> types</li>
-<li>declare and initialize a variable using valid Java syntax</li>
-<li>explain why the variable must be on the left side of <code>=</code></li>
-<li>print variable values without placing variable names inside quotes</li>
-<li>use meaningful <span class="term">camelCase</span> names with exact capitalization</li>
+<li>define a <span class="term">variable</span> as a memory location whose value can change</li>
+<li>explain that every variable has a name and a data type</li>
+<li>distinguish primitive variables from reference variables</li>
+<li>identify <code>int</code>, <code>double</code>, and <code>boolean</code> as AP CSA primitive types</li>
+<li>identify <code>String</code> as an object/reference type</li>
+<li>choose a type based on the values and operations needed</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="1-2-part-2-declaring-assigning-and-naming-variables.html">Next: Declaring, assigning, and naming variables →</a></p>
 
 </section>
     </div>

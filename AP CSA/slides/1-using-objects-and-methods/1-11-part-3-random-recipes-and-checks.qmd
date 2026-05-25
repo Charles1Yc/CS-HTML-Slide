@@ -1,0 +1,180 @@
+---
+title: "1.11 Math Class"
+subtitle: "Part 3: Random Recipes and Checks"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Random Recipes
+
+### General recipe table
+
+The table below shows applications of the general recipe for generating a random value.
+
+::: {.table-fit .fit-small}
+| Expression | Minimum inclusive | Maximum exclusive | Possible values |
+|---|---:|---:|---:|
+| `Math.random()` | `0.0` | `1.0` | over 9 quadrillion |
+| `Math.random() * 100` | `0.0` | `100.0` | over 9 quadrillion |
+| `(int)(Math.random() * 100)` | `0` | `100` | `100` |
+| `(int)(Math.random() * 50) + 25` | `25` | `75` | `50` |
+:::
+
+## Random Recipes
+
+### General forms
+
+::: {.table-fit .fit-small}
+| Expression | Minimum inclusive | Maximum exclusive | Possible values |
+|---|---:|---:|---:|
+| `(int)(Math.random() * max)` | `0` | `max` | `max` |
+| `(int)(Math.random() * range) + min` | `min` | `min + range` | `range` |
+| `(int)(Math.random() * (max - min)) + min` | `min` | `max` | `max - min` |
+:::
+
+## Quick Check
+
+### `mchoice:: qrand_1`
+
+Which of the following would be true about `40%` of the time?
+
+::: {.tight-list}
+- A. `Math.random() < 0.4`
+- B. `Math.random() > 0.4`
+- C. `Math.random() == 0.4`
+:::
+
+## Answer Reasoning
+
+### Correct answer: A
+
+::: {.tight-list}
+- A is true about `40%` of the time since `Math.random()` returns a value from `0` to not quite `1`.
+- B is true about `60%` of the time.
+- C is not appropriate: do not use `==` with `double` values. `Math.random()` can return any number between `0` and not quite `1`.
+:::
+
+## Quick Check
+
+### `mchoice:: qrand_2`
+
+Which of the following would return a random number from `1` to `5` inclusive?
+
+::: {.tight-list}
+- A. `((int) (Math.random() * 5))`
+- B. `((int) (Math.random() * 6))`
+- C. `((int) (Math.random() * 5) + 1)`
+:::
+
+## Answer Reasoning
+
+### Correct answer: C
+
+::: {.tight-list}
+- A returns a number between `0` and `4`.
+- B returns a number between `0` and `5`.
+- C first returns a number between `0` and `4`, then adds `1` to get a number from `1` to `5` inclusive.
+:::
+
+## Quick Check
+
+### `mchoice:: qrand_3`
+
+Which of the following would return a random number from `0` to `10` inclusive?
+
+::: {.tight-list}
+- A. `((int) (Math.random() * 10))`
+- B. `((int) (Math.random() * 11))`
+- C. `((int) (Math.random() * 10) + 1)`
+:::
+
+## Answer Reasoning
+
+### Correct answer: B
+
+::: {.tight-list}
+- A returns a number between `0` and `9`.
+- B returns a number between `0` and `10`.
+- C first returns a number between `0` and `9`, then adds `1` to get a number from `1` to `10` inclusive.
+:::
+
+## Quick Check
+
+### `mchoice:: qrand_4`
+
+Which of the following would be true about `75%` of the time?
+
+::: {.tight-list}
+- A. `Math.random() < 0.25`
+- B. `Math.random() > 0.25`
+- C. `Math.random() == 0.25`
+:::
+
+## Answer Reasoning
+
+### Correct answer: B
+
+::: {.tight-list}
+- A is true about `25%` of the time, since the value is from `0` to not quite `1`.
+- B is true about `75%` of the time, since the value is from `0` to not quite `1`.
+- C is not appropriate: do not use `==` with `double` values. `Math.random()` can return any number between `0` and not quite `1`.
+:::
+
+## AP CSA Sample Problem
+
+### `mchoice:: apcsa_sample3`
+
+Which of the following statements assigns a random integer between `25` and `60`, inclusive, to `rn`?
+
+::: {.tight-list}
+- A. `int rn = (int) (Math.random() * 25) + 36;`
+- B. `int rn = (int) (Math.random() * 25) + 60;`
+- C. `int rn = (int) (Math.random() * 26) + 60;`
+- D. `int rn = (int) (Math.random() * 36) + 25;`
+- E. `int rn = (int) (Math.random() * 60) + 25;`
+:::
+
+## Answer Reasoning
+
+### Correct answer: D
+
+Remember that `(int)(Math.random()*range) + min` moves the random number into a range starting from a minimum number.
+
+We want the minimum number to be `25`.
+
+The range is:
+
+```text
+max number - min number + 1
+60 - 25 + 1 = 36
+```
+
+So `(int)(Math.random()*36) + 25` moves the random number into a range of `36` numbers starting from minimum `25` up to `60`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify the inclusive minimum and exclusive maximum of a random expression
+- compute possible integer values after casting
+- use comparisons like `< 0.4` for probability checks
+- avoid `==` comparisons with random `double` values
+- calculate inclusive range size with `max - min + 1`
+- choose the expression whose `min` and `range` match the requested interval
+:::
+
+## End
+
+### 1.11 Part 3 complete
+
+Part 4 continues with the combination lock challenge.

@@ -1,5 +1,5 @@
 ---
-title: "3.5 Methods: How to Write Them"
+title: "3.5 Accessors, Getters, and toString"
 subtitle: "Part 2: Getters and toString"
 format:
   clean-revealjs:
@@ -14,153 +14,296 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Accessors / Getters
 
-### Public methods expose selected information
+### Reading private instance variables
 
-Because instance variables are usually `private`, outside code cannot read them directly.
+Since the instance variables in a class are usually marked as `private`, code outside the class cannot directly access their values.
 
-An <span class="term">accessor</span> or <span class="term">getter</span> method provides controlled read access.
+If you want code outside the class to access the value of an instance variable, you need to write what is formally called an **accessor method**.
 
-```java
-public String getName()
-{
-    return name;
-}
-```
+Everyone actually just calls it a **getter**.
 
-## Getter Pattern
+## Getter Definition
 
-### Return type matches the data
+### Public, no arguments, returns the value
 
-```java
-public int getGradeLevel()
-{
-    return gradeLevel;
-}
-```
-
-Typical getter features:
+A getter is a `public` method that:
 
 ::: {.tight-list}
-- `public`
-- non-`void`
-- usually no parameters
-- returns one piece of object state
+- takes no arguments
+- returns the value of the `private` instance variable
 :::
 
-## Code Task
+You do not need to write a getter for every instance variable.
 
-### Student getters
+## App Inventor Connection {.image-fit}
+
+### Get/set method idea
+
+![App Inventor Set and Get blocks for object Button1](../../assets/3-class-creation/3-5-methods-how-to-write-them/AppInvSetGet.png){fig-align="center" width="42%"}
+
+If you used a language like App Inventor in AP CSP, you may have used setter and getter blocks.
+
+In Java, we write getter methods inside our own classes.
+
+## Getter Template
+
+### Return type matches instance variable type
 
 ```java
-public class Student
+class ExampleTemplate
+{
+    // Instance variable declaration
+    private typeOfVar varName;
+
+    // Accessor (getter) method template
+    public typeOfVar getVarName()
+    {
+        return varName;
+    }
+}
+```
+
+## Getter Rule
+
+### Same type, returned value
+
+The getter's return type is the same as the type of the instance variable.
+
+All the body of the getter does is return the value of the variable using a `return` statement.
+
+The expression after `return` must be the same type as the return type in the method header.
+
+## Student `getName`
+
+### Accessor example
+
+```java
+class Student
+{
+    //Instance variable name
+    private String name;
+
+    /** getName() example
+     *  @return name */
+    public String getName()
+    {
+       return name;
+    }
+}
+```
+
+Getters only return the **value** of the variable.
+
+## Calling a Getter
+
+### Use the object
+
+```java
+public static void main(String[] args)
+{
+    // To call a get method, use objectName.getVarName()
+    Student s = new Student();
+    System.out.println("Name: " + s.getName());
+}
+```
+
+## Multiple Classes Note
+
+### Tester or driver class
+
+The active code below has two classes.
+
+The `main` method is in a separate **Tester** or **Driver** class.
+
+It does not have access to the `private` instance variables in the other `Student` class.
+
+In active code and IDEs, you can put two classes in one file, but only one of them can be `public` and have a `main` method in it.
+
+## Coding Exercise
+
+### `activecode:: StudentObjExample`
+
+Try the following code.
+
+It has a bug: it tries to access the private instance variable `email` from outside the class `Student`.
+
+Change the `main` method in `TesterClass` so that it uses the appropriate public accessor method, or get method, to access the email value instead.
+
+## StudentObjExample Starter
+
+::: {.code-scroll}
+```java
+public class TesterClass
+{
+    // main method for testing
+    public static void main(String[] args)
+    {
+        Student s1 = new Student("Skyler", "skyler@sky.com", 123456);
+        System.out.println("Name:" + s1.getName());
+        // TODO: Fix the bug here!
+        System.out.println("Email:" + s1.email);
+        System.out.println("ID: " + s1.getId());
+    }
+}
+
+/** Class Student keeps track of name, email, and id of a Student. */
+class Student
 {
     private String name;
-    private int gradeLevel;
+    private String email;
+    private int id;
 
-    public Student(String studentName, int studentGrade)
+    public Student(String initName, String initEmail, int initId)
     {
-        name = studentName;
-        gradeLevel = studentGrade;
+        name = initName;
+        email = initEmail;
+        id = initId;
     }
 
+    // accessor methods - getters
+    /** getName() @return name */
     public String getName()
     {
         return name;
     }
 
-    public int getGradeLevel()
+    /** getEmail() @return email */
+    public String getEmail()
     {
-        return gradeLevel;
+        return email;
+    }
+
+    /** getName() @return id */
+    public int getId()
+    {
+        return id;
     }
 }
 ```
+:::
 
-Call with `student.getName()` or `student.getGradeLevel()`.
+## StudentObjExample Expected Output
 
-## Why Getters Matter
+### Runestone output check
 
-### Encapsulation with controlled access
+Expected output:
 
-Getters keep instance variables private while still allowing other classes to use needed information.
-
-```java
-Student s = new Student("Mina", 10);
-System.out.println(s.getName());
+```text
+Name:Skyler
+Email:skyler@sky.com
+ID: 123456
 ```
 
-Outside code asks the object for information through a method. It does not directly touch `name`.
+## StudentObjExample Code Target
+
+### Runestone accessor check
+
+The test also checks that the code contains:
+
+```java
+s1.getEmail()
+```
 
 ## `toString`
 
-### Return a readable object description
+### Returns a String representation
 
-`toString` returns a `String` representation of an object.
+While not strictly speaking a getter, another important method that returns a value is the `toString` method.
+
+This method is called automatically by Java in a number of situations when it needs to convert an object to a `String`.
+
+## When Java Calls `toString`
+
+### Printing and string concatenation
+
+Most notably, `System.out.print` and `System.out.println` use `toString` to convert an object argument into a `String` to be printed.
+
+When objects are added to `String`s with `+` and `+=`, their `String` representation comes from calling their `toString` method.
+
+## Student `toString`
+
+### Automatic call from `println`
+
+Here is the `Student` class again, but this time with a `toString` method.
+
+When we call:
 
 ```java
-public String toString()
-{
-    return name + " is in grade " + gradeLevel;
-}
+System.out.println(s1);
 ```
 
-It is especially useful for printing, tracing, and debugging.
+Java will automatically call the `toString` method to get a `String` representation of the `Student` object.
 
-## Code Task
+## StudentToString Starter
 
-### Add `toString`
-
+::: {.code-scroll}
 ```java
-public class Student
+public class TesterClass
+{
+    // main method for testing
+    public static void main(String[] args)
+    {
+        Student s1 = new Student("Skyler", "skyler@sky.com", 123456);
+        System.out.println(s1);
+        // TODO: add another student s2 and print it out
+
+
+    }
+}
+
+class Student
 {
     private String name;
-    private int gradeLevel;
+    private String email;
+    private int id;
 
-    public Student(String studentName, int studentGrade)
+    public Student(String initName, String initEmail, int initId)
     {
-        name = studentName;
-        gradeLevel = studentGrade;
+        name = initName;
+        email = initEmail;
+        id = initId;
     }
 
+    // toString() method
     public String toString()
     {
-        return name + " is in grade " + gradeLevel;
+        return id + ": " + name + ", " + email;
     }
 }
 ```
-
-`System.out.println(student);` can use this method automatically.
-
-## Quick Check
-
-### Getter or `toString`
-
-Choose the better method for each need:
-
-::: {.tight-list}
-- Need only the student's name: `getName()`
-- Need a printable summary of the whole object: `toString()`
-- Need the grade as an `int`: `getGradeLevel()`
 :::
 
-Good class interfaces expose useful information without exposing every variable directly.
+## StudentToString Task
+
+### `activecode:: StudentToString`
+
+See the `toString()` method in action.
+
+Add another student object and print it out.
+
+The Runestone test checks that your code contains:
+
+```java
+System.out.println(s2)
+```
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain why private instance variables need public accessors
-- write a getter with a matching return type
-- explain why getters usually have no parameters
-- write a `toString` method that returns a readable `String`
-- distinguish a single-value getter from an object summary
+- define an accessor/getter as a public method that returns a private instance variable
+- write getter return types to match instance variable types
+- explain why outside code must use `s1.getEmail()` instead of `s1.email`
+- identify `toString` as a method that returns a `String` representation of an object
+- explain how `System.out.println(s1)` can call `toString` automatically
+- preserve the starter bugs/TODOs in both activecode tasks until students fix them
 :::
 
 ## End
 
-### Continue or return to the course outline
+### 3.5 Part 2 complete
 
-[Next: Setters and Parameters](3-5-part-3-setters-and-parameters.html)  
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Mutators, setters, and parameters.

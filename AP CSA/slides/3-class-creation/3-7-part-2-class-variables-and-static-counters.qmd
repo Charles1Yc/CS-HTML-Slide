@@ -1,0 +1,267 @@
+---
+title: "3.7 Class Variables and Static Counters"
+subtitle: "Class Variables and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Class Variables
+
+### Belong to the class
+
+**Class variables** belong to the class, with all objects of a class sharing a single copy of the class variable.
+
+Class variables are designated with the `static` keyword before the variable type.
+
+Class variables that are designated `public` are accessed outside of the class by using the class name and the dot operator, since they are associated with a class, not objects of a class.
+
+## Static Counter Context
+
+### `Person.personCounter`
+
+In the following class `Person`, there is a `static` variable called `personCounter`.
+
+It is incremented each time the `Person` constructor is called to initialize a new `Person` object.
+
+The static method `printCounter` prints out its value.
+
+The Java visualizer link from the source is omitted here; the trace is kept as classroom work.
+
+## Coding Exercise
+
+### `activecode:: PersonClassStaticCounter`
+
+What will the following code print out?
+
+Try adding another `Person` object and see what happens.
+
+Try running the code step by step and trace when `personCounter` changes.
+
+## PersonClassStaticCounter Code
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private String email;
+    private String phoneNumber;
+
+    // Static counter variable
+    public static int personCounter = 0;
+
+    // static method to print out counter
+    public static void printPersonCounter()
+    {
+        System.out.println("Person counter: " + personCounter);
+    }
+
+    // constructor: construct a Person copying in the data into the instance
+    // variables
+    public Person(String initName, String initEmail, String initPhone)
+    {
+        name = initName;
+        email = initEmail;
+        phoneNumber = initPhone;
+        personCounter++;
+    }
+
+    // toString() method
+    public String toString()
+    {
+        return name + ": " + email + " " + phoneNumber;
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        // call the constructor to create a new person
+        Person p1 = new Person("Sana", "sana@gmail.com", "123-456-7890");
+        Person p2 = new Person("Jean", "jean@gmail.com", "404 899-9955");
+
+        Person.printPersonCounter();
+    }
+}
+```
+:::
+
+## Expected Output
+
+### Runestone check
+
+The expected output from `main` is:
+
+```text
+Person counter: 2
+```
+
+The count is `2` because the constructor ran twice.
+
+If you add another `Person` object, the same shared `personCounter` should increase again.
+
+## Static Variable Use
+
+### Shared values across objects
+
+Another common use for static variables is to keep track of a minimum value, maximum value, or average of values in a collection of objects.
+
+The next check traces a static `maxTemp` value shared by all `Temperature` objects.
+
+## Quick Check
+
+### `mchoice:: staticTrace`
+
+Consider the class `Temperature` below which has a static variable.
+
+What is the output of the `main` method?
+
+```java
+public class Temperature
+{
+    private double temperature;
+    public static double maxTemp = 0;
+
+    public Temperature(double t)
+    {
+        temperature = t;
+        if (t > maxTemp)
+        {
+             maxTemp = t;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        Temperature t1 = new Temperature(75);
+        Temperature t2 = new Temperature(100);
+        Temperature t3 = new Temperature(65);
+        System.out.println("Max Temp: " + Temperature.maxTemp);
+    }
+}
+```
+
+## Answer Choices
+
+### Static trace options
+
+::: {.tight-list}
+- A. `Max Temp: 0`
+- B. compiler error because the static variable `maxTemp` cannot be used inside a non-static constructor
+- C. `Max Temp: 100`
+- D. `Max Temp: 75`
+- E. `Max Temp: 65`
+:::
+
+## Answer Reasoning
+
+### Correct answer: C
+
+`maxTemp` is initialized to `0`.
+
+It is changed to `75` by the first constructor call, then to `100` by the second constructor call.
+
+It is not changed to `65` by the third constructor call because `65` is not greater than `100`.
+
+The output is:
+
+```text
+Max Temp: 100
+```
+
+## Coding Exercise
+
+### `activecode:: TemperatureBugs`
+
+Fix the bugs in the following code.
+
+Static methods should only access static variables.
+
+The source visualizer link is omitted, but the code and fix target are preserved.
+
+## TemperatureBugs Starter
+
+::: {.code-scroll}
+```java
+public class Temperature
+{
+    private double temperature;
+    public static double maxTemp = 0;
+
+    public Temperature(double t)
+    {
+        temperature = t;
+        if (t > maxTemp)
+        {
+             maxTemp = t;
+        }
+    }
+    // This static method should print out the static variable
+    // TODO: Fix the method header so it has a return type
+    public static printMax()
+    {
+        // TODO: Print the static variable maxTemp, not the instance variable
+        System.out.println(temperature);
+    }
+
+    public static void main(String[] args)
+    {
+        Temperature t1 = new Temperature(75);
+        Temperature t2 = new Temperature(100);
+        Temperature.printMax();
+    }
+}
+```
+:::
+
+## Focused Fix
+
+### Static method header and static field
+
+The `printMax` method needs a complete static method header:
+
+```java
+public static void printMax()
+```
+
+Inside that static method, print the static variable, not the instance variable.
+
+## Test Targets
+
+### Runestone checks
+
+The tests check for:
+
+::: {.tight-list}
+- `public static void printMax()`
+- either `System.out.println(maxTemp);` or `System.out.println(Temperature.maxTemp);`
+- expected output from `main`: `100.0`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- define a class variable as one shared copy for the class
+- explain why `personCounter` changes in the constructor
+- trace `Person counter: 2` from two constructor calls
+- trace `Temperature.maxTemp` across three objects
+- explain why static methods should not directly access instance variables
+- fix `TemperatureBugs` by printing `maxTemp` from `printMax`
+:::
+
+## End
+
+### 3.7 Part 2 complete
+
+Next: `final` constants and the Static Song challenge.

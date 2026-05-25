@@ -1,6 +1,6 @@
 ---
-title: "3.8 Scope and Access"
-subtitle: "Class Creation"
+title: "3.8 Scope Levels and Local Variables"
+subtitle: "Scope and Access"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,156 +14,278 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Scope and Access
 
-### Scope decides where a name can be used
+### Topic intro
 
-<span class="term">Scope</span> (作用域) is the region of code where a variable or method name can be accessed.
+The **scope** of a variable is defined as where a variable is accessible or can be used.
 
-This topic covers:
+The scope is determined by where you declare the variable when you write your programs.
+
+When you declare a variable, look for the closest enclosing curly braces (`{}`); this is its scope.
+
+## Class, Method, and Block Level Scope
+
+### Three levels
+
+Java has three levels of scope that correspond to different types of variables:
 
 ::: {.tight-list}
-- class-level scope
-- method-level scope
-- block-level scope
-- local variables
-- access modifiers
+- **Class Level Scope** for **instance variables** inside a class.
+- **Method Level Scope** for **local variables**, including **parameter variables**, inside a method.
+- **Block Level Scope** for **loop variables** and other local variables defined inside blocks of code with `{}`.
 :::
 
-## Scope Diagram
+## Scope Diagram {.image-fit}
 
-### Different levels have different lifetimes
+### Class, method, and block level scope
 
-![Scope diagram](../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png){fig-align="center" width="50%"}
+![Class, Method, and Block Level Scope](../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png){fig-align="center" width="62%"}
 
-Instance variables are declared in the class but outside constructors and methods. Local variables are declared inside methods or blocks.
+The figure shows the three levels of scope.
 
-## Class-Level Scope
+## Check Your Understanding
 
-### Instance variables can be used by instance methods
+### `clickablearea:: name_class_scope`
 
+Click on all the variable declarations that are at Class Level Scope.
+
+```java
+public class Name
+{
+    private String first;
+    public String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        String firstName = theFirst;
+        first = firstName;
+        last = theLast;
+    }
+}
+```
+
+## Answer Reasoning
+
+### Class-level declarations
+
+The class-level declarations are:
+
+```java
+private String first;
+public String last;
+```
+
+They are instance variables declared at the top of the class, inside the class body, but outside the constructor.
+
+## Check Your Understanding
+
+### `clickablearea:: name_method_scope`
+
+Click on all the variable declarations that are at Method Level Scope.
+
+```java
+public class Name
+{
+    private String first;
+    public String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        String firstName = theFirst;
+        first = firstName;
+        last = theLast;
+    }
+}
+```
+
+## Answer Reasoning
+
+### Method-level declarations
+
+The method-level declarations are:
+
+```java
+String theFirst
+String theLast
+String firstName = theFirst;
+```
+
+The two parameters and the local variable declared inside the constructor have method-level scope.
+
+## Local Variables
+
+### Declared in headers or bodies
+
+**Local variables** are variables declared in the headers or bodies of blocks of code.
+
+Local variables can only be accessed in the block in which they are declared.
+
+Local variables that are declared inside a method are usually declared at the top of the method.
+
+These variables can only be used within the method and do not exist outside of the method.
+
+## Parameters Are Local
+
+### Constructor and method parameters
+
+Parameter variables are also considered local variables that only exist for that method or constructor.
+
+These variables may only be used within the constructor or method and cannot be declared to be `public` or `private`.
+
+It is good practice to declare any variables that are used by just one method as local variables in that method.
+
+## Instance Variables and Scope
+
+### Class scope
+
+Instance variables at class scope are shared by all the methods in the class.
+
+They can be marked as `public` or `private` with respect to their access outside of the class.
+
+They have class scope regardless of whether they are `public` or `private`.
+
+Another way to look at scope is that a variable's scope is where it lives and exists.
+
+You cannot use the variable in code outside of its scope.
+
+## Coding Exercise
+
+### `activecode:: PersonScope`
+
+Try the following code to see that you cannot access the variables outside of their scope levels in the `toString()` method.
+
+Explain to someone sitting next to you why you cannot access these.
+
+Try to fix the errors by either using variables that are in scope or moving the variable declarations so that the variables have larger scope.
+
+## PersonScope Starter
+
+::: {.code-scroll}
 ```java
 public class Person
 {
     private String name;
+    private String email;
 
-    public void printName()
+    public Person(String initName, String initEmail)
     {
-        System.out.println(name);
+        name = initName;
+        email = initEmail;
+    }
+
+    public String toString()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            int id = i;
+        }
+        // Can you access the blockScope variables i or id?
+        // TODO: Fix the scope error for i
+        System.out.println("i at the end of the loop is " + i);
+        // TODO: Fix the scope error for id
+        System.out.println("The last id is " + id);
+
+        // Can toString() access parameter variables in Person()?
+        // TODO: Return variables that are in scope here
+        return initName + ": " + initEmail;
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        // call the constructor to create a new person
+        Person p1 = new Person("Sana", "sana@gmail.com");
+        System.out.println(p1);
     }
 }
 ```
-
-`name` has class-level scope within the object and can be used by instance methods.
-
-## Method-Level Scope
-
-### Parameters and locals live inside one method
-
-```java
-public void setName(String newName)
-{
-    String trimmed = newName.trim();
-    name = trimmed;
-}
-```
-
-`newName` and `trimmed` can be used only inside `setName`.
-
-## Block-Level Scope
-
-### Variables inside braces stay inside braces
-
-```java
-if (score >= 90)
-{
-    String letter = "A";
-    System.out.println(letter);
-}
-
-// letter cannot be used here
-```
-
-The variable `letter` exists only inside the `if` block.
-
-## Local Variable Error
-
-### Do not use a local outside its scope
-
-Problem:
-
-```java
-public void printTwice()
-{
-    String message = "Hi";
-}
-
-public void printLater()
-{
-    System.out.println(message);
-}
-```
-
-`message` is local to `printTwice`; `printLater` cannot access it.
-
-## Access Modifiers
-
-### Access is different from scope
-
-Scope is where a name exists. Access is who is allowed to use it.
-
-::: {.compare-grid}
-::: {.soft-box}
-**`private`**
-
-- accessible only inside the class
-- used for instance variables
-:::
-::: {.soft-box}
-**`public`**
-
-- accessible from other classes
-- used for constructors and intended methods
-:::
 :::
 
-## Groupwork Coding Challenge
+## Test Targets
 
-### Debugging scope
+### Runestone checks
 
-Fix the class by moving variables to the right scope or passing values as parameters.
+The tests check for:
 
+::: {.tight-list}
+- returning the instance variables with `return name + ": " + email;`
+- declaration and initialization of `id` to `0` with `int id = 0;`
+:::
+
+## Same Name Local Variable
+
+### Local shadows instance variable
+
+If there is a local variable with the same name as an instance variable, the variable name will refer to the local variable instead of the instance variable.
+
+In the next lesson, we can distinguish between the local variable and the instance variable using the keyword `this` to refer to this object's instance variables.
+
+## PersonLocalVar Code
+
+### `activecode:: PersonLocalVar`
+
+::: {.code-scroll}
 ```java
-public class ScopeBug
+public class Person
 {
-    public void methodOne()
+    private String name;
+    private String email;
+
+    public Person(String initName, String initEmail)
     {
-        int count = 5;
+        name = initName;
+        email = initEmail;
     }
 
-    public void methodTwo()
+    public String toString()
     {
-        System.out.println(count);
+        String name = "unknown";
+        // The local variable name here will be used,
+        // not the instance variable name.
+        return name + ": " + email;
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        // call the constructor to create a new person
+        Person p1 = new Person("Sana", "sana@gmail.com");
+        System.out.println(p1);
     }
 }
 ```
+:::
 
-One fix is to make `count` an instance variable if both methods need it.
+## Trace Check
+
+### Expected output
+
+The source asks: What will the code print out?
+
+The expected output from `main` is:
+
+```text
+unknown: sana@gmail.com
+```
+
+The local variable `name` in `toString()` is used instead of the instance variable `name`.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- distinguish class-level, method-level, and block-level scope
-- identify instance variables versus local variables
-- explain why a variable declared in one method cannot be used in another method
-- distinguish scope from access modifiers
-- debug a variable access problem by moving the declaration or passing a parameter
+- define scope as where a variable is accessible or can be used
+- identify class-level, method-level, and block-level declarations
+- explain why local variables exist only inside their block or method
+- explain why constructor parameters are local variables
+- fix `PersonScope` by using variables that are in scope
+- trace why `PersonLocalVar` prints `unknown`
 :::
 
 ## End
 
-### Return to the course outline
+### 3.8 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: debugging scope violations.

@@ -1,0 +1,318 @@
+---
+title: "4.9 Indexed, While, and NIO Traversals"
+subtitle: "ArrayList Traversals"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Indexed For Loops
+
+### Use get and size
+
+You can use a regular indexed `for` loop to process list elements.
+
+`ArrayList` indices start at `0` just like array indices.
+
+Instead of `[]`, use `get(index)` to get the value and `set(index, value)` to set the element.
+
+If the index is outside `0` to `size() - 1`, the code throws an `IndexOutOfBoundsException`.
+
+## Coding Exercise
+
+### `activecode:: listForLoop`
+
+The following code throws an `IndexOutOfBoundsException`.
+
+Can you fix it?
+
+```java
+import java.util.*;
+
+public class TestForLoop
+{
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> myList = new ArrayList<Integer>();
+        myList.add(50);
+        myList.add(30);
+        myList.add(20);
+        int total = 0;
+        for (int i = 0; i <= myList.size(); i++)
+        {
+            total = total + myList.get(i);
+        }
+        System.out.println(total);
+    }
+}
+```
+
+## listForLoop Test Targets
+
+### Runestone checks
+
+Expected output:
+
+```text
+100
+```
+
+The fixed loop should contain:
+
+```java
+i < myList.size()
+```
+
+## While Loop
+
+### Object-oriented list worker
+
+The example below demonstrates a `while` loop and an object-oriented approach.
+
+The list is a field of the current object.
+
+An instance method, rather than a class/static method, loops through the list.
+
+## Coding Exercise
+
+### `activecode:: listForEachLoopObj`
+
+The following code removes a name from a list.
+
+Set the `found` variable to the appropriate `true` or `false` values at line 13 and line 20.
+
+## ListWorker Code with Blanks
+
+::: {.code-scroll}
+```java
+import java.util.*;
+public class ListWorker
+{
+   private ArrayList<String> nameList;
+
+   public ListWorker(ArrayList<String> nameList)
+   {
+       this.nameList = nameList;
+   }
+
+   public boolean removeName(String name)
+   {
+       boolean found =   // true or false?
+       int index = 0;
+       while (index < nameList.size())
+       {
+           if (name.equals(nameList.get(index)))
+           {
+               nameList.remove(index);
+               found =    // true or false?
+           }
+           else
+           {
+               index++;
+           }
+       }
+       return found;
+    }
+```
+:::
+
+## ListWorker Main
+
+```java
+    public static void main(String[] args)
+    {
+        ArrayList<String> myList = new ArrayList<String>();
+        myList.add("Amun");
+        myList.add("Ethan");
+        myList.add("Donnie");
+        myList.add("Ethan");
+        ListWorker listWorker = new ListWorker(myList);
+        System.out.println(listWorker.nameList);
+        listWorker.removeName("Ethan");
+        System.out.println("After removing Ethan: "
+                  + listWorker.nameList);
+    }
+}
+```
+
+Expected output:
+
+```text
+[Amun, Ethan, Donnie, Ethan]
+After removing Ethan: [Amun, Donnie]
+```
+
+## Removing While Traversing
+
+### Only increment when not removed
+
+Be careful when you remove items from a list as you loop through it.
+
+The method above only increments the index if an item was not removed from the list.
+
+Removing an item shifts the remaining items to the left.
+
+If you increment the index in all cases, you skip the element immediately after each removed element.
+
+## Quick Check
+
+### `mchoice:: qloopList_1`
+
+For `[0, 0, 4, 2, 5, 0, 3, 0]`, what will `nums` contain after `numQuest`?
+
+```java
+int k = 0;
+Integer zero = new Integer(0);
+while (k < nums.size())
+{
+    if (nums.get(k).equals(zero))
+        nums.remove(k);
+    k++;
+}
+```
+
+Correct answer: `[0, 4, 2, 5, 3]`.
+
+Incrementing the index each time misses when there are two zeros in a row.
+
+## Mixed-Up Code
+
+### `parsonsprob:: listInsertParsons`
+
+The method `insertInOrder` should add the passed name in alphabetic order to a private list field called `nameList`.
+
+It includes one extra block that is not needed.
+
+```java
+// Block A
+public void insertInOrder(String name)
+{
+
+// Block B
+int index = 0;
+
+// Block C
+while (index < nameList.size() &&
+       nameList.get(index).compareTo(name) < 0)
+{
+
+// Block D
+index++;
+
+// Block E
+} // end while
+
+// Block F
+nameList.add(index, name);
+
+// Block G
+} // end method
+
+// Distractor
+nameList.add(name);
+```
+
+## Correct Order
+
+### Insert in alphabetic order
+
+```java
+public void insertInOrder(String name)
+{
+    int index = 0;
+    while (index < nameList.size() &&
+           nameList.get(index).compareTo(name) < 0)
+    {
+        index++;
+    } // end while
+    nameList.add(index, name);
+} // end method
+```
+
+## Reading in Files with java.nio.file
+
+### Not covered in the AP CSA exam
+
+The `java.nio.file` package provides an easier way to read files.
+
+The `Files` class has a method called `readAllLines`.
+
+It reads all lines in a file and returns them as a `List` of `String` objects.
+
+`readAllLines` throws an `IOException` if the file cannot be read.
+
+## readAllLines Pattern
+
+```java
+import java.nio.file.*;
+
+// This connects and reads in the file in 1 line of code!
+// It needs to be in a method that throws or handles IOException
+List<String> lines = Files.readAllLines(Paths.get("data.txt"));
+```
+
+The advantage of a dynamic data structure is that you do not need to know how many lines you are going to store when you create it.
+
+## Coding Exercise
+
+### `activecode:: read-pokemon-file-nio`
+
+Complete the code in the `main` method to read all lines of the file using `Files.readAllLines` into a `List<String>` named `lines`.
+
+Add a loop that prints out the first 10 pokemon.
+
+```java
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+
+public class ReadData
+{
+    public static void main(String[] args) throws IOException
+    {
+        List<String> lines = Files.readAllLines(Paths.get("pokemon.csv"));
+        // Add a loop that prints out the first 10 elements of the List lines
+        // You can use the get method with Lists just like ArrayLists
+
+    }
+}
+```
+
+## read-pokemon-file-nio Test Targets
+
+### Runestone checks
+
+The output should contain at least 10 lines.
+
+The code should contain a call to `get` with `lines`:
+
+```java
+lines.get
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `i < list.size()` rather than `i <= list.size()`
+- use `get(i)` instead of bracket indexing
+- keep the index unchanged after removing an item
+- explain why adjacent matching removals can be skipped
+- insert in sorted order by scanning until `compareTo(name) < 0` is false
+- use `Files.readAllLines` only as a non-AP convenience note
+:::
+
+## End
+
+### 4.9 Part 2 complete
+
+Next: Student objects and Word Pairs.

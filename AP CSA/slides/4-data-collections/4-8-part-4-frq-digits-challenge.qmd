@@ -1,0 +1,175 @@
+---
+title: "4.8 FRQ Digits Challenge"
+subtitle: "ArrayList and its Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### FRQ Digits
+
+This coding challenge is based on the 2017 AP CSA exam FRQ part 1a.
+
+In this question, you write a constructor for a class called `Digits`.
+
+The constructor takes an integer number as its argument, divides it into digits, and puts the digits into an `ArrayList`.
+
+For example, `new Digits(154)` creates an `ArrayList` with the digits `[1, 5, 4]`.
+
+## Digits With / and %
+
+### Integer division and remainder
+
+What happens if you divide an integer by `10`?
+
+Integer division truncates everything to the right of the decimal point.
+
+Which digit can you get by using `% 10`, which returns the remainder after dividing by `10`?
+
+## Coding Exercise
+
+### `activecode:: divideby10`
+
+Set `number` to a different number and guess what `/` and `%` will return.
+
+Which operator gives you a digit in `number`?
+
+```java
+public class DivideBy10
+{
+    public static void main(String[] args)
+    {
+        int number = 154;
+        System.out.println(number / 10);
+        System.out.println(number % 10);
+    }
+}
+```
+
+## divideby10 Test Target
+
+### Runestone check
+
+The source test checks that the original code has been changed.
+
+Use this page as a prediction-and-run checkpoint:
+
+::: {.tight-list}
+- `number / 10` cuts off the last digit
+- `number % 10` gives the last digit
+:::
+
+## Digit Loop Pseudocode
+
+### Reverse order first
+
+We can use a `while` loop to print out each digit in reverse order starting from the right.
+
+For `154`, that order is `4, 5, 1`.
+
+Pseudocode:
+
+::: {.tight-list}
+- while number is greater than `0`
+- print out the last digit using `%`
+- change the number to cut off the last digit using `/`
+:::
+
+## Digits Constructor Idea
+
+### Add digits to an ArrayList
+
+Now write a constructor for the `Digits` class that uses this loop and adds each found digit to the `ArrayList` instead of printing it.
+
+This creates the digit list in reverse order.
+
+To get the digits in the right order, use `add(index, obj)` to add the digit to the beginning of the `ArrayList` instead of the end.
+
+## Coding Challenge
+
+### `activecode:: challenge-digits`
+
+Complete the challenge below to put the digits of a number in an `ArrayList`.
+
+## Digits Starter
+
+::: {.code-scroll}
+```java
+import java.util.*;
+
+public class Digits
+{
+    /** A list of digits */
+    private ArrayList<Integer> digitList;
+
+    /** Constructs a list of digits from the given number */
+    public Digits(int number)
+    {
+        // initialize digitList to an empty ArrayList of Integers
+
+        // Use a while loop to add each digit in number to digitList
+        //   use add(index,object) with the index 0 to add the
+        //   digit to the beginning of the list instead of the end
+
+
+    }
+
+    /** returns the string representation of the digits list */
+    public String toString()
+    {
+        return digitList.toString();
+    }
+
+    public static void main(String[] args)
+    {
+        Digits d1 = new Digits(154);
+        System.out.println(d1);
+    }
+}
+```
+:::
+
+## Digits Test Targets
+
+### Runestone checks
+
+Expected output from `main`:
+
+```text
+[1, 5, 4]
+```
+
+Additional test:
+
+```text
+new Digits(123456).toString() -> [1, 2, 3, 4, 5, 6]
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `/ 10` to remove the last digit
+- use `% 10` to get the last digit
+- loop while `number > 0`
+- initialize `digitList` as an empty `ArrayList<Integer>`
+- use `digitList.add(0, digit)` so the final list is in normal order
+- confirm `Digits(154)` produces `[1, 5, 4]`
+:::
+
+## End
+
+### 4.8 Part 4 complete
+
+Next: ArrayList traversals.

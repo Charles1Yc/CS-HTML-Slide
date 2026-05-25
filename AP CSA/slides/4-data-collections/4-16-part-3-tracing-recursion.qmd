@@ -73,7 +73,7 @@ Trace `mystery(3)`: `3 + 2 + 1 + 0 = 6`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
 - trace recursive calls with separate argument values

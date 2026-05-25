@@ -1,0 +1,218 @@
+---
+title: "4.11 Row/Column Length and ASCII Art"
+subtitle: "2D Array Creation and Access"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## 2D Array Row and Column Length
+
+### `length` attribute
+
+Arrays know their length, meaning how many elements they can store.
+
+The `length` is a public read-only attribute for array objects.
+
+The number of rows contained in a 2D array can be accessed through the array name and the `length` attribute: `arrayName.length`.
+
+## Number of Columns
+
+### Length of one row
+
+The number of columns contained in a 2D array can be accessed through the `length` attribute of one of the rows.
+
+```java
+ticketInfo.length     // returns the number of rows
+ticketInfo[0].length  // returns the number of columns
+```
+
+`ticketInfo[0]` gives a single array that is a row of a 2D array.
+
+## Note on `length`
+
+### Attribute, not method
+
+`length` is an attribute and not a method, so you do not add parentheses after `length`.
+
+For the AP CSA exam all two-dimensional arrays are rectangular arrays.
+
+Because every row has the same number of columns, you can use the length of the first inner array as the number of columns: `ticketInfo[0].length`.
+
+## Valid Indices
+
+### Rows and columns
+
+The valid row index values for a 2D array are `0` through one less than the number of rows or the length of the array.
+
+The valid column index values are `0` through one less than the number of columns or the length of any given row of the array.
+
+Given a 2D array named `values`:
+
+```java
+values.length     // number of rows
+values[0].length  // number of columns
+```
+
+Using an index value outside of these ranges will result in an `ArrayIndexOutOfBoundsException`.
+
+## Quick Check
+
+### `mchoice:: qa2ldb_2`
+
+How many rows does `a` have if it is created as follows?
+
+```java
+int[][] a = { {2, 4, 6, 8}, {1, 2, 3, 4} };
+```
+
+Options:
+
+A. `2`  
+B. `4`  
+C. `8`
+
+## Quick Check: Answer
+
+### qa2ldb_2 reasoning
+
+Correct answer: **A. `2`**
+
+The size of the outer array is the number of rows.
+
+## Quick Check
+
+### `mchoice:: qa2ldb_3`
+
+Which of the following could be used to get the value in the third row and second column from a 2D array called `nums`?
+
+A. `nums[3][2]`  
+B. `nums[2][3]`  
+C. `nums[2][1]`  
+D. `nums[1][2]`
+
+## Quick Check: Answer
+
+### qa2ldb_3 reasoning
+
+Correct answer: **C. `nums[2][1]`**
+
+Array indices start with `0`, so the third row has an index of `2` and the second column has an index of `1`.
+
+## Groupwork Coding Challenge
+
+### ASCII Art
+
+ASCII is a commonly used character encoding standard where each key you press on the keyboard is translated to an ASCII number to be stored in the computer.
+
+ASCII has mostly been replaced by UNICODE, which includes characters in other languages like Chinese.
+
+In the days before good graphics, some people made ASCII art just using keyboard characters.
+
+## ASCII Art Task
+
+### Source task sequence
+
+We can represent ASCII art in a 2D array of rows and columns.
+
+1. Change the code to use 2 assignment statements with the 2D array `asciiArt` to change the `"o"` characters to `"@"` characters.
+2. Add a new `asciiArt` array with a different ASCII art from the collection or of your own design.
+
+Be careful with special characters like `"` and `\`. You need another backslash in front of these to print them out like `\"` and `\\`.
+
+## Coding Challenge
+
+### `activecode:: challenge-8-1-ascii-art`
+
+Part 1: Add 2 assignment statements for the 2D array `asciiArt` to change the `"o"` characters to `"@"` characters.
+
+Part 2: Create a new `asciiArt` array and print it out.
+
+## AsciiArt Starter
+
+::: {.code-scroll}
+```java
+public class AsciiArt
+{
+    public static void main(String[] args)
+    {
+
+        String[][] asciiArt =
+        {
+            {" ", " ", "_", "_", "_", " ", " "},
+            {" ", "(", "o", " ", "o", ")", " "},
+            {"(", " ", " ", "V", " ", " ", ")"},
+            {" ", "-", "m", "-", "m", "-", " "},
+        };
+
+        // Part 1: Add 2 assignment statements to change "o" to "@"
+
+        // print the asciiArt for Part 1
+        System.out.println("ASCII Art:");
+        for (String[] row : asciiArt)
+        {
+            for (String column : row) System.out.print(column);
+            System.out.println();
+        }
+
+        // Part 2: Create your own ASCII art array and print it out!
+
+    }
+}
+```
+:::
+
+## AsciiArt Test Targets
+
+### Main output after Part 1
+
+The expected output includes:
+
+```text
+ASCII Art:
+___
+ (@ @)
+(  V  )
+ -m-m-
+```
+
+The source test checks that `main` prints the changed `"@"` characters.
+
+## AsciiArt Test Targets
+
+### Part 2 and assignment statements
+
+The source tests also check:
+
+- the output after the original art has at least 3 lines and at least 10 characters
+- the code contains at least two assignment statements matching the pattern `asciiArt[#][#] = "@"`
+
+Required assignment idea:
+
+```java
+asciiArt[row][col] = "@";
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+- use `arrayName.length` for rows
+- use `arrayName[0].length` for columns in rectangular 2D arrays
+- choose `nums[2][1]` for third row and second column
+- use two assignment statements to change `"o"` into `"@"`
+- escape special characters in ASCII art strings when needed
+
+## End
+
+### 4.11 Row/Column Length and ASCII Art
+
+Next: 2D Array Traversals.

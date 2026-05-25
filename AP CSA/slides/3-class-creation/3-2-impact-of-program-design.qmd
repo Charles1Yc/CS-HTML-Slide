@@ -14,113 +14,123 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Impact of Program Design
 
-### Design choices affect people
+### Technology and automation
 
-Program design is not only a technical activity. The structure, data choices, and behavior of a program can affect users, communities, and society.
+We are living in an age of rapid development in technology and automation.
 
-This topic connects class design to:
+Software and hardware developers increasingly have real impacts on people's lives.
 
-::: {.tight-list}
-- user needs
-- accessibility
-- privacy
-- reliability
-- unintended consequences
-:::
-
-## Impact Questions
-
-### Ask before and during implementation
-
-For any program, ask:
+In computer science, we follow the ACM professional code of ethics which includes guidelines such as:
 
 ::: {.tight-list}
-- Who will use this program?
-- What assumptions does the design make about the user?
-- What data is collected or stored?
-- What could go wrong if the program behaves incorrectly?
-- Who benefits, and who might be excluded or harmed?
+- "Avoid harm"
+- "Respect privacy"
 :::
 
-These questions shape what classes, data, and methods should exist.
+## System Reliability
 
-## Data Choices
+### Unintended consequences
 
-### Instance variables are design decisions
+Sometimes programs have unintended consequences.
 
-A class should store only the data it needs.
+It can be difficult to ensure **system reliability**, which refers to a program being able to perform its tasks as expected under stated conditions without failure.
 
-```java
-public class UserProfile
-{
-    private String displayName;
-    private int preferredTextSize;
-}
-```
+Programmers should make an effort to maximize system reliability by testing the program with a variety of conditions.
 
-Adding sensitive fields such as exact location or personal identifiers changes the program's risk. Data design is part of program design.
+## Social, Economic, and Cultural Impact
 
-## Behavior Choices
+### Beneficial and harmful effects
 
-### Methods decide what the program can do
+The creation of programs has impacts on society, the economy, and culture.
 
-Method design affects safety and user experience.
+These impacts can be both beneficial and harmful.
+
+Programs meant to fill a need or solve a problem can have unintended harmful effects beyond their intended use.
+
+## Legal Issues and Intellectual Property
+
+### Code reuse and permission
+
+Legal issues and intellectual property concerns can also arise when creating programs.
+
+Programmers often reuse code written by others and published as **open source**, which is free to use.
+
+Incorporation of code that is not published as open source requires the programmer to obtain permission and often purchase the code before integrating it into their program.
+
+There are also newly arising issues with the use of AIs in coding.
+
+## AI and Machine Learning
+
+### Ethical questions
+
+The fields of **AI (Artificial Intelligence)** and **Machine Learning** increasingly pose ethical questions in our world.
+
+For example, self-driving cars that use machine learning to learn to follow lanes and avoid collisions could make our world much safer.
+
+Self-driving cars do not get distracted by text messages and don't drink and drive.
+
+## Self-Driving Car Example
+
+### Ethical decisions
+
+What if the car needs to make an ethical decision about avoiding a collision with a pedestrian by causing an accident that may also lead to the loss of life?
+
+Who makes these decisions?
 
 ::: {.tight-list}
-- A setter can validate a value before changing state.
-- A getter can return only the information other code should see.
-- A method can provide accessible alternatives such as text output.
-- A class can avoid exposing private implementation details.
+- The software?
+- The programmers?
 :::
 
-The public interface should support useful behavior without unnecessary risk.
+If you were a programmer for a self-driving car, how would you approach such decisions?
 
 ## Groupwork
 
 ### Impacts of CS
 
-Choose one computing system used in school, transportation, health, finance, entertainment, or communication.
+In groups, choose a software application that has social and ethical implications.
 
-Respond in groups:
+Discuss the beneficial and harmful effects of this software application.
 
-::: {.tight-list}
-- What problem does the system solve?
-- What data does it use?
-- What design choice could improve access or fairness?
-- What design choice could create privacy or reliability risk?
-:::
+Discuss the ethical problems that may arise and how programmers can try to avoid them.
+
+If you chose an AI application, make sure you narrow it to a particular domain or use.
+
+Prepare a presentation for your class.
 
 ## Student Response Task
 
-### Connect impact to design
+### `shortanswer:: impacts`
 
-Write a short answer:
+Describe the software application that you have chosen and discuss its beneficial and harmful effects.
 
-```text
-The program I chose is:
-One useful design decision is:
-One possible risk is:
-One class or method design choice that could reduce the risk is:
-```
+Your response should include:
 
-Class goal: make the connection between social impact and concrete program design visible.
+::: {.tight-list}
+- the software application
+- beneficial effects
+- harmful effects
+- ethical problems that may arise
+- how programmers can try to avoid those problems
+:::
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that program design decisions can affect real users
-- connect data collection to privacy and risk
-- connect method behavior to access, fairness, or reliability
-- identify an assumption in a system's design
-- propose a concrete class or method design improvement
+- define system reliability as performing tasks as expected under stated conditions
+- explain why testing with a variety of conditions matters
+- identify beneficial and harmful social, economic, or cultural impacts
+- distinguish open source reuse from code that requires permission or purchase
+- connect AI or machine learning systems to ethical questions
+- narrow a chosen AI application to a particular domain or use
 :::
 
 ## End
 
-### Return to the course outline
+### 3.2 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next topic: 3.3 Anatomy of a Class.

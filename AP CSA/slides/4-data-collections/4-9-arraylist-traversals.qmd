@@ -1,6 +1,6 @@
 ---
-title: "4.9 ArrayList Traversals"
-subtitle: "Data Collections"
+title: "4.9 Enhanced For Loops"
+subtitle: "ArrayList Traversals"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,126 +14,177 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
-
-### Traversal patterns also apply to ArrayLists
-
-`ArrayList` traversal can use:
-
-::: {.tight-list}
-- enhanced for loop
-- indexed for loop
-- while loop
-:::
-
-Choose the loop based on whether you need the index, whether the list changes, and whether you are reading objects.
-
 ## Enhanced For Loop
 
-### Best for reading every element
+### Traverse every item
+
+You can use an enhanced `for` loop to traverse all of the items in an `ArrayList`, just like with an array.
+
+Use it when you only care about the values in the list and not their indices.
+
+You cannot use the enhanced `for` loop if you want to add or remove elements while traversing an `ArrayList`.
+
+## Concurrent Modification
+
+### Do not change size during enhanced for
+
+If the size of an `ArrayList` is modified by calling `add` or `remove` while it is being looped over, the loop will throw a `ConcurrentModificationException`.
+
+If you need to modify an `ArrayList` while looping over it, use a regular `while` or `for` loop.
+
+## Coding Exercise
+
+### `activecode:: listForEachLoop`
+
+What does the following code do?
+
+Guess before you run it.
+
+Then add another enhanced for-each loop that computes the product of all the elements in `myList` by multiplying them.
+
+Print out the product after the new loop.
+
+## listForEachLoop Starter
 
 ```java
-for (String name : names)
+import java.util.*; // import all classes in this package.
+
+public class Test1
 {
-    System.out.println(name);
-}
-```
-
-Use this when you do not need the index and do not need to add or remove while traversing.
-
-## Indexed For Loop
-
-### Use `get(i)` and `size()`
-
-```java
-for (int i = 0; i < names.size(); i++)
-{
-    System.out.println(names.get(i));
-}
-```
-
-Common error: using `names.length` or `names[i]`, which are array syntax, not `ArrayList` syntax.
-
-## While Loop
-
-### Useful when index movement is conditional
-
-```java
-int i = 0;
-while (i < names.size())
-{
-    System.out.println(names.get(i));
-    i++;
-}
-```
-
-`while` can be useful when the loop might skip, stop early, or remove elements with careful index control.
-
-## Insert While Traversing
-
-### Insertion changes later indices
-
-```java
-for (int i = 0; i < words.size(); i++)
-{
-    if (words.get(i).equals("target"))
+    public static void main(String[] args)
     {
-        words.add(i + 1, "found");
-        i++;
+        ArrayList<Integer> myList = new ArrayList<Integer>();
+        myList.add(50);
+        myList.add(30);
+        myList.add(20);
+        int total = 0;
+        for (Integer value : myList)
+        {
+            total += value;
+        }
+        System.out.println("Sum of all elements: " + total);
+
+        // Write a for-each loop that computes the product
+        // of all the elements in myList and print out the product.
+
     }
 }
 ```
 
-After insertion, increment carefully so the loop does not immediately process the new element by accident.
+## listForEachLoop Test Targets
 
-## ArrayList of Objects
+### Runestone checks
 
-### Use object methods during traversal
+The output should contain:
 
-```java
-for (Student s : students)
-{
-    if (s.getGpa() >= 3.5)
-    {
-        System.out.println(s.getName());
-    }
-}
+```text
+100
+30000
 ```
 
-The loop variable stores one object reference at a time.
+The code should contain at least `2` enhanced for loops over `Integer` values.
 
-## Groupwork Coding Challenge {.image-fit}
+## Mixed-Up Code
 
-### FRQ Word Pairs
+### `parsonsprob:: list_1`
 
-![Word pair construction pattern](../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png){fig-align="center" width="45%"}
+The method `getScore` calculates and returns the score for a word game.
 
-Build every pair of words with nested loops:
+It loops through all elements in `wordList`.
+
+::: {.tight-list}
+- length `3`: add `1`
+- length `4`: add `2`
+- length greater than `4`: add `3`
+:::
+
+## list_1 Blocks
+
+::: {.code-scroll}
+```java
+// Block A
+public static int getScore(ArrayList<String> wordList)
+{
+
+// Block B
+int score = 0;
+for (String word : wordList)
+{
+
+// Block C
+if (word.length() == 3)
+
+// Block D
+{
+    score++;
+}
+
+// Block E
+else if (word.length() == 4)
+{
+    score = score + 2;
+}
+
+// Block F
+else if (word.length() > 4)
+{
+    score = score + 3;
+}
+
+// Block G
+} // end for
+
+// Block H
+return score;
+} // end method
+
+// Distractor
+if (word.length == 3)
+```
+:::
+
+## Correct Order
+
+### Score all words
 
 ```java
-for (int i = 0; i < words.length; i++)
+public static int getScore(ArrayList<String> wordList)
 {
-    for (int j = i + 1; j < words.length; j++)
+    int score = 0;
+    for (String word : wordList)
     {
-        pairs.add(new WordPair(words[i], words[j]));
-    }
-}
+        if (word.length() == 3)
+        {
+            score++;
+        }
+        else if (word.length() == 4)
+        {
+            score = score + 2;
+        }
+        else if (word.length() > 4)
+        {
+            score = score + 3;
+        }
+    } // end for
+    return score;
+} // end method
 ```
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- traverse an `ArrayList` with enhanced for and indexed loops
-- use `size()` and `get(i)` correctly
-- explain why insertion or removal changes later indices
-- traverse an `ArrayList` of objects using object methods
-- use nested loops to create unique pairs
+- use enhanced `for` when every value should be visited
+- avoid adding or removing inside an enhanced `for`
+- explain `ConcurrentModificationException`
+- compute sum/product by accumulating inside the enhanced `for`
+- use `for (Integer value : myList)` syntax for `ArrayList<Integer>`
+- score every word in `wordList` before returning
 :::
 
 ## End
 
-### Return to the course outline
+### 4.9 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: indexed and while traversals.

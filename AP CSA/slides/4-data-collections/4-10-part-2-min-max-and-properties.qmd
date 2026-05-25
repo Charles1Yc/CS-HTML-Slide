@@ -1,0 +1,330 @@
+---
+title: "4.10 Min, Max, Sum, Average, and Properties"
+subtitle: "Implementing ArrayList Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Min, Max, Sum, Average
+
+### Standard traversal algorithms
+
+You should be able to write code that finds the minimum, maximum, sum, and average of the elements in an `ArrayList`.
+
+These algorithms usually use:
+
+- a variable initialized before the loop
+- an indexed loop or enhanced `for` loop
+- a statement inside the loop that updates the variable
+- a return statement after the loop
+
+## Mixed-Up Code
+
+### `parsonsprob:: arraylistAvgParsons`
+
+The following method should calculate the average from an `ArrayList` of `Integer` objects.
+
+The blocks have been mixed up and include one extra block that is not needed in a correct solution.
+
+::: {.code-scroll .compact style="max-height: 320px;"}
+```java
+public static double average(ArrayList<Integer> nums)
+{
+=====
+   double sum = 0;
+=====
+   for (int i = 0; i < nums.size(); i++)
+   {
+=====
+   for (int i = 0; i < nums.length; i++)
+   { // extra block
+=====
+       sum += nums.get(i);
+=====
+   } // end for loop
+=====
+   return (sum / nums.size());
+=====
+} // end average method
+```
+:::
+
+## Mixed-Up Code: Correct Order
+
+### arraylistAvgParsons
+
+```java
+public static double average(ArrayList<Integer> nums)
+{
+   double sum = 0;
+   for (int i = 0; i < nums.size(); i++)
+   {
+       sum += nums.get(i);
+   } // end for loop
+   return (sum / nums.size());
+} // end average method
+```
+
+The extra `nums.length` block belongs to arrays, not `ArrayList`.
+
+## Mixed-Up Code
+
+### `parsonsprob:: arraylistMinParsons`
+
+The following program segment is a method that should return the minimum `int` given an `ArrayList` of `Integer` objects.
+
+The blocks have been mixed up and include one extra block that is not needed.
+
+::: {.code-scroll .compact style="max-height: 300px;"}
+```java
+public static int findMin(ArrayList<Integer> nums)
+{
+=====
+    int min = nums.get(0);
+=====
+    int min = nums[0]; // extra block
+=====
+    for (int i = 0; i < nums.size(); i++)
+    {
+=====
+        if (nums.get(i) < min)
+        {
+=====
+            min = nums.get(i);
+=====
+        } // end if statement
+=====
+    } // end for loop
+=====
+    return min;
+=====
+} // end findMin method
+```
+:::
+
+## Mixed-Up Code: Correct Order
+
+### arraylistMinParsons
+
+```java
+public static int findMin(ArrayList<Integer> nums)
+{
+    int min = nums.get(0);
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums.get(i) < min)
+        {
+            min = nums.get(i);
+        } // end if statement
+    } // end for loop
+    return min;
+} // end findMin method
+```
+
+## Coding Exercise
+
+### `activecode:: arraylistMax`
+
+Create a `findMax` method that finds and returns the largest value in an `ArrayList` of `Integer` objects.
+
+## ListMax Starter
+
+::: {.code-scroll}
+```java
+import java.util.ArrayList;
+
+public class ListMax
+{
+    public static int findMax(ArrayList<Integer> nums)
+    {
+        // YOUR CODE HERE //
+
+        return 0;
+    }
+
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(3);
+        list.add(12);
+        list.add(0);
+        list.add(9);
+
+        System.out.println("Max: " + findMax(list));
+    }
+}
+```
+:::
+
+## ListMax Test Targets
+
+### Runestone checks
+
+The output from `main` should be:
+
+```text
+Max: 12
+```
+
+A second test calls `ListMax.findMax(list)` with `[2, 4, 0]`.
+
+Expected return value:
+
+```text
+4
+```
+
+## Finding a Property
+
+### Use an `if` statement inside the loop
+
+You should be able to write code that determines:
+
+- if at least one element has a particular property
+- if all elements have a particular property
+- the number of elements having a particular property
+
+In the AP exam, the property is often given as a boolean method for you to use inside the loop.
+
+For example, `isEven(num)` returns `true` if the number is even.
+
+## Mixed-Up Code
+
+### `parsonsprob:: arraylistEvenParsons`
+
+The following method should return `true` if at least one element in an `ArrayList` of `Integer` objects is even.
+
+The blocks have been mixed up and include extra blocks that are not needed.
+
+::: {.code-scroll .compact style="max-height: 340px;"}
+```java
+public static boolean hasEven(ArrayList<Integer> nums)
+{
+=====
+    for (int i = 0; i < nums.size(); i++)
+    {
+=====
+    for (int i = 0; i < nums.length; i++)
+    { // extra block
+=====
+        if (nums.get(i) % 2 == 0)
+        {
+=====
+            return true;
+=====
+        } // end if statement
+=====
+        else
+        {
+            return false;
+        } // extra block
+=====
+    } // end for loop
+=====
+    return false;
+=====
+} // end hasEven method
+```
+:::
+
+## Mixed-Up Code: Correct Order
+
+### arraylistEvenParsons
+
+```java
+public static boolean hasEven(ArrayList<Integer> nums)
+{
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (nums.get(i) % 2 == 0)
+        {
+            return true;
+        } // end if statement
+    } // end for loop
+    return false;
+} // end hasEven method
+```
+
+Do not return `false` inside the loop before checking all elements.
+
+## Coding Exercise
+
+### `activecode:: countOddArrayList`
+
+Write a method `countOdd` that returns the number of odd numbers in an `ArrayList` of `Integer` objects.
+
+## TestCountOdd Starter
+
+::: {.code-scroll}
+```java
+import java.util.*;
+
+public class TestCountOdd
+{
+     public static int countOdd(ArrayList<Integer> nums)
+     {
+          // Add code here
+          return 0;
+     }
+
+     public static void main(String[] args)
+     {
+          // instantiate ArrayList and fill with Integers
+          ArrayList<Integer> values = new ArrayList<Integer>();
+          int[] nums = {1, 5, 7, 9, -2, 3, 2};
+          for (int i = 0; i < nums.length; i++)
+          {
+            values.add(nums[i]);
+          }
+          int result = countOdd(values);
+          System.out.println("Expected Result:\t 5");
+          System.out.println("Your Result:\t\t " + result);
+     }
+}
+```
+:::
+
+## TestCountOdd Test Targets
+
+### Runestone checks
+
+The output from `main` should be:
+
+```text
+Expected Result: 5
+Your Result:     5
+```
+
+A second test calls `TestCountOdd.countOdd(list)` with `[2, -2, 1, 11]`.
+
+Expected return value:
+
+```text
+2
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+- initialize the accumulator or candidate value before the loop
+- use `nums.size()` and `nums.get(i)` with an `ArrayList`
+- update max/min/sum/count inside the loop
+- return the property result only after the algorithm has enough information
+- preserve starter code comments such as `// Add code here`
+
+## End
+
+### 4.10 Min, Max, Sum, Average, and Properties
+
+Next: Pairs and Duplicates.

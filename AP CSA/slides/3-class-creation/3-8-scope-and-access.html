@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.8 Scope and Access</title>
+  <title>3.8 Scope Levels and Local Variables</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.8 Scope and Access</h1>
-  <p class="subtitle">Class Creation</p>
+  <h1 class="title">3.8 Scope Levels and Local Variables</h1>
+  <p class="subtitle">Scope and Access</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,134 +210,230 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="scope-decides-where-a-name-can-be-used">Scope decides where a name can be used</h3>
-<p><span class="term">Scope</span> (作用域) is the region of code where a variable or method name can be accessed.</p>
-<p>This topic covers:</p>
+<section id="scope-and-access" class="slide level2">
+<h2>Scope and Access</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p>The <strong>scope</strong> of a variable is defined as where a variable is accessible or can be used.</p>
+<p>The scope is determined by where you declare the variable when you write your programs.</p>
+<p>When you declare a variable, look for the closest enclosing curly braces (<code>{}</code>); this is its scope.</p>
+</section>
+<section id="class-method-and-block-level-scope" class="slide level2">
+<h2>Class, Method, and Block Level Scope</h2>
+<h3 id="three-levels">Three levels</h3>
+<p>Java has three levels of scope that correspond to different types of variables:</p>
 <div class="tight-list">
 <ul>
-<li>class-level scope</li>
-<li>method-level scope</li>
-<li>block-level scope</li>
-<li>local variables</li>
-<li>access modifiers</li>
+<li><strong>Class Level Scope</strong> for <strong>instance variables</strong> inside a class.</li>
+<li><strong>Method Level Scope</strong> for <strong>local variables</strong>, including <strong>parameter variables</strong>, inside a method.</li>
+<li><strong>Block Level Scope</strong> for <strong>loop variables</strong> and other local variables defined inside blocks of code with <code>{}</code>.</li>
 </ul>
 </div>
 </section>
-<section id="scope-diagram" class="slide level2">
+<section id="scope-diagram" class="slide level2 image-fit">
 <h2>Scope Diagram</h2>
-<h3 id="different-levels-have-different-lifetimes">Different levels have different lifetimes</h3>
+<h3 id="class-method-and-block-level-scope-1">Class, method, and block level scope</h3>
 
-<img data-src="../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Scope diagram</p><p>Instance variables are declared in the class but outside constructors and methods. Local variables are declared inside methods or blocks.</p>
+<img data-src="../../assets/3-class-creation/3-8-scope-and-access/scopeDiagram.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Class, Method, and Block Level Scope</p><p>The figure shows the three levels of scope.</p>
 </section>
-<section id="class-level-scope" class="slide level2">
-<h2>Class-Level Scope</h2>
-<h3 id="instance-variables-can-be-used-by-instance-methods">Instance variables can be used by instance methods</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<section id="check-your-understanding" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="clickablearea-name_class_scope"><code>clickablearea:: name_class_scope</code></h3>
+<p>Click on all the variable declarations that are at Class Level Scope.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Name</span></span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">printName</span><span class="op">()</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>name</code> has class-level scope within the object and can be used by instance methods.</p>
+<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> first<span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> last<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a></span>
+<span id="cb1-6"><a href=""></a>    <span class="kw">public</span> <span class="bu">Name</span><span class="op">(</span><span class="bu">String</span> theFirst<span class="op">,</span> <span class="bu">String</span> theLast<span class="op">)</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-8"><a href=""></a>        <span class="bu">String</span> firstName <span class="op">=</span> theFirst<span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a>        first <span class="op">=</span> firstName<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>        last <span class="op">=</span> theLast<span class="op">;</span></span>
+<span id="cb1-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="method-level-scope" class="slide level2">
-<h2>Method-Level Scope</h2>
-<h3 id="parameters-and-locals-live-inside-one-method">Parameters and locals live inside one method</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> newName<span class="op">)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">String</span> trimmed <span class="op">=</span> newName<span class="op">.</span><span class="fu">trim</span><span class="op">();</span></span>
-<span id="cb2-4"><a href=""></a>    name <span class="op">=</span> trimmed<span class="op">;</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>newName</code> and <code>trimmed</code> can be used only inside <code>setName</code>.</p>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="class-level-declarations">Class-level declarations</h3>
+<p>The class-level declarations are:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">private</span> <span class="bu">String</span> first<span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> last<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>They are instance variables declared at the top of the class, inside the class body, but outside the constructor.</p>
 </section>
-<section id="block-level-scope" class="slide level2">
-<h2>Block-Level Scope</h2>
-<h3 id="variables-inside-braces-stay-inside-braces">Variables inside braces stay inside braces</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="cf">if</span> <span class="op">(</span>score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
+<section id="check-your-understanding-1" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="clickablearea-name_method_scope"><code>clickablearea:: name_method_scope</code></h3>
+<p>Click on all the variable declarations that are at Method Level Scope.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Name</span></span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="bu">String</span> letter <span class="op">=</span> <span class="st">"A"</span><span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>letter<span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a><span class="co">// letter cannot be used here</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The variable <code>letter</code> exists only inside the <code>if</code> block.</p>
+<span id="cb3-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> first<span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> last<span class="op">;</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="bu">Name</span><span class="op">(</span><span class="bu">String</span> theFirst<span class="op">,</span> <span class="bu">String</span> theLast<span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>        <span class="bu">String</span> firstName <span class="op">=</span> theFirst<span class="op">;</span></span>
+<span id="cb3-9"><a href=""></a>        first <span class="op">=</span> firstName<span class="op">;</span></span>
+<span id="cb3-10"><a href=""></a>        last <span class="op">=</span> theLast<span class="op">;</span></span>
+<span id="cb3-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="local-variable-error" class="slide level2">
-<h2>Local Variable Error</h2>
-<h3 id="do-not-use-a-local-outside-its-scope">Do not use a local outside its scope</h3>
-<p>Problem:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printTwice</span><span class="op">()</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hi"</span><span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">printLater</span><span class="op">()</span></span>
-<span id="cb4-7"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
-<span id="cb4-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>message</code> is local to <code>printTwice</code>; <code>printLater</code> cannot access it.</p>
+<section id="answer-reasoning-1" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="method-level-declarations">Method-level declarations</h3>
+<p>The method-level declarations are:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span> theFirst</span>
+<span id="cb4-2"><a href=""></a><span class="bu">String</span> theLast</span>
+<span id="cb4-3"><a href=""></a><span class="bu">String</span> firstName <span class="op">=</span> theFirst<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The two parameters and the local variable declared inside the constructor have method-level scope.</p>
 </section>
-<section id="access-modifiers" class="slide level2">
-<h2>Access Modifiers</h2>
-<h3 id="access-is-different-from-scope">Access is different from scope</h3>
-<p>Scope is where a name exists. Access is who is allowed to use it.</p>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong><code>private</code></strong></p>
-<ul>
-<li>accessible only inside the class</li>
-<li>used for instance variables</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong><code>public</code></strong></p>
-<ul>
-<li>accessible from other classes</li>
-<li>used for constructors and intended methods</li>
-</ul>
-</div>
-</div>
+<section id="local-variables" class="slide level2">
+<h2>Local Variables</h2>
+<h3 id="declared-in-headers-or-bodies">Declared in headers or bodies</h3>
+<p><strong>Local variables</strong> are variables declared in the headers or bodies of blocks of code.</p>
+<p>Local variables can only be accessed in the block in which they are declared.</p>
+<p>Local variables that are declared inside a method are usually declared at the top of the method.</p>
+<p>These variables can only be used within the method and do not exist outside of the method.</p>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="debugging-scope">Debugging scope</h3>
-<p>Fix the class by moving variables to the right scope or passing values as parameters.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ScopeBug</span>
+<section id="parameters-are-local" class="slide level2">
+<h2>Parameters Are Local</h2>
+<h3 id="constructor-and-method-parameters">Constructor and method parameters</h3>
+<p>Parameter variables are also considered local variables that only exist for that method or constructor.</p>
+<p>These variables may only be used within the constructor or method and cannot be declared to be <code>public</code> or <code>private</code>.</p>
+<p>It is good practice to declare any variables that are used by just one method as local variables in that method.</p>
+</section>
+<section id="instance-variables-and-scope" class="slide level2">
+<h2>Instance Variables and Scope</h2>
+<h3 id="class-scope">Class scope</h3>
+<p>Instance variables at class scope are shared by all the methods in the class.</p>
+<p>They can be marked as <code>public</code> or <code>private</code> with respect to their access outside of the class.</p>
+<p>They have class scope regardless of whether they are <code>public</code> or <code>private</code>.</p>
+<p>Another way to look at scope is that a variable’s scope is where it lives and exists.</p>
+<p>You cannot use the variable in code outside of its scope.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-personscope"><code>activecode:: PersonScope</code></h3>
+<p>Try the following code to see that you cannot access the variables outside of their scope levels in the <code>toString()</code> method.</p>
+<p>Explain to someone sitting next to you why you cannot access these.</p>
+<p>Try to fix the errors by either using variables that are in scope or moving the variable declarations so that the variables have larger scope.</p>
+</section>
+<section id="personscope-starter" class="slide level2">
+<h2>PersonScope Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">methodOne</span><span class="op">()</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="dt">int</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">methodTwo</span><span class="op">()</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span>
-<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One fix is to make <code>count</code> an instance variable if both methods need it.</p>
+<span id="cb5-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">)</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-8"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb5-9"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb5-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb5-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-14"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-15"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-16"><a href=""></a>            <span class="dt">int</span> id <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb5-17"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-18"><a href=""></a>        <span class="co">// Can you access the blockScope variables i or id?</span></span>
+<span id="cb5-19"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Fix the scope error for i</span></span>
+<span id="cb5-20"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"i at the end of the loop is "</span> <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb5-21"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Fix the scope error for id</span></span>
+<span id="cb5-22"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The last id is "</span> <span class="op">+</span> id<span class="op">);</span></span>
+<span id="cb5-23"><a href=""></a></span>
+<span id="cb5-24"><a href=""></a>        <span class="co">// Can toString() access parameter variables in Person()?</span></span>
+<span id="cb5-25"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Return variables that are in scope here</span></span>
+<span id="cb5-26"><a href=""></a>        <span class="cf">return</span> initName <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> initEmail<span class="op">;</span></span>
+<span id="cb5-27"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-28"><a href=""></a></span>
+<span id="cb5-29"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb5-30"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-31"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-32"><a href=""></a>        <span class="co">// call the constructor to create a new person</span></span>
+<span id="cb5-33"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Sana"</span><span class="op">,</span> <span class="st">"sana@gmail.com"</span><span class="op">);</span></span>
+<span id="cb5-34"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p1<span class="op">);</span></span>
+<span id="cb5-35"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-36"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="test-targets" class="slide level2">
+<h2>Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>The tests check for:</p>
+<div class="tight-list">
+<ul>
+<li>returning the instance variables with <code>return name + ": " + email;</code></li>
+<li>declaration and initialization of <code>id</code> to <code>0</code> with <code>int id = 0;</code></li>
+</ul>
+</div>
+</section>
+<section id="same-name-local-variable" class="slide level2">
+<h2>Same Name Local Variable</h2>
+<h3 id="local-shadows-instance-variable">Local shadows instance variable</h3>
+<p>If there is a local variable with the same name as an instance variable, the variable name will refer to the local variable instead of the instance variable.</p>
+<p>In the next lesson, we can distinguish between the local variable and the instance variable using the keyword <code>this</code> to refer to this object’s instance variables.</p>
+</section>
+<section id="personlocalvar-code" class="slide level2">
+<h2>PersonLocalVar Code</h2>
+<h3 id="activecode-personlocalvar"><code>activecode:: PersonLocalVar</code></h3>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb6-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-14"><a href=""></a>        <span class="bu">String</span> name <span class="op">=</span> <span class="st">"unknown"</span><span class="op">;</span></span>
+<span id="cb6-15"><a href=""></a>        <span class="co">// The local variable name here will be used,</span></span>
+<span id="cb6-16"><a href=""></a>        <span class="co">// not the instance variable name.</span></span>
+<span id="cb6-17"><a href=""></a>        <span class="cf">return</span> name <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> email<span class="op">;</span></span>
+<span id="cb6-18"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-19"><a href=""></a></span>
+<span id="cb6-20"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb6-21"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-22"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-23"><a href=""></a>        <span class="co">// call the constructor to create a new person</span></span>
+<span id="cb6-24"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Sana"</span><span class="op">,</span> <span class="st">"sana@gmail.com"</span><span class="op">);</span></span>
+<span id="cb6-25"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p1<span class="op">);</span></span>
+<span id="cb6-26"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-27"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="trace-check" class="slide level2">
+<h2>Trace Check</h2>
+<h3 id="expected-output">Expected output</h3>
+<p>The source asks: What will the code print out?</p>
+<p>The expected output from <code>main</code> is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>unknown: sana@gmail.com</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The local variable <code>name</code> in <code>toString()</code> is used instead of the instance variable <code>name</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>distinguish class-level, method-level, and block-level scope</li>
-<li>identify instance variables versus local variables</li>
-<li>explain why a variable declared in one method cannot be used in another method</li>
-<li>distinguish scope from access modifiers</li>
-<li>debug a variable access problem by moving the declaration or passing a parameter</li>
+<li>define scope as where a variable is accessible or can be used</li>
+<li>identify class-level, method-level, and block-level declarations</li>
+<li>explain why local variables exist only inside their block or method</li>
+<li>explain why constructor parameters are local variables</li>
+<li>fix <code>PersonScope</code> by using variables that are in scope</li>
+<li>trace why <code>PersonLocalVar</code> prints <code>unknown</code></li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.8 Part 1 complete</h3>
+<p>Next: debugging scope violations.</p>
 
 </section>
     </div>

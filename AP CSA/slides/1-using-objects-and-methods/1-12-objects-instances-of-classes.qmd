@@ -1,6 +1,6 @@
 ---
 title: "1.12 Objects: Instances of Classes"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Classes, Objects, Attributes, and Behaviors"
 format:
   clean-revealjs:
     slide-number: true
@@ -18,439 +18,208 @@ lang: zh-CN
 
 ### Java is object-oriented
 
-Java is an <span class="term">object-oriented programming</span> language. One main way to design Java programs is in terms of <span class="term">objects</span> (对象).
+Java is an **object-oriented programming** language.
 
-Objects combine:
+That means that one of the primary ways of designing and organizing a Java program is in terms of **objects** (对象).
 
-::: {.tight-list}
-- data
-- code that operates on that data
-:::
+Objects combine data and the code that operates on that data into a single unit.
 
-To create objects, Java first defines a <span class="term">class</span> (类), which provides a blueprint for creating objects.
+To create objects, we first define a **class** (类), which provides a blueprint for creating the objects.
+
+## Programs Built from Classes
+
+### `public class`
+
+In Java, all programs are built out of classes.
+
+This is why every Java program starts with:
+
+```java
+public class
+```
+
+In this unit, you will learn the vocabulary of object-oriented programming and how to create and use objects of a class written for you.
+
+In later units, you will learn to write your own classes.
 
 ## Classes and Objects
 
-### Blueprint and instance
+### Blueprint for creating objects
 
-![Blueprint model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png){width="36%"}
-![Cookie-cutter model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png){width="52%"}
+You can think of a class as something like a blueprint of a house that is used to construct houses, which are objects.
 
-A class is like a blueprint or cookie cutter. An object is a specific thing created from that class.
+![Blueprint class model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png){fig-align="center" width="46%"}
 
-Objects are <span class="term">instances</span> (实例) of the class.
+The class gives the plan; the objects are specific instances created from that plan.
 
-## Class as Data Type
+## Classes and Objects
 
-### Reference types can declare variables
+### Cookie cutter model
 
-A class can define a new data type. The `Turtle` class can be used to declare turtle variables.
+You can also think of a class like a cookie cutter that is used to create cookies, which are objects.
+
+![Cookie cutter class model](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png){fig-align="center" width="58%"}
+
+The cookie cutter, the class, can be used to create as many cookies, the objects, as you want.
+
+The objects are all the same shape and size, but they can have different colors and decorations.
+
+## Class as a Data Type
+
+### `Turtle` variables
+
+You can also think of a class as defining a new data type.
+
+In this lesson, we will use the class `Turtle` to make animated turtle objects.
+
+Just like you use `int` to declare variables that hold numbers, you can use `Turtle` to declare variables that can refer to animated turtle objects.
 
 ```java
+// Creating 2 Turtle objects called yertle and myrtle
 Turtle yertle;
 Turtle myrtle;
 ```
 
-Just as `int` variables hold numbers, `Turtle` variables can refer to animated turtle objects.
-
-Class-type variables are <span class="term">reference variables</span>.
+These animated turtle objects are **instances** (实例) of the `Turtle` class.
 
 ## Attributes and Behaviors
 
-### What an object knows and does
+### Class definition vocabulary
 
-A class defines the <span class="term">attributes</span> and <span class="term">behaviors</span> that objects of that class can have.
+A class defines the **attributes** (data) and **behaviors** (methods) that all objects of that class will have.
+
+The objects are the specific **instances** of the class that have their own values for the attributes.
+
+**Attributes** are the data or properties that an object knows about itself.
+
+**Behaviors** are the things that an object can do.
+
+## Attributes and Behaviors
+
+### Turtle examples
+
+For a turtle object:
 
 ::: {.tight-list}
-- Attributes are data or properties an object knows about itself.
-- Behaviors are actions an object can do.
-- Behaviors are implemented by methods.
-- Each object has its own values for attributes.
+- attributes include color and size
+- behaviors include going forward, turning left, and turning right
 :::
 
-Example: a turtle object has color and position, and it can move or turn.
+The attributes and behaviors of a class are defined in the class, but each object has its own values for the attributes.
 
 ## Cat Objects
 
-### Same class, different attribute values
+### Shared attributes and behaviors
 
-![Cats as objects with shared structure](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png){fig-align="center" width="66%"}
+The following picture has lots of cats, which are objects of the type cat.
 
-Student response task:
+They are all different, but they share the same attributes and behaviors that make up a cat.
+
+![Pictures of cat objects](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png){fig-align="center" width="64%"}
+
+They are all instances of cat with different values for their attributes.
+
+## Student Response
+
+### `shortanswer:: cats`
+
+Discuss with your class:
 
 ::: {.tight-list}
-- Name at least 3 cat attributes.
-- Name at least 3 cat behaviors.
-- For one visible cat, give an attribute value.
+- What are some attributes of cats?
+- What are some behaviors of cats?
+- For one visible cat, name an attribute and its attribute value.
 :::
 
-Attributes are often nouns or adjectives; behaviors are often verbs.
+Attributes are often nouns or adjectives describing features.
+
+Behaviors are often verbs.
 
 ## Turtle Object Model
 
-### Concrete object-oriented vocabulary
+### Attributes and methods
 
-![Turtle attributes and methods](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png){fig-align="center" width="48%"}
+The following picture of a turtle shows some Turtle **attributes** like `name`, `width`, `height`, and color in the body of the turtle.
 
-::: {.tight-list}
-- `name`, `width`, `height`, and color are attributes.
-- `forward()`, `backward()`, `turnLeft()`, and `turnRight()` are methods.
-- Methods define behavior.
-:::
+It also shows **methods** like `forward()` and `backward()` around the turtle.
 
-The `Turtle` class makes object state and behavior visible.
+![Turtle attributes and behaviors](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png){fig-align="center" width="46%"}
 
 ## Vocabulary Check
 
-### Match the concept
+### `dragndrop:: vocab2_1`
 
+Match each definition to the correct concept.
+
+::: {.table-fit}
 | Definition | Concept |
 |---|---|
 | a specific instance of a class with defined attributes | object |
-| defines a new data type and acts like a blueprint | class |
-| what the object knows about itself | attributes or instance variables |
-| what an object can do | behaviors or methods |
-
-Use this vocabulary before writing Turtle code.
-
-## Quick Checks
-
-### Class and object reasoning
-
-| Question | Answer |
-|---|---|
-| How many objects can you create from a class? | as many as needed |
-| What specifies object behavior in Java? | methods |
-| What are object data or properties called? | attributes |
-
-One class definition can create many objects.
-
-## Turtle Class
-
-### Create and use a turtle object
-
-```java
-import java.awt.*;
-import java.util.*;
-
-public class TurtleTest
-{
-    public static void main(String[] args)
-    {
-        World habitat = new World(300, 300);
-        Turtle yertle = new Turtle(habitat);
-
-        yertle.forward();
-        yertle.turnLeft();
-        yertle.forward();
-
-        habitat.show(true);
-    }
-}
-```
-
-`yertle` is an object created from the `Turtle` class.
-
-## Dot Operator
-
-### Ask an object to execute a method
-
-The <span class="term">dot operator</span> `.` runs an object's method.
-
-```java
-yertle.forward();
-yertle.forward(50);
-```
-
-::: {.tight-list}
-- `yertle.forward()` asks `yertle` to move forward by the default amount.
-- `yertle.forward(50)` passes an argument and asks `yertle` to move 50 pixels.
-- Parentheses are required even when the argument list is empty.
+| defines a new data type that is like a blueprint | class |
+| define what the object knows about itself | attributes or instance variables |
+| define what an object can do | behaviors or methods |
 :::
 
-## Code Task
+## Quick Check
 
-### Change the turtle movement
+### `mchoice:: howmanyobjects`
 
-In the starter code, `yertle` goes forward and turns left. Change it to make `yertle` go `forward` twice and then `turnRight`.
-
-```java
-World habitat = new World(300, 300);
-Turtle yertle = new Turtle(habitat);
-
-yertle.forward();
-yertle.turnLeft();
-
-habitat.show(true);
-```
-
-Completion checks:
+How many objects can you create from a class in Java?
 
 ::: {.tight-list}
-- at least two `yertle.forward()` calls
-- at least one `yertle.turnRight()` call
+- A. `1`
+- B. `10`
+- C. `1000`
+- D. As many as you need
 :::
 
-## Reference Variables
+Correct answer: D. You can create as many objects as you need from one class.
 
-### Object variables hold references
+## Quick Check
 
-A variable of a reference type such as `Turtle` holds an object reference, which can be thought of as the memory address of that object.
+### `mchoice:: mcq_behaviors`
 
-```java
-Turtle yertle = new Turtle(habitat);
-```
-
-Contrast:
+What specifies the behavior for objects of a class in Java?
 
 ::: {.tight-list}
-- primitive variables such as `int` hold one simple value
-- object references point to complex objects with many attributes
+- A. attributes
+- B. methods
+- C. class
+- D. object
 :::
 
-## Creating Multiple Objects
+Correct answer: B. Methods specify the behavior of all objects of a class.
 
-### One class, many instances
+## Quick Check
 
-Use the pattern:
+### `mchoice:: mcq_data`
 
-```java
-ClassName variableName = new ClassName(arguments);
-```
-
-Example:
-
-```java
-World habitat = new World(300, 300);
-Turtle yertle = new Turtle(habitat);
-Turtle myrtle = new Turtle(habitat);
-```
-
-Each turtle can move independently while sharing the same class definition.
-
-## Code Task
-
-### Add another turtle
-
-Add a third turtle object to this program.
-
-```java
-World habitat = new World(300, 300);
-Turtle yertle = new Turtle(habitat);
-Turtle myrtle = new Turtle(habitat);
-
-yertle.forward();
-yertle.turnLeft();
-yertle.forward();
-
-myrtle.turnRight();
-myrtle.forward();
-
-habitat.show(true);
-```
-
-Completion check: at least three occurrences of `new Turtle(habitat)`.
-
-## Inheritance Boundary
-
-### Useful vocabulary, not the main AP focus here
-
-![Inheritance hierarchy](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png){fig-align="center" width="56%"}
-
-<span class="term">Inheritance</span> lets a subclass reuse attributes and behaviors from a superclass.
+What are the data or properties of an object called?
 
 ::: {.tight-list}
-- superclass: more general class
-- subclass: more specific class
-- all Java classes are subclasses of `Object`
+- A. attributes
+- B. methods
+- C. class
+- D. object
 :::
 
-Designing and implementing inheritance relationships is outside the AP CSA course and exam scope here.
-
-## Turtle Methods
-
-### Class diagram and method list
-
-![Turtle UML class diagram](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png){fig-align="center" width="52%"}
-
-Use the class diagram to identify:
-
-::: {.tight-list}
-- attributes stored by the turtle
-- methods the turtle can execute
-- which methods require arguments
-:::
-
-## Turtle Coordinates
-
-### Screen coordinates are not Cartesian
-
-![Turtle coordinate system](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png){fig-align="center" width="30%"}
-
-The Turtle world uses screen coordinates.
-
-::: {.tight-list}
-- `(0, 0)` is at the top-left corner.
-- `x` increases to the right.
-- `y` increases downward.
-- A new turtle begins facing north, toward the top of the page.
-:::
-
-## Mixed-Up Code
-
-### Draw a digital 7
-
-Put the code blocks in order. The turtle should draw a line upward, turn left, and draw another line.
-
-```java
-public class Draw7
-{
-    public static void main(String[] args)
-    {
-        World habitat = new World(300, 300);
-        Turtle yertle = new Turtle(habitat);
-        yertle.forward();
-        yertle.turnLeft();
-        yertle.forward();
-        habitat.show(true);
-    }
-}
-```
-
-Remember: a turtle starts facing north.
-
-## Code Task
-
-### Type the digital 7 program
-
-After ordering the blocks, type the same movement into the starter program.
-
-```java
-import java.awt.*;
-import java.util.*;
-
-public class TurtleDraw7
-{
-    public static void main(String[] args)
-    {
-        World habitat = new World(300, 300);
-        Turtle yertle = new Turtle(habitat);
-
-        // Make yertle draw a 7.
-
-        habitat.show(true);
-    }
-}
-```
-
-Required sequence: `forward`, `turnLeft`, `forward`.
-
-## Code Task
-
-### Draw a digital 8
-
-Make `yertle` draw the digital number `8` as two squares stacked on top of each other.
-
-```java
-import java.awt.*;
-import java.util.*;
-
-public class TurtleDraw8
-{
-    public static void main(String[] args)
-    {
-        World habitat = new World(500, 500);
-        Turtle yertle = new Turtle(habitat);
-
-        yertle.forward();
-
-        habitat.show(true);
-    }
-}
-```
-
-Completion checks: at least 7 calls to `forward` and at least 5 turns.
-
-## Groupwork Coding Challenge {.fit-small}
-
-### Draw letters
-
-Working in pairs, use a turtle to draw simple block-style initials using straight lines.
-
-Allowed methods:
-
-::: {.tight-list}
-- `forward()`
-- `turnLeft()`
-- `turnRight()`
-- `backward()`
-- `penUp()`
-- `penDown()`
-:::
-
-Act out the code as the turtle before running it.
-
-## Groupwork Coding Challenge {.fit-small}
-
-### Turtle Letter starter
-
-```java
-import java.awt.*;
-import java.util.*;
-
-public class TurtleLetter
-{
-    public static void main(String[] args)
-    {
-        World habitat = new World(300, 300);
-        // Create a turtle object.
-
-        // Have it draw your initials.
-
-        habitat.show(true);
-    }
-}
-```
-
-A strong solution should create a turtle object and contain at least 20 lines of code, including meaningful movement and pen commands.
-
-## AP-Style Quick Checks
-
-### Object vocabulary
-
-Dog class example:
-
-::: {.tight-list}
-- `breed`, `age`, and `name` are attributes.
-- an object `pet` declared as type `Dog` is an instance of the `Dog` class.
-:::
-
-Party class example:
-
-::: {.tight-list}
-- `numOfPeople`, `discoLightsOn`, and `partyStarted` are attributes.
-- `myParty` is an instance of the `Party` class.
-:::
-
-Do not confuse an object's name with one of its attributes.
+Correct answer: A. Attributes specify the data that an object keeps track of.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- define <span class="term">class</span>, <span class="term">object</span>, and <span class="term">instance</span>
-- explain that a class defines a new reference type
-- distinguish <span class="term">attributes</span> from <span class="term">behaviors</span>
-- explain that object variables hold references
-- use `new ClassName(arguments)` to create an object
-- use the dot operator to call an object's methods
-- read Turtle screen coordinates correctly
-- explain inheritance vocabulary while keeping it outside the main AP implementation focus
+- define a class as a blueprint for objects
+- define an object as a specific instance of a class
+- explain that classes can define new data types
+- distinguish attributes from behaviors
+- connect attributes with data and instance variables
+- connect behaviors with methods
 :::
 
 ## End
 
-### Return to the course outline
+### 1.12 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Part 2 continues with the `Turtle` class and object method calls.

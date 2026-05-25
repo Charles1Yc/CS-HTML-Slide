@@ -1,0 +1,152 @@
+---
+title: "4.14 Search Runtimes Challenge"
+subtitle: "Searching Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Search Runtimes
+
+Let's go back to the spellchecker that we created with arrays.
+
+Here is a version of the spellchecker that reads the dictionary file into an `ArrayList`.
+
+The advantage of using an `ArrayList` is that we do not need to know or declare the size of the dictionary in advance.
+
+## Challenge Prompt
+
+### Linear vs binary search
+
+In the spellchecker challenge, we used linear search to find a word in the dictionary.
+
+However, the dictionary file is actually in alphabetical order.
+
+We could have used a much faster binary search algorithm.
+
+Write a linear search method and a binary search method to search for a given word in the dictionary.
+
+## Required Methods
+
+### Use ArrayList string APIs
+
+Use the code in this lesson as a guide.
+
+You need to use:
+
+- `size()`
+- `get(i)`
+- `equals`
+- `compareTo`
+
+Have the methods return a count of how many words they had to check before finding the word or returning.
+
+## Challenge Datafile
+
+### Dictionary source
+
+Datafile: `dictionary.txt`.
+
+## SpellChecker Source Code
+
+::: {.code-scroll}
+```java
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+
+public class SpellChecker
+{
+    private ArrayList<String> dictionary;
+
+    /* Constructor populates the dictionary ArrayList from the file dictionary.txt*/
+    public SpellChecker() throws IOException
+    {
+        List<String> lines = Files.readAllLines(Paths.get("dictionary.txt"));
+        dictionary = new ArrayList<String>(lines);
+    }
+
+    public int linearSearch(String word)
+    {
+
+    }
+
+    public int binarySearch(String word)
+    {
+
+    }
+
+    public static void main(String[] args) throws IOException
+    {
+        SpellChecker checker = new SpellChecker();
+        String word = "catz";
+        int i = checker.linearSearch(word);
+        System.out.println("Linear search steps for " + word + " = " + i);
+        int count = checker.binarySearch(word);
+        System.out.println("Binary search steps for " + word + " = " + count);
+    }
+}
+```
+:::
+
+## SpellChecker Test Targets
+
+### Runestone method tests
+
+Test 1 calls:
+
+```java
+linearSearch("medium")
+```
+
+Expected return value:
+
+```text
+5549
+```
+
+Test 2 calls:
+
+```java
+binarySearch("medium")
+```
+
+Expected return value:
+
+```text
+13
+```
+
+## Student Response
+
+### `shortanswer:: challenge-binary-search`
+
+After you complete your code, write in your comparison of the linear vs. binary search runtimes based on your test cases.
+
+Were there any cases where one was faster than the other?
+
+How did each perform in the worst case when a word is misspelled?
+
+## Classroom Check
+
+### A complete answer should include
+
+- use `dictionary.size()` and `dictionary.get(i)` with the `ArrayList`
+- use `equals` for linear string comparison
+- use `compareTo` to move left/right in binary search
+- return the number of words checked
+- compare linear and binary search counts using the source test results
+
+## End
+
+### 4.14 Search Runtimes Challenge
+
+Next: Sorting Algorithms.

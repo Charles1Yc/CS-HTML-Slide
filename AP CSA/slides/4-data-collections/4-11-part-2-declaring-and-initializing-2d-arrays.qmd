@@ -1,0 +1,183 @@
+---
+title: "4.11 Declaring and Initializing 2D Arrays"
+subtitle: "2D Array Creation and Access"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Declaring 2D Arrays
+
+### Syntax with two dimensions
+
+2D arrays are declared and created with syntax very similar to 1D arrays, but include 2 dimensions: `[][]`.
+
+The code below creates:
+
+- a 2D array with 2 rows and 3 columns named `ticketInfo`
+- a 2D array with 3 rows and 2 columns named `seatingChart`
+
+The number of elements in a 2D array is the number of rows times the number of columns.
+
+## Declaration Syntax
+
+### Source code pattern
+
+```java
+// 2D array declaration
+// datatype[][] variableName = new datatype[numberRows][numberCols];
+int[][] ticketInfo = new int[2][3];
+String[][] seatingChart = new String[3][2];
+```
+
+## Default Values
+
+### Arrays are objects
+
+Arrays are objects in Java, so any variable that declares an array holds a reference to an object.
+
+If the array has not been created with `new` yet and you try to print the value of the variable, it will print `null`.
+
+When a 2D array is created using `new`, all of its elements are initialized to the default values for the element data type.
+
+## Default Values
+
+### Initial element values
+
+Default values:
+
+| Element type | Default value |
+| --- | --- |
+| `int` | `0` |
+| `double` | `0.0` |
+| `boolean` | `false` |
+| reference type | `null` |
+
+## Trace Check
+
+### `fillintheblank:: twodaNumElfill`
+
+How many elements are in `ticketInfo`?
+
+```java
+int[][] ticketInfo = new int[2][3];
+```
+
+Answer:
+
+```text
+6
+```
+
+Reason: `2 * 3 = 6`.
+
+## Coding Exercise
+
+### `activecode:: twoDArrayCreate`
+
+What will the following code print out?
+
+Can you change `ticketInfo` to be an array of 5 rows and 10 columns?
+
+Can you declare another array called `studentNames` that has 10 rows and 5 columns?
+
+The `length` property of arrays will be explained below.
+
+## TicketInfo Source Code
+
+```java
+public class TicketInfo
+{
+    public static void main(String[] args)
+    {
+        // declare arrays
+        int[][] ticketInfo = new int[2][3];
+        System.out.println(ticketInfo.length + " rows");
+        System.out.println(ticketInfo[0].length + " columns");
+    }
+}
+```
+
+## TicketInfo Test Targets
+
+### Runestone checks
+
+After changing `ticketInfo`, the output should contain:
+
+```text
+5 rows
+10 columns
+```
+
+The code should also contain:
+
+```java
+studentNames = new String[10][5]
+```
+
+## Initializer Lists for 2D Arrays
+
+### Set values when creating the array
+
+You can also initialize the values for the array when you create it.
+
+In this case you do not need to specify the size of the array; it will be determined from the values you give.
+
+The initializer list used to create and initialize a 2D array consists of 2 initializer lists that represent 1D arrays for each row.
+
+## Initializer List Examples
+
+### Two rows and three rows
+
+The code below creates an array called `ticketInfo` with 2 rows and 3 columns.
+
+It also creates an array called `seatingInfo` with 3 rows and 2 columns.
+
+```java
+int[][] ticketInfo = { {25, 20, 25}, {25, 20, 25} };
+String[][] seatingInfo = {
+    {"Jamal", "Maria"},
+    {"Jake", "Suzy"},
+    {"Emma", "Luke"}
+};
+```
+
+## Trace Check
+
+### `fillintheblank:: twodaGetElfill`
+
+What is the value at `seatingInfo[2][1]` after the code executes?
+
+Remember that indices start at `0`, and the first index is for rows and the second index is for columns.
+
+Answer:
+
+```text
+Luke
+```
+
+The string at row index `2` and column index `1` is `Luke`.
+
+## Classroom Check
+
+### A complete answer should include
+
+- declare a 2D array with `datatype[][]`
+- create a 2D array with `new datatype[rows][cols]`
+- compute total elements as rows times columns
+- describe default values after `new`
+- read initializer lists as one inner list per row
+
+## End
+
+### 4.11 Declaring and Initializing 2D Arrays
+
+Next: Setting and getting values.

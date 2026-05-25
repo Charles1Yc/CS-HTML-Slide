@@ -1,6 +1,6 @@
 ---
-title: "4.13 Implementing 2D Array Algorithms"
-subtitle: "Data Collections"
+title: "4.13 Sum and Max 2D Array Algorithms"
+subtitle: "Implementing 2D Array Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,152 +14,222 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Implementing 2D Array Algorithms
 
-### 2D algorithms combine nested loops with array patterns
+### Standard 2D traversal algorithms
 
-Common 2D array algorithms include:
+All of the array algorithms can be applied to 2D arrays too.
 
-::: {.tight-list}
-- sum and average
-- min and max
-- search a subsection
-- detect duplicates
-- rotate or reverse rows and columns
+There are standard algorithms that utilize 2D array traversals to:
+
+- determine a minimum or maximum value of all elements or a designated row, column, or subsection
+- compute a sum or average of all elements or a designated row, column, or subsection
+- determine if at least one element has a particular property
+- determine if all elements have a particular property
+- determine the number of elements having a particular property
+
+## More 2D Algorithms
+
+### Pairs, duplicates, shifts, rotations
+
+Standard algorithms also include:
+
+- access all consecutive pairs of elements
+- determine the presence or absence of duplicate elements
+- shift or rotate elements in a row left or right or in a column up or down
+- reverse the order of the elements in a row or column
+
+## From 1D to 2D
+
+### Use nested loops
+
+With 1D arrays, many algorithms followed patterns with a `for` loop or enhanced `for` loop.
+
+With 2D arrays, you need nested loops to traverse rows and columns.
+
+Indexed `for` loops are often used to better control the row and column index values.
+
+Enhanced `for` loops can also be used.
+
+## 2D Traversal Patterns
+
+### Indexed and enhanced loops
+
+```java
+// 2 Dimensional Array Traversal
+for (int row = 0; row < array.length; row++)
+{
+    for (int col = 0; col < array[0].length; col++)
+    {
+        if (condition about array[row][col])
+        {
+            // body for matching values
+        }
+    }
+}
+
+// enhanced for loops
+for (int[] row : array)
+{
+    for (int value : row)
+    {
+        if (condition about value)
+        {
+            // body for matching values
+        }
+    }
+}
+```
+
+## Sum, Average, Min, Max
+
+### Row and column totals
+
+Counting and searching algorithms work very similarly in 1D and 2D arrays.
+
+The following source code adds all of the values in a given row and asks you to complete a method that totals a column.
+
+## Coding Exercise
+
+### `activecode:: lca2dloopPart`
+
+What will the following code print out?
+
+Complete the method called `getTotalForCol` that gets the total for a column.
+
+To do this, loop through the rows.
+
+The array's length tells you how many rows you have, while the length of the array's first element tells you how many columns.
+
+## Total Starter
+
+::: {.code-scroll}
+```java
+public class Total
+{
+
+    public static int getTotalForRow(int row, int[][] a)
+    {
+        int total = 0;
+        for (int col = 0; col < a[0].length; col++)
+        {
+            total = total + a[row][col];
+        }
+        return total;
+    }
+
+    // Complete the method getTotalForCol below
+    public static int getTotalForCol(int col, int[][] a)
+    {
+        int total = 0;
+        // Add a loop here to total a column col
+
+        return total;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix = { {1, 2, 3}, {4, 5, 6}};
+        System.out.println(getTotalForRow(0, matrix));
+        System.out.println(getTotalForCol(0, matrix));
+    }
+}
+```
 :::
 
-## Sum
+## Total Test Targets
 
-### Accumulate every cell
+### Runestone checks
 
-```java
-int sum = 0;
-for (int row = 0; row < grid.length; row++)
-{
-    for (int col = 0; col < grid[row].length; col++)
-    {
-        sum += grid[row][col];
-    }
-}
+The output from `main` should be:
+
+```text
+6
+5
 ```
 
-The nested loop visits every element exactly once.
+A second test calls `getTotalForCol(0, { {1, 4, 8}, {6, 7, 9} })`.
 
-## Average
+Expected return value:
 
-### Count cells as well as total
-
-```java
-int sum = 0;
-int count = 0;
-for (int[] row : grid)
-{
-    for (int value : row)
-    {
-        sum += value;
-        count++;
-    }
-}
-double average = (double) sum / count;
+```text
+7
 ```
 
-Counting works even if rows have different lengths.
+## Mixed-Up Code
 
-## Max
+### `parsonsprob:: max2DArrayParsons`
 
-### Initialize from an existing cell
+The following has the correct code to find the largest value in a 2D array.
+
+Drag the blocks into the correct order and indent them.
+
+::: {.code-scroll .compact style="max-height: 360px;"}
+```java
+public int getLargest(int[][] arr)
+{
+=====
+ int largest = arr[0][0];
+ int current = 0;
+ for (int r = 0; r < arr.length; r++)
+ {
+=====
+   for (int c = 0; c < arr[0].length; c++)
+   {
+=====
+     current = arr[r][c];
+     if (current > largest)
+     {
+=====
+       largest = current;
+=====
+     } // end if
+=====
+   } // end column loop
+=====
+ } // end row loop
+ return largest;
+=====
+} // end method
+```
+:::
+
+## Mixed-Up Code: Correct Order
+
+### max2DArrayParsons
 
 ```java
-int max = grid[0][0];
-for (int row = 0; row < grid.length; row++)
+public int getLargest(int[][] arr)
 {
-    for (int col = 0; col < grid[row].length; col++)
-    {
-        if (grid[row][col] > max)
-        {
-            max = grid[row][col];
-        }
-    }
-}
+ int largest = arr[0][0];
+ int current = 0;
+ for (int r = 0; r < arr.length; r++)
+ {
+   for (int c = 0; c < arr[0].length; c++)
+   {
+     current = arr[r][c];
+     if (current > largest)
+     {
+       largest = current;
+     } // end if
+   } // end column loop
+ } // end row loop
+ return largest;
+} // end method
 ```
-
-## Search a Subsection
-
-### Bounds can restrict rows or columns
-
-```java
-for (int row = 0; row < 3; row++)
-{
-    for (int col = 0; col < grid[row].length; col++)
-    {
-        if (grid[row][col] == target)
-        {
-            return true;
-        }
-    }
-}
-return false;
-```
-
-Only the first three rows are searched.
-
-## Duplicates
-
-### Use a seen structure or compare cells
-
-For small classroom examples, use a helper list of seen values:
-
-```java
-ArrayList<Integer> seen = new ArrayList<Integer>();
-for (int[] row : grid)
-{
-    for (int value : row)
-    {
-        if (seen.contains(value))
-        {
-            return true;
-        }
-        seen.add(value);
-    }
-}
-return false;
-```
-
-## Rotate and Reverse
-
-### Trace positions before coding
-
-For a single row:
-
-```java
-int left = 0;
-int right = row.length - 1;
-while (left < right)
-{
-    int temp = row[left];
-    row[left] = row[right];
-    row[right] = temp;
-    left++;
-    right--;
-}
-```
-
-Start with one row before generalizing to the whole 2D array.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- use nested loops for 2D sum, average, min, and max
-- initialize min or max from an existing cell
-- count cells when computing an average
-- restrict traversal bounds for subsection searches
-- trace index movement before rotating or reversing data
-:::
+- translate 1D algorithms into nested 2D traversals
+- use `array.length` for rows and `array[0].length` for columns
+- total a row by looping over columns
+- total a column by looping over rows
+- initialize max from `arr[0][0]` before scanning the whole 2D array
 
 ## End
 
-### Return to the course outline
+### 4.13 Sum and Max 2D Array Algorithms
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: subsection loops and duplicate checks.

@@ -1,0 +1,176 @@
+---
+title: "4.5 Pairs and Duplicates"
+subtitle: "Implementing Array Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Pairs and Duplicates in Array
+
+### Adjacent elements
+
+Here is a pattern to check for duplicates in an array by accessing a pair of elements next to each other, `array[i]` and `array[i + 1]`.
+
+We need to use an indexed `for` loop to get access to the next element.
+
+```java
+// check for duplicates next to each other
+for (int i = 0; i < values.length - 1; i++)
+{
+    if (values[i] == values[i + 1])
+    {
+        return true;
+    }
+}
+return false;
+```
+
+## Duplicates Anywhere
+
+### Compare all pairs
+
+If we want to check for duplicates anywhere in the array, we need to use a nested loop to compare all pairs of elements in the array.
+
+```java
+// check for duplicates anywhere in the array
+for (int i = 0; i < values.length; i++)
+{
+    for (int j = i + 1; j < values.length; j++)
+    {
+        if (values[i] == values[j])
+        {
+            return true;
+        }
+    }
+}
+return false;
+```
+
+## Coding Exercise
+
+### `activecode:: sumPairs`
+
+Create a method `sumPairs10(nums)` that returns `true` if there are at least two items in the array `nums` that are adjacent (next to each other) and add up to `10`.
+
+Otherwise return `false`.
+
+## sumPairs Starter
+
+```java
+public class Pairs
+{
+   public static boolean sumPairs10(int[] nums)
+   {
+       // TODO: if two adjacent numbers in nums add up to 10, return true
+
+
+       return false;
+   }
+
+   public static void main(String[] args)
+   {
+
+      int[] nums1 = {1, 2, 8};
+      System.out.println(sumPairs10(nums1));
+
+      int[] nums2 = {2, 1, 2};
+      System.out.println(sumPairs10(nums2));
+   }
+
+}
+```
+
+## sumPairs Test Targets
+
+### Runestone checks
+
+Expected output from `main`:
+
+```text
+true
+false
+```
+
+Additional method test:
+
+```text
+sumPairs10({2, 4, 6, 8}) -> true
+```
+
+## Coding Exercise
+
+### `activecode:: noDups`
+
+Create a method `noDups(nums)` that returns `true` if there are no repeated (duplicate) items in the array `nums`.
+
+It should return `false` if it does find a repeated element using nested loops.
+
+## noDups Starter
+
+```java
+public class Pairs
+{
+   public static boolean noDups(int[] nums)
+   {
+       // TODO: use nested loops to check if any item appears more than once in nums
+
+
+       return true;
+   }
+
+   public static void main(String[] args)
+   {
+
+      int[] nums1 = {1, 2, 8};
+      System.out.println(noDups(nums1));
+
+      int[] nums2 = {3, 3, 3};
+      System.out.println(noDups(nums2));
+   }
+}
+```
+
+## noDups Test Targets
+
+### Runestone checks
+
+Expected output from `main`:
+
+```text
+true
+false
+```
+
+Additional method test:
+
+```text
+noDups({2, 4, 6, 2}) -> false
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `i < values.length - 1` when checking adjacent pairs
+- access adjacent elements as `values[i]` and `values[i + 1]`
+- use nested loops to compare all pairs in an array
+- start the inner duplicate-check loop at `i + 1`
+- return `true` from `sumPairs10` only when adjacent values add to `10`
+- return `false` from `noDups` as soon as a duplicate pair is found
+:::
+
+## End
+
+### 4.5 Part 3 complete
+
+Next: rotate and reverse.

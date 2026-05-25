@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.6 Using Text Files</title>
+  <title>4.6 File, Scanner, and File Loops</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.6 Using Text Files</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.6 File, Scanner, and File Loops</h1>
+  <p class="subtitle">Using Text Files</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,138 +210,310 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="files-let-programs-use-external-data">Files let programs use external data</h3>
-<p>Text files store data outside the Java program. A program can read a file, parse values, and save them into arrays or objects.</p>
-<p>Core classes:</p>
+<section id="using-text-files" class="slide level2">
+<h2>Using Text Files</h2>
+<h3 id="file-and-scanner-classes">File and Scanner classes</h3>
+<p>A file can be connected to the program using the <code>File</code> and <code>Scanner</code> classes.</p>
+<p>These classes must be imported from libraries:</p>
 <div class="tight-list">
 <ul>
-<li><code>File</code></li>
-<li><code>Scanner</code></li>
-<li><code>IOException</code></li>
+<li><code>Scanner</code> is in the <code>java.util</code> package</li>
+<li><code>File</code> is in the <code>java.io</code> package</li>
+<li><code>io</code> stands for <strong>input/output</strong> (输入/输出)</li>
 </ul>
 </div>
 </section>
-<section id="file-and-scanner" class="slide level2">
-<h2>File and Scanner</h2>
-<h3 id="open-a-file-for-reading">Open a file for reading</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">File</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.</span><span class="im">IOException</span><span class="op">;</span></span>
-<span id="cb1-3"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ReadFile</span>
-<span id="cb1-6"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-9"><a href=""></a>        <span class="bu">File</span> file <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"data.txt"</span><span class="op">);</span></span>
-<span id="cb1-10"><a href=""></a>        <span class="bu">Scanner</span> input <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>file<span class="op">);</span></span>
-<span id="cb1-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>throws IOException</code> acknowledges that file input can fail.</p>
+<section id="opening-a-file" class="slide level2">
+<h2>Opening a File</h2>
+<h3 id="file-object">File object</h3>
+<p>A file can be opened by creating a <code>File</code> object, using the name of the file or the complete path to the file as the argument of the constructor.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a><span class="bu">File</span> myFile <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"data.txt"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After opening a file, the <code>Scanner</code> class can read data from the file line by line.</p>
 </section>
-<section id="reading-values" class="slide level2">
-<h2>Reading Values</h2>
-<h3 id="scanner-reads-tokens-or-lines">Scanner reads tokens or lines</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">())</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>line<span class="op">);</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Common scanner methods:</p>
+<section id="ioexception" class="slide level2">
+<h2>IOException</h2>
+<h3 id="what-if-the-file-cannot-be-opened">What if the file cannot be opened?</h3>
+<p>The <code>Scanner</code> constructor will throw a <code>FileNotFoundException</code> if it cannot find the file.</p>
+<p>This is a type of <code>IOException</code>, a general error also thrown when input does not match expectations.</p>
+<p>When an exception is thrown, the program stops executing and the exception is thrown back to the calling method.</p>
+</section>
+<section id="throws-ioexception" class="slide level2">
+<h2>throws IOException</h2>
+<h3 id="method-header">Method header</h3>
+<p>Java uses <code>try/catch</code> blocks to handle exceptions, but you can use the <code>throws</code> keyword in the method header.</p>
+<p>The <code>throws IOException</code> statement is added to the end of the method header.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb2-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> FileIO</span>
+<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="bu">File</span> myFile <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"data.txt"</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>myFile<span class="op">);</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>        scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb2-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-throws-exception-exercise"><code>activecode:: throws-exception-exercise</code></h3>
+<p>Run the code below to see the error message.</p>
+<p>Add <code>throws</code> and the correct exception to the end of the <code>main</code> method header to fix the error.</p>
+</section>
+<section id="fileio-source-code" class="slide level2">
+<h2>FileIO Source Code</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> FileIO</span>
+<span id="cb3-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>        <span class="bu">File</span> myFile <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"dictionary.txt"</span><span class="op">);</span></span>
+<span id="cb3-9"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>myFile<span class="op">);</span></span>
+<span id="cb3-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span></span>
+<span id="cb3-11"><a href=""></a>                <span class="st">"The first word in the dictionary file is: "</span> <span class="op">+</span> scan<span class="op">.</span><span class="fu">nextLine</span><span class="op">());</span></span>
+<span id="cb3-12"><a href=""></a>        scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb3-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="fileio-test-targets" class="slide level2">
+<h2>FileIO Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>The first word in the dictionary file is: a</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code must contain:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">throws</span> <span class="bu">IOException</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="reading-in-data-with-scanner" class="slide level2">
+<h2>Reading in Data with Scanner</h2>
+<h3 id="scanner-methods">Scanner methods</h3>
+<p>Once the file is opened, the data can be read using <code>Scanner</code> methods.</p>
+<p>For example, <code>nextLine</code> reads the next line of input and returns it as a <code>String</code>.</p>
 <div class="tight-list">
 <ul>
-<li><code>hasNextLine()</code></li>
-<li><code>nextLine()</code></li>
-<li><code>hasNextInt()</code></li>
-<li><code>nextInt()</code></li>
+<li><code>Scanner(File f)</code> accepts a <code>File</code> for reading</li>
+<li><code>String nextLine()</code> returns the next line of text</li>
+<li><code>String next()</code> returns the next <code>String</code> up to whitespace</li>
+<li><code>int nextInt()</code> returns the next <code>int</code></li>
 </ul>
 </div>
 </section>
-<section id="loop-to-read-a-file" class="slide level2">
-<h2>Loop to Read a File</h2>
-<h3 id="file-reading-is-usually-a-loop">File reading is usually a loop</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">())</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb3-5"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb3-6"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>count<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The loop continues until there is no more file input.</p>
+<section id="scanner-methods-1" class="slide level2">
+<h2>Scanner Methods</h2>
+<h3 id="numeric-and-stream-methods">Numeric and stream methods</h3>
+<div class="tight-list">
+<ul>
+<li><code>double nextDouble()</code> returns the next <code>double</code></li>
+<li><code>boolean nextBoolean()</code> returns the next <code>boolean</code></li>
+<li><code>boolean hasNext()</code> returns true if there is a next item to read</li>
+<li><code>void close()</code> closes the input stream</li>
+</ul>
+</div>
+</section>
+<section id="coding-exercise-1" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-calculatorinput"><code>activecode:: calculatorInput</code></h3>
+<p>The code below reads in the 2 numbers below it and multiplies them.</p>
+<p>Try changing the input below the code to decimal numbers like <code>2.5</code> and run to see the <code>InputMismatchException</code>.</p>
+<p>Then change the code to use <code>nextDouble()</code> instead of <code>nextInt()</code> and change the variables to type <code>double</code>.</p>
+</section>
+<section id="calculatorinput-source-code" class="slide level2">
+<h2>calculatorInput Source Code</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Multiply</span>
+<span id="cb6-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>     <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-6"><a href=""></a>     <span class="op">{</span></span>
+<span id="cb6-7"><a href=""></a>          <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
+<span id="cb6-8"><a href=""></a>          <span class="dt">int</span> num1 <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb6-9"><a href=""></a>          <span class="dt">int</span> num2 <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextInt</span><span class="op">();</span></span>
+<span id="cb6-10"><a href=""></a></span>
+<span id="cb6-11"><a href=""></a>          <span class="dt">int</span> result <span class="op">=</span> num1 <span class="op">*</span> num2<span class="op">;</span></span>
+<span id="cb6-12"><a href=""></a></span>
+<span id="cb6-13"><a href=""></a>          <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>num1 <span class="op">+</span> <span class="st">" x "</span> <span class="op">+</span> num2 <span class="op">+</span> <span class="st">" = "</span> <span class="op">+</span> result<span class="op">);</span></span>
+<span id="cb6-14"><a href=""></a>          scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb6-15"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb6-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="calculatorinput-test-targets" class="slide level2">
+<h2>calculatorInput Test Targets</h2>
+<h3 id="runestone-checks-1">Runestone checks</h3>
+<p>The input is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>2 5</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The tests check that the revised code contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="fu">nextDouble</span><span class="op">()</span></span>
+<span id="cb8-2"><a href=""></a><span class="dt">double</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="scanner-whitespace" class="slide level2">
+<h2>Scanner Whitespace</h2>
+<h3 id="numeric-methods-and-nextline">Numeric methods and nextLine</h3>
+<p>The <code>nextInt()</code> and <code>nextDouble()</code> methods read in a number but leave any space or newline characters on the input stream.</p>
+<p>This can cause problems if you have input to read in multiple lines.</p>
+<p>Java programmers often add an extra call to <code>scan.nextLine();</code> to read in the rest of the line after reading in a number.</p>
+</section>
+<section id="loop-to-read-in-a-file" class="slide level2">
+<h2>Loop to Read in a File</h2>
+<h3 id="use-hasnext-as-the-loop-condition">Use hasNext as the loop condition</h3>
+<p>A <code>while</code> loop is usually used to read in a file with multiple lines.</p>
+<p>The loop can use <code>hasNext</code> as the loop condition to detect if the file still contains elements to read.</p>
+<p>After the loop is finished reading the data, the <code>close</code> method from <code>Scanner</code> should be called to close the file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="cf">while</span> <span class="op">(</span>scan<span class="op">.</span><span class="fu">hasNext</span><span class="op">())</span></span>
+<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="bu">String</span> line <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb9-4"><a href=""></a><span class="op">}</span></span>
+<span id="cb9-5"><a href=""></a>scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="coding-exercise-2" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-loop-read-file"><code>activecode:: loop-read-file</code></h3>
+<p>Complete the code below to read in all of the dictionary file using a <code>while</code> loop.</p>
+<p>This code will also tell you how many lines are in the file.</p>
+</section>
+<section id="fileioloop-starter" class="slide level2">
+<h2>FileIOLoop Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb10-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb10-3"><a href=""></a></span>
+<span id="cb10-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> FileIOLoop</span>
+<span id="cb10-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb10-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></span>
+<span id="cb10-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb10-8"><a href=""></a>        <span class="bu">File</span> myFile <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"dictionary.txt"</span><span class="op">);</span></span>
+<span id="cb10-9"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>myFile<span class="op">);</span></span>
+<span id="cb10-10"><a href=""></a>        <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// line count</span></span>
+<span id="cb10-11"><a href=""></a></span>
+<span id="cb10-12"><a href=""></a>        <span class="co">// 1. Add in the loop condition that checks if scan has another line of input</span></span>
+<span id="cb10-13"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>         <span class="op">)</span></span>
+<span id="cb10-14"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb10-15"><a href=""></a>            <span class="co">// 2. Read in the next line of the file</span></span>
+<span id="cb10-16"><a href=""></a>            <span class="bu">String</span> line<span class="op">;</span></span>
+<span id="cb10-17"><a href=""></a></span>
+<span id="cb10-18"><a href=""></a>            i<span class="op">++;</span> <span class="co">// line count</span></span>
+<span id="cb10-19"><a href=""></a>         <span class="op">}</span></span>
+<span id="cb10-20"><a href=""></a></span>
+<span id="cb10-21"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"This file has "</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">" lines."</span><span class="op">);</span></span>
+<span id="cb10-22"><a href=""></a></span>
+<span id="cb10-23"><a href=""></a>        scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb10-24"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb10-25"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="fileioloop-test-targets" class="slide level2">
+<h2>FileIOLoop Test Targets</h2>
+<h3 id="runestone-checks-2">Runestone checks</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>This file has 10000 lines.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code must contain:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="fu">nextLine</span><span class="op">()</span></span>
+<span id="cb12-2"><a href=""></a><span class="fu">hasNext</span><span class="op">()</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="save-file-data-into-an-array" class="slide level2">
 <h2>Save File Data into an Array</h2>
-<h3 id="store-data-for-later-processing">Store data for later processing</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
-<span id="cb4-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="cf">while</span> <span class="op">(</span>input<span class="op">.</span><span class="fu">hasNextLine</span><span class="op">()</span> <span class="op">&amp;&amp;</span> count <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">length</span><span class="op">)</span></span>
-<span id="cb4-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-6"><a href=""></a>    names<span class="op">[</span>count<span class="op">]</span> <span class="op">=</span> input<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb4-7"><a href=""></a>    count<span class="op">++;</span></span>
-<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>count</code> variable records how many array slots were actually filled.</p>
+<h3 id="line-by-line">Line by line</h3>
+<p>We can save a file line by line into an array.</p>
+<p>In the <code>SpellChecker</code> class, we read the data file of words into a dictionary array with this code.</p>
+<p>The source notes that the array size must be known before declaring the array.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="bu">String</span><span class="op">[]</span> dictionary <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">10000</span><span class="op">];</span></span>
+<span id="cb13-2"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-3"><a href=""></a><span class="cf">while</span><span class="op">(</span>scan<span class="op">.</span><span class="fu">hasNext</span><span class="op">())</span></span>
+<span id="cb13-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb13-5"><a href=""></a>     <span class="bu">String</span> line <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
+<span id="cb13-6"><a href=""></a>     dictionary<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> line<span class="op">;</span></span>
+<span id="cb13-7"><a href=""></a>     i<span class="op">++;</span></span>
+<span id="cb13-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="split-strings" class="slide level2">
-<h2>Split Strings</h2>
-<h3 id="csv-data-becomes-fields">CSV data becomes fields</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> line <span class="op">=</span> <span class="st">"Pikachu,35,Electric"</span><span class="op">;</span></span>
-<span id="cb5-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> parts <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a><span class="bu">String</span> name <span class="op">=</span> parts<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb5-5"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parts<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
-<span id="cb5-6"><a href=""></a><span class="bu">String</span> type <span class="op">=</span> parts<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>split</code> returns an array of substrings.</p>
+<section id="csv-files" class="slide level2">
+<h2>CSV Files</h2>
+<h3 id="comma-separated-values">Comma Separated Values</h3>
+<p>The following exercise reads in a data file about Pokemon and prints out the first 10 lines in the file.</p>
+<p>This file has the extension <code>csv</code>, which stands for <strong>Comma Separated Values</strong>.</p>
+<p>All spreadsheets can be saved as CSV text files, and spreadsheet software can easily open CSV files as spreadsheets.</p>
 </section>
-<section id="object-oriented-design-with-csv" class="slide level2">
-<h2>Object-Oriented Design with CSV</h2>
-<h3 id="convert-rows-into-objects">Convert rows into objects</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Pokemon</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> speed<span class="op">;</span></span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Pokemon</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> speed<span class="op">)</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">name</span> <span class="op">=</span> name<span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">speed</span> <span class="op">=</span> speed<span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Each row can become one object after parsing.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="array-of-pokemon-from-input-file">Array of Pokemon from input file</h3>
-<p>Starter task:</p>
+<section id="coding-exercise-3" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-read-pokemon-file"><code>activecode:: read-pokemon-file</code></h3>
+<p>Complete the code in the <code>main</code> method to:</p>
 <div class="tight-list">
 <ul>
-<li>read each line from a Pokemon file</li>
-<li>split the line by commas</li>
-<li>parse numeric fields</li>
-<li>create a <code>Pokemon</code> object</li>
-<li>store it in an array</li>
+<li>read in the first 10 lines of the pokemon file using the <code>Scanner</code> class</li>
+<li>save each line into the <code>pokemonLines</code> array</li>
+<li>print it out</li>
+<li>check that the line counter <code>i</code> is less than <code>10</code> in the loop condition</li>
 </ul>
 </div>
-<p>Class focus: file input, arrays, parsing, and class design working together.</p>
+</section>
+<section id="readdata-starter" class="slide level2">
+<h2>ReadData Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">io</span><span class="op">.*;</span></span>
+<span id="cb14-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ReadData</span>
+<span id="cb14-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb14-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></span>
+<span id="cb14-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb14-8"><a href=""></a>        <span class="bu">File</span> myFile <span class="op">=</span> <span class="kw">new</span> <span class="bu">File</span><span class="op">(</span><span class="st">"pokemon.csv"</span><span class="op">);</span></span>
+<span id="cb14-9"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span>myFile<span class="op">);</span></span>
+<span id="cb14-10"><a href=""></a>        <span class="bu">String</span><span class="op">[]</span> pokemonLines <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb14-11"><a href=""></a></span>
+<span id="cb14-12"><a href=""></a>        <span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb14-13"><a href=""></a>        <span class="co">// 1. Add in the loop condition that checks if scan has another line of input</span></span>
+<span id="cb14-14"><a href=""></a>        <span class="co">//    and that i is less than 10.</span></span>
+<span id="cb14-15"><a href=""></a>        <span class="cf">while</span> <span class="op">(</span>         <span class="op">)</span></span>
+<span id="cb14-16"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb14-17"><a href=""></a>            <span class="co">// 2. Read in the next line of the file</span></span>
+<span id="cb14-18"><a href=""></a></span>
+<span id="cb14-19"><a href=""></a>            <span class="co">// 3. Assign the line to the ith element of the pokemonLines array</span></span>
+<span id="cb14-20"><a href=""></a></span>
+<span id="cb14-21"><a href=""></a>            <span class="co">// 4. Print out the line</span></span>
+<span id="cb14-22"><a href=""></a></span>
+<span id="cb14-23"><a href=""></a>            i<span class="op">++;</span> <span class="co">// line count</span></span>
+<span id="cb14-24"><a href=""></a>         <span class="op">}</span></span>
+<span id="cb14-25"><a href=""></a>         scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
+<span id="cb14-26"><a href=""></a>   <span class="op">}</span></span>
+<span id="cb14-27"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="readdata-test-targets" class="slide level2">
+<h2>ReadData Test Targets</h2>
+<h3 id="runestone-checks-3">Runestone checks</h3>
+<p>The output should contain at least 10 lines.</p>
+<p>The tests check:</p>
+<div class="tight-list">
+<ul>
+<li>assignment to <code>pokemonLines[i]</code></li>
+<li><code>hasNext()</code></li>
+<li><code>i &lt; 10</code></li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>open a text file using <code>File</code> and <code>Scanner</code></li>
-<li>explain why file-reading code may throw <code>IOException</code></li>
-<li>use a loop with <code>hasNextLine</code></li>
-<li>store file data into an array with a count variable</li>
-<li>split a CSV line and parse numeric fields</li>
+<li>import <code>java.io.*</code> and <code>java.util.*</code> when using <code>File</code> and <code>Scanner</code></li>
+<li>add <code>throws IOException</code> to the method header when using file input this way</li>
+<li>use <code>nextLine()</code>, <code>nextDouble()</code>, or other Scanner methods according to input type</li>
+<li>close the <code>Scanner</code> after reading</li>
+<li>use <code>hasNext()</code> as the loop condition when reading multiple lines</li>
+<li>store file lines into an array with an index counter</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">4.6 Part 1 complete</h3>
+<p>Next: splitting CSV strings and Pokemon images.</p>
 
 </section>
     </div>

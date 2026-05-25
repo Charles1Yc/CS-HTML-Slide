@@ -1,0 +1,171 @@
+---
+title: "1.12 Objects: Instances of Classes"
+subtitle: "Part 5: Draw 8 and Letters Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Coding Exercise
+
+### `activecode:: TurtleDrawEight`
+
+Can you make `yertle` draw the digital number `8`, as `2` squares on top of each other?
+
+The starter program creates a `World` and a `Turtle`.
+
+Your code should add the movement and turn commands needed to draw the `8`.
+
+## Starter Code
+
+### `TurtleDrawEight`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleDraw8
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(500, 500);
+        Turtle yertle = new Turtle(habitat);
+        // TODO: Make yertle draw an 8 with 2 squares.
+        yertle.forward();
+
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- the code changed from the original starter
+- code contains `forward(` at least `7` times
+- code contains `.turn` at least `5` times
+:::
+
+The target drawing is two squares stacked on top of each other.
+
+## Groupwork Coding Challenge
+
+### Draw Letters
+
+Working in pairs, use the area below to have your turtle draw simple block-style letters for your first or last name initials.
+
+Use just straight lines:
+
+::: {.tight-list}
+- no curves
+- no diagonals
+:::
+
+It may help to act out the code pretending you are the turtle.
+
+## Turtle Direction Reminder
+
+### Facing north
+
+Remember that which way you turn depends on which direction you are facing.
+
+The turtle begins facing north, towards the top of the page.
+
+## Turtle Methods
+
+### Simple methods
+
+Here are some simple turtle methods that you can use:
+
+::: {.tight-list}
+- `forward()`
+- `turnLeft()`
+- `turnRight()`
+- `backward()`
+- `penUp()`
+- `penDown()`
+:::
+
+## Challenge Context
+
+### Simple methods first
+
+You may notice that it is challenging to have your turtle draw with these simple methods.
+
+In the next lessons, we will use more complex `Turtle` methods where you can indicate how many steps to take or what angle to turn.
+
+That will make drawing a lot easier.
+
+## Coding Task
+
+### `activecode:: challenge-Turtle_Letter`
+
+Have your turtle create a block drawing of the initials of your name.
+
+Use straight lines, no curves or diagonals unless you want to try adding arguments to the turtle methods.
+
+## Starter Code
+
+### `challenge-Turtle_Letter`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleLetter
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        // TODO: Create a turtle object.
+
+        // TODO: Have it draw your initials.
+
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- the code changed from the original starter
+- the program has `20` or more lines of code
+:::
+
+The activity target is a reasonable amount of turtle drawing code for initials.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use Turtle movement methods to draw a recognizable shape
+- use at least enough `forward` and turn calls for the Draw 8 task
+- create a Turtle object before calling its methods
+- use `penUp()` and `penDown()` when moving without drawing
+- remember that turns depend on the current turtle direction
+- keep `habitat.show(true)` at the end
+:::
+
+## End
+
+### 1.12 complete
+
+The next topic explains object creation and storage.

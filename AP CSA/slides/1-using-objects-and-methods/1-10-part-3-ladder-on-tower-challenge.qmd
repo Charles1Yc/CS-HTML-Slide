@@ -1,0 +1,183 @@
+---
+title: "1.10 Calling Class Methods"
+subtitle: "Part 3: Ladder on Tower Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Coding Challenge
+
+### Ladder on Tower
+
+![Ladder on tower](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png){fig-align="left" width="22%"}
+
+The Pythagorean theorem states that the length of the hypotenuse, the side opposite the right angle in a right triangle, is the square root of the sum of the squares of the lengths of the other two sides.
+
+The other two sides are also called the legs, or the width and height of the triangle.
+
+## Pythagorean Theorem
+
+### Formula
+
+Here is the formula for this theorem:
+
+```text
+c = sqrt(a^2 + b^2)
+```
+
+where `a` and `b` are the width and height of the triangle and `c` is the length of the hypotenuse.
+
+## Ladder Context
+
+### Width, height, and hypotenuse
+
+One common use for the Pythagorean theorem is to calculate the length of ladder you will need to reach a window.
+
+The ladder will be the hypotenuse of a triangle whose legs are:
+
+::: {.tight-list}
+- the height of the window in the tower
+- the width of the moat
+:::
+
+The base of the ladder is placed on the edge of the moat.
+
+## Quick Check
+
+### `mchoice:: hypotenuse-java-mc`
+
+Which of the following are correct Java expressions to compute the hypotenuse of a triangle with legs `a` and `b`?
+
+Use the Pythagorean Theorem:
+
+```text
+c = sqrt(a^2 + b^2)
+```
+
+## Quick Check Choices
+
+### Choose all correct answers
+
+::: {.tight-list}
+- A. `Math.sqrt(a * a + b * b)`
+- B. `Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))`
+- C. `Math.sqrt(a + b)`
+- D. `a * a + b * b`
+:::
+
+## Answer Reasoning
+
+### Correct answers: A and B
+
+::: {.tight-list}
+- A is correct: `a * a` is `a` squared, likewise `b * b`. Adding them gives the sum passed to `Math.sqrt`.
+- B is correct: `Math.pow(a, 2)` is `a` squared, likewise `Math.pow(b, 2)`. Adding them gives the sum passed to `Math.sqrt`.
+- C is not correct: the leg lengths must be squared.
+- D is not correct: this gives the square of the hypotenuse, but still needs `Math.sqrt`.
+:::
+
+## Coding Task
+
+### `activecode:: challenge-1-10-pythagorean`
+
+Complete the `ladderSizeNeeded` method below using the Pythagorean Theorem and the `Math.sqrt` method.
+
+Then in the `main` method, write a method call to test the `ladderSizeNeeded` method with arguments for the height of `30` and the width of `40`.
+
+The method should return the length of the ladder needed to reach the window.
+
+## Starter Code
+
+### `challenge-1-10-pythagorean`
+
+::: {.code-scroll}
+```java
+public class LadderHelper
+{
+    /* ladderSizeNeeded computes the hypotenuse of a right triangle
+     * given the lengths of the other two sides.
+     * @param height : the height of the window
+     * @param width : the width of the moat
+     * @return the length of the ladder needed
+     */
+    public static double ladderSizeNeeded(double height, double width)
+    {
+        double ladderSize;
+        // TODO: Calculate ladderSize using the Pythagorean theorem
+        // with the Math.sqrt and Math.pow (or just *) methods
+        // using the arguments height and width
+
+
+
+        return ladderSize;
+    }
+
+    public static void main(String[] argv)
+    {
+        double size;
+        // TODO: Call the ladderSizeNeeded method
+        // with the height of 30 and the width of 40 and save it in size.
+
+        System.out.println("Beloved, I need a " + size + " foot ladder!");
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+The tests compare `ladderSizeNeeded(height, width)` to:
+
+```java
+Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2))
+```
+
+The method is tested with:
+
+::: {.tight-list}
+- `ladderSizeNeeded(3, 4)`
+- `ladderSizeNeeded(30, 40)`
+- random height and width values
+:::
+
+## Expected Output
+
+### `testMain`
+
+The `main` method should print:
+
+```text
+Beloved, I need a 50.0 foot ladder!
+```
+
+This output comes from calling `ladderSizeNeeded(30, 40)` and saving the returned value in `size`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- compute the sum of the squares of `height` and `width`
+- use `Math.sqrt` to return the hypotenuse
+- keep `ladderSizeNeeded` as a `double`-returning method
+- call `ladderSizeNeeded(30, 40)` in `main`
+- store the returned value in `size`
+- match the expected output from `main`
+:::
+
+## End
+
+### 1.10 complete
+
+The next topic introduces the `Math` class in more detail.

@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.4 Array Traversals</title>
+  <title>4.4 Indexed Array Traversals</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.4 Array Traversals</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.4 Indexed Array Traversals</h1>
+  <p class="subtitle">Array Traversals</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,118 +210,219 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="traversal-visits-array-elements">Traversal visits array elements</h3>
-<p>An <span class="term">array traversal</span> (数组遍历) processes each element, or a selected range of elements, using a loop.</p>
+<section id="array-traversals" class="slide level2">
+<h2>Array Traversals</h2>
+<h3 id="visiting-each-element">Visiting each element</h3>
+<p>In this lesson, we will learn how to traverse an array using a loop.</p>
+<p><strong>Traversing</strong> an array means visiting each element of the array.</p>
+<p>We can use a loop to visit each element of an array and perform some operation on it.</p>
+<p>This is a common operation when working with arrays.</p>
+</section>
+<section id="index-variables" class="slide level2">
+<h2>Index Variables</h2>
+<h3 id="arithmetic-inside-brackets">Arithmetic inside brackets</h3>
+<p>In the last lesson, we mentioned that you can use a variable for the index of an array.</p>
+<p>You can even do math with that index and have an arithmetic expression inside the square brackets.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// highScores array declaration</span></span>
+<span id="cb1-2"><a href=""></a><span class="dt">int</span><span class="op">[]</span> highScores <span class="op">=</span> <span class="op">{</span><span class="dv">10</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">8</span><span class="op">};</span></span>
+<span id="cb1-3"><a href=""></a><span class="co">// use a variable for the index</span></span>
+<span id="cb1-4"><a href=""></a><span class="dt">int</span> index <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a><span class="co">// modify array value at index</span></span>
+<span id="cb1-6"><a href=""></a>highScores<span class="op">[</span>index<span class="op">]</span> <span class="op">=</span> <span class="dv">11</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a><span class="co">// print array value at index</span></span>
+<span id="cb1-8"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>highScores<span class="op">[</span>index<span class="op">]);</span></span>
+<span id="cb1-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>highScores<span class="op">[</span>index <span class="op">-</span> <span class="dv">1</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="array-with-index-variable" class="slide level2 image-fit">
+<h2>Array With Index Variable</h2>
+<h3 id="trace-the-output">Trace the output</h3>
 
-<img data-src="../../assets/4-data-collections/4-4-array-traversals/arraywithindex.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Array with index variable</p><p>Traversal connects loop counters to array indices.</p>
+<img data-src="../../assets/4-data-collections/4-4-array-traversals/arraywithindex.png" style="width:48.0%" class="r-stretch quarto-figure-center"><p class="caption">Array with index variable</p><p>What does the code print out?</p>
+<p>The external visualizer link is omitted; the trace prompt and image are retained.</p>
 </section>
-<section id="standard-for-loop" class="slide level2">
-<h2>Standard For Loop</h2>
-<h3 id="use-the-index-when-you-need-positions">Use the index when you need positions</h3>
+<section id="loops-to-traverse-arrays" class="slide level2">
+<h2>Loops to Traverse Arrays</h2>
+<h3 id="indexed-traversal">Indexed traversal</h3>
+<p><strong>Traversing an array</strong> or <strong>iteration</strong> is when repetition statements are used to access all or an ordered sequence of elements in an array.</p>
+<p>We can traverse an array with an indexed <code>for</code> loop or <code>while</code> loop, accessing the elements using an index variable.</p>
+<p>Start the index at <code>0</code> and loop while the index is less than the <code>length</code> of the array.</p>
+<p>The variable <code>i</code>, short for index, is often used as the loop counter variable.</p>
+</section>
+<section id="for-loop-traversal" class="slide level2 image-fit">
+<h2>For Loop Traversal</h2>
+<h3 id="counter-variable-as-index">Counter variable as index</h3>
 
-<img data-src="../../assets/4-data-collections/4-4-array-traversals/arrayForLoop.png" style="width:52.0%" class="r-stretch quarto-figure-center"><p class="caption">Array for loop</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This loop visits every valid index from <code>0</code> to <code>values.length - 1</code>.</p>
+<img data-src="../../assets/4-data-collections/4-4-array-traversals/arrayForLoop.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">For loop traversing array</p><p>Since this is a simple counter-controlled loop, <code>for</code> loops are used more often than <code>while</code> loops for array traversals.</p>
 </section>
-<section id="trace-task" class="slide level2">
-<h2>Trace Task</h2>
-<h3 id="sum-an-array">Sum an array</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-6"><a href=""></a>    sum <span class="op">+=</span> values<span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-8"><a href=""></a></span>
-<span id="cb2-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>sum<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>10</code>.</p>
+<section id="traversal-code" class="slide level2">
+<h2>Traversal Code</h2>
+<h3 id="for-and-while"><code>for</code> and <code>while</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> highScores <span class="op">=</span> <span class="op">{</span><span class="dv">10</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">11</span><span class="op">};</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> highScores<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>highScores<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-6"><a href=""></a><span class="co">// Or with a while loop</span></span>
+<span id="cb2-7"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> highScores<span class="op">.</span><span class="fu">length</span><span class="op">)</span></span>
+<span id="cb2-9"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-10"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>highScores<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb2-11"><a href=""></a>    i<span class="op">++;</span></span>
+<span id="cb2-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="arrays-as-parameters" class="slide level2">
-<h2>Arrays as Parameters</h2>
-<h3 id="a-method-can-traverse-a-received-array">A method can traverse a received array</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sum</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">)</span></span>
+<section id="source-note" class="slide level2">
+<h2>Source Note</h2>
+<h3 id="data-abstraction">Data abstraction</h3>
+<p>Using a variable as the index is a powerful <strong>data abstraction</strong> feature.</p>
+<p>It allows us to use loops with arrays where the loop counter variable is the index of the array.</p>
+<p>This allows our code to generalize to work for the whole array.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-arraytrace2"><code>activecode:: arraytrace2</code></h3>
+<p>What do you think the following code will print out?</p>
+<p>First trace through it on paper keeping track of the array and the index variable.</p>
+<p>Then run it to see if you were right.</p>
+<p>Then try adding your name and a friend’s name to the array <code>names</code> and run the code again.</p>
+<p>Did the code work without changing the loop?</p>
+</section>
+<section id="arraytrace2-starter" class="slide level2">
+<h2>arraytrace2 Starter</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="dt">int</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-6"><a href=""></a>        total <span class="op">+=</span> values<span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-8"><a href=""></a>    <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb3-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The parameter stores a reference to the array object.</p>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="bu">String</span><span class="op">[]</span> names <span class="op">=</span> <span class="op">{</span><span class="st">"Jamal"</span><span class="op">,</span> <span class="st">"Emily"</span><span class="op">,</span> <span class="st">"Destiny"</span><span class="op">,</span> <span class="st">"Mateo"</span><span class="op">,</span> <span class="st">"Sofia"</span><span class="op">};</span></span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb3-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-9"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb3-10"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-11"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Add your name and a friend's name to the array initializer list.</span></span>
+<span id="cb3-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="partial-traversal" class="slide level2">
-<h2>Partial Traversal</h2>
-<h3 id="sometimes-only-part-of-the-array-should-be-processed">Sometimes only part of the array should be processed</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    nums<span class="op">[</span>i<span class="op">]</span> <span class="op">*=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This loop changes only the first four elements. Always check that the array has enough elements before using a fixed bound.</p>
+<section id="arraytrace2-test-targets" class="slide level2">
+<h2>arraytrace2 Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>The first expected output contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>Jamal</span>
+<span id="cb4-2"><a href=""></a>Emily</span>
+<span id="cb4-3"><a href=""></a>Destiny</span>
+<span id="cb4-4"><a href=""></a>Mateo</span>
+<span id="cb4-5"><a href=""></a>Sofia</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After adding two more names, the output should have at least six lines and include the new names.</p>
 </section>
-<section id="common-errors" class="slide level2">
-<h2>Common Errors</h2>
-<h3 id="off-by-one-mistakes-break-traversals">Off-by-one mistakes break traversals</h3>
-<p>Wrong:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<section id="arrays-as-objects-and-parameters" class="slide level2">
+<h2>Arrays as Objects and Parameters</h2>
+<h3 id="reference-values">Reference values</h3>
+<p>The following code demonstrates a loop that changes the values in an array.</p>
+<p>In this code, the array is passed as an argument to the static methods in the class.</p>
+<p>Arrays in Java are objects.</p>
+<p>The array variables are references to an address in memory.</p>
+<p>Since arrays can be very large, we do not want to copy them when we pass them into methods.</p>
+</section>
+<section id="passing-arrays-to-methods" class="slide level2">
+<h2>Passing Arrays to Methods</h2>
+<h3 id="changes-affect-the-original">Changes affect the original</h3>
+<p>When an array is passed as an argument to a method, the name of the array refers to its address in memory.</p>
+<p>Therefore, any changes to the array in the method will affect the original array.</p>
+<p>The external Java visualizer link is omitted; the source trace code is retained.</p>
+</section>
+<section id="coding-exercise-1" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-arraymethodtrace"><code>activecode:: arrayMethodTrace</code></h3>
+<p>What does the following code print out?</p>
+<p>Trace through it keeping track of the array values and the output.</p>
+<p>Then run it to see if you are right.</p>
+<p>Notice that the array is passed as an argument to the methods.</p>
+</section>
+<section id="arraymethodtrace-code" class="slide level2">
+<h2>arrayMethodTrace Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ArrayLoop</span>
 <span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Correct:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb6-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a>    <span class="co">// What does this method do?</span></span>
+<span id="cb5-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">multAll</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> amt<span class="op">)</span></span>
+<span id="cb5-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-7"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-9"><a href=""></a>            values<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> values<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> amt<span class="op">;</span></span>
+<span id="cb5-10"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-12"><a href=""></a></span>
+<span id="cb5-13"><a href=""></a>    <span class="co">// What does this method do?</span></span>
+<span id="cb5-14"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printValues</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">)</span></span>
+<span id="cb5-15"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-16"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-17"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb5-18"><a href=""></a>            <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>values<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb5-19"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb5-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-21"><a href=""></a></span>
+<span id="cb5-22"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-23"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-24"><a href=""></a>        <span class="dt">int</span><span class="op">[]</span> numArray <span class="op">=</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
+<span id="cb5-25"><a href=""></a>        <span class="fu">multAll</span><span class="op">(</span>numArray<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb5-26"><a href=""></a>        <span class="fu">printValues</span><span class="op">(</span>numArray<span class="op">);</span></span>
+<span id="cb5-27"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-28"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="enhanced-for-loop" class="slide level2">
-<h2>Enhanced For Loop</h2>
-<h3 id="use-for-each-when-index-is-not-needed">Use for-each when index is not needed</h3>
-
-<img data-src="../../assets/4-data-collections/4-4-array-traversals/appinvForEachComparison.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">For-each comparison</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> values<span class="op">)</span></span>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="runestone-check">Runestone check</h3>
+<p>The expected output from <code>main</code> is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>4</span>
+<span id="cb6-2"><a href=""></a>12</span>
+<span id="cb6-3"><a href=""></a>14</span>
+<span id="cb6-4"><a href=""></a>24</span>
+<span id="cb6-5"><a href=""></a>10</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>multAll</code> changes the original array because the array reference is passed to the method.</p>
+</section>
+<section id="source-note-1" class="slide level2">
+<h2>Source Note</h2>
+<h3 id="array-arguments">Array arguments</h3>
+<p>Arrays in Java are objects.</p>
+<p>When arrays are passed in as arguments to methods, any changes to the array in the method will affect the original array.</p>
+<p>The array name is a reference value referring to the address of the array in memory.</p>
+</section>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="parsonsprob-patdonsarraysubtract"><code>parsonsprob:: patdonsArraySubtract</code></h3>
+<p>The following method has the correct code to subtract <code>amt</code> from all the values in the array <code>values</code>, but the code is mixed up.</p>
+<p>Drag the blocks into the correct order.</p>
+</section>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="suball"><code>subAll</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">subAll</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> amt<span class="op">)</span></span>
 <span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>value<span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For-each is concise for reading elements, but it does not give direct access to the index.</p>
-</section>
-<section id="enhanced-for-loop-limitation" class="slide level2">
-<h2>Enhanced For Loop Limitation</h2>
-<h3 id="it-cannot-replace-array-elements-directly">It cannot replace array elements directly</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> values<span class="op">)</span></span>
-<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-3"><a href=""></a>    value<span class="op">++;</span></span>
-<span id="cb8-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This changes only the local loop variable, not the array elements.</p>
-<p>Use an indexed loop when modifying array contents.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2 image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="spellchecker">SpellChecker</h3>
-
-<img data-src="../../assets/4-data-collections/4-4-array-traversals/spellcheck.png" style="width:34.0%" class="r-stretch quarto-figure-center"><p class="caption">SpellChecker challenge prompt</p><p>Write a method that traverses an array of dictionary words and checks whether a target word appears.</p>
-<p>Key pattern: loop through words, compare with <code>equals</code>, return early when found.</p>
+<span id="cb7-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-5"><a href=""></a>        values<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> values<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> amt<span class="op">;</span></span>
+<span id="cb7-6"><a href=""></a>    <span class="op">}</span> <span class="co">// end for loop</span></span>
+<span id="cb7-7"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>write an indexed traversal from <code>0</code> to <code>array.length - 1</code></li>
-<li>use array elements inside an accumulator or search</li>
-<li>explain why <code>i &lt; array.length</code> avoids out-of-bounds errors</li>
-<li>choose for-each when no index or mutation is needed</li>
-<li>explain why for-each cannot directly replace array elements</li>
+<li>define traversal as visiting each element of the array</li>
+<li>use <code>i = 0; i &lt; array.length; i++</code> as the indexed traversal pattern</li>
+<li>explain why <code>i</code> can be used inside <code>array[i]</code></li>
+<li>trace <code>arraytrace2</code> before and after adding names</li>
+<li>explain why passing an array to a method can mutate the original</li>
+<li>order <code>subAll</code> with the loop header before the array update statement</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">4.4 Part 1 complete</h3>
+<p>Next: partial traversals and common loop errors.</p>
 
 </section>
     </div>

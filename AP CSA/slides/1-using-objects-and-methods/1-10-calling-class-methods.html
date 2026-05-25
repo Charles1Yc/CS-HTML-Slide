@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.10 Calling Class Methods</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Static and Non-Void Methods</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,256 +212,191 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="static-methods-belong-to-the-class">Static methods belong to the class</h3>
-<p>Most methods used so far are <span class="term">static methods</span>, also called <span class="term">class methods</span> (类方法).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> returnType <span class="fu">methodName</span><span class="op">(</span>parameters<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="co">// method body</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The keyword <code>static</code> appears before the return type. The <code>main</code> method is always static.</p>
+<h3 id="static-methods-are-class-methods">Static methods are class methods</h3>
+<p>Most of the methods we have used so far are <strong>static methods</strong>, which are also called <strong>class methods</strong> (类方法).</p>
+<p>These methods are associated with the class and include the keyword <code>static</code> in the method header.</p>
+<p>The <code>main</code> method is always static, which also means that there is only one copy of the method.</p>
 </section>
-<section id="void-and-non-void" class="slide level2">
-<h2>Void and Non-Void</h2>
-<h3 id="some-methods-return-a-value">Some methods return a value</h3>
-<p>Most early methods were <span class="term">void methods</span>, which do not return a value. Many methods calculate and return a value.</p>
+<section id="static-method-template" class="slide level2">
+<h2>Static Method Template</h2>
+<h3 id="static-appears-before-the-return-type"><code>static</code> appears before the return type</h3>
+<p>Here is a template for a static method.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// static method header</span></span>
+<span id="cb1-2"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="cf">return</span><span class="op">-</span>type method<span class="op">-</span><span class="fu">name</span><span class="op">(</span>parameters<span class="op">)</span></span>
+<span id="cb1-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="co">// method body</span></span>
+<span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Up until now, we have used the keyword <code>void</code> as the return type for methods that do not return a value.</p>
+</section>
+<section id="non-void-methods" class="slide level2">
+<h2>Non-Void Methods</h2>
+<h3 id="methods-that-calculate-and-return-a-value">Methods that calculate and return a value</h3>
+<p>Most of the methods we have used so far have been <strong>void methods</strong>, which do not return a value.</p>
+<p>Many methods act like mathematical functions that calculate and return a value given some arguments. These methods are called <strong>non-void methods</strong> (非 void 方法).</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Method as a function</p><p>A <span class="term">non-void method</span> (非 void 方法) returns a value whose type matches the return type in the method header.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Method that takes arguments and returns a value</p></section>
+<section id="non-void-method-model" class="slide level2">
+<h2>Non-Void Method Model</h2>
+<h3 id="a-calculating-machine">A calculating machine</h3>
+<p>You can imagine a non-void method as:</p>
+<div class="tight-list">
+<ul>
+<li>a calculating machine that takes numbers as arguments and returns a calculated result</li>
+<li>a toaster that takes bread as an argument and changes it to return toast</li>
+</ul>
+</div>
+<p>In the next lesson, we will look at the <code>Math</code> library in Java, but consider a simple method that squares a number.</p>
+<p>For example, <code>square(3)</code> would return <code>9</code>.</p>
 </section>
 <section id="square-method" class="slide level2">
 <h2>Square Method</h2>
-<h3 id="header-body-and-return">Header, body, and return</h3>
+<h3 id="square3-returns-9"><code>square(3)</code> returns <code>9</code></h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png" style="width:44.0%" class="r-stretch quarto-figure-center"><p class="caption">Square method model</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
+<img data-src="../../assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">The Square Method</p><p>This method takes an <code>int</code> number as an argument, squares that number, and returns the result.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
 <span id="cb2-3"><a href=""></a>    <span class="dt">int</span> result <span class="op">=</span> number <span class="op">*</span> number<span class="op">;</span></span>
 <span id="cb2-4"><a href=""></a>    <span class="cf">return</span> result<span class="op">;</span></span>
 <span id="cb2-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>static int</code> means this class method returns an <code>int</code>.</p>
+<p><code>static int</code> indicates that the method returns an integer value.</p>
 </section>
 <section id="return-statement" class="slide level2">
 <h2>Return Statement</h2>
-<h3 id="send-a-value-back-to-the-caller">Send a value back to the caller</h3>
-<p>The <span class="term">return statement</span> sends a value back to the method call.</p>
+<h3 id="return-a-value-to-the-calling-code">Return a value to the calling code</h3>
+<p>The <strong>return</strong> statement is used to return a value from the method back to the calling code.</p>
 <div class="tight-list">
 <ul>
-<li>The return value must match the declared return type.</li>
-<li>A return statement ends the method execution.</li>
-<li>Code after a return statement in the same path is not executed.</li>
+<li>The return value must be the same type as the return type in the method header.</li>
+<li>The return statement also ends the method execution.</li>
+<li>Any code after the return statement is not executed.</li>
 </ul>
 </div>
-<p>In <code>square(5)</code>, the method returns <code>25</code>.</p>
+</section>
+<section id="square-method-trace" class="slide level2">
+<h2>Square Method Trace</h2>
+<h3 id="codelens-squareviz"><code>codelens:: squareviz</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SquareMethod</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>   <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>   <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>         <span class="dt">int</span> result <span class="op">=</span> number <span class="op">*</span> number<span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a>         <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb3-7"><a href=""></a>   <span class="op">}</span></span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a>   <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-10"><a href=""></a>   <span class="op">{</span></span>
+<span id="cb3-11"><a href=""></a>         <span class="dt">int</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb3-12"><a href=""></a>         <span class="dt">int</span> y <span class="op">=</span> <span class="fu">square</span><span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb3-13"><a href=""></a>         <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The square of "</span> <span class="op">+</span> x <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> y<span class="op">);</span></span>
+<span id="cb3-14"><a href=""></a>         x <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb3-15"><a href=""></a>         <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The square of "</span> <span class="op">+</span> x <span class="op">+</span> <span class="st">" is "</span> <span class="op">+</span> <span class="fu">square</span><span class="op">(</span>x<span class="op">));</span></span>
+<span id="cb3-16"><a href=""></a>   <span class="op">}</span></span>
+<span id="cb3-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The variable <code>y</code> is assigned the return value of the <code>square</code> method.</p>
 </section>
 <section id="using-returned-values" class="slide level2">
 <h2>Using Returned Values</h2>
-<h3 id="store-it-or-use-it-in-an-expression">Store it or use it in an expression</h3>
-<p>When a method returns a value, use that value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="fu">square</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb3-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">square</span><span class="op">(</span><span class="dv">4</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Common error: calling a non-void method and ignoring the returned value when the value is needed later.</p>
+<h3 id="store-it-or-use-it-directly">Store it or use it directly</h3>
+<p>When calling the <code>square</code> method, the return value can be stored in a variable or used as part of an expression.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="co">// Saving the returned value of the square method in a variable</span></span>
+<span id="cb4-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="fu">square</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
+<span id="cb4-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span> <span class="co">// prints 25</span></span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a><span class="co">// Printing the returned value of the square method directly</span></span>
+<span id="cb4-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">square</span><span class="op">(</span><span class="dv">4</span><span class="op">));</span> <span class="co">// prints 16</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="add-another-square-call">Add another square call</h3>
-<p>Add another call to <code>square</code> in <code>main</code> that prints the square of <code>6</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SquareMethod</span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        <span class="dt">int</span> result <span class="op">=</span> number <span class="op">*</span> number<span class="op">;</span></span>
-<span id="cb4-6"><a href=""></a>        <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb4-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-8"><a href=""></a></span>
-<span id="cb4-9"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb4-10"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5 squared is "</span> <span class="op">+</span> <span class="fu">square</span><span class="op">(</span><span class="dv">5</span><span class="op">));</span></span>
-<span id="cb4-12"><a href=""></a>        <span class="co">// Call square to print the square of 6.</span></span>
-<span id="cb4-13"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output should include <code>36</code>.</p>
-</section>
-<section id="trace-task" class="slide level2">
-<h2>Trace Task</h2>
-<h3 id="returned-values-inside-an-expression">Returned values inside an expression</h3>
-<p>What does this code print?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MethodTrace</span>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-squaremethod"><code>activecode:: squareMethod</code></h3>
+<p>Add another call to the <code>square</code> method in the <code>main</code> method that prints out the square of <code>6</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SquareMethod</span>
 <span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> x<span class="op">)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="cf">return</span> x <span class="op">*</span> x<span class="op">;</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">divide</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-10"><a href=""></a>        <span class="cf">return</span> x <span class="op">/</span> y<span class="op">;</span></span>
-<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-12"><a href=""></a></span>
-<span id="cb5-13"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb5-14"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-15"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">square</span><span class="op">(</span><span class="dv">3</span><span class="op">)</span> <span class="op">+</span> <span class="fu">divide</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">));</span></span>
-<span id="cb5-16"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>11</code>, because <code>square(3)</code> returns <code>9</code> and <code>divide(5, 2)</code> returns <code>2</code>.</p>
+<span id="cb5-3"><a href=""></a>     <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>     <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>         <span class="dt">int</span> result <span class="op">=</span> number <span class="op">*</span> number<span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>         <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb5-7"><a href=""></a>     <span class="op">}</span></span>
+<span id="cb5-8"><a href=""></a></span>
+<span id="cb5-9"><a href=""></a>     <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-10"><a href=""></a>     <span class="op">{</span></span>
+<span id="cb5-11"><a href=""></a>         <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5 squared is "</span> <span class="op">+</span> <span class="fu">square</span><span class="op">(</span><span class="dv">5</span><span class="op">));</span></span>
+<span id="cb5-12"><a href=""></a>         <span class="co">// TO DO: Call the square method to print out the square of 6</span></span>
+<span id="cb5-13"><a href=""></a></span>
+<span id="cb5-14"><a href=""></a>     <span class="op">}</span></span>
+<span id="cb5-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="common-errors" class="slide level2">
-<h2>Common Errors</h2>
-<h3 id="match-types-count-and-order">Match types, count, and order</h3>
-<p>Common errors with non-void methods include:</p>
+<section id="coding-exercise-check" class="slide level2">
+<h2>Coding Exercise Check</h2>
+<h3 id="preserved-runestone-checks">Preserved Runestone checks</h3>
+<p>Runestone checks:</p>
 <div class="tight-list">
 <ul>
-<li>forgetting to use the returned value</li>
-<li>saving a returned <code>double</code> in an <code>int</code></li>
-<li>passing too many or too few arguments</li>
-<li>passing arguments in the wrong order</li>
-<li>passing values with incompatible types</li>
+<li>code contains <code>square(6)</code></li>
+<li>expected output from <code>main</code> includes <code>36</code></li>
 </ul>
 </div>
-<p>Use the method signature to check every call.</p>
+<p>The starter code should remain a starter: add the call in <code>main</code>, do not change the <code>square</code> method.</p>
 </section>
-<section id="debugging-task" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="fix-method-calls-and-return-types">Fix method calls and return types</h3>
-<p>Do not change the methods except <code>main</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MathMethods</span>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-tracemethods1"><code>mchoice:: traceMethods1</code></h3>
+<p>What does the following code print out?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MethodTrace</span>
 <span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> x<span class="op">)</span></span>
 <span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">return</span> number <span class="op">*</span> number<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="cf">return</span> <span class="op">(</span>x <span class="op">*</span> x<span class="op">);</span></span>
 <span id="cb6-6"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb6-7"><a href=""></a></span>
-<span id="cb6-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">divide</span><span class="op">(</span><span class="dt">double</span> x<span class="op">,</span> <span class="dt">double</span> y<span class="op">)</span></span>
+<span id="cb6-8"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">divide</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span>
 <span id="cb6-9"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-10"><a href=""></a>        <span class="cf">return</span> x <span class="op">/</span> y<span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>        <span class="cf">return</span> <span class="op">(</span>x <span class="op">/</span> y<span class="op">);</span></span>
 <span id="cb6-11"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb6-12"><a href=""></a></span>
 <span id="cb6-13"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
 <span id="cb6-14"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-15"><a href=""></a>        <span class="dt">int</span> result1 <span class="op">=</span> <span class="fu">square</span><span class="op">(</span><span class="fl">4.0</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb6-16"><a href=""></a>        <span class="dt">int</span> result2 <span class="op">=</span> <span class="fu">divide</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb6-17"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"4 squared is "</span> <span class="op">+</span> result1<span class="op">);</span></span>
-<span id="cb6-18"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"5 divided by 2 is "</span> <span class="op">+</span> result2<span class="op">);</span></span>
-<span id="cb6-19"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-15"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">square</span><span class="op">(</span><span class="dv">3</span><span class="op">)</span> <span class="op">+</span> <span class="fu">divide</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb6-16"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-17"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="debugging-task-1" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="target-fix">Target fix</h3>
-<p>The corrected calls should use:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="dt">int</span> result1 <span class="op">=</span> <span class="fu">square</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb7-2"><a href=""></a><span class="dt">double</span> result2 <span class="op">=</span> <span class="fu">divide</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>4 squared is 16</span>
-<span id="cb8-2"><a href=""></a>5 divided by 2 is 2.5</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Notice that the return type of <code>divide</code> is <code>double</code>, so <code>result2</code> must be <code>double</code>.</p>
-</section>
-<section id="methods-outside-the-class" class="slide level2">
-<h2>Methods Outside the Class</h2>
-<h3 id="use-the-class-name-with-dot-operator">Use the class name with dot operator</h3>
-<p>Inside the class that defines a static method, the class name is optional. From another class, include the class name.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a>ClassName<span class="op">.</span><span class="fu">methodName</span><span class="op">(</span>arguments<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span></span>
-<span id="cb10-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is why Java library class methods are usually called with <code>ClassName.methodName(arguments)</code>.</p>
-</section>
-<section id="math-preview" class="slide level2">
-<h2>Math Preview</h2>
-<h3 id="sqrt-and-pow"><code>sqrt</code> and <code>pow</code></h3>
-<p>The next topic uses the <code>Math</code> class.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="dt">double</span> x <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb11-2"><a href=""></a><span class="dt">double</span> y <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="quick-check-choices" class="slide level2">
+<h2>Quick Check Choices</h2>
+<h3 id="choose-one-answer">Choose one answer</h3>
 <div class="tight-list">
 <ul>
-<li><code>Math.pow(3, 2)</code> returns <code>9.0</code></li>
-<li><code>Math.sqrt(9)</code> returns <code>3.0</code></li>
+<li>A. <code>11</code></li>
+<li>B. <code>11.5</code></li>
+<li>C. <code>92</code></li>
+<li>D. <code>square(3)+divide(5,2)</code></li>
+<li>E. Nothing, it does not compile.</li>
 </ul>
 </div>
-<p>Both are class methods, and both return <code>double</code> values.</p>
 </section>
-<section id="groupwork-challenge" class="slide level2">
-<h2>Groupwork Challenge</h2>
-<h3 id="ladder-on-tower">Ladder on Tower</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png" style="width:18.0%" class="r-stretch quarto-figure-left"><p class="caption">Ladder on tower challenge</p><p>Use the Pythagorean theorem to compute the ladder length.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>c = sqrt(a^2 + b^2)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>where <code>a</code> and <code>b</code> are the triangle’s legs, and <code>c</code> is the hypotenuse.</p>
-<p>Correct Java expressions include:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span>a <span class="op">*</span> a <span class="op">+</span> b <span class="op">*</span> b<span class="op">)</span></span>
-<span id="cb13-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span>a<span class="op">,</span> <span class="dv">2</span><span class="op">)</span> <span class="op">+</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span>b<span class="op">,</span> <span class="dv">2</span><span class="op">))</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="groupwork-challenge-1" class="slide level2">
-<h2>Groupwork Challenge</h2>
-<h3 id="ladder-starter-code">Ladder starter code</h3>
-<p>Complete <code>ladderSizeNeeded</code>, then call it with height <code>30</code> and width <code>40</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> LadderHelper</span>
-<span id="cb14-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb14-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">ladderSizeNeeded</span><span class="op">(</span><span class="dt">double</span> height<span class="op">,</span> <span class="dt">double</span> width<span class="op">)</span></span>
-<span id="cb14-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb14-5"><a href=""></a>        <span class="dt">double</span> ladderSize<span class="op">;</span></span>
-<span id="cb14-6"><a href=""></a>        <span class="co">// Calculate ladderSize using Math.sqrt and Math.pow or multiplication.</span></span>
-<span id="cb14-7"><a href=""></a></span>
-<span id="cb14-8"><a href=""></a>        <span class="cf">return</span> ladderSize<span class="op">;</span></span>
-<span id="cb14-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb14-10"><a href=""></a></span>
-<span id="cb14-11"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> argv<span class="op">)</span></span>
-<span id="cb14-12"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb14-13"><a href=""></a>        <span class="dt">double</span> size<span class="op">;</span></span>
-<span id="cb14-14"><a href=""></a>        <span class="co">// Call ladderSizeNeeded with height 30 and width 40.</span></span>
-<span id="cb14-15"><a href=""></a></span>
-<span id="cb14-16"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Beloved, I need a "</span> <span class="op">+</span> size <span class="op">+</span> <span class="st">" foot ladder!"</span><span class="op">);</span></span>
-<span id="cb14-17"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb14-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>Beloved, I need a 50.0 foot ladder!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="ap-style-quick-check" class="slide level2">
-<h2>AP-Style Quick Check</h2>
-<h3 id="which-call-compiles">Which call compiles?</h3>
-<p>Given this method:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">calculatePizzaBoxes</span><span class="op">(</span><span class="dt">int</span> numOfPeople<span class="op">,</span> <span class="dt">double</span> slicesPerBox<span class="op">)</span></span>
-<span id="cb16-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb16-3"><a href=""></a>    <span class="co">// implementation not shown</span></span>
-<span id="cb16-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Which line compiles in the same class?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a><span class="dt">double</span> result <span class="op">=</span> <span class="fu">calculatePizzaBoxes</span><span class="op">(</span><span class="dv">45</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Reason: the arguments match <code>int, double</code>, and the returned <code>double</code> is stored in a <code>double</code>.</p>
-</section>
-<section id="ap-style-trace-check" class="slide level2">
-<h2>AP-Style Trace Check</h2>
-<h3 id="static-method-calls-from-another-static-method">Static method calls from another static method</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb18-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">inchesToCentimeters</span><span class="op">(</span><span class="dt">double</span> i<span class="op">)</span></span>
-<span id="cb18-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb18-3"><a href=""></a>    <span class="dt">double</span> c <span class="op">=</span> i <span class="op">*</span> <span class="fl">2.54</span><span class="op">;</span></span>
-<span id="cb18-4"><a href=""></a>    <span class="fu">printInCentimeters</span><span class="op">(</span>i<span class="op">,</span> c<span class="op">);</span></span>
-<span id="cb18-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb18-6"><a href=""></a></span>
-<span id="cb18-7"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printInCentimeters</span><span class="op">(</span><span class="dt">double</span> inches<span class="op">,</span> <span class="dt">double</span> centimeters<span class="op">)</span></span>
-<span id="cb18-8"><a href=""></a><span class="op">{</span></span>
-<span id="cb18-9"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span>inches <span class="op">+</span> <span class="st">"--&gt;"</span> <span class="op">+</span> centimeters<span class="op">);</span></span>
-<span id="cb18-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If <code>inchesToCentimeters(10)</code> is called, the output is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href=""></a>10.0--&gt;25.4</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="correct-answer-a">Correct answer: A</h3>
+<p><code>square(3)</code> is called first and returns <code>9</code>.</p>
+<p>Then <code>divide(5,2)</code> is called and returns <code>2</code> because it does <code>int</code> division and leaves off the decimal part.</p>
+<p>The sum of <code>9</code> and <code>2</code> is <code>11</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>define class methods as <span class="term">static</span> methods associated with the class</li>
-<li>distinguish <span class="term">void</span> methods from <span class="term">non-void</span> methods</li>
-<li>explain that a non-void method returns a value matching its return type</li>
-<li>use or store a returned value correctly</li>
-<li>match method calls by argument number, type, and order</li>
-<li>call methods in other classes with <code>ClassName.methodName(arguments)</code></li>
-<li>use <code>Math.sqrt</code> and <code>Math.pow</code> inside a returned-value calculation</li>
+<li>distinguish <code>void</code> methods from non-void methods</li>
+<li>identify <code>static</code> methods as class methods</li>
+<li>match the return value type with the method header return type</li>
+<li>use a returned value by storing it in a variable or using it in an expression</li>
+<li>trace a method call back to the returned value</li>
+<li>remember that <code>int</code> division returns an <code>int</code></li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">1.10 Part 1 complete</h3>
+<p>Part 2 continues with common errors and class-name method calls.</p>
 
 </section>
     </div>

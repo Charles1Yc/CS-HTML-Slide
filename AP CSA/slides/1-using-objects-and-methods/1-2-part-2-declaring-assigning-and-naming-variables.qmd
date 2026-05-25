@@ -1,0 +1,426 @@
+---
+title: "1.2 Variables and Data Types"
+subtitle: "Part 2: Declaring, Assigning, and Naming Variables"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Declaring Variables in Java
+
+### Type and name
+
+To create a variable, you must tell Java its data type and its name.
+
+Creating a variable is also called <span class="term">declaring a variable</span> (声明变量).
+
+The type is a keyword like `int`, `double`, or `boolean`, but you get to make up the name for the variable.
+
+When you create a primitive variable, Java will set aside enough bits in memory for that primitive type and associate that memory location with the name that you used.
+
+## Bits and Memory
+
+### Type determines storage
+
+Computers store all values using <span class="term">bits</span> (binary digits).
+
+A bit can represent two values, usually `0` or `1`.
+
+When you declare a variable, Java needs to know how many bits to use and how to represent the value.
+
+::: {.tight-list}
+- An integer gets <span class="mark">32 bits</span> of memory.
+- A double gets <span class="mark">64 bits</span> of memory.
+- A boolean could be represented by just one bit.
+:::
+
+## Memory Figure
+
+### Types use different memory space
+
+::: {.image-fit}
+![Examples of variables with names and values showing different memory space](../../assets/1-using-objects-and-methods/1-2-variables-and-data-types/typesAndSpace.png){fig-align="center" width="72%"}
+:::
+
+Different types get a different amount of memory space.
+
+## Declaration Syntax
+
+### Type, name, semicolon
+
+To declare a variable, specify the type, leave at least one space, then the name for the variable and end the line with a semicolon `;`.
+
+```java
+int score;
+```
+
+Java uses the keyword `int` for integer, `double` for a floating point number, and `boolean` for a Boolean value.
+
+## Assigning a Value
+
+### `=` sets the value
+
+After declaring a variable, you can give it a value using an equals sign `=` followed by the value.
+
+```java
+int score;
+score = 4;
+```
+
+Or you can set an initial value in the variable declaration:
+
+```java
+int score = 4;
+```
+
+## Printing Variables
+
+### Concatenation and quotes
+
+When printing variables, you can use the string concatenation operator `+` to add them to another string inside `System.out.print`.
+
+Never put variables inside quotes `""` because that will print out the variable name letter by letter.
+
+You do not want to print out the variable name, but the value of the variable in memory.
+
+If you want spaces between words and variables, you must put the space in the quotes.
+
+## Code Task
+
+### `activecode:: strConcatDemo`
+
+Textbook prompt: Run the following code to see what is printed.
+
+Then, change the values and run it again.
+
+Try adding quotes to variables and removing spaces in the print statements to see what happens.
+
+## Code Window
+
+### `activecode:: strConcatDemo`
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        int score;
+        score = 0;
+        System.out.print("The score is ");
+        System.out.println(score);
+
+        double price = 23.25;
+        System.out.println("The price is " + price);
+
+        boolean won = false;
+        System.out.println(won);
+        won = true;
+        System.out.println(won);
+
+        String name = "Jose";
+        System.out.println("Hi " + name);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: strConcatDemo`
+
+Runestone expects this starter output from `main`:
+
+```text
+The score is 0
+The price is 23.25
+false
+true
+Hi Jose
+```
+
+## Identify Declarations
+
+### `clickablearea:: var_declare`
+
+Textbook prompt: Click on all of the variable declarations in the following code.
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        int numLives;
+        numLives = 0;
+        System.out.println(numLives);
+        double health;
+        health = 8.5;
+        System.out.println(health);
+        boolean powerUp;
+        powerUp = true;
+        System.out.println(powerUp);
+    }
+}
+```
+
+## Correct Lines
+
+### `clickablearea:: var_declare`
+
+Variable declarations start with a type and then a name.
+
+```java
+int numLives;
+double health;
+boolean powerUp;
+```
+
+## Identify Initializations
+
+### `clickablearea:: var_init`
+
+Textbook prompt: Click on all of the variable initializations, the first time the variable is set to a value.
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        int numLives;
+        numLives = 0;
+        System.out.println(numLives);
+        double health = 8.5;
+        System.out.println(health);
+        boolean powerUp = true;
+        System.out.println(powerUp);
+    }
+}
+```
+
+## Correct Lines
+
+### `clickablearea:: var_init`
+
+Variables are initialized using `name = value;`.
+
+```java
+numLives = 0;
+double health = 8.5;
+boolean powerUp = true;
+```
+
+## Assignment Direction
+
+### Variable on the left
+
+The equal sign here `=` does not mean the same as it does in a mathematical equation.
+
+Here it means set the value in the memory location associated with the variable name on the left to a copy of the value on the right.
+
+A variable always has to be on the left side of the `=`, and a value or expression on the right.
+
+## Debugging Task
+
+### `activecode:: asgn_order`
+
+Textbook prompt: This assignment statement is in the wrong order. Try to fix it to compile and run.
+
+```java
+public class Test3
+{
+    public static void main(String[] args)
+    {
+        int score;
+        4 = score;
+        System.out.println(score);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: asgn_order`
+
+Runestone expects this output from `main`:
+
+```text
+4
+```
+
+The target assignment has the variable on the left and the value on the right.
+
+## Trace Checkpoint
+
+### `fillintheblank:: fillDecVar1`
+
+Fill in the following:
+
+```java
+[blank] age = [blank];
+```
+
+Prompt: declare `age` to be an integer and set its value to `5`.
+
+Correct response:
+
+```java
+int age = 5;
+```
+
+## Trace Checkpoint
+
+### `fillintheblank:: fillDecVar2`, `fillDecVar3`
+
+What type should you use for a shoe size like `8.5`?
+
+Correct response:
+
+```text
+double
+```
+
+What type should you use for a number of tickets?
+
+Correct response:
+
+```text
+int
+```
+
+## Mixed-Up Code
+
+### `parsonsprob:: declareVars1`
+
+Textbook prompt: Declare and initialize variables for a number of visits, a person's temperature, and if the person has insurance or not.
+
+Needed blocks:
+
+```java
+int numVisits = 5;
+double temp = 101.2;
+boolean hasInsurance = false;
+```
+
+## Extra Blocks to Reject
+
+### `parsonsprob:: declareVars1`
+
+```java
+Int numVisits = 5;
+Double temp = 101.2;
+Boolean hasInsurance = false;
+```
+
+Reject these blocks because Java primitive type keywords are lowercase.
+
+## Naming Variables
+
+### Rules
+
+While you can name your variable almost anything, there are some rules.
+
+::: {.tight-list}
+- A variable name should start with an alphabetic character.
+- It can include letters, numbers, and underscores `_`.
+- It must be all one word with no spaces.
+- You cannot use keywords or reserved words as variable names.
+:::
+
+Examples of keywords include `for`, `if`, `class`, `static`, `int`, and `double`.
+
+## Naming Variables
+
+### Meaningful names and camel case
+
+The name of the variable should describe the data it holds.
+
+A name like `score` helps make your code easier to read. A name like `x` is not a good variable name in programming because it gives no clues about what kind of data it holds.
+
+The convention in Java is to start a variable name with a lower case letter and uppercase the first letter of each additional word, for example `gameScore`.
+
+This is called <span class="term">camel case</span> (驼峰命名).
+
+## Naming Note
+
+### Source rules
+
+::: {.tight-list}
+- Use meaningful variable names.
+- Start variable names with a lower case letter and use camelCase.
+- Variable names are case-sensitive and spelling sensitive.
+- Each use of the variable in the code must match the variable name in the declaration exactly.
+- Never put variables inside quotes `" "`.
+:::
+
+## Debugging Task
+
+### `activecode:: varCaseSensitive`
+
+Textbook prompt: Java is case sensitive, so `gameScore` and `gamescore` are not the same.
+
+Run and fix the code below to use the right variable name.
+
+```java
+public class CaseSensitiveClass
+{
+    public static void main(String[] args)
+    {
+        int gameScore = 0; // variable name using camel case
+        // this is using a different variable without camel case!
+        System.out.println("gameScore is " + gamescore);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: varCaseSensitive`
+
+Runestone expects this output from `main`:
+
+```text
+gameScore is 0
+```
+
+The variable name must match the declaration exactly.
+
+## Trace Checkpoint
+
+### `fillintheblank:: fillName1`, `fillName2`
+
+What is the camel case variable name for a variable that represents a shoe size?
+
+```text
+shoeSize
+```
+
+What is the camel case variable name for a variable that represents the top score?
+
+```text
+topScore
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- declare a variable using type, name, and semicolon
+- explain why Java needs the data type before reserving memory
+- initialize a variable with its first value
+- print a variable value without putting the variable name in quotes
+- put the variable on the left side of `=`
+- use meaningful camelCase names with exact capitalization
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Weather and Mad Libs challenges →](1-2-part-3-weather-and-mad-libs-challenges.html)

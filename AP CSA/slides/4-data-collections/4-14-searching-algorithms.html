@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.14 Searching Algorithms</title>
+  <title>4.14 Linear Search</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.14 Searching Algorithms</h1>
-  <p class="subtitle">Part 1: Linear Search</p>
+  <h1 class="title">4.14 Linear Search</h1>
+  <p class="subtitle">Searching Algorithms</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,139 +210,215 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="search-means-find-a-target">Search means find a target</h3>
-<p>A <span class="term">searching algorithm</span> examines data to determine whether a target value is present, or where it appears.</p>
-<p>This deck focuses on <span class="term">linear search</span>, which checks elements one at a time.</p>
+<section id="searching-algorithms" class="slide level2">
+<h2>Searching Algorithms</h2>
+<h3 id="linear-and-binary-search">Linear and binary search</h3>
+<p>Computers store vast amounts of data.</p>
+<p>One strength of computers is their ability to find things quickly. This ability is called <strong>searching</strong>.</p>
+<p>For the AP CSA exam you need to know both <strong>linear (sequential) search</strong> and <strong>binary search</strong> algorithms.</p>
+<p>If binary search requires the values in an array or list to be sorted, sorting algorithms will be covered in the next lesson.</p>
 </section>
-<section id="algorithm-idea" class="slide level2">
-<h2>Algorithm Idea</h2>
-<h3 id="check-each-element-from-left-to-right">Check each element from left to right</h3>
-<p>Linear search works on unsorted or sorted data.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>For each element:</span>
-<span id="cb1-2"><a href=""></a>    If the element equals the target:</span>
-<span id="cb1-3"><a href=""></a>        Return the index or true.</span>
-<span id="cb1-4"><a href=""></a>After all elements are checked:</span>
-<span id="cb1-5"><a href=""></a>    Return not found.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Worst case: the target is last or not present.</p>
+<section id="linear-search" class="slide level2">
+<h2>Linear Search</h2>
+<h3 id="unsorted-data">Unsorted data</h3>
+<p>Linear or Sequential search can be used to find a value in <strong>unsorted</strong> data.</p>
+<p>It usually starts at the first element and walks through the array or <code>ArrayList</code> until it finds the value and returns its index.</p>
+<p>If it reaches the end without finding the value, the search method usually returns <code>-1</code>.</p>
 </section>
-<section id="full-code" class="slide level2">
-<h2>Full Code</h2>
-<h3 id="linear-search-with-array-index">Linear search with array index</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">linearSearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> values<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>values<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
-<span id="cb2-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>            <span class="cf">return</span> i<span class="op">;</span></span>
-<span id="cb2-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-10"><a href=""></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Returning <code>-1</code> is a common signal for not found.</p>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-seqsearch"><code>activecode:: seqSearch</code></h3>
+<p>The code for <code>sequentialSearch</code> for arrays below is from a previous AP CSA course description.</p>
 </section>
-<section id="focused-trace" class="slide level2">
-<h2>Focused Trace</h2>
-<h3 id="search-for-9">Search for <code>9</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> values <span class="op">=</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
-<span id="cb3-2"><a href=""></a><span class="dt">int</span> index <span class="op">=</span> <span class="fu">linearSearch</span><span class="op">(</span>values<span class="op">,</span> <span class="dv">9</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"><code>i</code></th>
-<th style="text-align: right;"><code>values[i]</code></th>
-<th>result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td>keep searching</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td>keep searching</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">9</td>
-<td>return <code>2</code></td>
-</tr>
-</tbody>
-</table>
+<section id="arraysearcher-source-code" class="slide level2">
+<h2>ArraySearcher Source Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ArraySearcher</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sequentialSearch</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> elements<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-7"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>elements<span class="op">[</span>j<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb1-8"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>                <span class="cf">return</span> j<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-12"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-14"><a href=""></a></span>
+<span id="cb1-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-17"><a href=""></a>        <span class="dt">int</span><span class="op">[]</span> numArray <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">38</span><span class="op">,</span> <span class="op">-</span><span class="dv">23</span><span class="op">};</span></span>
+<span id="cb1-18"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Tests of sequentialSearch"</span><span class="op">);</span></span>
+<span id="cb1-19"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numArray<span class="op">,</span> <span class="dv">3</span><span class="op">));</span></span>
+<span id="cb1-20"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numArray<span class="op">,</span> <span class="dv">9</span><span class="op">));</span></span>
+<span id="cb1-21"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numArray<span class="op">,</span> <span class="op">-</span><span class="dv">23</span><span class="op">));</span></span>
+<span id="cb1-22"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numArray<span class="op">,</span> <span class="dv">99</span><span class="op">));</span></span>
+<span id="cb1-23"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-24"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="seqsearch-test-target" class="slide level2">
+<h2>seqSearch Test Target</h2>
+<h3 id="runestone-expected-output">Runestone expected output</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Tests of sequentialSearch</span>
+<span id="cb2-2"><a href=""></a>0</span>
+<span id="cb2-3"><a href=""></a>2</span>
+<span id="cb2-4"><a href=""></a>4</span>
+<span id="cb2-5"><a href=""></a>-1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="arraylist-linear-search" class="slide level2">
 <h2>ArrayList Linear Search</h2>
-<h3 id="use-geti-and-size">Use <code>get(i)</code> and <code>size()</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">linearSearch</span><span class="op">(</span><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> list<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
+<h3 id="size-and-geti"><code>size()</code> and <code>get(i)</code></h3>
+<p>The same algorithms can be used with arrays or <code>ArrayList</code> objects.</p>
+<p>With <code>ArrayList</code>, use <code>size()</code> and <code>get(i)</code> instead of <code>length</code> and <code>[i]</code>.</p>
+<p>There are methods such as <code>contains</code> that can be used in <code>ArrayList</code>, but they are not in the AP CSA Java subset.</p>
+</section>
+<section id="arraylistsearcher-source-code" class="slide level2">
+<h2>ArrayListSearcher Source Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ArrayListSearcher</span>
+<span id="cb3-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sequentialSearch</span><span class="op">(</span><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> elements<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">size</span><span class="op">();</span> j<span class="op">++)</span></span>
+<span id="cb3-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb3-9"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>elements<span class="op">.</span><span class="fu">get</span><span class="op">(</span>j<span class="op">)</span> <span class="op">==</span> target<span class="op">)</span></span>
+<span id="cb3-10"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb3-11"><a href=""></a>                <span class="cf">return</span> j<span class="op">;</span></span>
+<span id="cb3-12"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb3-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb3-14"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-16"><a href=""></a></span>
+<span id="cb3-17"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-18"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-19"><a href=""></a>        <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb3-20"><a href=""></a>        numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb3-21"><a href=""></a>        numList<span class="op">.</span><span class="fu">add</span><span class="op">(-</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb3-22"><a href=""></a>        numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span></span>
+<span id="cb3-23"><a href=""></a>        numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">38</span><span class="op">);</span></span>
+<span id="cb3-24"><a href=""></a>        numList<span class="op">.</span><span class="fu">add</span><span class="op">(-</span><span class="dv">23</span><span class="op">);</span></span>
+<span id="cb3-25"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Tests of sequentialSearch"</span><span class="op">);</span></span>
+<span id="cb3-26"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numList<span class="op">,</span> <span class="dv">3</span><span class="op">));</span></span>
+<span id="cb3-27"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numList<span class="op">,</span> <span class="dv">9</span><span class="op">));</span></span>
+<span id="cb3-28"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numList<span class="op">,</span> <span class="op">-</span><span class="dv">23</span><span class="op">));</span></span>
+<span id="cb3-29"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">sequentialSearch</span><span class="op">(</span>numList<span class="op">,</span> <span class="dv">99</span><span class="op">));</span></span>
+<span id="cb3-30"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-31"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="quick-checks" class="slide level2">
+<h2>Quick Checks</h2>
+<h3 id="qss_1-and-qss_2"><code>qss_1</code> and <code>qss_2</code></h3>
+<p>Which causes the <strong>longest</strong> execution of a sequential search looking for a value in an array of integers?</p>
+<p>Correct answer: <strong>The value is not in the array.</strong></p>
+<p>Which causes the <strong>shortest</strong> execution?</p>
+<p>Correct answer: <strong>The value is the first one in the array.</strong></p>
+</section>
+<section id="string-linear-search" class="slide level2">
+<h2>String Linear Search</h2>
+<h3 id="use-equals-not">Use <code>equals</code>, not <code>==</code></h3>
+<p>You can also look for a <code>String</code> in an array or list, but use <code>equals</code> rather than <code>==</code>.</p>
+<p><code>==</code> is only true when the two references refer to the same <code>String</code> object.</p>
+<p><code>equals</code> returns true if the characters in the two <code>String</code> objects are the same.</p>
+</section>
+<section id="searchtest-source-code" class="slide level2">
+<h2>SearchTest Source Code</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SearchTest</span>
 <span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">sequentialSearch</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> elements<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
 <span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span>target<span class="op">))</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> elements<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
 <span id="cb4-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb4-7"><a href=""></a>            <span class="cf">return</span> i<span class="op">;</span></span>
-<span id="cb4-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb4-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-10"><a href=""></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb4-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use <code>equals</code> for strings and other objects.</p>
+<span id="cb4-7"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>elements<span class="op">[</span>j<span class="op">].</span><span class="fu">equals</span><span class="op">(</span>target<span class="op">))</span></span>
+<span id="cb4-8"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb4-9"><a href=""></a>                <span class="cf">return</span> j<span class="op">;</span></span>
+<span id="cb4-10"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb4-11"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-12"><a href=""></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-14"><a href=""></a></span>
+<span id="cb4-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-17"><a href=""></a>        <span class="bu">String</span><span class="op">[]</span> arr1 <span class="op">=</span> <span class="op">{</span><span class="st">"blue"</span><span class="op">,</span> <span class="st">"red"</span><span class="op">,</span> <span class="st">"purple"</span><span class="op">,</span> <span class="st">"green"</span><span class="op">};</span></span>
+<span id="cb4-18"><a href=""></a>        <span class="dt">int</span> index <span class="op">=</span> <span class="fu">sequentialSearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"red"</span><span class="op">);</span></span>
+<span id="cb4-19"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb4-20"><a href=""></a>        index <span class="op">=</span> <span class="fu">sequentialSearch</span><span class="op">(</span>arr1<span class="op">,</span> <span class="st">"pink"</span><span class="op">);</span></span>
+<span id="cb4-21"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>index<span class="op">);</span></span>
+<span id="cb4-22"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-23"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>1</span>
+<span id="cb5-2"><a href=""></a>-1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="string-search" class="slide level2">
-<h2>String Search</h2>
-<h3 id="search-for-a-character-or-substring">Search for a character or substring</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">containsA</span><span class="op">(</span><span class="bu">String</span> text<span class="op">)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> text<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>text<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">).</span><span class="fu">equals</span><span class="op">(</span><span class="st">"a"</span><span class="op">))</span></span>
-<span id="cb5-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb5-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb5-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-10"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb5-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>String traversal is linear search over character positions.</p>
+<section id="linear-search-with-2d-arrays" class="slide level2">
+<h2>Linear Search with 2D Arrays</h2>
+<h3 id="search-each-row">Search each row</h3>
+<p>We can apply the linear search algorithm to data in a 2D array.</p>
+<p>Loop through each row of the 2D array and apply the linear search algorithm to each row to find an element.</p>
+<p>The source asks you to change the code to work with a 2D array of <code>String</code> objects and to use <code>equals</code> to compare strings.</p>
 </section>
-<section id="d-linear-search" class="slide level2">
-<h2>2D Linear Search</h2>
-<h3 id="search-every-row-and-column">Search every row and column</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">contains</span><span class="op">(</span><span class="dt">int</span><span class="op">[][]</span> grid<span class="op">,</span> <span class="dt">int</span> target<span class="op">)</span></span>
+<section id="search-source-code" class="slide level2">
+<h2>Search Source Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Search</span>
 <span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">search</span><span class="op">(</span><span class="dt">int</span><span class="op">[][]</span> array<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
 <span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb6-7"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
-<span id="cb6-8"><a href=""></a>            <span class="op">{</span></span>
-<span id="cb6-9"><a href=""></a>                <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>            <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb6-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-13"><a href=""></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
-<span id="cb6-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-5"><a href=""></a>        <span class="dt">boolean</span> found <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> array<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb6-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> array<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb6-9"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb6-10"><a href=""></a>                <span class="cf">if</span> <span class="op">(</span>array<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> value<span class="op">)</span></span>
+<span id="cb6-11"><a href=""></a>                <span class="op">{</span></span>
+<span id="cb6-12"><a href=""></a>                     found <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-13"><a href=""></a>                <span class="op">}</span></span>
+<span id="cb6-14"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb6-15"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb6-16"><a href=""></a>        <span class="cf">return</span> found<span class="op">;</span></span>
+<span id="cb6-17"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-18"><a href=""></a></span>
+<span id="cb6-19"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-20"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-21"><a href=""></a>        <span class="dt">int</span><span class="op">[][]</span> matrix <span class="op">=</span> <span class="op">{</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">},</span> <span class="op">{</span><span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">10</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">3</span><span class="op">}};</span></span>
+<span id="cb6-22"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">search</span><span class="op">(</span>matrix<span class="op">,</span> <span class="dv">10</span><span class="op">));</span></span>
+<span id="cb6-23"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">search</span><span class="op">(</span>matrix<span class="op">,</span> <span class="dv">11</span><span class="op">));</span></span>
+<span id="cb6-24"><a href=""></a></span>
+<span id="cb6-25"><a href=""></a>        <span class="co">// Comment out the code above, and try these:</span></span>
+<span id="cb6-26"><a href=""></a>        <span class="co">// String[][] matrix2 = { {"a","b","c"},{"d","e","f"} };</span></span>
+<span id="cb6-27"><a href=""></a>        <span class="co">// System.out.println(search(matrix2, "b"));</span></span>
+<span id="cb6-28"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-29"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="d-search-test-target" class="slide level2">
+<h2>2D Search Test Target</h2>
+<h3 id="runestone-extra-test">Runestone extra test</h3>
+<p>The Runestone test calls <code>search</code> with a <code>String[][]</code> and <code>"b"</code>.</p>
+<p>Expected return value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>true</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The modified method must therefore use string comparison correctly.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
-<div class="tight-list">
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <ul>
-<li>explain linear search as checking elements one by one</li>
-<li>write linear search for arrays and <code>ArrayList</code></li>
-<li>return immediately when the target is found</li>
-<li>place the not-found return after the loop</li>
-<li>adapt linear search to strings and 2D arrays</li>
+<li>return the index when linear search finds the target</li>
+<li>return <code>-1</code> after the loop if the target is not found</li>
+<li>use <code>size()</code> and <code>get(i)</code> for <code>ArrayList</code></li>
+<li>use <code>equals</code> for <code>String</code> search</li>
+<li>search a 2D array by traversing rows and columns</li>
 </ul>
-</div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
-<p><a href="4-14-part-2-binary-search.html">Next: Binary Search</a><br>
-<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="linear-search-1">4.14 Linear Search</h3>
+<p>Next: Binary Search.</p>
 
 </section>
     </div>

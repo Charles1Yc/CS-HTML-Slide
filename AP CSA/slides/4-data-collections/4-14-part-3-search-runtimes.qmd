@@ -1,6 +1,6 @@
 ---
-title: "4.14 Searching Algorithms"
-subtitle: "Part 3: Search Runtimes"
+title: "4.14 Search Runtimes"
+subtitle: "Searching Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -10,89 +10,119 @@ lang: zh-CN
 
 ## Course Directory
 
-### Return to the course outline
-
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Runtime Idea
+## Runtimes
 
-### Count how many values may be checked
+### Choosing between algorithms
 
-Search runtime depends on the algorithm and the input size.
+How do we choose between two algorithms that solve the same problem?
 
-::: {.tight-list}
-- linear search may check every element
-- binary search cuts the remaining data roughly in half each step
-:::
+They usually have different characteristics and **runtimes**, which measure how fast they run.
 
-## Linear Search Runtime
+For the searching problem, it depends on your data.
 
-### Worst case grows with `n`
+## Worst Case Behavior
 
-For an array of length `n`, linear search checks:
+### Linear vs binary search
 
-::: {.tight-list}
-- best case: 1 element
-- worst case: `n` elements
-- average case: about half the elements
-:::
+Binary search is much faster than linear search, especially on large data sets, but it can only be used on sorted data.
 
-If `n` doubles, worst-case work doubles.
+With searching, the worst case is usually if you cannot find the item.
 
-## Binary Search Runtime
+With linear search, you would have to go through the whole array before realizing that it is not there.
 
-### Halving grows slowly
+Binary search is much faster even in this case because it eliminates half the data set in each step.
 
-For 64 sorted values:
+## Runtime Table
+
+### Worst case comparisons
+
+| N | Linear Search | Binary Search |
+| ---: | ---: | ---: |
+| 2 | 2 comparisons | 2 comparisons |
+| 4 | 4 | 3 |
+| 8 | 8 | 4 |
+| 16 | 16 | 5 |
+| 100 | 100 | 7 |
+
+Every time we double the size of `N`, we need at most one more guess or comparison with binary search.
+
+## Big-O Note
+
+### Informal runtime comparison
+
+For an array of size `n`, linear search runtime is a linear function.
+
+Binary search runtime is a function of log base 2 of `n`.
+
+This is called the big-O runtime function in computer science, for example `O(log n)` vs. `O(n)`.
+
+You do not need to know the log runtime growth function for the AP exam, but you should be able to calculate binary search steps by counting how many times you can divide by 2.
+
+## Quick Check
+
+### `mchoice:: qbs_1`
+
+Which will cause the **shortest** execution of a binary search looking for a value in an array of integers?
+
+Correct answer: **The value is in the middle of the array.**
+
+If the value is in the middle, binary search returns after one iteration of the loop.
+
+## Quick Check
+
+### `mchoice:: qbs_2`
+
+Which conditions must be true to search for a value using binary search?
 
 ```text
-64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
+I. The values in the array must be integers.
+II. The values in the array must be in sorted order.
+III. The array must not contain duplicate values.
 ```
 
-Only a small number of comparisons are needed compared with checking all 64 values.
+Correct answer: **II only.**
 
-## Quick Checks
+The only requirement is that the values must be ordered.
 
-### Search reasoning
+## Quick Check
 
-1. Which search can be used on unsorted data?  
-   Answer: linear search.
+### `mchoice:: qbs_3`
 
-2. Which search needs sorted data but usually checks fewer values?  
-   Answer: binary search.
+How many times would the loop in binary search run for:
 
-3. If binary search checks a middle value too small, which side remains?  
-   Answer: the right side.
+```java
+int[] arr = {2, 10, 23, 31, 55, 86};
+binarySearch(arr, 55);
+```
 
-## Groupwork Coding Challenge
+Correct answer: **2**
 
-### Search runtimes
+It compares with index `2`, then index `4`, and then returns `4`.
 
-Compare linear search and binary search on the same sorted array.
+## Quick Check
 
-Task:
+### `mchoice:: qbs_4`
 
-::: {.tight-list}
-- count comparisons for a target near the beginning
-- count comparisons for a target near the end
-- count comparisons for a missing target
-- explain when binary search is worth the sorting requirement
-:::
+If you had an ordered array of size `500`, what is the maximum number of iterations required to find an element with binary search?
+
+Correct answer: **approximately 9 times**
+
+You can divide `500` in half 9 times, or observe that `2^9 = 512`, which is slightly bigger than `500`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- compare linear and binary search by number of checks
-- explain best, worst, and average cases informally
-- explain why binary search grows more slowly
-- justify when binary search cannot be used
-- connect runtime reasoning to trace tables or comparison counts
-:::
+- explain why linear search worst case checks every element
+- explain why binary search eliminates half the search space each step
+- use the runtime table to compare worst case steps
+- state that binary search requires sorted data
+- estimate binary search steps by repeated halving or powers of two
 
 ## End
 
-### Return to the course outline
+### 4.14 Search Runtimes
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Search Runtimes Coding Challenge.

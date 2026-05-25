@@ -1,6 +1,6 @@
 ---
 title: "1.15 String Manipulation"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: String Objects, References, and Creation"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,426 +14,202 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Strings
 
-### Text in Java is stored as `String` objects
+### Topic intro
 
-`String` is a class in the built-in <span class="term">`java.lang`</span> package.
+**Strings** in Java are objects of the `String` class.
 
-::: {.tight-list}
-- Strings are <span class="term">reference types</span>, not primitive types.
-- A string variable can hold a reference or `null`.
-- Class names like `String` start with a capital letter.
-- Primitive type names like `int` and `double` start with lowercase letters.
-:::
+Strings represent sequences of characters and are used to store text like names, addresses, or messages.
+
+The `String` class is part of the `java.lang` package, which is available by default in all Java programs.
+
+## Source Note
+
+### Class type vs. primitive type
+
+Class names in Java, like `String`, begin with a capital letter.
+
+All primitive types, `int`, `double`, and `boolean`, begin with a lowercase letter.
+
+This is one easy way to tell the difference between primitive types and class types.
 
 ## String References
 
-### A string variable can be `null`
+### `activecode:: lcsb1`
 
-![Initial string reference](../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png){fig-align="center" width="18%"}
-
-```java
-String greeting = null;
-System.out.println(greeting);
-```
-
-This prints `null`. The variable exists, but it does not yet refer to a `String` object.
-
-## Creating Strings
-
-### Literal form and constructor form
+Run the following code. What does it print?
 
 ```java
-String greeting1 = "Hello";
-String greeting2 = new String("Welcome");
-```
-
-Both statements create a `String` object and store a reference in the variable.
-
-In most Java code, the <span class="term">string literal</span> form is preferred.
-
-## Code Task
-
-### Create first and last name strings
-
-Write a short program that creates and prints two strings.
-
-```java
-public class StringCreate {
-    public static void main(String[] args) {
-        String firstName = "Ada";
-        String lastName = new String("Lovelace");
-
-        System.out.println("Hello, " + firstName);
-        System.out.println("Welcome, " + lastName);
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        String greeting = null;
+        System.out.println(greeting);
     }
 }
 ```
 
-Classroom edit: change the names, and use one literal string and one constructor-created string.
+## Expected Output
 
-## Strings and `Object`
+### `lcsb1`
 
-### `String` is a class type
-
-![String object and class relationship](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png){fig-align="center" width="62%"}
-
-```java
-String s = "Hello";
-System.out.println(s.getClass());
-System.out.println(s.getClass().getSuperclass());
+```text
+null
 ```
 
-Typical output:
+The code declares an object variable named `greeting` and sets the value of `greeting` to the Java keyword `null` to show that it doesn't refer to any object yet.
+
+So `System.out.println(greeting);` will print `null`.
+
+## Object References
+
+### A way to find the object
+
+Object variables **refer** to objects in memory.
+
+A reference is a way to find the actual object, like adding a contact to your phone lets you reach someone without knowing exactly where they are.
+
+The value of `greeting` is `null` since the string object has not been created yet.
+
+![Initial value for an object reference](../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png){fig-align="center" width="18%"}
+
+## Creating Strings
+
+### Constructor form
+
+In Java there are two ways to create an object of the `String` class.
+
+You can use the `new` keyword followed by a space and then the class constructor.
+
+In parentheses you can include values used to initialize the fields of the object.
+
+This is the standard way to create a new object of a class in Java.
+
+```java
+String greeting = new String("Hello");
+```
+
+## Creating Strings
+
+### String literal form
+
+In Java you can also use just a **string literal**, which is a set of characters enclosed in double quotes (`"`), to create a `String` object.
+
+```java
+String greeting = "Hello";
+```
+
+In both cases an object of the `String` class will be created in memory and the value of the variable `greeting` will be set to an object reference, a way to find that object.
+
+## Coding Exercise
+
+### `activecode:: lcsbnew`
+
+The code below creates two greeting strings: one using a string literal and the other using `new` and the `String` constructor.
+
+Change the code to add 2 new strings called `firstName` and `lastName`, one using a string literal and the other using `new`, and print them out with the greetings.
+
+## Starter Code
+
+### `lcsbnew`
+
+```java
+public class StringTest
+{
+    public static void main(String[] args)
+    {
+        String greeting1 = "Hello!";
+        String greeting2 = new String("Welcome!");
+        // TODO: add firstName and lastName strings
+        System.out.println(greeting1);
+        System.out.println(greeting2);
+        // TODO: print the new strings with the greetings
+    }
+}
+```
+
+## Test Requirement
+
+### Preserved Runestone check
+
+Runestone checks that the code changed from the original `StringTest` starter.
+
+Keep one new string literal and one new `String` constructor call in the edited program.
+
+## String Class Object
+
+### `activecode:: lcsb2`
+
+Now that `greeting` refers to an actual object we can ask the object what class created it.
+
+Try the following. What does it print?
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        String greeting = "Hello";
+        Class currClass = greeting.getClass();
+        System.out.println(currClass);
+        Class parentClass = currClass.getSuperclass();
+        System.out.println(parentClass);
+    }
+}
+```
+
+## Expected Output
+
+### `lcsb2`
 
 ```text
 class java.lang.String
 class java.lang.Object
 ```
 
-## Concatenation
+The code first prints class `java.lang.String` since `greeting` was created by the `String` class.
 
-### Use `+` and `+=` to build new strings
+The full name for the `String` class is `java.lang.String`. The `java.lang` part is the **package** name.
 
-```java
-String start = "Happy Birthday";
-String name = "Jose";
-String result = start + " " + name;
-result += "!";
-```
+## Package, Parent Class, Superclass
 
-::: {.tight-list}
-- `+` concatenates strings.
-- `+=` appends to the current variable by creating a new string.
-- Java converts other values to strings when needed.
-- Strings are <span class="term">immutable</span> (不可变).
-:::
+### Source explanation
 
-## Code Task
+Every class in the Java language is in a package and the standard classes like `String` are in the `java.lang` package.
 
-### Birthday message
+Every object in Java knows the class that created it.
 
-Start:
+Also, every class knows its **parent** class. In Java a class can only have one parent.
 
-```java
-public class BirthdayMessage {
-    public static void main(String[] args) {
-        String start = "Happy Birthday";
-        String name = "Jose";
-        String result = start + " " + name;
-        result += "!";
-        System.out.println(result);
-    }
-}
-```
+A class can `inherit` object fields and methods from a parent class.
 
-Edit it so the output is:
+The last print statement prints `class java.lang.Object` because the parent class (**superclass**) of the `String` class is the `Object` class.
 
-```text
-Happy Birthday Jose Hernandez!!!
-```
+## String and Object
 
-## Quick Check
+### Source figure
 
-### Trace string reassignment
+All classes in Java inherit from the `Object` class at some point in their ancestry.
 
-```java
-String s1 = "xy";
-String s2 = s1;
-s1 = s1 + s2 + "z";
-System.out.println(s1);
-```
-
-Answer: `xyxyz`
-
-`s2` keeps referring to the earlier `"xy"` string. The final assignment stores a new string reference in `s1`.
-
-## Number Concatenation
-
-### Parentheses change the result
-
-```java
-System.out.println("12" + 4 + 3);
-System.out.println("12" + (4 + 3));
-```
-
-Output:
-
-```text
-1243
-127
-```
-
-When a string is first in the expression, `+` starts doing string concatenation unless parentheses force arithmetic first.
-
-## Index and Length
-
-### String positions start at 0
-
-![String indices](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png){fig-align="center" width="62%"}
-
-::: {.tight-list}
-- The first character is at index `0`.
-- The last character is at index `length() - 1`.
-- An invalid index causes an <span class="term">IndexOutOfBoundsException</span>.
-:::
-
-## AP String Methods
-
-### Methods used on the AP CSA exam
-
-| Method | Meaning |
-|---|---|
-| `int length()` | returns the number of characters |
-| `String substring(int from, int to)` | returns characters from `from` up to but not including `to` |
-| `String substring(int from)` | returns characters from `from` to the end |
-| `int indexOf(String str)` | returns the first index of `str`, or `-1` if not found |
-| `boolean equals(String other)` | checks whether the character sequences match |
-| `int compareTo(String other)` | compares strings lexicographically |
-
-## Code Task
-
-### Trace `length`, `substring`, and `indexOf`
-
-```java
-String message = "Computer Science";
-
-System.out.println(message.length());
-System.out.println(message.substring(0, 8));
-System.out.println(message.substring(9));
-System.out.println(message.indexOf("Science"));
-System.out.println(message.indexOf("Java"));
-```
-
-Trace before running. Remember that `substring(0, 8)` stops before index `8`, and a missing string returns `-1`.
-
-## Precondition Check
-
-### Fix the substring bounds
-
-Broken code:
-
-```java
-String str = "hello";
-System.out.println(str.substring(-1, 10));
-```
-
-Goal: print only `"o"`.
-
-Corrected code:
-
-```java
-String str = "hello";
-System.out.println(str.substring(4, 5));
-```
-
-The start index must be at least `0`, and the end index must be no larger than `length()`.
-
-## Quick Checks
-
-### Index and substring tracing
-
-Trace each expression.
-
-```java
-"abccba".indexOf("b")
-"baby".length()
-"baby".substring(0, 3)
-"baby".substring(2)
-```
-
-Answers:
-
-::: {.tight-list}
-- `1`
-- `4`
-- `"bab"`
-- `"by"`
-:::
-
-## Comparing Strings
-
-### Use methods, not `==`
-
-![compareTo behavior](../../assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png){fig-align="center" width="60%"}
-
-```java
-message.equals("Hello!");
-message.compareTo("Zoo");
-```
-
-`equals` checks content equality. `compareTo` returns `0`, a negative number, or a positive number.
-
-## Compare Trace
-
-### Case-sensitive comparison
-
-```java
-String s1 = "apple";
-String s2 = "apple";
-String s3 = "banana";
-String s4 = "Apple";
-
-System.out.println(s1.compareTo(s2));
-System.out.println(s3.compareTo(s1));
-System.out.println(s4.compareTo(s1));
-System.out.println(s1.equals(s2));
-System.out.println(s1.equals(s4));
-```
-
-Expected output:
-
-```text
-0
-1
--32
-true
-false
-```
-
-## Vocabulary Check
-
-### Choose the right method
-
-| Goal | Method |
-|---|---|
-| number of characters | `length()` |
-| part of a string | `substring(begin, end)` |
-| first position of another string | `indexOf(str)` |
-| same characters or not | `equals(other)` |
-| alphabetical-style ordering | `compareTo(other)` |
-
-Quick check: `"Hi".compareTo("Bye")` returns a positive value because `"H"` comes after `"B"`.
-
-## Common Mistakes
-
-### The usual errors are predictable
-
-::: {.tight-list}
-- Forgetting spaces during concatenation.
-- Thinking `substring(begin, end)` includes the character at `end`.
-- Expecting `toLowerCase()` to change the original string automatically.
-- Using `==` instead of `equals(other)`.
-- Calling string methods on a `null` reference.
-- Forgetting that comparisons are case-sensitive.
-:::
-
-## Debugging Task
-
-### Fix common string mistakes
-
-Target output:
-
-```text
-The first letter in Hello!: H
-The last char. in Hello!: !
-In lowercase: hello!
-```
-
-One correct version:
-
-```java
-String message = "Hello!";
-System.out.println("The first letter in " + message + ": " + message.substring(0, 1));
-System.out.println("The last char. in " + message + ": " + message.substring(message.length() - 1));
-System.out.println("In lowercase: " + message.toLowerCase());
-```
-
-## Coding Challenge
-
-### Pig Latin
-
-![Pig Latin challenge icon](../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png){fig-align="center" width="26%"}
-
-Move the first letter to the end and add `"ay"`.
-
-```java
-public static String pigLatin(String word) {
-    String first = word.substring(0, 1);
-    String rest = word.substring(1);
-    return rest + first + "ay";
-}
-```
-
-## Coding Challenge
-
-### Pig Latin classroom checks
-
-Expected examples:
-
-```text
-pig -> igpay
-java -> avajay
-string -> tringsay
-```
-
-Your solution should:
-
-::: {.tight-list}
-- call `substring` at least twice
-- preserve all original letters
-- add `"ay"` at the end
-- work for words longer than one character
-:::
-
-## AP-Style Check
-
-### `indexOf` and `substring`
-
-```java
-String str = new String("hi there");
-int pos = str.indexOf("e");
-System.out.println(str.substring(0, pos));
-```
-
-`pos` is `5`, so the printed string is:
-
-```text
-hi th
-```
-
-The character at index `5` is not included.
-
-## AP-Style Check
-
-### Strings are immutable
-
-```java
-String s1 = "Hi";
-String s2 = s1.substring(0, 1);
-String s3 = s2.toLowerCase();
-
-System.out.println(s1);
-System.out.println(s2);
-System.out.println(s3);
-```
-
-Output:
-
-```text
-Hi
-H
-h
-```
-
-Calling `substring` or `toLowerCase` returns a new string; it does not change `s1`.
+![Object variable of type String with a reference to a String object](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png){fig-align="center" width="66%"}
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- identify `String` as a class type in `java.lang`
-- explain concatenation and string immutability
-- use `length`, `substring`, and `indexOf` correctly
-- apply zero-based indexing to strings
-- compare strings with `equals` or `compareTo`, not `==`
-- trace returned string values without changing the original string
+- identify `String` as a class in `java.lang`
+- distinguish `String` class type from primitive types by naming convention
+- explain that a `String` variable can hold `null`
+- create a `String` with `new String("text")`
+- create a `String` with a string literal like `"text"`
+- explain that `String` inherits from `Object`
 :::
 
 ## End
 
-### Return to the course outline
+### 1.15 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Part 2 continues with String operators and concatenation.

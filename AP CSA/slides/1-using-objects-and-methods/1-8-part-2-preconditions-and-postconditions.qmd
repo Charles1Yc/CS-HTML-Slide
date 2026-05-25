@@ -1,0 +1,196 @@
+---
+title: "1.8 Documentation with Comments and Preconditions"
+subtitle: "Part 2: Preconditions and Postconditions"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Conditions in API documentation
+
+Many methods in API libraries have <span class="term">preconditions</span> and <span class="term">postconditions</span> described in their comments.
+
+These assumptions are useful to programmers who want to use that method and get the correct results.
+
+## Preconditions
+
+### What the method expects
+
+A <span class="term">precondition</span> (前置条件) is a condition that must be true for your method code to work.
+
+For example, the parameters, the data that you give the method to do its job, may need to have values within limits and not be `null`.
+
+The methods could check for these preconditions, but they do not have to.
+
+The precondition is what the method expects in order to do its job properly.
+
+## Postconditions
+
+### What the method promises
+
+A <span class="term">postcondition</span> (后置条件) is a condition that is true after running the method.
+
+It is what the method promises to do.
+
+Postconditions describe the outcome of running the method, for example what is being returned from the method or the changes to the state.
+
+## Division and Square Root
+
+### Examples of preconditions
+
+One precondition already discussed is that divisors cannot be zero in expressions, because that will cause the code to have a runtime error or exception.
+
+Many math functions have preconditions about their operands because not every mathematical operation is defined for every value.
+
+For example, computing the square root of a negative number is undefined.
+
+## Code Task
+
+### `activecode:: math-preconditions`
+
+The following code uses the square root method in Java, which has a precondition that the number that you give it is not negative.
+
+When you click run, the compiler will not catch the error, but it will return the error value `NaN`.
+
+Can you fix the value of `num` so that it does not return `NaN`?
+
+What is the precondition for the `Math.sqrt` method?
+
+## Broken Code
+
+### `math-preconditions`
+
+```java
+public class SqRoot
+{
+   public static void main(String[] args)
+   {
+         double num = -4;
+         System.out.println(Math.sqrt(num));
+   }
+}
+```
+
+`NaN` stands for "not a number".
+
+## Test Requirements
+
+### `math-preconditions`
+
+Runestone checks that the submitted code still contains:
+
+```java
+SqRoot
+```
+
+The teaching check is conceptual: change `num` so `Math.sqrt(num)` receives a nonnegative value and does not return `NaN`.
+
+## Turtle `forward` Documentation
+
+### `@param`, precondition, postcondition
+
+Here is an example of preconditions, postconditions, and `@param` in the Turtle code used for animating turtle drawings.
+
+The Turtle `forward` method's precondition is that the amount of `pixels` forward should be between `0` and the width and height of the world.
+
+If it receives a value out of this range, it sets `pixels` to the closest legal values that it can so that the turtle appears just at the edge of the world.
+
+## Turtle `forward` Code {.fit-small}
+
+### Documentation comment
+
+```java
+/**
+  * Method to move the turtle forward the given number of pixels
+  * @param pixels the number of pixels to walk forward in the heading direction
+  * Preconditions: parameters pixel is between 0 and
+  *    the width and height of the world.
+  * Postconditions: the turtle is moved forward by pixels amount
+  *   but stays within the width and height of the world.
+  */
+ public void forward(int pixels)
+ {
+   /* code to move the turtle forward */
+ }
+```
+
+## Coding Exercise
+
+### Try to break the precondition
+
+Try to break the preconditions of the `Turtle forward` method below.
+
+Try to make the turtle go completely off screen by changing the number of pixels given to the `forward` method.
+
+What happens if you put in negative numbers?
+
+## Program to Experiment With
+
+### `activecode:: turtle-preconditions`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtlePreconditions
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+
+        // Change 100 pixels below to a larger number
+        //   to try to go off screen to break preconditions
+        yertle.forward(100);
+
+        // code to turn and come back down
+        yertle.turnLeft();
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward();
+
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### `turtle-preconditions`
+
+Runestone checks that the code has changed from the original value:
+
+```java
+forward(100)
+```
+
+Expected result: `Change forward(100) to try to break preconditions` should be `true`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- define a precondition as what must be true before method code works properly
+- define a postcondition as what is true after the method runs
+- explain why division by zero and negative square root inputs are precondition examples
+- fix `num = -4` so `Math.sqrt(num)` does not return `NaN`
+- identify `pixels` as the parameter documented by `@param`
+- change `forward(100)` to test the Turtle method's documented precondition
+:::
+
+## End
+
+### Continue to use cases
+
+The next deck uses preconditions and postconditions in use-case examples and a group challenge.

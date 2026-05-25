@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.5 Methods: How to Write Them</title>
+  <title>3.5 Accessors, Getters, and toString</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,7 +198,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.5 Methods: How to Write Them</h1>
+  <h1 class="title">3.5 Accessors, Getters, and toString</h1>
   <p class="subtitle">Part 2: Getters and toString</p>
 
 <div class="quarto-title-authors">
@@ -210,129 +210,244 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="public-methods-expose-selected-information">Public methods expose selected information</h3>
-<p>Because instance variables are usually <code>private</code>, outside code cannot read them directly.</p>
-<p>An <span class="term">accessor</span> or <span class="term">getter</span> method provides controlled read access.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">return</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="accessors-getters" class="slide level2">
+<h2>Accessors / Getters</h2>
+<h3 id="reading-private-instance-variables">Reading private instance variables</h3>
+<p>Since the instance variables in a class are usually marked as <code>private</code>, code outside the class cannot directly access their values.</p>
+<p>If you want code outside the class to access the value of an instance variable, you need to write what is formally called an <strong>accessor method</strong>.</p>
+<p>Everyone actually just calls it a <strong>getter</strong>.</p>
 </section>
-<section id="getter-pattern" class="slide level2">
-<h2>Getter Pattern</h2>
-<h3 id="return-type-matches-the-data">Return type matches the data</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getGradeLevel</span><span class="op">()</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="cf">return</span> gradeLevel<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Typical getter features:</p>
+<section id="getter-definition" class="slide level2">
+<h2>Getter Definition</h2>
+<h3 id="public-no-arguments-returns-the-value">Public, no arguments, returns the value</h3>
+<p>A getter is a <code>public</code> method that:</p>
 <div class="tight-list">
 <ul>
-<li><code>public</code></li>
-<li>non-<code>void</code></li>
-<li>usually no parameters</li>
-<li>returns one piece of object state</li>
+<li>takes no arguments</li>
+<li>returns the value of the <code>private</code> instance variable</li>
 </ul>
 </div>
+<p>You do not need to write a getter for every instance variable.</p>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="student-getters">Student getters</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Student</span>
+<section id="app-inventor-connection" class="slide level2 image-fit">
+<h2>App Inventor Connection</h2>
+<h3 id="getset-method-idea">Get/set method idea</h3>
+
+<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/AppInvSetGet.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">App Inventor Set and Get blocks for object Button1</p><p>If you used a language like App Inventor in AP CSP, you may have used setter and getter blocks.</p>
+<p>In Java, we write getter methods inside our own classes.</p>
+</section>
+<section id="getter-template" class="slide level2">
+<h2>Getter Template</h2>
+<h3 id="return-type-matches-instance-variable-type">Return type matches instance variable type</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">class</span> ExampleTemplate</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="co">// Instance variable declaration</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> typeOfVar varName<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a></span>
+<span id="cb1-6"><a href=""></a>    <span class="co">// Accessor (getter) method template</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="kw">public</span> typeOfVar <span class="fu">getVarName</span><span class="op">()</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>        <span class="cf">return</span> varName<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="getter-rule" class="slide level2">
+<h2>Getter Rule</h2>
+<h3 id="same-type-returned-value">Same type, returned value</h3>
+<p>The getter’s return type is the same as the type of the instance variable.</p>
+<p>All the body of the getter does is return the value of the variable using a <code>return</code> statement.</p>
+<p>The expression after <code>return</code> must be the same type as the return type in the method header.</p>
+</section>
+<section id="student-getname" class="slide level2">
+<h2>Student <code>getName</code></h2>
+<h3 id="accessor-example">Accessor example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">class</span> Student</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="co">//Instance variable name</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a>    <span class="co">/**</span> getName<span class="co">()</span> example</span>
+<span id="cb2-7"><a href=""></a><span class="co">     *  </span><span class="an">@return</span> name <span class="co">*/</span></span>
+<span id="cb2-8"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-10"><a href=""></a>       <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb2-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Getters only return the <strong>value</strong> of the variable.</p>
+</section>
+<section id="calling-a-getter" class="slide level2">
+<h2>Calling a Getter</h2>
+<h3 id="use-the-object">Use the object</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> gradeLevel<span class="op">;</span></span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> studentName<span class="op">,</span> <span class="dt">int</span> studentGrade<span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>        name <span class="op">=</span> studentName<span class="op">;</span></span>
-<span id="cb3-9"><a href=""></a>        gradeLevel <span class="op">=</span> studentGrade<span class="op">;</span></span>
-<span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-11"><a href=""></a></span>
-<span id="cb3-12"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
-<span id="cb3-13"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-14"><a href=""></a>        <span class="cf">return</span> name<span class="op">;</span></span>
-<span id="cb3-15"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-16"><a href=""></a></span>
-<span id="cb3-17"><a href=""></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getGradeLevel</span><span class="op">()</span></span>
-<span id="cb3-18"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-19"><a href=""></a>        <span class="cf">return</span> gradeLevel<span class="op">;</span></span>
-<span id="cb3-20"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Call with <code>student.getName()</code> or <code>student.getGradeLevel()</code>.</p>
+<span id="cb3-3"><a href=""></a>    <span class="co">// To call a get method, use objectName.getVarName()</span></span>
+<span id="cb3-4"><a href=""></a>    Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">();</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Name: "</span> <span class="op">+</span> s<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="why-getters-matter" class="slide level2">
-<h2>Why Getters Matter</h2>
-<h3 id="encapsulation-with-controlled-access">Encapsulation with controlled access</h3>
-<p>Getters keep instance variables private while still allowing other classes to use needed information.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Mina"</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb4-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Outside code asks the object for information through a method. It does not directly touch <code>name</code>.</p>
+<section id="multiple-classes-note" class="slide level2">
+<h2>Multiple Classes Note</h2>
+<h3 id="tester-or-driver-class">Tester or driver class</h3>
+<p>The active code below has two classes.</p>
+<p>The <code>main</code> method is in a separate <strong>Tester</strong> or <strong>Driver</strong> class.</p>
+<p>It does not have access to the <code>private</code> instance variables in the other <code>Student</code> class.</p>
+<p>In active code and IDEs, you can put two classes in one file, but only one of them can be <code>public</code> and have a <code>main</code> method in it.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-studentobjexample"><code>activecode:: StudentObjExample</code></h3>
+<p>Try the following code.</p>
+<p>It has a bug: it tries to access the private instance variable <code>email</code> from outside the class <code>Student</code>.</p>
+<p>Change the <code>main</code> method in <code>TesterClass</code> so that it uses the appropriate public accessor method, or get method, to access the email value instead.</p>
+</section>
+<section id="studentobjexample-starter" class="slide level2">
+<h2>StudentObjExample Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TesterClass</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-6"><a href=""></a>        Student s1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Skyler"</span><span class="op">,</span> <span class="st">"skyler@sky.com"</span><span class="op">,</span> <span class="dv">123456</span><span class="op">);</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Name:"</span> <span class="op">+</span> s1<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Fix the bug here!</span></span>
+<span id="cb4-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Email:"</span> <span class="op">+</span> s1<span class="op">.</span><span class="fu">email</span><span class="op">);</span></span>
+<span id="cb4-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"ID: "</span> <span class="op">+</span> s1<span class="op">.</span><span class="fu">getId</span><span class="op">());</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-12"><a href=""></a><span class="op">}</span></span>
+<span id="cb4-13"><a href=""></a></span>
+<span id="cb4-14"><a href=""></a><span class="co">/**</span> Class Student keeps track of name<span class="co">,</span> email<span class="co">,</span> and id of a Student<span class="co">. */</span></span>
+<span id="cb4-15"><a href=""></a><span class="kw">class</span> Student</span>
+<span id="cb4-16"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-17"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb4-18"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb4-19"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> id<span class="op">;</span></span>
+<span id="cb4-20"><a href=""></a></span>
+<span id="cb4-21"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">,</span> <span class="dt">int</span> initId<span class="op">)</span></span>
+<span id="cb4-22"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-23"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb4-24"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb4-25"><a href=""></a>        id <span class="op">=</span> initId<span class="op">;</span></span>
+<span id="cb4-26"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-27"><a href=""></a></span>
+<span id="cb4-28"><a href=""></a>    <span class="co">// accessor methods - getters</span></span>
+<span id="cb4-29"><a href=""></a>    <span class="co">/**</span> getName<span class="co">() </span><span class="an">@return</span> name <span class="co">*/</span></span>
+<span id="cb4-30"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb4-31"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-32"><a href=""></a>        <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb4-33"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-34"><a href=""></a></span>
+<span id="cb4-35"><a href=""></a>    <span class="co">/**</span> getEmail<span class="co">() </span><span class="an">@return</span> email <span class="co">*/</span></span>
+<span id="cb4-36"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getEmail</span><span class="op">()</span></span>
+<span id="cb4-37"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-38"><a href=""></a>        <span class="cf">return</span> email<span class="op">;</span></span>
+<span id="cb4-39"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-40"><a href=""></a></span>
+<span id="cb4-41"><a href=""></a>    <span class="co">/**</span> getName<span class="co">() </span><span class="an">@return</span> id <span class="co">*/</span></span>
+<span id="cb4-42"><a href=""></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getId</span><span class="op">()</span></span>
+<span id="cb4-43"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-44"><a href=""></a>        <span class="cf">return</span> id<span class="op">;</span></span>
+<span id="cb4-45"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-46"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="studentobjexample-expected-output" class="slide level2">
+<h2>StudentObjExample Expected Output</h2>
+<h3 id="runestone-output-check">Runestone output check</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Name:Skyler</span>
+<span id="cb5-2"><a href=""></a>Email:skyler@sky.com</span>
+<span id="cb5-3"><a href=""></a>ID: 123456</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="studentobjexample-code-target" class="slide level2">
+<h2>StudentObjExample Code Target</h2>
+<h3 id="runestone-accessor-check">Runestone accessor check</h3>
+<p>The test also checks that the code contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>s1<span class="op">.</span><span class="fu">getEmail</span><span class="op">()</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tostring" class="slide level2">
 <h2><code>toString</code></h2>
-<h3 id="return-a-readable-object-description">Return a readable object description</h3>
-<p><code>toString</code> returns a <code>String</code> representation of an object.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">return</span> name <span class="op">+</span> <span class="st">" is in grade "</span> <span class="op">+</span> gradeLevel<span class="op">;</span></span>
-<span id="cb5-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It is especially useful for printing, tracing, and debugging.</p>
+<h3 id="returns-a-string-representation">Returns a String representation</h3>
+<p>While not strictly speaking a getter, another important method that returns a value is the <code>toString</code> method.</p>
+<p>This method is called automatically by Java in a number of situations when it needs to convert an object to a <code>String</code>.</p>
 </section>
-<section id="code-task-1" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="add-tostring">Add <code>toString</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Student</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> gradeLevel<span class="op">;</span></span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> studentName<span class="op">,</span> <span class="dt">int</span> studentGrade<span class="op">)</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-8"><a href=""></a>        name <span class="op">=</span> studentName<span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        gradeLevel <span class="op">=</span> studentGrade<span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a></span>
-<span id="cb6-12"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
-<span id="cb6-13"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-14"><a href=""></a>        <span class="cf">return</span> name <span class="op">+</span> <span class="st">" is in grade "</span> <span class="op">+</span> gradeLevel<span class="op">;</span></span>
-<span id="cb6-15"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>System.out.println(student);</code> can use this method automatically.</p>
+<section id="when-java-calls-tostring" class="slide level2">
+<h2>When Java Calls <code>toString</code></h2>
+<h3 id="printing-and-string-concatenation">Printing and string concatenation</h3>
+<p>Most notably, <code>System.out.print</code> and <code>System.out.println</code> use <code>toString</code> to convert an object argument into a <code>String</code> to be printed.</p>
+<p>When objects are added to <code>String</code>s with <code>+</code> and <code>+=</code>, their <code>String</code> representation comes from calling their <code>toString</code> method.</p>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="getter-or-tostring">Getter or <code>toString</code></h3>
-<p>Choose the better method for each need:</p>
-<div class="tight-list">
-<ul>
-<li>Need only the student’s name: <code>getName()</code></li>
-<li>Need a printable summary of the whole object: <code>toString()</code></li>
-<li>Need the grade as an <code>int</code>: <code>getGradeLevel()</code></li>
-</ul>
+<section id="student-tostring" class="slide level2">
+<h2>Student <code>toString</code></h2>
+<h3 id="automatic-call-from-println">Automatic call from <code>println</code></h3>
+<p>Here is the <code>Student</code> class again, but this time with a <code>toString</code> method.</p>
+<p>When we call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Java will automatically call the <code>toString</code> method to get a <code>String</code> representation of the <code>Student</code> object.</p>
+</section>
+<section id="studenttostring-starter" class="slide level2">
+<h2>StudentToString Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TesterClass</span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb8-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-6"><a href=""></a>        Student s1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Skyler"</span><span class="op">,</span> <span class="st">"skyler@sky.com"</span><span class="op">,</span> <span class="dv">123456</span><span class="op">);</span></span>
+<span id="cb8-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span>
+<span id="cb8-8"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: add another student s2 and print it out</span></span>
+<span id="cb8-9"><a href=""></a></span>
+<span id="cb8-10"><a href=""></a></span>
+<span id="cb8-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-12"><a href=""></a><span class="op">}</span></span>
+<span id="cb8-13"><a href=""></a></span>
+<span id="cb8-14"><a href=""></a><span class="kw">class</span> Student</span>
+<span id="cb8-15"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-16"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb8-17"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb8-18"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> id<span class="op">;</span></span>
+<span id="cb8-19"><a href=""></a></span>
+<span id="cb8-20"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">,</span> <span class="dt">int</span> initId<span class="op">)</span></span>
+<span id="cb8-21"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-22"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb8-23"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb8-24"><a href=""></a>        id <span class="op">=</span> initId<span class="op">;</span></span>
+<span id="cb8-25"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-26"><a href=""></a></span>
+<span id="cb8-27"><a href=""></a>    <span class="co">// toString() method</span></span>
+<span id="cb8-28"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb8-29"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-30"><a href=""></a>        <span class="cf">return</span> id <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> email<span class="op">;</span></span>
+<span id="cb8-31"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-32"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Good class interfaces expose useful information without exposing every variable directly.</p>
+</section>
+<section id="studenttostring-task" class="slide level2">
+<h2>StudentToString Task</h2>
+<h3 id="activecode-studenttostring"><code>activecode:: StudentToString</code></h3>
+<p>See the <code>toString()</code> method in action.</p>
+<p>Add another student object and print it out.</p>
+<p>The Runestone test checks that your code contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s2<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain why private instance variables need public accessors</li>
-<li>write a getter with a matching return type</li>
-<li>explain why getters usually have no parameters</li>
-<li>write a <code>toString</code> method that returns a readable <code>String</code></li>
-<li>distinguish a single-value getter from an object summary</li>
+<li>define an accessor/getter as a public method that returns a private instance variable</li>
+<li>write getter return types to match instance variable types</li>
+<li>explain why outside code must use <code>s1.getEmail()</code> instead of <code>s1.email</code></li>
+<li>identify <code>toString</code> as a method that returns a <code>String</code> representation of an object</li>
+<li>explain how <code>System.out.println(s1)</code> can call <code>toString</code> automatically</li>
+<li>preserve the starter bugs/TODOs in both activecode tasks until students fix them</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
-<p><a href="3-5-part-3-setters-and-parameters.html">Next: Setters and Parameters</a><br>
-<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-2-complete">3.5 Part 2 complete</h3>
+<p>Next: Mutators, setters, and parameters.</p>
 
 </section>
     </div>

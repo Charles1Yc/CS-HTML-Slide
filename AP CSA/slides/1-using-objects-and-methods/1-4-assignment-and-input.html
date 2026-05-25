@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.4 Assignment and Input</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Assignment Statements and Tracing</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,252 +210,143 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="variables-change-through-assignment">Variables change through assignment</h3>
+<section id="assignment-statements" class="slide level2">
+<h2>Assignment Statements</h2>
+<h3 id="initialize-or-change-a-variable">Initialize or change a variable</h3>
 <p><span class="term">Assignment statements</span> (赋值语句) initialize or change the value stored in a variable using the assignment operator <code>=</code>.</p>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Assignment statement diagram</p><p>Read <code>score = points * 10 + 5;</code> as <mark>score gets the value of <code>points * 10 + 5</code></mark>, not as a math equation.</p>
+<p>An assignment statement always has a single variable on the left hand side.</p>
+<p>The value of the <span class="term">expression</span> on the right of the <code>=</code> sign is assigned to and stored in the variable on the left side.</p>
 </section>
 <section id="assignment-statement" class="slide level2">
 <h2>Assignment Statement</h2>
-<h3 id="variable-left-expression-right">Variable left, expression right</h3>
-<p>An assignment statement always has a single variable on the left-hand side.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>score <span class="op">=</span> points <span class="op">*</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>The right side is evaluated first.</li>
-<li>The expression produces one value.</li>
-<li>That value is stored in the variable on the left.</li>
-</ul>
+<h3 id="variable-expression"><code>variable = expression;</code></h3>
+<div class="image-fit">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../../assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png" style="width:40.0%"></p>
+<figcaption>Assignment Statement: variable equals expression</figcaption>
+</figure>
 </div>
-<p>The variable on the left must be able to store the value’s type.</p>
+</div>
+<p>Instead of saying equals for the <code>=</code> in an assignment statement, say <mark>gets</mark> or <mark>is assigned</mark> to remember that the variable gets the value on the right.</p>
 </section>
-<section id="assignment-and-memory" class="slide level2">
-<h2>Assignment and Memory</h2>
-<h3 id="copy-the-value-not-the-variable-itself">Copy the value, not the variable itself</h3>
-<p>Set one variable’s value to a <mark>copy</mark> of another variable’s current value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb2-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
-<span id="cb2-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
-<span id="cb2-5"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
-<span id="cb2-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
-<span id="cb2-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
-<span id="cb2-8"><a href=""></a>y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb2-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
-<span id="cb2-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After <code>x = y;</code>, changing <code>y</code> later does not change <code>x</code>.</p>
+<section id="assignment-example" class="slide level2">
+<h2>Assignment Example</h2>
+<h3 id="copy-of-another-variable-value">Copy of another variable value</h3>
+<p>We can set one variable’s value to a <mark>copy</mark> of the value of another variable like <code>y = x;</code>.</p>
+<p>This will not change the value of the variable that you are copying from.</p>
+<p>External visualizer/video links are not required in this static deck; the same trace is preserved below.</p>
 </section>
 <section id="trace-task" class="slide level2">
 <h2>Trace Task</h2>
-<h3 id="copy-and-update-variables">Copy and update variables</h3>
-<p>Trace the code by hand before checking the answer.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-3"><a href=""></a><span class="dt">int</span> z <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
-<span id="cb3-5"><a href=""></a>y <span class="op">=</span> y <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb3-6"><a href=""></a>z <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>What are the final values of <code>x</code>, <code>y</code>, and <code>z</code>?</p>
-<p>Answer: <code>x = 1</code>, <code>y = 2</code>, <code>z = 3</code>.</p>
+<h3 id="codelens-asgn_viz1"><code>codelens:: asgn_viz1</code></h3>
+<p>Step through the following code to see how the values of the variables change.</p>
 </section>
-<section id="mixed-up-code" class="slide level2 fit-small">
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="codelens-asgn_viz1-1"><code>codelens:: asgn_viz1</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="dt">int</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
+<span id="cb1-9"><a href=""></a>    x <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
+<span id="cb1-12"><a href=""></a>    y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>y<span class="op">);</span></span>
+<span id="cb1-15"><a href=""></a>  <span class="op">}</span></span>
+<span id="cb1-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="trace-focus" class="slide level2">
+<h2>Trace Focus</h2>
+<h3 id="codelens-asgn_viz1-2"><code>codelens:: asgn_viz1</code></h3>
+<p>Trace these moments in order:</p>
+<div class="tight-list">
+<ul>
+<li>after <code>int x = 3;</code></li>
+<li>after <code>int y = 2;</code></li>
+<li>after <code>x = y;</code></li>
+<li>after <code>y = 5;</code></li>
+</ul>
+</div>
+<p>After <code>x = y;</code>, changing <code>y</code> later does not change <code>x</code>.</p>
+</section>
+<section id="check-your-understanding" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="mchoice-qasgn1"><code>mchoice:: qasgn1</code></h3>
+<p>What are the values of <code>x</code>, <code>y</code>, and <code>z</code> after the following code executes?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-3"><a href=""></a><span class="dt">int</span> z <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a>y <span class="op">=</span> y <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb2-6"><a href=""></a>z <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="mchoice-qasgn1-1"><code>mchoice:: qasgn1</code></h3>
+<div class="tight-list">
+<ul>
+<li>A. <code>x = 0, y = 1, z = 2</code></li>
+<li>B. <code>x = 1, y = 2, z = 3</code></li>
+<li>C. <code>x = 2, y = 2, z = 3</code></li>
+<li>D. <code>x = 0, y = 0, z = 3</code></li>
+</ul>
+</div>
+<p>Correct answer: <mark>B. <code>x = 1, y = 2, z = 3</code></mark></p>
+<p><code>x</code> changes to <code>y</code>’s initial value, <code>y</code>’s value is doubled, and <code>z</code> is set to <code>3</code>.</p>
+</section>
+<section id="mixed-up-code" class="slide level2">
 <h2>Mixed-Up Code</h2>
-<h3 id="swap-two-values">Swap two values</h3>
-<p>Build the code that swaps the values in <code>x</code> and <code>y</code>.</p>
-<p>Needed blocks:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb4-3"><a href=""></a><span class="dt">int</span> temp <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a>temp <span class="op">=</span> x<span class="op">;</span></span>
-<span id="cb4-5"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
-<span id="cb4-6"><a href=""></a>y <span class="op">=</span> temp<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Distractor:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>y <span class="op">=</span> x<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="parsonsprob-swapparsons"><code>parsonsprob:: swapParsons</code></h3>
+<p>Textbook prompt: The following has the correct code to “swap” the values in <code>x</code> and <code>y</code>, but the code is mixed up and contains one extra block which is not needed in a correct solution.</p>
+<p>Drag the needed blocks into the correct order.</p>
+</section>
+<section id="mixed-blocks" class="slide level2">
+<h2>Mixed Blocks</h2>
+<h3 id="parsonsprob-swapparsons-1"><code>parsonsprob:: swapParsons</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a><span class="dt">int</span> temp <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a>temp <span class="op">=</span> x<span class="op">;</span></span>
+<span id="cb3-5"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a>y <span class="op">=</span> temp<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Extra block:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>y <span class="op">=</span> x<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="parsonsprob-swapparsons-2"><code>parsonsprob:: swapParsons</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb5-2"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb5-3"><a href=""></a><span class="dt">int</span> temp <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a>temp <span class="op">=</span> x<span class="op">;</span></span>
+<span id="cb5-5"><a href=""></a>x <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>y <span class="op">=</span> temp<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The extra variable <code>temp</code> is needed because assignment overwrites the old value.</p>
-</section>
-<section id="data-types-in-assignments" class="slide level2">
-<h2>Data Types in Assignments</h2>
-<h3 id="compatible-type-required">Compatible type required</h3>
-<p>Every variable must be assigned a value before it can be used in an expression. That value must come from a compatible data type.</p>
-<div class="tight-list">
-<ul>
-<li>A variable is <span class="term">initialized</span> the first time it is assigned a value.</li>
-<li>During execution, an expression evaluates to a single value.</li>
-<li>The value of an expression has a type based on the operands and operators.</li>
-</ul>
-</div>
-<p>If an expression uses at least one <code>double</code>, the expression usually evaluates to <code>double</code>.</p>
-</section>
-<section id="debugging-task" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="incompatible-assignment-type">Incompatible assignment type</h3>
-<p>The code looks reasonable, but it has an incompatible type error. Change one variable’s type to fix it.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Asgn</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="dt">int</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="dt">double</span> y <span class="op">=</span> <span class="fl">2.2</span><span class="op">;</span></span>
-<span id="cb6-7"><a href=""></a>        x <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> y<span class="op">;</span></span>
-<span id="cb6-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>x<span class="op">);</span></span>
-<span id="cb6-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output after the type fix:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>4.4</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="reference-variables" class="slide level2">
-<h2>Reference Variables</h2>
-<h3 id="null-means-no-object-reference"><code>null</code> means no object reference</h3>
-<p>Reference types like <code>String</code> can be assigned a new object or <span class="term"><code>null</code></span>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">String</span> str <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb8-2"><a href=""></a>str <span class="op">=</span> <span class="st">"new object"</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>null</code> is a special literal that means the reference is not associated with any object.</p>
-<div class="tight-list">
-<ul>
-<li><code>null</code> is not the same as an empty string.</li>
-<li><code>""</code> is a real <code>String</code> object with zero characters.</li>
-</ul>
-</div>
-</section>
-<section id="updating-a-variable" class="slide level2">
-<h2>Updating a Variable</h2>
-<h3 id="use-the-current-value-to-make-the-next-value">Use the current value to make the next value</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
-<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-5"><a href=""></a>        <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
-<span id="cb9-7"><a href=""></a>        score <span class="op">=</span> score <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb9-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>score<span class="op">);</span></span>
-<span id="cb9-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>0</span>
-<span id="cb10-2"><a href=""></a>1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The right side uses the previous value of <code>score</code>, then stores the new value back into <code>score</code>.</p>
-</section>
-<section id="update-experiment" class="slide level2">
-<h2>Update Experiment</h2>
-<h3 id="change-the-increment">Change the increment</h3>
-<p>Modify the update statement.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a>score <span class="op">=</span> score <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Predict:</p>
-<div class="tight-list">
-<ul>
-<li>What output changes?</li>
-<li>What would happen with <code>score = score + 10;</code>?</li>
-<li>Why is this still not a math equation?</li>
-</ul>
-</div>
-<p>This pattern prepares students for counters and loops.</p>
-</section>
-<section id="input-with-variables" class="slide level2">
-<h2>Input with Variables</h2>
-<h3 id="one-algorithm-different-user-values">One algorithm, different user values</h3>
-<p>Variables are a powerful abstraction because the same algorithm can run with different input values.</p>
-<p>Input can be:</p>
-<div class="tight-list">
-<ul>
-<li>tactile, such as clicking a button</li>
-<li>audio, such as speech</li>
-<li>visual, such as a webcam</li>
-<li>text typed by the user</li>
-</ul>
-</div>
-<p>Java’s <span class="term"><code>Scanner</code></span> class is one way to obtain keyboard input.</p>
-</section>
-<section id="scanner-example" class="slide level2">
-<h2>Scanner Example</h2>
-<h3 id="store-typed-text-in-a-variable">Store typed text in a variable</h3>
-<p>Keyboard input is useful in class, although it is not directly tested on the AP CSA exam.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.</span><span class="im">Scanner</span><span class="op">;</span></span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Main</span>
-<span id="cb12-4"><a href=""></a><span class="op">{</span></span>
-<span id="cb12-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb12-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb12-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Please type in a name in the input box below."</span><span class="op">);</span></span>
-<span id="cb12-8"><a href=""></a>        <span class="bu">Scanner</span> scan <span class="op">=</span> <span class="kw">new</span> <span class="bu">Scanner</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">in</span><span class="op">);</span></span>
-<span id="cb12-9"><a href=""></a>        <span class="bu">String</span> name <span class="op">=</span> scan<span class="op">.</span><span class="fu">nextLine</span><span class="op">();</span></span>
-<span id="cb12-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hello "</span> <span class="op">+</span> name<span class="op">);</span></span>
-<span id="cb12-11"><a href=""></a>        scan<span class="op">.</span><span class="fu">close</span><span class="op">();</span></span>
-<span id="cb12-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb12-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The same code works for any typed <code>name</code>.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="dog-years-starter">Dog Years starter</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-4-assignment-and-input/dog-free.png" style="width:14.0%" class="r-stretch quarto-figure-left"><p class="caption">Dog Years challenge</p><p>Fill in years, compute ages, and print labels with the results.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Challenge1_4</span>
-<span id="cb13-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb13-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb13-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb13-5"><a href=""></a>        <span class="dt">int</span> currentYear <span class="op">=</span></span>
-<span id="cb13-6"><a href=""></a>        <span class="dt">int</span> birthYear <span class="op">=</span></span>
-<span id="cb13-7"><a href=""></a>        <span class="dt">int</span> dogBirthYear <span class="op">=</span></span>
-<span id="cb13-8"><a href=""></a></span>
-<span id="cb13-9"><a href=""></a>        <span class="dt">int</span> age <span class="op">=</span></span>
-<span id="cb13-10"><a href=""></a>        <span class="dt">int</span> dogAge <span class="op">=</span></span>
-<span id="cb13-11"><a href=""></a>        <span class="dt">int</span> dogYearsAge <span class="op">=</span></span>
-<span id="cb13-12"><a href=""></a></span>
-<span id="cb13-13"><a href=""></a>        <span class="co">// Print your age, your pet's age, and your pet's age in dog years.</span></span>
-<span id="cb13-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb13-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="groupwork-coding-challenge-1" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="dog-years-formulas">Dog Years formulas</h3>
-<p>Your program should include these formulas.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a>age <span class="op">=</span> currentYear <span class="op">-</span> birthYear<span class="op">;</span></span>
-<span id="cb14-2"><a href=""></a>dogAge <span class="op">=</span> currentYear <span class="op">-</span> dogBirthYear<span class="op">;</span></span>
-<span id="cb14-3"><a href=""></a>dogYearsAge <span class="op">=</span> dogAge <span class="op">*</span> <span class="dv">7</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A classroom-ready solution should:</p>
-<div class="tight-list">
-<ul>
-<li>initialize <code>currentYear</code>, <code>birthYear</code>, and <code>dogBirthYear</code></li>
-<li>use variables in formulas rather than hard-coded final answers</li>
-<li>include at least one <code>System.out.print</code> or <code>System.out.println</code></li>
-<li>print text labels so the user knows what each number means</li>
-</ul>
-</div>
-</section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="assignment-with-mixed-numeric-types">Assignment with mixed numeric types</h3>
-<p>Consider the code segment.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb15-2"><a href=""></a><span class="dt">int</span> b <span class="op">=</span> a <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb15-3"><a href=""></a><span class="dt">double</span> c <span class="op">=</span> a <span class="op">/</span> <span class="fl">2.0</span><span class="op">;</span></span>
-<span id="cb15-4"><a href=""></a><span class="dt">double</span> d <span class="op">=</span> <span class="dv">5</span> <span class="op">+</span> a <span class="op">/</span> b <span class="op">*</span> c <span class="op">-</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb15-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>d<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>What is printed?</p>
-<p>Answer: <code>8.0</code>.</p>
-<p>Reason: <code>a / b</code> uses integer division, then multiplication with <code>c</code> produces a <code>double</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain assignment as storing the right-side value into the left-side variable</li>
-<li>trace copied values through multiple assignment steps</li>
+<li>define assignment as storing the right-side expression value in the left-side variable</li>
+<li>read <code>=</code> as “gets” or “is assigned” in assignment statements</li>
+<li>trace copied values without treating <code>=</code> as mathematical equality</li>
+<li>explain why changing <code>y</code> after <code>x = y;</code> does not change <code>x</code></li>
 <li>use a temporary variable to swap two values safely</li>
-<li>require compatible types before assigning or using a variable in an expression</li>
-<li>recognize <code>score = score + 1</code> as a valid update pattern</li>
-<li>explain <code>null</code> as a reference value that means no object is associated</li>
-<li>explain that <code>Scanner</code> stores keyboard input in variables, although keyboard input is not an AP exam target</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="1-4-part-2-types-null-increment-and-input.html">Next: Data types, null, increment, and input →</a></p>
 
 </section>
     </div>

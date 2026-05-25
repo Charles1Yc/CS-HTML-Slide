@@ -1,0 +1,167 @@
+---
+title: "1.12 Objects: Instances of Classes"
+subtitle: "Part 4: Inheritance and Draw 7"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Class Hierarchy and Inheritance
+
+### Vocabulary only in this lesson
+
+Another important concept in object-oriented programming is **inheritance** (继承).
+
+Although the AP CSA exam no longer covers inheritance, you should know what it means.
+
+**Inheritance** is a way to create a new class that is based on an existing class.
+
+## Class Hierarchy and Inheritance
+
+### Superclass and subclass
+
+The new class, called a **subclass**, inherits the attributes and behaviors of the existing class, called a **superclass**.
+
+In Java, all classes are subclasses of a superclass called **Object**.
+
+![Inheritance hierarchy for Pet superclass](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png){fig-align="center" width="58%"}
+
+## Turtle Methods
+
+### Class diagram
+
+Let's practice more with the `Turtle` class and its methods.
+
+Here is a class diagram that shows some of the attributes and methods in the class `Turtle`.
+
+![Turtle class diagram](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png){fig-align="center" width="52%"}
+
+## Turtle World Coordinates
+
+### Top-left origin
+
+The Turtle world does not use the Cartesian coordinate system with `(0,0)` in the middle of the screen.
+
+Instead, `(0,0)` is at the top left corner of the screen.
+
+`x` increases to the right and `y` increases towards the bottom of the screen.
+
+![Turtle world coordinates](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png){fig-align="center" width="34%"}
+
+## Mixed-Up Code
+
+### `parsonsprob:: ParsonsDraw7`
+
+The following code uses a turtle to draw the digital number `7` with just straight lines, but the code is mixed up.
+
+Put the blocks in the correct order to first draw the line going up, towards the top of the page, and then turn and draw a line to the left to make a `7`.
+
+Remember that the turtle is facing the top of the page when it is first created.
+
+## Mixed Blocks
+
+### Reorder task
+
+```java
+public class Draw7
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300,300);
+        Turtle yertle = new Turtle(habitat);
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward();
+        habitat.show(true);
+    } // end main
+} // end class
+```
+
+## Correct Order
+
+### Draw a digital `7`
+
+```java
+public class Draw7
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300,300);
+        Turtle yertle = new Turtle(habitat);
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward();
+        habitat.show(true);
+    } // end main
+} // end class
+```
+
+## Coding Exercise
+
+### `activecode:: TurtleDrawSeven`
+
+After you put the mixed up code in order, type in the same code below to make the turtle draw a `7`.
+
+Can you make `yertle` draw a `7` by going forward to go up and then left?
+
+## Starter Code
+
+### `TurtleDrawSeven`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleDraw7
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+        // TODO: Make yertle draw a 7 using the code above.
+
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirement
+
+### Preserved Runestone check
+
+Runestone checks that the code contains this sequence:
+
+```java
+yertle.forward();
+yertle.turnLeft();
+yertle.forward();
+```
+
+That sequence draws the line up, turns left, and draws the top of the digital `7`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- define inheritance as a subclass based on a superclass
+- remember that all Java classes are subclasses of `Object`
+- identify `(0,0)` at the top-left of the Turtle world
+- order Turtle setup before movement calls
+- use `forward`, `turnLeft`, `forward` to draw the `7`
+- keep `habitat.show(true)` after the drawing commands
+:::
+
+## End
+
+### 1.12 Part 4 complete
+
+Part 5 continues with Draw 8 and the block-letter challenge.

@@ -1,0 +1,194 @@
+---
+title: "3.6 Friends and Birthdays Challenge"
+subtitle: "Methods: Passing and Returning References of an Object"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge {.image-fit}
+
+### Friends and Birthdays
+
+![Birthday cake](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg){fig-align="center" width="26%"}
+
+In this challenge, you will create a class `Friend`.
+
+The `Friend` class keeps track of your friends' names and birthdays using another class called `Date`.
+
+## Date Class
+
+### Step 1
+
+Create a class called `Date` with the following instance variables as `int`s:
+
+::: {.tight-list}
+- `month`
+- `day`
+- `year`
+:::
+
+Add a constructor, getters, and setters for the instance variables.
+
+## Friend Class
+
+### Step 2
+
+Create a class called `Friend` with the following instance variables:
+
+::: {.tight-list}
+- `name`
+- `birthdate`, which is of type `Date`
+:::
+
+This is another **has-a** relationship: a `Friend` has a `Date` as a birthdate.
+
+## Friend Constructor
+
+### Step 3
+
+Add a constructor that takes two parameters and initializes the instance variables.
+
+Make sure to copy the `birthdate` parameter object.
+
+This keeps the `Friend` object's stored birthdate from sharing the same mutable `Date` reference as outside code.
+
+## Birthday Method
+
+### Step 4
+
+Add a method called `isBirthday`.
+
+It returns `true` if the birthdate matches the given `Date` parameter.
+
+You will need to check day, month, and year using getters.
+
+## Main Method Test
+
+### Step 5
+
+Test your methods in the `main` method:
+
+::: {.tight-list}
+- create a `Friend` object with a friend's name and birthday
+- create a `Date` object with today's date
+- call the `isBirthday` method to see if it is the friend's birthday
+:::
+
+## Active Code
+
+### `activecode:: challenge-friend-birthday`
+
+Complete the `Date` and `Friend` classes below.
+
+The `Friend` class should have a method `isBirthday` that returns `true` if the birthdate matches the given `Date` parameter.
+
+Test your methods in the `main` method.
+
+## Challenge Starter
+
+::: {.code-scroll}
+```java
+class Date
+{
+   // Add instance variables for the month, day, and year as ints
+
+   // Add a constructor that initializes the instance variables with int parameters
+
+   // Add getters for the instance variables
+
+   // Add at least 1 setter to make the class mutable
+
+}
+public class Friend
+{
+    // Add instance variables for the name and birthdate using the Date class
+
+    // Add a constructor that initializes the instance variables
+    //   Make sure you copy the birthdate parameter object
+
+    // Add a toString method
+
+    // Add a method isBirthday that returns true if the birthdate matches the given Date parameter.
+    // You will need to check day, month, and year using getters.
+
+    public static void main(String[] args)
+    {
+        // Create a Date object with your friend's birthday date
+
+        // Create a Friend object with a friend's name and birthday
+
+        // Create a Date object with today's date
+
+        // Call your friend's isBirthday method with today's date object
+
+    }
+}
+```
+:::
+
+## Test Target: Getter Calls
+
+### `isBirthday` must use Date getters
+
+The Runestone test checks that the code contains at least three `.get` calls in `isBirthday`.
+
+```text
+Date get methods called in isBirthday: 3+
+```
+
+This confirms that `Friend` compares the private `Date` state through the public getter methods.
+
+## Test Target: Birthday True
+
+### Taylor Swift birthday
+
+The Runestone test constructs:
+
+```java
+Friend tw = new Friend("Taylor Swift", new Date(12, 13, 1989));
+```
+
+Then it checks `tw.isBirthday(new Date(12, 13, 1989))`.
+
+Expected result: `true`.
+
+## Test Target: Birthday False
+
+### Different date
+
+The Runestone test also checks:
+
+```java
+Friend tw = new Friend("Taylor Swift", new Date(12, 13, 1989));
+tw.isBirthday(new Date(1, 1, 2025))
+```
+
+Expected result: `false`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- create `Date` with private `int` instance variables for month, day, and year
+- add a `Date` constructor, getters, and at least one setter
+- create `Friend` with `name` and `birthdate` of type `Date`
+- copy the `birthdate` parameter object in the `Friend` constructor
+- write `isBirthday(Date parameter)` using `Date` getters for month, day, and year
+- test both a matching birthday date and a non-matching date
+:::
+
+## End
+
+### 3.6 complete
+
+Next topic: 3.7 Class Variables and Methods.

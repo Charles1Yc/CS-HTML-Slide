@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.1 Introduction to Algorithms, Programming, and Compilers</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Algorithms and First Java Program</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -213,45 +213,35 @@
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
 <h3 id="why-java">Why Java?</h3>
-<p>What do <span class="term">Android phones</span>, <span class="term">Minecraft</span>, and <span class="term">Netflix</span> have in common? They all use <span class="term">Java</span> in real software systems.</p>
-<div class="tight-list">
-<ul>
-<li>Java is a <span class="term">programming language</span> (编程语言) used worldwide to create software.</li>
-<li>AP CSA uses Java to study program structure, logic, and problem solving.</li>
-<li>App Inventor apps can be translated to Java before they run on phones or tablets.</li>
-</ul>
-</div>
+<p>What do Android phones, Minecraft, and Netflix have in common? They’re all coded in <span class="term">Java</span> (编程语言).</p>
+<p>Many of the apps you use in an Android phone or tablet are written in Java.</p>
+<p>Netflix uses Java for some of its software too. Java is a <span class="term">programming language</span> that is used worldwide to create software that we all use.</p>
 </section>
 <section id="algorithms" class="slide level2">
 <h2>Algorithms</h2>
-<h3 id="step-by-step-problem-solving">Step-by-step problem solving</h3>
-<p><span class="term">Algorithms</span> (算法) define step-by-step processes for completing a task or solving a problem.</p>
+<h3 id="step-by-step-processes">Step-by-step processes</h3>
+<p><span class="term">Algorithms</span> (算法) define step-by-step processes in order to complete a task or solve a problem.</p>
 <div class="tight-list">
 <ul>
 <li>A recipe is an algorithm for cooking a meal.</li>
-<li>Directions are an algorithm for getting to a place.</li>
-<li>In computer science, algorithms can sort, search, calculate, or control a game.</li>
+<li>A set of directions to a friend’s house is an algorithm for getting there.</li>
+<li>In computer science, algorithms are used to solve problems and to create software.</li>
 </ul>
 </div>
-<p><span class="term">Sequencing</span> (顺序执行) means steps are completed <mark>one at a time in a specific order</mark>.</p>
+<p>For example, an algorithm can be used to sort a list of numbers, to search for a word in a document, or to code a game.</p>
 </section>
-<section id="planning-code" class="slide level2">
-<h2>Planning Code</h2>
-<h3 id="english-diagrams-and-pseudocode">English, diagrams, and pseudocode</h3>
-<p>Algorithms can be represented using:</p>
-<div class="tight-list">
-<ul>
-<li>written language</li>
-<li>diagrams or flow charts</li>
-<li><span class="term">pseudocode</span> (伪代码), simplified code written for planning</li>
-</ul>
-</div>
-<p>The classroom test is practical: <mark>each step should be precise enough to become a line of code</mark>.</p>
+<section id="algorithms-1" class="slide level2">
+<h2>Algorithms</h2>
+<h3 id="planning-and-sequencing">Planning and sequencing</h3>
+<p>Algorithms can be used to plan and design code by writing the steps down in English or another language or in a diagram or in <span class="term">pseudocode</span> (伪代码), which is planning code on paper.</p>
+<p>It is important to plan the algorithm step by step where <mark>each step can be implemented by a line of code</mark>.</p>
+<p><span class="term">Sequencing</span> (顺序执行) defines an order for when steps in a process are completed.</p>
+<p>Steps in a process are completed <mark>one at a time</mark>.</p>
 </section>
-<section id="reorder-task" class="slide level2 fit-small">
-<h2>Reorder Task</h2>
-<h3 id="brushing-teeth-algorithm">Brushing teeth algorithm</h3>
-<p>Put the steps in a sensible sequence.</p>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="parsonsprob-brushalgorithm"><code>parsonsprob:: brushalgorithm</code></h3>
+<p>Textbook prompt: Put the following algorithm steps for brushing your teeth in order.</p>
 <div class="tight-list">
 <ul>
 <li>Take the toothbrush.</li>
@@ -261,265 +251,104 @@
 <li>Rinse your mouth with water.</li>
 </ul>
 </div>
-<p>Check your answer by asking whether a robot could follow the order without guessing.</p>
+</section>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="parsonsprob-brushalgorithm-1"><code>parsonsprob:: brushalgorithm</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>1. Take the toothbrush.</span>
+<span id="cb1-2"><a href=""></a>2. Put some toothpaste on the toothbrush.</span>
+<span id="cb1-3"><a href=""></a>3. Put the brush in your mouth.</span>
+<span id="cb1-4"><a href=""></a>4. Brush each section of your teeth.</span>
+<span id="cb1-5"><a href=""></a>5. Rinse your mouth with water.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="student-response-task" class="slide level2">
 <h2>Student Response Task</h2>
-<h3 id="peanut-butter-and-jelly-algorithm">Peanut butter and jelly algorithm</h3>
-<p>Write an algorithm for someone, maybe a robot, to make a peanut butter and jelly sandwich.</p>
+<h3 id="shortanswer-pbjalgorithm"><code>shortanswer:: pbjalgorithm</code></h3>
+<p>Textbook prompt: Write an algorithm for someone, maybe a robot, to make a peanut butter and jelly sandwich.</p>
 <div class="tight-list">
 <ul>
-<li>Include at least <mark>5 precise steps</mark>.</li>
-<li>Keep the steps in the order they must happen.</li>
-<li>Have another person act it out exactly as written.</li>
-<li>Revise any step that requires common-sense guessing.</li>
+<li>Include at least <mark>5 precise steps</mark> in order.</li>
+<li>Have someone, maybe your instructor, act it out.</li>
+<li>Ask: Were your instructions precise enough?</li>
 </ul>
 </div>
 </section>
 <section id="first-java-program" class="slide level2">
 <h2>First Java Program</h2>
 <h3 id="class-and-main-method">Class and main method</h3>
-<p>Every Java program is written as a <span class="term">class</span> (类). A <span class="term">method</span> (方法) is a block of code that performs a specific task.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        <span class="co">// Put your code here!</span></span>
-<span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The Java run-time starts execution in the <span class="term">main method</span> (主方法).</p>
+<p>Every program in Java is written as a <span class="term">class</span> (类).</p>
+<p>Java is an <span class="term">object-oriented language</span>, and classes and objects created from classes are the basic building blocks in object-oriented programming.</p>
+<p>Inside the class, there can be a <span class="term">main method</span> that starts the program.</p>
+<p>A <span class="term">method</span> (方法) is a block of code that performs a specific task.</p>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="print-your-name">Print your name</h3>
-<p>Run the starter code, then change the string so it prints your own greeting.</p>
+<section id="java-program-template" class="slide level2">
+<h2>Java Program Template</h2>
+<h3 id="simple-class-with-main">Simple class with <code>main</code></h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
 <span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
 <span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi there!"</span><span class="op">);</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="co">// Put your code here!</span></span>
 <span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected starter output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Keep the starting and ending double quotation marks.</p>
+<p>When you ask the Java run-time to run a class, it will always start execution in the <code>main</code> method.</p>
 </section>
-<section id="compiling-and-running" class="slide level2">
-<h2>Compiling and Running</h2>
-<h3 id="source-file-compiler-ide">Source file, compiler, IDE</h3>
-<div class="tight-list">
-<ul>
-<li>Java source code is saved in a <span class="term">source file</span> such as <code>MyClass.java</code>.</li>
-<li>If using your own files, the class name and file name must match.</li>
-<li>A <span class="term">compiler</span> (编译器) checks code for some errors and translates Java source files into class files.</li>
-<li>An <span class="term">IDE</span> (集成开发环境) provides tools to write, compile, and run code.</li>
-</ul>
-</div>
-<p>Errors detectable by the compiler must be fixed <mark>before the program can run</mark>.</p>
+<section id="brace-note" class="slide level2">
+<h2>Brace Note</h2>
+<h3 id="match-and">Match <code>{</code> and <code>}</code></h3>
+<p>In Java every open curly brace <code>{</code> must have a matched close curly brace <code>}</code>.</p>
+<p>These are used to start and end class definitions and method definitions.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href=""></a>        <span class="co">// Put your code here!</span></span>
+<span id="cb3-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="java-keywords" class="slide level2">
-<h2>Java Keywords</h2>
-<h3 id="lowercase-keywords-capitalized-class-names">Lowercase keywords, capitalized class names</h3>
-<p><span class="term">Keywords</span> are reserved words with special meaning in Java.</p>
-<div class="tight-list">
-<ul>
-<li><code>public</code>, <code>class</code>, <code>static</code>, and <code>void</code> must be lowercase.</li>
-<li><code>System</code> and <code>String</code> are class names and are capitalized.</li>
-<li>A complete action line is a <span class="term">statement</span> (语句).</li>
-<li>Most Java statements end with a <mark>semicolon <code>;</code></mark>.</li>
-</ul>
-</div>
+<section id="code-task" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-printname"><code>activecode:: printName</code></h3>
+<p>Textbook prompt: Run this code to see the output below it.</p>
+<p>Then change the code to print your name, for example <code>"Hi Pat!"</code>, and run again.</p>
+<p>Be sure to keep the starting <code>"</code> and ending <code>"</code>.</p>
 </section>
-<section id="reorder-task-1" class="slide level2 fit-small">
-<h2>Reorder Task</h2>
-<h3 id="build-the-main-method-header">Build the main method header</h3>
-<p>Use the needed blocks to build the first line of the <code>main</code> method.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>public</span>
-<span id="cb4-2"><a href=""></a>static</span>
-<span id="cb4-3"><a href=""></a>void</span>
-<span id="cb4-4"><a href=""></a>main</span>
-<span id="cb4-5"><a href=""></a>(</span>
-<span id="cb4-6"><a href=""></a>String</span>
-<span id="cb4-7"><a href=""></a>[]</span>
-<span id="cb4-8"><a href=""></a>args</span>
-<span id="cb4-9"><a href=""></a>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Correct line:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Distractors to reject: <code>Public</code>, <code>Static</code>, <code>Void</code>, and an extra <code>()</code>.</p>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-printname-1"><code>activecode:: printName</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi there!"</span><span class="op">);</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="reorder-task-2" class="slide level2 fit-small">
-<h2>Reorder Task</h2>
-<h3 id="build-a-print-statement">Build a print statement</h3>
-<p>Use the needed blocks to create a statement that prints <code>Hi!</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>System</span>
-<span id="cb6-2"><a href=""></a>.</span>
-<span id="cb6-3"><a href=""></a>out</span>
-<span id="cb6-4"><a href=""></a>.</span>
-<span id="cb6-5"><a href=""></a>println</span>
-<span id="cb6-6"><a href=""></a>(</span>
-<span id="cb6-7"><a href=""></a>"</span>
-<span id="cb6-8"><a href=""></a>Hi!</span>
-<span id="cb6-9"><a href=""></a>"</span>
-<span id="cb6-10"><a href=""></a>)</span>
-<span id="cb6-11"><a href=""></a>;</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Correct statement:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi!"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Reject <code>system</code> or <code>Out</code> because Java is <mark>case-sensitive</mark>.</p>
-</section>
-<section id="syntax-errors" class="slide level2">
-<h2>Syntax Errors</h2>
-<h3 id="debugging-is-normal">Debugging is normal</h3>
-<p>A <span class="term">syntax error</span> (语法错误) means the program does not follow Java’s writing rules.</p>
-<div class="tight-list">
-<ul>
-<li>missing semicolon <code>;</code></li>
-<li>open curly brace <code>{</code> without matching <code>}</code></li>
-<li>open quote <code>"</code> without matching close quote</li>
-<li>wrong capitalization, such as <code>system</code> instead of <code>System</code></li>
-</ul>
-</div>
-<p>The process of finding and removing errors is <span class="term">debugging</span> (调试).</p>
-</section>
-<section id="reading-error-messages" class="slide level2">
-<h2>Reading Error Messages</h2>
-<h3 id="start-with-file-line-message-caret">Start with file, line, message, caret</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>FirstClass.java:5: error: unclosed string literal</span>
-<span id="cb8-2"><a href=""></a>       System.out.println("Hi there!);</span>
-<span id="cb8-3"><a href=""></a>                          ^</span>
-<span id="cb8-4"><a href=""></a>1 error</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>FirstClass.java</code> gives the file.</li>
-<li><code>5</code> gives the line where the compiler detected the problem.</li>
-<li><code>unclosed string literal</code> says a string was opened but not closed.</li>
-<li><code>^</code> points near where the compiler noticed the problem.</li>
-</ul>
-</div>
-<p>The actual fix may be on the same line, earlier, or a little later.</p>
-</section>
-<section id="debugging-task" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="compile-time-error-1">Compile-time error 1</h3>
-<p>Fix the code so it prints <code>Hi there!</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> FirstClass</span>
-<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi there!);</span></span>
-<span id="cb9-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Focus: pair the opening and closing double quotation marks.</p>
-</section>
-<section id="debugging-task-1" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="compile-time-error-2">Compile-time error 2</h3>
-<p>Fix the code so it compiles and runs.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> SecondClass</span>
-<span id="cb11-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb11-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb11-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb11-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi there!"</span><span class="op">;</span></span>
-<span id="cb11-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb11-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Focus: close every method call with the matching parenthesis.</p>
-</section>
-<section id="debugging-task-2" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="compile-time-error-3">Compile-time error 3</h3>
-<p>This program has more than one error. Read the first compiler message, fix one issue, then compile again.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ThirdClass</span>
-<span id="cb13-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb13-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb13-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb13-5"><a href=""></a>        system<span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hi there!"</span><span class="op">)</span></span>
-<span id="cb13-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb13-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Focus: <code>System</code> capitalization and the missing semicolon.</p>
-</section>
-<section id="run-time-errors" class="slide level2">
-<h2>Run-Time Errors</h2>
-<h3 id="compiles-first-fails-while-running">Compiles first, fails while running</h3>
-<p>A <span class="term">run-time error</span> happens while the program is executing. An <span class="term">exception</span> interrupts normal execution.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> DivideByZero</span>
-<span id="cb15-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb15-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb15-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb15-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"It makes no sense to divide a number by zero!"</span><span class="op">);</span></span>
-<span id="cb15-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">/</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb15-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb15-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After compilation succeeds, <code>3 / 0</code> causes an <span class="term">ArithmeticException</span>.</p>
-</section>
-<section id="logic-errors" class="slide level2">
-<h2>Logic Errors</h2>
-<h3 id="code-can-run-and-still-be-wrong">Code can run and still be wrong</h3>
-<p>A <span class="term">logic error</span> is a mistake in the algorithm or program that causes incorrect behavior.</p>
-<div class="tight-list">
-<ul>
-<li>The program may compile successfully.</li>
-<li>The program may run without crashing.</li>
-<li>Testing with specific data is how you detect the wrong outcome.</li>
-</ul>
-</div>
-<p>This is why precise algorithms matter before writing Java code.</p>
-</section>
-<section id="comments" class="slide level2">
-<h2>Comments</h2>
-<h3 id="notes-for-humans-skipped-by-the-compiler">Notes for humans, skipped by the compiler</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="co">/* MyClass.java</span></span>
-<span id="cb16-2"><a href=""></a><span class="co">   Programmer: My Name</span></span>
-<span id="cb16-3"><a href=""></a><span class="co">   Date:</span></span>
-<span id="cb16-4"><a href=""></a><span class="co">*/</span></span>
-<span id="cb16-5"><a href=""></a></span>
-<span id="cb16-6"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> <span class="dv">10</span><span class="op">;</span> <span class="co">// this keeps track of the max score</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>//</code> starts a single-line comment.</li>
-<li><code>/*</code> and <code>*/</code> surround a multi-line comment.</li>
-<li>Comments should explain intent or context, not repeat obvious syntax.</li>
-</ul>
-</div>
-</section>
-<section id="groupwork-debugging-challenge" class="slide level2">
-<h2>Groupwork Debugging Challenge</h2>
-<h3 id="pair-programming-and-rubber-duck-debugging">Pair programming and rubber-duck debugging</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/rubberduck.jpg" style="width:16.0%" class="r-stretch quarto-figure-left"><p class="caption">Rubber duck debugging</p><p>Work in pairs. One student is the <span class="term">driver</span> who edits code; the other is the <span class="term">navigator</span> who reads messages and checks logic. Switch roles often.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Challenge1_1</span>
-<span id="cb17-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb17-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb17-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb17-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Good morning! "</span><span class="op">)</span></span>
-<span id="cb17-6"><a href=""></a>        system<span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"Good afternoon!);</span></span>
-<span id="cb17-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">Print</span> <span class="st">" And good evening!"</span><span class="op">;</span></span>
-<span id="cb17-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output contains:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>Good morning! Good afternoon! And good evening</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-printname-2"><code>activecode:: printName</code></h3>
+<p>Runestone’s starter test expects this output from <code>main</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The task is still to edit the string and print your own greeting after running the starter.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
 <li>define an <span class="term">algorithm</span> as a step-by-step process</li>
 <li>explain <span class="term">sequencing</span> as completing steps one at a time in order</li>
-<li>identify the <span class="term">class</span> and <span class="term">main method</span> in a basic Java program</li>
-<li>state that a <span class="term">compiler</span> translates Java and catches some errors before running</li>
-<li>read a compiler message using file, line, error message, and caret</li>
-<li>distinguish <span class="term">syntax errors</span>, <span class="term">run-time errors</span>, <span class="term">logic errors</span>, and <span class="term">comments</span></li>
+<li>describe <span class="term">pseudocode</span> as planning code on paper</li>
+<li>identify the <span class="term">class</span> and <span class="term">main method</span> in a Java program</li>
+<li>preserve matched curly braces <code>{</code> and <code>}</code> in a Java class</li>
+<li>run the <code>printName</code> starter before editing the string literal</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="1-1-part-2-compiling-keywords-and-syntax-errors.html">Next: Compiling, keywords, and syntax errors →</a></p>
 
 </section>
     </div>

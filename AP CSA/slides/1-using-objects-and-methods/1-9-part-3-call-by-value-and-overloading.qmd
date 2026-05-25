@@ -1,0 +1,269 @@
+---
+title: "1.9 Method Signatures"
+subtitle: "Part 3: Parameterized Calls, Call by Value, and Overloading"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Parameters in action
+
+This deck keeps the parameterized Old MacDonald code, then connects the calls to method signatures, arguments, call by value, and overloading.
+
+The core pattern is:
+
+```java
+verse("cow", "moo");
+```
+
+where the arguments are saved in the parameter variables `animal` and `sound`.
+
+## Parameterized Song Code
+
+### `codelens:: songvizOldMcdonald2`
+
+::: {.code-scroll}
+```java
+public class OldMacDonaldSong
+{
+  public static void intro()
+  {
+    System.out.println("Old MacDonald had a farm");
+    chorus();
+  }
+
+  public static void chorus()
+  {
+    System.out.println("E-I-E-I-O");
+  }
+
+  public static void verse(String animal, String sound)
+  {
+    System.out.println("And on this farm, they had a " + animal);
+    chorus();
+    System.out.println("With a " + sound + " " + sound
+                   + " here and a " + sound + " " + sound + " there");
+    System.out.println("Here a " + sound
+                   + ", there a " + sound
+                   + ", everywhere a " + sound + " " + sound);
+  }
+
+  public static void main(String[] args)
+  {
+    intro();
+    verse("cow", "moo");
+    intro();
+    verse("duck", "quack");
+    intro();
+  }
+}
+```
+:::
+
+## Code Task
+
+### `activecode:: OldMacDonaldSong2`
+
+Run the following code to see the song Old MacDonald using the `verse` and `chorus` methods.
+
+Scroll down to the `main` method.
+
+Add another verse with the animal `goose` and the sound `honk` by calling the `verse` method with the appropriate arguments.
+
+Then call `intro` again.
+
+Repeat with another animal and sound of your choice.
+
+## Starter Code
+
+### `OldMacDonaldSong2`
+
+::: {.code-scroll}
+```java
+public class OldMacDonaldSong
+{
+    public static void intro()
+    {
+        System.out.println("Old MacDonald had a farm");
+        chorus();
+    }
+
+    public static void chorus()
+    {
+        System.out.println("E-I-E-I-O");
+    }
+
+    public static void verse(String animal, String sound)
+    {
+        System.out.println("And on this farm, they had a " + animal);
+        chorus();
+        System.out.println("With a " + sound + " " + sound
+                     + " here and a " + sound + " " + sound + " there");
+        System.out.println("Here a " + sound
+                     + ", there a " + sound
+                     + ", everywhere a " + sound + " " + sound);
+    }
+
+    public static void main(String[] args)
+    {
+        intro();
+        verse("cow","moo");
+        intro();
+        verse("duck","quack");
+        intro();
+        // TODO:
+        // Call verse again with goose and honk
+        //   and then call intro again
+
+        // Call verse again with another animal and sound
+        //  and then call intro again
+
+     }
+}
+```
+:::
+
+## Test Requirements
+
+### `OldMacDonaldSong2`
+
+Runestone checks:
+
+::: {.tight-list}
+- the code contains `verse("goose", "honk");`
+- calls to `intro();` are `5 or more`
+:::
+
+The new calls must use arguments in the correct order: animal first, sound second.
+
+## Matching Calls
+
+### Method signatures choose the right definition
+
+When a method is called, the right method definition is found by checking the method signature or header at the top of the method definition.
+
+Java matches:
+
+::: {.tight-list}
+- method name
+- number of arguments
+- data types for the arguments
+- return type
+:::
+
+## Signature Forms
+
+### With and without parameters
+
+A method signature for a method with parameters consists of the method name and the ordered list of parameter types.
+
+A method signature for a method without parameters consists of the method name and an empty parameter list.
+
+The two calls `verse("cow", "moo")` and `verse("duck", "quack")` both match:
+
+```java
+verse(String, String)
+```
+
+## Arguments to Parameters {.image-fit}
+
+### Matching arguments to parameters
+
+![Matching Arguments to Parameters](../../assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png){fig-align="center" width="62%"}
+
+The arguments like `"cow"` and `"moo"` are saved into the parameter variables `animal` and `sound` with each method call.
+
+## Header Versus Call
+
+### Types appear only in the header
+
+The method headers contain data types of the parameters because they are variable declarations that reserve memory for the parameter variables.
+
+However, the method calls never contain the parameter types, only the values that are passed to the method.
+
+The argument values can be variables, literals, or expressions that evaluate to the correct data type.
+
+## Header and Call Code
+
+### Type declarations versus values
+
+```java
+// Method headers contain data types for the parameters
+public static void verse(String animal, String sound)
+{   /* Implementation not shown */
+}
+
+// Method calls contain only values for the parameters
+verse("cow", "moo");
+```
+
+## Call by Value
+
+### Copy argument values into parameters
+
+Java uses <span class="term">call by value</span> when it passes arguments to methods.
+
+This means that a copy of the value in the argument is saved in the parameter variable.
+
+Call by value initializes the parameters with copies of the arguments.
+
+If the parameter variable changes its value inside the method, the original value outside the method is not changed.
+
+## Overloading
+
+### Same method name, different signatures
+
+Methods are said to be <span class="term">overloaded</span> when there are multiple methods with the same name but different signatures with a different number or types of parameters.
+
+For example, the `println()` method in the `PrintStream` class is overloaded with different parameter types.
+
+::: {.tight-list}
+- `println()` with no parameters prints a newline
+- `println(String x)` prints the given string followed by a newline
+- `println(int x)` prints the given int number followed by a newline
+:::
+
+## Compiler Choice
+
+### Number and types of arguments
+
+The compiler determines which method to call based on the number and types of arguments passed to the method.
+
+Examples:
+
+```java
+System.out.println();
+System.out.println("Hello World");
+System.out.println(42);
+```
+
+Each call uses the same method name but a different signature.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- call `verse("goose", "honk");` with arguments in the source order
+- keep `intro();` calls at `5 or more`
+- explain that data types appear in method headers, not calls
+- map `"cow"` to `animal` and `"moo"` to `sound`
+- define call by value as copying argument values into parameter variables
+- define overloading as same method name with different signatures
+:::
+
+## End
+
+### Continue to the Ants song challenge
+
+The next deck keeps the Song with Parameters groupwork challenge.

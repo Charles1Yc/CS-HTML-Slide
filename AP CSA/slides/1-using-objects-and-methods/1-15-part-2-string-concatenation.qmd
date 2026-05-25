@@ -1,0 +1,231 @@
+---
+title: "1.15 String Manipulation"
+subtitle: "Part 2: String Operators and Concatenation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## String Operators
+
+### Concatenation
+
+`String`s can be added to each other to create a new string using the `+` or `+=` operator.
+
+This is also called **concatenation**.
+
+You can also add any other kind of value to a `String` with `+` or `+=` and the other value will be converted to a `String` automatically.
+
+## Strings are Immutable
+
+### New strings, not changed strings
+
+A `String` object is **immutable**, meaning once a `String` object is created, its attributes cannot be changed.
+
+When we add two `String`s, or a `String` and another value converted to a `String`, we get a new `String` without making any change to the values being added together.
+
+This is like adding the `int`s `1 + 2`: the original `1` and `2` aren't changed.
+
+## `+=` with Strings
+
+### Assignment back into the variable
+
+When we use `+=`, we are making a new `String` by adding something to the current value of a variable and then assigning that new value back into the variable.
+
+Again, this is just like with numbers.
+
+```java
+String result = "Happy";
+result += " Birthday";
+```
+
+The variable `result` now refers to the new string `"Happy Birthday"`.
+
+## Coding Exercise
+
+### `activecode:: lcso1`
+
+Try the following code.
+
+Add another variable for a lastname that is `"Hernandez"`.
+
+Use `+=` or `+` to add the lastname variable after `name` to the result.
+
+Use `+=` or `+` to add 2 more exclamation points (`!`) to the end of the happy birthday greeting in `result`.
+
+## Starter Code
+
+### `lcso1`
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        String start = "Happy Birthday";
+        String name = "Jose";
+        String result = start + " " + name; // add together strings
+        result += "!"; // add on to the same string
+        // TODO: add lastname and 2 more exclamation points
+        System.out.println(result);
+    }
+}
+```
+
+## Expected Output
+
+### `lcso1`
+
+```text
+Happy Birthday Jose Hernandez!!!
+```
+
+Runestone checks the expected output from `main`.
+
+## Source Note
+
+### Spaces and variables
+
+Spaces are not added between strings automatically.
+
+If you want a space between two strings then add one using:
+
+```java
++ " " +
+```
+
+If you forget to add spaces, you will get smushed output like `"HiJose"` instead of `"Hi Jose"`.
+
+Remember that variables are never put inside the quotes (`""`) since this would print the variable name out letter by letter instead of its value.
+
+## Quick Check
+
+### `mchoice:: qse_1`
+
+Given the following code segment, what is in the string referenced by `s1`?
+
+```java
+String s1 = "xy";
+String s2 = s1;
+s1 = s1 + s2 + "z";
+```
+
+::: {.tight-list}
+- A. `xyz`
+- B. `xyxyz`
+- C. `xy xy z`
+- D. `xy z`
+- E. `z`
+:::
+
+## Answer Reasoning
+
+### `qse_1`
+
+Correct answer: B. `xyxyz`
+
+`s1` contains the original value, plus itself through `s2`, plus `"z"`.
+
+No spaces are added during concatenation.
+
+## Adding Other Values
+
+### Primitive values and objects
+
+You can even add other items to a `String` using the `+` operator.
+
+Primitive values like `int` and `boolean` will be converted to a `String` automatically when concatenated with a `String`.
+
+Any other objects concatenated with a `String` will be converted to `String` using their `toString` method.
+
+## `toString` and `Object`
+
+### Inherited method
+
+All objects inherit a `toString` method from the `Object` class that returns a `String` representation of the object.
+
+Many classes **override** it to produce a useful human-readable value.
+
+Method overriding occurs when a public method in a subclass has the same method signature as a public method in the superclass, but the behavior of the method is specific to the subclass.
+
+Overriding `toString` is no longer covered on the AP CSA exam.
+
+## Coding Exercise
+
+### `activecode:: lcso2`
+
+What do you think the following will print?
+
+Guess before you hit run.
+
+If you want the addition to take place before the numbers are turned into a string what should you do?
+
+Try to modify the code so that it adds `4 + 3` before appending the value to the string.
+
+Hint: you used this to do addition before multiplication in arithmetic expressions.
+
+## Starter Code
+
+### `lcso2`
+
+```java
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        String message = "12" + 4 + 3;
+        // TODO: use parentheses so 4 + 3 happens before appending
+        System.out.println(message);
+    }
+}
+```
+
+## Test Requirements
+
+### `lcso2`
+
+Runestone checks:
+
+::: {.tight-list}
+- main output is `127`
+- code contains `(4+3)` after spaces are removed
+:::
+
+## Number Appending Note
+
+### Left to right
+
+If you are appending a number to a string it will be converted to a string first before being appended.
+
+Since the same operators are processed from left to right, `"12" + 4 + 3` will print `1243`.
+
+First `4` will be turned into a string and appended to `12`, and then `3` will be turned into a string and appended to `124`.
+
+If you want to do addition instead, try using parentheses.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `+` and `+=` for string concatenation
+- explain that concatenation creates a new `String`
+- include spaces explicitly when building strings
+- keep variable names outside quotes
+- trace left-to-right string concatenation with numbers
+- use parentheses to force arithmetic before concatenation
+:::
+
+## End
+
+### 1.15 Part 2 complete
+
+Part 3 continues with String index and methods.

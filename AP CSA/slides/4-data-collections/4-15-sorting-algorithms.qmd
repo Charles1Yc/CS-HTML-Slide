@@ -1,6 +1,6 @@
 ---
 title: "4.15 Sorting Algorithms"
-subtitle: "Data Collections"
+subtitle: "Selection Sort and Insertion Sort"
 format:
   clean-revealjs:
     slide-number: true
@@ -10,150 +10,225 @@ lang: zh-CN
 
 ## Course Directory
 
-### Return to the course outline
-
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Sorting Algorithms
 
-### Sorting puts data in order
+### AP CSA sorting algorithms
 
-<span class="term">Sorting algorithms</span> reorder data, usually from smallest to largest or alphabetically.
+There are many sorting algorithms to put array or `ArrayList` elements in alphabetic or numerical order.
 
-This topic focuses on:
+Selection sort and insertion sort are iterative sorting algorithms that can be used to sort elements in an array or `ArrayList`.
 
-::: {.tight-list}
-- selection sort
-- insertion sort
-- tracing how an array changes
-- informal runtime comparison
-:::
+The three sorting algorithms you need to know for the AP CSA exam are:
 
-## Selection Sort Idea
+- Selection sort
+- Insertion sort
+- Merge sort, covered in lesson 4.17
 
-### Repeatedly select the smallest remaining value
+## Selection Sort
 
-Algorithm:
+### Find min and swap
 
-```text
-For each position from left to right:
-    Find the smallest value in the unsorted part.
-    Swap it into the current position.
-```
+Selection sort usually starts at index `0`.
 
-After each pass, one more value is in its final position.
+It looks through the entire array keeping track of the index of the smallest value, then swaps the value at the smallest index with the value at index `0`.
 
-## Selection Sort Code {.fit-small}
+Then it does the same thing for index `1`, then `2`, and so on until it reaches the length of the array minus one.
 
-### Find min index, then swap
+## Identify Selection Sort
 
+### Source recognition points
+
+To identify a selection sort, look for:
+
+- an outer loop that starts at `0` and ends at `elements.length - 1`
+- setting `minIndex` to the outer loop index
+- an inner loop that starts at the outer loop index plus `1`
+- comparing the inner-loop value to the current minimum
+- saving the new minimum index
+- swapping values after the inner loop
+
+## Coding Exercise
+
+### `activecode:: selSort`
+
+The code for `selectionSort` below is from the AP CSA course description.
+
+## Selection Sort Source Code
+
+::: {.code-scroll}
 ```java
-for (int i = 0; i < values.length - 1; i++)
+import java.util.Arrays;
+
+public class SortTest
 {
-    int minIndex = i;
-    for (int j = i + 1; j < values.length; j++)
+    public static void selectionSort(int[] elements)
     {
-        if (values[j] < values[minIndex])
+        for (int j = 0; j < elements.length - 1; j++)
         {
-            minIndex = j;
+            int minIndex = j;
+            for (int k = j + 1; k < elements.length; k++)
+            {
+                if (elements[k] < elements[minIndex])
+                {
+                    minIndex = k;
+                }
+            }
+            int temp = elements[j];
+            elements[j] = elements[minIndex];
+            elements[minIndex] = temp;
         }
     }
-    int temp = values[i];
-    values[i] = values[minIndex];
-    values[minIndex] = temp;
+
+    public static void main(String[] args)
+    {
+        int[] arr1 = {3, 86, -20, 14, 40};
+        System.out.println(Arrays.toString(arr1));
+        selectionSort(arr1);
+        System.out.println(Arrays.toString(arr1));
+    }
 }
 ```
-
-## Selection Sort Trace
-
-### First pass
-
-For `{5, 2, 7, 1}`:
-
-::: {.tight-list}
-- current position: index `0`
-- smallest remaining value: `1` at index `3`
-- swap indices `0` and `3`
-- array becomes `{1, 2, 7, 5}`
 :::
 
-## Insertion Sort Idea
+## Selection Sort Test Target
 
-### Insert each value into the sorted left side
-
-Algorithm:
+### Runestone expected output
 
 ```text
-Start with the left side considered sorted.
-Take the next value.
-Shift larger values right.
-Insert the value into the open spot.
+[3, 86, -20, 14, 40]
+[-20, 3, 14, 40, 86]
 ```
 
-Insertion sort resembles sorting cards in your hand.
+## Selection Sort Quick Checks
 
-## Insertion Sort Code {.fit-small}
+### `qsel_1` and `qsel_2`
 
-### Shift until the correct position opens
+Under what condition will a selection sort execute faster?
 
+Correct answer: **It will always take the same amount of time to execute.**
+
+In the broken selection sort method, the wrong line is **line 3** because the inner loop should start at the outer loop index plus `1`.
+
+## Insertion Sort
+
+### Insert into the sorted part
+
+Insertion sort usually starts at index `1`.
+
+It inserts the value at index `1` into its correct place in the already sorted part to the left of the current index.
+
+It moves any value larger than `temp` to the right until it finds the appropriate place to put `temp` or reaches the front of the array.
+
+## Identify Insertion Sort
+
+### Source recognition points
+
+To identify an insertion sort, look for:
+
+- an outer `for` loop that starts at `1`
+- storing the element at the outer loop index in `temp`
+- setting `possibleIndex` to the outer loop index
+- an inner `while` loop that shifts larger values right
+- decrementing `possibleIndex`
+- setting `elements[possibleIndex]` to `temp`
+
+## Coding Exercise
+
+### `activecode:: insertionSort`
+
+The code for `insertionSort` below is from the AP CSA course description.
+
+## Insertion Sort Source Code
+
+::: {.code-scroll}
 ```java
-for (int i = 1; i < values.length; i++)
-{
-    int current = values[i];
-    int j = i - 1;
+import java.util.Arrays;
 
-    while (j >= 0 && values[j] > current)
+public class SortTest
+{
+    public static void insertionSort(int[] elements)
     {
-        values[j + 1] = values[j];
-        j--;
+        for (int j = 1; j < elements.length; j++)
+        {
+            int temp = elements[j];
+            int possibleIndex = j;
+            while (possibleIndex > 0 && temp < elements[possibleIndex - 1])
+            {
+                elements[possibleIndex] = elements[possibleIndex - 1];
+                possibleIndex--;
+            }
+            elements[possibleIndex] = temp;
+        }
     }
-    values[j + 1] = current;
+
+    public static void main(String[] args)
+    {
+        int[] arr1 = {3, 86, -20, 14, 40};
+        System.out.println(Arrays.toString(arr1));
+        insertionSort(arr1);
+        System.out.println(Arrays.toString(arr1));
+    }
 }
 ```
-
-## Insertion Sort Trace
-
-### Insert `2`
-
-For `{5, 2, 7, 1}` at `i = 1`:
-
-::: {.tight-list}
-- `current = 2`
-- compare with `5`
-- shift `5` right
-- insert `2` at index `0`
-- array becomes `{2, 5, 7, 1}`
 :::
+
+## Insertion Sort Test Target
+
+### Runestone expected output
+
+```text
+[3, 86, -20, 14, 40]
+[-20, 3, 14, 40, 86]
+```
+
+## Insertion Sort Quick Checks
+
+### `qins_1` and `qins_2`
+
+Under what condition will an insertion sort execute faster?
+
+Correct answer: **If the data is already sorted in ascending order.**
+
+In the broken insertion sort method, the wrong line is **line 1** because it should loop through the entire array.
 
 ## Groupwork Coding Challenge
 
-### Sort runtimes
+### Sort Runtimes
 
-Trace selection sort and insertion sort on the same small array.
+Selection sort and insertion sort have similar runtimes.
 
-Record:
+They both have nested loops that run through data of size `n` approximately `n` squared times.
 
-::: {.tight-list}
-- comparisons
-- swaps or shifts
-- array after each outer loop pass
-- which algorithm feels easier to trace and why
-:::
+However, they perform differently on some data.
+
+## Student Response
+
+### `shortanswer:: challenge-sorting`
+
+In the Active code windows for Selection sort and Insertion sort above:
+
+1. Add a counter.
+2. Increment it inside the inner loop to count iterations.
+3. Add print statements that print the counter value after the loops.
+4. Run the code on the same data.
+5. Compare the runtimes of selection and insertion sort.
+
+Explain why one performed better on some data.
 
 ## Classroom Check
 
-### A strong answer should...
+### A strong answer should include
 
-::: {.tight-list}
-- explain selection sort as choosing the minimum remaining value
-- trace a selection sort swap
-- explain insertion sort as inserting into a sorted left side
-- trace an insertion sort shift
-- compare sorting algorithms using passes, comparisons, swaps, and shifts
-:::
+- identify selection sort by finding the minimum and swapping after the inner loop
+- identify insertion sort by shifting larger values right and inserting `temp`
+- explain why selection sort does the same number of comparisons
+- explain why insertion sort can be faster on already sorted data
+- preserve the AP CSA source code structure for both algorithms
 
 ## End
 
-### Return to the course outline
+### 4.15 Sorting Algorithms
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Recursion.

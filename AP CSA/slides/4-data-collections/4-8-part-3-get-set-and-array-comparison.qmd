@@ -1,0 +1,277 @@
+---
+title: "4.8 get, set, and Array Comparison"
+subtitle: "ArrayList and its Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## get(index) and set(index, obj)
+
+### Access and replace
+
+You can get the object at an index using:
+
+```java
+obj = listName.get(index);
+```
+
+You can set the object at an index using:
+
+```java
+listName.set(index, obj);
+```
+
+Both methods require that the index refer to an existing element of the list.
+
+## ArrayList Uses Methods
+
+### No bracket indexing
+
+The index must be greater than or equal to `0` and less than the `size()` of the list.
+
+`ArrayList`s use `get` and `set` methods instead of the index operator used with arrays:
+
+```java
+array[index]
+```
+
+This is because `ArrayList` is a class with methods, not a built-in type with special language support like arrays.
+
+## Coding Exercise
+
+### `activecode:: listGetSet`
+
+Try to guess what the code below prints before running it.
+
+Can you get the last element in the `nameList` to print it out?
+
+Can you set the first element in the list to your name and print out the list?
+
+## listGetSet Source Code
+
+```java
+import java.util.*; // import all classes in this package.
+
+public class listGetSet
+{
+    public static void main(String[] args)
+    {
+        ArrayList<String> nameList = new ArrayList<String>();
+        nameList.add("Diego");
+        nameList.add("Grace");
+        nameList.add("Deja");
+        System.out.println(nameList);
+        System.out.println(nameList.get(0));
+        System.out.println(nameList.get(1));
+        nameList.set(1, "John");
+        System.out.println(nameList);
+    }
+}
+```
+
+## listGetSet Test Targets
+
+### Runestone checks
+
+The tests check that student code:
+
+::: {.tight-list}
+- calls `nameList.set(0, "Your name")` or another first-element replacement
+- prints the last item in the list, `Deja`
+:::
+
+## Quick Check
+
+### `mchoice:: qListRem1`
+
+What prints?
+
+```java
+List<Integer> list1 = new ArrayList<Integer>();
+list1.add(1);
+list1.add(2);
+list1.add(3);
+list1.set(2, 4);
+list1.add(2, 5);
+list1.add(6);
+System.out.println(list1);
+```
+
+Correct answer: `[1, 2, 5, 4, 6]`.
+
+## Quick Check
+
+### `mchoice:: qListRem2`
+
+What prints?
+
+```java
+List<String> list1 = new ArrayList<String>();
+list1.add("Anaya");
+list1.add("Layla");
+list1.add("Sharrie");
+list1.set(1, "Destini");
+list1.add(1, "Sarah");
+System.out.println(list1);
+```
+
+Correct answer: `["Anaya", "Sarah", "Destini", "Sharrie"]`.
+
+## Comparing Arrays and ArrayLists
+
+### When to use each
+
+Use an array when:
+
+::: {.tight-list}
+- you want to store several items of the same type
+- you know how many items will be in the array
+- the items will not change in order or number
+:::
+
+Use an `ArrayList` when you do not know how many items you need or when you want to add or remove items while the program is running.
+
+## Create Arrays and ArrayLists
+
+```java
+// arrays must specify a size!
+int[] highScores = new int[5];
+String[] names = new String[5];
+
+// ArrayLists are empty to start with
+ArrayList<Integer> highScoreList = new ArrayList<Integer>();
+ArrayList<String> nameList = new ArrayList<String>();
+```
+
+## Access and Change Comparison
+
+### length/size, access, modify
+
+| Operation | array | ArrayList |
+|---|---|---|
+| length/size | `array.length` | `list.size()` |
+| Access | `value = array[index];` | `value = list.get(index);` |
+| Modify | `array[index] = value;` | `list.set(index, value);` |
+
+`add` and `remove` do not have simple equivalents in arrays because they change the number of elements and may shift positions.
+
+## Coding Exercise
+
+### `activecode:: array-to-arraylist`
+
+Rewrite the following code that uses an array to use an `ArrayList` instead.
+
+In the comments, write why an `ArrayList` is a better data structure to use than an array for this problem.
+
+## ToDoList Starter
+
+::: {.code-scroll}
+```java
+import java.util.*;
+
+public class ToDoList
+{
+    public static void main(String[] args)
+    {
+        // Rewrite this code to use an ArrayList instead of an array
+        String[] toDoList = new String[3];
+        toDoList[0] = "Do homework";
+        toDoList[1] = "Help make dinner";
+        toDoList[2] = "Call grandma";
+
+        // changing element 1
+        toDoList[1] = "Order pizza";
+
+        System.out.println(toDoList.length + " things to do!");
+        System.out.println("Here's the first thing to do: " + toDoList[0]);
+
+        // remove item 0 and move everything down
+        //  (this can be done in one method call with ArrayList)
+        toDoList[0] = toDoList[1];
+        toDoList[1] = toDoList[2];
+        toDoList[2] = "";
+
+        System.out.println("Here's the next thing to do: " + toDoList[0]);
+
+        // Why is an ArrayList better than an array for a toDoList?
+        // Answer:
+    }
+}
+```
+:::
+
+## ToDoList Test Targets
+
+### Runestone checks
+
+The output should remain:
+
+```text
+3 things to do!
+Here's the first thing to do: Do homework
+Here's the next thing to do: Order pizza
+```
+
+The tests also check for `ArrayList<String>`, `.add`, and no bracket indexing pattern.
+
+## ArrayList from Array
+
+### Not on the AP exam
+
+Although it is not on the AP exam, you can convert an array to a `List` using the static method `asList` from the `Arrays` helper class:
+
+```java
+Arrays.asList(arrayname)
+```
+
+`ArrayList` has a `toString` method that is automatically called to print the list in a nice format.
+
+## ArrayListFromArray Source Code
+
+```java
+import java.util.*;
+
+public class ArrayListFromArray
+{
+    public static void main(String[] args)
+    {
+        String[] names = {"Dakota", "Madison", "Brooklyn"};
+        ArrayList<String> namesList = new ArrayList<String>(Arrays.asList(names));
+        System.out.println(namesList);
+    }
+}
+```
+
+Expected output:
+
+```text
+[Dakota, Madison, Brooklyn]
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `get(index)` to access an existing element
+- use `set(index, obj)` to replace an existing element
+- avoid `[]` syntax with `ArrayList`
+- choose arrays when size/order are fixed
+- choose `ArrayList` when items are added or removed during runtime
+- replace array `length` with `size()`, access with `get`, and assignment with `set`
+:::
+
+## End
+
+### 4.8 Part 3 complete
+
+Next: FRQ Digits challenge.

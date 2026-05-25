@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.7 Wrapper Classes</title>
+  <title>4.7 Wrapper Classes and Parsing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.7 Wrapper Classes</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.7 Wrapper Classes and Parsing</h1>
+  <p class="subtitle">Wrapper Classes - Integer and Double</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,100 +210,236 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="wrapper-classes-turn-primitives-into-objects">Wrapper classes turn primitives into objects</h3>
-<p><span class="term">Wrapper classes</span> (包装类) provide object versions of primitive values.</p>
+<section id="wrapper-classes" class="slide level2">
+<h2>Wrapper Classes</h2>
+<h3 id="primitive-values-with-object-appearance">Primitive values with object appearance</h3>
+<p>A <strong>wrapper class</strong> (包装类) wraps around a primitive data type and gives it an object appearance.</p>
+<p>The wrapper classes are part of the <code>java.lang</code> package, which is imported by default into all Java programs.</p>
+<p>The <code>Integer</code> class and <code>Double</code> class create objects from primitive types of <code>int</code> and <code>double</code> respectively.</p>
+</section>
+<section id="why-wrapper-classes" class="slide level2">
+<h2>Why Wrapper Classes</h2>
+<h3 id="objects-collections-and-conversion">Objects, collections, and conversion</h3>
+<p>Sometimes you need to create a wrapped object for a primitive type so that you can:</p>
+<div class="tight-list">
+<ul>
+<li>give it to a method that expects an object</li>
+<li>put it in a collection like an <code>ArrayList</code></li>
+<li>convert strings to primitive data types</li>
+<li>convert primitive data types to strings</li>
+</ul>
+</div>
+<p>These conversions are useful when using the <code>Scanner</code> class with input.</p>
+</section>
+<section id="creating-integer-and-double-objects" class="slide level2">
+<h2>Creating Integer and Double Objects</h2>
+<h3 id="older-and-newer-java-syntax">Older and newer Java syntax</h3>
+<p>In Java version 7, you can use a constructor like <code>new Integer(2)</code>.</p>
+<p>In Java 9 and later, you can use <code>Integer i = 2;</code> to create an object with the value <code>2</code> wrapped in it.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// in older versions of Java</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">Integer</span> i <span class="op">=</span> <span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb1-3"><a href=""></a><span class="bu">Double</span> d <span class="op">=</span> <span class="kw">new</span> <span class="bu">Double</span><span class="op">(</span><span class="fl">3.5</span><span class="op">);</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="co">// in newer versions of Java (9+)</span></span>
+<span id="cb1-6"><a href=""></a><span class="bu">Integer</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a><span class="bu">Double</span> d <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Integer</code> and <code>Double</code> objects are immutable (不可变): once created, their values cannot be changed.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-lcmm1"><code>activecode:: lcmm1</code></h3>
+<p>What are the minimum and maximum numbers for an <code>int</code>?</p>
+<p>What happens if you go beyond these limits with <code>- 1</code> or <code>+ 1</code>?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">MIN_VALUE</span><span class="op">);</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">MAX_VALUE</span><span class="op">);</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">MIN_VALUE</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">MAX_VALUE</span> <span class="op">+</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="lcmm1-expected-output" class="slide level2">
+<h2>lcmm1 Expected Output</h2>
+<h3 id="runestone-check">Runestone check</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>-2147483648</span>
+<span id="cb3-2"><a href=""></a>2147483647</span>
+<span id="cb3-3"><a href=""></a>2147483647</span>
+<span id="cb3-4"><a href=""></a>-2147483648</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Java returns the maximum integer value if you subtract one from the minimum value. This is <strong>underflow</strong>.</p>
+<p>Java returns the minimum integer value if you add one to the maximum value. This is <strong>overflow</strong>.</p>
+</section>
+<section id="integer-limits" class="slide level2">
+<h2>Integer Limits</h2>
+<h3 id="why-those-numbers">Why those numbers?</h3>
+<p>The <code>int</code> type in Java can represent any whole number from <code>-2147483648</code> to <code>2147483647</code>.</p>
+<p>Integers in Java are represented in 2’s complement binary and each integer gets 32 bits of space.</p>
+<p><code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code> are useful when you want to initialize a variable to the smallest possible value and then search a sequence of values for a larger value.</p>
+</section>
+<section id="autoboxing" class="slide level2">
+<h2>Autoboxing</h2>
+<h3 id="primitive-to-wrapper-object">Primitive to wrapper object</h3>
+<p><strong>Autoboxing</strong> is the automatic conversion that the Java compiler makes between primitive types and their corresponding object wrapper classes.</p>
+<p>This includes converting an <code>int</code> to an <code>Integer</code> and a <code>double</code> to a <code>Double</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">Integer</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-2"><a href=""></a><span class="bu">Double</span> d <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="unboxing" class="slide level2">
+<h2>Unboxing</h2>
+<h3 id="wrapper-object-to-primitive">Wrapper object to primitive</h3>
+<p><strong>Unboxing</strong> is the automatic conversion from the wrapper class to the primitive type.</p>
+<p>This includes converting an <code>Integer</code> to an <code>int</code> and a <code>Double</code> to a <code>double</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">Integer</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// autoboxing - wrap 2</span></span>
+<span id="cb5-2"><a href=""></a><span class="dt">int</span> number <span class="op">=</span> i<span class="op">;</span> <span class="co">// unboxing - back to primitive type</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="matching-check" class="slide level2">
+<h2>Matching Check</h2>
+<h3 id="dragndrop-wrapperclasses"><code>dragndrop:: WrapperClasses</code></h3>
 <table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Primitive</th>
-<th>Wrapper class</th>
+<th>Definition</th>
+<th>Word</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>int</code></td>
-<td><code>Integer</code></td>
+<td>automatic conversion from the primitive type to the wrapper object</td>
+<td>autoboxing</td>
 </tr>
 <tr class="even">
-<td><code>double</code></td>
-<td><code>Double</code></td>
+<td>automatic conversion from the wrapper object to the primitive type</td>
+<td>unboxing</td>
 </tr>
 <tr class="odd">
-<td><code>boolean</code></td>
-<td><code>Boolean</code></td>
+<td><code>Integer</code></td>
+<td>wrapper class</td>
+</tr>
+<tr class="even">
+<td><code>int</code></td>
+<td>primitive type</td>
+</tr>
+<tr class="odd">
+<td><code>Integer.MAX_VALUE + 1</code></td>
+<td>overflow</td>
+</tr>
+<tr class="even">
+<td><code>Integer.MIN_VALUE - 1</code></td>
+<td>underflow</td>
 </tr>
 </tbody>
 </table>
-<p>AP CSA most often uses <code>Integer</code> and <code>Double</code>.</p>
-</section>
-<section id="creating-wrapper-objects" class="slide level2">
-<h2>Creating Wrapper Objects</h2>
-<h3 id="prefer-autoboxing-in-modern-java">Prefer autoboxing in modern Java</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Integer</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="bu">Double</span> price <span class="op">=</span> <span class="fl">19.99</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The primitive value is automatically wrapped into an object. This is called <span class="term">autoboxing</span>.</p>
-</section>
-<section id="unboxing" class="slide level2">
-<h2>Unboxing</h2>
-<h3 id="wrapper-objects-can-become-primitive-values">Wrapper objects can become primitive values</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">Integer</span> count <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> next <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Java automatically extracts the <code>int</code> value from the <code>Integer</code>. This is called <span class="term">unboxing</span>.</p>
-</section>
-<section id="why-wrappers-matter" class="slide level2">
-<h2>Why Wrappers Matter</h2>
-<h3 id="generic-collections-store-objects">Generic collections store objects</h3>
-<p><code>ArrayList</code> cannot use primitive type arguments:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> values<span class="op">;</span>      <span class="co">// invalid</span></span>
-<span id="cb3-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> values<span class="op">;</span>  <span class="co">// valid</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use wrapper classes when storing primitive-style values in an <code>ArrayList</code>.</p>
 </section>
 <section id="parsing-strings-to-numbers" class="slide level2">
 <h2>Parsing Strings to Numbers</h2>
-<h3 id="convert-text-input-into-numeric-values">Convert text input into numeric values</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span> ageText <span class="op">=</span> <span class="st">"16"</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="dt">int</span> age <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>ageText<span class="op">);</span></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="bu">String</span> priceText <span class="op">=</span> <span class="st">"12.50"</span><span class="op">;</span></span>
-<span id="cb4-5"><a href=""></a><span class="dt">double</span> price <span class="op">=</span> <span class="bu">Double</span><span class="op">.</span><span class="fu">parseDouble</span><span class="op">(</span>priceText<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Parsing is common when reading from text files or CSV data.</p>
+<h3 id="integer.parseint-and-double.parsedouble">Integer.parseInt and Double.parseDouble</h3>
+<p>The <code>Integer</code> and <code>Double</code> classes have methods that convert strings to numbers.</p>
+<p>They are often used with the <code>Scanner</code> class to convert input read as a <code>String</code> into an <code>int</code> or <code>double</code>.</p>
+<p>These methods are listed on the Java Quick Reference Sheet.</p>
+<div class="tight-list">
+<ul>
+<li><code>static int parseInt(String s)</code> returns the <code>String</code> argument as a signed <code>int</code></li>
+<li><code>static double parseDouble(String s)</code> returns the <code>String</code> argument as a signed <code>double</code></li>
+</ul>
+</div>
+</section>
+<section id="coding-exercise-1" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-parsemethods"><code>activecode:: parseMethods</code></h3>
+<p>Run the code below to see useful parse methods in the <code>Integer</code> and <code>Double</code> wrapper classes.</p>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="bu">Integer</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="bu">Double</span> d <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span>
+<span id="cb6-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span></span>
+<span id="cb6-8"><a href=""></a>                i<span class="op">.</span><span class="fu">intValue</span><span class="op">());</span> <span class="co">// intValue() returns the primitive value</span></span>
+<span id="cb6-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>d<span class="op">.</span><span class="fu">doubleValue</span><span class="op">());</span></span>
+<span id="cb6-10"><a href=""></a></span>
+<span id="cb6-11"><a href=""></a>        <span class="bu">String</span> ageStr <span class="op">=</span> <span class="st">"16"</span><span class="op">;</span></span>
+<span id="cb6-12"><a href=""></a>        <span class="co">// Integer.parseInt and Double.parseDouble are often used to</span></span>
+<span id="cb6-13"><a href=""></a>        <span class="co">// convert an input string to a number so you can do math on it.</span></span>
+<span id="cb6-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span></span>
+<span id="cb6-15"><a href=""></a>                <span class="st">"Age "</span></span>
+<span id="cb6-16"><a href=""></a>                        <span class="op">+</span> ageStr</span>
+<span id="cb6-17"><a href=""></a>                        <span class="op">+</span> <span class="st">" in 10 years is "</span></span>
+<span id="cb6-18"><a href=""></a>                        <span class="op">+</span> <span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>ageStr<span class="op">)</span> <span class="op">+</span> <span class="dv">10</span><span class="op">));</span></span>
+<span id="cb6-19"><a href=""></a></span>
+<span id="cb6-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="parsemethods-expected-output" class="slide level2">
+<h2>parseMethods Expected Output</h2>
+<h3 id="runestone-check-1">Runestone check</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>2</span>
+<span id="cb7-2"><a href=""></a>3.5</span>
+<span id="cb7-3"><a href=""></a>Age 16 in 10 years is 26</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="debug-task" class="slide level2">
 <h2>Debug Task</h2>
-<h3 id="fix-invalid-parsing">Fix invalid parsing</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">String</span> speedText <span class="op">=</span> <span class="st">"fast"</span><span class="op">;</span></span>
-<span id="cb5-2"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>speedText<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This causes a runtime error because <code>"fast"</code> is not an integer.</p>
-<p>Fix the data or check input before parsing.</p>
+<h3 id="activecode-wrapperdebug"><code>activecode:: wrapperDebug</code></h3>
+<p>Find and fix the bugs below to use the correct <code>Integer</code> and <code>Double</code> methods and variables.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Debug</span>
+<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb8-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb8-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb8-5"><a href=""></a>        integer i <span class="op">=</span> <span class="fl">2.3</span><span class="op">;</span></span>
+<span id="cb8-6"><a href=""></a>        <span class="bu">Double</span> d <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb8-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span> i<span class="op">.</span><span class="fu">intValue</span> <span class="op">);</span></span>
+<span id="cb8-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span> <span class="fu">doubleValue</span><span class="op">()</span> <span class="op">);</span></span>
+<span id="cb8-9"><a href=""></a>        <span class="co">// Print out the min and max values possible for integers</span></span>
+<span id="cb8-10"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Integer</span><span class="op">.</span><span class="fu">min_value</span><span class="op">);</span></span>
+<span id="cb8-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span> <span class="dt">int</span><span class="op">.</span><span class="fu">MAX_VALUE</span><span class="op">()</span> <span class="op">);</span></span>
+<span id="cb8-12"><a href=""></a>        <span class="co">// parse strings to numbers</span></span>
+<span id="cb8-13"><a href=""></a>        <span class="bu">String</span> numStr <span class="op">=</span> <span class="st">"2.5"</span><span class="op">;</span></span>
+<span id="cb8-14"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span> Int<span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>numStr<span class="op">)</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">);</span></span>
+<span id="cb8-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb8-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="pokemon-speed">Pokemon Speed</h3>
-<p>Given a CSV field for Pokemon speed:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> line <span class="op">=</span> <span class="st">"Pikachu,Electric,90"</span><span class="op">;</span></span>
-<span id="cb6-2"><a href=""></a><span class="bu">String</span><span class="op">[]</span> parts <span class="op">=</span> line<span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">","</span><span class="op">);</span></span>
-<span id="cb6-3"><a href=""></a><span class="dt">int</span> speed <span class="op">=</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">parseInt</span><span class="op">(</span>parts<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use parsing to compare speeds and find the fastest Pokemon in a data set.</p>
+<section id="wrapperdebug-test-targets" class="slide level2">
+<h2>wrapperDebug Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>2</span>
+<span id="cb9-2"><a href=""></a>5.0</span>
+<span id="cb9-3"><a href=""></a>-2147483648</span>
+<span id="cb9-4"><a href=""></a>2147483647</span>
+<span id="cb9-5"><a href=""></a>5.0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The tests also check for:</p>
+<div class="tight-list">
+<ul>
+<li><code>Integer.MAX_VALUE</code></li>
+<li><code>Double.parseDouble</code></li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>match <code>int</code> with <code>Integer</code> and <code>double</code> with <code>Double</code></li>
-<li>explain autoboxing and unboxing at a basic level</li>
-<li>explain why <code>ArrayList&lt;Integer&gt;</code> is used instead of <code>ArrayList&lt;int&gt;</code></li>
-<li>parse numeric strings with <code>Integer.parseInt</code> or <code>Double.parseDouble</code></li>
-<li>identify parsing errors caused by nonnumeric strings</li>
+<li>define wrapper class as an object version of a primitive type</li>
+<li>identify <code>Integer</code> and <code>Double</code> as <code>java.lang</code> wrapper classes</li>
+<li>explain immutability for <code>Integer</code> and <code>Double</code></li>
+<li>describe autoboxing and unboxing</li>
+<li>identify overflow and underflow around <code>Integer.MAX_VALUE</code> and <code>Integer.MIN_VALUE</code></li>
+<li>use <code>Integer.parseInt</code> and <code>Double.parseDouble</code> for numeric strings</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">4.7 Part 1 complete</h3>
+<p>Next: Pokemon Speed challenge.</p>
 
 </section>
     </div>

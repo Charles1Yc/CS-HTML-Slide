@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.9 ArrayList Traversals</title>
+  <title>4.9 Enhanced For Loops</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.9 ArrayList Traversals</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.9 Enhanced For Loops</h1>
+  <p class="subtitle">ArrayList Traversals</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,103 +210,158 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="traversal-patterns-also-apply-to-arraylists">Traversal patterns also apply to ArrayLists</h3>
-<p><code>ArrayList</code> traversal can use:</p>
-<div class="tight-list">
-<ul>
-<li>enhanced for loop</li>
-<li>indexed for loop</li>
-<li>while loop</li>
-</ul>
-</div>
-<p>Choose the loop based on whether you need the index, whether the list changes, and whether you are reading objects.</p>
-</section>
 <section id="enhanced-for-loop" class="slide level2">
 <h2>Enhanced For Loop</h2>
-<h3 id="best-for-reading-every-element">Best for reading every element</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> name <span class="op">:</span> names<span class="op">)</span></span>
-<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use this when you do not need the index and do not need to add or remove while traversing.</p>
+<h3 id="traverse-every-item">Traverse every item</h3>
+<p>You can use an enhanced <code>for</code> loop to traverse all of the items in an <code>ArrayList</code>, just like with an array.</p>
+<p>Use it when you only care about the values in the list and not their indices.</p>
+<p>You cannot use the enhanced <code>for</code> loop if you want to add or remove elements while traversing an <code>ArrayList</code>.</p>
 </section>
-<section id="indexed-for-loop" class="slide level2">
-<h2>Indexed For Loop</h2>
-<h3 id="use-geti-and-size">Use <code>get(i)</code> and <code>size()</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Common error: using <code>names.length</code> or <code>names[i]</code>, which are array syntax, not <code>ArrayList</code> syntax.</p>
+<section id="concurrent-modification" class="slide level2">
+<h2>Concurrent Modification</h2>
+<h3 id="do-not-change-size-during-enhanced-for">Do not change size during enhanced for</h3>
+<p>If the size of an <code>ArrayList</code> is modified by calling <code>add</code> or <code>remove</code> while it is being looped over, the loop will throw a <code>ConcurrentModificationException</code>.</p>
+<p>If you need to modify an <code>ArrayList</code> while looping over it, use a regular <code>while</code> or <code>for</code> loop.</p>
 </section>
-<section id="while-loop" class="slide level2">
-<h2>While Loop</h2>
-<h3 id="useful-when-index-movement-is-conditional">Useful when index movement is conditional</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> names<span class="op">.</span><span class="fu">size</span><span class="op">())</span></span>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-listforeachloop"><code>activecode:: listForEachLoop</code></h3>
+<p>What does the following code do?</p>
+<p>Guess before you run it.</p>
+<p>Then add another enhanced for-each loop that computes the product of all the elements in <code>myList</code> by multiplying them.</p>
+<p>Print out the product after the new loop.</p>
+</section>
+<section id="listforeachloop-starter" class="slide level2">
+<h2>listForEachLoop Starter</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span> <span class="co">// import all classes in this package.</span></span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb1-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> myList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb1-8"><a href=""></a>        myList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb1-9"><a href=""></a>        myList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb1-10"><a href=""></a>        myList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">20</span><span class="op">);</span></span>
+<span id="cb1-11"><a href=""></a>        <span class="dt">int</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-12"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="bu">Integer</span> value <span class="op">:</span> myList<span class="op">)</span></span>
+<span id="cb1-13"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-14"><a href=""></a>            total <span class="op">+=</span> value<span class="op">;</span></span>
+<span id="cb1-15"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-16"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Sum of all elements: "</span> <span class="op">+</span> total<span class="op">);</span></span>
+<span id="cb1-17"><a href=""></a></span>
+<span id="cb1-18"><a href=""></a>        <span class="co">// Write a for-each loop that computes the product</span></span>
+<span id="cb1-19"><a href=""></a>        <span class="co">// of all the elements in myList and print out the product.</span></span>
+<span id="cb1-20"><a href=""></a></span>
+<span id="cb1-21"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-22"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="listforeachloop-test-targets" class="slide level2">
+<h2>listForEachLoop Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>The output should contain:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>100</span>
+<span id="cb2-2"><a href=""></a>30000</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code should contain at least <code>2</code> enhanced for loops over <code>Integer</code> values.</p>
+</section>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="parsonsprob-list_1"><code>parsonsprob:: list_1</code></h3>
+<p>The method <code>getScore</code> calculates and returns the score for a word game.</p>
+<p>It loops through all elements in <code>wordList</code>.</p>
+<div class="tight-list">
+<ul>
+<li>length <code>3</code>: add <code>1</code></li>
+<li>length <code>4</code>: add <code>2</code></li>
+<li>length greater than <code>4</code>: add <code>3</code></li>
+</ul>
+</div>
+</section>
+<section id="list_1-blocks" class="slide level2">
+<h2>list_1 Blocks</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="co">// Block A</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getScore</span><span class="op">(</span><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> wordList<span class="op">)</span></span>
 <span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
-<span id="cb3-5"><a href=""></a>    i<span class="op">++;</span></span>
-<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>while</code> can be useful when the loop might skip, stop early, or remove elements with careful index control.</p>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="co">// Block B</span></span>
+<span id="cb3-6"><a href=""></a><span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-7"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> word <span class="op">:</span> wordList<span class="op">)</span></span>
+<span id="cb3-8"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-9"><a href=""></a></span>
+<span id="cb3-10"><a href=""></a><span class="co">// Block C</span></span>
+<span id="cb3-11"><a href=""></a><span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a><span class="co">// Block D</span></span>
+<span id="cb3-14"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-15"><a href=""></a>    score<span class="op">++;</span></span>
+<span id="cb3-16"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-17"><a href=""></a></span>
+<span id="cb3-18"><a href=""></a><span class="co">// Block E</span></span>
+<span id="cb3-19"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb3-20"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-21"><a href=""></a>    score <span class="op">=</span> score <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb3-22"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-23"><a href=""></a></span>
+<span id="cb3-24"><a href=""></a><span class="co">// Block F</span></span>
+<span id="cb3-25"><a href=""></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb3-26"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-27"><a href=""></a>    score <span class="op">=</span> score <span class="op">+</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb3-28"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-29"><a href=""></a></span>
+<span id="cb3-30"><a href=""></a><span class="co">// Block G</span></span>
+<span id="cb3-31"><a href=""></a><span class="op">}</span> <span class="co">// end for</span></span>
+<span id="cb3-32"><a href=""></a></span>
+<span id="cb3-33"><a href=""></a><span class="co">// Block H</span></span>
+<span id="cb3-34"><a href=""></a><span class="cf">return</span> score<span class="op">;</span></span>
+<span id="cb3-35"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span>
+<span id="cb3-36"><a href=""></a></span>
+<span id="cb3-37"><a href=""></a><span class="co">// Distractor</span></span>
+<span id="cb3-38"><a href=""></a><span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="insert-while-traversing" class="slide level2">
-<h2>Insert While Traversing</h2>
-<h3 id="insertion-changes-later-indices">Insertion changes later indices</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="score-all-words">Score all words</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getScore</span><span class="op">(</span><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> wordList<span class="op">)</span></span>
 <span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>words<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span><span class="st">"target"</span><span class="op">))</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        words<span class="op">.</span><span class="fu">add</span><span class="op">(</span>i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="st">"found"</span><span class="op">);</span></span>
-<span id="cb4-6"><a href=""></a>        i<span class="op">++;</span></span>
-<span id="cb4-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After insertion, increment carefully so the loop does not immediately process the new element by accident.</p>
-</section>
-<section id="arraylist-of-objects" class="slide level2">
-<h2>ArrayList of Objects</h2>
-<h3 id="use-object-methods-during-traversal">Use object methods during traversal</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span>Student s <span class="op">:</span> students<span class="op">)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span><span class="fu">getGpa</span><span class="op">()</span> <span class="op">&gt;=</span> <span class="fl">3.5</span><span class="op">)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">getName</span><span class="op">());</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The loop variable stores one object reference at a time.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2 image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="frq-word-pairs">FRQ Word Pairs</h3>
-
-<img data-src="../../assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png" style="width:45.0%" class="r-stretch quarto-figure-center"><p class="caption">Word pair construction pattern</p><p>Build every pair of words with nested loops:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> words<span class="op">.</span><span class="fu">length</span><span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        pairs<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">WordPair</span><span class="op">(</span>words<span class="op">[</span>i<span class="op">],</span> words<span class="op">[</span>j<span class="op">]));</span></span>
-<span id="cb6-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href=""></a>    <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> word <span class="op">:</span> wordList<span class="op">)</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>            score<span class="op">++;</span></span>
+<span id="cb4-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-10"><a href=""></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb4-11"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-12"><a href=""></a>            score <span class="op">=</span> score <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-13"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-14"><a href=""></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>word<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb4-15"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-16"><a href=""></a>            score <span class="op">=</span> score <span class="op">+</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb4-17"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-18"><a href=""></a>    <span class="op">}</span> <span class="co">// end for</span></span>
+<span id="cb4-19"><a href=""></a>    <span class="cf">return</span> score<span class="op">;</span></span>
+<span id="cb4-20"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>traverse an <code>ArrayList</code> with enhanced for and indexed loops</li>
-<li>use <code>size()</code> and <code>get(i)</code> correctly</li>
-<li>explain why insertion or removal changes later indices</li>
-<li>traverse an <code>ArrayList</code> of objects using object methods</li>
-<li>use nested loops to create unique pairs</li>
+<li>use enhanced <code>for</code> when every value should be visited</li>
+<li>avoid adding or removing inside an enhanced <code>for</code></li>
+<li>explain <code>ConcurrentModificationException</code></li>
+<li>compute sum/product by accumulating inside the enhanced <code>for</code></li>
+<li>use <code>for (Integer value : myList)</code> syntax for <code>ArrayList&lt;Integer&gt;</code></li>
+<li>score every word in <code>wordList</code> before returning</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">4.9 Part 1 complete</h3>
+<p>Next: indexed and while traversals.</p>
 
 </section>
     </div>

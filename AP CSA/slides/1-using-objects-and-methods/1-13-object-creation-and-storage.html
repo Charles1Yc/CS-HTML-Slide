@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.13 Object Creation and Storage</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Constructors and Constructor Calls</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -212,291 +212,173 @@
 </section>
 <section id="topic-intro" class="slide level2">
 <h2>Topic Intro</h2>
-<h3 id="constructors-create-usable-objects">Constructors create usable objects</h3>
-<p>Primitive variables store values directly. Object variables store <span class="term">references</span> (引用), and a usable object is created by a <span class="term">constructor</span> (构造器).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span></span>
-<span id="cb1-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The keyword <mark><code>new</code></mark> creates the object and calls the constructor whose parameter list matches the arguments.</p>
+<h3 id="constructors-initialize-new-objects">Constructors initialize new objects</h3>
+<p>A Java class defines what objects of the class know, which are <strong>attributes</strong>, and what they can do, which are <strong>behaviors</strong>.</p>
+<p>Each class has <strong>constructors</strong> (构造器), which are used to initialize the attributes in a newly created object.</p>
+<p><strong>Constructors</strong> have the same name as the class.</p>
 </section>
-<section id="constructor-syntax" class="slide level2">
-<h2>Constructor Syntax</h2>
-<h3 id="the-constructor-name-matches-the-class-name">The constructor name matches the class name</h3>
-<p>General pattern:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>ClassName variableName <span class="op">=</span> <span class="kw">new</span> <span class="fu">ClassName</span><span class="op">(</span>arguments<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key rules:</p>
-<div class="tight-list">
-<ul>
-<li>The constructor has the <mark>same name as the class</mark>.</li>
-<li>The arguments inside <code>new ClassName(arguments)</code> must match a constructor signature.</li>
-<li>A constructor initializes the new object’s attributes.</li>
-</ul>
-</div>
+<section id="creating-new-objects" class="slide level2">
+<h2>Creating New Objects</h2>
+<h3 id="new-classnamearguments"><code>new ClassName(arguments)</code></h3>
+<p>A new object is created with the <code>new</code> keyword followed by the class name, which is a call to the constructor.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// To create a new object and call a constructor write:</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">// ClassName variableName = new ClassName(arguments);</span></span>
+<span id="cb1-3"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span>    <span class="co">// create a new World object</span></span>
+<span id="cb1-4"><a href=""></a>Turtle t <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span> <span class="co">// create a new Turtle object</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The new object is saved in a variable of a <strong>reference type</strong>.</p>
 </section>
 <section id="world-constructors" class="slide level2">
 <h2>World Constructors</h2>
-<h3 id="default-size-or-chosen-size">Default size or chosen size</h3>
+<h3 id="more-than-one-constructor">More than one constructor</h3>
+<p>There can be more than one constructor defined in a class.</p>
+<p>This is called <strong>overloading</strong> (重载) the constructor.</p>
+<p>The <code>World</code> class has the <code>2</code> constructors shown below.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">World constructor signatures</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>World world1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span></span>
-<span id="cb3-2"><a href=""></a>World world2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">400</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>World()</code> uses the default world size. <code>World(int width, int height)</code> builds a world with chosen dimensions.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Two World constructors</p></section>
+<section id="world-constructors-1" class="slide level2">
+<h2>World Constructors</h2>
+<h3 id="no-argument-and-width-height-forms">No-argument and width-height forms</h3>
+<p>The <strong>no-argument constructor</strong> <code>World()</code> has no arguments inside the parentheses following the name of the constructor.</p>
+<p>It creates a graphical window with a default size of <code>640x480</code> pixels.</p>
+<p>The second constructor, <code>World(int width, int height)</code>, takes two integer arguments and initializes the <code>World</code> object’s width and height.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>World world1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span> <span class="co">// creates a default size 640x480 world</span></span>
+<span id="cb2-2"><a href=""></a>World world2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span><span class="dv">400</span><span class="op">);</span> <span class="co">// creates a 300x400 world</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="quick-check" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="which-calls-match-a-world-constructor">Which calls match a <code>World</code> constructor?</h3>
-<p>Assume the class provides <code>World()</code> and <code>World(int width, int height)</code>.</p>
+<h3 id="mchoice-mcq_world_constructor"><code>mchoice:: mcq_world_constructor</code></h3>
+<p>Which of these is valid syntax for creating and initializing a <code>World</code> object?</p>
 <div class="tight-list">
 <ul>
-<li><code>World w = new World();</code></li>
-<li><code>World w = new World(300, 500);</code></li>
-<li><code>World w = new World(300);</code></li>
-<li><code>World w = World(300, 500);</code></li>
+<li>A. <code>World w = null;</code></li>
+<li>B. <code>World w = new World;</code></li>
+<li>C. <code>World w = new World();</code></li>
+<li>D. <code>World w = World();</code></li>
+<li>E. <code>World w = new World(300,500);</code></li>
 </ul>
 </div>
-<p>Correct calls: the first two. The third does not match the parameter list, and the fourth is missing <mark><code>new</code></mark>.</p>
+</section>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="correct-answers-c-and-e">Correct answers: C and E</h3>
+<div class="tight-list">
+<ul>
+<li>A declares a variable <code>w</code>, but it does not create or initialize a <code>World</code> object.</li>
+<li>B is not correct: parentheses <code>()</code> are required to call a constructor.</li>
+<li>C is correct: use <code>new</code>, the class name, and parentheses.</li>
+<li>D is not correct: the <code>new</code> keyword is required.</li>
+<li>E is correct: this creates a <code>World</code> object with size <code>300x500</code> pixels.</li>
+</ul>
+</div>
 </section>
 <section id="overloaded-constructors" class="slide level2">
 <h2>Overloaded Constructors</h2>
-<h3 id="same-name-different-parameter-lists">Same name, different parameter lists</h3>
-<p>Constructors are <span class="term">overloaded</span> when a class defines more than one constructor with the same name but different parameter lists.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="fu">World</span><span class="op">()</span></span>
-<span id="cb4-2"><a href=""></a><span class="fu">World</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When Java sees <code>new World(300, 400)</code>, it chooses the constructor that expects two <code>int</code> arguments.</p>
+<h3 id="same-class-name-different-parameter-lists">Same class name, different parameter lists</h3>
+<p>Which of these is overloading the constructor?</p>
+<div class="tight-list">
+<ul>
+<li>A. When a constructor takes one argument.</li>
+<li>B. When a constructor takes more than one argument.</li>
+<li>C. When one constructor is defined in a class.</li>
+<li>D. When more than one constructor is defined in a class.</li>
+</ul>
+</div>
+<p>Correct answer: D.</p>
+<p>Overloading means that there is more than one constructor. The parameter lists must differ in number, order, or type of parameters.</p>
 </section>
 <section id="turtle-constructors" class="slide level2">
 <h2>Turtle Constructors</h2>
-<h3 id="required-arguments-and-argument-order">Required arguments and argument order</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world1<span class="op">);</span></span>
-<span id="cb5-2"><a href=""></a>Turtle t2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> world1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>Turtle</code> always needs a <code>World</code> so it has somewhere to draw.</li>
-<li>Some constructors use only the world.</li>
-<li>Some constructors use <mark><code>x, y, world</code></mark> in that exact order.</li>
-<li>Wrong argument order gives a type mismatch or an incorrect result.</li>
-</ul>
-</div>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/TurtleClassDefn.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle constructor signatures</p></section>
-<section id="code-task" class="slide level2 fit-small">
-<h2>Code Task</h2>
-<h3 id="constructor-experiment">Constructor experiment</h3>
-<p>Start with this working program.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
-<span id="cb6-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleConstructorTest <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-6"><a href=""></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb6-7"><a href=""></a>        Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb6-8"><a href=""></a>        Turtle t2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> world<span class="op">);</span></span>
-<span id="cb6-9"><a href=""></a>        world<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="world-required">World required</h3>
+<p>The <code>Turtle</code> class also has multiple constructors, although it always requires a world as an argument in order to have a place to draw the turtle.</p>
+<p>The default location for the turtle is right in the middle of the world.</p>
+<p>There is another <code>Turtle</code> constructor that places the turtle at a certain <code>(x,y)</code> location in the world.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world1<span class="op">);</span></span>
+<span id="cb3-2"><a href=""></a>Turtle t2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> world1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="code-task-1" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="constructor-experiment-edits">Constructor experiment edits</h3>
-<p>Use the starter code from the previous slide.</p>
-<p>Classroom edits:</p>
-<div class="tight-list">
-<ul>
-<li>Change the world to <code>300</code> by <code>400</code>.</li>
-<li>Move <code>t2</code> to the top-right area by changing the <code>x</code> and <code>y</code> arguments.</li>
-<li>Predict what happens if the arguments are placed in the wrong order.</li>
-</ul>
-</div>
-</section>
-<section id="object-variables-and-references" class="slide level2">
-<h2>Object Variables and References</h2>
-<h3 id="a-variable-can-refer-to-an-object-or-to-null">A variable can refer to an object or to <code>null</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>World world1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span></span>
-<span id="cb7-2"><a href=""></a>Turtle t1 <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb7-3"><a href=""></a>t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>A reference variable does <mark>not</mark> contain the whole object.</li>
-<li>It stores a way to find that object.</li>
-<li><code>null</code> means the variable does not refer to any object yet.</li>
-<li>Calling a method on <code>null</code> causes a runtime error.</li>
-</ul>
-</div>
-</section>
-<section id="reading-constructor-signatures" class="slide level2 image-fit">
-<h2>Reading Constructor Signatures</h2>
-<h3 id="parameters-tell-you-what-the-constructor-expects">Parameters tell you what the constructor expects</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/DateClass.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Date constructors</p><p>The <span class="term">signature</span> shows the constructor name and parameter list.</p>
-</section>
-<section id="reading-constructor-signatures-1" class="slide level2 image-fit">
-<h2>Reading Constructor Signatures</h2>
-<h3 id="map-arguments-to-parameters">Map arguments to parameters</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/parameterMappingDate.png" style="width:64.0%" class="r-stretch quarto-figure-center"><p class="caption">Parameter mapping</p><p>The argument values in the call are copied into the matching parameter variables.</p>
-</section>
-<section id="date-constructor-call" class="slide level2">
-<h2>Date Constructor Call</h2>
-<h3 id="match-arguments-to-parameters">Match arguments to parameters</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">Date</span> birthday <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span><span class="op">(</span><span class="dv">2020</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In this call:</p>
-<div class="tight-list">
-<ul>
-<li><code>2020</code>, <code>9</code>, and <code>20</code> are <span class="term">arguments</span> (实参).</li>
-<li><code>year</code>, <code>month</code>, and <code>day</code> are <span class="term">parameters</span> (形参) in the constructor.</li>
-<li>Types and order must match the constructor signature.</li>
-</ul>
-</div>
+<section id="argument-order" class="slide level2">
+<h2>Argument Order</h2>
+<h3 id="x-y-world"><code>(x, y, world)</code></h3>
+<p>Notice that the order of the arguments matters.</p>
+<p>The <code>Turtle</code> constructor takes <code>(x, y, world)</code> as arguments in that order.</p>
+<p>If you mix up the order of the arguments, it will cause an error, because the arguments will not be the data types that it expects.</p>
+<p>This is one reason why programming languages have data types: to allow for error-checking.</p>
 </section>
 <section id="quick-check-1" class="slide level2">
 <h2>Quick Check</h2>
-<h3 id="parameter-or-argument">Parameter or argument?</h3>
-<p>Constructor header:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="fu">World</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Constructor call:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">150</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer:</p>
+<h3 id="mchoice-const_turtle"><code>mchoice:: const_turtle</code></h3>
+<p>Which of these is valid syntax for creating and initializing a <code>Turtle</code> object in <code>world1</code>?</p>
 <div class="tight-list">
 <ul>
-<li><code>width</code> and <code>height</code> are parameters.</li>
-<li><code>150</code> and <code>200</code> are arguments.</li>
+<li>A. <code>Turtle t = Turtle(world1);</code></li>
+<li>B. <code>Turtle t = new Turtle();</code></li>
+<li>C. <code>Turtle t = new Turtle(world1, 100, 100);</code></li>
+<li>D. <code>Turtle t = new Turtle(100, 100, world1);</code></li>
 </ul>
 </div>
+<p>Correct answer: D. This creates a new <code>Turtle</code> object in the passed world at location <code>(100,100)</code>.</p>
 </section>
-<section id="call-by-value" class="slide level2">
-<h2>Call by Value</h2>
-<h3 id="arguments-are-copied-into-parameters">Arguments are copied into parameters</h3>
-<p>Java uses <span class="term">call by value</span> when passing information into constructors and methods.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a><span class="dt">int</span> w <span class="op">=</span> <span class="dv">150</span><span class="op">;</span></span>
-<span id="cb11-2"><a href=""></a><span class="dt">int</span> h <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
-<span id="cb11-3"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span>w<span class="op">,</span> h<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The constructor receives copies of the values in <code>w</code> and <code>h</code>. After the constructor finishes, control returns to the next statement after the call.</p>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-turtleconstructortest"><code>activecode:: TurtleConstructorTest</code></h3>
+<p>Try changing the code below to create a <code>World</code> object with <code>300x400</code> pixels.</p>
+<p>Where is the turtle placed by default?</p>
+<p>What arguments do you need to pass to the <code>Turtle</code> constructor to put the turtle at the top right corner?</p>
+<p>Experiment and find out.</p>
+<p>What happens if you mix up the order of the arguments?</p>
 </section>
-<section id="debugging-task" class="slide level2 fit-small">
-<h2>Debugging Task</h2>
-<h3 id="fix-the-constructor-and-reference-errors">Fix the constructor and reference errors</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleConstructorDebug <span class="op">{</span></span>
-<span id="cb12-2"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-3"><a href=""></a>        World w <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb12-4"><a href=""></a>        turtle t0<span class="op">;</span></span>
-<span id="cb12-5"><a href=""></a>        Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">();</span></span>
-<span id="cb12-6"><a href=""></a>        Turtle t2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">)</span></span>
-<span id="cb12-7"><a href=""></a>        t0<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb12-8"><a href=""></a>        t1<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
-<span id="cb12-9"><a href=""></a>        t2<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
-<span id="cb12-10"><a href=""></a>        world<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
-<span id="cb12-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb12-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="starter-code" class="slide level2">
+<h2>Starter Code</h2>
+<h3 id="turtleconstructortest"><code>TurtleConstructorTest</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb4-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleConstructorTest</span>
+<span id="cb4-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Change the World constructor to 300x400</span></span>
+<span id="cb4-9"><a href=""></a>        World world1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Change the Turtle constructor to put the turtle in the top right</span></span>
+<span id="cb4-12"><a href=""></a>        <span class="co">// corner</span></span>
+<span id="cb4-13"><a href=""></a>        Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world1<span class="op">);</span></span>
+<span id="cb4-14"><a href=""></a></span>
+<span id="cb4-15"><a href=""></a>        t1<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
+<span id="cb4-16"><a href=""></a>        world1<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb4-17"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-18"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="debugging-task-1" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="fix-categories">Fix categories</h3>
-<p>Use the broken code from the previous slide.</p>
-<p>Fix categories:</p>
+<section id="test-requirement" class="slide level2">
+<h2>Test Requirement</h2>
+<h3 id="preserved-runestone-check">Preserved Runestone check</h3>
+<p>Runestone checks that the starter code has changed from the original.</p>
+<p>The intended edits are:</p>
 <div class="tight-list">
 <ul>
-<li>invalid world size</li>
-<li>class-name capitalization</li>
-<li>missing world reference</li>
-<li>wrong constructor argument order</li>
-<li>missing semicolon</li>
-<li>calling a method before a variable refers to an object</li>
+<li>change the <code>World</code> constructor to create a <code>300x400</code> world</li>
+<li>change the <code>Turtle</code> constructor to put the turtle at the top right corner</li>
+<li>keep constructor argument order compatible with the constructor signature</li>
 </ul>
 </div>
-</section>
-<section id="debugging-task-2" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="one-possible-corrected-version">One possible corrected version</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleConstructorDebug <span class="op">{</span></span>
-<span id="cb13-2"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-3"><a href=""></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb13-4"><a href=""></a>        Turtle t0 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb13-5"><a href=""></a>        Turtle t1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb13-6"><a href=""></a>        Turtle t2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> world<span class="op">);</span></span>
-<span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a>        t0<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb13-9"><a href=""></a>        t1<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span>
-<span id="cb13-10"><a href=""></a>        t2<span class="op">.</span><span class="fu">turnLeft</span><span class="op">();</span></span>
-<span id="cb13-11"><a href=""></a>        world<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
-<span id="cb13-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb13-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Students should be able to explain which constructor each line calls.</p>
-</section>
-<section id="coding-challenge" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="custom-turtles">Custom Turtles</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/customTurtles.png" style="width:42.0%" class="r-stretch quarto-figure-center"><p class="caption">Custom turtles challenge</p><p>Create several <code>CustomTurtle</code> objects with different position, body color, shell color, width, and height.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a>CustomTurtle turtle1 <span class="op">=</span></span>
-<span id="cb14-2"><a href=""></a>    <span class="kw">new</span> <span class="fu">CustomTurtle</span><span class="op">(</span><span class="dv">150</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> world1<span class="op">,</span> <span class="bu">Color</span><span class="op">.</span><span class="fu">green</span><span class="op">,</span> <span class="bu">Color</span><span class="op">.</span><span class="fu">blue</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span>
-<span id="cb14-3"><a href=""></a></span>
-<span id="cb14-4"><a href=""></a>CustomTurtle turtle2 <span class="op">=</span></span>
-<span id="cb14-5"><a href=""></a>    <span class="kw">new</span> <span class="fu">CustomTurtle</span><span class="op">(</span><span class="dv">350</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> world1<span class="op">,</span> <span class="bu">Color</span><span class="op">.</span><span class="fu">red</span><span class="op">,</span> <span class="bu">Color</span><span class="op">.</span><span class="fu">yellow</span><span class="op">,</span> <span class="dv">25</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="coding-challenge-1" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="constructor-design-requirements">Constructor design requirements</h3>
-<p>Complete the classroom task:</p>
-<div class="tight-list">
-<ul>
-<li>Add the two required <code>CustomTurtle</code> objects.</li>
-<li>Create one additional turtle design of your own.</li>
-<li>Use at least two different colors.</li>
-<li>Explain which argument controls location, color, width, and height.</li>
-</ul>
-</div>
-<p>This task checks whether the constructor call matches the class documentation.</p>
-</section>
-<section id="ap-style-check" class="slide level2 fit-small">
-<h2>AP-Style Check</h2>
-<h3 id="constructor-signatures">Constructor signatures</h3>
-<p>Suppose <code>Cat</code> has these constructors:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="fu">Cat</span><span class="op">()</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">Cat</span><span class="op">(</span><span class="bu">String</span> name<span class="op">)</span></span>
-<span id="cb15-3"><a href=""></a><span class="fu">Cat</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> age<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Which statements are valid?</p>
-<div class="tight-list">
-<ul>
-<li><code>Cat c1 = new Cat();</code></li>
-<li><code>Cat c2 = new Cat("Milo");</code></li>
-<li><code>Cat c3 = new Cat("Milo", 4);</code></li>
-<li><code>Cat c4 = new Cat(4, "Milo");</code></li>
-</ul>
-</div>
-<p>The first three are valid. The last one has the wrong argument order and types.</p>
-</section>
-<section id="ap-style-check-1" class="slide level2">
-<h2>AP-Style Check</h2>
-<h3 id="references-and-null">References and <code>null</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a>Turtle t <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb16-2"><a href=""></a>World w <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span></span>
-<span id="cb16-3"><a href=""></a>t <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>w<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After these statements:</p>
-<div class="tight-list">
-<ul>
-<li><code>w</code> refers to a <code>World</code> object.</li>
-<li><code>t</code> refers to a <code>Turtle</code> object.</li>
-<li><code>t</code> is no longer <code>null</code>.</li>
-</ul>
-</div>
-<p>The object variable stores a reference, not the complete object data.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that constructors create and initialize objects</li>
-<li>identify constructor syntax with <mark><code>new ClassName(arguments)</code></mark></li>
-<li>distinguish overloaded constructors by their parameter lists</li>
-<li>explain that object variables store references</li>
-<li>recognize <code>null</code> as no object reference</li>
-<li>distinguish parameters from arguments</li>
+<li>define a constructor as code that initializes a new object</li>
+<li>call a constructor with <code>new ClassName(arguments)</code></li>
+<li>identify a no-argument constructor</li>
+<li>explain constructor overloading</li>
+<li>match argument number, type, and order to a constructor</li>
+<li>use <code>World</code> and <code>Turtle</code> constructor calls correctly</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">1.13 Part 1 complete</h3>
+<p>Part 2 continues with object references, signatures, parameters, and arguments.</p>
 
 </section>
     </div>

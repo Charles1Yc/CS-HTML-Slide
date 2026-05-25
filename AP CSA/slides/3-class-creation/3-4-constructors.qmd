@@ -1,5 +1,5 @@
 ---
-title: "3.4 Constructors"
+title: "3.4 Writing Constructors"
 subtitle: "Class Creation"
 format:
   clean-revealjs:
@@ -14,166 +14,302 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Writing Constructors
 
-### Constructors initialize new objects
+### Review from Unit 1
 
-A <span class="term">constructor</span> (构造器) is a special block of code that runs when a new object is created.
+In Unit 1, we learned how to create objects by calling **constructors** (构造器).
+
+A call to a constructor consists of:
+
+::: {.tight-list}
+- the word `new`
+- the name of the class being constructed
+- an argument list in parentheses
+:::
+
+## Constructor Calls
+
+### Creating objects
 
 ```java
-Student s = new Student("Ana", 11);
+// To create a new object, write:
+// ClassName variableName = new ConstructorName(arguments);
+World world = new World();
+Turtle t = new Turtle(world);
+Person p = new Person("Pat", "pat@gmail.com", "123-456-7890");
 ```
 
-The constructor receives the arguments and uses them to initialize instance variables.
+Now it is time to learn to write our own constructors.
 
 ## Constructor Signature
 
-### Same name as the class, no return type
+### Where constructors go
 
-```java
-public class Student
-{
-    private String name;
-    private int gradeLevel;
+In the source code for a class, constructors are usually written after the instance variables and before any methods.
 
-    public Student(String initialName, int initialGrade)
-    {
-        name = initialName;
-        gradeLevel = initialGrade;
-    }
-}
-```
-
-The constructor name is `Student`, exactly matching the class name.
-
-## Job of a Constructor
-
-### Set a valid starting state
-
-A constructor should put the object into a usable state.
+The signature of a constructor is similar to the signature of a method except:
 
 ::: {.tight-list}
-- initialize each important instance variable
-- use parameter values when needed
-- assign default values when appropriate
-- avoid leaving data uninitialized by accident
+- there is no return type, not even `void`
+- the constructor name is always the same as the class name
 :::
 
-## Identify Task
+## Constructor Parameters
 
-### Which block is the constructor?
+### Parameter list
+
+The constructors you write will be marked `public`.
+
+Like methods, constructors also have a **parameter list** specified in parentheses.
+
+The parameter list declares the variables that will be used to hold the arguments passed when the constructor is called.
+
+## Constructor Shape
+
+### Same name as class, no return type
 
 ```java
-public class Fraction
+public class ClassName
 {
-    private int numerator;
-    private int denominator;
+    /* Instance variable declarations go here, before constructors */
 
-    public Fraction(int n, int d)
+    /* Constructor - same name as Class, no return type */
+    public ClassName()
     {
-        numerator = n;
-        denominator = d;
+        /* Implementation not shown */
+    }
+
+    /* Method definitions go here, after constructors */
+}
+```
+
+Constructors must have the same name as the class.
+
+Constructors have no return type.
+
+## The Job of a Constructor
+
+### Useful initial values
+
+The job of a constructor is to set the initial values for the object's instance variables to useful values.
+
+Sometimes we describe the values of all an object's instance variables at a given time as the object's **state** (状态).
+
+An object is in a **valid state** when all its instance variables have values that let us use the object by invoking its public methods.
+
+## Valid State
+
+### Ready to be used
+
+Another way to describe the job of a constructor is:
+
+**Set the object's instance values so it is in a valid state and ready to be used.**
+
+Classes can have zero or more constructors, but they should all produce an object in a valid state.
+
+## Object State and Has-A
+
+### Attributes and values
+
+An object's **state** refers to its attributes and their values at a given time.
+
+It is defined by instance variables belonging to the object.
+
+This defines a **has-a** relationship between the object and its instance variables.
+
+For example, a `Person` object has a name, email, and phone number attributes.
+
+## Constructor Initialization
+
+### Memory and parameters
+
+A constructor is used to set the initial state of an object, which should include initial values for all instance variables.
+
+When a constructor is called, memory is allocated for the object and the associated object reference is returned.
+
+Constructor parameters, if specified, provide data to initialize instance variables.
+
+## Default Constructor
+
+### If you do not write one
+
+The easiest way to write a constructor is to not write one.
+
+If you do not write a constructor, your class will automatically get what is called the **default constructor** with no parameters.
+
+This constructor will initialize all your instance variables to the default value for their type.
+
+## Default Values
+
+### Values by type
+
+::: {.tight-list}
+- `0` for `int`
+- `0.0` for `double`
+- `false` for `boolean`
+- `null` for all reference types
+:::
+
+If those default values are sufficient to put your object into a valid state, you may not need to write a constructor at all.
+
+## Constructor With Arguments
+
+### Usually needed for useful objects
+
+Usually, if you are writing a class that has instance variables, you need to initialize your instance values to some other values.
+
+In that case, you probably need to write a constructor that takes arguments and uses them to initialize your instance variables.
+
+## Person Constructor
+
+### Parameter values copied into instance variables
+
+```java
+public Person(String initName, String initEmail, String initPhone)
+{
+    name = initName;
+    email = initEmail;
+    phoneNumber = initPhone;
+}
+```
+
+This constructor ensures that all three instance variables in `Person` are initialized to the values provided by the constructor call.
+
+## Constructor Call Trace
+
+### Argument to parameter to instance variable
+
+In this constructor call:
+
+```java
+new Person("Pat", "pat@gmail.com", "123-456-7890")
+```
+
+The argument `"Pat"` is passed into the parameter variable `initName`.
+
+The constructor then assigns `initName` to the instance variable `name`.
+
+## If You Write a Constructor
+
+### Java will not generate the default constructor
+
+One important note: if you do write a constructor, Java will not generate the default constructor for you.
+
+This lets you make sure that instances of your class are always properly initialized.
+
+With the `Person` constructor in place, there is no way to construct a `Person` object without providing the three required `String` values.
+
+## Overloading Constructors
+
+### More than one way to create an object
+
+Sometimes you will want to write more than one constructor so that there are different ways of making an instance of your class.
+
+One reason is to make it convenient to create instances from different kinds of arguments.
+
+This is called **overloading** (重载).
+
+## No-Argument Person Constructor
+
+### Fill-in values
+
+```java
+public Person()
+{
+    name = "Anonymous";
+    email = "unknown";
+    phoneNumber = "unknown";
+}
+```
+
+It is up to you to decide if this is actually useful or if it would be better to force users of the `Person` class to choose values using the constructor with arguments.
+
+## Check Your Understanding
+
+### `clickablearea:: name_constructor`
+
+Click on all the lines of code that are part of constructors in the following class.
+
+```java
+public class Name
+{
+    private String first;
+    private String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        first = theFirst;
+        last = theLast;
+    }
+
+    public void setFirst(String theFirst)
+    {
+        first = theFirst;
     }
 }
 ```
 
-Answer: the block beginning `public Fraction(int n, int d)`.
+## Answer Reasoning
+
+### Constructor lines
+
+Correct constructor lines:
+
+```java
+public Name(String theFirst, String theLast)
+{
+    first = theFirst;
+    last = theLast;
+}
+```
+
+The constructor is `public` and has the same name as the class.
+
+It has no return type.
 
 ## Quick Check
 
+### `mchoice:: constructor-purpose`
+
+What best describes the purpose of a class's constructor?
+
+::: {.tight-list}
+- A. Determines the amount of space needed for an object and creates the object
+- B. Names the new object
+- C. Return to free storage all the memory used by this instance of the class
+- D. Initialize the instance variables in the object
+:::
+
+## Answer Reasoning
+
 ### Constructor purpose
 
-Which statement best describes a constructor?
+Correct answer: **D. Initialize the instance variables in the object.**
 
 ::: {.tight-list}
-- A. It prints an object.
-- B. It initializes a new object.
-- C. It always returns a `String`.
-- D. It must be marked `static`.
+- A: The object is already created before the constructor is called, but the constructor initializes the instance variables.
+- B: Constructors do not name the object.
+- C: Constructors do not free memory. In Java, memory is freed when the object is no longer referenced.
+- D: A constructor initializes the instance variables to default values or to values passed into a parameterized constructor.
 :::
-
-Answer: <span class="mark">B</span>. Constructors initialize new objects.
-
-## Code Task
-
-### Complete a `Car` constructor
-
-```java
-public class Car
-{
-    private String model;
-    private int year;
-
-    public Car(String carModel, int carYear)
-    {
-        model = carModel;
-        year = carYear;
-    }
-}
-```
-
-Trace the call:
-
-```java
-Car c = new Car("Civic", 2024);
-```
-
-After construction, `model` is `"Civic"` and `year` is `2024`.
-
-## Groupwork Coding Challenge
-
-### Student Class
-
-Complete the class with a constructor.
-
-```java
-public class Student
-{
-    private String name;
-    private int gradeLevel;
-    private double gpa;
-
-    public Student(String studentName, int studentGrade, double studentGpa)
-    {
-        name = studentName;
-        gradeLevel = studentGrade;
-        gpa = studentGpa;
-    }
-}
-```
-
-Then create two `Student` objects with different data.
-
-## Community Class Extension
-
-### Continue your design
-
-Choose one class from the community design task in Topic 3.3.
-
-Add:
-
-::: {.tight-list}
-- two private instance variables
-- one constructor with parameters
-- assignments from parameters to instance variables
-:::
-
-The constructor should make every new object start in a meaningful state.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- identify a constructor by name and lack of return type
-- explain that constructors run when `new` creates an object
-- map constructor arguments to parameter variables
-- assign parameter values into instance variables
-- explain why constructors should initialize all important object state
+- identify constructor calls with `new ClassName(arguments)`
+- state that constructors have the same name as the class and no return type
+- explain constructor parameters as holders for arguments
+- define object state and valid state
+- list default constructor values for primitive and reference types
+- explain why Java does not generate the default constructor after you write one
+- identify overloaded constructors as multiple constructors with different argument options
 :::
 
 ## End
 
-### Return to the course outline
+### 3.4 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Fraction and Car constructor exercises.

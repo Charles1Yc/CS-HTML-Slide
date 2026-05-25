@@ -27,7 +27,7 @@ factorial(n) = n * factorial(n - 1)
 
 This definition directly maps to a recursive method.
 
-## Full Code
+## Factorial Source Code
 
 ### Recursive factorial
 
@@ -45,7 +45,7 @@ public static int factorial(int n)
 }
 ```
 
-Assumption for this classroom version: `n >= 1`.
+Source precondition used for tracing: `n >= 1`.
 
 ## Focused Trace
 
@@ -94,7 +94,7 @@ Answer: `6`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
 - write a recursive factorial method with a base case

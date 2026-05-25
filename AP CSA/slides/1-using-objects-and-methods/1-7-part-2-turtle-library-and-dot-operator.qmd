@@ -1,0 +1,261 @@
+---
+title: "1.7 APIs and Libraries"
+subtitle: "Part 2: Turtle Library and Dot Operator"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Turtle as an API example
+
+The `Turtle` Java library, written by one of the authors of CSAwesome2, Dr. Barbara Ericson, allows you to create drawings using an animated turtle that moves around the screen.
+
+The turtle can move forward, turn, and draw lines.
+
+The turtle library is a collection of classes that can be imported into your code and is built in to this e-book.
+
+## Classes
+
+### Building blocks of Java
+
+<span class="term">Classes</span> are the building blocks of Java and object-oriented programming.
+
+A class defines a specific reference type.
+
+Programmers often create new classes like `Turtle` so that it can be used as a new data type.
+
+Classes like `Turtle` and class libraries can be utilized to create objects like a particular turtle named `yertle`.
+
+## Data and Behavior
+
+### What a class defines
+
+A class defines the data and behavior for all objects of that type.
+
+![Turtle attributes and behaviors](../../assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png){fig-align="center" width="58%"}
+
+The picture shows some Turtle <span class="term">attributes</span> like `name`, `width`, `height`, and `color`, and methods like `forward()` and `backward()`.
+
+## Attributes and Behaviors
+
+### Documentation vocabulary
+
+<span class="term">Attributes</span> (属性), sometimes called <span class="term">fields</span> in documentation, refer to the data related to the class and are stored in variables.
+
+<span class="term">Behaviors</span> (行为) refer to what objects of the class can do or what can be done with it, and are defined by methods.
+
+The `Turtle` class has attributes like `name`, `height`, and `width`, and behaviors/methods like `forward()` and `turnLeft()`.
+
+## Reading Documentation
+
+### Parentheses identify methods
+
+How can you tell attributes and methods apart when you look at library documentation?
+
+One easy way is that methods will always have parentheses after them, for example `forward()` or `println()`.
+
+Sometimes these parentheses are empty, but still necessary, and sometimes they contain data that the method needs to do its job.
+
+Attributes are variables and will not have parentheses after them.
+
+## Dot Operator
+
+### Run an object's methods
+
+The Java program in this topic creates a `Turtle` object called `yertle` using the `Turtle` class.
+
+The following code tells the turtle to move forward and then turn right.
+
+```java
+yertle.forward();
+yertle.turnRight();
+```
+
+The <span class="term">dot operator</span> `.` is used to run an object's methods, just like in `System.out.println()`.
+
+## Code Task
+
+### `activecode:: TurtleAPI`
+
+Textbook prompt: Try clicking the run button below to see what the following program does.
+
+Then add 1 more line of code on line 16 to make `yertle` go `forward()` again.
+
+## Starter Code
+
+### `activecode:: TurtleAPI`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTest
+{
+    public static void main(String[] args)
+    {
+        // Do not change the next 2 lines
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+
+        // Code to make yertle move forward and turn right
+        yertle.forward();
+        yertle.turnRight();
+        // Add a line of code to make yertle go forward() again
+
+        // Do not change
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: TurtleAPI`
+
+Runestone checks that the code contains at least two occurrences of:
+
+```java
+yertle.forward
+```
+
+Expected result label: `yertle.forward() count` should be `2+`.
+
+The starter code already has one `yertle.forward();`, so the student must add one more.
+
+## Quick Check
+
+### `mchoice:: turtle_dir`
+
+Which way does a turtle face when it is first created?
+
+::: {.tight-list}
+- A. North
+- B. South
+- C. East
+- D. West
+:::
+
+Correct answer: <span class="mark">A. North</span>
+
+Turtles start off facing north, which is toward the top of the page.
+
+## Quick Check
+
+### `mchoice:: turtle_type`
+
+What type of thing is `Turtle` in the program above?
+
+::: {.tight-list}
+- A. class
+- B. object
+- C. attribute
+- D. method
+:::
+
+Correct answer: <span class="mark">A. class</span>
+
+`Turtle` is a class that defines the data and behaviors for all turtles.
+
+## Answer Reasoning
+
+### `turtle_type`
+
+::: {.tight-list}
+- `yertle` is an object of type `Turtle`.
+- An attribute is something the object knows about itself.
+- A method is something an object can do, like go forward.
+:::
+
+Use these distinctions when reading API documentation.
+
+## Quick Check
+
+### `mchoice:: type_turn_right`
+
+What type of thing is `turnRight` in the program above?
+
+::: {.tight-list}
+- A. object
+- B. class
+- C. attribute
+- D. method
+:::
+
+Correct answer: <span class="mark">D. method</span>
+
+A behavior or method is something an object can do, like turn right.
+
+## Answer Reasoning
+
+### `type_turn_right`
+
+::: {.tight-list}
+- An object has data and behavior.
+- A class defines the data and behavior for all objects of that type.
+- An attribute is something the object knows about itself.
+:::
+
+`turnRight` is a behavior, so it is a method.
+
+## Quick Check
+
+### `mchoice:: type_position`
+
+What type of thing is the position of a turtle in a world?
+
+::: {.tight-list}
+- A. object
+- B. class
+- C. attribute
+- D. method
+:::
+
+Correct answer: <span class="mark">C. attribute</span>
+
+An attribute is something the object knows about itself, like its position.
+
+## Quick Check
+
+### `mchoice:: attributes_class`
+
+What are attributes of a class?
+
+::: {.tight-list}
+- A. Methods that perform tasks
+- B. Data related to the class stored in variables
+- C. The arguments of a class
+- D. Packages that contain the class
+:::
+
+Correct answer: <span class="mark">B. Data related to the class stored in variables</span>
+
+Attributes are not methods, arguments, or packages.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain that `Turtle` is a class that can be used as a new reference type
+- identify `yertle` as an object created from the `Turtle` class
+- distinguish attributes/fields from behaviors/methods
+- use parentheses to tell methods apart from attributes in documentation
+- explain the dot operator in `yertle.forward()` and `System.out.println()`
+- preserve the `TurtleAPI` starter and add only one more `yertle.forward();`
+:::
+
+## End
+
+### Continue to Turtle practice
+
+The next deck keeps the mixed-up code task and Turtle Drawing groupwork challenge.

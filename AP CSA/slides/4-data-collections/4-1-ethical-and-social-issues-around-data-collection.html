@@ -30,72 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../_shared/site_libs/revealjs/dist/theme/quarto-b2736e9fcda83c748fd63b6e579550ef.css">
   <link rel="stylesheet" href="unit4-shared.css">
@@ -210,92 +144,162 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="data-collections-affect-people">Data collections affect people</h3>
-<p>Programs that collect, store, and analyze data can create value, but they can also create risk.</p>
-<p>This topic focuses on:</p>
-<div class="tight-list">
-<ul>
-<li><span class="term">data privacy</span> (数据隐私)</li>
-<li>consent and transparency</li>
-<li>bias in collected data</li>
-<li>consequences of using incomplete or biased datasets</li>
-</ul>
-</div>
-</section>
 <section id="data-privacy" class="slide level2">
 <h2>Data Privacy</h2>
-<h3 id="location-data-can-reveal-patterns">Location data can reveal patterns</h3>
-
-<img data-src="../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Google timeline data</p><p>Even when a single data point seems harmless, a collection of data points can reveal habits, location history, relationships, and routines.</p>
+<h3 id="phones-and-personal-information">Phones and personal information</h3>
+<p>Your phone keeps a lot of information about you, including where you have been, what you buy, what games you play, and more.</p>
+<p>If you have used your phone to give you directions to go somewhere, it probably tracks your location.</p>
+<p>You can turn off location tracking, but it is useful when you want directions and it is free.</p>
+<p>The source video and location-history setup links are omitted; the privacy tradeoff question is retained.</p>
 </section>
-<section id="student-response" class="slide level2">
-<h2>Student Response</h2>
-<h3 id="privacy-tradeoff">Privacy tradeoff</h3>
-<p>Choose one app or system that collects user data.</p>
-<p>Respond:</p>
-<div class="tight-list">
-<ul>
-<li>What data is collected?</li>
-<li>What useful feature does the data support?</li>
-<li>What privacy risk could the same data create?</li>
-<li>What design choice could reduce the risk?</li>
-</ul>
-</div>
+<section id="location-tracking-question" class="slide level2">
+<h2>Location Tracking Question</h2>
+<h3 id="benefits-and-privacy">Benefits and privacy</h3>
+<p>Do the benefits of apps that provide driving directions outweigh the lack of privacy for you?</p>
+<p>In what situations would it be beneficial or harmful for the app to track your location?</p>
+</section>
+<section id="google-timeline" class="slide level2 image-fit">
+<h2>Google Timeline</h2>
+<h3 id="location-history-as-data">Location history as data</h3>
+
+<img data-src="../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png" style="width:64.0%" class="r-stretch quarto-figure-center"><p class="caption">Google timeline</p><p>The source uses this figure to show how location history can be recorded and displayed.</p>
+</section>
+<section id="data-privacy-1" class="slide level2">
+<h2>Data Privacy</h2>
+<h3 id="programmer-responsibility">Programmer responsibility</h3>
+<p>As users, we often do not realize how much personal data we are giving away.</p>
+<p>If you use a computer or phone, your personal privacy is at risk.</p>
+<p>As computer programmers, we must be aware of the risks to data privacy when our code collects and stores personal data on computer systems.</p>
+<p>Programmers should attempt to safeguard the personal privacy of the user.</p>
+</section>
+<section id="permission-and-breaches" class="slide level2">
+<h2>Permission and Breaches</h2>
+<h3 id="legal-and-ethical-duties">Legal and ethical duties</h3>
+<p>Legally and ethically, we must ask the users for permission to access and store their data.</p>
+<p>If there are data breaches where the data is stolen, we must inform the affected users.</p>
+<p>The laws are slowly catching up to our technology, and many countries and states are passing laws to protect data privacy.</p>
+</section>
+<section id="personal-security-impacts" class="slide level2">
+<h2>Personal Security Impacts</h2>
+<h3 id="beneficial-and-harmful">Beneficial and harmful</h3>
+<p>Computer use and programs have beneficial and/or harmful impacts on personal security.</p>
+<p>Software apps for maps and driving directions are very useful, but they have impacts on personal security and privacy if they keep track of your location.</p>
+<p>This information could be beneficial if you are lost and need to be found.</p>
+<p>It could be harmful and unsafe if someone unauthorized gains access to your location.</p>
+</section>
+<section id="activity-1" class="slide level2">
+<h2>Activity 1</h2>
+<h3 id="shortanswer-privacy"><code>shortanswer:: privacy</code></h3>
+<p>Explore a popular app or web site and its data collecting practices.</p>
+<p>Explain the risks to privacy from collecting and storing personal data on computer systems.</p>
+<p>Discuss the ethical and legal problems that may arise and how programmers can try to avoid them.</p>
+<p>The source encourages working on this activity in pairs or groups.</p>
 </section>
 <section id="data-and-bias" class="slide level2">
 <h2>Data and Bias</h2>
-<h3 id="a-dataset-can-overrepresent-or-underrepresent-groups">A dataset can overrepresent or underrepresent groups</h3>
-<p><span class="term">Bias</span> (偏差) can enter a dataset when the data collection process does not represent the full population or situation.</p>
-<p>Examples:</p>
+<h3 id="ai-and-machine-learning">AI and machine learning</h3>
+<p>The fields of <strong>AI (Artificial Intelligence)</strong> and <strong>Machine Learning (ML)</strong> are rapidly growing.</p>
+<p>They increasingly involve ethical questions about data collection, privacy, and resource use.</p>
+<p>Machine learning algorithms to create software like ChatGPT require massive amounts of data to learn from as well as massive amounts of energy use.</p>
+<p>But where does this data come from?</p>
+</section>
+<section id="internet-data-and-bias" class="slide level2">
+<h2>Internet Data and Bias</h2>
+<h3 id="biased-data-can-be-learned">Biased data can be learned</h3>
+<p>Often the data is collected from the internet, and the internet is full of biases.</p>
+<p>For example, if you search for professions like <code>programmer</code>, <code>doctor</code>, or <code>CEO</code> in image search, you will probably see mostly images of white men.</p>
+<p>This reflects a bias in our world that AIs may learn.</p>
+<p>An AI could then generate text or images that are biased against historically underrepresented groups.</p>
+</section>
+<section id="hiring-tool-example" class="slide level2">
+<h2>Hiring Tool Example</h2>
+<h3 id="biased-source-data">Biased source data</h3>
+<p>A prominent tech company in 2014 started building an automated hiring tool.</p>
+<p>It was a resume filtering AI trained on their current employees’ resumes.</p>
+<p>It ended up with an AI system that was biased against women.</p>
+<p>This is a problem because the AI is learning from biased data and then creating biased outcomes that could affect people’s lives.</p>
+</section>
+<section id="algorithmic-bias" class="slide level2">
+<h2>Algorithmic Bias</h2>
+<h3 id="definition-and-example">Definition and example</h3>
+<p><strong>Algorithmic bias</strong> describes systemic and repeated errors in a program that create unfair outcomes for a specific group of users.</p>
+<p>Bias in data can lead to unfair and unethical outcomes.</p>
+<p>For instance, facial recognition software has been shown to have higher error rates for people with darker skin tones.</p>
+<p>This is because the data used to train these algorithms often contains fewer examples of people with darker skin tones.</p>
+</section>
+<section id="facial-recognition-bias" class="slide level2">
+<h2>Facial Recognition Bias</h2>
+<h3 id="consequences">Consequences</h3>
+<p>As a result, the software is less accurate for these individuals, which can lead to discriminatory practices.</p>
+<p>The source includes a Gender Shades video and Joy Buolamwini links; these external videos/links are omitted here.</p>
+<p>The concept and classroom response task are retained.</p>
+</section>
+<section id="activity-2" class="slide level2">
+<h2>Activity 2</h2>
+<h3 id="shortanswer-bias"><code>shortanswer:: bias</code></h3>
+<p>Explain the importance of recognizing data quality and potential issues such as data bias when using a data set in AI/ML applications.</p>
+<p>A data set or dataset is a collection or set of data.</p>
+<p>The source encourages working on this activity in pairs or groups.</p>
+</section>
+<section id="dataset-quality" class="slide level2">
+<h2>Dataset Quality</h2>
+<h3 id="before-using-data">Before using data</h3>
+<p>Programmers should be aware of the data set collection method and the potential for bias before using the data to extrapolate new information or draw conclusions.</p>
+<p>Some data sets are incomplete or contain inaccurate data.</p>
+<p>Using such data in the development or use of a program can cause the program to work incorrectly or inefficiently.</p>
+</section>
+<section id="dataset-fit" class="slide level2">
+<h2>Dataset Fit</h2>
+<h3 id="question-and-topic-match">Question and topic match</h3>
+<p>The contents of a data set might be related to a specific question or topic.</p>
+<p>That data set might not be appropriate to give correct answers or extrapolate information for a different question or topic.</p>
+</section>
+<section id="mitigating-bias" class="slide level2">
+<h2>Mitigating Bias</h2>
+<h3 id="steps-from-the-source">Steps from the source</h3>
+<p>Steps that can be taken to address bias in machine learning:</p>
 <div class="tight-list">
 <ul>
-<li>training data collected from only one region</li>
-<li>survey responses from only one age group</li>
-<li>images that do not represent different lighting, devices, or users</li>
+<li>Use diverse and representative data sets to train algorithms.</li>
+<li>Regularly test algorithms for bias and accuracy.</li>
+<li>Be transparent about the limitations and potential biases of the software.</li>
+<li>Involve diverse teams in the development and testing of algorithms.</li>
+<li>Implement ethical guidelines and standards for the use of AI and machine learning.</li>
 </ul>
 </div>
 </section>
-<section id="bias-response" class="slide level2">
-<h2>Bias Response</h2>
-<h3 id="connect-data-source-to-outcome">Connect data source to outcome</h3>
-<p>Prompt:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>If a school prediction tool is trained mostly on data from one type of school,</span>
-<span id="cb1-2"><a href=""></a>what problem might occur when it is used for a different type of school?</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A strong answer connects dataset limits to a possible unfair or inaccurate prediction.</p>
+<section id="activity-3" class="slide level2">
+<h2>Activity 3</h2>
+<h3 id="shortanswer-datasets"><code>shortanswer:: datasets</code></h3>
+<p>Go to Google Dataset Search and search for a dataset for <code>face recognition</code> or another topic you are interested in.</p>
+<p>Find an appropriate good dataset and an inappropriate bad dataset for your topic and put links to them below.</p>
+<p>Explain why the datasets are appropriate or inappropriate.</p>
+<p>For example, the inappropriate dataset might be too small, incomplete, or biased.</p>
 </section>
-<section id="dataset-questions" class="slide level2">
-<h2>Dataset Questions</h2>
-<h3 id="questions-before-using-data">Questions before using data</h3>
-<div class="tight-list">
-<ul>
-<li>Who or what is represented in the data?</li>
-<li>Who or what is missing?</li>
-<li>How was the data collected?</li>
-<li>Was permission or consent involved?</li>
-<li>What harm could occur if predictions are wrong?</li>
-</ul>
-</div>
-<p>These questions belong in design discussions before implementation.</p>
+<section id="activity-3-deliverable" class="slide level2">
+<h2>Activity 3 Deliverable</h2>
+<h3 id="dataset-choice-and-program-results">Dataset choice and program results</h3>
+<p>Explain how the choice of your dataset could affect the results of a program that uses the data.</p>
+<p>The source encourages working on this activity in pairs or groups.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain why data privacy matters when programs collect data</li>
-<li>distinguish a useful data-driven feature from a privacy risk</li>
-<li>explain how biased datasets can lead to biased outcomes</li>
-<li>identify missing or underrepresented data as a design concern</li>
-<li>propose a concrete mitigation such as minimizing data, anonymizing data, or checking representation</li>
+<li>describe a privacy risk from personal data collection</li>
+<li>connect programmer responsibility to permission, storage, and breach notification</li>
+<li>explain a beneficial and harmful impact of location tracking</li>
+<li>define algorithmic bias as repeated unfair program outcomes</li>
+<li>explain how incomplete, inaccurate, or biased datasets affect program behavior</li>
+<li>propose at least one mitigation step from the source list</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="complete">4.1 complete</h3>
+<p>Next: data sets.</p>
 
 </section>
     </div>

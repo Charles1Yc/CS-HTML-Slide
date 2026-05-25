@@ -1,0 +1,151 @@
+---
+title: "3.1 Abstraction and Program Design"
+subtitle: "Part 2: Old MacDonald and Game Design"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Review Task
+
+### Deconstruct a song with parameters
+
+As a review, let's deconstruct the song "Old MacDonald" into methods with parameters to avoid repetition of code, as in Unit 1.
+
+## Coding Exercise
+
+### `activecode:: OldMacDonaldSongRepeated`
+
+Complete the methods `chorus()` and `verse()`.
+
+Add method calls in `main`.
+
+## Starter Code
+
+### `OldMacDonaldSongRepeated`
+
+::: {.code-scroll .compact}
+```java
+public class OldMacDonaldSong
+{
+    public static void intro()
+    {
+        System.out.println("Old MacDonald had a farm");
+        chorus();
+    }
+
+    /* Complete the following method to print E-I-E-I-O */
+    public static void chorus()
+    {
+        // TODO: print E-I-E-I-O
+    }
+
+    /* Complete the following method to print the verse for the given animal and sound.
+       For example, for a cow and moo, it should print out
+       "And on this farm, they had a cow. E-I-E-I-O
+       With a moo moo here and a moo moo there,
+       here a moo, there a moo, everywhere a moo moo".
+       Make sure to use the variables animal and sound and the method chorus()!
+    */
+    public static void verse(String animal, String sound)
+    {
+        // TODO: use animal, sound, and chorus()
+    }
+
+    public static void main(String[] args)
+    {
+        intro();
+        verse("cow","moo");
+        intro();
+        // TODO:
+        // Call verse again with duck and quack
+        //   and then call intro again
+
+
+        // Call verse again with another animal and sound
+        //  and then call intro again
+
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- use of `animal` variable in `verse`, checked with `+ animal`
+- use of `sound` variable in `verse`, checked with `+ sound`
+- call to `verse("duck", "quack");`
+- at least `4` calls to `intro();`
+- at least `2` calls to `chorus();`
+:::
+
+## Groupwork Challenge
+
+### Game Design
+
+Working in groups, let's explore making a computer game that is an adaptation of a board game that you know.
+
+Think about what objects are in the game.
+
+For example, here is the description for Monopoly, trademark Hasbro games:
+
+> Buy, sell, dream and scheme your way to riches. Players buy, sell and trade to win. Build houses and hotels on your properties and bankrupt your opponents to win it all. Chance and Community Chest cards can change everything.
+
+## Groupwork Deliverable
+
+### Nouns, data, and methods
+
+What classes would you need to create a computer version of this game?
+
+Remember to look for the nouns.
+
+Take one of the classes you listed, and try to come up with 2 pieces of data in that class that will be the instance variables.
+
+Then, come up with 2 methods, look for verbs, for the class that use the data in the instance variables.
+
+## Student Response Task
+
+### `shortanswer:: OOD2`
+
+Say you wanted to make a computer game from a board game that you are playing.
+
+Your answer should include:
+
+::: {.tight-list}
+- classes needed for a computer version of the game
+- one selected class
+- 2 pieces of data for that class
+- 2 methods for that class that use the data
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use procedural abstraction to avoid repeated song code
+- complete `chorus()` as a reusable method
+- complete `verse(String animal, String sound)` using both parameters
+- call `verse("duck", "quack");` exactly as required
+- identify classes in a game design by looking for nouns
+- identify methods by looking for verbs and behaviors
+:::
+
+## End
+
+### 3.1 complete
+
+Next topic: 3.2 Impact of Program Design.

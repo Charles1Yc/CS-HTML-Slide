@@ -218,8 +218,8 @@
 <span id="cb1-2"><a href=""></a>factorial(n) = n * factorial(n - 1)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This definition directly maps to a recursive method.</p>
 </section>
-<section id="full-code" class="slide level2">
-<h2>Full Code</h2>
+<section id="factorial-source-code" class="slide level2">
+<h2>Factorial Source Code</h2>
 <h3 id="recursive-factorial">Recursive factorial</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">factorial</span><span class="op">(</span><span class="dt">int</span> n<span class="op">)</span></span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
@@ -232,7 +232,7 @@
 <span id="cb2-9"><a href=""></a>        <span class="cf">return</span> n <span class="op">*</span> <span class="fu">factorial</span><span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
 <span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Assumption for this classroom version: <code>n &gt;= 1</code>.</p>
+<p>Source precondition used for tracing: <code>n &gt;= 1</code>.</p>
 </section>
 <section id="focused-trace" class="slide level2">
 <h2>Focused Trace</h2>
@@ -267,7 +267,7 @@
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
 <li>write a recursive factorial method with a base case</li>

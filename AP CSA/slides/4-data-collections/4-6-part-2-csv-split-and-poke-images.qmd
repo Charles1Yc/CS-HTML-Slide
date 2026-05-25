@@ -1,0 +1,239 @@
+---
+title: "4.6 CSV Split and PokeImages"
+subtitle: "Using Text Files"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Split Strings
+
+### CSV rows contain multiple attributes
+
+If you look at the Pokemon CSV file, each line contains multiple data attributes separated by commas.
+
+These attributes include each Pokemon's name, type, speed, and other fields on each row.
+
+Typically, the first line of a CSV file serves as the header, indicating the names of these attributes.
+
+```text
+Number, Pokemon, Type 1, Type 2, HP, Attack, Defense, Speed, PNG, Description
+```
+
+## split(String delimiter)
+
+### Delimiter separates fields
+
+The Java `String` class provides a useful method called `split(String delimiter)`.
+
+It splits a string into an array of substrings based on a specified **delimiter** (分隔符), such as a comma or a space.
+
+This method returns a `String` array where each element represents a field of data from the line.
+
+```java
+String sentence = "A quick brown fox jumps";
+String[] words = sentence.split(" ");
+```
+
+## Split a Pokemon Row
+
+### Use indexes from the header
+
+The first line of headers indicates that element `0` is the Pokemon's number, element `1` is the name, and so on.
+
+We only need to save the data that we want to use.
+
+```java
+// Split the line of data into an array of Strings
+String[] data = line.split(",");
+// data: Number,Name,Type1,Type2,HP,Attack,Defense,Speed,PNG,Description
+String name = data[1];
+String type1 = data[2];
+String speed = data[7];
+String imageFile = data[8];
+```
+
+## Coding Exercise
+
+### `activecode:: pokeImages`
+
+**PokeImages:** This program reads in some of the data from the pokemon file into a `String` array of lines.
+
+Complete the `randomPokemon` method to print out a random pokemon name and its image using the `split` method.
+
+Run the program multiple times to see different Pokemon names and images.
+
+## PokeImages Fields
+
+::: {.code-scroll}
+```java
+import java.io.*;
+import java.util.*;
+
+public class PokeImages
+{
+    private String filename = "pokemon.csv";
+    private String[] pokemonLines = new String[152];
+
+    /* This method reads in filename into the pokemonLines array */
+    public int readFile() throws IOException
+    {
+        File myFile = new File(filename);
+        Scanner scan = new Scanner(myFile);
+        int i = 0;
+        while (scan.hasNext())
+        {
+            pokemonLines[i] = scan.nextLine();
+            i++;
+        }
+        System.out.println("Read in " + i + " lines.");
+        scan.close();
+        return i;
+    }
+```
+:::
+
+## randomPokemon Starter
+
+::: {.code-scroll}
+```java
+    /* Write a function randomPokemon that prints out a random Pokemon name and image */
+    public void randomPokemon(int length)
+    {
+        // 1. pick a random number from 1 to length
+        //    (the 0th row is the headers)
+
+
+        // 2. get the line at that random index from the array pokemonLines
+
+        // 3. Use the split method to split the line into a String array data
+
+        // 4. Print out the name using the correct index in the split data
+        //   (Check above for the correct index for the name)
+
+        // 5. Call the printHTMLimage method below
+        //    with an element of the data array to print out the image.
+        //    (Check above for the correct index for the image url)
+
+    }
+```
+:::
+
+## PokeImages Main and Image Method
+
+```java
+    public static void main(String[] args) throws IOException
+    {
+        PokeImages obj = new PokeImages();
+        // call readFile() to read file into the array pokemonLines
+        int length = obj.readFile();
+        obj.randomPokemon(length);
+    }
+
+    // This method will just work on Runestone to print out images
+    public static void printHTMLimage(String url)
+    {
+        System.out.print("<img src=" + url + " width=300px />");
+    }
+}
+```
+
+## PokeImages Test Targets
+
+### Runestone checks
+
+The tests check that student code includes:
+
+::: {.tight-list}
+- `(int) (Math.random()*length) + 1`
+- a call to `.split`
+- a call to `printHTMLimage(`
+- the correct index for the name: `[1]`
+- the correct index for the image url: `[8]`
+:::
+
+## Object-Oriented Design with CSV Files
+
+### Rows become objects
+
+To better organize and work with this data, we can create a `Pokemon` class that corresponds to these attributes using object-oriented design.
+
+A CSV data file can be saved into an array of `Pokemon` objects by splitting each line, except the header, into the attributes for one `Pokemon` object.
+
+## CSV to Pokemon Objects
+
+### Use split, then constructor
+
+Assuming that we have already written the `Pokemon` class and constructor, this code creates a Pokemon object from the data and saves it into an array of `Pokemon` objects.
+
+```java
+// Create an array of Pokemon objects
+Pokemon[] pokemonArray = new Pokemon[152];
+
+int i = 0;
+while (scan.hasNext())
+{
+    String line = scan.nextLine();
+    // Split each line into its attributes name, type1, etc.
+    String[] data = line.split(",");
+    String name = data[1];
+    String type1 = data[2];
+    String speed = data[7];
+    String imageFile = data[8];
+```
+
+## CSV to Pokemon Objects
+
+### Construct and store the object
+
+```java
+// Create a Pokemon object from the split data
+Pokemon p = new Pokemon(name, type1, speed, imageFile);
+// Save p in the array
+pokemonArray[i] = p;
+
+i++;
+```
+
+The object array stores the `Pokemon` reference after the row has been split into fields.
+
+## Header Row Note
+
+### Sometimes row 0 should be skipped
+
+Sometimes you may need to skip the 0th row in the file if it is column headers.
+
+For this file, it will just get split into strings.
+
+If your data file contains numbers that need to be processed, you could skip one like:
+
+```java
+if (i == 0) scan.nextLine();
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify the CSV header row and field indexes
+- explain that `split(",")` returns a `String[]`
+- use `[1]` for Pokemon name and `[8]` for image url in this source file
+- generate a random index that skips the header row
+- convert each CSV line into fields before constructing an object
+- store constructed objects into an array with an index counter
+:::
+
+## End
+
+### 4.6 Part 2 complete
+
+Next: Pokemon object array challenge.

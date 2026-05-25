@@ -95,7 +95,7 @@ Base case: `n == 1`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
 - define recursion as a method calling itself

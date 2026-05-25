@@ -1,0 +1,292 @@
+---
+title: "1.15 String Manipulation"
+subtitle: "Part 3: String Index and Methods"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## String Index and Length
+
+### Positions start at 0
+
+A string holds characters in a sequence.
+
+Each character is at a position or **index** which starts with `0` as shown below.
+
+An **index** is a number associated with a position in a string.
+
+The length of a string is the number of characters in it including any spaces or special characters.
+
+The string below has a length of `14`.
+
+## String Index Figure
+
+### Source figure
+
+![A string with the position index shown above each character](../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png){fig-align="center" width="68%"}
+
+## Source Note
+
+### Valid index range
+
+The first character in a string is at index `0`.
+
+The last character is at `length - 1`.
+
+Attempting to access indices outside this range will result in an **IndexOutOfBoundsException**.
+
+## String Methods
+
+### AP CSA exam methods
+
+The `String` class includes many methods to process strings.
+
+For the AP CSA exam, you only need to know how to use the following `String` methods.
+
+Their descriptions are included in the AP CSA Java Quick Reference Sheet that you get during the exam, so you don't have to memorize these.
+
+## String Methods
+
+### Reference methods
+
+| Method | Source description |
+|---|---|
+| `int length()` | returns the number of characters in the string, including spaces and special characters like punctuation |
+| `String substring(int from, int to)` | returns a new string starting at `from` and ending at the character before `to` |
+| `int indexOf(String str)` | searches for `str` and returns the beginning index or `-1` if not found |
+| `int compareTo(String other)` | returns negative, `0`, or positive based on alphabetical order |
+| `boolean equals(String other)` | returns true when the characters are the same |
+
+## `length`, `substring`, `indexOf`
+
+### Source explanation
+
+Run the code below to see the output from the `String` methods `length`, `substring`, and `indexOf`.
+
+The `length` method returns the number of characters in the string, not the last index, which is `length - 1`.
+
+The `str.substring(from,to)` method returns the substring from the `from` index up to, but not including, the `to` index.
+
+The method `str.indexOf(substring)` searches for the substring in `str` and returns the index of where it finds substring in `str` or `-1` if it is not there.
+
+## Code Example
+
+### `activecode:: lcsm1`
+
+This code shows the output from `String` methods `length`, `substring`, and `indexOf`.
+
+How many letters does `substring(0,3)` return?
+
+What does `indexOf` return when its argument is not found?
+
+## Starter Code
+
+### `lcsm1`
+
+::: {.code-scroll .compact}
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        String message1 = "This is a test";
+        String message2 = "Hello Class";
+        // TODO: trace each String method output before running.
+
+        System.out.println(message1.length());
+        System.out.println(message2.length());
+
+        System.out.println(message1.substring(0, 3));
+        System.out.println(message1.substring(2, 3));
+        System.out.println(message1.substring(5));
+
+        System.out.println(
+                message1.indexOf("is")); // This will match the is in "This"!
+        System.out.println(message1.indexOf("Hello"));
+        System.out.println(message2.indexOf("Hello"));
+
+        // lowercase and uppercase are not on the AP exam, but still useful
+        System.out.println(message2.toLowerCase());
+        System.out.println(message2.toUpperCase());
+    }
+}
+```
+:::
+
+## Expected Output
+
+### `lcsm1`
+
+```text
+14
+11
+Thi
+i
+is a test
+2
+-1
+0
+hello class
+HELLO CLASS
+```
+
+`substring(0,3)` returns `3` letters.
+
+`indexOf` returns `-1` when its argument is not found.
+
+## Source Note
+
+### Single-character substring
+
+Remember that `substring(from,to)` does not include the character at the `to` index.
+
+To return a single character at index `i`, use:
+
+```java
+str.substring(i, i + 1)
+```
+
+## Coding Exercise
+
+### `activecode:: substring-preconditions`
+
+The following code breaks the preconditions of the `substring` method and throws an `IndexOutOfBoundsException`.
+
+Can you fix the code by changing the arguments for the `substring` method to print out the substring `"o"`?
+
+## Broken Starter Code
+
+### `substring-preconditions`
+
+```java
+public class SubstringPreconditions
+{
+    public static void main(String[] args)
+    {
+        String str = "hello";
+        // TODO: fix the substring bounds to print "o"
+        System.out.println(str.substring(-1, 10));
+    }
+}
+```
+
+## Test Requirement
+
+### `substring-preconditions`
+
+Runestone checks that `main` prints:
+
+```text
+o
+```
+
+The valid call for `"o"` uses the index of the last character and stops before the next index.
+
+## Quick Check
+
+### `mchoice:: qsb_3`
+
+What is the value of `pos` after the following code executes?
+
+```java
+String s1 = "abccba";
+int pos = s1.indexOf("b");
+```
+
+::: {.tight-list}
+- A. `2`
+- B. `1`
+- C. `4`
+- D. `-1`
+:::
+
+Correct answer: B. `1`
+
+## Quick Check
+
+### `mchoice:: qsb_3b`
+
+What is the value of `len` after the following code executes?
+
+```java
+String s1 = "baby";
+int len = s1.length();
+```
+
+::: {.tight-list}
+- A. `2`
+- B. `3`
+- C. `4`
+- D. `-1`
+:::
+
+Correct answer: C. `4`
+
+## Quick Check
+
+### `mchoice:: qsb_3c`
+
+What is the value of `s2` after the following code executes?
+
+```java
+String s1 = "baby";
+String s2 = s1.substring(0,3);
+```
+
+::: {.tight-list}
+- A. `baby`
+- B. `b`
+- C. `ba`
+- D. `bab`
+:::
+
+Correct answer: D. `bab`
+
+## Quick Check
+
+### `mchoice:: qsb_4b`
+
+What is the value of `s2` after the following code executes?
+
+```java
+String s1 = "baby";
+String s2 = s1.substring(2);
+```
+
+::: {.tight-list}
+- A. `by`
+- B. `aby`
+- C. `a`
+- D. `b`
+- E. `ba`
+:::
+
+Correct answer: A. `by`
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify the first index as `0`
+- identify the last valid index as `length() - 1`
+- use `length()` for the number of characters
+- trace `substring(from, to)` as stopping before `to`
+- use `substring(i, i + 1)` for one character
+- use `indexOf` returning `-1` when the target is not found
+:::
+
+## End
+
+### 1.15 Part 3 complete
+
+Part 4 continues with `compareTo`, `equals`, and common mistakes.

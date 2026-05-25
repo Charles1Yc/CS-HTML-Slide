@@ -14,200 +14,274 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Anatomy of a Java Class
 
-### A class is a blueprint for objects
+### Topic intro
 
-In Java, a <span class="term">class</span> defines what objects of that type store and what they can do.
+In Unit 1, we learned to use **classes** and **objects** that are built-in to Java or written by other programmers.
 
-The core parts are:
+In this unit, you will learn to write your own classes and make your own objects.
 
-::: {.tight-list}
-- instance variables: object data
-- constructors: object initialization
-- methods: object behaviors
-:::
+## Class and Instance
+
+### Blueprint and objects
+
+Remember that a **class** in Java defines a blueprint for creating objects.
+
+When you create **objects**, you create new **instances** (实例) of that class.
+
+What you can do with those instances is determined by what methods are defined in the class.
+
+## Unit 1 Review
+
+### Objects created from classes
+
+For example, we created `yertle` and `myrtle`, two `Turtle` variables, and assigned them references to objects created from the class `Turtle`.
+
+We also used instances of Java's `String` class to assign values to different `String` variables.
 
 ## Parts of a Class
 
-### Read the class body by role
+### Class definition and body
 
-::: {.code-scroll .compact}
+Most classes you write will have the keyword `public` before them, though it is not required.
+
+The class definition itself always starts with the word `class` followed by the name of the class.
+
+The rest of the class, called the **body** (类体), is defined inside a pair of `{}`.
+
+## Person Skeleton
+
+### Basic class shape
+
+Since we're talking about anatomy, let's create a class called `Person`.
+
 ```java
 public class Person
 {
-    private String name;
-    private String email;
-    private String phoneNumber;
+    // define class here - also called the "body" of the class
 
-    public Person(String initialName, String initialEmail, String initialPhoneNumber)
-    {
-        name = initialName;
-        email = initialEmail;
-        phoneNumber = initialPhoneNumber;
-    }
-
-    public void print()
-    {
-        System.out.println(name);
-        System.out.println(email);
-        System.out.println(phoneNumber);
-    }
 }
 ```
+
+Classes are almost always named with capitalized names, though this is a matter of style, not a rule of the language.
+
+## Creating Person Objects
+
+### Declaration and construction
+
+You can create instances of the `Person` class with `new` as in `new Person()`.
+
+You can declare variables that can hold a reference to a `Person` object with `Person variableName`.
+
+```java
+Person ada = new Person();
+Person charles = new Person();
+```
+
+## Class Body
+
+### Attributes and behaviors
+
+So what makes up the body of the class, the stuff between the `{}`?
+
+Remember that objects have both **attributes** and **behaviors**.
+
+These correspond to **instance variables** (实例变量) and **methods** (方法) in the class definition.
+
+## Instance Variables
+
+### Each instance has its own data
+
+The first things we define in a class are usually the instance variables.
+
+They are called that because each instance of the class, each object, has its own set of variables that are not shared with other instances.
+
+This is what allowed `yertle` and `myrtle` to be at different positions at the same time.
+
+## Constructors
+
+### Initialize instance variables
+
+The next thing we define in a class is usually its **constructors** (构造器).
+
+We will talk about writing constructors in more detail in the next section.
+
+A constructor's job is to initialize the instance variables when the object is created.
+
+In this course, constructors are always designated `public`.
+
+## Methods
+
+### Behaviors of objects
+
+The real meat of a class is in the **methods**, which define the behaviors of the objects of that class.
+
+Most methods either do things, like the `Turtle` methods that moved the turtle on the screen, or return values like `getXPos` and `getYPos` on `Turtle`.
+
+## Method Calls Use Object Data
+
+### Same method, different object
+
+The methods of the class share access to the object's instance variables.
+
+When a method is called on an object, it uses the instance variables for that object.
+
+For example, in the `Turtle` class, the `forward` method changes an instance variable `xPos`.
+
+## Three Main Features
+
+### Class anatomy
+
+Putting it all together, the three main anatomical features of a class are:
+
+::: {.tight-list}
+- **instance variables**, which hold values associated with each object
+- **constructors**, whose job is to initialize the instance variables
+- **methods**, which contain the code that gives the objects their behavior
+:::
+
+## Person Class Layout
+
+### Skeleton with roles
+
+```java
+public class Person
+{
+    // instance variables
+
+    // constructors
+
+    // methods
+
+}
+```
+
+## The Main Method
+
+### Testing or program entry point
+
+Any Java class can have a `main` method.
+
+The `main` method can be used to run that class as a program:
+
+::: {.tight-list}
+- to test that one class
+- sometimes as the entry point to a whole program made up of many classes and objects
 :::
 
 ## Designing a Class
 
-### Choose data based on the problem
+### What data does it represent?
 
-The same real-world object can be modeled differently in different programs.
+Now that we know what the skeleton of a class looks like and the elements that make up the body of the class, we are ready to create our own class.
 
-::: {.tight-list}
-- address book: `name`, `email`, `phoneNumber`
-- school system: `studentId`, `gradeLevel`, `gpa`
-- game: `health`, `location`, `score`
-:::
+One important question we have to ask when designing a class is:
 
-Good design stores the information the program actually needs.
+**What data does it represent?**
 
-## Data Encapsulation
+## Person Design
 
-### Keep instance variables private
+### Data depends on the problem
 
-<span class="term">Data encapsulation</span> (数据封装) means protecting an object's internal state.
+In one program, perhaps an address book, we might want to know the person's name, phone number, and email.
 
-::: {.compare-grid}
-::: {.soft-box}
-**`private` instance variables**
+In another program, such as a medical application, we might need to know their vital signs such as blood pressure, temperature, and pulse rate.
 
-- accessible inside the class
-- protected from direct outside changes
-- standard AP CSA class design
-:::
-::: {.soft-box}
-**`public` constructors and methods**
+For now, let's go with the address book example.
 
-- used by other classes
-- form the public interface
-- can validate or control changes
-:::
-:::
+## Active Code
 
-## Instance Variables
+### `activecode:: PersonClass`
 
-### Each object has its own data
+The following `Person` class keeps track of the name, email, and phone number of a person.
 
-![Person class and separate object data](../../assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png){fig-align="center" width="62%"}
+Try changing the `Person p2` object in the `main` method to your name.
 
-Two `Person` objects can have different names and emails because each object has its own copy of the instance variables.
+Use the code as a trace example: execution always starts in the `main` method.
 
-## Identify Task
+## PersonClass Full Code
 
-### Find the instance variables
-
-In this class, which lines declare instance variables?
-
-```java
-public class Pet
-{
-    private String name;
-    private int age;
-
-    public Pet(String petName, int petAge)
-    {
-        name = petName;
-        age = petAge;
-    }
-}
-```
-
-Answer: `private String name;` and `private int age;`.
-
-## Instance Methods
-
-### Methods act on one specific object
-
-```java
-public void print()
-{
-    System.out.println(name);
-    System.out.println(email);
-    System.out.println(phoneNumber);
-}
-```
-
-An instance method is called on an object:
-
-```java
-p1.print();
-```
-
-It can use that object's instance variables directly.
-
-## Code Task
-
-### Add a print method
-
-Add a `print` method to the class.
-
+::: {.code-scroll}
 ```java
 public class Person
 {
+    // instance variables
     private String name;
+    private String email;
+    private String phoneNumber;
 
-    public Person(String initialName)
+    // constructor: construct a Person copying in the data into the instance
+    // variables
+    public Person(String initName, String initEmail, String initPhone)
     {
-        name = initialName;
+        name = initName;
+        email = initEmail;
+        phoneNumber = initPhone;
     }
 
+    // Print all the data for a person
     public void print()
     {
-        System.out.println(name);
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone Number: " + phoneNumber);
     }
-}
-```
 
-Then call it with `new Person("Ada").print();`.
-
-## Groupwork Coding Challenge {.fit-small .image-fit}
-
-### Virtual Pet Class
-
-![Virtual pet prompt](../../assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg){fig-align="center" width="28%"}
-
-Starter design:
-
-```java
-public class VirtualPet
-{
-    private String name;
-    private int hunger;
-
-    public VirtualPet(String petName)
+    // main method for testing
+    public static void main(String[] args)
     {
-        name = petName;
-        hunger = 5;
+        // call the constructor to create a new person
+        Person p1 = new Person("Sana", "sana@gmail.com", "123-456-7890");
+        // call p1's print method
+        p1.print();
+        Person p2 = new Person("Jean", "jean@gmail.com", "404 899-9955");
+        p2.print();
     }
 }
 ```
+:::
 
-Add at least one method that changes or prints the pet's state.
+## Trace Focus
+
+### `main`, constructor, and `print`
+
+When `p1.print()` is called, the code defined in the `print` method runs.
+
+When `print` gets the values of `name`, `email`, and `phoneNumber`, it gets the specific values set by the constructor for that object.
+
+Repeat the trace for `p2.print()`.
+
+## Expected Output
+
+### Runestone test target
+
+```text
+Name: Sana
+Email: sana@gmail.com
+Phone Number: 123-456-7890
+Name: Jean
+Email: jean@gmail.com
+Phone Number: 404 899-9955
+```
+
+The Runestone test checks the expected output from `main`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- identify the roles of instance variables, constructors, and methods
-- explain why instance variables are usually `private`
-- explain that each object has its own copy of instance data
-- distinguish class design from object creation
-- add a simple instance method that uses instance variables
+- define a class as a blueprint for creating objects
+- explain that objects are instances of a class
+- identify the class body inside `{}` braces
+- name the three main class features: instance variables, constructors, and methods
+- explain that a method call uses the instance variables for the object it is called on
+- trace that execution starts in `main`
 :::
 
 ## End
 
-### Return to the course outline
+### 3.3 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: data encapsulation and instance variables.

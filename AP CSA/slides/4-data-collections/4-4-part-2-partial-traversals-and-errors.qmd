@@ -1,0 +1,396 @@
+---
+title: "4.4 Partial Traversals and Common Errors"
+subtitle: "Array Traversals"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Looping through Part of an Array
+
+### Not always the whole array
+
+You do not have to loop through all of the elements of an array.
+
+You can loop through just some of the elements of an array using a `for` loop.
+
+The source code doubles the first five elements in an array.
+
+It uses a complex conditional with `&&` to make sure the loop does not go beyond the length of the array.
+
+## Why the Extra Condition
+
+### Avoid a missing element
+
+If you had an array with fewer than 5 elements, you would not want the code to try to double the 5th element, which does not exist.
+
+In this code, the array is a private instance variable of the class `ArrayWorker`.
+
+It is created in the constructor and changed or accessed by the methods.
+
+## Coding Exercise
+
+### `activecode:: tripleFirstFour`
+
+What will the following code print out?
+
+Can you write a similar method called `tripleFirstFour()` that triples the first four elements of the array?
+
+Make sure you test it in `main`.
+
+## tripleFirstFour Starter
+
+::: {.code-scroll}
+```java
+public class ArrayWorker
+{
+    private int[] values;
+
+    public ArrayWorker(int[] theValues)
+    {
+        values = theValues;
+    }
+
+    /** Doubles the first 5 elements of the array */
+    public void doubleFirstFive()
+    {
+        // Notice: && i < 5
+        for (int i = 0; i < values.length && i < 5; i++)
+        {
+            values[i] = values[i] * 2;
+        }
+    }
+
+    /**
+     * Write a method called tripleFirstFour() that triples
+     * the first 4 elements of the array *
+     */
+    public void tripleFirstFour()
+    {
+        // TODO: Triple the first four elements without going past values.length
+
+    }
+
+    /** Prints the array */
+    public void printArray()
+    {
+        for (int i = 0; i < values.length; i++)
+        {
+            System.out.println(values[i]);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        int[] numArray = {3, 8, -3, 2, 20, 5, 33, 1};
+        ArrayWorker worker = new ArrayWorker(numArray);
+        worker.doubleFirstFive();
+        worker.printArray();
+        // TODO: uncomment these to test
+        // worker.tripleFirstFour();
+        // worker.printArray();
+    }
+}
+```
+:::
+
+## Test Targets
+
+### `doubleFirstFive`
+
+The first expected output after `doubleFirstFive()` is:
+
+```text
+6
+16
+-6
+4
+40
+5
+33
+1
+```
+
+## Test Targets
+
+### `tripleFirstFour`
+
+The `tripleFirstFour()` test uses array `[0, 1, 2, 3, 4, 5]` and expects:
+
+```text
+0
+3
+6
+9
+4
+5
+```
+
+## Quick Check
+
+### `mchoice:: mcq_array_doublelast`
+
+Given:
+
+```java
+private int[] a = {-20, -15, 2, 8, 16, 33};
+
+public void doubleLast()
+{
+    for (int i = a.length / 2; i < a.length; i++)
+    {
+        a[i] = a[i] * 2;
+    }
+}
+```
+
+What will the values of `a` be after `doubleLast()`?
+
+## Answer Reasoning
+
+### Correct answer
+
+Correct array:
+
+```text
+{-20, -15, 2, 16, 32, 66}
+```
+
+It loops from the middle to the end, doubling each value.
+
+Since there are six elements, it starts at index `3`.
+
+## Quick Check
+
+### `mchoice:: mcq_array_mystery`
+
+Given:
+
+```java
+private int[] a = {-20, -15, 2, 8, 16, 33};
+
+public void mystery()
+{
+    for (int i = 0; i < a.length / 2; i += 2)
+    {
+        a[i] = a[i] * 2;
+    }
+}
+```
+
+What will the values of `a` be after `mystery()`?
+
+## Answer Reasoning
+
+### Correct answer
+
+Correct array:
+
+```text
+{-40, -15, 4, 8, 16, 33}
+```
+
+This loops from the beginning to the middle and doubles every other element.
+
+`i += 2` is the same as `i = i + 2`.
+
+## Common Errors
+
+### Off-by-one errors
+
+When processing all array elements, start at the first index, `0`, and end at the last index.
+
+Usually loops are written so that the index starts at `0` and continues while the index is less than `arrayName.length`.
+
+Since `arrayName.length - 1` is the index for the last element, make sure you do not use `<=` instead of `<`.
+
+## ArrayIndexOutOfBoundsException
+
+### Index outside valid range
+
+If the index is less than `0` or greater than `arrayName.length - 1`, an **ArrayIndexOutOfBoundsException** will be thrown.
+
+**Off by one** errors, where you go off the array by one element, are easy to make when traversing an array.
+
+## Quick Check
+
+### `mchoice:: qIndexOutOfBounds`
+
+Which loop headers will cause an `ArrayIndexOutOfBoundsException` while traversing `scores`?
+
+::: {.tight-list}
+- `for (int i = 0; i < scores.length; i++)`
+- `for (int i = 1; i < scores.length; i++)`
+- `for (int i = 0; i <= scores.length; i++)`
+- `for (int i = 0; scores.length > i; i++)`
+- `for (int i = scores.length - 1; i >= 0; i++)`
+:::
+
+## Answer Reasoning
+
+### Two unsafe headers
+
+Unsafe:
+
+::: {.tight-list}
+- `i <= scores.length`, because `scores.length` is one past the last valid index
+- `i = scores.length - 1; i >= 0; i++`, because `i++` keeps incrementing past the end
+:::
+
+The last header should use `i--`.
+
+## Coding Exercise
+
+### `activecode:: offbyone`
+
+The following code has an `ArrayIndexOutOfBoundsException`.
+
+It has two common off-by-one errors in the loop.
+
+Can you fix it and make the loop print out all the scores?
+
+## offbyone Starter
+
+```java
+public class OffByone
+{
+    public static void main(String[] args)
+    {
+        int[] scores = {10, 9, 8, 7};
+        // Make this loop print out all the scores!
+        // TODO: Fix both off-by-one errors in this loop
+        for (int i = 1; i <= scores.length; i++)
+        {
+            System.out.println(scores[i]);
+        }
+    }
+}
+```
+
+## offbyone Test Targets
+
+### Runestone checks
+
+The tests check for:
+
+::: {.tight-list}
+- output that includes `9`, `8`, `7`
+- output that includes `10`, `9`, `8`
+- a fixed loop header containing `for (int i = 0; i <`
+:::
+
+## Early Return Error
+
+### Do not jump out too soon
+
+Be careful not to jump out of a loop too early when you are looking for a value in an array.
+
+The method below uses `return` statements to stop the execution of the method and return a value.
+
+However, you must be careful not to stop the loop too soon.
+
+## findString Starter
+
+### `activecode:: find_loop_early_return_error`
+
+::: {.code-scroll}
+```java
+public class StringWorker
+{
+    private String[] arr = {"Hello", "Hey", "Good morning!"};
+
+    public int findString(String target)
+    {
+        String word = null;
+        for (int index = 0; index < arr.length; index++)
+        {
+            word = arr[index];
+
+            if (word.equals(target))
+            {
+                return index;
+            }
+            else
+            {
+                // TODO: Do not return -1 before checking all elements
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args)
+    {
+        StringWorker sWorker = new StringWorker();
+        System.out.println(sWorker.findString("Hey"));
+    }
+}
+```
+:::
+
+## findString Test Targets
+
+### Runestone checks
+
+The corrected method should:
+
+::: {.tight-list}
+- print `1` from `main`
+- return `2` for `findString("Good morning!")`
+- return `-1` for `findString("Hello!")`
+:::
+
+The fix is to return `-1` only after the loop has processed all array elements.
+
+## Infinite Loop Check
+
+### `mchoice:: mcq_array_infinite`
+
+Assume `temp` is an `int` variable initialized to a value greater than `0`, and `a` is an array of integers.
+
+```java
+for (int k = 0; k < a.length; k++)
+{
+    while (a[k] < temp)
+    {
+        a[k] *= 2;
+    }
+}
+```
+
+Which values in `a` will cause an infinite loop?
+
+## Answer Reasoning
+
+### Correct answer
+
+An infinite loop occurs whenever `a` includes a value that is less than or equal to `0`.
+
+When `a[k]` is less than or equal to `0`, multiplying by `2` will never make it larger than `temp`, which is greater than `0`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `&& i < limit` to traverse only part of an array safely
+- trace middle-to-end and every-other-element loops
+- identify `<= array.length` as an off-by-one error
+- explain why a backward loop must use `i--`
+- move `return -1` after a search loop
+- explain the zero/negative infinite-loop case
+:::
+
+## End
+
+### 4.4 Part 2 complete
+
+Next: enhanced for-loops.

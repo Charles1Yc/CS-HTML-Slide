@@ -1,6 +1,6 @@
 ---
 title: "1.13 Object Creation and Storage"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Constructors and Constructor Calls"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,361 +16,209 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Constructors create usable objects
+### Constructors initialize new objects
 
-Primitive variables store values directly. Object variables store <span class="term">references</span> (引用), and a usable object is created by a <span class="term">constructor</span> (构造器).
+A Java class defines what objects of the class know, which are **attributes**, and what they can do, which are **behaviors**.
 
-```java
-World habitat = new World();
-Turtle yertle = new Turtle(habitat);
-```
+Each class has **constructors** (构造器), which are used to initialize the attributes in a newly created object.
 
-The keyword <span class="mark">`new`</span> creates the object and calls the constructor whose parameter list matches the arguments.
+**Constructors** have the same name as the class.
 
-## Constructor Syntax
+## Creating New Objects
 
-### The constructor name matches the class name
+### `new ClassName(arguments)`
 
-General pattern:
+A new object is created with the `new` keyword followed by the class name, which is a call to the constructor.
 
 ```java
-ClassName variableName = new ClassName(arguments);
+// To create a new object and call a constructor write:
+// ClassName variableName = new ClassName(arguments);
+World habitat = new World();    // create a new World object
+Turtle t = new Turtle(habitat); // create a new Turtle object
 ```
 
-Key rules:
-
-::: {.tight-list}
-- The constructor has the <span class="mark">same name as the class</span>.
-- The arguments inside `new ClassName(arguments)` must match a constructor signature.
-- A constructor initializes the new object's attributes.
-:::
+The new object is saved in a variable of a **reference type**.
 
 ## World Constructors
 
-### Default size or chosen size
+### More than one constructor
 
-![World constructor signatures](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png){fig-align="center" width="58%"}
+There can be more than one constructor defined in a class.
+
+This is called **overloading** (重载) the constructor.
+
+The `World` class has the `2` constructors shown below.
+
+![Two World constructors](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png){fig-align="center" width="50%"}
+
+## World Constructors
+
+### No-argument and width-height forms
+
+The **no-argument constructor** `World()` has no arguments inside the parentheses following the name of the constructor.
+
+It creates a graphical window with a default size of `640x480` pixels.
+
+The second constructor, `World(int width, int height)`, takes two integer arguments and initializes the `World` object's width and height.
 
 ```java
-World world1 = new World();
-World world2 = new World(300, 400);
+World world1 = new World(); // creates a default size 640x480 world
+World world2 = new World(300,400); // creates a 300x400 world
 ```
-
-`World()` uses the default world size. `World(int width, int height)` builds a world with chosen dimensions.
 
 ## Quick Check
 
-### Which calls match a `World` constructor?
+### `mchoice:: mcq_world_constructor`
 
-Assume the class provides `World()` and `World(int width, int height)`.
+Which of these is valid syntax for creating and initializing a `World` object?
 
 ::: {.tight-list}
-- `World w = new World();`
-- `World w = new World(300, 500);`
-- `World w = new World(300);`
-- `World w = World(300, 500);`
+- A. `World w = null;`
+- B. `World w = new World;`
+- C. `World w = new World();`
+- D. `World w = World();`
+- E. `World w = new World(300,500);`
 :::
 
-Correct calls: the first two. The third does not match the parameter list, and the fourth is missing <span class="mark">`new`</span>.
+## Answer Reasoning
+
+### Correct answers: C and E
+
+::: {.tight-list}
+- A declares a variable `w`, but it does not create or initialize a `World` object.
+- B is not correct: parentheses `()` are required to call a constructor.
+- C is correct: use `new`, the class name, and parentheses.
+- D is not correct: the `new` keyword is required.
+- E is correct: this creates a `World` object with size `300x500` pixels.
+:::
 
 ## Overloaded Constructors
 
-### Same name, different parameter lists
+### Same class name, different parameter lists
 
-Constructors are <span class="term">overloaded</span> when a class defines more than one constructor with the same name but different parameter lists.
+Which of these is overloading the constructor?
 
-```java
-World()
-World(int width, int height)
-```
+::: {.tight-list}
+- A. When a constructor takes one argument.
+- B. When a constructor takes more than one argument.
+- C. When one constructor is defined in a class.
+- D. When more than one constructor is defined in a class.
+:::
 
-When Java sees `new World(300, 400)`, it chooses the constructor that expects two `int` arguments.
+Correct answer: D.
+
+Overloading means that there is more than one constructor. The parameter lists must differ in number, order, or type of parameters.
 
 ## Turtle Constructors
 
-### Required arguments and argument order
+### World required
+
+The `Turtle` class also has multiple constructors, although it always requires a world as an argument in order to have a place to draw the turtle.
+
+The default location for the turtle is right in the middle of the world.
+
+There is another `Turtle` constructor that places the turtle at a certain `(x,y)` location in the world.
 
 ```java
 Turtle t1 = new Turtle(world1);
 Turtle t2 = new Turtle(50, 100, world1);
 ```
 
+## Argument Order
+
+### `(x, y, world)`
+
+Notice that the order of the arguments matters.
+
+The `Turtle` constructor takes `(x, y, world)` as arguments in that order.
+
+If you mix up the order of the arguments, it will cause an error, because the arguments will not be the data types that it expects.
+
+This is one reason why programming languages have data types: to allow for error-checking.
+
+## Quick Check
+
+### `mchoice:: const_turtle`
+
+Which of these is valid syntax for creating and initializing a `Turtle` object in `world1`?
+
 ::: {.tight-list}
-- `Turtle` always needs a `World` so it has somewhere to draw.
-- Some constructors use only the world.
-- Some constructors use <span class="mark">`x, y, world`</span> in that exact order.
-- Wrong argument order gives a type mismatch or an incorrect result.
+- A. `Turtle t = Turtle(world1);`
+- B. `Turtle t = new Turtle();`
+- C. `Turtle t = new Turtle(world1, 100, 100);`
+- D. `Turtle t = new Turtle(100, 100, world1);`
 :::
 
-![Turtle constructor signatures](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/TurtleClassDefn.png){fig-align="center" width="66%"}
+Correct answer: D. This creates a new `Turtle` object in the passed world at location `(100,100)`.
 
-## Code Task {.fit-small}
+## Coding Exercise
 
-### Constructor experiment
+### `activecode:: TurtleConstructorTest`
 
-Start with this working program.
+Try changing the code below to create a `World` object with `300x400` pixels.
+
+Where is the turtle placed by default?
+
+What arguments do you need to pass to the `Turtle` constructor to put the turtle at the top right corner?
+
+Experiment and find out.
+
+What happens if you mix up the order of the arguments?
+
+## Starter Code
+
+### `TurtleConstructorTest`
 
 ```java
 import java.awt.*;
 import java.util.*;
 
-public class TurtleConstructorTest {
-    public static void main(String[] args) {
-        World world = new World(300, 300);
-        Turtle t1 = new Turtle(world);
-        Turtle t2 = new Turtle(50, 100, world);
-        world.show(true);
+public class TurtleConstructorTest
+{
+    public static void main(String[] args)
+    {
+        // TODO: Change the World constructor to 300x400
+        World world1 = new World(300, 300);
+
+        // TODO: Change the Turtle constructor to put the turtle in the top right
+        // corner
+        Turtle t1 = new Turtle(world1);
+
+        t1.turnLeft();
+        world1.show(true);
     }
 }
 ```
 
-## Code Task
+## Test Requirement
 
-### Constructor experiment edits
+### Preserved Runestone check
 
-Use the starter code from the previous slide.
+Runestone checks that the starter code has changed from the original.
 
-Classroom edits:
-
-::: {.tight-list}
-- Change the world to `300` by `400`.
-- Move `t2` to the top-right area by changing the `x` and `y` arguments.
-- Predict what happens if the arguments are placed in the wrong order.
-:::
-
-## Object Variables and References
-
-### A variable can refer to an object or to `null`
-
-```java
-World world1 = new World();
-Turtle t1 = null;
-t1 = new Turtle(world1);
-```
+The intended edits are:
 
 ::: {.tight-list}
-- A reference variable does <span class="mark">not</span> contain the whole object.
-- It stores a way to find that object.
-- `null` means the variable does not refer to any object yet.
-- Calling a method on `null` causes a runtime error.
+- change the `World` constructor to create a `300x400` world
+- change the `Turtle` constructor to put the turtle at the top right corner
+- keep constructor argument order compatible with the constructor signature
 :::
-
-## Reading Constructor Signatures {.image-fit}
-
-### Parameters tell you what the constructor expects
-
-![Date constructors](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/DateClass.png){fig-align="center" width="66%"}
-
-The <span class="term">signature</span> shows the constructor name and parameter list.
-
-## Reading Constructor Signatures {.image-fit}
-
-### Map arguments to parameters
-
-![Parameter mapping](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/parameterMappingDate.png){fig-align="center" width="64%"}
-
-The argument values in the call are copied into the matching parameter variables.
-
-## Date Constructor Call
-
-### Match arguments to parameters
-
-```java
-Date birthday = new Date(2020, 9, 20);
-```
-
-In this call:
-
-::: {.tight-list}
-- `2020`, `9`, and `20` are <span class="term">arguments</span> (实参).
-- `year`, `month`, and `day` are <span class="term">parameters</span> (形参) in the constructor.
-- Types and order must match the constructor signature.
-:::
-
-## Quick Check
-
-### Parameter or argument?
-
-Constructor header:
-
-```java
-public World(int width, int height)
-```
-
-Constructor call:
-
-```java
-World habitat = new World(150, 200);
-```
-
-Answer:
-
-::: {.tight-list}
-- `width` and `height` are parameters.
-- `150` and `200` are arguments.
-:::
-
-## Call by Value
-
-### Arguments are copied into parameters
-
-Java uses <span class="term">call by value</span> when passing information into constructors and methods.
-
-```java
-int w = 150;
-int h = 200;
-World habitat = new World(w, h);
-```
-
-The constructor receives copies of the values in `w` and `h`. After the constructor finishes, control returns to the next statement after the call.
-
-## Debugging Task {.fit-small}
-
-### Fix the constructor and reference errors
-
-```java
-public class TurtleConstructorDebug {
-    public static void main(String[] args) {
-        World w = new World(300, 0);
-        turtle t0;
-        Turtle t1 = new Turtle();
-        Turtle t2 = new Turtle(world, 100, 50)
-        t0.forward();
-        t1.turnRight();
-        t2.turnLeft();
-        world.show(true);
-    }
-}
-```
-
-## Debugging Task
-
-### Fix categories
-
-Use the broken code from the previous slide.
-
-Fix categories:
-
-::: {.tight-list}
-- invalid world size
-- class-name capitalization
-- missing world reference
-- wrong constructor argument order
-- missing semicolon
-- calling a method before a variable refers to an object
-:::
-
-## Debugging Task
-
-### One possible corrected version
-
-```java
-public class TurtleConstructorDebug {
-    public static void main(String[] args) {
-        World world = new World(300, 300);
-        Turtle t0 = new Turtle(world);
-        Turtle t1 = new Turtle(world);
-        Turtle t2 = new Turtle(100, 50, world);
-
-        t0.forward();
-        t1.turnRight();
-        t2.turnLeft();
-        world.show(true);
-    }
-}
-```
-
-Students should be able to explain which constructor each line calls.
-
-## Coding Challenge
-
-### Custom Turtles
-
-![Custom turtles challenge](../../assets/1-using-objects-and-methods/1-13-object-creation-and-storage/customTurtles.png){fig-align="center" width="42%"}
-
-Create several `CustomTurtle` objects with different position, body color, shell color, width, and height.
-
-```java
-CustomTurtle turtle1 =
-    new CustomTurtle(150, 300, world1, Color.green, Color.blue, 150, 200);
-
-CustomTurtle turtle2 =
-    new CustomTurtle(350, 200, world1, Color.red, Color.yellow, 25, 50);
-```
-
-## Coding Challenge
-
-### Constructor design requirements
-
-Complete the classroom task:
-
-::: {.tight-list}
-- Add the two required `CustomTurtle` objects.
-- Create one additional turtle design of your own.
-- Use at least two different colors.
-- Explain which argument controls location, color, width, and height.
-:::
-
-This task checks whether the constructor call matches the class documentation.
-
-## AP-Style Check {.fit-small}
-
-### Constructor signatures
-
-Suppose `Cat` has these constructors:
-
-```java
-Cat()
-Cat(String name)
-Cat(String name, int age)
-```
-
-Which statements are valid?
-
-::: {.tight-list}
-- `Cat c1 = new Cat();`
-- `Cat c2 = new Cat("Milo");`
-- `Cat c3 = new Cat("Milo", 4);`
-- `Cat c4 = new Cat(4, "Milo");`
-:::
-
-The first three are valid. The last one has the wrong argument order and types.
-
-## AP-Style Check
-
-### References and `null`
-
-```java
-Turtle t = null;
-World w = new World();
-t = new Turtle(w);
-```
-
-After these statements:
-
-::: {.tight-list}
-- `w` refers to a `World` object.
-- `t` refers to a `Turtle` object.
-- `t` is no longer `null`.
-:::
-
-The object variable stores a reference, not the complete object data.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that constructors create and initialize objects
-- identify constructor syntax with <span class="mark">`new ClassName(arguments)`</span>
-- distinguish overloaded constructors by their parameter lists
-- explain that object variables store references
-- recognize `null` as no object reference
-- distinguish parameters from arguments
+- define a constructor as code that initializes a new object
+- call a constructor with `new ClassName(arguments)`
+- identify a no-argument constructor
+- explain constructor overloading
+- match argument number, type, and order to a constructor
+- use `World` and `Turtle` constructor calls correctly
 :::
 
 ## End
 
-### Return to the course outline
+### 1.13 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Part 2 continues with object references, signatures, parameters, and arguments.

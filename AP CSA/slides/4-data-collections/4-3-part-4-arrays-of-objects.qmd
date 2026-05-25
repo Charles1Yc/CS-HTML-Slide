@@ -1,0 +1,172 @@
+---
+title: "4.3 Arrays of Objects"
+subtitle: "Array Creation and Access"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Arrays of Objects
+
+### Any type can be an array type
+
+So far, we have seen arrays of `int` and `String`.
+
+We can create an array of any type.
+
+For example, the source program creates an array of `Turtle` objects.
+
+For an array of objects, we must call the constructor of each object to initialize the array elements.
+
+## Object Array Pattern
+
+### Construct each element
+
+```java
+// Declaring an array of objects type ClassName
+ClassName[] array = new ClassName[size];
+// initialize array element by calling ClassName constructor
+array[index] = new ClassName();
+// call a method of the object in the array at index
+array[index].method();
+```
+
+## Coding Exercise
+
+### `activecode:: TurtleArray`
+
+Run the code below to see the two turtles in the array.
+
+Can you change the array size to `3` and create and add one more `Turtle` object to the array?
+
+Make this new turtle `turnRight` and go forward using its indexed array variable.
+
+## TurtleArray Starter
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleArray
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        // TODO: Change this to declare an array for 3 Turtle objects
+        Turtle[] turtarray = new Turtle[2];
+        // Initialize the array elements by constructing each turtle object
+        turtarray[0] = new Turtle(world);
+        turtarray[1] = new Turtle(world);
+        // TODO: Initialize array element 2 with a new Turtle object
+        // Call each turtle's methods
+        turtarray[0].forward();
+        turtarray[1].turnLeft();
+        turtarray[1].forward();
+        // TODO: Make turtle element 2 turnRight and go forward
+
+        world.show(true);
+    }
+}
+```
+
+## Test Targets
+
+### Runestone checks
+
+The tests check for:
+
+::: {.tight-list}
+- an array declaration of size `3`, containing `Turtle[3]`
+- initialization for array element `2`, containing `[2] = new Turtle`
+- a call to `forward()` of array element `2`, containing `[2].forward();`
+:::
+
+## Community Challenge
+
+### Array of your own class
+
+In the last unit, you came up with a class of your own choice relevant to you or your community.
+
+In this unit, you will create an array to hold objects of your class.
+
+The source internal lesson link is omitted; the dependency on the prior community class is retained.
+
+## Community Steps
+
+### Source directions
+
+1. Copy your class from lesson 3.5 below.
+
+2. In the `main` method, create an array of 3 objects of your class.
+
+3. Initialize array elements indexed `0` to `2` to new objects of your class using its constructor.
+
+4. Call the `print` method of each object in the array using the array index.
+
+## Community Starter
+
+### `activecode:: community-challenge-6-1`
+
+::: {.code-scroll}
+```java
+public class          // Add your class name here!
+{
+    // 1. Copy your class from lesson 3.5 below.
+
+
+
+    public static void main(String[] args)
+    {
+       // 2. Create an array of 3 objects of your class.
+
+       // 3. Initialize array elements 0-2 to new objects of your class.
+
+
+       // 4. Call the print method of each object in the array using the array index.
+
+
+    }
+}
+```
+:::
+
+## Community Test Targets
+
+### Runestone checks
+
+The tests check for:
+
+::: {.tight-list}
+- an array declaration of size `3`, containing `[3]`
+- four or more occurrences of `new`, including class object construction
+- initialization for array element `0`, containing `[0]=`
+- a call to `print` of array element `0`, containing `[0].print`
+- output with at least three lines of text
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- declare an array whose element type is a class name
+- initialize object array elements by calling constructors
+- call methods using `array[index].method()`
+- update `TurtleArray` to size 3 and use element 2
+- create an array of 3 community-class objects
+- call each object's `print` method through its indexed array variable
+:::
+
+## End
+
+### 4.3 complete
+
+Next: array traversals.

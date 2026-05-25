@@ -1,0 +1,169 @@
+---
+title: "1.5 Casting and Ranges of Values"
+subtitle: "Part 3: Average 3 Numbers Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Average 3 Numbers
+
+This is a good project to work together in pairs and switch drivers after every line of code.
+
+In the code, type in three made up `int` grades and then sum and average them.
+
+Use casting to report the result as a `double`.
+
+## Example
+
+### Grades `90`, `100`, `94`
+
+For example, if the grades are `90`, `100`, and `94`, the sum of the three numbers is:
+
+```java
+90 + 100 + 94
+```
+
+which is `284`.
+
+The average is the sum `284` divided by `3`, casted to a `double`, which is `94.666667`.
+
+Use your variables instead of the numbers in your formulas.
+
+## Coding Challenge
+
+### `activecode:: challenge1-5-average`
+
+Textbook prompt: Type in three made up `int` grades and then sum and average them.
+
+Use type casting to report the result as a `double`.
+
+If you do this challenge on an external IDE, paste the link in the original Runestone field; this static deck keeps the code task local.
+
+## Starter Code
+
+### `activecode:: challenge1-5-average`
+
+::: {.code-scroll}
+```java
+public class Challenge1_6
+{
+    public static void main(String[] args)
+    {
+        // 1. Declare 3 int variables called grade1, grade2, grade3
+        // and initialize them to 3 values
+
+        // 2. Declare an int variable called sum for the sum of the grades
+
+        // 3. Declare a variable called average for the average of the grades
+
+        // 4. Write a formula to calculate the sum of the 3 grades (add them
+        // up).
+
+        // 5. Write a formula to calculate the average of the 3 grades from
+        // the sum using division and type casting.
+
+        // 6. Print out the average
+
+    }
+}
+```
+:::
+
+## Test Requirements
+
+### Output and grade variables
+
+Runestone checks that output is a `double` value.
+
+It extracts exactly three grade variables matching this shape:
+
+```java
+grade1 = number
+grade2 = number
+grade3 = number
+```
+
+If there are too many or too few grade variables, the test gives a hint.
+
+## Test Requirements
+
+### Declarations
+
+Runestone checks that variables have been declared properly:
+
+::: {.tight-list}
+- `grade1`
+- `grade2`
+- `grade3`
+- `average`
+:::
+
+It also checks that `average` is declared as a `double`.
+
+## Test Requirements
+
+### Cast and formulas
+
+Runestone checks that the code contains `(double)`.
+
+It checks for an expression that adds the three grade variables:
+
+```java
+grade1 + grade2 + grade3
+```
+
+It also checks for division by `3`.
+
+## Test Requirements
+
+### Correct calculation
+
+The expected calculation is:
+
+```java
+double expected = (double) (grade1 + grade2 + grade3) / 3;
+```
+
+The source test compares the program output against that value.
+
+The important classroom move is to cast before losing the fractional part.
+
+## Optional Extension
+
+### Interactive input
+
+Your teacher may suggest that you use a different Java IDE for this challenge so that you can use input to get these values using the `Scanner` class.
+
+The source lists JuiceMind/Replit templates and a Scanner link for this optional path.
+
+This static deck keeps the textbook starter code and tests as the required classroom task.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- declare exactly three `int` grade variables named `grade1`, `grade2`, and `grade3`
+- declare `sum` for the sum of the grades
+- declare `average` as a `double`
+- use variables, not the numeric examples, in the sum formula
+- include `(double)` in the average calculation before division loses the decimal part
+- print the average as a decimal value
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

@@ -1,0 +1,192 @@
+---
+title: "3.9 Bank Account Challenge"
+subtitle: "this Keyword"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge {.image-fit}
+
+### Bank Account
+
+![Bank Account](../../assets/3-class-creation/3-9-this-keyword/dollarSign.png){fig-align="center" width="18%"}
+
+Many people keep their money in a bank account.
+
+The bank may keep track of the account holder's name, the account balance, and assign an account number to each account.
+
+At the bank, an ATM, or on a phone app, the account holder can deposit or withdraw an amount from the account.
+
+The source ATM video link is omitted; the class design task is retained.
+
+## Pair Work
+
+### For this challenge
+
+You can work in pairs to create a class called `BankAccount`.
+
+The class should keep track of:
+
+::: {.tight-list}
+- the account holder's name
+- the account number
+- the balance in the account
+:::
+
+Make sure you use the appropriate data types for these.
+
+## Constructor Requirements
+
+### Use `this`
+
+Write two constructors for the class:
+
+::: {.tight-list}
+- one constructor that initializes all the instance variables
+- one constructor that only has two parameters for the name and account number and initializes the balance to `0`
+:::
+
+For the parameters, use the same variable names as your instance variables.
+
+Use the `this` keyword to distinguish between the instance variables and the parameter variables.
+
+## Method Requirements
+
+### `toString`, `withdraw`, and `deposit`
+
+Write a `toString` method for the class.
+
+Use the `this` keyword to return the instance variables.
+
+Write `withdraw(amount)` and `deposit(amount)` methods for the class.
+
+The `withdraw` method should subtract the amount from the balance as long as there is enough money in the account.
+
+The `deposit` method should add the amount to the balance.
+
+Use the `this` keyword to refer to the balance.
+
+## Test Requirements
+
+### Main method
+
+Test your class with a `main` method that:
+
+::: {.tight-list}
+- creates a `BankAccount` object
+- calls its `deposit` method
+- calls its `withdraw` method
+- prints out the object to test its `toString` method
+:::
+
+## Coding Challenge
+
+### `activecode:: challenge-BankAccount`
+
+Create a class called `BankAccount` that keeps track of the account holder's name, the account number, and the balance in the account.
+
+Create two constructors using `this`, a `toString()` method, and `withdraw(amount)` and `deposit(amount)` methods.
+
+Use the `this` keyword in the constructor and methods.
+
+Test your class in a `main` method.
+
+## BankAccount Starter
+
+```java
+public class BankAccount
+{
+    // TODO: Add 3 instance variables
+
+    // TODO: Add 2 constructors using this
+
+
+    // TODO: Add toString method
+    // TODO: Add deposit(amount) method
+    // TODO: Add withdraw(amount) method
+    // TODO: Add main method for testing
+
+
+
+
+}
+```
+
+## Test Targets
+
+### Constructor and fields
+
+The Runestone tests check for:
+
+::: {.tight-list}
+- `main` method exists and produces output
+- 2-parameter constructor passes
+- 3-parameter constructor passes
+- exactly three private instance variables
+:::
+
+The expected output is something like:
+
+```text
+Name 101 100.0
+Name 101 200.0
+Name 101 100.0
+```
+
+## Test Targets
+
+### Methods and `this`
+
+The tests also check for:
+
+::: {.tight-list}
+- `public String toString()`
+- a public `void withdraw` method
+- a public `void deposit` method
+- at least six uses of `this.`
+:::
+
+The source test labels this final check as use of `this.*`.
+
+## Focused Design
+
+### Match source requirements
+
+A complete `BankAccount` class should have:
+
+::: {.tight-list}
+- three private instance variables
+- one constructor with name, account number, and balance
+- one constructor with name and account number, setting balance to `0`
+- `toString()` returning all account information
+- `deposit(amount)` adding to balance
+- `withdraw(amount)` subtracting only when there is enough money
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use same-name parameters and `this.variableName` in constructors
+- initialize balance to `0` in the two-parameter constructor
+- keep all three instance variables private
+- use `this` in `toString`, `deposit`, and `withdraw`
+- prevent withdrawal when balance is not large enough
+- test constructor, deposit, withdraw, and `toString` from `main`
+:::
+
+## End
+
+### 3.9 complete
+
+Unit 3 strict rewrite is complete through 3.9.

@@ -1,6 +1,6 @@
 ---
-title: "4.14 Searching Algorithms"
-subtitle: "Part 1: Linear Search"
+title: "4.14 Linear Search"
+subtitle: "Searching Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,141 +14,254 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Searching Algorithms
 
-### Search means find a target
+### Linear and binary search
 
-A <span class="term">searching algorithm</span> examines data to determine whether a target value is present, or where it appears.
+Computers store vast amounts of data.
 
-This deck focuses on <span class="term">linear search</span>, which checks elements one at a time.
+One strength of computers is their ability to find things quickly. This ability is called **searching**.
 
-## Algorithm Idea
+For the AP CSA exam you need to know both **linear (sequential) search** and **binary search** algorithms.
 
-### Check each element from left to right
+If binary search requires the values in an array or list to be sorted, sorting algorithms will be covered in the next lesson.
 
-Linear search works on unsorted or sorted data.
+## Linear Search
 
-```text
-For each element:
-    If the element equals the target:
-        Return the index or true.
-After all elements are checked:
-    Return not found.
-```
+### Unsorted data
 
-Worst case: the target is last or not present.
+Linear or Sequential search can be used to find a value in **unsorted** data.
 
-## Full Code
+It usually starts at the first element and walks through the array or `ArrayList` until it finds the value and returns its index.
 
-### Linear search with array index
+If it reaches the end without finding the value, the search method usually returns `-1`.
 
+## Coding Exercise
+
+### `activecode:: seqSearch`
+
+The code for `sequentialSearch` for arrays below is from a previous AP CSA course description.
+
+## ArraySearcher Source Code
+
+::: {.code-scroll}
 ```java
-public static int linearSearch(int[] values, int target)
+public class ArraySearcher
 {
-    for (int i = 0; i < values.length; i++)
+    public static int sequentialSearch(int[] elements, int target)
     {
-        if (values[i] == target)
+        for (int j = 0; j < elements.length; j++)
         {
-            return i;
+            if (elements[j] == target)
+            {
+                return j;
+            }
         }
+        return -1;
     }
-    return -1;
+
+    public static void main(String[] args)
+    {
+        int[] numArray = {3, -2, 9, 38, -23};
+        System.out.println("Tests of sequentialSearch");
+        System.out.println(sequentialSearch(numArray, 3));
+        System.out.println(sequentialSearch(numArray, 9));
+        System.out.println(sequentialSearch(numArray, -23));
+        System.out.println(sequentialSearch(numArray, 99));
+    }
 }
 ```
+:::
 
-Returning `-1` is a common signal for not found.
+## seqSearch Test Target
 
-## Focused Trace
+### Runestone expected output
 
-### Search for `9`
-
-```java
-int[] values = {4, 7, 9, 2};
-int index = linearSearch(values, 9);
+```text
+Tests of sequentialSearch
+0
+2
+4
+-1
 ```
-
-| `i` | `values[i]` | result |
-|---:|---:|---|
-| 0 | 4 | keep searching |
-| 1 | 7 | keep searching |
-| 2 | 9 | return `2` |
 
 ## ArrayList Linear Search
 
-### Use `get(i)` and `size()`
+### `size()` and `get(i)`
 
+The same algorithms can be used with arrays or `ArrayList` objects.
+
+With `ArrayList`, use `size()` and `get(i)` instead of `length` and `[i]`.
+
+There are methods such as `contains` that can be used in `ArrayList`, but they are not in the AP CSA Java subset.
+
+## ArrayListSearcher Source Code
+
+::: {.code-scroll}
 ```java
-public static int linearSearch(ArrayList<String> list, String target)
+import java.util.*;
+
+public class ArrayListSearcher
 {
-    for (int i = 0; i < list.size(); i++)
+    public static int sequentialSearch(ArrayList<Integer> elements, int target)
     {
-        if (list.get(i).equals(target))
+        for (int j = 0; j < elements.size(); j++)
         {
-            return i;
-        }
-    }
-    return -1;
-}
-```
-
-Use `equals` for strings and other objects.
-
-## String Search
-
-### Search for a character or substring
-
-```java
-public static boolean containsA(String text)
-{
-    for (int i = 0; i < text.length(); i++)
-    {
-        if (text.substring(i, i + 1).equals("a"))
-        {
-            return true;
-        }
-    }
-    return false;
-}
-```
-
-String traversal is linear search over character positions.
-
-## 2D Linear Search
-
-### Search every row and column
-
-```java
-public static boolean contains(int[][] grid, int target)
-{
-    for (int row = 0; row < grid.length; row++)
-    {
-        for (int col = 0; col < grid[row].length; col++)
-        {
-            if (grid[row][col] == target)
+            if (elements.get(j) == target)
             {
-                return true;
+                return j;
             }
         }
+        return -1;
     }
-    return false;
+
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> numList = new ArrayList<Integer>();
+        numList.add(3);
+        numList.add(-2);
+        numList.add(9);
+        numList.add(38);
+        numList.add(-23);
+        System.out.println("Tests of sequentialSearch");
+        System.out.println(sequentialSearch(numList, 3));
+        System.out.println(sequentialSearch(numList, 9));
+        System.out.println(sequentialSearch(numList, -23));
+        System.out.println(sequentialSearch(numList, 99));
+    }
 }
 ```
+:::
+
+## Quick Checks
+
+### `qss_1` and `qss_2`
+
+Which causes the **longest** execution of a sequential search looking for a value in an array of integers?
+
+Correct answer: **The value is not in the array.**
+
+Which causes the **shortest** execution?
+
+Correct answer: **The value is the first one in the array.**
+
+## String Linear Search
+
+### Use `equals`, not `==`
+
+You can also look for a `String` in an array or list, but use `equals` rather than `==`.
+
+`==` is only true when the two references refer to the same `String` object.
+
+`equals` returns true if the characters in the two `String` objects are the same.
+
+## SearchTest Source Code
+
+```java
+public class SearchTest
+{
+    public static int sequentialSearch(String[] elements, String target)
+    {
+        for (int j = 0; j < elements.length; j++)
+        {
+            if (elements[j].equals(target))
+            {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args)
+    {
+        String[] arr1 = {"blue", "red", "purple", "green"};
+        int index = sequentialSearch(arr1, "red");
+        System.out.println(index);
+        index = sequentialSearch(arr1, "pink");
+        System.out.println(index);
+    }
+}
+```
+
+Expected output:
+
+```text
+1
+-1
+```
+
+## Linear Search with 2D Arrays
+
+### Search each row
+
+We can apply the linear search algorithm to data in a 2D array.
+
+Loop through each row of the 2D array and apply the linear search algorithm to each row to find an element.
+
+The source asks you to change the code to work with a 2D array of `String` objects and to use `equals` to compare strings.
+
+## Search Source Code
+
+::: {.code-scroll}
+```java
+public class Search
+{
+    public static boolean search(int[][] array, int value)
+    {
+        boolean found = false;
+        for (int row = 0; row < array.length; row++)
+        {
+            for (int col = 0; col < array[0].length; col++)
+            {
+                if (array[row][col] == value)
+                {
+                     found = true;
+                }
+            }
+        }
+        return found;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix = { {3, 2, 3}, {4, 3, 6}, {8, 9, 3}, {10, 3, 3}};
+        System.out.println(search(matrix, 10));
+        System.out.println(search(matrix, 11));
+
+        // Comment out the code above, and try these:
+        // String[][] matrix2 = { {"a","b","c"},{"d","e","f"} };
+        // System.out.println(search(matrix2, "b"));
+    }
+}
+```
+:::
+
+## 2D Search Test Target
+
+### Runestone extra test
+
+The Runestone test calls `search` with a `String[][]` and `"b"`.
+
+Expected return value:
+
+```text
+true
+```
+
+The modified method must therefore use string comparison correctly.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- explain linear search as checking elements one by one
-- write linear search for arrays and `ArrayList`
-- return immediately when the target is found
-- place the not-found return after the loop
-- adapt linear search to strings and 2D arrays
-:::
+- return the index when linear search finds the target
+- return `-1` after the loop if the target is not found
+- use `size()` and `get(i)` for `ArrayList`
+- use `equals` for `String` search
+- search a 2D array by traversing rows and columns
 
 ## End
 
-### Continue or return to the course outline
+### 4.14 Linear Search
 
-[Next: Binary Search](4-14-part-2-binary-search.html)  
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Binary Search.

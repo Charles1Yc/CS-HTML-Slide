@@ -1,0 +1,235 @@
+---
+title: "3.3 Instance Methods"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Instance Methods
+
+### Behaviors and functions
+
+**Instance methods** define what we can actually do with an object, their behaviors and functions.
+
+These methods have direct access to the instance variables and can use them and change them to perform their tasks.
+
+## Static vs Instance
+
+### How methods are called
+
+In Unit 1, we used and wrote static class methods like `Math.random()`, which were called with the classname.
+
+Instance methods are not marked `static`.
+
+They are always called using an object of the class and can access the object's instance variables.
+
+## Method Location and Access
+
+### Defined after variables and constructors
+
+Methods are defined in the class after the instance variables and constructors.
+
+They are usually marked as `public` so they can be accessed from inside or outside the class.
+
+Methods designated as `private` are not accessible outside of the class.
+
+They can only be used as helper methods by other methods inside the same class.
+
+## Method Pattern
+
+### Header and body
+
+Methods define what the object can do.
+
+They typically start with `public`, then a type, then the name of the method followed by parentheses for optional parameters.
+
+Methods defined for an object can access and use its instance variables.
+
+## Person `print` Method
+
+### `void` method
+
+The `Person` class has a `print` method that prints out all the data stored for a person object.
+
+```java
+public void print()
+{
+    System.out.println("Name: " + name);
+    System.out.println("Email: " + email);
+    System.out.println("Phone Number: " + phoneNumber);
+}
+```
+
+## Method Header
+
+### Return type, name, and parentheses
+
+The method is marked as `public`.
+
+After `public` comes the return type.
+
+The `void` return type is used to indicate that the method does not return anything but has some effect, such as printing to the screen.
+
+After the return type comes the method name followed by parentheses containing the list of parameters.
+
+## Object-Specific Data
+
+### `print` uses this object's values
+
+The method can access and use the instance variables defined in the class:
+
+::: {.tight-list}
+- `name`
+- `email`
+- `phoneNumber`
+:::
+
+It gets the values specific to the object we called `print` on.
+
+## Calling a Method
+
+### Use an object and the dot operator
+
+To call a method, we need an object that is an instance of the class, such as we get by calling its constructor.
+
+Then we use the dot (`.`) operator to call its `public` methods.
+
+```java
+// call the constructor to create a new person
+Person p1 = new Person("Sana", "sana@gmail.com", "123-456-7890");
+// call p1's print method
+p1.print();
+```
+
+## Check Your Understanding
+
+### `clickablearea:: name_methods`
+
+Click on all the lines of code that are part of a method in the following class.
+
+```java
+public class Name
+{
+    private String first;
+    private String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        first = theFirst;
+        last = theLast;
+    }
+
+    public void setFirst(String theFirst)
+    {
+        first = theFirst;
+    }
+
+    public void setLast(String theLast)
+    {
+        last = theLast;
+    }
+}
+```
+
+## Answer Reasoning
+
+### Method lines
+
+Correct method lines are the `setFirst` method and the `setLast` method:
+
+```java
+public void setFirst(String theFirst)
+{
+    first = theFirst;
+}
+
+public void setLast(String theLast)
+{
+    last = theLast;
+}
+```
+
+The constructor `public Name(String theFirst, String theLast)` is not counted as a method in this check.
+
+## Active Code
+
+### `activecode:: class-add-print-method`
+
+The following `Name` class keeps track of the first and last name of a person.
+
+Add a method `print` that prints out the instance variables `first` and `last`.
+
+Note that the methods have direct access and share the instance variables.
+
+## Print Method Starter
+
+::: {.code-scroll}
+```java
+public class Name
+{
+    private String first;
+    private String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        first = theFirst;
+        last = theLast;
+    }
+
+    // Complete the print method below to print out the
+    // first and last instance variables with a space in between
+    public void print()
+    {
+
+    }
+
+    public static void main(String[] args)
+    {
+        Name n = new Name("Ada", "Lovelace");
+        n.print();
+    }
+}
+```
+:::
+
+## Test Targets
+
+### Runestone checks
+
+The Runestone tests check both `main` and the `print` method.
+
+```text
+Expected output from main:
+Ada Lovelace
+
+Expected output from print method with object Mickey Mouse:
+Mickey Mouse
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- define instance methods as object behaviors and functions
+- explain that instance methods can access and change instance variables
+- distinguish instance methods from static class methods
+- identify `public`, return type, method name, parameters, and body
+- call an instance method using an object and the dot operator
+- keep the starter `print` body blank until students complete it
+:::
+
+## End
+
+### 3.3 Part 3 complete
+
+Next: Virtual Pet and community class design.

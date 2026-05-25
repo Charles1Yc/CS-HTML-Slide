@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.6 Methods: Passing and Returning References of an Object</title>
+  <title>3.6 Objects as Instance Variables and Arguments</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.6 Methods: Passing and Returning References of an Object</h1>
-  <p class="subtitle">Class Creation</p>
+  <h1 class="title">3.6 Objects as Instance Variables and Arguments</h1>
+  <p class="subtitle">Methods: Passing and Returning References of an Object</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,140 +210,210 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="object-variables-store-references">Object variables store references</h3>
-<p>When an object variable is passed to a method, Java passes a copy of the <span class="term">reference</span> (引用).</p>
-<p>The copy still points to the same object.</p>
-<p>This topic explains:</p>
-<div class="tight-list">
-<ul>
-<li>objects as instance variables</li>
-<li>objects as arguments</li>
-<li>copying parameter objects</li>
-<li>parameters of the same class type</li>
-<li>returning objects</li>
-</ul>
-</div>
+<section id="methods-passing-and-returning-references" class="slide level2">
+<h2>Methods: Passing and Returning References</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p>Programs often consist of many classes that interact with each other.</p>
+<p>Objects of one class can be instance variables of another class.</p>
+<p>Objects can be passed as arguments to methods and returned from methods.</p>
+<p>This is a powerful feature of object-oriented programming that allows complex interactions between objects.</p>
 </section>
 <section id="objects-as-instance-variables" class="slide level2">
 <h2>Objects as Instance Variables</h2>
 <h3 id="a-class-can-store-another-object">A class can store another object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<p>Classes can have complex instance variables that use other classes.</p>
+<p>For example, a <code>Person</code> class could have an instance variable for the address, which can be an object with its own instance variables:</p>
+<div class="tight-list">
+<ul>
+<li>street</li>
+<li>city</li>
+<li>state</li>
+<li>zipcode</li>
+</ul>
+</div>
+<p>This is a <strong>has-a</strong> relationship where a <code>Person</code> has an <code>Address</code> inside it.</p>
+</section>
+<section id="address-and-person" class="slide level2">
+<h2>Address and Person</h2>
+<h3 id="object-type-as-an-instance-variable">Object type as an instance variable</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">class</span> Address</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> Address homeAddress<span class="op">;</span></span>
-<span id="cb1-5"><a href=""></a></span>
-<span id="cb1-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">,</span> Address address<span class="op">)</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-8"><a href=""></a>        name <span class="op">=</span> personName<span class="op">;</span></span>
-<span id="cb1-9"><a href=""></a>        homeAddress <span class="op">=</span> address<span class="op">;</span></span>
-<span id="cb1-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>homeAddress</code> is an instance variable whose type is another class.</p>
+<span id="cb1-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> street<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> city<span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> state<span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> zipcode<span class="op">;</span></span>
+<span id="cb1-8"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-9"><a href=""></a></span>
+<span id="cb1-10"><a href=""></a><span class="kw">class</span> Person</span>
+<span id="cb1-11"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="kw">private</span> Address addr<span class="op">;</span>  <span class="co">// instance variable of type Address</span></span>
+<span id="cb1-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="multiple-classes-in-java" class="slide level2">
+<h2>Multiple Classes in Java</h2>
+<h3 id="files-and-runestone">Files and Runestone</h3>
+<p>In Java, usually each class is saved in its own file with the same name as the class.</p>
+<p>The <code>Person</code> class would be in <code>Person.java</code>, and the <code>Address</code> class would be in <code>Address.java</code>.</p>
+<p>If the files are in the same folder, they can be compiled together so that they can interact.</p>
+<p>In Runestone, we put them in one coding area, and only the class that has the <code>main</code> method can be <code>public</code>.</p>
 </section>
 <section id="objects-as-arguments" class="slide level2">
 <h2>Objects as Arguments</h2>
-<h3 id="the-parameter-receives-a-copy-of-the-reference">The parameter receives a copy of the reference</h3>
+<h3 id="call-by-value-and-object-references">Call by value and object references</h3>
+<p>Java uses <strong>Call by Value</strong> when it passes arguments to methods and constructors.</p>
+<p>This means that a copy of the value in the argument is saved in the parameter variable.</p>
+<p>If the parameter variable changes its value inside the method, the original value outside the method is not changed.</p>
+</section>
+<section id="primitive-vs-object-arguments" class="slide level2">
+<h2>Primitive vs Object Arguments</h2>
+<h3 id="what-is-copied">What is copied</h3>
+<p>With primitive types like <code>int</code> and <code>double</code>, the argument value is copied into the parameter variable.</p>
+<p>If you pass in an argument that holds a reference to an object, like a <code>String</code>, <code>Person</code>, <code>Address</code>, or <code>Turtle</code>, the reference is copied, not the whole object.</p>
+<p>Java was designed this way to avoid copying large objects from method to method.</p>
+</section>
+<section id="aliases" class="slide level2 image-fit">
+<h2>Aliases</h2>
+<h3 id="two-references-same-object">Two references, same object</h3>
 
-<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png" style="width:36.0%" class="r-stretch quarto-figure-center"><p class="caption">Object reference equality</p><p>If a method receives an object reference, it can call methods on the same object.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">moveTurtle</span><span class="op">(</span>Turtle t<span class="op">)</span></span>
+<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png" style="width:46.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle Reference Equality</p><p>When a copy of a reference is passed in and saved in the parameter variable, the parameter and the argument are then <strong>aliases</strong> (别名).</p>
+<p>Both refer to the same object.</p>
+</section>
+<section id="mutable-objects" class="slide level2">
+<h2>Mutable Objects</h2>
+<h3 id="unexpected-results">Unexpected results</h3>
+<p>There can be unexpected results if the parameter refers to a mutable object.</p>
+<p>The method or constructor can use this reference to alter the state of the original object.</p>
+<p>Some classes like <code>String</code> are immutable, so they cannot be changed by any method.</p>
+<p>Any new classes that you write that have setters or methods that change object state will be mutable.</p>
+</section>
+<section id="design-caution" class="slide level2">
+<h2>Design Caution</h2>
+<h3 id="modify-only-when-intended">Modify only when intended</h3>
+<p>If you pass an object of a class that you write into a method as an argument, be careful that the method does not change the object unless that is the intended behavior.</p>
+<p>It is good programming practice to not modify mutable objects that are passed as parameters unless required in the specification.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-addressperson"><code>activecode:: AddressPerson</code></h3>
+<p>Try the following code.</p>
+<p>Scroll down to see both the <code>Person</code> and <code>Address</code> class definitions.</p>
+<p>The <code>Person</code> class has an <code>Address</code> object as an instance variable.</p>
+<p>Add code in the <code>main</code> method that changes the original address to your city.</p>
+<p>Does it also change in the person object?</p>
+</section>
+<section id="addressperson-starter" class="slide level2">
+<h2>AddressPerson Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    t<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The parameter <code>t</code> points to the same turtle object as the argument.</p>
-</section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="address-object-as-an-argument">Address object as an argument</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">updateAddress</span><span class="op">(</span>Address newAddress<span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    homeAddress <span class="op">=</span> newAddress<span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>Address a <span class="op">=</span> <span class="kw">new</span> <span class="fu">Address</span><span class="op">(</span><span class="st">"Main St"</span><span class="op">);</span></span>
-<span id="cb4-2"><a href=""></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Kai"</span><span class="op">,</span> a<span class="op">);</span></span>
-<span id="cb4-3"><a href=""></a>p<span class="op">.</span><span class="fu">updateAddress</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Address</span><span class="op">(</span><span class="st">"Oak St"</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After the call, <code>p</code> refers to the new <code>Address</code> object.</p>
-</section>
-<section id="copying-parameter-objects" class="slide level2">
-<h2>Copying Parameter Objects</h2>
-<h3 id="copying-a-reference-is-not-the-same-as-copying-an-object">Copying a reference is not the same as copying an object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">,</span> Address address<span class="op">)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    name <span class="op">=</span> personName<span class="op">;</span></span>
-<span id="cb5-4"><a href=""></a>    homeAddress <span class="op">=</span> address<span class="op">;</span></span>
-<span id="cb5-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This stores the same <code>Address</code> object reference.</p>
-<p>If the class needs an independent object, it should construct a new one from the parameter’s data.</p>
-</section>
-<section id="same-class-type-parameter" class="slide level2">
-<h2>Same Class Type Parameter</h2>
-<h3 id="methods-can-compare-this-object-to-another-object">Methods can compare this object to another object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">sameName</span><span class="op">(</span>Person other<span class="op">)</span></span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="cf">return</span> name<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>other<span class="op">.</span><span class="fu">name</span><span class="op">);</span></span>
-<span id="cb6-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Because this method is inside the <code>Person</code> class, it can access private instance variables of another <code>Person</code> object.</p>
-</section>
-<section id="returning-objects" class="slide level2">
-<h2>Returning Objects</h2>
-<h3 id="a-method-can-return-an-object-reference">A method can return an object reference</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> Address <span class="fu">getHomeAddress</span><span class="op">()</span></span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="cf">return</span> homeAddress<span class="op">;</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This returns a reference to an <code>Address</code> object. Callers can store it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>Address saved <span class="op">=</span> p<span class="op">.</span><span class="fu">getHomeAddress</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="reference-safety" class="slide level2">
-<h2>Reference Safety</h2>
-<h3 id="returning-a-mutable-object-can-expose-state">Returning a mutable object can expose state</h3>
-<p>If the returned object can be changed, outside code may affect the original object’s internal state.</p>
-<p>Design choices:</p>
-<div class="tight-list">
-<ul>
-<li>return the reference when sharing is intended</li>
-<li>return a copy when protection is needed</li>
-<li>provide specific methods instead of exposing the whole object</li>
-</ul>
+<span id="cb2-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="kw">private</span> Address addr<span class="op">;</span>  <span class="co">// instance variable of type Address defined below</span></span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a>    <span class="co">// Constructor</span></span>
+<span id="cb2-8"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> Address initAddress<span class="op">)</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-10"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb2-11"><a href=""></a>        <span class="co">// This direct assignment of references may not be the best practice!</span></span>
+<span id="cb2-12"><a href=""></a>        addr <span class="op">=</span> initAddress<span class="op">;</span></span>
+<span id="cb2-13"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-14"><a href=""></a></span>
+<span id="cb2-15"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb2-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-17"><a href=""></a>        <span class="cf">return</span> <span class="st">"Name:"</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">+</span> <span class="st">"Address:"</span> <span class="op">+</span> addr<span class="op">;</span></span>
+<span id="cb2-18"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-19"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-20"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-21"><a href=""></a>        Address a1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Address</span><span class="op">(</span><span class="st">"123 Main St"</span><span class="op">,</span> <span class="st">"Anytown"</span><span class="op">,</span> <span class="st">"Anystate"</span><span class="op">,</span> <span class="st">"12345"</span><span class="op">);</span></span>
+<span id="cb2-22"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Skyler"</span><span class="op">,</span> a1<span class="op">);</span></span>
+<span id="cb2-23"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>p1<span class="op">);</span></span>
+<span id="cb2-24"><a href=""></a>        <span class="co">// Add code to change a1 to your city with its setCity method</span></span>
+<span id="cb2-25"><a href=""></a></span>
+<span id="cb2-26"><a href=""></a>        <span class="co">// Print out a1 and p1. Did changing a1 change p1?</span></span>
+<span id="cb2-27"><a href=""></a></span>
+<span id="cb2-28"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-29"><a href=""></a><span class="op">}</span></span>
+<span id="cb2-30"><a href=""></a><span class="kw">class</span> Address</span>
+<span id="cb2-31"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-32"><a href=""></a>      <span class="co">// instance variables</span></span>
+<span id="cb2-33"><a href=""></a>      <span class="kw">private</span> <span class="bu">String</span> street<span class="op">;</span></span>
+<span id="cb2-34"><a href=""></a>      <span class="kw">private</span> <span class="bu">String</span> city<span class="op">;</span></span>
+<span id="cb2-35"><a href=""></a>      <span class="kw">private</span> <span class="bu">String</span> state<span class="op">;</span></span>
+<span id="cb2-36"><a href=""></a>      <span class="kw">private</span> <span class="bu">String</span> zipcode<span class="op">;</span></span>
+<span id="cb2-37"><a href=""></a>      <span class="co">// constructor</span></span>
+<span id="cb2-38"><a href=""></a>      <span class="kw">public</span> <span class="fu">Address</span><span class="op">(</span><span class="bu">String</span> initStreet<span class="op">,</span> <span class="bu">String</span> initCity<span class="op">,</span></span>
+<span id="cb2-39"><a href=""></a>                     <span class="bu">String</span> initState<span class="op">,</span> <span class="bu">String</span> initZipcode<span class="op">)</span></span>
+<span id="cb2-40"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-41"><a href=""></a>          street <span class="op">=</span> initStreet<span class="op">;</span></span>
+<span id="cb2-42"><a href=""></a>          city <span class="op">=</span> initCity<span class="op">;</span></span>
+<span id="cb2-43"><a href=""></a>          state <span class="op">=</span> initState<span class="op">;</span></span>
+<span id="cb2-44"><a href=""></a>          zipcode <span class="op">=</span> initZipcode<span class="op">;</span></span>
+<span id="cb2-45"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-46"><a href=""></a>      <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb2-47"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-48"><a href=""></a>          <span class="cf">return</span> street <span class="op">+</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span> <span class="op">+</span> city <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> state <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> zipcode<span class="op">;</span></span>
+<span id="cb2-49"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-50"><a href=""></a>      <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getStreet</span><span class="op">()</span></span>
+<span id="cb2-51"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-52"><a href=""></a>          <span class="cf">return</span> street<span class="op">;</span></span>
+<span id="cb2-53"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-54"><a href=""></a>      <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getCity</span><span class="op">()</span></span>
+<span id="cb2-55"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-56"><a href=""></a>          <span class="cf">return</span> city<span class="op">;</span></span>
+<span id="cb2-57"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-58"><a href=""></a>      <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getState</span><span class="op">()</span></span>
+<span id="cb2-59"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-60"><a href=""></a>          <span class="cf">return</span> state<span class="op">;</span></span>
+<span id="cb2-61"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-62"><a href=""></a>      <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getZipcode</span><span class="op">()</span></span>
+<span id="cb2-63"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-64"><a href=""></a>          <span class="cf">return</span> zipcode<span class="op">;</span></span>
+<span id="cb2-65"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-66"><a href=""></a>      <span class="co">// Setters (makes the class mutable)</span></span>
+<span id="cb2-67"><a href=""></a>      <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCity</span><span class="op">(</span><span class="bu">String</span> initCity<span class="op">)</span></span>
+<span id="cb2-68"><a href=""></a>      <span class="op">{</span></span>
+<span id="cb2-69"><a href=""></a>          city <span class="op">=</span> initCity<span class="op">;</span></span>
+<span id="cb2-70"><a href=""></a>      <span class="op">}</span></span>
+<span id="cb2-71"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="friends-and-birthdays">Friends and Birthdays</h3>
-
-<img data-src="../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg" style="width:28.0%" class="r-stretch quarto-figure-center"><p class="caption">Friends and birthdays challenge</p><p>Starter design:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Friend</span>
-<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">Date</span> birthday<span class="op">;</span></span>
-<span id="cb9-5"><a href=""></a></span>
-<span id="cb9-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Friend</span><span class="op">(</span><span class="bu">String</span> friendName<span class="op">,</span> <span class="bu">Date</span> friendBirthday<span class="op">)</span></span>
-<span id="cb9-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-8"><a href=""></a>        name <span class="op">=</span> friendName<span class="op">;</span></span>
-<span id="cb9-9"><a href=""></a>        birthday <span class="op">=</span> friendBirthday<span class="op">;</span></span>
-<span id="cb9-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add methods that compare birthdays or return birthday information.</p>
+<section id="focused-trace" class="slide level2">
+<h2>Focused Trace</h2>
+<h3 id="shared-address-reference">Shared Address reference</h3>
+<p>The constructor stores the same <code>Address</code> reference:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>addr <span class="op">=</span> initAddress<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The original variable <code>a1</code> and the instance variable <code>addr</code> refer to the same mutable <code>Address</code> object.</p>
+<p>If <code>a1.setCity(newCity)</code> changes the city, <code>p1</code> will show that change too.</p>
+</section>
+<section id="test-target" class="slide level2">
+<h2>Test Target</h2>
+<h3 id="runestone-check">Runestone check</h3>
+<p>The Runestone test checks that the code contains a call to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>a1<span class="op">.</span><span class="fu">setCity</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The classroom trace question is:</p>
+<p><strong>Did changing <code>a1</code> change <code>p1</code>?</strong></p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that object variables store references</li>
-<li>trace what happens when an object reference is passed as an argument</li>
-<li>distinguish copying a reference from copying an object</li>
-<li>use a parameter of the same class type for comparison</li>
-<li>explain what it means for a method to return an object reference</li>
+<li>explain how one class can store another class as an instance variable</li>
+<li>identify the <code>Person has an Address</code> relationship</li>
+<li>distinguish primitive argument copying from object reference copying</li>
+<li>define aliases as two references to the same object</li>
+<li>explain why mutable objects can produce unexpected changes</li>
+<li>preserve the <code>AddressPerson</code> starter and add the <code>a1.setCity</code> call only as the student task</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.6 Part 1 complete</h3>
+<p>Next: copying parameter objects.</p>
 
 </section>
     </div>

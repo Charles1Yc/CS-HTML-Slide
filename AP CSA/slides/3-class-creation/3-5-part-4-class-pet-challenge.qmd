@@ -1,5 +1,5 @@
 ---
-title: "3.5 Methods: How to Write Them"
+title: "3.5 Class Pet and Community Method Challenges"
 subtitle: "Part 4: Class Pet Challenge"
 format:
   clean-revealjs:
@@ -14,214 +14,234 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Challenge Context
+## Groupwork Coding Challenge {.image-fit}
 
-### Build a class with useful behavior
+### Class Pet
 
-![Animal clinic design prompt](../../assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png){fig-align="center" width="42%"}
+![Animal Clinic](../../assets/3-class-creation/3-5-methods-how-to-write-them/animalclinic.png){fig-align="center" width="26%"}
 
-The Class Pet challenge asks you to combine:
+You have been hired to create a software system for the Awesome Animal Clinic.
+
+They would like to keep track of their animal patients.
+
+## Pet Attributes
+
+### Animal clinic records
+
+Here are some attributes of the pets that they would like to track:
 
 ::: {.tight-list}
-- private instance variables
-- a constructor
-- getters
-- setters or mutators
-- `toString`
-- methods that compute or update state
+- Name
+- Age
+- Weight
+- Type, such as dog, cat, lizard
+- Breed
 :::
 
-## Starter Class
+## Pet Challenge Steps
 
-### Keep state private
+### Class design requirements
 
+Create a class that keeps track of the attributes for pet records at the animal clinic.
+
+Decide what instance variables are needed and their data types.
+
+Make sure you use `int`, `double`, and `String` data types.
+
+Make the instance variables `private`.
+
+## Pet Methods
+
+### Constructor, getters, setters, and toString
+
+Create:
+
+::: {.tight-list}
+- a constructor with many parameters to initialize all the instance variables
+- accessor/getter methods for each instance variable
+- a `toString` method that returns all the information in a `Pet`
+- mutator/setter methods for each instance variable
+:::
+
+## Pet Main Method
+
+### Test all methods
+
+In the `main` method, create two `Pet` objects with different values.
+
+Call the constructor, accessor methods, mutator methods, and `toString` methods to test all your code.
+
+## Active Code
+
+### `activecode:: challenge-Pet-Class`
+
+Create a `Pet` class that keeps track of:
+
+::: {.tight-list}
+- name
+- age
+- weight
+- type of animal
+- breed
+:::
+
+Create constructor, getter, setter, and `toString()` methods.
+
+Create two `Pet` objects in the `main` method and test all your methods.
+
+## Pet Starter
+
+::: {.code-scroll}
 ```java
-public class Pet
+/**
+ * Pet class (complete comments)
+ *
+ * @author
+ * @since
+ */
+class Pet
 {
-    private String name;
-    private int age;
-    private int hunger;
+    // Instance Variables for the name, age, weight, type of animal, and breed of the pet
 
-    public Pet(String petName, int petAge)
+    // Write a constructor, accessor (get) methods, mutator (set) methods)
+    // and a toString method. Use good commenting.
+
+    // Don't forget to complete the main method in the TesterClass below!
+}
+
+public class TesterClass
+{
+    // main method for testing
+    public static void main(String[] args)
     {
-        name = petName;
-        age = petAge;
-        hunger = 5;
+        // Create 2 Pet objects and test all your methods
+
     }
 }
 ```
+:::
 
-Start with state that the methods can read or change.
+## Pet Test Targets
 
-## Add Getters
+### Runestone checks
 
-### Expose selected values
+The Runestone tests check:
 
-```java
-public String getName()
-{
-    return name;
-}
-
-public int getAge()
-{
-    return age;
-}
-
-public int getHunger()
-{
-    return hunger;
-}
-```
-
-These are non-`void` methods with return values.
-
-## Add Mutators
-
-### Change state in controlled ways
-
-```java
-public void feed()
-{
-    if (hunger > 0)
-    {
-        hunger--;
-    }
-}
-
-public void play()
-{
-    hunger++;
-}
-```
-
-The method names describe actions in the domain of the class.
-
-## Add `toString`
-
-### Make object state readable
-
-```java
-public String toString()
-{
-    return name + " is " + age + " years old and has hunger " + hunger;
-}
-```
-
-Use `toString` to check whether method calls changed the object as expected.
-
-## Full Code Page
-
-### State, constructor, and getters
-
-```java
-public class Pet
-{
-    private String name;
-    private int age;
-    private int hunger;
-
-    public Pet(String petName, int petAge)
-    {
-        name = petName;
-        age = petAge;
-        hunger = 5;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public int getAge()
-    {
-        return age;
-    }
-}
-```
-
-## Full Code Page
-
-### Mutators and `toString`
-
-```java
-public class Pet
-{
-    private String name;
-    private int age;
-    private int hunger;
-
-    public void feed()
-    {
-        if (hunger > 0)
-        {
-            hunger--;
-        }
-    }
-
-    public void play()
-    {
-        hunger++;
-    }
-
-    public String toString()
-    {
-        return name + " is " + age + " years old and has hunger " + hunger;
-    }
-}
-```
-
-## Focused Trace
-
-### Track state changes
-
-```java
-Pet p = new Pet("Coco", 3);
-System.out.println(p);
-p.feed();
-p.play();
-p.play();
-System.out.println(p);
-```
-
-Trace:
-
-| Step | `hunger` |
-|---|---:|
-| after constructor | 5 |
-| after `feed()` | 4 |
-| after first `play()` | 5 |
-| after second `play()` | 6 |
+::: {.tight-list}
+- at least one constructor for `Pet`
+- five private instance variables
+- at least five accessor/getter methods
+- `public String toString()`
+- at least five mutator/setter methods
+- at least two `Pet` objects created in `main`
+- `main` prints information for two `Pet` objects
+:::
 
 ## Community Class Extension
 
 ### Continue your own class
 
-For the class you designed earlier, add:
+In the last lessons, you came up with a class of your own choice relevant to your community.
+
+Copy your class with its three instance variables, constructor, and its `print()` and `main` methods from lesson 3.4 into the active code exercise.
+
+## Community Methods
+
+### Add methods to your class
+
+Create:
 
 ::: {.tight-list}
-- one getter
-- one mutator
-- one method with a parameter
-- one `toString` method
+- accessor/get methods for each instance variable
+- mutator/set methods for each instance variable
+- a `toString` method that returns all information in the instance variables
+- an additional method for your class that takes a parameter
 :::
 
-Each method should support the purpose of the class, not just exist to satisfy a task list.
+## Method With a Parameter
+
+### Example idea
+
+For example, there could be a `print` method with arguments that indicate how you want to print out the information.
+
+`print(format)` could print the data according to an argument that is `"plain"` or `"table"`.
+
+You may also come up with another creative method for your class.
+
+Use these methods in the `main` method to test them.
+
+Make sure you use good commenting.
+
+## Community Active Code
+
+### `activecode:: community-challenge3`
+
+Copy your class from lesson 3.4.
+
+Add get, set, `toString`, and a method that takes a parameter.
+
+For example, there could be a `print` method with arguments that indicate how you want to print out the information, `print(format)` where format is `"plain"` or `"table"`.
+
+## Community Starter
+
+::: {.code-scroll}
+```java
+public class          // Add your class name here!
+{
+    // 1. Copy your class instance variables, constructor, and print()
+
+    // 2. Create accessor (get) and mutator (set) methods for each of the instance variables.
+
+    // 3. Create a toString() method that returns all the information in the instance variables.
+    // 4.  Add a method for your class that takes a parameter.
+    // For example, there could be a print method with arguments that indicate
+    // how you want to print out the information, print(format) where format is "plain" or "table".
+
+    // 5. Test all the methods in the main method.
+    public static void main(String[] args)
+    {
+       // Construct an object of your class
+
+
+       // call the object's methods
+
+    }
+}
+```
+:::
+
+## Community Test Targets
+
+### Runestone checks
+
+The Runestone tests check:
+
+::: {.tight-list}
+- at least three private instance variables
+- a constructor with three parameters
+- `print` output longer than 15 characters
+- `main` output with at least three lines of text
+- at least three accessor/get methods
+- at least three mutator/set methods
+- `public String toString()`
+- a `public void print(String` method
+:::
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- combine constructor, getters, mutators, and `toString` in one class
-- explain how each method supports the class design
-- trace how method calls change instance variable values
-- keep instance variables private and access them through methods
-- avoid adding public setters that do not make sense for the object's model
+- design `Pet` instance variables using `int`, `double`, and `String`
+- keep all `Pet` instance variables private
+- write constructor, getter, setter, and `toString` methods for the clinic record
+- create and test two `Pet` objects in `main`
+- carry forward the community class from lesson 3.4
+- add get/set methods, `toString`, and a parameterized method to the community class
 :::
 
 ## End
 
-### Return to the course outline
+### 3.5 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next topic: 3.6 Methods: Passing and Returning References of an Object.

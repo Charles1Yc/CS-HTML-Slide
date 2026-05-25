@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.7 Class Variables and Methods</title>
+  <title>3.7 Class Methods</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.7 Class Variables and Methods</h1>
-  <p class="subtitle">Class Creation</p>
+  <h1 class="title">3.7 Class Methods</h1>
+  <p class="subtitle">Class Variables and Methods</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,136 +210,184 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="static-belongs-to-the-class"><code>static</code> belongs to the class</h3>
-<p>A <span class="term">static</span> member belongs to the class itself, not to one individual object.</p>
-<div class="tight-list">
-<ul>
-<li>static method: called on the class</li>
-<li>static variable: shared by all objects of the class</li>
-<li>instance variable: each object has its own copy</li>
-</ul>
-</div>
+<section id="class-variables-and-methods" class="slide level2">
+<h2>Class Variables and Methods</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p>In Unit 1, we learned about methods by using the <code>Math</code> class and its many <strong>static</strong> methods like <code>Math.random()</code>.</p>
+<p>We also wrote our own <code>main</code> methods and other methods that were static.</p>
+<p>These are called <strong>class methods</strong> because they belong to the class and not to any object of the class.</p>
+<p>In this lesson, you will learn to write your own class variables and methods using the keyword <code>static</code> and compare them to instance variables and methods.</p>
 </section>
 <section id="class-methods" class="slide level2">
 <h2>Class Methods</h2>
-<h3 id="static-methods-are-called-with-the-class-name">Static methods are called with the class name</h3>
+<h3 id="belong-to-the-class">Belong to the class</h3>
+<p>Class methods belong to the class and not to any object of the class.</p>
+<p>They are called with the class name and the dot operator:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>ClassName<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span></span>
+<span id="cb1-2"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="one-copy-for-the-class" class="slide level2">
+<h2>One Copy for the Class</h2>
+<h3 id="static-method-call-forms">Static method call forms</h3>
+<p>There is only one copy of a class variable or method for the whole class.</p>
+<p>For example, the <code>main</code> method is a class method because there should only be one <code>main</code> method.</p>
+<p>If the method is in the same class, you can call it from other static methods in the class:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>ClassName<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">methodName</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="calling-class-methods" class="slide level2">
+<h2>Calling Class Methods</h2>
+<h3 id="source-pattern">Source pattern</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="co">// Calling class methods</span></span>
+<span id="cb3-2"><a href=""></a><span class="co">// ClassName.methodName();</span></span>
+<span id="cb3-3"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">9</span><span class="op">);</span></span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="co">// If the method is in the same class,</span></span>
+<span id="cb3-6"><a href=""></a><span class="co">// you can call it with or without the class name</span></span>
+<span id="cb3-7"><a href=""></a><span class="co">// from other static methods in the class</span></span>
+<span id="cb3-8"><a href=""></a>ClassName<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span></span>
+<span id="cb3-9"><a href=""></a><span class="fu">methodName</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comparing-method-calls" class="slide level2 image-fit">
+<h2>Comparing Method Calls</h2>
+<h3 id="static-instance-and-same-class-calls">Static, instance, and same-class calls</h3>
 
-<img data-src="../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png" style="width:55.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">double</span> root <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">25</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>Math.sqrt</code> is a static method. You do not create a <code>Math</code> object before calling it.</p>
+<img data-src="../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png" style="width:68.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing Method Calls to Static and Instance Methods</p><p>Class methods are called using the class name.</p>
+<p>Instance methods can only be called using an object of the class.</p>
 </section>
-<section id="static-method-example" class="slide level2">
-<h2>Static Method Example</h2>
-<h3 id="no-instance-variables-required">No instance variables required</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Temperature</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">celsiusToFahrenheit</span><span class="op">(</span><span class="dt">double</span> celsius<span class="op">)</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="cf">return</span> celsius <span class="op">*</span> <span class="fl">9.0</span> <span class="op">/</span> <span class="fl">5.0</span> <span class="op">+</span> <span class="dv">32</span><span class="op">;</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Call:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">double</span> f <span class="op">=</span> Temperature<span class="op">.</span><span class="fu">celsiusToFahrenheit</span><span class="op">(</span><span class="fl">20.0</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Static methods should not depend on one object’s instance state.</p>
+<section id="method-call-rules" class="slide level2">
+<h2>Method Call Rules</h2>
+<h3 id="where-the-call-happens">Where the call happens</h3>
+<p>If you are calling an instance method from the <code>main</code> method or from another class, you must first create an object of that class and then call its methods using <code>object.methodName()</code>.</p>
+<p>If you are calling the method from within the same class, you can just call <code>methodName()</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>object<span class="op">.</span><span class="fu">methodName</span><span class="op">();</span>  <span class="co">// from main or another class</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">methodName</span><span class="op">();</span>         <span class="co">// from within the same class</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That call will refer to the current object.</p>
 </section>
-<section id="class-variables" class="slide level2">
-<h2>Class Variables</h2>
-<h3 id="one-shared-value-for-the-whole-class">One shared value for the whole class</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> personCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> personName<span class="op">)</span></span>
-<span id="cb4-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-8"><a href=""></a>        name <span class="op">=</span> personName<span class="op">;</span></span>
-<span id="cb4-9"><a href=""></a>        personCount<span class="op">++;</span></span>
-<span id="cb4-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-11"><a href=""></a></span>
-<span id="cb4-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getPersonCount</span><span class="op">()</span></span>
-<span id="cb4-13"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-14"><a href=""></a>        <span class="cf">return</span> personCount<span class="op">;</span></span>
-<span id="cb4-15"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Every constructor call updates the same shared counter.</p>
+<section id="static-declarations" class="slide level2">
+<h2>Static Declarations</h2>
+<h3 id="where-static-is-placed">Where <code>static</code> is placed</h3>
+<p>When writing class methods, they can be <code>public</code> or <code>private</code>.</p>
+<p>The <code>static</code> keyword is placed right after the public/private modifier and right before the type of variables and methods in their declarations.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ClassName</span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="co">// static class variable</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> type variableName<span class="op">;</span></span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>    <span class="co">// static class method</span></span>
+<span id="cb5-7"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> returnType <span class="fu">methodName</span><span class="op">(</span>parameters<span class="op">)</span></span>
+<span id="cb5-8"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-9"><a href=""></a>        <span class="co">// implementation not shown</span></span>
+<span id="cb5-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-the-static-counter">Trace the static counter</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Person a <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Ana"</span><span class="op">);</span></span>
-<span id="cb5-2"><a href=""></a>Person b <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Bo"</span><span class="op">);</span></span>
-<span id="cb5-3"><a href=""></a>Person c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Cam"</span><span class="op">);</span></span>
-<span id="cb5-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>Person<span class="op">.</span><span class="fu">getPersonCount</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>3</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>There is one <code>personCount</code> for the class, not one per object.</p>
+<section id="static-access-rule" class="slide level2">
+<h2>Static Access Rule</h2>
+<h3 id="what-class-methods-can-access">What class methods can access</h3>
+<p>Class methods can access or change the values of class variables and can call other class methods.</p>
+<p>However, they cannot access or change the values of non-static instance variables or call non-static instance methods without being passed an instance of the class via a parameter.</p>
+<p>For example, the <code>main</code> method can call other static methods directly with or without the class name, but it cannot call instance methods without first creating an object.</p>
 </section>
-<section id="debug-task" class="slide level2">
-<h2>Debug Task</h2>
-<h3 id="static-method-cannot-use-instance-state-directly">Static method cannot use instance state directly</h3>
-<p>Problem:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printName</span><span class="op">()</span></span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb7-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>name</code> is an instance variable. A static method has no specific object.</p>
-<p>Fix: make the method an instance method, or pass needed data as a parameter.</p>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-staticmethods"><code>activecode:: staticmethods</code></h3>
+<p>Note that the static method <code>printStatic</code> has errors in it because it cannot access the instance variables and methods.</p>
+<p>Fix the <code>printStatic</code> method by giving it the <code>Person</code> object as a parameter and using this object to call its instance variables and methods.</p>
+<p>Also fix the method call to <code>printStatic</code> in <code>main</code> to pass in the object as an argument.</p>
 </section>
-<section id="final-keyword" class="slide level2">
-<h2><code>final</code> Keyword</h2>
-<h3 id="constants-should-not-change">Constants should not change</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">double</span> PI <span class="op">=</span> <span class="fl">3.14159</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>final</code> means the value cannot be reassigned after initialization.</p>
-<p>Class constants are often:</p>
-<div class="tight-list">
-<ul>
-<li><code>public</code></li>
-<li><code>static</code></li>
-<li><code>final</code></li>
-<li>named with uppercase words</li>
-</ul>
+<section id="staticmethods-starter" class="slide level2">
+<h2>staticmethods Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a>    <span class="co">// constructor</span></span>
+<span id="cb6-8"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">)</span></span>
+<span id="cb6-9"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-10"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb6-11"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb6-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-13"><a href=""></a></span>
+<span id="cb6-14"><a href=""></a>    <span class="co">// instance method</span></span>
+<span id="cb6-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb6-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-17"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> email<span class="op">);</span></span>
+<span id="cb6-18"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-19"><a href=""></a></span>
+<span id="cb6-20"><a href=""></a>    <span class="co">// static method</span></span>
+<span id="cb6-21"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printStatic</span><span class="op">()</span></span>
+<span id="cb6-22"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-23"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Static methods cannot print out non-static variables."</span><span class="op">);</span></span>
+<span id="cb6-24"><a href=""></a>        <span class="co">// The following lines will cause errors</span></span>
+<span id="cb6-25"><a href=""></a></span>
+<span id="cb6-26"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Fix this by giving it the Person object as a parameter</span></span>
+<span id="cb6-27"><a href=""></a>        <span class="co">// Use the object to print out the name and call its instance methods.</span></span>
+<span id="cb6-28"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
+<span id="cb6-29"><a href=""></a>        <span class="fu">print</span><span class="op">();</span></span>
+<span id="cb6-30"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-31"><a href=""></a></span>
+<span id="cb6-32"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-33"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-34"><a href=""></a>        Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Jana"</span><span class="op">,</span> <span class="st">"jana@gmail.com"</span><span class="op">);</span></span>
+<span id="cb6-35"><a href=""></a></span>
+<span id="cb6-36"><a href=""></a>        <span class="co">// Call p's instance method to print</span></span>
+<span id="cb6-37"><a href=""></a>        p<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
+<span id="cb6-38"><a href=""></a></span>
+<span id="cb6-39"><a href=""></a>        <span class="co">// Call printStatic with the class name</span></span>
+<span id="cb6-40"><a href=""></a>        <span class="co">// Note this has errors.</span></span>
+<span id="cb6-41"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Fix the errors by giving it the object p as an argument</span></span>
+<span id="cb6-42"><a href=""></a>        Person<span class="op">.</span><span class="fu">printStatic</span><span class="op">();</span></span>
+<span id="cb6-43"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-44"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="static-song-and-counter">Static song and counter</h3>
-<p>Design a class that tracks how many song objects have been created.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Song</span>
-<span id="cb9-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> title<span class="op">;</span></span>
-<span id="cb9-5"><a href=""></a></span>
-<span id="cb9-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Song</span><span class="op">(</span><span class="bu">String</span> songTitle<span class="op">)</span></span>
-<span id="cb9-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-8"><a href=""></a>        title <span class="op">=</span> songTitle<span class="op">;</span></span>
-<span id="cb9-9"><a href=""></a>        count<span class="op">++;</span></span>
-<span id="cb9-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-11"><a href=""></a></span>
-<span id="cb9-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getCount</span><span class="op">()</span></span>
-<span id="cb9-13"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb9-14"><a href=""></a>        <span class="cf">return</span> count<span class="op">;</span></span>
-<span id="cb9-15"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add one instance method that prints the song title.</p>
+<section id="focused-fix" class="slide level2">
+<h2>Focused Fix</h2>
+<h3 id="pass-an-object-into-the-static-method">Pass an object into the static method</h3>
+<p>The source task asks students to change the method so a <code>Person</code> object is passed into <code>printStatic</code>.</p>
+<p>The static method can then use that object to access the instance data and instance method.</p>
+<p>The call in <code>main</code> must also pass the object <code>p</code>.</p>
+</section>
+<section id="test-targets" class="slide level2">
+<h2>Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>The tests check for:</p>
+<div class="tight-list">
+<ul>
+<li>a call containing <code>printStatic(p)</code></li>
+<li>a method header containing <code>printStatic(Person</code></li>
+</ul>
+</div>
+<p>The classroom trace focus is why the original <code>printStatic</code> produced a static-context error.</p>
+</section>
+<section id="after-the-exercise" class="slide level2">
+<h2>After the Exercise</h2>
+<h3 id="static-methods-as-utilities">Static methods as utilities</h3>
+<p>This example also shows how instance methods easily share data variables without the need for parameters.</p>
+<p>Static methods cannot directly access the instance methods.</p>
+<p>They are often used for utility methods, like <code>Math</code> operations, that do not need access to the instance variables of an object.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>distinguish static members from instance members</li>
-<li>call a static method with the class name</li>
-<li>explain why a static variable is shared by all objects</li>
-<li>trace a static counter across multiple constructor calls</li>
-<li>explain why <code>final</code> is used for constants</li>
+<li>explain why <code>Math.random()</code> and <code>main</code> are class methods</li>
+<li>call a class method with <code>ClassName.methodName()</code></li>
+<li>distinguish class-method calls from instance-method calls</li>
+<li>place <code>static</code> correctly in a method or variable declaration</li>
+<li>explain the static-context error in <code>printStatic</code></li>
+<li>fix <code>printStatic</code> by passing a <code>Person</code> object as a parameter</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.7 Part 1 complete</h3>
+<p>Next: class variables and static counters.</p>
 
 </section>
     </div>

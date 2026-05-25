@@ -1,6 +1,6 @@
 ---
-title: "4.12 2D Array Traversals"
-subtitle: "Data Collections"
+title: "4.12 Nested Loops for 2D Arrays"
+subtitle: "2D Array Traversals"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,122 +14,121 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## 2D Array Traversals
 
-### 2D traversal uses nested loops
+### Nested loops
 
-A 2D array traversal usually has:
+In this lesson, you will learn how to use nested loops to traverse 2D arrays.
 
-::: {.tight-list}
-- outer loop for rows
-- inner loop for columns
-- body that uses `array[row][col]`
-:::
+Nested iteration statements are used to traverse and access all or an ordered sequence of elements in a 2D array.
 
-## Row-Major Traversal
+Since 2D arrays are stored as arrays of arrays, the way 2D arrays are traversed using `for` loops and enhanced `for` loops is similar to 1D array objects.
 
-### Visit one full row at a time
+## Nested `for` Loop
+
+### One loop inside another loop
+
+Here is an example of a nested `for` loop to loop through all of the elements of a 2D array.
 
 ```java
-for (int row = 0; row < grid.length; row++)
+int[][] array = { {1, 2, 3}, {4, 5, 6} };
+for (int row = 0; row < array.length; row++)
 {
-    for (int col = 0; col < grid[row].length; col++)
+    for (int col = 0; col < array[0].length; col++)
     {
-        System.out.println(grid[row][col]);
+         System.out.println(array[row][col]);
     }
 }
 ```
 
-This is the most common AP CSA traversal order.
+## Coding Exercise
 
-## Column-Major Traversal
+### `activecode:: lcgetAverage`
 
-### Visit one full column at a time
+What does the following code do?
 
+Add another row of numbers to the matrix.
+
+Will the loops traverse this row too?
+
+Use tracing to follow the code. Note that an array can be passed in as an argument to a method.
+
+## Test1 Source Code
+
+::: {.code-scroll}
 ```java
-for (int col = 0; col < grid[0].length; col++)
+public class Test1
 {
-    for (int row = 0; row < grid.length; row++)
+
+    public static double getAverage(int[][] a)
     {
-        System.out.println(grid[row][col]);
+        double total = 0;
+        int value = 0;
+        for (int row = 0; row < a.length; row++)
+        {
+            for (int col = 0; col < a[0].length; col++)
+            {
+                value = a[row][col];
+                total = total + value;
+            }
+        }
+        return total / (a.length * a[0].length);
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix = { {1, 2, 3}, {4, 5, 6}};
+        System.out.println(getAverage(matrix));
     }
 }
 ```
-
-This assumes a rectangular 2D array.
-
-## Quick Check
-
-### Which order is row-major?
-
-Row-major means:
-
-::: {.tight-list}
-- choose a row
-- visit each column in that row
-- move to the next row
 :::
 
-In code, the outer loop is usually `row`, and the inner loop is usually `col`.
+## Test1 Test Targets
 
-## Enhanced For-Each
+### Runestone checks
 
-### Read each row, then each value
+After adding another row, the average should change.
 
-```java
-for (int[] row : grid)
-{
-    for (int value : row)
-    {
-        System.out.println(value);
-    }
-}
+The output should not still be:
+
+```text
+3.5
 ```
 
-For-each is clear for reading all values, but not for changing values by index.
+The original matrix declaration should also be changed.
 
-## 2D Array of Objects
-
-### Each cell can store an object reference
-
-![Pixel image](../../assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg){fig-align="center" width="36%"}
-
-Image processing can treat pixels as objects in a 2D grid.
+Original declaration:
 
 ```java
-Pixel[][] pixels = picture.getPixels2D();
+int[][] matrix = { {1,2,3},{4,5,6}};
 ```
 
-## Groupwork Coding Challenge {.image-fit}
+## Key Things to Notice
 
-### Picture Lab
+### Source observations
 
-![Arch image](../../assets/4-data-collections/4-12-2d-array-traversals/arch.jpg){fig-align="center" width="38%"}
+Some key things to notice about this code are:
 
-Use nested loops over pixels to modify an image.
-
-Class focus:
-
-::: {.tight-list}
-- row and column traversal
-- object methods on each `Pixel`
-- changing state inside the nested loop
-:::
+- `total` is declared to be a `double` so the result will be a `double`
+- if `total` was an `int`, values after the decimal point would be thrown away
+- the array is passed in as an argument to the method
+- the number of rows is `a.length`
+- the number of columns is `a[0].length`
+- the number of times this loop executes is rows times columns
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- write row-major traversal with nested loops
-- write column-major traversal for rectangular arrays
-- use `array.length` for rows and `array[row].length` for columns
-- explain when enhanced for-each is appropriate
-- connect 2D object arrays to image or grid processing
-:::
+- identify the outer loop as row traversal in the source example
+- identify the inner loop as column traversal in each row
+- use `a.length` for number of rows
+- use `a[0].length` for number of columns
+- explain why adding another row changes the average
 
 ## End
 
-### Return to the course outline
+### 4.12 Nested Loops for 2D Arrays
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: row-major and column-major traversals.

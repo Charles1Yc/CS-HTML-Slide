@@ -1,6 +1,6 @@
 ---
-title: "4.6 Using Text Files"
-subtitle: "Data Collections"
+title: "4.6 File, Scanner, and File Loops"
+subtitle: "Using Text Files"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,160 +14,379 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Using Text Files
 
-### Files let programs use external data
+### File and Scanner classes
 
-Text files store data outside the Java program. A program can read a file, parse values, and save them into arrays or objects.
+A file can be connected to the program using the `File` and `Scanner` classes.
 
-Core classes:
+These classes must be imported from libraries:
 
 ::: {.tight-list}
-- `File`
-- `Scanner`
-- `IOException`
+- `Scanner` is in the `java.util` package
+- `File` is in the `java.io` package
+- `io` stands for **input/output** (输入/输出)
 :::
 
-## File and Scanner
+## Opening a File
 
-### Open a file for reading
+### File object
+
+A file can be opened by creating a `File` object, using the name of the file or the complete path to the file as the argument of the constructor.
 
 ```java
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 
-public class ReadFile
+File myFile = new File("data.txt");
+```
+
+After opening a file, the `Scanner` class can read data from the file line by line.
+
+## IOException
+
+### What if the file cannot be opened?
+
+The `Scanner` constructor will throw a `FileNotFoundException` if it cannot find the file.
+
+This is a type of `IOException`, a general error also thrown when input does not match expectations.
+
+When an exception is thrown, the program stops executing and the exception is thrown back to the calling method.
+
+## throws IOException
+
+### Method header
+
+Java uses `try/catch` blocks to handle exceptions, but you can use the `throws` keyword in the method header.
+
+The `throws IOException` statement is added to the end of the method header.
+
+::: {.code-scroll}
+```java
+import java.io.*;
+import java.util.*;
+
+public class FileIO
 {
     public static void main(String[] args) throws IOException
     {
-        File file = new File("data.txt");
-        Scanner input = new Scanner(file);
+        File myFile = new File("data.txt");
+        Scanner scan = new Scanner(myFile);
+
+        scan.close();
+    }
+}
+```
+:::
+
+## Coding Exercise
+
+### `activecode:: throws-exception-exercise`
+
+Run the code below to see the error message.
+
+Add `throws` and the correct exception to the end of the `main` method header to fix the error.
+
+## FileIO Source Code
+
+```java
+import java.io.*;
+import java.util.*;
+
+public class FileIO
+{
+    public static void main(String[] args)
+    {
+        File myFile = new File("dictionary.txt");
+        Scanner scan = new Scanner(myFile);
+        System.out.println(
+                "The first word in the dictionary file is: " + scan.nextLine());
+        scan.close();
     }
 }
 ```
 
-`throws IOException` acknowledges that file input can fail.
+## FileIO Test Targets
 
-## Reading Values
+### Runestone checks
 
-### Scanner reads tokens or lines
+Expected output:
 
-```java
-while (input.hasNextLine())
-{
-    String line = input.nextLine();
-    System.out.println(line);
-}
+```text
+The first word in the dictionary file is: a
 ```
 
-Common scanner methods:
+The code must contain:
+
+```java
+throws IOException
+```
+
+## Reading in Data with Scanner
+
+### Scanner methods
+
+Once the file is opened, the data can be read using `Scanner` methods.
+
+For example, `nextLine` reads the next line of input and returns it as a `String`.
 
 ::: {.tight-list}
-- `hasNextLine()`
-- `nextLine()`
-- `hasNextInt()`
-- `nextInt()`
+- `Scanner(File f)` accepts a `File` for reading
+- `String nextLine()` returns the next line of text
+- `String next()` returns the next `String` up to whitespace
+- `int nextInt()` returns the next `int`
 :::
 
-## Loop to Read a File
+## Scanner Methods
 
-### File reading is usually a loop
+### Numeric and stream methods
+
+::: {.tight-list}
+- `double nextDouble()` returns the next `double`
+- `boolean nextBoolean()` returns the next `boolean`
+- `boolean hasNext()` returns true if there is a next item to read
+- `void close()` closes the input stream
+:::
+
+## Coding Exercise
+
+### `activecode:: calculatorInput`
+
+The code below reads in the 2 numbers below it and multiplies them.
+
+Try changing the input below the code to decimal numbers like `2.5` and run to see the `InputMismatchException`.
+
+Then change the code to use `nextDouble()` instead of `nextInt()` and change the variables to type `double`.
+
+## calculatorInput Source Code
 
 ```java
-int count = 0;
-while (input.hasNextLine())
+import java.util.Scanner;
+
+public class Multiply
 {
-    String line = input.nextLine();
-    count++;
+     public static void main(String[] args)
+     {
+          Scanner scan = new Scanner(System.in);
+          int num1 = scan.nextInt();
+          int num2 = scan.nextInt();
+
+          int result = num1 * num2;
+
+          System.out.println(num1 + " x " + num2 + " = " + result);
+          scan.close();
+      }
 }
-System.out.println(count);
 ```
 
-The loop continues until there is no more file input.
+## calculatorInput Test Targets
+
+### Runestone checks
+
+The input is:
+
+```text
+2 5
+```
+
+The tests check that the revised code contains:
+
+```java
+nextDouble()
+double
+```
+
+## Scanner Whitespace
+
+### Numeric methods and nextLine
+
+The `nextInt()` and `nextDouble()` methods read in a number but leave any space or newline characters on the input stream.
+
+This can cause problems if you have input to read in multiple lines.
+
+Java programmers often add an extra call to `scan.nextLine();` to read in the rest of the line after reading in a number.
+
+## Loop to Read in a File
+
+### Use hasNext as the loop condition
+
+A `while` loop is usually used to read in a file with multiple lines.
+
+The loop can use `hasNext` as the loop condition to detect if the file still contains elements to read.
+
+After the loop is finished reading the data, the `close` method from `Scanner` should be called to close the file.
+
+```java
+while (scan.hasNext())
+{
+    String line = scan.nextLine();
+}
+scan.close();
+```
+
+## Coding Exercise
+
+### `activecode:: loop-read-file`
+
+Complete the code below to read in all of the dictionary file using a `while` loop.
+
+This code will also tell you how many lines are in the file.
+
+## FileIOLoop Starter
+
+::: {.code-scroll}
+```java
+import java.io.*;
+import java.util.*;
+
+public class FileIOLoop
+{
+    public static void main(String[] args) throws IOException
+    {
+        File myFile = new File("dictionary.txt");
+        Scanner scan = new Scanner(myFile);
+        int i = 0; // line count
+
+        // 1. Add in the loop condition that checks if scan has another line of input
+        while (         )
+        {
+            // 2. Read in the next line of the file
+            String line;
+
+            i++; // line count
+         }
+
+        System.out.println("This file has " + i + " lines.");
+
+        scan.close();
+    }
+}
+```
+:::
+
+## FileIOLoop Test Targets
+
+### Runestone checks
+
+Expected output:
+
+```text
+This file has 10000 lines.
+```
+
+The code must contain:
+
+```java
+nextLine()
+hasNext()
+```
 
 ## Save File Data into an Array
 
-### Store data for later processing
+### Line by line
+
+We can save a file line by line into an array.
+
+In the `SpellChecker` class, we read the data file of words into a dictionary array with this code.
+
+The source notes that the array size must be known before declaring the array.
 
 ```java
-String[] names = new String[100];
-int count = 0;
-
-while (input.hasNextLine() && count < names.length)
+String[] dictionary = new String[10000];
+int i = 0;
+while(scan.hasNext())
 {
-    names[count] = input.nextLine();
-    count++;
+     String line = scan.nextLine();
+     dictionary[i] = line;
+     i++;
 }
 ```
 
-The `count` variable records how many array slots were actually filled.
+## CSV Files
 
-## Split Strings
+### Comma Separated Values
 
-### CSV data becomes fields
+The following exercise reads in a data file about Pokemon and prints out the first 10 lines in the file.
 
-```java
-String line = "Pikachu,35,Electric";
-String[] parts = line.split(",");
+This file has the extension `csv`, which stands for **Comma Separated Values**.
 
-String name = parts[0];
-int speed = Integer.parseInt(parts[1]);
-String type = parts[2];
-```
+All spreadsheets can be saved as CSV text files, and spreadsheet software can easily open CSV files as spreadsheets.
 
-`split` returns an array of substrings.
+## Coding Exercise
 
-## Object-Oriented Design with CSV
+### `activecode:: read-pokemon-file`
 
-### Convert rows into objects
-
-```java
-public class Pokemon
-{
-    private String name;
-    private int speed;
-
-    public Pokemon(String name, int speed)
-    {
-        this.name = name;
-        this.speed = speed;
-    }
-}
-```
-
-Each row can become one object after parsing.
-
-## Groupwork Coding Challenge
-
-### Array of Pokemon from input file
-
-Starter task:
+Complete the code in the `main` method to:
 
 ::: {.tight-list}
-- read each line from a Pokemon file
-- split the line by commas
-- parse numeric fields
-- create a `Pokemon` object
-- store it in an array
+- read in the first 10 lines of the pokemon file using the `Scanner` class
+- save each line into the `pokemonLines` array
+- print it out
+- check that the line counter `i` is less than `10` in the loop condition
 :::
 
-Class focus: file input, arrays, parsing, and class design working together.
+## ReadData Starter
+
+::: {.code-scroll}
+```java
+import java.io.*;
+import java.util.*;
+
+public class ReadData
+{
+    public static void main(String[] args) throws IOException
+    {
+        File myFile = new File("pokemon.csv");
+        Scanner scan = new Scanner(myFile);
+        String[] pokemonLines = new String[10];
+
+        int i = 0;
+        // 1. Add in the loop condition that checks if scan has another line of input
+        //    and that i is less than 10.
+        while (         )
+        {
+            // 2. Read in the next line of the file
+
+            // 3. Assign the line to the ith element of the pokemonLines array
+
+            // 4. Print out the line
+
+            i++; // line count
+         }
+         scan.close();
+   }
+}
+```
+:::
+
+## ReadData Test Targets
+
+### Runestone checks
+
+The output should contain at least 10 lines.
+
+The tests check:
+
+::: {.tight-list}
+- assignment to `pokemonLines[i]`
+- `hasNext()`
+- `i < 10`
+:::
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- open a text file using `File` and `Scanner`
-- explain why file-reading code may throw `IOException`
-- use a loop with `hasNextLine`
-- store file data into an array with a count variable
-- split a CSV line and parse numeric fields
+- import `java.io.*` and `java.util.*` when using `File` and `Scanner`
+- add `throws IOException` to the method header when using file input this way
+- use `nextLine()`, `nextDouble()`, or other Scanner methods according to input type
+- close the `Scanner` after reading
+- use `hasNext()` as the loop condition when reading multiple lines
+- store file lines into an array with an index counter
 :::
 
 ## End
 
-### Return to the course outline
+### 4.6 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: splitting CSV strings and Pokemon images.

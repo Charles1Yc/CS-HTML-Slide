@@ -1,0 +1,234 @@
+---
+title: "1.3 Expressions and Output"
+subtitle: "Part 3: Remainder Operator and Pay Calculator"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## The Remainder Operator
+
+### `%`
+
+The operator `%` in Java is the <span class="term">remainder</span> (余数) operator.
+
+Like the other arithmetic operators, it takes two operands.
+
+Mathematically it returns the remainder after dividing the first number by the second, using truncating integer division.
+
+## Remainder Example
+
+### `5 % 2`
+
+For instance, `5 % 2` evaluates to `1` since `2` goes into `5` two times with a remainder of `1`.
+
+::: {.image-fit}
+![Long division showing the integer result and the remainder](../../assets/1-using-objects-and-methods/1-3-expressions-and-output/mod-py.png){fig-align="center" width="34%"}
+:::
+
+## Remainder and Mod
+
+### AP exam boundary
+
+Sometimes people call `%` the <span class="term">modulo</span>, or <span class="term">mod</span>, operator.
+
+That is not actually correct, though the difference between remainder and modulo only matters when negative operands are involved and the signs of the operands differ.
+
+With positive operands, remainder and mod give the same results.
+
+`%` is all you need in the AP exam.
+
+## Coding Exercise
+
+### `activecode:: lcop2`
+
+Textbook prompt: In the example below, try to guess what it will print out and then run it to see if you are right.
+
+## Code Window
+
+### `activecode:: lcop2`
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        System.out.println(11 % 10);
+        System.out.println(3 % 4);
+        System.out.println(8 % 2);
+        System.out.println(9 % 2);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: lcop2`
+
+Runestone expects this output from `main`:
+
+```text
+1
+3
+0
+1
+```
+
+## Remainder Pattern
+
+### Smaller left operand
+
+The result of `x % y` when `x` is smaller than `y` is always `x`.
+
+The value `y` cannot go into `x` at all, since `x` is smaller than `y`, so the result is just `x`.
+
+So if you see `2 % 3`, the result is `2`.
+
+## Check Your Understanding
+
+### `mchoice:: mcq-rem1`
+
+What is the result of `158 % 10`?
+
+::: {.tight-list}
+- A. `15`
+- B. `16`
+- C. `8`
+:::
+
+Correct answer: <span class="mark">C. `8`</span>
+
+When you divide `158` by `10`, you get a remainder of `8`.
+
+## Check Your Understanding
+
+### `mchoice:: mcq-rem2`
+
+What is the result of `3 % 8`?
+
+::: {.tight-list}
+- A. `3`
+- B. `2`
+- C. `8`
+:::
+
+Correct answer: <span class="mark">A. `3`</span>
+
+`8` goes into `3` no times, so the remainder is `3`.
+
+## Groupwork Coding Challenge
+
+### Pay Calculator
+
+In this coding challenge, you can work in pairs to create a pay calculator using math expressions and operators.
+
+::: {.image-fit}
+![Dollar sign](../../assets/1-using-objects-and-methods/1-3-expressions-and-output/dollarSign.png){fig-align="center" width="14%"}
+:::
+
+Complete the following expressions for a pay calculator.
+
+## Starter Code
+
+### `activecode:: challenge1-3-pay-calculator`
+
+::: {.code-scroll}
+```java
+public class Challenge1_3_Pay_Calculator
+{
+   public static void main(String[] args)
+   {
+       // Put in the math operator between 4 and 10 below to compute 
+       // the pay for 4 hours of work at 10 dollars per hour.
+       System.out.println("Pay for 4 hours of work at 10 dollars an hour");
+       System.out.println(4  10);
+       
+       // Put in the math operator to compute the number of hours worked 
+       // if the pay is 120 dollars and the rate is 15 dollars per hour.
+       System.out.println("Number of hours worked for pay 120 dollars & rate 15 dollars per hour");
+       System.out.println(120  15);
+       
+       // Put in the math expression to compute the pay 
+       //  for 12 hours of work at 7.50 dollars per hour.
+       System.out.println("Pay for 12 hours of work at 7.50 dollars an hour");
+       System.out.println(        );
+     
+       // Add another statement to print the math expression to compute the integer number of 
+       // hours worked if the pay is 100 dollars and the rate is 9 dollars per hour.
+       System.out.println("Number of int hours worked for pay 100 dollars & rate 9 dollars per hour");
+     
+
+
+       // Add another statement to print the math expression to give the remainder when 
+       //  100 dollars is divided by 9 dollars per hour. 
+       System.out.println("The remainder of 100 dollars divided by 9 dollars per hour");
+     
+
+   }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: challenge1-3-pay-calculator`
+
+Runestone checks that the output contains:
+
+```text
+90.0
+```
+
+for `12 * 7.50`.
+
+Runestone also checks that the code contains these expressions:
+
+::: {.tight-list}
+- `4*10`
+- `120/15`
+- `100/9`
+- `100%9`
+:::
+
+## Focused Work
+
+### Required expressions
+
+Fill the starter by using the right arithmetic operator for each prompt.
+
+```java
+4 * 10
+120 / 15
+12 * 7.50
+100 / 9
+100 % 9
+```
+
+Trace the difference between `100 / 9` and `100 % 9` before running.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain `%` as the remainder after integer division
+- predict values such as `11 % 10`, `8 % 2`, and `9 % 2`
+- use the pattern that `x % y` is `x` when positive `x` is smaller than `y`
+- distinguish remainder from modulo at the AP exam boundary
+- preserve starter-code prompts while completing the Pay Calculator expressions
+- explain the difference between quotient `100 / 9` and remainder `100 % 9`
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

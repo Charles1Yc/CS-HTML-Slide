@@ -1,0 +1,132 @@
+---
+title: "1.15 String Manipulation"
+subtitle: "Part 5: Pig Latin Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Pig Latin
+
+![Pig Latin](../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png){fig-align="center" width="24%"}
+
+Can you speak Pig Latin?
+
+In Pig Latin, you take the first letter and put it at the end of the word and add the letters `"ay"` to the end.
+
+For example, `"pig"` becomes `"igpay"`.
+
+## Challenge Context
+
+### Use String methods
+
+Create a program that takes a word and transforms it to Pig Latin using `String` methods.
+
+You may need:
+
+::: {.tight-list}
+- the word's length
+- a substring that does not include the first letter
+- a substring that is just the first letter
+:::
+
+You can get the `i`th letter of a string using `substring(i,i+1)`.
+
+For example, the letter at index `3` would be `substring(3,4)`.
+
+## Coding Challenge
+
+### `activecode:: challenge-PigLatin`
+
+Write code in the `pigLatin` method below to use the `substring` method to transform a word given as its argument into Pig Latin where the first letter is put at the end and `"ay"` is added.
+
+The word `pig` is `igpay` in Pig Latin.
+
+Change the input below to try it on other words.
+
+Standard input: `pig`
+
+## Starter Code
+
+### `challenge-PigLatin`
+
+```java
+import java.util.Scanner;
+
+public class PigLatin
+{
+   public static String pigLatin(String word)
+   {
+       // TODO: Change this to use word.substring to construct
+       // the pig latin version of word
+       String pigLatin = word;
+
+       return pigLatin;
+   }
+
+   public static void main(String[] args)
+   {
+       // Do not change main!
+       // Write your code in the pigLatin method above.
+       Scanner scan = new Scanner(System.in);
+       String word = scan.nextLine();
+       System.out.println(word + " in Pig Latin is " + pigLatin(word) );
+       scan.close();
+   }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- `pigLatin("java")` returns `"avajay"`
+- `pigLatin("pig")` returns `"igpay"`
+- code contains at least `2` calls to `word.substring(`
+:::
+
+## Trace the Transformation
+
+### Classroom trace
+
+For `word = "pig"`:
+
+::: {.tight-list}
+- first letter: `word.substring(0,1)` gives `"p"`
+- rest of word: `word.substring(1)` gives `"ig"`
+- Pig Latin result: `"ig" + "p" + "ay"` gives `"igpay"`
+:::
+
+For `word = "java"`, the expected return value is `"avajay"`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- keep all edits inside `pigLatin(String word)`
+- do not change `main`
+- call `word.substring(` at least twice
+- move the first letter to the end
+- append `"ay"` after the moved first letter
+- return the transformed string rather than printing from `pigLatin`
+:::
+
+## End
+
+### 1.15 complete
+
+Unit 1 strict rewrite is complete through 1.15.

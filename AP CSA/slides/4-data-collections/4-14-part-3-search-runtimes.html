@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.14 Searching Algorithms</title>
+  <title>4.14 Search Runtimes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.14 Searching Algorithms</h1>
-  <p class="subtitle">Part 3: Search Runtimes</p>
+  <h1 class="title">4.14 Search Runtimes</h1>
+  <p class="subtitle">Searching Algorithms</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -207,83 +207,120 @@
 </section>
 <section id="course-directory" class="slide level2">
 <h2>Course Directory</h2>
-<h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="runtime-idea" class="slide level2">
-<h2>Runtime Idea</h2>
-<h3 id="count-how-many-values-may-be-checked">Count how many values may be checked</h3>
-<p>Search runtime depends on the algorithm and the input size.</p>
-<div class="tight-list">
-<ul>
-<li>linear search may check every element</li>
-<li>binary search cuts the remaining data roughly in half each step</li>
-</ul>
-</div>
+<section id="runtimes" class="slide level2">
+<h2>Runtimes</h2>
+<h3 id="choosing-between-algorithms">Choosing between algorithms</h3>
+<p>How do we choose between two algorithms that solve the same problem?</p>
+<p>They usually have different characteristics and <strong>runtimes</strong>, which measure how fast they run.</p>
+<p>For the searching problem, it depends on your data.</p>
 </section>
-<section id="linear-search-runtime" class="slide level2">
-<h2>Linear Search Runtime</h2>
-<h3 id="worst-case-grows-with-n">Worst case grows with <code>n</code></h3>
-<p>For an array of length <code>n</code>, linear search checks:</p>
-<div class="tight-list">
-<ul>
-<li>best case: 1 element</li>
-<li>worst case: <code>n</code> elements</li>
-<li>average case: about half the elements</li>
-</ul>
-</div>
-<p>If <code>n</code> doubles, worst-case work doubles.</p>
+<section id="worst-case-behavior" class="slide level2">
+<h2>Worst Case Behavior</h2>
+<h3 id="linear-vs-binary-search">Linear vs binary search</h3>
+<p>Binary search is much faster than linear search, especially on large data sets, but it can only be used on sorted data.</p>
+<p>With searching, the worst case is usually if you cannot find the item.</p>
+<p>With linear search, you would have to go through the whole array before realizing that it is not there.</p>
+<p>Binary search is much faster even in this case because it eliminates half the data set in each step.</p>
 </section>
-<section id="binary-search-runtime" class="slide level2">
-<h2>Binary Search Runtime</h2>
-<h3 id="halving-grows-slowly">Halving grows slowly</h3>
-<p>For 64 sorted values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>64 -&gt; 32 -&gt; 16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Only a small number of comparisons are needed compared with checking all 64 values.</p>
+<section id="runtime-table" class="slide level2">
+<h2>Runtime Table</h2>
+<h3 id="worst-case-comparisons">Worst case comparisons</h3>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Linear Search</th>
+<th style="text-align: right;">Binary Search</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2 comparisons</td>
+<td style="text-align: right;">2 comparisons</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+<p>Every time we double the size of <code>N</code>, we need at most one more guess or comparison with binary search.</p>
 </section>
-<section id="quick-checks" class="slide level2">
-<h2>Quick Checks</h2>
-<h3 id="search-reasoning">Search reasoning</h3>
-<ol type="1">
-<li><p>Which search can be used on unsorted data?<br>
-Answer: linear search.</p></li>
-<li><p>Which search needs sorted data but usually checks fewer values?<br>
-Answer: binary search.</p></li>
-<li><p>If binary search checks a middle value too small, which side remains?<br>
-Answer: the right side.</p></li>
-</ol>
+<section id="big-o-note" class="slide level2">
+<h2>Big-O Note</h2>
+<h3 id="informal-runtime-comparison">Informal runtime comparison</h3>
+<p>For an array of size <code>n</code>, linear search runtime is a linear function.</p>
+<p>Binary search runtime is a function of log base 2 of <code>n</code>.</p>
+<p>This is called the big-O runtime function in computer science, for example <code>O(log n)</code> vs.&nbsp;<code>O(n)</code>.</p>
+<p>You do not need to know the log runtime growth function for the AP exam, but you should be able to calculate binary search steps by counting how many times you can divide by 2.</p>
 </section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="search-runtimes">Search runtimes</h3>
-<p>Compare linear search and binary search on the same sorted array.</p>
-<p>Task:</p>
-<div class="tight-list">
-<ul>
-<li>count comparisons for a target near the beginning</li>
-<li>count comparisons for a target near the end</li>
-<li>count comparisons for a missing target</li>
-<li>explain when binary search is worth the sorting requirement</li>
-</ul>
-</div>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qbs_1"><code>mchoice:: qbs_1</code></h3>
+<p>Which will cause the <strong>shortest</strong> execution of a binary search looking for a value in an array of integers?</p>
+<p>Correct answer: <strong>The value is in the middle of the array.</strong></p>
+<p>If the value is in the middle, binary search returns after one iteration of the loop.</p>
+</section>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qbs_2"><code>mchoice:: qbs_2</code></h3>
+<p>Which conditions must be true to search for a value using binary search?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>I. The values in the array must be integers.</span>
+<span id="cb1-2"><a href=""></a>II. The values in the array must be in sorted order.</span>
+<span id="cb1-3"><a href=""></a>III. The array must not contain duplicate values.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Correct answer: <strong>II only.</strong></p>
+<p>The only requirement is that the values must be ordered.</p>
+</section>
+<section id="quick-check-2" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qbs_3"><code>mchoice:: qbs_3</code></h3>
+<p>How many times would the loop in binary search run for:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span><span class="op">[]</span> arr <span class="op">=</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">31</span><span class="op">,</span> <span class="dv">55</span><span class="op">,</span> <span class="dv">86</span><span class="op">};</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">binarySearch</span><span class="op">(</span>arr<span class="op">,</span> <span class="dv">55</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Correct answer: <strong>2</strong></p>
+<p>It compares with index <code>2</code>, then index <code>4</code>, and then returns <code>4</code>.</p>
+</section>
+<section id="quick-check-3" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qbs_4"><code>mchoice:: qbs_4</code></h3>
+<p>If you had an ordered array of size <code>500</code>, what is the maximum number of iterations required to find an element with binary search?</p>
+<p>Correct answer: <strong>approximately 9 times</strong></p>
+<p>You can divide <code>500</code> in half 9 times, or observe that <code>2^9 = 512</code>, which is slightly bigger than <code>500</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
-<div class="tight-list">
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <ul>
-<li>compare linear and binary search by number of checks</li>
-<li>explain best, worst, and average cases informally</li>
-<li>explain why binary search grows more slowly</li>
-<li>justify when binary search cannot be used</li>
-<li>connect runtime reasoning to trace tables or comparison counts</li>
+<li>explain why linear search worst case checks every element</li>
+<li>explain why binary search eliminates half the search space each step</li>
+<li>use the runtime table to compare worst case steps</li>
+<li>state that binary search requires sorted data</li>
+<li>estimate binary search steps by repeated halving or powers of two</li>
 </ul>
-</div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="search-runtimes">4.14 Search Runtimes</h3>
+<p>Next: Search Runtimes Coding Challenge.</p>
 
 </section>
     </div>

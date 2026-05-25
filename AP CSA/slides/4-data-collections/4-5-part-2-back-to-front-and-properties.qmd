@@ -1,0 +1,378 @@
+---
+title: "4.5 Back-to-Front and Property Tests"
+subtitle: "Implementing Array Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Looping From Back to Front
+
+### Start at the back of the array
+
+You do not have to loop through an array from the front to the back.
+
+You can start at the back of the array and move toward the front during each time through the loop.
+
+The method `getIndexOfLastElementSmallerThanTarget` returns the index of the last element in the array that is smaller than the given argument.
+
+## Back-to-Front Return
+
+### Return stops the loop and method
+
+The `return` statement inside the loop stops the execution of the loop and the method.
+
+It returns the index that is found immediately back to the main method.
+
+The method returns `-1` if there is no number in the array that is smaller than the given number.
+
+## Coding Exercise
+
+### `activecode:: arrayFindSmaller`
+
+What does the following code print out?
+
+Notice that the array and the target are passed in as arguments to the `getIndexOfLastElementSmallerThanTarget` method.
+
+Trace through it keeping track of the array values and the output.
+
+Then add another method that finds the index of the last element greater than the target.
+
+Call this method `getIndexOfLastElementGreaterThanTarget`.
+
+## arrayFindSmaller Starter
+
+::: {.code-scroll}
+```java
+public class ArrayFindSmallest
+{
+
+    /**
+     * @return index of the last number smaller than target
+     */
+    public static int getIndexOfLastElementSmallerThanTarget(int[] values, int target)
+    {
+        for (int index = values.length - 1; index >= 0; index--)
+        {
+            if (values[index] < target)
+            {
+               return index;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Add a method called getIndexOfLastElementGreaterThanTarget
+     *
+     * @param int array
+     * @param int target
+     * @return index of the last number greater than target
+     */
+    public static void main(String[] args)
+    {
+        int[] theArray = {-30, -5, 8, 23, 46};
+        System.out.println(
+                "Last index of element smaller than 50: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, 50));
+        System.out.println(
+                "Last index of element smaller than 30: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, 30));
+        System.out.println(
+                "Last index of element smaller than 10: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, 10));
+        System.out.println(
+                "Last index of element smaller than 0: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, 0));
+        System.out.println(
+                "Last index of element smaller than -20: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, -20));
+        System.out.println(
+                "Last index of element smaller than -30: "
+                        + getIndexOfLastElementSmallerThanTarget(theArray, -30));
+    }
+}
+```
+:::
+
+## arrayFindSmaller Test Targets
+
+### Runestone checks
+
+The first output line should be:
+
+```text
+Last index of element smaller than 50: 4
+```
+
+The added method should return:
+
+```text
+4
+```
+
+for this test:
+
+```java
+getIndexOfLastElementGreaterThanTarget(
+    new int[] {10, 50, 20, 30, 40, 20}, 30)
+```
+
+It should return `-1` for target `100`.
+
+## Quick Check
+
+### `mchoice:: mcq_array_loop1`
+
+Given the code segment, what will be returned by:
+
+```java
+getIndexOfLastElementSmallerThanTarget(values, -13)
+```
+
+```java
+private int[] values = {-20, -15, 2, 8, 16, 33};
+
+public static int getIndexOfLastElementSmallerThanTarget(int[] values, int compare)
+{
+    for (int i = values.length - 1; i >= 0; i--)
+    {
+        if (values[i] < compare)
+            return i;
+    }
+    return -1; // to show none found
+}
+```
+
+## Answer Reasoning
+
+### Last smaller value from the back
+
+Correct answer: `1`.
+
+Since the method loops from the back toward the front, `-15` is the last value in the array that is less than `-13`, and it is at index `1`.
+
+## Quick Check
+
+### `mchoice:: mcq_array_loop2`
+
+Given the code segment, what will be returned by:
+
+```java
+getIndexOfLastElementSmallerThanTarget(values, 7)
+```
+
+```java
+int[] values = {-20, -15, 2, 8, 16, 33};
+
+public static int getIndexOfLastElementSmallerThanTarget(int[] values, int compare)
+{
+    for (int i = values.length; i >= 0; i--)
+    {
+        if (values[i] < compare)
+            return i;
+    }
+    return -1; // to show none found
+}
+```
+
+## Answer Reasoning
+
+### Start index is out of bounds
+
+Correct answer: you will get an out of bounds error.
+
+You cannot start the index at the length of the array.
+
+You must start at `values.length - 1`.
+
+## Test Property
+
+### At least one, all, or count
+
+Often we loop through an array to see if elements have a particular property, for example all the elements are even or at least one is negative.
+
+On the AP exam, this property is often given as a boolean method to use in the `if` statement to:
+
+::: {.tight-list}
+- determine if at least one element has a particular property
+- determine if all elements have a particular property
+- determine the number of elements having a particular property
+:::
+
+## Property Patterns
+
+### Return timing matters
+
+```java
+// see if at least one has the property
+for (int val : values)
+{
+    if (isProperty(val))
+    {
+        return true;
+    }
+}
+return false;
+```
+
+```java
+// see if all have the property
+for (int val : values)
+{
+    if (!isProperty(val))
+    {
+        return false;
+    }
+}
+return true;
+```
+
+## Count Pattern
+
+### Count the elements with the property
+
+```java
+int count = 0;
+for (int val : values)
+{
+    if (isProperty(val))
+    {
+        count++;
+    }
+}
+```
+
+Determining if **all** have a certain property means that we need to check all elements before returning `true`.
+
+Often we check for the negation of the property to return `false`.
+
+## Mixed-Up Code
+
+### `parsonsprob:: parsons-even-array`
+
+The program segment should count the number of elements in the array that are even using an enhanced for-each loop.
+
+```java
+// Block A
+int[] arr = {14, -5, 2, 17, 29, -8, 36};
+int count = 0;
+
+// Block B
+for (int value : arr)
+{
+
+// Block C
+if (value % 2 == 0)
+{
+
+// Block D
+count++;
+
+// Block E
+} //end conditional
+
+// Block F
+} //end for loop
+```
+
+## Correct Order
+
+### Count even values
+
+```java
+int[] arr = {14, -5, 2, 17, 29, -8, 36};
+int count = 0;
+for (int value : arr)
+{
+    if (value % 2 == 0)
+    {
+        count++;
+    } //end conditional
+} //end for loop
+```
+
+## Coding Exercise
+
+### `activecode:: exAllOdd`
+
+Write the method `allOdd` to return `true` if all the values in the array are odd.
+
+First write the helper function `isEven` to return `true` or `false` for one value, using `%`.
+
+## exAllOdd Starter
+
+::: {.code-scroll}
+```java
+public class Test1
+{
+    public static boolean isEven(int value)
+    {
+        // 1. TODO: return true if value is even, false otherwise
+        return true;
+    }
+
+    public static boolean allOdd(int[] array)
+    {
+        // 2. TODO: Loop thru the array
+        // and return false if any value isEven
+
+        // if all odd, return true
+        return true;
+    }
+
+    public static void main(String[] args)
+    {
+        int[] a1 = {1, 3, 6};
+        int[] a2 = {1, 3, 5};
+        System.out.println(allOdd(a1));
+        System.out.println(allOdd(a2));
+    }
+}
+```
+:::
+
+## exAllOdd Test Targets
+
+### Runestone checks
+
+Expected output from `main`:
+
+```text
+false
+true
+```
+
+Additional tests:
+
+```text
+allOdd({10, 20, 30, 40}) -> false
+allOdd({37, 41, 55, 99}) -> true
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- start back-to-front loops at `values.length - 1`
+- use `return` inside a search loop only when the target condition has been found
+- return `-1` after a full search when no index is found
+- distinguish at-least-one from all-elements property checks
+- check the negation of the property to prove an all-elements test false
+- use an accumulator count when counting matching elements
+:::
+
+## End
+
+### 4.5 Part 2 complete
+
+Next: pairs and duplicates.

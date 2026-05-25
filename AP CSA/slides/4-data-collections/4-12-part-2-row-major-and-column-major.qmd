@@ -1,0 +1,136 @@
+---
+title: "4.12 Row-Major and Column-Major Traversals"
+subtitle: "2D Array Traversals"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Row-Major and Column-Major Traversals
+
+### Traversal order
+
+Nested iteration statements can be written to traverse the 2D array in:
+
+- row-major order
+- column-major order
+- a uniquely defined order
+
+**Row-major order** refers to an ordering of 2D array elements where traversal occurs across each row.
+
+**Column-major order** traversal occurs down each column.
+
+## Coding Exercise
+
+### `activecode:: ColumnMajorTraversal`
+
+What will the following code print out?
+
+Try to guess before you run it.
+
+## ColumnMajorTraversal Source Code
+
+```java
+public class ColumnMajorTraversal
+{
+    public static void main(String[] args)
+    {
+        int[][] array = { {1, 2, 3}, {4, 5, 6}};
+        for (int col = 0; col < array[0].length; col++)
+        {
+            for (int row = 0; row < array.length; row++)
+            {
+                System.out.println(array[row][col]);
+            }
+        }
+    }
+}
+```
+
+## ColumnMajorTraversal Test Target
+
+### Runestone expected output
+
+The output from `main` should be:
+
+```text
+1
+4
+2
+5
+3
+6
+```
+
+Column-major traversal changes the order because the outer loop is over columns.
+
+## Quick Check
+
+### `mchoice:: AP-2DArrays`
+
+Consider the following code segment.
+
+What is the last row of numbers printed when this code segment is executed?
+
+::: {.code-scroll .compact style="max-height: 360px;"}
+```java
+int[][] points = { {11, 12, 13, 14, 15},
+                   {21, 22, 23, 24, 25},
+                   {31, 32, 33, 34, 35},
+                   {41, 42, 43, 44, 45}};
+for (int row = 0; row < points.length; row++)
+{
+    for (int col = points[0].length - 1; col >= row; col--)
+    {
+         System.out.print(points[row][col] + " ");
+    }
+    System.out.println();
+}
+```
+:::
+
+## Quick Check: Options
+
+### AP-2DArrays
+
+A. `45 44 43 42 41`  
+B. `45`  
+C. `41 42`  
+D. `45 44`  
+E. `44 45`
+
+## Quick Check: Answer
+
+### AP-2DArrays reasoning
+
+Correct answer: **D. `45 44`**
+
+Trace through the code.
+
+The last row has `row == 3`.
+
+The inner loop starts at column index `4` and continues while `col >= row`, so it prints column indices `4` and `3`.
+
+## Classroom Check
+
+### A complete answer should include
+
+- distinguish row-major traversal from column-major traversal
+- identify which loop controls rows and which loop controls columns
+- trace printed values in the order the loops visit them
+- explain why ColumnMajorTraversal prints `1, 4, 2, 5, 3, 6`
+- compute the last row of AP-2DArrays as `45 44`
+
+## End
+
+### 4.12 Row-Major and Column-Major Traversals
+
+Next: enhanced for-each loops for 2D arrays.

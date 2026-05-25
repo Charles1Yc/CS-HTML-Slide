@@ -1,0 +1,278 @@
+---
+title: "3.6 Copying Parameter Objects"
+subtitle: "Methods: Passing and Returning References of an Object"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Copying Parameter Objects
+
+### Address alias problem
+
+The `Person` class from Part 1 has an `Address` object as an instance variable.
+
+We found that changing the `Address` object outside the class also changed the address in the `Person` object.
+
+This is because the `Address` object is mutable, and the reference to the object is passed in as an argument to the constructor.
+
+## Object References as Parameters
+
+### Same object as the caller
+
+When you pass object references as parameters to constructors, those references refer to the same objects as the references in the caller.
+
+If the objects are immutable, like `String` objects, it does not matter.
+
+If the objects are **mutable**, then storing the passed-in reference in an instance variable can lead to surprising results.
+
+## Defensive Copy
+
+### Store a copy instead of the original reference
+
+If you do not want outside code changes to affect your object, sometimes it makes sense to copy the object passed to the constructor.
+
+Then store the copy in the instance variable instead.
+
+How to make the copy depends on the class of the object.
+
+Often you can construct a new object of the appropriate class using values from the original object.
+
+## Copy With Getters
+
+### New Address from original Address values
+
+```java
+public class Person
+{
+    private String name;
+    private Address addr; // Assumes an Address class is already defined
+
+    // constructor: initialize instance variable and call Address constructor to
+    // make a copy
+    public Person(String initName, Address initAddr)
+    {
+        name = initName;
+        addr =  new Address(
+                        initAddr.getStreet(),
+                        initAddr.getCity(),
+                        initAddr.getState(),
+                        initAddr.getZipcode());
+   }
+}
+```
+
+Now `addr` does not hold a reference to the original object `initAddr`.
+
+## Copy Constructor
+
+### Address copies another Address
+
+Another way to handle this is to provide a copy constructor in the `Address` class.
+
+The copy constructor takes an `Address` object as a parameter and makes a copy of it.
+
+Then the `Person` constructor can call the `Address` copy constructor.
+
+## Address Copy Constructor
+
+```java
+class Address
+{
+    // instance variables
+    private String street;
+    private String city;
+    private String state;
+    private String zipcode;
+
+    // copy constructor
+    public Address(Address otherAddr)
+    {
+        street = otherAddr.getStreet();
+        city = otherAddr.getCity();
+        state = otherAddr.getState();
+        zipcode = otherAddr.getZipcode();
+    }
+}
+```
+
+## Person Uses Copy Constructor
+
+```java
+class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address defined below
+
+    // constructor: initialize instance variable and call Address constructor to
+    // make a copy
+    public Person(String initName, Address initAddr)
+    {
+        name = initName;
+        // call the copy constructor of Address to make a defensive copy
+        addr =  new Address(initAddr);
+    }
+}
+```
+
+## Coding Exercise
+
+### `activecode:: PersonAddressCopy`
+
+In the following `Person` class, the constructor copies the `Address` object so that it is separate from the original object.
+
+Complete the `setAddress` method in `Person` so that it also makes a copy of `otherAddr` like the constructor.
+
+Then add code in the `main` method that changes the original address to your city.
+
+It should not change the copy.
+
+## PersonAddressCopy Starter
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address defined below
+
+    // constructor: initialize instance variable and call Address constructor to
+    // make a copy
+    public Person(String initName, Address initAddr)
+    {
+        name = initName;
+        // Defensive copy of the Address argument
+        addr =  new Address(
+                           initAddr.getStreet(),
+                           initAddr.getCity(),
+                           initAddr.getState(),
+                           initAddr.getZipcode());
+    }
+
+    public void setAddress(Address otherAddr)
+    {
+        // TODO: Complete the setAddress method below that
+        // makes a defensive copy of newAddr using its get methods like the constructor
+
+    }
+    public String toString()
+    {
+        return "Name:" + name + "\n" + "Address:" + addr;
+    }
+    public static void main(String[] args)
+    {
+        Address a1 = new Address("123 Main St", "Anytown", "Anystate", "12345");
+        Address a2 = new Address("456 Elm St", "Othertown", "Otherstate", "67890");
+        Person p1 = new Person("Skyler", a1);
+        System.out.println(p1);
+        // TODO: Add code to change a1 to your city with its setCity method
+
+        // Print out a1 and p1. Did changing a1 change p1?
+
+        // Add code to change p1's address to a2 with its setAddress method
+
+        // Print out a1 and p1. Did changing p1 change a1?
+
+    }
+}
+class Address
+{
+      // instance variables
+      private String street;
+      private String city;
+      private String state;
+      private String zipcode;
+      // constructor
+      public Address(String initStreet, String initCity,
+                     String initState, String initZipcode)
+      {
+          street = initStreet;
+          city = initCity;
+          state = initState;
+          zipcode = initZipcode;
+      }
+      public String toString()
+      {
+          return street + "\n" + city + ", " + state + " " + zipcode;
+      }
+      public String getStreet()
+      {
+          return street;
+      }
+      public String getCity()
+      {
+          return city;
+      }
+      public String getState()
+      {
+          return state;
+      }
+      public String getZipcode()
+      {
+          return zipcode;
+      }
+      // Setters (makes the class mutable)
+      public void setCity(String initCity)
+      {
+          city = initCity;
+      }
+}
+```
+:::
+
+## Focused Implementation
+
+### Defensive copy in `setAddress`
+
+`setAddress` should not store the original `otherAddr` reference directly.
+
+It should construct a new `Address` from `otherAddr` getter values, following the constructor pattern.
+
+The student task also asks for:
+
+::: {.tight-list}
+- a call that changes `a1` with `setCity`
+- a call to `p1.setAddress`
+- trace checks showing which object changed
+:::
+
+## Test Targets
+
+### Runestone checks
+
+The tests check that the code contains:
+
+::: {.tight-list}
+- `a1.setCity`
+- `p1.setAddress`
+- `otherAddr.getCity()` in `setAddress`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why direct reference assignment can expose mutable state
+- describe a defensive copy as a new object made from the parameter's values
+- distinguish copy-with-getters from a copy constructor
+- complete `setAddress` using a new `Address`, not `addr = otherAddr`
+- test that changing `a1` does not change the copied address inside `p1`
+- test that changing `p1` does not change `a1`
+:::
+
+## End
+
+### 3.6 Part 2 complete
+
+Next: parameters of the same class type and returning objects.

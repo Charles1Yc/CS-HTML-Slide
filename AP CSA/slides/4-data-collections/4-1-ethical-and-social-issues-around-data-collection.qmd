@@ -14,99 +14,215 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Data Privacy
 
-### Data collections affect people
+### Phones and personal information
 
-Programs that collect, store, and analyze data can create value, but they can also create risk.
+Your phone keeps a lot of information about you, including where you have been, what you buy, what games you play, and more.
 
-This topic focuses on:
+If you have used your phone to give you directions to go somewhere, it probably tracks your location.
 
-::: {.tight-list}
-- <span class="term">data privacy</span> (数据隐私)
-- consent and transparency
-- bias in collected data
-- consequences of using incomplete or biased datasets
-:::
+You can turn off location tracking, but it is useful when you want directions and it is free.
+
+The source video and location-history setup links are omitted; the privacy tradeoff question is retained.
+
+## Location Tracking Question
+
+### Benefits and privacy
+
+Do the benefits of apps that provide driving directions outweigh the lack of privacy for you?
+
+In what situations would it be beneficial or harmful for the app to track your location?
+
+## Google Timeline {.image-fit}
+
+### Location history as data
+
+![Google timeline](../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png){fig-align="center" width="64%"}
+
+The source uses this figure to show how location history can be recorded and displayed.
 
 ## Data Privacy
 
-### Location data can reveal patterns
+### Programmer responsibility
 
-![Google timeline data](../../assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png){fig-align="center" width="50%"}
+As users, we often do not realize how much personal data we are giving away.
 
-Even when a single data point seems harmless, a collection of data points can reveal habits, location history, relationships, and routines.
+If you use a computer or phone, your personal privacy is at risk.
 
-## Student Response
+As computer programmers, we must be aware of the risks to data privacy when our code collects and stores personal data on computer systems.
 
-### Privacy tradeoff
+Programmers should attempt to safeguard the personal privacy of the user.
 
-Choose one app or system that collects user data.
+## Permission and Breaches
 
-Respond:
+### Legal and ethical duties
 
-::: {.tight-list}
-- What data is collected?
-- What useful feature does the data support?
-- What privacy risk could the same data create?
-- What design choice could reduce the risk?
-:::
+Legally and ethically, we must ask the users for permission to access and store their data.
+
+If there are data breaches where the data is stolen, we must inform the affected users.
+
+The laws are slowly catching up to our technology, and many countries and states are passing laws to protect data privacy.
+
+## Personal Security Impacts
+
+### Beneficial and harmful
+
+Computer use and programs have beneficial and/or harmful impacts on personal security.
+
+Software apps for maps and driving directions are very useful, but they have impacts on personal security and privacy if they keep track of your location.
+
+This information could be beneficial if you are lost and need to be found.
+
+It could be harmful and unsafe if someone unauthorized gains access to your location.
+
+## Activity 1
+
+### `shortanswer:: privacy`
+
+Explore a popular app or web site and its data collecting practices.
+
+Explain the risks to privacy from collecting and storing personal data on computer systems.
+
+Discuss the ethical and legal problems that may arise and how programmers can try to avoid them.
+
+The source encourages working on this activity in pairs or groups.
 
 ## Data and Bias
 
-### A dataset can overrepresent or underrepresent groups
+### AI and machine learning
 
-<span class="term">Bias</span> (偏差) can enter a dataset when the data collection process does not represent the full population or situation.
+The fields of **AI (Artificial Intelligence)** and **Machine Learning (ML)** are rapidly growing.
 
-Examples:
+They increasingly involve ethical questions about data collection, privacy, and resource use.
+
+Machine learning algorithms to create software like ChatGPT require massive amounts of data to learn from as well as massive amounts of energy use.
+
+But where does this data come from?
+
+## Internet Data and Bias
+
+### Biased data can be learned
+
+Often the data is collected from the internet, and the internet is full of biases.
+
+For example, if you search for professions like `programmer`, `doctor`, or `CEO` in image search, you will probably see mostly images of white men.
+
+This reflects a bias in our world that AIs may learn.
+
+An AI could then generate text or images that are biased against historically underrepresented groups.
+
+## Hiring Tool Example
+
+### Biased source data
+
+A prominent tech company in 2014 started building an automated hiring tool.
+
+It was a resume filtering AI trained on their current employees' resumes.
+
+It ended up with an AI system that was biased against women.
+
+This is a problem because the AI is learning from biased data and then creating biased outcomes that could affect people's lives.
+
+## Algorithmic Bias
+
+### Definition and example
+
+**Algorithmic bias** describes systemic and repeated errors in a program that create unfair outcomes for a specific group of users.
+
+Bias in data can lead to unfair and unethical outcomes.
+
+For instance, facial recognition software has been shown to have higher error rates for people with darker skin tones.
+
+This is because the data used to train these algorithms often contains fewer examples of people with darker skin tones.
+
+## Facial Recognition Bias
+
+### Consequences
+
+As a result, the software is less accurate for these individuals, which can lead to discriminatory practices.
+
+The source includes a Gender Shades video and Joy Buolamwini links; these external videos/links are omitted here.
+
+The concept and classroom response task are retained.
+
+## Activity 2
+
+### `shortanswer:: bias`
+
+Explain the importance of recognizing data quality and potential issues such as data bias when using a data set in AI/ML applications.
+
+A data set or dataset is a collection or set of data.
+
+The source encourages working on this activity in pairs or groups.
+
+## Dataset Quality
+
+### Before using data
+
+Programmers should be aware of the data set collection method and the potential for bias before using the data to extrapolate new information or draw conclusions.
+
+Some data sets are incomplete or contain inaccurate data.
+
+Using such data in the development or use of a program can cause the program to work incorrectly or inefficiently.
+
+## Dataset Fit
+
+### Question and topic match
+
+The contents of a data set might be related to a specific question or topic.
+
+That data set might not be appropriate to give correct answers or extrapolate information for a different question or topic.
+
+## Mitigating Bias
+
+### Steps from the source
+
+Steps that can be taken to address bias in machine learning:
 
 ::: {.tight-list}
-- training data collected from only one region
-- survey responses from only one age group
-- images that do not represent different lighting, devices, or users
+- Use diverse and representative data sets to train algorithms.
+- Regularly test algorithms for bias and accuracy.
+- Be transparent about the limitations and potential biases of the software.
+- Involve diverse teams in the development and testing of algorithms.
+- Implement ethical guidelines and standards for the use of AI and machine learning.
 :::
 
-## Bias Response
+## Activity 3
 
-### Connect data source to outcome
+### `shortanswer:: datasets`
 
-Prompt:
+Go to Google Dataset Search and search for a dataset for `face recognition` or another topic you are interested in.
 
-```text
-If a school prediction tool is trained mostly on data from one type of school,
-what problem might occur when it is used for a different type of school?
-```
+Find an appropriate good dataset and an inappropriate bad dataset for your topic and put links to them below.
 
-A strong answer connects dataset limits to a possible unfair or inaccurate prediction.
+Explain why the datasets are appropriate or inappropriate.
 
-## Dataset Questions
+For example, the inappropriate dataset might be too small, incomplete, or biased.
 
-### Questions before using data
+## Activity 3 Deliverable
 
-::: {.tight-list}
-- Who or what is represented in the data?
-- Who or what is missing?
-- How was the data collected?
-- Was permission or consent involved?
-- What harm could occur if predictions are wrong?
-:::
+### Dataset choice and program results
 
-These questions belong in design discussions before implementation.
+Explain how the choice of your dataset could affect the results of a program that uses the data.
+
+The source encourages working on this activity in pairs or groups.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain why data privacy matters when programs collect data
-- distinguish a useful data-driven feature from a privacy risk
-- explain how biased datasets can lead to biased outcomes
-- identify missing or underrepresented data as a design concern
-- propose a concrete mitigation such as minimizing data, anonymizing data, or checking representation
+- describe a privacy risk from personal data collection
+- connect programmer responsibility to permission, storage, and breach notification
+- explain a beneficial and harmful impact of location tracking
+- define algorithmic bias as repeated unfair program outcomes
+- explain how incomplete, inaccurate, or biased datasets affect program behavior
+- propose at least one mitigation step from the source list
 :::
 
 ## End
 
-### Return to the course outline
+### 4.1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: data sets.

@@ -1,0 +1,182 @@
+---
+title: "1.11 Math Class"
+subtitle: "Part 4: Combination Lock Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Coding Challenge
+
+### Random Numbers
+
+![Lock](../../assets/1-using-objects-and-methods/1-11-math-class/lock.jpg){fig-align="left" width="16%"}
+
+You may have a combination lock on your locker at school where you have to spin the dial to `3` separate numbers from `0` up to `40`.
+
+What if you forgot your combination?
+
+Would you be able to guess it?
+
+## Challenge Step 1
+
+### Generate three random integers
+
+Write code that will generate `3` random integers from `0` up to `40`, but not including `40`, using `Math.random()`.
+
+Run it a couple times to see it generate different numbers.
+
+The target range is:
+
+```text
+0 <= value < 40
+```
+
+## Challenge Step 2
+
+### Count possible permutations
+
+How many times would you need to run it to guess your combination correctly?
+
+Have the code compute the number of permutations possible in your combination lock using `Math.pow(number, exponent)`.
+
+For example, if you had to spin the dial twice where each spin can choose a digit from `0-9`, there are:
+
+```java
+Math.pow(10, 2)
+```
+
+possible permutations.
+
+## Challenge Step 2
+
+### This lock
+
+For this challenge, you need to spin the dial `3` times:
+
+::: {.tight-list}
+- once to the right
+- once to the left
+- once to the right
+:::
+
+Each spin chooses from `40` possible numbers, `0` up to `40` not including `40`.
+
+## Challenge Step 2
+
+### Formula for this lock
+
+In general, the formula is:
+
+```text
+NumbersPerDial^numberOfSpins
+```
+
+Write this using the `Math.pow()` method in your code, save it into a variable, and print it out.
+
+## Coding Task
+
+### `activecode:: challenge1-11-random-math`
+
+Complete the combination lock challenge below.
+
+::: {.tight-list}
+- Generate and print `3` random integers from `0` up to `40`, not including `40`.
+- Calculate and print the number of combinations to choose `3` numbers from `40` possible values.
+- Use `Math.random()` for random numbers.
+- Use `Math.pow()` for the number of combinations.
+:::
+
+## Starter Code
+
+### `challenge1-11-random-math`
+
+```java
+public class MathChallenge
+{
+    public static void main(String[] args)
+    {
+        // TODO 1. Use Math.random() to generate 3 integers from 0-40
+        // (not including 40) and print them out.
+
+        // TODO 2. Calculate the number of combinations to choose 3 numbers
+        // between 0-40 (not including 40) using Math.pow() and print it out.
+        // For example, Math.pow(10,2) is 10^2 and the number of permutations
+        // to choose 2 numbers between 0-9.
+
+    }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- `main` output has at least `2` whitespace-separated output items
+- output contains `64000`
+- code creates `3` random numbers from `0` to `40` not inclusive
+- code has at least `3` lines that contain `Math.random()` and `40`
+- those random-number lines use `(int)`
+- code calls `Math.pow(` at least once
+:::
+
+## Test Requirement Detail
+
+### Possible random-number forms
+
+Possible random-number expressions include:
+
+```java
+(int) (Math.random() * 40)
+(int) (40 * Math.random())
+```
+
+## Test Requirement Detail
+
+### Permutation count
+
+The printed permutation count should come from:
+
+```java
+Math.pow(40, 3)
+```
+
+## Test Requirement Detail
+
+### Expected count
+
+The output should include:
+
+```text
+64000
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use `(int)(Math.random() * 40)` or equivalent for each random dial value
+- generate three separate random integers
+- keep the range `0 <= value < 40`
+- compute the number of permutations as `Math.pow(40, 3)`
+- print at least the random values and the permutation count
+- include `64000` in the output
+:::
+
+## End
+
+### 1.11 complete
+
+The next topic begins objects as instances of classes.

@@ -1,147 +1,1244 @@
-  {
-    "course": {
-      "short": "AP CSA",
-      "cn": "计算机科学 A",
-      "en": "AP Computer Science A",
-      "code": "College Board"
+{
+  "course": {
+    "short": "AP CSA",
+    "cn": "计算机科学 A",
+    "en": "AP Computer Science A",
+    "code": "College Board"
+  },
+  "units": [
+    {
+      "id": "unit-1",
+      "code": "1",
+      "cn": "使用对象与方法",
+      "en": "Using Objects and Methods",
+      "status": "ready",
+      "sections": [
+        {
+          "code": "1",
+          "cn": "使用对象与方法",
+          "en": "Using Objects and Methods",
+          "summary": "变量、表达式、输入输出、方法、对象与字符串操作。",
+          "topics": [
+            {
+              "code": "1.1",
+              "cn": "算法、编程与编译器",
+              "en": "Algorithms, Programming, and Compilers",
+              "decks": [
+                {
+                  "cn": "算法与首个 Java 程序",
+                  "en": "Algorithms and First Java Program",
+                  "href": "slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.html"
+                },
+                {
+                  "cn": "编译、关键字与语法错误",
+                  "en": "Compiling, Keywords, and Syntax Errors",
+                  "href": "slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.html"
+                },
+                {
+                  "cn": "运行时错误与调试挑战",
+                  "en": "Runtime Errors and Debugging Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.2",
+              "cn": "变量与数据类型",
+              "en": "Variables and Data Types",
+              "decks": [
+                {
+                  "cn": "变量与类型选择",
+                  "en": "Variables and Type Choices",
+                  "href": "slides/1-using-objects-and-methods/1-2-variables-and-data-types.html"
+                },
+                {
+                  "cn": "声明、赋值与命名",
+                  "en": "Declaring, Assigning, and Naming Variables",
+                  "href": "slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.html"
+                },
+                {
+                  "cn": "Weather 与 Mad Libs 挑战",
+                  "en": "Weather and Mad Libs Challenges",
+                  "href": "slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.html"
+                }
+              ]
+            },
+            {
+              "code": "1.3",
+              "cn": "表达式与输出",
+              "en": "Expressions and Output",
+              "decks": [
+                {
+                  "cn": "输出、字面量与转义序列",
+                  "en": "Output, Literals, and Escape Sequences",
+                  "href": "slides/1-using-objects-and-methods/1-3-expressions-and-output.html"
+                },
+                {
+                  "cn": "算术与复合表达式",
+                  "en": "Arithmetic and Compound Expressions",
+                  "href": "slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.html"
+                },
+                {
+                  "cn": "余数运算与 Pay Calculator",
+                  "en": "Remainder Operator and Pay Calculator",
+                  "href": "slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.html"
+                }
+              ]
+            },
+            {
+              "code": "1.4",
+              "cn": "赋值与输入",
+              "en": "Assignment and Input",
+              "decks": [
+                {
+                  "cn": "赋值语句与追踪",
+                  "en": "Assignment Statements and Tracing",
+                  "href": "slides/1-using-objects-and-methods/1-4-assignment-and-input.html"
+                },
+                {
+                  "cn": "类型、null、自增与输入",
+                  "en": "Data Types, null, Increment, and Input",
+                  "href": "slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.html"
+                },
+                {
+                  "cn": "Dog Years 编程挑战",
+                  "en": "Dog Years Coding Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-4-part-3-dog-years-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.5",
+              "cn": "类型转换与取值范围",
+              "en": "Casting and Ranges of Values",
+              "decks": [
+                {
+                  "cn": "类型转换与拓宽转换",
+                  "en": "Casting and Widening Conversion",
+                  "href": "slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.html"
+                },
+                {
+                  "cn": "舍入、范围与精度",
+                  "en": "Rounding, Ranges, and Precision",
+                  "href": "slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.html"
+                },
+                {
+                  "cn": "Average 3 Numbers 挑战",
+                  "en": "Average 3 Numbers Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-5-part-3-average-3-numbers-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.6",
+              "cn": "复合赋值运算符",
+              "en": "Compound Assignment Operators",
+              "decks": [
+                {
+                  "cn": "复合赋值与自增基础",
+                  "en": "Compound Assignment and Increment Basics",
+                  "href": "slides/1-using-objects-and-methods/1-6-compound-assignment-operators.html"
+                },
+                {
+                  "cn": "跟踪与小组挑战",
+                  "en": "Tracing and Groupwork Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.7",
+              "cn": "API 与库",
+              "en": "APIs and Libraries",
+              "decks": [
+                {
+                  "cn": "API、包与 java.lang",
+                  "en": "APIs, Packages, and java.lang",
+                  "href": "slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.html"
+                },
+                {
+                  "cn": "Turtle 库与点运算符",
+                  "en": "Turtle Library and Dot Operator",
+                  "href": "slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.html"
+                },
+                {
+                  "cn": "Turtle 练习与绘图挑战",
+                  "en": "Turtle Practice and Drawing Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.8",
+              "cn": "使用注释编写文档",
+              "en": "Documentation with Comments",
+              "decks": [
+                {
+                  "cn": "注释与文档注释",
+                  "en": "Comments and Documentation Comments",
+                  "href": "slides/1-using-objects-and-methods/1-8-documentation-with-comments.html"
+                },
+                {
+                  "cn": "前置条件与后置条件",
+                  "en": "Preconditions and Postconditions",
+                  "href": "slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.html"
+                },
+                {
+                  "cn": "用例与前置条件挑战",
+                  "en": "Use Cases and Precondition Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.9",
+              "cn": "方法签名",
+              "en": "Method Signatures",
+              "decks": [
+                {
+                  "cn": "方法基础与控制流",
+                  "en": "Method Basics and Flow of Control",
+                  "href": "slides/1-using-objects-and-methods/1-9-method-signatures.html"
+                },
+                {
+                  "cn": "签名、参数与实参",
+                  "en": "Signatures, Parameters, and Arguments",
+                  "href": "slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.html"
+                },
+                {
+                  "cn": "参数化调用、按值调用与重载",
+                  "en": "Parameterized Calls, Call by Value, and Overloading",
+                  "href": "slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.html"
+                },
+                {
+                  "cn": "带参数歌曲挑战",
+                  "en": "Song with Parameters Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-9-part-4-song-with-parameters-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.10",
+              "cn": "调用类方法",
+              "en": "Calling Class Methods",
+              "decks": [
+                {
+                  "cn": "静态方法与非 void 方法",
+                  "en": "Static and Non-Void Methods",
+                  "href": "slides/1-using-objects-and-methods/1-10-calling-class-methods.html"
+                },
+                {
+                  "cn": "常见错误与类方法调用",
+                  "en": "Common Errors and Class Method Calls",
+                  "href": "slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.html"
+                },
+                {
+                  "cn": "塔楼梯子挑战",
+                  "en": "Ladder on Tower Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.11",
+              "cn": "Math 类",
+              "en": "Math Class",
+              "decks": [
+                {
+                  "cn": "Math 数学函数",
+                  "en": "Mathematical Functions",
+                  "href": "slides/1-using-objects-and-methods/1-11-math-class.html"
+                },
+                {
+                  "cn": "随机数与范围",
+                  "en": "Random Numbers and Ranges",
+                  "href": "slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.html"
+                },
+                {
+                  "cn": "随机数配方与检查题",
+                  "en": "Random Recipes and Checks",
+                  "href": "slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.html"
+                },
+                {
+                  "cn": "组合锁挑战",
+                  "en": "Combination Lock Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-11-part-4-combination-lock-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.12",
+              "cn": "对象：类的实例",
+              "en": "Objects: Instances of Classes",
+              "decks": [
+                {
+                  "cn": "类、对象、属性与行为",
+                  "en": "Classes, Objects, Attributes, and Behaviors",
+                  "href": "slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.html"
+                },
+                {
+                  "cn": "Turtle 类与点运算符",
+                  "en": "Turtle Class and Dot Operator",
+                  "href": "slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.html"
+                },
+                {
+                  "cn": "创建多个 Turtle 对象",
+                  "en": "Creating Multiple Turtle Objects",
+                  "href": "slides/1-using-objects-and-methods/1-12-part-3-creating-multiple-turtle-objects.html"
+                },
+                {
+                  "cn": "继承与绘制数字 7",
+                  "en": "Inheritance and Draw 7",
+                  "href": "slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.html"
+                },
+                {
+                  "cn": "绘制数字 8 与字母挑战",
+                  "en": "Draw 8 and Letters Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.13",
+              "cn": "对象创建与存储",
+              "en": "Object Creation and Storage",
+              "decks": [
+                {
+                  "cn": "构造器与构造器调用",
+                  "en": "Constructors and Constructor Calls",
+                  "href": "slides/1-using-objects-and-methods/1-13-object-creation-and-storage.html"
+                },
+                {
+                  "cn": "引用与构造器签名",
+                  "en": "References and Constructor Signatures",
+                  "href": "slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.html"
+                },
+                {
+                  "cn": "按值调用与构造器调试",
+                  "en": "Call by Value and Constructor Debugging",
+                  "href": "slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.html"
+                },
+                {
+                  "cn": "Custom Turtles 挑战",
+                  "en": "Custom Turtles Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-13-part-4-custom-turtles-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "1.14",
+              "cn": "调用实例方法",
+              "en": "Calling Instance Methods",
+              "decks": [
+                {
+                  "cn": "类方法、实例方法与空引用",
+                  "en": "Class Methods, Instance Methods, and Null References",
+                  "href": "slides/1-using-objects-and-methods/1-14-calling-instance-methods.html"
+                },
+                {
+                  "cn": "带参数的方法",
+                  "en": "Methods with Arguments",
+                  "href": "slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.html"
+                },
+                {
+                  "cn": "返回值方法",
+                  "en": "Methods that Return Values",
+                  "href": "slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.html"
+                },
+                {
+                  "cn": "距离与 Turtle House 挑战",
+                  "en": "Distance and Turtle House Challenges",
+                  "href": "slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.html"
+                }
+              ]
+            },
+            {
+              "code": "1.15",
+              "cn": "字符串操作",
+              "en": "String Manipulation",
+              "decks": [
+                {
+                  "cn": "String 对象、引用与创建",
+                  "en": "String Objects, References, and Creation",
+                  "href": "slides/1-using-objects-and-methods/1-15-string-manipulation.html"
+                },
+                {
+                  "cn": "字符串连接",
+                  "en": "String Operators and Concatenation",
+                  "href": "slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.html"
+                },
+                {
+                  "cn": "字符串索引与方法",
+                  "en": "String Index and Methods",
+                  "href": "slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.html"
+                },
+                {
+                  "cn": "compareTo、equals 与常见错误",
+                  "en": "compareTo, equals, and Common Mistakes",
+                  "href": "slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.html"
+                },
+                {
+                  "cn": "Pig Latin 挑战",
+                  "en": "Pig Latin Challenge",
+                  "href": "slides/1-using-objects-and-methods/1-15-part-5-pig-latin-challenge.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
-    "units": [
-      {
-        "id": "unit-1",
-        "code": "1",
-        "cn": "使用对象与方法",
-        "en": "Using Objects and Methods",
-        "status": "ready",
-        "sections": [
-          {
-            "code": "1",
-            "cn": "使用对象与方法",
-            "en": "Using Objects and Methods",
-            "summary": "变量、表达式、输入输出、方法、对象与字符串操作。",
-            "topics": [
-              {"code": "1.1", "cn": "算法、编程与编译器", "en": "Algorithms, Programming, and Compilers", "decks": [{"cn": "算法、编程与编译器", "en": "Algorithms, Programming, and Compilers", "href": "slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.html"}]},
-              {"code": "1.2", "cn": "变量与数据类型", "en": "Variables and Data Types", "decks": [{"cn": "变量与数据类型", "en": "Variables and Data Types", "href": "slides/1-using-objects-and-methods/1-2-variables-and-data-types.html"}]},
-              {"code": "1.3", "cn": "表达式与输出", "en": "Expressions and Output", "decks": [{"cn": "表达式与输出", "en": "Expressions and Output", "href": "slides/1-using-objects-and-methods/1-3-expressions-and-output.html"}]},
-              {"code": "1.4", "cn": "赋值与输入", "en": "Assignment and Input", "decks": [{"cn": "赋值与输入", "en": "Assignment and Input", "href": "slides/1-using-objects-and-methods/1-4-assignment-and-input.html"}]},
-              {"code": "1.5", "cn": "类型转换与取值范围", "en": "Casting and Ranges of Values", "decks": [{"cn": "类型转换与取值范围", "en": "Casting and Ranges of Values", "href": "slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.html"}]},
-              {"code": "1.6", "cn": "复合赋值运算符", "en": "Compound Assignment Operators", "decks": [{"cn": "复合赋值运算符", "en": "Compound Assignment Operators", "href": "slides/1-using-objects-and-methods/1-6-compound-assignment-operators.html"}]},
-              {"code": "1.7", "cn": "API 与库", "en": "APIs and Libraries", "decks": [{"cn": "API 与库", "en": "APIs and Libraries", "href": "slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.html"}]},
-              {"code": "1.8", "cn": "使用注释编写文档", "en": "Documentation with Comments", "decks": [{"cn": "使用注释编写文档", "en": "Documentation with Comments", "href": "slides/1-using-objects-and-methods/1-8-documentation-with-comments.html"}]},
-              {"code": "1.9", "cn": "方法签名", "en": "Method Signatures", "decks": [{"cn": "方法签名", "en": "Method Signatures", "href": "slides/1-using-objects-and-methods/1-9-method-signatures.html"}]},
-              {"code": "1.10", "cn": "调用类方法", "en": "Calling Class Methods", "decks": [{"cn": "调用类方法", "en": "Calling Class Methods", "href": "slides/1-using-objects-and-methods/1-10-calling-class-methods.html"}]},
-              {"code": "1.11", "cn": "Math 类", "en": "Math Class", "decks": [{"cn": "Math 类", "en": "Math Class", "href": "slides/1-using-objects-and-methods/1-11-math-class.html"}]},
-              {"code": "1.12", "cn": "对象：类的实例", "en": "Objects: Instances of Classes", "decks": [{"cn": "对象：类的实例", "en": "Objects: Instances of Classes", "href": "slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.html"}]},
-              {"code": "1.13", "cn": "对象创建与存储", "en": "Object Creation and Storage", "decks": [{"cn": "对象创建与存储", "en": "Object Creation and Storage", "href": "slides/1-using-objects-and-methods/1-13-object-creation-and-storage.html"}]},
-              {"code": "1.14", "cn": "调用实例方法", "en": "Calling Instance Methods", "decks": [{"cn": "调用实例方法", "en": "Calling Instance Methods", "href": "slides/1-using-objects-and-methods/1-14-calling-instance-methods.html"}]},
-              {"code": "1.15", "cn": "字符串操作", "en": "String Manipulation", "decks": [{"cn": "字符串操作", "en": "String Manipulation", "href": "slides/1-using-objects-and-methods/1-15-string-manipulation.html"}]}
-            ]
-          }
-        ]
-      },
-      {
-        "id": "unit-2",
-        "code": "2",
-        "cn": "选择与迭代",
-        "en": "Selection and Iteration",
-        "status": "ready",
-        "sections": [
-          {
-            "code": "2",
-            "cn": "选择与迭代",
-            "en": "Selection and Iteration",
-            "summary": "算法中的选择与重复、布尔表达式、条件分支、复合条件、字符串算法、嵌套循环与基础运行时间分析。",
-            "topics": [
-              {"code": "2.1", "cn": "带选择与重复的算法", "en": "Algorithms with Selection and Repetition", "decks": [{"cn": "带选择与重复的算法", "en": "Algorithms with Selection and Repetition", "href": "slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.html"}]},
-              {"code": "2.2", "cn": "布尔表达式", "en": "Boolean Expressions", "decks": [{"cn": "布尔表达式：相等、关系与取余", "en": "Equality, Relational Operators, and Remainder", "href": "slides/2-selection-and-iteration/2-2-boolean-expressions.html"}, {"cn": "Prime Numbers POGIL", "en": "Prime Numbers POGIL", "href": "slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.html"}]},
-              {"code": "2.3", "cn": "if 语句", "en": "if Statements", "decks": [{"cn": "单向选择与关系 if", "en": "One-Way Selection and Relational Ifs", "href": "slides/2-selection-and-iteration/2-3-if-statements.html"}, {"cn": "if-else 与常见错误", "en": "if-else and Common Errors", "href": "slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.html"}, {"cn": "Magic 8 Ball 挑战", "en": "Magic 8 Ball Challenge", "href": "slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.html"}]},
-              {"code": "2.4", "cn": "嵌套 if 语句", "en": "Nested if Statements", "decks": [{"cn": "多路选择与追踪题", "en": "Multiway Selection and Trace Questions", "href": "slides/2-selection-and-iteration/2-4-nested-if-statements.html"}, {"cn": "调试与 dangling else", "en": "Debugging and Dangling Else", "href": "slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.html"}, {"cn": "Adventure 挑战", "en": "Adventure Challenge", "href": "slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.html"}]},
-              {"code": "2.5", "cn": "复合布尔表达式", "en": "Compound Boolean Expressions", "decks": [{"cn": "逻辑运算、范围与真值表", "en": "Logical Operators, Ranges, and Truth Tables", "href": "slides/2-selection-and-iteration/2-5-compound-boolean-expressions.html"}, {"cn": "短路求值与 Truth Tables POGIL", "en": "Short Circuit and Truth Tables POGIL", "href": "slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.html"}]},
-              {"code": "2.6", "cn": "比较布尔表达式", "en": "Comparing Boolean Expressions", "decks": [{"cn": "De Morgan 与真值表等价", "en": "De Morgan and Truth-Table Equivalence", "href": "slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.html"}, {"cn": "对象、字符串与 null 比较", "en": "Object, String, and null Comparisons", "href": "slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.html"}, {"cn": "Truth and Tracing Tables POGIL", "en": "Truth and Tracing Tables POGIL", "href": "slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.html"}]},
-              {"code": "2.7", "cn": "while 循环", "en": "while Loops", "decks": [{"cn": "while 循环基础与三步法", "en": "while Intro and Three Loop-Writing Steps", "href": "slides/2-selection-and-iteration/2-7-while-loops.html"}, {"cn": "追踪与常见错误", "en": "Tracing and Common Errors", "href": "slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.html"}, {"cn": "Turtle Squares 挑战", "en": "Turtle Squares Challenge", "href": "slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.html"}]},
-              {"code": "2.8", "cn": "for 循环", "en": "for Loops", "decks": [{"cn": "for 循环结构与迭代次数", "en": "For Loop Structure, Flow, and Iteration Counts", "href": "slides/2-selection-and-iteration/2-8-for-loops.html"}, {"cn": "递减循环与混排代码", "en": "Decrementing and Mixed Code", "href": "slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.html"}, {"cn": "Turtle Shapes 挑战", "en": "Turtle Shapes Challenge", "href": "slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.html"}]},
-              {"code": "2.9", "cn": "实现选择与迭代算法", "en": "Implementing Selection and Iteration Algorithms", "decks": [{"cn": "累加器与输入控制循环", "en": "Accumulator and Input-Controlled Loops", "href": "slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.html"}, {"cn": "最小最大、整除与质数", "en": "Min, Max, Divisibility, and Prime", "href": "slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.html"}, {"cn": "数字、随机与频率", "en": "Digits, Random, and Frequency", "href": "slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.html"}, {"cn": "Prime Number Finder 挑战", "en": "Prime Number Finder Challenge", "href": "slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.html"}]},
-              {"code": "2.10", "cn": "实现字符串算法", "en": "Implementing String Algorithms", "decks": [{"cn": "while 查找与替换", "en": "Find and Replace with while", "href": "slides/2-selection-and-iteration/2-10-implementing-string-algorithms.html"}, {"cn": "反转字符串与 Cats/Dogs 挑战", "en": "Reverse and Cats/Dogs Challenge", "href": "slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.html"}]},
-              {"code": "2.11", "cn": "嵌套迭代", "en": "Nested Iteration", "decks": [{"cn": "矩形嵌套循环", "en": "Rectangle Nested Loops", "href": "slides/2-selection-and-iteration/2-11-nested-iteration.html"}, {"cn": "Turtle 嵌套循环与雪花", "en": "Turtle Nested Loops and Snowflakes", "href": "slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.html"}]},
-              {"code": "2.12", "cn": "非正式运行时间分析", "en": "Informal Run-Time Analysis", "decks": [{"cn": "循环追踪与迭代计数", "en": "Loop Tracing and Iteration Counting", "href": "slides/2-selection-and-iteration/2-12-informal-run-time-analysis.html"}, {"cn": "嵌套循环运行次数", "en": "Nested Loop Runtime", "href": "slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.html"}, {"cn": "POGIL Analyzing Loops", "en": "POGIL Analyzing Loops", "href": "slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.html"}]}
-            ]
-          }
-        ]
-      },
-      {
-        "id": "unit-3",
-        "code": "3",
-        "cn": "类的创建",
-        "en": "Class Creation",
-        "status": "ready",
-        "sections": [
-          {
-            "code": "3",
-            "cn": "类的创建",
-            "en": "Class Creation",
-            "summary": "抽象、程序设计影响、类结构、构造器、方法、类变量、作用域与 this 关键字。",
-            "topics": [
-              {"code": "3.1", "cn": "抽象与程序设计", "en": "Abstraction and Program Design", "decks": [{"cn": "抽象与程序设计", "en": "Abstraction and Program Design", "href": "slides/3-class-creation/3-1-abstraction-and-program-design.html"}]},
-              {"code": "3.2", "cn": "程序设计的影响", "en": "Impact of Program Design", "decks": [{"cn": "程序设计的影响", "en": "Impact of Program Design", "href": "slides/3-class-creation/3-2-impact-of-program-design.html"}]},
-              {"code": "3.3", "cn": "类的结构", "en": "Anatomy of a Class", "decks": [{"cn": "类的结构", "en": "Anatomy of a Class", "href": "slides/3-class-creation/3-3-anatomy-of-a-class.html"}]},
-              {"code": "3.4", "cn": "构造器", "en": "Constructors", "decks": [{"cn": "构造器", "en": "Constructors", "href": "slides/3-class-creation/3-4-constructors.html"}]},
-              {"code": "3.5", "cn": "方法：如何编写", "en": "Methods: How to Write Them", "decks": [
-                {"cn": "方法基础", "en": "Method Basics", "href": "slides/3-class-creation/3-5-methods-how-to-write-them.html"},
-                {"cn": "Getter 与 toString", "en": "Getters and toString", "href": "slides/3-class-creation/3-5-part-2-getters-and-tostring.html"},
-                {"cn": "Setter 与参数", "en": "Setters and Parameters", "href": "slides/3-class-creation/3-5-part-3-setters-and-parameters.html"},
-                {"cn": "Class Pet 挑战", "en": "Class Pet Challenge", "href": "slides/3-class-creation/3-5-part-4-class-pet-challenge.html"}
-              ]},
-              {"code": "3.6", "cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "decks": [{"cn": "方法：传递与返回对象引用", "en": "Methods: Passing and Returning References of an Object", "href": "slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.html"}]},
-              {"code": "3.7", "cn": "类变量与类方法", "en": "Class Variables and Methods", "decks": [{"cn": "类变量与类方法", "en": "Class Variables and Methods", "href": "slides/3-class-creation/3-7-class-variables-and-methods.html"}]},
-              {"code": "3.8", "cn": "作用域与访问", "en": "Scope and Access", "decks": [{"cn": "作用域与访问", "en": "Scope and Access", "href": "slides/3-class-creation/3-8-scope-and-access.html"}]},
-              {"code": "3.9", "cn": "this 关键字", "en": "this Keyword", "decks": [{"cn": "this 关键字", "en": "this Keyword", "href": "slides/3-class-creation/3-9-this-keyword.html"}]}
-            ]
-          }
-        ]
-      },
-      {
-        "id": "unit-4",
-        "code": "4",
-        "cn": "数据集合",
-        "en": "Data Collections",
-        "status": "ready",
-        "sections": [
-          {
-            "code": "4",
-            "cn": "数据集合",
-            "en": "Data Collections",
-            "summary": "数据伦理、数据集、数组、ArrayList、二维数组、搜索、排序与递归。",
-            "topics": [
-              {"code": "4.1", "cn": "数据收集的伦理与社会问题", "en": "Ethical and Social Issues Around Data Collection", "decks": [{"cn": "数据收集的伦理与社会问题", "en": "Ethical and Social Issues Around Data Collection", "href": "slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.html"}]},
-              {"code": "4.2", "cn": "数据集使用导论", "en": "Introduction to Using Data Sets", "decks": [{"cn": "数据集使用导论", "en": "Introduction to Using Data Sets", "href": "slides/4-data-collections/4-2-introduction-to-using-data-sets.html"}]},
-              {"code": "4.3", "cn": "数组的创建与访问", "en": "Array Creation and Access", "decks": [{"cn": "数组的创建与访问", "en": "Array Creation and Access", "href": "slides/4-data-collections/4-3-array-creation-and-access.html"}]},
-              {"code": "4.4", "cn": "数组遍历", "en": "Array Traversals", "decks": [{"cn": "数组遍历", "en": "Array Traversals", "href": "slides/4-data-collections/4-4-array-traversals.html"}]},
-              {"code": "4.5", "cn": "实现数组算法", "en": "Implementing Array Algorithms", "decks": [{"cn": "实现数组算法", "en": "Implementing Array Algorithms", "href": "slides/4-data-collections/4-5-implementing-array-algorithms.html"}]},
-              {"code": "4.6", "cn": "使用文本文件", "en": "Using Text Files", "decks": [{"cn": "使用文本文件", "en": "Using Text Files", "href": "slides/4-data-collections/4-6-using-text-files.html"}]},
-              {"code": "4.7", "cn": "包装类", "en": "Wrapper Classes", "decks": [{"cn": "包装类", "en": "Wrapper Classes", "href": "slides/4-data-collections/4-7-wrapper-classes.html"}]},
-              {"code": "4.8", "cn": "ArrayList 方法", "en": "ArrayList Methods", "decks": [{"cn": "ArrayList 方法", "en": "ArrayList Methods", "href": "slides/4-data-collections/4-8-arraylist-methods.html"}]},
-              {"code": "4.9", "cn": "ArrayList 遍历", "en": "ArrayList Traversals", "decks": [{"cn": "ArrayList 遍历", "en": "ArrayList Traversals", "href": "slides/4-data-collections/4-9-arraylist-traversals.html"}]},
-              {"code": "4.10", "cn": "实现 ArrayList 算法", "en": "Implementing ArrayList Algorithms", "decks": [{"cn": "实现 ArrayList 算法", "en": "Implementing ArrayList Algorithms", "href": "slides/4-data-collections/4-10-implementing-arraylist-algorithms.html"}]},
-              {"code": "4.11", "cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "decks": [{"cn": "二维数组的创建与访问", "en": "2D Array Creation and Access", "href": "slides/4-data-collections/4-11-2d-array-creation-and-access.html"}]},
-              {"code": "4.12", "cn": "二维数组遍历", "en": "2D Array Traversals", "decks": [{"cn": "二维数组遍历", "en": "2D Array Traversals", "href": "slides/4-data-collections/4-12-2d-array-traversals.html"}]},
-              {"code": "4.13", "cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "decks": [{"cn": "实现二维数组算法", "en": "Implementing 2D Array Algorithms", "href": "slides/4-data-collections/4-13-implementing-2d-array-algorithms.html"}]},
-              {"code": "4.14", "cn": "搜索算法", "en": "Searching Algorithms", "decks": [
-                {"cn": "线性搜索", "en": "Linear Search", "href": "slides/4-data-collections/4-14-searching-algorithms.html"},
-                {"cn": "二分搜索", "en": "Binary Search", "href": "slides/4-data-collections/4-14-part-2-binary-search.html"},
-                {"cn": "搜索运行时间", "en": "Search Runtimes", "href": "slides/4-data-collections/4-14-part-3-search-runtimes.html"}
-              ]},
-              {"code": "4.15", "cn": "排序算法", "en": "Sorting Algorithms", "decks": [{"cn": "排序算法", "en": "Sorting Algorithms", "href": "slides/4-data-collections/4-15-sorting-algorithms.html"}]},
-              {"code": "4.16", "cn": "递归", "en": "Recursion", "decks": [
-                {"cn": "递归调用与基本情形", "en": "Recursive Calls and Base Cases", "href": "slides/4-data-collections/4-16-recursion.html"},
-                {"cn": "阶乘递归", "en": "Factorial Method", "href": "slides/4-data-collections/4-16-part-2-factorial.html"},
-                {"cn": "递归追踪", "en": "Tracing Recursive Methods", "href": "slides/4-data-collections/4-16-part-3-tracing-recursion.html"}
-              ]},
-              {"code": "4.17", "cn": "递归搜索与排序", "en": "Recursive Searching and Sorting", "decks": [
-                {"cn": "递归二分搜索", "en": "Recursive Binary Search", "href": "slides/4-data-collections/4-17-recursive-searching-and-sorting.html"},
-                {"cn": "归并排序", "en": "Merge Sort", "href": "slides/4-data-collections/4-17-part-2-merge-sort.html"}
-              ]}
-            ]
-          }
-        ]
-      }
-    ]
-  }
+    {
+      "id": "unit-2",
+      "code": "2",
+      "cn": "选择与迭代",
+      "en": "Selection and Iteration",
+      "status": "ready",
+      "sections": [
+        {
+          "code": "2",
+          "cn": "选择与迭代",
+          "en": "Selection and Iteration",
+          "summary": "算法中的选择与重复、布尔表达式、条件分支、复合条件、字符串算法、嵌套循环与基础运行时间分析。",
+          "topics": [
+            {
+              "code": "2.1",
+              "cn": "带选择与重复的算法",
+              "en": "Algorithms with Selection and Repetition",
+              "decks": [
+                {
+                  "cn": "带选择与重复的算法",
+                  "en": "Algorithms with Selection and Repetition",
+                  "href": "slides/2-selection-and-iteration/2-1-algorithms-with-selection-and-repetition.html"
+                }
+              ]
+            },
+            {
+              "code": "2.2",
+              "cn": "布尔表达式",
+              "en": "Boolean Expressions",
+              "decks": [
+                {
+                  "cn": "布尔表达式：相等、关系与取余",
+                  "en": "Equality, Relational Operators, and Remainder",
+                  "href": "slides/2-selection-and-iteration/2-2-boolean-expressions.html"
+                },
+                {
+                  "cn": "Prime Numbers POGIL",
+                  "en": "Prime Numbers POGIL",
+                  "href": "slides/2-selection-and-iteration/2-2-part-2-prime-numbers-pogil.html"
+                }
+              ]
+            },
+            {
+              "code": "2.3",
+              "cn": "if 语句",
+              "en": "if Statements",
+              "decks": [
+                {
+                  "cn": "单向选择与关系 if",
+                  "en": "One-Way Selection and Relational Ifs",
+                  "href": "slides/2-selection-and-iteration/2-3-if-statements.html"
+                },
+                {
+                  "cn": "if-else 与常见错误",
+                  "en": "if-else and Common Errors",
+                  "href": "slides/2-selection-and-iteration/2-3-part-2-if-else-and-common-errors.html"
+                },
+                {
+                  "cn": "Magic 8 Ball 挑战",
+                  "en": "Magic 8 Ball Challenge",
+                  "href": "slides/2-selection-and-iteration/2-3-part-3-magic-8-ball.html"
+                }
+              ]
+            },
+            {
+              "code": "2.4",
+              "cn": "嵌套 if 语句",
+              "en": "Nested if Statements",
+              "decks": [
+                {
+                  "cn": "多路选择与追踪题",
+                  "en": "Multiway Selection and Trace Questions",
+                  "href": "slides/2-selection-and-iteration/2-4-nested-if-statements.html"
+                },
+                {
+                  "cn": "调试与 dangling else",
+                  "en": "Debugging and Dangling Else",
+                  "href": "slides/2-selection-and-iteration/2-4-part-2-debugging-and-dangling-else.html"
+                },
+                {
+                  "cn": "Adventure 挑战",
+                  "en": "Adventure Challenge",
+                  "href": "slides/2-selection-and-iteration/2-4-part-3-adventure-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "2.5",
+              "cn": "复合布尔表达式",
+              "en": "Compound Boolean Expressions",
+              "decks": [
+                {
+                  "cn": "逻辑运算、范围与真值表",
+                  "en": "Logical Operators, Ranges, and Truth Tables",
+                  "href": "slides/2-selection-and-iteration/2-5-compound-boolean-expressions.html"
+                },
+                {
+                  "cn": "短路求值与 Truth Tables POGIL",
+                  "en": "Short Circuit and Truth Tables POGIL",
+                  "href": "slides/2-selection-and-iteration/2-5-part-2-short-circuit-and-truth-table-pogil.html"
+                }
+              ]
+            },
+            {
+              "code": "2.6",
+              "cn": "比较布尔表达式",
+              "en": "Comparing Boolean Expressions",
+              "decks": [
+                {
+                  "cn": "De Morgan 与真值表等价",
+                  "en": "De Morgan and Truth-Table Equivalence",
+                  "href": "slides/2-selection-and-iteration/2-6-comparing-boolean-expressions.html"
+                },
+                {
+                  "cn": "对象、字符串与 null 比较",
+                  "en": "Object, String, and null Comparisons",
+                  "href": "slides/2-selection-and-iteration/2-6-part-2-object-string-and-null-comparisons.html"
+                },
+                {
+                  "cn": "Truth and Tracing Tables POGIL",
+                  "en": "Truth and Tracing Tables POGIL",
+                  "href": "slides/2-selection-and-iteration/2-6-part-3-truth-and-tracing-tables-pogil.html"
+                }
+              ]
+            },
+            {
+              "code": "2.7",
+              "cn": "while 循环",
+              "en": "while Loops",
+              "decks": [
+                {
+                  "cn": "while 循环基础与三步法",
+                  "en": "while Intro and Three Loop-Writing Steps",
+                  "href": "slides/2-selection-and-iteration/2-7-while-loops.html"
+                },
+                {
+                  "cn": "追踪与常见错误",
+                  "en": "Tracing and Common Errors",
+                  "href": "slides/2-selection-and-iteration/2-7-part-2-tracing-and-common-errors.html"
+                },
+                {
+                  "cn": "Turtle Squares 挑战",
+                  "en": "Turtle Squares Challenge",
+                  "href": "slides/2-selection-and-iteration/2-7-part-3-turtle-squares-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "2.8",
+              "cn": "for 循环",
+              "en": "for Loops",
+              "decks": [
+                {
+                  "cn": "for 循环结构与迭代次数",
+                  "en": "For Loop Structure, Flow, and Iteration Counts",
+                  "href": "slides/2-selection-and-iteration/2-8-for-loops.html"
+                },
+                {
+                  "cn": "递减循环与混排代码",
+                  "en": "Decrementing and Mixed Code",
+                  "href": "slides/2-selection-and-iteration/2-8-part-2-decrementing-and-mixed-code.html"
+                },
+                {
+                  "cn": "Turtle Shapes 挑战",
+                  "en": "Turtle Shapes Challenge",
+                  "href": "slides/2-selection-and-iteration/2-8-part-3-turtle-shapes-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "2.9",
+              "cn": "实现选择与迭代算法",
+              "en": "Implementing Selection and Iteration Algorithms",
+              "decks": [
+                {
+                  "cn": "累加器与输入控制循环",
+                  "en": "Accumulator and Input-Controlled Loops",
+                  "href": "slides/2-selection-and-iteration/2-9-implementing-selection-and-iteration-algorithms.html"
+                },
+                {
+                  "cn": "最小最大、整除与质数",
+                  "en": "Min, Max, Divisibility, and Prime",
+                  "href": "slides/2-selection-and-iteration/2-9-part-2-min-max-divisibility-and-prime.html"
+                },
+                {
+                  "cn": "数字、随机与频率",
+                  "en": "Digits, Random, and Frequency",
+                  "href": "slides/2-selection-and-iteration/2-9-part-3-digits-random-and-frequency.html"
+                },
+                {
+                  "cn": "Prime Number Finder 挑战",
+                  "en": "Prime Number Finder Challenge",
+                  "href": "slides/2-selection-and-iteration/2-9-part-4-prime-number-finder.html"
+                }
+              ]
+            },
+            {
+              "code": "2.10",
+              "cn": "实现字符串算法",
+              "en": "Implementing String Algorithms",
+              "decks": [
+                {
+                  "cn": "while 查找与替换",
+                  "en": "Find and Replace with while",
+                  "href": "slides/2-selection-and-iteration/2-10-implementing-string-algorithms.html"
+                },
+                {
+                  "cn": "反转字符串与 Cats/Dogs 挑战",
+                  "en": "Reverse and Cats/Dogs Challenge",
+                  "href": "slides/2-selection-and-iteration/2-10-part-2-reverse-and-cats-dogs-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "2.11",
+              "cn": "嵌套迭代",
+              "en": "Nested Iteration",
+              "decks": [
+                {
+                  "cn": "矩形嵌套循环",
+                  "en": "Rectangle Nested Loops",
+                  "href": "slides/2-selection-and-iteration/2-11-nested-iteration.html"
+                },
+                {
+                  "cn": "Turtle 嵌套循环与雪花",
+                  "en": "Turtle Nested Loops and Snowflakes",
+                  "href": "slides/2-selection-and-iteration/2-11-part-2-turtle-nested-loops-and-snowflakes.html"
+                }
+              ]
+            },
+            {
+              "code": "2.12",
+              "cn": "非正式运行时间分析",
+              "en": "Informal Run-Time Analysis",
+              "decks": [
+                {
+                  "cn": "循环追踪与迭代计数",
+                  "en": "Loop Tracing and Iteration Counting",
+                  "href": "slides/2-selection-and-iteration/2-12-informal-run-time-analysis.html"
+                },
+                {
+                  "cn": "嵌套循环运行次数",
+                  "en": "Nested Loop Runtime",
+                  "href": "slides/2-selection-and-iteration/2-12-part-2-nested-loop-runtime.html"
+                },
+                {
+                  "cn": "POGIL Analyzing Loops",
+                  "en": "POGIL Analyzing Loops",
+                  "href": "slides/2-selection-and-iteration/2-12-part-3-pogil-analyzing-loops.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "code": "3",
+      "cn": "类的创建",
+      "en": "Class Creation",
+      "status": "ready",
+      "sections": [
+        {
+          "code": "3",
+          "cn": "类的创建",
+          "en": "Class Creation",
+          "summary": "抽象、程序设计影响、类结构、构造器、方法、类变量、作用域与 this 关键字。",
+          "topics": [
+            {
+              "code": "3.1",
+              "cn": "抽象与程序设计",
+              "en": "Abstraction and Program Design",
+              "decks": [
+                {
+                  "cn": "面向对象设计与抽象",
+                  "en": "Object-Oriented Design and Abstraction",
+                  "href": "slides/3-class-creation/3-1-abstraction-and-program-design.html"
+                },
+                {
+                  "cn": "Old MacDonald 与游戏设计",
+                  "en": "Old MacDonald and Game Design",
+                  "href": "slides/3-class-creation/3-1-part-2-old-macdonald-and-game-design.html"
+                }
+              ]
+            },
+            {
+              "code": "3.2",
+              "cn": "程序设计的影响",
+              "en": "Impact of Program Design",
+              "decks": [
+                {
+                  "cn": "程序设计的影响",
+                  "en": "Impact of Program Design",
+                  "href": "slides/3-class-creation/3-2-impact-of-program-design.html"
+                }
+              ]
+            },
+            {
+              "code": "3.3",
+              "cn": "类的结构",
+              "en": "Anatomy of a Class",
+              "decks": [
+                {
+                  "cn": "类结构与 Person 示例",
+                  "en": "Class Anatomy and Person Example",
+                  "href": "slides/3-class-creation/3-3-anatomy-of-a-class.html"
+                },
+                {
+                  "cn": "数据封装与实例变量",
+                  "en": "Data Encapsulation and Instance Variables",
+                  "href": "slides/3-class-creation/3-3-part-2-data-encapsulation-and-instance-variables.html"
+                },
+                {
+                  "cn": "实例方法",
+                  "en": "Instance Methods",
+                  "href": "slides/3-class-creation/3-3-part-3-instance-methods.html"
+                },
+                {
+                  "cn": "Virtual Pet 与社区类设计",
+                  "en": "Virtual Pet and Community Class",
+                  "href": "slides/3-class-creation/3-3-part-4-virtual-pet-and-community-class.html"
+                }
+              ]
+            },
+            {
+              "code": "3.4",
+              "cn": "构造器",
+              "en": "Constructors",
+              "decks": [
+                {
+                  "cn": "编写构造器",
+                  "en": "Writing Constructors",
+                  "href": "slides/3-class-creation/3-4-constructors.html"
+                },
+                {
+                  "cn": "Fraction 与 Car 构造器练习",
+                  "en": "Fraction and Car Constructors",
+                  "href": "slides/3-class-creation/3-4-part-2-fraction-and-car-constructors.html"
+                },
+                {
+                  "cn": "Student 与社区类构造器",
+                  "en": "Student and Community Constructors",
+                  "href": "slides/3-class-creation/3-4-part-3-student-and-community-constructors.html"
+                }
+              ]
+            },
+            {
+              "code": "3.5",
+              "cn": "方法：如何编写",
+              "en": "Methods: How to Write Them",
+              "decks": [
+                {
+                  "cn": "方法基础",
+                  "en": "Method Basics",
+                  "href": "slides/3-class-creation/3-5-methods-how-to-write-them.html"
+                },
+                {
+                  "cn": "Getter 与 toString",
+                  "en": "Getters and toString",
+                  "href": "slides/3-class-creation/3-5-part-2-getters-and-tostring.html"
+                },
+                {
+                  "cn": "Setter 与参数",
+                  "en": "Setters and Parameters",
+                  "href": "slides/3-class-creation/3-5-part-3-setters-and-parameters.html"
+                },
+                {
+                  "cn": "Class Pet 挑战",
+                  "en": "Class Pet Challenge",
+                  "href": "slides/3-class-creation/3-5-part-4-class-pet-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "3.6",
+              "cn": "方法：传递与返回对象引用",
+              "en": "Methods: Passing and Returning References of an Object",
+              "decks": [
+                {
+                  "cn": "对象作为实例变量与参数",
+                  "en": "Objects as Instance Variables and Arguments",
+                  "href": "slides/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object.html"
+                },
+                {
+                  "cn": "复制参数对象",
+                  "en": "Copying Parameter Objects",
+                  "href": "slides/3-class-creation/3-6-part-2-copying-parameter-objects.html"
+                },
+                {
+                  "cn": "同类参数与返回对象",
+                  "en": "Same-Class Parameters and Returning Objects",
+                  "href": "slides/3-class-creation/3-6-part-3-same-class-and-returning-objects.html"
+                },
+                {
+                  "cn": "Friends and Birthdays 挑战",
+                  "en": "Friends and Birthdays Challenge",
+                  "href": "slides/3-class-creation/3-6-part-4-friends-and-birthdays-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "3.7",
+              "cn": "类变量与类方法",
+              "en": "Class Variables and Methods",
+              "decks": [
+                {
+                  "cn": "类方法",
+                  "en": "Class Methods",
+                  "href": "slides/3-class-creation/3-7-class-variables-and-methods.html"
+                },
+                {
+                  "cn": "类变量与静态计数器",
+                  "en": "Class Variables and Static Counters",
+                  "href": "slides/3-class-creation/3-7-part-2-class-variables-and-static-counters.html"
+                },
+                {
+                  "cn": "final 常量与 Static Song 挑战",
+                  "en": "final Constants and Static Song",
+                  "href": "slides/3-class-creation/3-7-part-3-final-and-static-song-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "3.8",
+              "cn": "作用域与访问",
+              "en": "Scope and Access",
+              "decks": [
+                {
+                  "cn": "作用域层级与局部变量",
+                  "en": "Scope Levels and Local Variables",
+                  "href": "slides/3-class-creation/3-8-scope-and-access.html"
+                },
+                {
+                  "cn": "调试作用域违规",
+                  "en": "Debugging Scope Violations",
+                  "href": "slides/3-class-creation/3-8-part-2-debugging-scope-violations.html"
+                }
+              ]
+            },
+            {
+              "code": "3.9",
+              "cn": "this 关键字",
+              "en": "this Keyword",
+              "decks": [
+                {
+                  "cn": "this 关键字与当前对象",
+                  "en": "this Keyword and Current Object",
+                  "href": "slides/3-class-creation/3-9-this-keyword.html"
+                },
+                {
+                  "cn": "Bank Account 挑战",
+                  "en": "Bank Account Challenge",
+                  "href": "slides/3-class-creation/3-9-part-2-bank-account-challenge.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "code": "4",
+      "cn": "数据集合",
+      "en": "Data Collections",
+      "status": "ready",
+      "sections": [
+        {
+          "code": "4",
+          "cn": "数据集合",
+          "en": "Data Collections",
+          "summary": "数据伦理、数据集、数组、ArrayList、二维数组、搜索、排序与递归。",
+          "topics": [
+            {
+              "code": "4.1",
+              "cn": "数据收集的伦理与社会问题",
+              "en": "Ethical and Social Issues Around Data Collection",
+              "decks": [
+                {
+                  "cn": "数据收集的伦理与社会问题",
+                  "en": "Ethical and Social Issues Around Data Collection",
+                  "href": "slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.html"
+                }
+              ]
+            },
+            {
+              "code": "4.2",
+              "cn": "数据集使用导论",
+              "en": "Introduction to Using Data Sets",
+              "decks": [
+                {
+                  "cn": "数据集使用导论",
+                  "en": "Introduction to Using Data Sets",
+                  "href": "slides/4-data-collections/4-2-introduction-to-using-data-sets.html"
+                }
+              ]
+            },
+            {
+              "code": "4.3",
+              "cn": "数组的创建与访问",
+              "en": "Array Creation and Access",
+              "decks": [
+                {
+                  "cn": "数组创建、初始值与 length",
+                  "en": "Array Creation, Initial Values, and length",
+                  "href": "slides/4-data-collections/4-3-array-creation-and-access.html"
+                },
+                {
+                  "cn": "访问、修改与索引变量",
+                  "en": "Access, Modify, and Index Variables",
+                  "href": "slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.html"
+                },
+                {
+                  "cn": "Countries Array 挑战",
+                  "en": "Countries Array Challenge",
+                  "href": "slides/4-data-collections/4-3-part-3-countries-array-challenge.html"
+                },
+                {
+                  "cn": "对象数组",
+                  "en": "Arrays of Objects",
+                  "href": "slides/4-data-collections/4-3-part-4-arrays-of-objects.html"
+                }
+              ]
+            },
+            {
+              "code": "4.4",
+              "cn": "数组遍历",
+              "en": "Array Traversals",
+              "decks": [
+                {
+                  "cn": "索引遍历与数组参数",
+                  "en": "Indexed Traversal and Array Parameters",
+                  "href": "slides/4-data-collections/4-4-array-traversals.html"
+                },
+                {
+                  "cn": "部分遍历与常见错误",
+                  "en": "Partial Traversals and Common Errors",
+                  "href": "slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.html"
+                },
+                {
+                  "cn": "增强 for 循环",
+                  "en": "Enhanced For-Loops",
+                  "href": "slides/4-data-collections/4-4-part-3-enhanced-for-loops.html"
+                },
+                {
+                  "cn": "对象数组与 SpellChecker",
+                  "en": "Object Arrays and SpellChecker",
+                  "href": "slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.html"
+                }
+              ]
+            },
+            {
+              "code": "4.5",
+              "cn": "实现数组算法",
+              "en": "Implementing Array Algorithms",
+              "decks": [
+                {
+                  "cn": "求和、平均值、最值与搜索",
+                  "en": "Sum, Average, Min, Max, and Search",
+                  "href": "slides/4-data-collections/4-5-implementing-array-algorithms.html"
+                },
+                {
+                  "cn": "反向遍历与性质测试",
+                  "en": "Back-to-Front and Property Tests",
+                  "href": "slides/4-data-collections/4-5-part-2-back-to-front-and-properties.html"
+                },
+                {
+                  "cn": "成对元素与重复项",
+                  "en": "Pairs and Duplicates",
+                  "href": "slides/4-data-collections/4-5-part-3-pairs-and-duplicates.html"
+                },
+                {
+                  "cn": "旋转与反转",
+                  "en": "Rotate and Reverse",
+                  "href": "slides/4-data-collections/4-5-part-4-rotate-and-reverse.html"
+                }
+              ]
+            },
+            {
+              "code": "4.6",
+              "cn": "使用文本文件",
+              "en": "Using Text Files",
+              "decks": [
+                {
+                  "cn": "File、Scanner 与文件循环",
+                  "en": "File, Scanner, and File Loops",
+                  "href": "slides/4-data-collections/4-6-using-text-files.html"
+                },
+                {
+                  "cn": "CSV split 与 Pokemon 图片",
+                  "en": "CSV Split and PokeImages",
+                  "href": "slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.html"
+                },
+                {
+                  "cn": "Pokemon 对象数组挑战",
+                  "en": "Pokemon Object Array Challenge",
+                  "href": "slides/4-data-collections/4-6-part-3-pokemon-object-array-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.7",
+              "cn": "包装类",
+              "en": "Wrapper Classes",
+              "decks": [
+                {
+                  "cn": "包装类与数值解析",
+                  "en": "Wrapper Classes and Parsing",
+                  "href": "slides/4-data-collections/4-7-wrapper-classes.html"
+                },
+                {
+                  "cn": "Pokemon Speed 挑战",
+                  "en": "Pokemon Speed Challenge",
+                  "href": "slides/4-data-collections/4-7-part-2-pokemon-speed-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.8",
+              "cn": "ArrayList 方法",
+              "en": "ArrayList Methods",
+              "decks": [
+                {
+                  "cn": "ArrayList 介绍与创建",
+                  "en": "ArrayList Intro and Creation",
+                  "href": "slides/4-data-collections/4-8-arraylist-methods.html"
+                },
+                {
+                  "cn": "size、add 与 remove",
+                  "en": "size, add, and remove",
+                  "href": "slides/4-data-collections/4-8-part-2-size-add-and-remove.html"
+                },
+                {
+                  "cn": "get、set 与数组对比",
+                  "en": "get, set, and Array Comparison",
+                  "href": "slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.html"
+                },
+                {
+                  "cn": "FRQ Digits 挑战",
+                  "en": "FRQ Digits Challenge",
+                  "href": "slides/4-data-collections/4-8-part-4-frq-digits-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.9",
+              "cn": "ArrayList 遍历",
+              "en": "ArrayList Traversals",
+              "decks": [
+                {
+                  "cn": "增强 for 循环",
+                  "en": "Enhanced For Loops",
+                  "href": "slides/4-data-collections/4-9-arraylist-traversals.html"
+                },
+                {
+                  "cn": "索引、while 与 NIO 遍历",
+                  "en": "Indexed, While, and NIO Traversals",
+                  "href": "slides/4-data-collections/4-9-part-2-indexed-while-and-nio.html"
+                },
+                {
+                  "cn": "Student 对象与 Word Pairs",
+                  "en": "Student Objects and Word Pairs",
+                  "href": "slides/4-data-collections/4-9-part-3-students-and-word-pairs.html"
+                }
+              ]
+            },
+            {
+              "code": "4.10",
+              "cn": "实现 ArrayList 算法",
+              "en": "Implementing ArrayList Algorithms",
+              "decks": [
+                {
+                  "cn": "添加与删除元素",
+                  "en": "Add and Remove Elements",
+                  "href": "slides/4-data-collections/4-10-implementing-arraylist-algorithms.html"
+                },
+                {
+                  "cn": "最小最大、平均与属性",
+                  "en": "Min, Max, Average, and Properties",
+                  "href": "slides/4-data-collections/4-10-part-2-min-max-and-properties.html"
+                },
+                {
+                  "cn": "相邻对与重复项",
+                  "en": "Pairs and Duplicates",
+                  "href": "slides/4-data-collections/4-10-part-3-pairs-and-duplicates.html"
+                },
+                {
+                  "cn": "旋转、反转与并行列表",
+                  "en": "Rotate, Reverse, and Parallel Lists",
+                  "href": "slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.html"
+                }
+              ]
+            },
+            {
+              "code": "4.11",
+              "cn": "二维数组的创建与访问",
+              "en": "2D Array Creation and Access",
+              "decks": [
+                {
+                  "cn": "二维数组介绍与存储",
+                  "en": "2D Array Intro and Storage",
+                  "href": "slides/4-data-collections/4-11-2d-array-creation-and-access.html"
+                },
+                {
+                  "cn": "声明与初始化二维数组",
+                  "en": "Declaring and Initializing 2D Arrays",
+                  "href": "slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.html"
+                },
+                {
+                  "cn": "设置、获取与访问检查",
+                  "en": "Set, Get, and Access Checks",
+                  "href": "slides/4-data-collections/4-11-part-3-set-get-and-access-checks.html"
+                },
+                {
+                  "cn": "行列长度与 ASCII Art",
+                  "en": "Length and ASCII Art",
+                  "href": "slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.12",
+              "cn": "二维数组遍历",
+              "en": "2D Array Traversals",
+              "decks": [
+                {
+                  "cn": "二维数组嵌套循环",
+                  "en": "Nested Loops for 2D Arrays",
+                  "href": "slides/4-data-collections/4-12-2d-array-traversals.html"
+                },
+                {
+                  "cn": "行优先与列优先遍历",
+                  "en": "Row-Major and Column-Major Traversals",
+                  "href": "slides/4-data-collections/4-12-part-2-row-major-and-column-major.html"
+                },
+                {
+                  "cn": "二维数组增强 for-each",
+                  "en": "Enhanced For-Each 2D Arrays",
+                  "href": "slides/4-data-collections/4-12-part-3-enhanced-for-each-2d-arrays.html"
+                },
+                {
+                  "cn": "Picture Lab 挑战",
+                  "en": "Picture Lab Challenge",
+                  "href": "slides/4-data-collections/4-12-part-4-picture-lab-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.13",
+              "cn": "实现二维数组算法",
+              "en": "Implementing 2D Array Algorithms",
+              "decks": [
+                {
+                  "cn": "二维数组求和与最大值",
+                  "en": "Sum and Max 2D Array Algorithms",
+                  "href": "slides/4-data-collections/4-13-implementing-2d-array-algorithms.html"
+                },
+                {
+                  "cn": "子区域与重复项",
+                  "en": "Subsections and Duplicates",
+                  "href": "slides/4-data-collections/4-13-part-2-subsections-and-duplicates.html"
+                },
+                {
+                  "cn": "二维数组行旋转",
+                  "en": "Rotate a Row in a 2D Array",
+                  "href": "slides/4-data-collections/4-13-part-3-rotate-row-right.html"
+                }
+              ]
+            },
+            {
+              "code": "4.14",
+              "cn": "搜索算法",
+              "en": "Searching Algorithms",
+              "decks": [
+                {
+                  "cn": "线性搜索",
+                  "en": "Linear Search",
+                  "href": "slides/4-data-collections/4-14-searching-algorithms.html"
+                },
+                {
+                  "cn": "二分搜索",
+                  "en": "Binary Search",
+                  "href": "slides/4-data-collections/4-14-part-2-binary-search.html"
+                },
+                {
+                  "cn": "搜索运行时间",
+                  "en": "Search Runtimes",
+                  "href": "slides/4-data-collections/4-14-part-3-search-runtimes.html"
+                },
+                {
+                  "cn": "搜索运行时间挑战",
+                  "en": "Search Runtimes Challenge",
+                  "href": "slides/4-data-collections/4-14-part-4-search-runtimes-challenge.html"
+                }
+              ]
+            },
+            {
+              "code": "4.15",
+              "cn": "排序算法",
+              "en": "Sorting Algorithms",
+              "decks": [
+                {
+                  "cn": "排序算法",
+                  "en": "Sorting Algorithms",
+                  "href": "slides/4-data-collections/4-15-sorting-algorithms.html"
+                }
+              ]
+            },
+            {
+              "code": "4.16",
+              "cn": "递归",
+              "en": "Recursion",
+              "decks": [
+                {
+                  "cn": "递归调用与基本情形",
+                  "en": "Recursive Calls and Base Cases",
+                  "href": "slides/4-data-collections/4-16-recursion.html"
+                },
+                {
+                  "cn": "阶乘递归",
+                  "en": "Factorial Method",
+                  "href": "slides/4-data-collections/4-16-part-2-factorial.html"
+                },
+                {
+                  "cn": "递归追踪",
+                  "en": "Tracing Recursive Methods",
+                  "href": "slides/4-data-collections/4-16-part-3-tracing-recursion.html"
+                }
+              ]
+            },
+            {
+              "code": "4.17",
+              "cn": "递归搜索与排序",
+              "en": "Recursive Searching and Sorting",
+              "decks": [
+                {
+                  "cn": "递归二分搜索",
+                  "en": "Recursive Binary Search",
+                  "href": "slides/4-data-collections/4-17-recursive-searching-and-sorting.html"
+                },
+                {
+                  "cn": "归并排序",
+                  "en": "Merge Sort",
+                  "href": "slides/4-data-collections/4-17-part-2-merge-sort.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

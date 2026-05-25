@@ -1,0 +1,161 @@
+---
+title: "4.13 Subsections and Duplicates"
+subtitle: "Implementing 2D Array Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Subsection of a 2D Array for a Property
+
+### Loop through part of a 2D array
+
+You can loop through just part of a 2D array.
+
+You can change the starting value and ending value to loop through a subset of a 2D array.
+
+The following code counts the number of times a value appears in a part of the 2D array indicated by the row and column start and end values.
+
+## Coding Exercise
+
+### `activecode:: lca2dloopPart2`
+
+Looping through just part of a 2D array.
+
+## Count Source Code
+
+::: {.code-scroll}
+```java
+public class Count
+{
+    public static int countValues(int value, int[][] a, int rowStart,
+                               int rowEnd, int colStart, int colEnd)
+    {
+        int count = 0;
+        for (int row = rowStart; row <= rowEnd; row++)
+        {
+            for (int col = colStart; col <= colEnd; col++)
+            {
+                if (a[row][col] == value)
+                {
+                     count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix = { {3, 2, 3}, {4, 3, 6}, {8, 9, 3}, {10, 3, 3}};
+        System.out.println(countValues(3, matrix, 0, 2, 0, 2));
+    }
+}
+```
+:::
+
+## Count Test Target
+
+### Runestone expected output
+
+The output from `main` should be:
+
+```text
+4
+```
+
+The loops use inclusive bounds:
+
+```java
+row <= rowEnd
+col <= colEnd
+```
+
+## Duplicates in 2D Arrays
+
+### Presence or absence of duplicates
+
+You can determine the presence or absence of duplicate elements in the 2D array or in a designated row, column, or other subsection.
+
+With 1D arrays, we sometimes needed 2 nested loops to check for duplicates or pairs.
+
+With 2D arrays, you often need 4 nested loops to check the whole array.
+
+## Coding Exercise
+
+### `activecode:: noDups2DArray`
+
+The method `noDups(nums)` returns `true` if there are no repeated items in the array `nums`.
+
+It should return `false` if it finds a repeated element using nested loops.
+
+## Duplicates Source Code
+
+::: {.code-scroll}
+```java
+public class Duplicates
+{
+    public static boolean noDups(int[][] nums)
+    {
+        for (int row = 0; row < nums.length; row++)
+        {
+            for (int col = 0; col < nums[0].length; col++)
+            {
+                for (int row2 = row; row2 < nums.length; row2++)
+                {
+                    for (int col2 = col + 1; col2 < nums[0].length; col2++)
+                    {
+                        if (nums[row][col] == nums[row2][col2])
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] matrix = { {3, 2, 3}, {4, 3, 6}, {8, 9, 3}, {10, 3, 3}};
+        System.out.println(noDups(matrix));
+    }
+}
+```
+:::
+
+## Duplicate Trace Focus
+
+### Why four loops?
+
+The source code uses:
+
+- `row` and `col` to choose the current element
+- `row2` and `col2` to scan later elements for a matching value
+- `return false` immediately when a duplicate is found
+- `return true` only after the whole search finishes
+
+## Classroom Check
+
+### A complete answer should include
+
+- use custom row and column start/end values for a subsection
+- treat the source bounds as inclusive in `countValues`
+- explain why duplicate search compares each selected element with other elements
+- explain why the 2D duplicate check can require four loops
+- place `return true` after all loops finish
+
+## End
+
+### 4.13 Subsections and Duplicates
+
+Next: row rotation.

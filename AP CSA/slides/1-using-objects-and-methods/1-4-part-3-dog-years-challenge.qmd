@@ -1,0 +1,152 @@
+---
+title: "1.4 Assignment and Input"
+subtitle: "Part 3: Dog Years Coding Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Dog Years
+
+::: {.image-fit}
+![Dog](../../assets/1-using-objects-and-methods/1-4-assignment-and-input/dog-free.png){fig-align="center" width="22%"}
+:::
+
+In this coding challenge, you will calculate your age, and your pet's age from your birthdates, and your pet's age in dog years.
+
+## Challenge Prompt
+
+### `activecode:: challenge1-4`
+
+In the code, type in:
+
+::: {.tight-list}
+- the current year
+- the year you were born
+- the year your dog or cat was born
+:::
+
+If you do not have a dog or cat, make one up.
+
+## Challenge Prompt
+
+### Formulas and output
+
+Write formulas in assignment statements to calculate:
+
+::: {.tight-list}
+- how old you are
+- how old your dog or cat is
+- how old they are in dog years, which is `7` times a human year
+:::
+
+Finally, print it all out.
+
+If you are pair programming, switch drivers after every line of code.
+
+## Starter Code
+
+### `activecode:: challenge1-4`
+
+::: {.code-scroll}
+```java
+public class Challenge1_4
+{
+    public static void main(String[] args)
+    {
+        // Fill in values for these variables
+        int currentYear =
+        int birthYear =
+        int dogBirthYear =
+
+        // Write a formula to calculate your age from the currentYear and
+        // your birthYear variables
+        int age =
+
+        // Write a formula to calculate your dog's age from the currentYear
+        // and dogBirthYear variables
+        int dogAge =
+
+        // Calculate the age of your dog in dogYears (7 times your dog's age
+        // in human years)
+        int dogYearsAge =
+
+        // Print out your age, your dog's age, and your dog's age in dog
+        // years. Make sure you print out text too so that the user knows what
+        // is being printed out.
+
+   }
+}
+```
+:::
+
+## Test Requirements
+
+### `activecode:: challenge1-4`
+
+Runestone checks that you initialized the three variables:
+
+::: {.tight-list}
+- `int currentYear =` followed by a 2-4 digit value
+- `int birthYear =` followed by a 2-4 digit value
+- `int dogBirthYear =` followed by a 1-4 digit value
+:::
+
+It also checks that the program has some output and at least one `System.out.print` statement.
+
+## Test Requirements
+
+### Required formulas
+
+Runestone checks that the code contains these formulas:
+
+```java
+age = currentYear - birthYear;
+dogAge = currentYear - dogBirthYear;
+dogYearsAge = dogAge * 7;
+```
+
+It also accepts:
+
+```java
+dogYearsAge = 7 * dogAge;
+```
+
+## Optional Extension
+
+### Interactive input
+
+Your teacher may suggest that you use a Java IDE with interactive input using the `Scanner` class for this challenge.
+
+The source lists JuiceMind/Replit templates and a Scanner link for this optional path.
+
+This static deck keeps the textbook starter code and test requirements as the required classroom task.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- initialize `currentYear`, `birthYear`, and `dogBirthYear`
+- calculate `age` from `currentYear - birthYear`
+- calculate `dogAge` from `currentYear - dogBirthYear`
+- calculate `dogYearsAge` from `dogAge * 7` or `7 * dogAge`
+- print text labels with the numeric results
+- preserve the starter-code variables so the source tests can find them
+:::
+
+## End
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)

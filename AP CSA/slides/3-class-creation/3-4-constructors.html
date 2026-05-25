@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.4 Constructors</title>
+  <title>3.4 Writing Constructors</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,7 +198,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.4 Constructors</h1>
+  <h1 class="title">3.4 Writing Constructors</h1>
   <p class="subtitle">Class Creation</p>
 
 <div class="quarto-title-authors">
@@ -210,140 +210,243 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="constructors-initialize-new-objects">Constructors initialize new objects</h3>
-<p>A <span class="term">constructor</span> (构造器) is a special block of code that runs when a new object is created.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Ana"</span><span class="op">,</span> <span class="dv">11</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The constructor receives the arguments and uses them to initialize instance variables.</p>
+<section id="writing-constructors" class="slide level2">
+<h2>Writing Constructors</h2>
+<h3 id="review-from-unit-1">Review from Unit 1</h3>
+<p>In Unit 1, we learned how to create objects by calling <strong>constructors</strong> (构造器).</p>
+<p>A call to a constructor consists of:</p>
+<div class="tight-list">
+<ul>
+<li>the word <code>new</code></li>
+<li>the name of the class being constructed</li>
+<li>an argument list in parentheses</li>
+</ul>
+</div>
+</section>
+<section id="constructor-calls" class="slide level2">
+<h2>Constructor Calls</h2>
+<h3 id="creating-objects">Creating objects</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// To create a new object, write:</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">// ClassName variableName = new ConstructorName(arguments);</span></span>
+<span id="cb1-3"><a href=""></a>World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">();</span></span>
+<span id="cb1-4"><a href=""></a>Turtle t <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
+<span id="cb1-5"><a href=""></a>Person p <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Pat"</span><span class="op">,</span> <span class="st">"pat@gmail.com"</span><span class="op">,</span> <span class="st">"123-456-7890"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now it is time to learn to write our own constructors.</p>
 </section>
 <section id="constructor-signature" class="slide level2">
 <h2>Constructor Signature</h2>
-<h3 id="same-name-as-the-class-no-return-type">Same name as the class, no return type</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Student</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> gradeLevel<span class="op">;</span></span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> initialName<span class="op">,</span> <span class="dt">int</span> initialGrade<span class="op">)</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-8"><a href=""></a>        name <span class="op">=</span> initialName<span class="op">;</span></span>
-<span id="cb2-9"><a href=""></a>        gradeLevel <span class="op">=</span> initialGrade<span class="op">;</span></span>
-<span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The constructor name is <code>Student</code>, exactly matching the class name.</p>
-</section>
-<section id="job-of-a-constructor" class="slide level2">
-<h2>Job of a Constructor</h2>
-<h3 id="set-a-valid-starting-state">Set a valid starting state</h3>
-<p>A constructor should put the object into a usable state.</p>
+<h3 id="where-constructors-go">Where constructors go</h3>
+<p>In the source code for a class, constructors are usually written after the instance variables and before any methods.</p>
+<p>The signature of a constructor is similar to the signature of a method except:</p>
 <div class="tight-list">
 <ul>
-<li>initialize each important instance variable</li>
-<li>use parameter values when needed</li>
-<li>assign default values when appropriate</li>
-<li>avoid leaving data uninitialized by accident</li>
+<li>there is no return type, not even <code>void</code></li>
+<li>the constructor name is always the same as the class name</li>
 </ul>
 </div>
 </section>
-<section id="identify-task" class="slide level2">
-<h2>Identify Task</h2>
-<h3 id="which-block-is-the-constructor">Which block is the constructor?</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Fraction</span>
+<section id="constructor-parameters" class="slide level2">
+<h2>Constructor Parameters</h2>
+<h3 id="parameter-list">Parameter list</h3>
+<p>The constructors you write will be marked <code>public</code>.</p>
+<p>Like methods, constructors also have a <strong>parameter list</strong> specified in parentheses.</p>
+<p>The parameter list declares the variables that will be used to hold the arguments passed when the constructor is called.</p>
+</section>
+<section id="constructor-shape" class="slide level2">
+<h2>Constructor Shape</h2>
+<h3 id="same-name-as-class-no-return-type">Same name as class, no return type</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ClassName</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a>    <span class="co">/* Instance variable declarations go here, before constructors */</span></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a>    <span class="co">/* Constructor - same name as Class, no return type */</span></span>
+<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">ClassName</span><span class="op">()</span></span>
+<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="co">/* Implementation not shown */</span></span>
+<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a>    <span class="co">/* Method definitions go here, after constructors */</span></span>
+<span id="cb2-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Constructors must have the same name as the class.</p>
+<p>Constructors have no return type.</p>
+</section>
+<section id="the-job-of-a-constructor" class="slide level2">
+<h2>The Job of a Constructor</h2>
+<h3 id="useful-initial-values">Useful initial values</h3>
+<p>The job of a constructor is to set the initial values for the object’s instance variables to useful values.</p>
+<p>Sometimes we describe the values of all an object’s instance variables at a given time as the object’s <strong>state</strong> (状态).</p>
+<p>An object is in a <strong>valid state</strong> when all its instance variables have values that let us use the object by invoking its public methods.</p>
+</section>
+<section id="valid-state" class="slide level2">
+<h2>Valid State</h2>
+<h3 id="ready-to-be-used">Ready to be used</h3>
+<p>Another way to describe the job of a constructor is:</p>
+<p><strong>Set the object’s instance values so it is in a valid state and ready to be used.</strong></p>
+<p>Classes can have zero or more constructors, but they should all produce an object in a valid state.</p>
+</section>
+<section id="object-state-and-has-a" class="slide level2">
+<h2>Object State and Has-A</h2>
+<h3 id="attributes-and-values">Attributes and values</h3>
+<p>An object’s <strong>state</strong> refers to its attributes and their values at a given time.</p>
+<p>It is defined by instance variables belonging to the object.</p>
+<p>This defines a <strong>has-a</strong> relationship between the object and its instance variables.</p>
+<p>For example, a <code>Person</code> object has a name, email, and phone number attributes.</p>
+</section>
+<section id="constructor-initialization" class="slide level2">
+<h2>Constructor Initialization</h2>
+<h3 id="memory-and-parameters">Memory and parameters</h3>
+<p>A constructor is used to set the initial state of an object, which should include initial values for all instance variables.</p>
+<p>When a constructor is called, memory is allocated for the object and the associated object reference is returned.</p>
+<p>Constructor parameters, if specified, provide data to initialize instance variables.</p>
+</section>
+<section id="default-constructor" class="slide level2">
+<h2>Default Constructor</h2>
+<h3 id="if-you-do-not-write-one">If you do not write one</h3>
+<p>The easiest way to write a constructor is to not write one.</p>
+<p>If you do not write a constructor, your class will automatically get what is called the <strong>default constructor</strong> with no parameters.</p>
+<p>This constructor will initialize all your instance variables to the default value for their type.</p>
+</section>
+<section id="default-values" class="slide level2">
+<h2>Default Values</h2>
+<h3 id="values-by-type">Values by type</h3>
+<div class="tight-list">
+<ul>
+<li><code>0</code> for <code>int</code></li>
+<li><code>0.0</code> for <code>double</code></li>
+<li><code>false</code> for <code>boolean</code></li>
+<li><code>null</code> for all reference types</li>
+</ul>
+</div>
+<p>If those default values are sufficient to put your object into a valid state, you may not need to write a constructor at all.</p>
+</section>
+<section id="constructor-with-arguments" class="slide level2">
+<h2>Constructor With Arguments</h2>
+<h3 id="usually-needed-for-useful-objects">Usually needed for useful objects</h3>
+<p>Usually, if you are writing a class that has instance variables, you need to initialize your instance values to some other values.</p>
+<p>In that case, you probably need to write a constructor that takes arguments and uses them to initialize your instance variables.</p>
+</section>
+<section id="person-constructor" class="slide level2">
+<h2>Person Constructor</h2>
+<h3 id="parameter-values-copied-into-instance-variables">Parameter values copied into instance variables</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">,</span> <span class="bu">String</span> initPhone<span class="op">)</span></span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> numerator<span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> denominator<span class="op">;</span></span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Fraction</span><span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> d<span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>        numerator <span class="op">=</span> n<span class="op">;</span></span>
-<span id="cb3-9"><a href=""></a>        denominator <span class="op">=</span> d<span class="op">;</span></span>
-<span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: the block beginning <code>public Fraction(int n, int d)</code>.</p>
+<span id="cb3-3"><a href=""></a>    name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a>    email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb3-5"><a href=""></a>    phoneNumber <span class="op">=</span> initPhone<span class="op">;</span></span>
+<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This constructor ensures that all three instance variables in <code>Person</code> are initialized to the values provided by the constructor call.</p>
+</section>
+<section id="constructor-call-trace" class="slide level2">
+<h2>Constructor Call Trace</h2>
+<h3 id="argument-to-parameter-to-instance-variable">Argument to parameter to instance variable</h3>
+<p>In this constructor call:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Pat"</span><span class="op">,</span> <span class="st">"pat@gmail.com"</span><span class="op">,</span> <span class="st">"123-456-7890"</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The argument <code>"Pat"</code> is passed into the parameter variable <code>initName</code>.</p>
+<p>The constructor then assigns <code>initName</code> to the instance variable <code>name</code>.</p>
+</section>
+<section id="if-you-write-a-constructor" class="slide level2">
+<h2>If You Write a Constructor</h2>
+<h3 id="java-will-not-generate-the-default-constructor">Java will not generate the default constructor</h3>
+<p>One important note: if you do write a constructor, Java will not generate the default constructor for you.</p>
+<p>This lets you make sure that instances of your class are always properly initialized.</p>
+<p>With the <code>Person</code> constructor in place, there is no way to construct a <code>Person</code> object without providing the three required <code>String</code> values.</p>
+</section>
+<section id="overloading-constructors" class="slide level2">
+<h2>Overloading Constructors</h2>
+<h3 id="more-than-one-way-to-create-an-object">More than one way to create an object</h3>
+<p>Sometimes you will want to write more than one constructor so that there are different ways of making an instance of your class.</p>
+<p>One reason is to make it convenient to create instances from different kinds of arguments.</p>
+<p>This is called <strong>overloading</strong> (重载).</p>
+</section>
+<section id="no-argument-person-constructor" class="slide level2">
+<h2>No-Argument Person Constructor</h2>
+<h3 id="fill-in-values">Fill-in values</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="fu">Person</span><span class="op">()</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    name <span class="op">=</span> <span class="st">"Anonymous"</span><span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a>    email <span class="op">=</span> <span class="st">"unknown"</span><span class="op">;</span></span>
+<span id="cb5-5"><a href=""></a>    phoneNumber <span class="op">=</span> <span class="st">"unknown"</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It is up to you to decide if this is actually useful or if it would be better to force users of the <code>Person</code> class to choose values using the constructor with arguments.</p>
+</section>
+<section id="check-your-understanding" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="clickablearea-name_constructor"><code>clickablearea:: name_constructor</code></h3>
+<p>Click on all the lines of code that are part of constructors in the following class.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Name</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> first<span class="op">;</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> last<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="bu">Name</span><span class="op">(</span><span class="bu">String</span> theFirst<span class="op">,</span> <span class="bu">String</span> theLast<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        first <span class="op">=</span> theFirst<span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>        last <span class="op">=</span> theLast<span class="op">;</span></span>
+<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setFirst</span><span class="op">(</span><span class="bu">String</span> theFirst<span class="op">)</span></span>
+<span id="cb6-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-14"><a href=""></a>        first <span class="op">=</span> theFirst<span class="op">;</span></span>
+<span id="cb6-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="answer-reasoning" class="slide level2">
+<h2>Answer Reasoning</h2>
+<h3 id="constructor-lines">Constructor lines</h3>
+<p>Correct constructor lines:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="bu">Name</span><span class="op">(</span><span class="bu">String</span> theFirst<span class="op">,</span> <span class="bu">String</span> theLast<span class="op">)</span></span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    first <span class="op">=</span> theFirst<span class="op">;</span></span>
+<span id="cb7-4"><a href=""></a>    last <span class="op">=</span> theLast<span class="op">;</span></span>
+<span id="cb7-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The constructor is <code>public</code> and has the same name as the class.</p>
+<p>It has no return type.</p>
 </section>
 <section id="quick-check" class="slide level2">
 <h2>Quick Check</h2>
+<h3 id="mchoice-constructor-purpose"><code>mchoice:: constructor-purpose</code></h3>
+<p>What best describes the purpose of a class’s constructor?</p>
+<div class="tight-list">
+<ul>
+<li>A. Determines the amount of space needed for an object and creates the object</li>
+<li>B. Names the new object</li>
+<li>C. Return to free storage all the memory used by this instance of the class</li>
+<li>D. Initialize the instance variables in the object</li>
+</ul>
+</div>
+</section>
+<section id="answer-reasoning-1" class="slide level2">
+<h2>Answer Reasoning</h2>
 <h3 id="constructor-purpose">Constructor purpose</h3>
-<p>Which statement best describes a constructor?</p>
+<p>Correct answer: <strong>D. Initialize the instance variables in the object.</strong></p>
 <div class="tight-list">
 <ul>
-<li>A. It prints an object.</li>
-<li>B. It initializes a new object.</li>
-<li>C. It always returns a <code>String</code>.</li>
-<li>D. It must be marked <code>static</code>.</li>
+<li>A: The object is already created before the constructor is called, but the constructor initializes the instance variables.</li>
+<li>B: Constructors do not name the object.</li>
+<li>C: Constructors do not free memory. In Java, memory is freed when the object is no longer referenced.</li>
+<li>D: A constructor initializes the instance variables to default values or to values passed into a parameterized constructor.</li>
 </ul>
 </div>
-<p>Answer: <mark>B</mark>. Constructors initialize new objects.</p>
-</section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="complete-a-car-constructor">Complete a <code>Car</code> constructor</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Car</span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> model<span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> year<span class="op">;</span></span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Car</span><span class="op">(</span><span class="bu">String</span> carModel<span class="op">,</span> <span class="dt">int</span> carYear<span class="op">)</span></span>
-<span id="cb4-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-8"><a href=""></a>        model <span class="op">=</span> carModel<span class="op">;</span></span>
-<span id="cb4-9"><a href=""></a>        year <span class="op">=</span> carYear<span class="op">;</span></span>
-<span id="cb4-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace the call:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Car c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Car</span><span class="op">(</span><span class="st">"Civic"</span><span class="op">,</span> <span class="dv">2024</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>After construction, <code>model</code> is <code>"Civic"</code> and <code>year</code> is <code>2024</code>.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="student-class">Student Class</h3>
-<p>Complete the class with a constructor.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Student</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> gradeLevel<span class="op">;</span></span>
-<span id="cb6-5"><a href=""></a>    <span class="kw">private</span> <span class="dt">double</span> gpa<span class="op">;</span></span>
-<span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> studentName<span class="op">,</span> <span class="dt">int</span> studentGrade<span class="op">,</span> <span class="dt">double</span> studentGpa<span class="op">)</span></span>
-<span id="cb6-8"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-9"><a href=""></a>        name <span class="op">=</span> studentName<span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>        gradeLevel <span class="op">=</span> studentGrade<span class="op">;</span></span>
-<span id="cb6-11"><a href=""></a>        gpa <span class="op">=</span> studentGpa<span class="op">;</span></span>
-<span id="cb6-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-13"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then create two <code>Student</code> objects with different data.</p>
-</section>
-<section id="community-class-extension" class="slide level2">
-<h2>Community Class Extension</h2>
-<h3 id="continue-your-design">Continue your design</h3>
-<p>Choose one class from the community design task in Topic 3.3.</p>
-<p>Add:</p>
-<div class="tight-list">
-<ul>
-<li>two private instance variables</li>
-<li>one constructor with parameters</li>
-<li>assignments from parameters to instance variables</li>
-</ul>
-</div>
-<p>The constructor should make every new object start in a meaningful state.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>identify a constructor by name and lack of return type</li>
-<li>explain that constructors run when <code>new</code> creates an object</li>
-<li>map constructor arguments to parameter variables</li>
-<li>assign parameter values into instance variables</li>
-<li>explain why constructors should initialize all important object state</li>
+<li>identify constructor calls with <code>new ClassName(arguments)</code></li>
+<li>state that constructors have the same name as the class and no return type</li>
+<li>explain constructor parameters as holders for arguments</li>
+<li>define object state and valid state</li>
+<li>list default constructor values for primitive and reference types</li>
+<li>explain why Java does not generate the default constructor after you write one</li>
+<li>identify overloaded constructors as multiple constructors with different argument options</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.4 Part 1 complete</h3>
+<p>Next: Fraction and Car constructor exercises.</p>
 
 </section>
     </div>

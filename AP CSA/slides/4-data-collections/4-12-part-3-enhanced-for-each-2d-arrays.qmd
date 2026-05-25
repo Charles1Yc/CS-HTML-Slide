@@ -1,0 +1,132 @@
+---
+title: "4.12 Enhanced For-Each Loops for 2D Arrays"
+subtitle: "2D Array Traversals"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Enhanced For-Each Loop for 2D Arrays
+
+### Arrays of arrays
+
+Since 2D arrays are really arrays of arrays, you can also use a nested enhanced `for` loop to loop through all elements in an array.
+
+Enhanced `for` loops are simpler to use because you do not have to use the indices and the brackets.
+
+You can only use them if you are not going to change the values in an array of primitive types.
+
+The variable `val` below will not change the original array.
+
+## Nested Enhanced `for` Pattern
+
+### Source pattern
+
+```java
+String[][] array;
+// Nested for-each loops that traverse a 2D String array
+for (String[] innerArray : array)
+{
+   for (String val : innerArray)
+   {
+       System.out.println(val);
+   }
+}
+```
+
+## Memorize This Pattern
+
+### Outer row, inner element
+
+The outer loop of a nested enhanced `for` loop used to traverse a 2D array traverses the rows.
+
+Therefore, the enhanced `for` loop variable must be the type of each row, which is a 1D array.
+
+In the source example, that type is `String[] innerArray`.
+
+The inner loop traverses a single row.
+
+Therefore, the inner enhanced `for` loop variable must be the same type as the elements stored in the 1D array.
+
+## Enhanced `for` Limitation
+
+### Does not change primitive array values
+
+It is important to remember the limitations of enhanced `for` loops.
+
+They cannot change the array.
+
+Assigning a new value to the enhanced `for` loop variable, such as `val`, does not change the value stored in the array.
+
+## Coding Exercise
+
+### `activecode:: getAvgForEach`
+
+Nested for-each loops demo.
+
+Trace through the code and check how the outer loop visits rows and the inner loop visits values inside each row.
+
+## Average Source Code
+
+::: {.code-scroll}
+```java
+public class Average
+{
+
+    public static double getAvg(int[][] a)
+    {
+        double total = 0;
+        for (int[] innerArray : a)
+        {
+            for (int val : innerArray)
+            {
+                total = total + val;
+            }
+        }
+        return total / (a.length * a[0].length);
+    }
+
+    public static void main(String[] args)
+    {
+        int[][] theArray = { {80, 90, 70}, {20, 80, 75}};
+        System.out.println(getAvg(theArray));
+    }
+}
+```
+:::
+
+## Average Test Target
+
+### Runestone expected output
+
+The output from `main` should be:
+
+```text
+69.16666666666667
+```
+
+The calculation still divides by `a.length * a[0].length`.
+
+## Classroom Check
+
+### A complete answer should include
+
+- identify the outer enhanced `for` variable as a 1D array row
+- identify the inner enhanced `for` variable as one element in that row
+- match enhanced `for` variable types to the array structure
+- explain why assigning to the loop variable does not change a primitive array element
+- trace `getAvgForEach` to its expected output
+
+## End
+
+### 4.12 Enhanced For-Each Loops for 2D Arrays
+
+Next: 2D arrays of objects and Picture Lab.

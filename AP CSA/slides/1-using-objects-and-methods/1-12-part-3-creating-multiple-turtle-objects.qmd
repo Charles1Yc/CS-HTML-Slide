@@ -1,0 +1,126 @@
+---
+title: "1.12 Objects: Instances of Classes"
+subtitle: "Part 3: Creating Multiple Turtle Objects"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Creating Turtle Objects
+
+### Many objects of one class type
+
+When you write a class like the `Turtle` class, you can create many objects of that class type.
+
+In the code below, two turtle objects are created: `yertle` and `myrtle`.
+
+You can name your turtle and add a line in the `main` method to make it move.
+
+## Object Creation Pattern
+
+### Declare and create a new object
+
+To create or declare a new object, write:
+
+```java
+// ClassName variableName = new ClassName(arguments);
+Turtle yourTurtleName = new Turtle(habitat);
+yourTurtlename.forward();
+```
+
+The class name is `Turtle`, and the variable name is the name you choose for a particular object.
+
+## Coding Exercise
+
+### `activecode:: TurtleTest3`
+
+Can you add another turtle object to the code below?
+
+The current code creates:
+
+::: {.tight-list}
+- a `World` object called `habitat`
+- a `Turtle` object called `yertle`
+- a `Turtle` object called `myrtle`
+:::
+
+Add a third turtle object created from the same `Turtle` class.
+
+## Starter Code
+
+### `TurtleTest3`
+
+::: {.code-scroll}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTest3
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+        Turtle myrtle = new Turtle(habitat);
+        // TODO: Add another Turtle object.
+
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward();
+
+        myrtle.turnRight();
+        myrtle.forward();
+
+        habitat.show(true);
+    }
+}
+```
+:::
+
+## Test Requirement
+
+### Preserved Runestone check
+
+Runestone checks the code for:
+
+```java
+new Turtle(habitat)
+```
+
+## Test Requirement
+
+### Expected count
+
+The test expects at least:
+
+```text
+3+ Turtles
+```
+
+That means the code should contain `new Turtle(habitat)` at least three times.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use the pattern `ClassName variableName = new ClassName(arguments)`
+- create a new `Turtle` object with a unique variable name
+- pass `habitat` to the `Turtle` constructor
+- leave the existing `yertle` and `myrtle` objects intact
+- understand that all three objects are instances of the `Turtle` class
+:::
+
+## End
+
+### 1.12 Part 3 complete
+
+Part 4 continues with inheritance vocabulary and drawing a 7.

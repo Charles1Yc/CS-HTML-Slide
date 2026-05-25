@@ -1,0 +1,184 @@
+---
+title: "3.4 Student and Community Constructors"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Student Class
+
+Work in pairs for this challenge to create a `Student` class with constructors.
+
+First, brainstorm in pairs to do the **Object-Oriented Design** for a `Student` class.
+
+What data should we store about students?
+
+Come up with at least four different instance variables and their data types.
+
+## Student Requirements
+
+### Constructor, print, and main
+
+Write a `Student` class that has:
+
+::: {.tight-list}
+- four instance variables
+- a constructor with four parameters to set all of the instance variables
+- a `print()` method that uses `System.out.println` to print all instance variables
+- a `main` method that constructs at least two `Student` objects using the constructor with different values
+- calls to their `print()` methods
+:::
+
+## Active Code
+
+### `activecode:: challenge-Student-class`
+
+Create a class `Student` with four instance variables, a constructor, and a `print` method.
+
+Write a `main` method that creates two `Student` objects with the constructor and calls their `print()` method.
+
+## Student Starter
+
+::: {.code-scroll}
+```java
+/**
+ * class Student with 4 instance variables, a constructor, a print method, and a
+ * main method to test them.
+ */
+public class Student
+{
+    // Write 4 instance variables
+
+    // Write a constructor with 4 parameters to initialize all of the instance
+    // variables
+
+    // Write a print method that prints all the instance variables
+    public void print()
+    {
+
+    }
+
+    // main method
+    public static void main(String[] args)
+    {
+        // Construct 2 Student objects using the constructor with different values
+
+        // call their print() methods
+
+    }
+}
+```
+:::
+
+## Student Test Targets
+
+### Runestone checks
+
+The Runestone tests check:
+
+::: {.tight-list}
+- two constructor calls using `= new Student(`
+- one `public Student(` constructor
+- two `.print()` calls
+- four private instance variables
+:::
+
+## Design a Class for Your Community
+
+### Continue from lesson 3.3
+
+In the last lesson, you came up with a class of your own choice relevant to you or your community.
+
+In this lesson, you will add a constructor to this class.
+
+## Community Challenge Steps
+
+### Constructor extension
+
+::: {.tight-list}
+- Consult your completed worksheet or your code from lesson 3.3 for the class name and three instance variables.
+- Copy them into the active code exercise.
+- Add a constructor with three parameters to set all of the instance variables.
+- Write a `print()` method that uses `System.out.println` to print all instance variables.
+- Write a `main` method that constructs at least two objects of your class using the constructor and then calls their `print()` methods.
+:::
+
+## Community Active Code
+
+### `activecode:: community-challenge2`
+
+Copy your class with its three instance variables from the previous community challenge.
+
+Add a constructor with three parameters to set all of the instance variables to the given parameters.
+
+Write a `print()` method and a `main` method that constructs at least two objects and calls their `print()` methods.
+
+## Community Starter
+
+::: {.code-scroll}
+```java
+public class          // Add your class name here!
+{
+    // 1. copy in your instance variables for class from the last lesson
+
+    // 2. Add a constructor with 3 parameters to set all of the instance variables to the given parameters.
+
+
+    // 3. Write a print() method that uses System.out.println to print out all the instance variables.
+
+    // 4. Write a main method that constructs at least 2 objects of your class
+    // using the constructor and then calls their print() methods.
+    public static void main(String[] args)
+    {
+       // Construct 2 objects of your class to test the constructors
+
+
+       // call the objects print() methods
+
+    }
+}
+```
+:::
+
+## Community Test Targets
+
+### Runestone checks
+
+The Runestone tests check:
+
+::: {.tight-list}
+- at least three private instance variables
+- a constructor with three parameters
+- `print` output longer than 15 characters
+- `main` output with at least three lines of text
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- design four Student instance variables before writing the constructor
+- write one `Student` constructor with four parameters
+- assign every constructor parameter into an instance variable
+- construct two Student objects and call `print()` twice
+- carry forward the community class name and three instance variables from Topic 3.3
+- add a three-parameter constructor and print/main methods to the community class
+:::
+
+## End
+
+### 3.4 complete
+
+Next topic: 3.5 Methods: How to Write Them.

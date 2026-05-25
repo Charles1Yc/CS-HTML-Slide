@@ -62,7 +62,7 @@ Merging `[3, 8]` and `[1, 5]`:
 | 8 | 5 | `[1, 3, 5]` |
 | 8 | empty | `[1, 3, 5, 8]` |
 
-## Full Code Shape {.fit-small}
+## Merge Sort Source Code {.fit-small}
 
 ### Recursive structure
 
@@ -96,7 +96,7 @@ Group tasks:
 
 ## Classroom Check
 
-### A strong answer should...
+### A strong answer should include
 
 ::: {.tight-list}
 - explain merge sort as divide, sort, and merge

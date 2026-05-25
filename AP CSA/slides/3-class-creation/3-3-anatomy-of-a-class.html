@@ -210,172 +210,220 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="a-class-is-a-blueprint-for-objects">A class is a blueprint for objects</h3>
-<p>In Java, a <span class="term">class</span> defines what objects of that type store and what they can do.</p>
-<p>The core parts are:</p>
-<div class="tight-list">
-<ul>
-<li>instance variables: object data</li>
-<li>constructors: object initialization</li>
-<li>methods: object behaviors</li>
-</ul>
-</div>
+<section id="anatomy-of-a-java-class" class="slide level2">
+<h2>Anatomy of a Java Class</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p>In Unit 1, we learned to use <strong>classes</strong> and <strong>objects</strong> that are built-in to Java or written by other programmers.</p>
+<p>In this unit, you will learn to write your own classes and make your own objects.</p>
+</section>
+<section id="class-and-instance" class="slide level2">
+<h2>Class and Instance</h2>
+<h3 id="blueprint-and-objects">Blueprint and objects</h3>
+<p>Remember that a <strong>class</strong> in Java defines a blueprint for creating objects.</p>
+<p>When you create <strong>objects</strong>, you create new <strong>instances</strong> (实例) of that class.</p>
+<p>What you can do with those instances is determined by what methods are defined in the class.</p>
+</section>
+<section id="unit-1-review" class="slide level2">
+<h2>Unit 1 Review</h2>
+<h3 id="objects-created-from-classes">Objects created from classes</h3>
+<p>For example, we created <code>yertle</code> and <code>myrtle</code>, two <code>Turtle</code> variables, and assigned them references to objects created from the class <code>Turtle</code>.</p>
+<p>We also used instances of Java’s <code>String</code> class to assign values to different <code>String</code> variables.</p>
 </section>
 <section id="parts-of-a-class" class="slide level2">
 <h2>Parts of a Class</h2>
-<h3 id="read-the-class-body-by-role">Read the class body by role</h3>
-<div class="code-scroll compact">
+<h3 id="class-definition-and-body">Class definition and body</h3>
+<p>Most classes you write will have the keyword <code>public</code> before them, though it is not required.</p>
+<p>The class definition itself always starts with the word <code>class</code> followed by the name of the class.</p>
+<p>The rest of the class, called the <strong>body</strong> (类体), is defined inside a pair of <code>{}</code>.</p>
+</section>
+<section id="person-skeleton" class="slide level2">
+<h2>Person Skeleton</h2>
+<h3 id="basic-class-shape">Basic class shape</h3>
+<p>Since we’re talking about anatomy, let’s create a class called <code>Person</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
-<span id="cb1-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> phoneNumber<span class="op">;</span></span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initialName<span class="op">,</span> <span class="bu">String</span> initialEmail<span class="op">,</span> <span class="bu">String</span> initialPhoneNumber<span class="op">)</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-9"><a href=""></a>        name <span class="op">=</span> initialName<span class="op">;</span></span>
-<span id="cb1-10"><a href=""></a>        email <span class="op">=</span> initialEmail<span class="op">;</span></span>
-<span id="cb1-11"><a href=""></a>        phoneNumber <span class="op">=</span> initialPhoneNumber<span class="op">;</span></span>
-<span id="cb1-12"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-13"><a href=""></a></span>
-<span id="cb1-14"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
-<span id="cb1-15"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-16"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb1-17"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>email<span class="op">);</span></span>
-<span id="cb1-18"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>phoneNumber<span class="op">);</span></span>
-<span id="cb1-19"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-20"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href=""></a>    <span class="co">// define class here - also called the "body" of the class</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Classes are almost always named with capitalized names, though this is a matter of style, not a rule of the language.</p>
+</section>
+<section id="creating-person-objects" class="slide level2">
+<h2>Creating Person Objects</h2>
+<h3 id="declaration-and-construction">Declaration and construction</h3>
+<p>You can create instances of the <code>Person</code> class with <code>new</code> as in <code>new Person()</code>.</p>
+<p>You can declare variables that can hold a reference to a <code>Person</code> object with <code>Person variableName</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>Person ada <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">();</span></span>
+<span id="cb2-2"><a href=""></a>Person charles <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="class-body" class="slide level2">
+<h2>Class Body</h2>
+<h3 id="attributes-and-behaviors">Attributes and behaviors</h3>
+<p>So what makes up the body of the class, the stuff between the <code>{}</code>?</p>
+<p>Remember that objects have both <strong>attributes</strong> and <strong>behaviors</strong>.</p>
+<p>These correspond to <strong>instance variables</strong> (实例变量) and <strong>methods</strong> (方法) in the class definition.</p>
+</section>
+<section id="instance-variables" class="slide level2">
+<h2>Instance Variables</h2>
+<h3 id="each-instance-has-its-own-data">Each instance has its own data</h3>
+<p>The first things we define in a class are usually the instance variables.</p>
+<p>They are called that because each instance of the class, each object, has its own set of variables that are not shared with other instances.</p>
+<p>This is what allowed <code>yertle</code> and <code>myrtle</code> to be at different positions at the same time.</p>
+</section>
+<section id="constructors" class="slide level2">
+<h2>Constructors</h2>
+<h3 id="initialize-instance-variables">Initialize instance variables</h3>
+<p>The next thing we define in a class is usually its <strong>constructors</strong> (构造器).</p>
+<p>We will talk about writing constructors in more detail in the next section.</p>
+<p>A constructor’s job is to initialize the instance variables when the object is created.</p>
+<p>In this course, constructors are always designated <code>public</code>.</p>
+</section>
+<section id="methods" class="slide level2">
+<h2>Methods</h2>
+<h3 id="behaviors-of-objects">Behaviors of objects</h3>
+<p>The real meat of a class is in the <strong>methods</strong>, which define the behaviors of the objects of that class.</p>
+<p>Most methods either do things, like the <code>Turtle</code> methods that moved the turtle on the screen, or return values like <code>getXPos</code> and <code>getYPos</code> on <code>Turtle</code>.</p>
+</section>
+<section id="method-calls-use-object-data" class="slide level2">
+<h2>Method Calls Use Object Data</h2>
+<h3 id="same-method-different-object">Same method, different object</h3>
+<p>The methods of the class share access to the object’s instance variables.</p>
+<p>When a method is called on an object, it uses the instance variables for that object.</p>
+<p>For example, in the <code>Turtle</code> class, the <code>forward</code> method changes an instance variable <code>xPos</code>.</p>
+</section>
+<section id="three-main-features" class="slide level2">
+<h2>Three Main Features</h2>
+<h3 id="class-anatomy">Class anatomy</h3>
+<p>Putting it all together, the three main anatomical features of a class are:</p>
+<div class="tight-list">
+<ul>
+<li><strong>instance variables</strong>, which hold values associated with each object</li>
+<li><strong>constructors</strong>, whose job is to initialize the instance variables</li>
+<li><strong>methods</strong>, which contain the code that gives the objects their behavior</li>
+</ul>
+</div>
+</section>
+<section id="person-class-layout" class="slide level2">
+<h2>Person Class Layout</h2>
+<h3 id="skeleton-with-roles">Skeleton with roles</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a>    <span class="co">// constructors</span></span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>    <span class="co">// methods</span></span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-main-method" class="slide level2">
+<h2>The Main Method</h2>
+<h3 id="testing-or-program-entry-point">Testing or program entry point</h3>
+<p>Any Java class can have a <code>main</code> method.</p>
+<p>The <code>main</code> method can be used to run that class as a program:</p>
+<div class="tight-list">
+<ul>
+<li>to test that one class</li>
+<li>sometimes as the entry point to a whole program made up of many classes and objects</li>
+</ul>
 </div>
 </section>
 <section id="designing-a-class" class="slide level2">
 <h2>Designing a Class</h2>
-<h3 id="choose-data-based-on-the-problem">Choose data based on the problem</h3>
-<p>The same real-world object can be modeled differently in different programs.</p>
-<div class="tight-list">
-<ul>
-<li>address book: <code>name</code>, <code>email</code>, <code>phoneNumber</code></li>
-<li>school system: <code>studentId</code>, <code>gradeLevel</code>, <code>gpa</code></li>
-<li>game: <code>health</code>, <code>location</code>, <code>score</code></li>
-</ul>
+<h3 id="what-data-does-it-represent">What data does it represent?</h3>
+<p>Now that we know what the skeleton of a class looks like and the elements that make up the body of the class, we are ready to create our own class.</p>
+<p>One important question we have to ask when designing a class is:</p>
+<p><strong>What data does it represent?</strong></p>
+</section>
+<section id="person-design" class="slide level2">
+<h2>Person Design</h2>
+<h3 id="data-depends-on-the-problem">Data depends on the problem</h3>
+<p>In one program, perhaps an address book, we might want to know the person’s name, phone number, and email.</p>
+<p>In another program, such as a medical application, we might need to know their vital signs such as blood pressure, temperature, and pulse rate.</p>
+<p>For now, let’s go with the address book example.</p>
+</section>
+<section id="active-code" class="slide level2">
+<h2>Active Code</h2>
+<h3 id="activecode-personclass"><code>activecode:: PersonClass</code></h3>
+<p>The following <code>Person</code> class keeps track of the name, email, and phone number of a person.</p>
+<p>Try changing the <code>Person p2</code> object in the <code>main</code> method to your name.</p>
+<p>Use the code as a trace example: execution always starts in the <code>main</code> method.</p>
+</section>
+<section id="personclass-full-code" class="slide level2">
+<h2>PersonClass Full Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
+<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="co">// instance variables</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> phoneNumber<span class="op">;</span></span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a>    <span class="co">// constructor: construct a Person copying in the data into the instance</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="co">// variables</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">,</span> <span class="bu">String</span> initPhone<span class="op">)</span></span>
+<span id="cb4-11"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-12"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb4-13"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb4-14"><a href=""></a>        phoneNumber <span class="op">=</span> initPhone<span class="op">;</span></span>
+<span id="cb4-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-16"><a href=""></a></span>
+<span id="cb4-17"><a href=""></a>    <span class="co">// Print all the data for a person</span></span>
+<span id="cb4-18"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb4-19"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-20"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Name: "</span> <span class="op">+</span> name<span class="op">);</span></span>
+<span id="cb4-21"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Email: "</span> <span class="op">+</span> email<span class="op">);</span></span>
+<span id="cb4-22"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Phone Number: "</span> <span class="op">+</span> phoneNumber<span class="op">);</span></span>
+<span id="cb4-23"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-24"><a href=""></a></span>
+<span id="cb4-25"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb4-26"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-27"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-28"><a href=""></a>        <span class="co">// call the constructor to create a new person</span></span>
+<span id="cb4-29"><a href=""></a>        Person p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Sana"</span><span class="op">,</span> <span class="st">"sana@gmail.com"</span><span class="op">,</span> <span class="st">"123-456-7890"</span><span class="op">);</span></span>
+<span id="cb4-30"><a href=""></a>        <span class="co">// call p1's print method</span></span>
+<span id="cb4-31"><a href=""></a>        p1<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
+<span id="cb4-32"><a href=""></a>        Person p2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Person</span><span class="op">(</span><span class="st">"Jean"</span><span class="op">,</span> <span class="st">"jean@gmail.com"</span><span class="op">,</span> <span class="st">"404 899-9955"</span><span class="op">);</span></span>
+<span id="cb4-33"><a href=""></a>        p2<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span>
+<span id="cb4-34"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-35"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Good design stores the information the program actually needs.</p>
 </section>
-<section id="data-encapsulation" class="slide level2">
-<h2>Data Encapsulation</h2>
-<h3 id="keep-instance-variables-private">Keep instance variables private</h3>
-<p><span class="term">Data encapsulation</span> (数据封装) means protecting an object’s internal state.</p>
-<div class="compare-grid">
-<div class="soft-box">
-<p><strong><code>private</code> instance variables</strong></p>
-<ul>
-<li>accessible inside the class</li>
-<li>protected from direct outside changes</li>
-<li>standard AP CSA class design</li>
-</ul>
-</div>
-<div class="soft-box">
-<p><strong><code>public</code> constructors and methods</strong></p>
-<ul>
-<li>used by other classes</li>
-<li>form the public interface</li>
-<li>can validate or control changes</li>
-</ul>
-</div>
-</div>
+<section id="trace-focus" class="slide level2">
+<h2>Trace Focus</h2>
+<h3 id="main-constructor-and-print"><code>main</code>, constructor, and <code>print</code></h3>
+<p>When <code>p1.print()</code> is called, the code defined in the <code>print</code> method runs.</p>
+<p>When <code>print</code> gets the values of <code>name</code>, <code>email</code>, and <code>phoneNumber</code>, it gets the specific values set by the constructor for that object.</p>
+<p>Repeat the trace for <code>p2.print()</code>.</p>
 </section>
-<section id="instance-variables" class="slide level2">
-<h2>Instance Variables</h2>
-<h3 id="each-object-has-its-own-data">Each object has its own data</h3>
-
-<img data-src="../../assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Person class and separate object data</p><p>Two <code>Person</code> objects can have different names and emails because each object has its own copy of the instance variables.</p>
-</section>
-<section id="identify-task" class="slide level2">
-<h2>Identify Task</h2>
-<h3 id="find-the-instance-variables">Find the instance variables</h3>
-<p>In this class, which lines declare instance variables?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Pet</span>
-<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> age<span class="op">;</span></span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Pet</span><span class="op">(</span><span class="bu">String</span> petName<span class="op">,</span> <span class="dt">int</span> petAge<span class="op">)</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-8"><a href=""></a>        name <span class="op">=</span> petName<span class="op">;</span></span>
-<span id="cb2-9"><a href=""></a>        age <span class="op">=</span> petAge<span class="op">;</span></span>
-<span id="cb2-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>private String name;</code> and <code>private int age;</code>.</p>
-</section>
-<section id="instance-methods" class="slide level2">
-<h2>Instance Methods</h2>
-<h3 id="methods-act-on-one-specific-object">Methods act on one specific object</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>email<span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>phoneNumber<span class="op">);</span></span>
-<span id="cb3-6"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>An instance method is called on an object:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>p1<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It can use that object’s instance variables directly.</p>
-</section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="add-a-print-method">Add a print method</h3>
-<p>Add a <code>print</code> method to the class.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Person</span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a>    <span class="kw">public</span> <span class="fu">Person</span><span class="op">(</span><span class="bu">String</span> initialName<span class="op">)</span></span>
-<span id="cb5-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-7"><a href=""></a>        name <span class="op">=</span> initialName<span class="op">;</span></span>
-<span id="cb5-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-9"><a href=""></a></span>
-<span id="cb5-10"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
-<span id="cb5-11"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name<span class="op">);</span></span>
-<span id="cb5-13"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then call it with <code>new Person("Ada").print();</code>.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2 fit-small image-fit">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="virtual-pet-class">Virtual Pet Class</h3>
-
-<img data-src="../../assets/3-class-creation/3-3-anatomy-of-a-class/virtualpet.jpg" style="width:28.0%" class="r-stretch quarto-figure-center"><p class="caption">Virtual pet prompt</p><p>Starter design:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> VirtualPet</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> hunger<span class="op">;</span></span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">VirtualPet</span><span class="op">(</span><span class="bu">String</span> petName<span class="op">)</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-8"><a href=""></a>        name <span class="op">=</span> petName<span class="op">;</span></span>
-<span id="cb6-9"><a href=""></a>        hunger <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add at least one method that changes or prints the pet’s state.</p>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="runestone-test-target">Runestone test target</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Name: Sana</span>
+<span id="cb5-2"><a href=""></a>Email: sana@gmail.com</span>
+<span id="cb5-3"><a href=""></a>Phone Number: 123-456-7890</span>
+<span id="cb5-4"><a href=""></a>Name: Jean</span>
+<span id="cb5-5"><a href=""></a>Email: jean@gmail.com</span>
+<span id="cb5-6"><a href=""></a>Phone Number: 404 899-9955</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The Runestone test checks the expected output from <code>main</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>identify the roles of instance variables, constructors, and methods</li>
-<li>explain why instance variables are usually <code>private</code></li>
-<li>explain that each object has its own copy of instance data</li>
-<li>distinguish class design from object creation</li>
-<li>add a simple instance method that uses instance variables</li>
+<li>define a class as a blueprint for creating objects</li>
+<li>explain that objects are instances of a class</li>
+<li>identify the class body inside <code>{}</code> braces</li>
+<li>name the three main class features: instance variables, constructors, and methods</li>
+<li>explain that a method call uses the instance variables for the object it is called on</li>
+<li>trace that execution starts in <code>main</code></li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">3.3 Part 1 complete</h3>
+<p>Next: data encapsulation and instance variables.</p>
 
 </section>
     </div>

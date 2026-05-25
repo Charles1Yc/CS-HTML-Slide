@@ -1,6 +1,6 @@
 ---
 title: "1.14 Calling Instance Methods"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Class Methods, Instance Methods, and Null References"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,339 +14,237 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Calling Instance Methods
 
-### Objects do work through instance methods
+### Topic intro
 
-An <span class="term">instance method</span> (实例方法) belongs to an object. Calling it can ask the object for information or tell the object to change its state.
+In object-oriented programming, **methods** define the behavior and actions that an object can perform.
+
+For example, `Turtle` objects can go forward or turn left using method calls like `yertle.forward()` and `yertle.turnRight()` to change its position.
+
+These methods are sometimes called **instance methods** (实例方法) or **object methods** because they are called using an instance or object of the class.
+
+## Class Methods vs. Instance Methods
+
+### Class method calls
+
+In lessons 1.9 and 1.10, we learned how to call **class methods** (also called **static methods**).
+
+Class methods are called using the class name followed by the dot (`.`) operator and the method name.
 
 ```java
-Turtle yertle = new Turtle(world);
-yertle.forward();
-yertle.turnRight();
+Math.sqrt(25);
 ```
 
-The object before the dot is the <span class="term">object receiver</span>: it receives the method call.
+This calls the `sqrt` method in the `Math` class to find the square root of `25`.
 
-## Static vs Instance
+## Class Methods vs. Instance Methods
 
-### Class methods and object methods have different receivers
+### Instance method calls
 
-![Calling static versus instance methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png){fig-align="center" width="72%"}
+Class methods use the keyword `static` in their method signature. They do not access or change the attributes of an object.
 
-::: {.tight-list}
-- A static method is called on the class: `Math.sqrt(25)`.
-- An instance method is called on an object: `yertle.forward()`.
-- Instance methods can use or change the object's attribute values.
-:::
+In this lesson, we will learn more about **instance methods**, which are always called using an object of the class.
+
+They are not static methods. They access and change the attributes of the object they are called on.
+
+```java
+yertle.forward();
+```
+
+## Static vs. Instance Flowchart
+
+### Receiver decides the call style
+
+Static methods are called using the class name, for example, `Math.sqrt(25);`.
+
+Instance methods are called using an object of the class, for example, `yertle.forward();`.
+
+Traditionally, class names are capitalized, and object variables are lowercase.
+
+![Calling static vs. instance methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png){fig-align="center" width="58%"}
 
 ## Method Signatures
 
-### Documentation tells you what can be called
+### Reading a class definition
 
-![Student class method signatures](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png){fig-align="center" width="58%"}
+The **method signature** defines the method's name and the number and types of parameters it takes.
 
-Example signatures:
+In a class definition or in documentation of a library, instance methods are usually defined after the instance variables (attributes) and constructors in a class.
+
+Notice that the methods do not use the keyword `static`. They are instance methods that are called using an object of the class and can access and change the object's attributes.
+
+## Student Class Diagram
+
+### Methods after constructors
+
+![Student class showing instance variables, constructors, and methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png){fig-align="center" width="64%"}
+
+## Check Your Understanding
+
+### `clickablearea:: student_methods`
+
+Click on the method headers (signatures) in the following class. Do not click on the constructors.
+
+```java
+public class Student {
+
+    private String name;
+    private String email;
+
+    public Student(String initName, String intEmail)
+    {
+        name = initName;
+        email = initEmail;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void print()
+    {
+        System.out.println(name + ":" + email);
+    }
+}
+```
+
+## Check Your Understanding
+
+### Answer reasoning
+
+Correct method headers:
 
 ```java
 public String getName()
 public void print()
 ```
 
-To call an instance method from another class, use an object variable, a dot, and the method name.
+Methods follow the constructors. The method header is the first line of a method.
 
-## Calling Instance Methods
+Do not click the class header, instance variables, constructor header, braces, assignment statements, return statement, or print statement.
 
-### Use `object.methodName(arguments)`
+## Method Calls
 
-![Calling methods from another class](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png){fig-align="center" width="68%"}
+### `object.methodName()`
 
-```java
-Student s = new Student("Ada", "Lovelace", 11);
-String name = s.getName();
-s.print();
-```
-
-The method call must match the method signature's name, return type, and parameter list.
-
-## Runtime Error Check
-
-### Do not call methods on `null`
-
-```java
-World habitat = new World(300, 300);
-Turtle yertle = null;
-yertle.forward();
-```
-
-This code throws a <span class="term">NullPointerException</span> because `yertle` does not refer to a turtle object.
-
-Fix:
-
-```java
-Turtle yertle = new Turtle(habitat);
-yertle.forward();
-```
-
-## Calling Flow
-
-### Control moves to the method and returns
-
-![Flow chart for calling methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png){fig-align="center" width="62%"}
-
-When a method is called:
-
-::: {.tight-list}
-- Java evaluates the object receiver.
-- Java runs the matching method.
-- When the method finishes, control returns to the next statement after the call.
-:::
-
-## Methods with Arguments
-
-### Arguments are copied into parameters
-
-![Method parameters and arguments](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png){fig-align="center" width="62%"}
-
-```java
-yertle.forward(200);
-yertle.turn(30);
-```
-
-`200` and `30` are <span class="term">arguments</span> in the calls. The method's parameter variables receive copies of those values.
-
-## Vocabulary Check
-
-### Match the term to the code
-
-```java
-yertle.forward(200);
-```
-
-::: {.tight-list}
-- object receiver: `yertle`
-- method name: `forward`
-- argument: `200`
-- full method call: `yertle.forward(200)`
-:::
-
-This vocabulary is also used when reading constructor calls.
-
-## Overloaded Instance Methods
-
-### Same method name, different parameter lists
-
-![Turtle UML method list](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png){fig-align="center" width="58%"}
-
-Examples:
+To use an object's method, you must use the object name and the dot (`.`) operator followed by the method name.
 
 ```java
 yertle.forward();
-yertle.forward(100);
 ```
 
-Java chooses the method whose parameter list matches the arguments.
+This calls `yertle`'s `forward` method to move a turtle object forward `100` pixels.
+
+Object methods work with the **attributes** of the object, such as the direction the turtle is heading or its position.
+
+## Calling Across Classes
+
+### Same class vs. another class
+
+Methods inside the same class can call each other using just `methodName()`.
+
+But to call instance methods in another class or from a `main` method, you must first create an object of that class and then call its methods using `object.methodName()`.
+
+![Calling instance methods from main() or from other methods inside the same class](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png){fig-align="center" width="58%"}
+
+## Method Call Note
+
+### Source note
+
+`method();` is used to call a method within the same class.
+
+`object.method();` is necessary if you are calling the method from the `main` method or from a different class.
+
+Before you call a method from `main` or from outside of the current class, make sure that you have created and initialized an object.
+
+## Null References
+
+### Calling a method on `null`
+
+If you just declare an object reference without setting it to refer to a new object, the value will be `null`, meaning that it doesn't reference an object.
+
+If you call a method on a variable whose value is `null`, you will get a **NullPointerException** error, where a **pointer** is another name for a reference.
 
 ## Code Task
 
-### Draw with turtle methods
+### `activecode:: nullPointerTest`
 
-Start from a simple turtle program and add movement.
+Run the code below to see a `NullPointerException`.
+
+Fix the code by using `new Turtle(habitat)` to create a new `Turtle` object before calling its methods.
+
+Datafile: `turtleClasses.jar`
+
+## Starter Code
+
+### `nullPointerTest`
 
 ```java
 import java.awt.*;
+import java.util.*;
 
-public class TurtleTestMethods1 {
-    public static void main(String[] args) {
-        World world = new World(400, 400);
-        Turtle yertle = new Turtle(world);
+public class NullPointerTest
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = null; // TODO: create a Turtle object for habitat
 
-        yertle.setColor(Color.blue);
-        yertle.forward(100);
-        yertle.turn(90);
-        yertle.forward(100);
+        // yertle is null!
+        yertle.forward();
 
-        world.show(true);
+        habitat.show(true);
     }
 }
 ```
 
-Classroom goal: draw a square and a triangle using at least three colors.
+## Test Requirement
 
-## Mixed-Up Code
+### Preserved Runestone check
 
-### Reorder the house drawing
-
-![House target](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png){fig-align="center" width="32%"}
-
-Place these actions in an order that draws the square walls first and then the red roof.
-
-::: {.tight-list}
-- create `World` and `Turtle`
-- set the turtle color for the wall
-- draw four equal sides with four turns
-- set the turtle color to red
-- turn and draw the two roof sides
-- show the world
-:::
-
-## Void and Non-Void Methods
-
-### Some methods perform actions, some return values
+Runestone checks that the code contains:
 
 ```java
-yertle.forward(100);        // void: moves the turtle
-int x = yertle.getXPos();   // returns an int
-int y = yertle.getYPos();   // returns an int
+new Turtle(habitat)
 ```
 
-::: {.tight-list}
-- A `void` method does not return a value.
-- A non-void method returns a value that can be stored, printed, or used in an expression.
-- Getter methods often return object state.
-:::
+The method call should happen after `yertle` refers to a real `Turtle` object.
 
-## Getter Trace
+## Comparing Method Calls
 
-### Track state before and after movement
+### Three different ways
 
-```java
-World world = new World(300, 300);
-Turtle yertle = new Turtle(world);
+The following flowchart can be used to compare three different ways of calling methods.
 
-System.out.println(yertle.getXPos());
-System.out.println(yertle.getYPos());
+Class (static) methods are called using the class name. Instance methods are called using an object of the class.
 
-yertle.forward(50);
-yertle.turn(90);
+If you are calling the instance method from the `main` method or from another class, you must first create an object of that class and then call its methods using `object.methodName()`.
 
-System.out.println(yertle.getXPos());
-System.out.println(yertle.getYPos());
-```
+## Comparing Method Calls
 
-Trace the values printed before and after the movement.
+### Flowchart
 
-## Debugging Task
+If you are calling the method from within the same class, you can just call the method using `methodName()` which will refer to the current object.
 
-### Store and print a returned value
-
-Broken code:
-
-```java
-int area;
-yertle.getWidth() * getHeight;
-System.out.println("Yertle's area is: ");
-```
-
-Corrected code:
-
-```java
-int area = yertle.getWidth() * yertle.getHeight();
-System.out.println("Yertle's area is: " + area);
-```
-
-If width is `15` and height is `18`, the area is `270`.
-
-## Trace Check
-
-### Method return values in expressions
-
-```java
-Circle c = new Circle(10);
-System.out.println(c.getArea());
-```
-
-If `getArea()` returns `3.14159 * radius * radius`, the output is approximately `314.159`.
-
-Student task: identify which value is the object state and which value is returned by the method.
-
-## Trace Check
-
-### Object state can change before a getter call
-
-```java
-Rectangle r = new Rectangle(10, 15);
-r.resize(5);
-System.out.println(r.getArea());
-```
-
-If `resize(5)` increases the width by `5`, the new dimensions are `15` by `15`.
-
-The printed area is `225`.
-
-## Trace Check
-
-### Follow nested method calls
-
-```java
-public static int square(int x) {
-    return x * x;
-}
-
-public static int divide(int a, int b) {
-    return a / b;
-}
-
-System.out.println(square(2) + divide(6, 2));
-```
-
-Answer: `4 + 3`, so the output is `7`.
-
-## Code Task
-
-### Distance from one turtle to another point
-
-Use the turtle getter methods.
-
-```java
-World world = new World(400, 400);
-Turtle yertle = new Turtle(world);
-
-System.out.println(yertle.getXPos());
-System.out.println(yertle.getYPos());
-System.out.println(yertle.getDistance(0, 0));
-```
-
-Extend the program:
-
-::: {.tight-list}
-- create another turtle
-- move at least one turtle
-- print the distance between the two turtles
-:::
-
-## Groupwork
-
-### Turtle House
-
-Use instance methods to draw a house.
-
-Required method types:
-
-::: {.tight-list}
-- movement: `forward`, `turn`, `moveTo`
-- pen control: `penUp`, `penDown`
-- style: `setColor`
-- getter or distance check: one method that returns a value
-:::
-
-The drawing should use different colors for at least two house parts.
+![Comparing method calls to static and instance methods](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png){fig-align="center" width="64%"}
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- call instance methods with <span class="mark">`object.methodName(arguments)`</span>
-- distinguish class method calls from instance method calls
-- identify object receiver, method name, and arguments
-- avoid method calls on `null`
-- explain overloaded methods by parameter list
-- use returned values from non-void methods correctly
+- define an instance method as a behavior called on an object
+- distinguish `ClassName.methodName()` from `object.methodName()`
+- identify method signatures by method name and parameter list
+- avoid constructor headers when identifying method headers
+- explain why calling a method on `null` causes `NullPointerException`
+- choose `methodName()` only for a method call from within the same class
 :::
 
 ## End
 
-### Return to the course outline
+### 1.14 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Part 2 continues with methods that take arguments.

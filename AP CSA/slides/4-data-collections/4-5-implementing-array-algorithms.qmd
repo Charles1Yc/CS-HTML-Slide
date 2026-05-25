@@ -1,6 +1,6 @@
 ---
-title: "4.5 Implementing Array Algorithms"
-subtitle: "Data Collections"
+title: "4.5 Sum, Average, Min, Max, and Search"
+subtitle: "Implementing Array Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,176 +14,420 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Implementing Array Algorithms
 
-### Arrays reuse familiar algorithm patterns
+### Common algorithms with array traversal
 
-Array algorithms combine traversals with Unit 2 patterns:
+In this lesson, you will study common algorithms using arrays and loops and practice FRQ (Free Response Question) problems.
+
+Common algorithms that utilize array traversal include:
 
 ::: {.tight-list}
-- sum and average
-- min and max
-- search
-- test a property
-- pairs and duplicates
-- rotate and reverse
+- compute a sum or average of array elements
+- determine the minimum or maximum value in an array
+- search for a particular element in the array
+- test properties, pairs, duplicates, shifts, rotations, and reverse order
 :::
 
-## Sum and Average
+## Accumulator Pattern
 
-### Accumulate while traversing
+### Sum and average
+
+The **accumulator pattern** (累加器模式) is an algorithm that iterates through a set of values using a loop and updates an accumulator variable with those values.
+
+For arrays, the accumulator pattern is used to compute the sum or average of the elements in the array.
+
+The average is the sum divided by the number of elements in the array.
+
+## Accumulator Steps
+
+### Four-step pattern
+
+1. Initialize the accumulator variable before the loop.
+2. Loop through the values.
+3. Update the accumulator variable inside the loop.
+4. Print or use the accumulated value when the loop is done.
 
 ```java
-int sum = 0;
-for (int value : values)
+int[] values = {6, 2, 1, 7, 12, 5};
+double sum = 0;
+for (int val : values)
 {
-    sum += value;
+    sum += val;
 }
-double average = (double) sum / values.length;
+double average = sum / values.length;
+System.out.println("Average is " + average);
 ```
 
-Use an enhanced for loop when the index is not needed.
+## Mixed-Up Code
 
-## Mixed-Up Algorithm
+### `parsonsprob:: parsons_array_avg`
 
-### Average of an array
+The following program has the correct code to return the average of the first 3 items in the array `a`, but the code is mixed up.
 
 ```java
-public static double average(int[] values)
+// Block A
+public static double avg3(int[] a)
 {
-    int sum = 0;
-    for (int value : values)
+
+// Block B
+double total = 0;
+
+// Block C
+for (int i = 0; i < a.length && i < 3; i++)
+{
+
+// Block D
+total = total + a[i];
+
+// Block E
+} // end for
+return total / 3;
+
+// Block F
+} // end method
+```
+
+## Correct Order
+
+### Average of first 3 items
+
+```java
+public static double avg3(int[] a)
+{
+    double total = 0;
+    for (int i = 0; i < a.length && i < 3; i++)
     {
-        sum += value;
+        total = total + a[i];
+    } // end for
+    return total / 3;
+} // end method
+```
+
+## Coding Exercise
+
+### `activecode:: enhanced-for-loop-avg`
+
+Here is an object-oriented example that has the array as a private instance variable in the class and provides public methods `sum` and `average` that use enhanced `for` loops.
+
+Try the code below that computes the average of the elements in the array.
+
+Can you add another method to compute the sum of the elements?
+
+## ArrayWorker Starter
+
+::: {.code-scroll}
+```java
+public class ArrayWorker
+{
+    private int[] values;
+
+    public ArrayWorker(int[] theValues)
+    {
+        values = theValues;
     }
-    return (double) sum / values.length;
+
+    public double getSum()
+    {
+         // TODO: Write a loop that computes and returns
+         // the sum of the elements in the array
+
+
+    }
+    public double getAverage()
+    {
+        double total = 0;
+        for (int val : values)
+        {
+            total = total + val;
+        }
+        return total / values.length;
+    }
+
+    public static void main(String[] args)
+    {
+        int[] numArray = {2, 6, 7, 12, 5};
+        ArrayWorker aWorker = new ArrayWorker(numArray);
+        System.out.println(aWorker.getAverage());
+        System.out.println(aWorker.getSum());
+    }
 }
 ```
+:::
 
-Key decisions: initialize before loop, update inside loop, divide after loop.
+## ArrayWorker Test Targets
 
-## Min and Max
+### Runestone checks
 
-### Store the best value seen so far
+Expected output from `main`:
+
+```text
+6.4
+32.0
+```
+
+The test also checks that there are **2 for loops**, so `getSum()` must use a loop.
+
+## Min, Max, Search Algorithms
+
+### Loop with an if statement inside
+
+Searching for the minimum or maximum follows a similar pattern of a loop with an `if` statement inside it.
+
+The pattern is an enhanced `for` loop or an indexed `for` loop with an embedded `if` statement.
+
+Remember that enhanced `for` loops cannot be used to modify primitive values in an array or to return an index.
 
 ```java
-int max = values[0];
-for (int i = 1; i < values.length; i++)
+for (int value : array)
 {
-    if (values[i] > max)
+    if (value < currentBest)
     {
-        max = values[i];
+        currentBest = value;
     }
 }
 ```
 
-Start with an existing element so the algorithm works with negative numbers.
+## Mixed-Up Code
 
-## Search and Early Return
+### `parsonsprob:: parsons_for_each_largest`
 
-### Return when the target is found
+The following method has the correct code to return the largest value in an integer array called `vals`, but the code is mixed up.
 
 ```java
-public static boolean contains(int[] values, int target)
+// Block A
+public int getLargest()
 {
-    for (int value : values)
+
+// Block B
+int largest = vals[0];
+
+// Block C
+for (int item : vals)
+{
+
+// Block D
+if (item > largest)
+{
+
+// Block E
+largest = item;
+
+// Block F
+}  // end if
+
+// Block G
+} // end for
+return largest;
+
+// Block H
+} // end method
+```
+
+## Correct Order
+
+### Largest value
+
+```java
+public int getLargest()
+{
+    int largest = vals[0];
+    for (int item : vals)
     {
-        if (value == target)
+        if (item > largest)
+        {
+            largest = item;
+        }  // end if
+    } // end for
+    return largest;
+} // end method
+```
+
+## Coding Exercise
+
+### `activecode:: minmax`
+
+The code below finds the minimum (smallest element) in an array.
+
+Can you change it to find the maximum element instead?
+
+Can you also compute the average of the elements?
+
+::: {.code-scroll}
+```java
+public class MinMax
+{
+    public static void main(String[] args)
+    {
+        int[] values = {6, 2, 1, 7, 12, 5};
+        int min = values[0]; // initialize min to the first element
+        for (int val : values)
+        {
+            if (val < min) // found a new min!
+            {
+                min = val;
+            }
+        }
+        System.out.println("Min is " + min);
+    }
+}
+```
+:::
+
+## minmax Test Targets
+
+### Runestone checks
+
+After changing the code, the tests expect:
+
+```text
+Max is 12
+Average is 5.5
+```
+
+The test also checks for an `if` statement using:
+
+```java
+if (val >
+```
+
+## Early Return Error
+
+### `activecode:: early_return_error`
+
+Run the following code.
+
+Does it find `7` in the array?
+
+Trace through the code to see why not.
+
+Fix the early return error in the following code.
+
+## FindError Source Code
+
+```java
+public class FindError
+{
+    public static boolean find(int[] array, int target)
+    {
+       for (int val : array)
+       {
+          if (val == target)
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+       }
+       return false;
+   }
+
+    public static void main(String[] args)
+    {
+        int[] values = {6, 2, 1, 7, 12, 5};
+        System.out.println(find(values, 7));
+    }
+}
+```
+
+## FindError Test Targets
+
+### Runestone checks
+
+The fixed code should produce:
+
+```text
+true
+```
+
+The unit test also checks:
+
+```java
+FindError.find(new int[] {-1, 0, 1}, 0)
+```
+
+Expected result:
+
+```text
+true
+```
+
+## Quick Check
+
+### `mchoice:: mcq_array_error1`
+
+Given that `array` is an array of integers and `target` is an integer value, which best describes the conditions under which this code segment will return `false`?
+
+```java
+public boolean find(int[] array, int target)
+{
+    for (int val : array)
+    {
+        if (val == target)
         {
             return true;
+        }
+        else
+        {
+            return false;
         }
     }
     return false;
 }
 ```
 
-The final `return false` belongs after the loop.
+## Answer Reasoning
 
-## Back-to-Front Traversal
+### Return false too early
 
-### Some algorithms move backward
+Correct answer: whenever the first element in `array` is not equal to `target`.
 
-```java
-for (int i = values.length - 1; i >= 0; i--)
-{
-    System.out.println(values[i]);
-}
-```
+The loop returns as soon as checking the first element, whether it is equal to `target` or not.
 
-Backward traversal is useful when shifting, removing, or comparing with earlier elements.
+It needs to check the whole array before returning `false`.
 
-## Test a Property
+## Quick Check
 
-### Check whether all elements satisfy a condition
+### `mchoice:: mcq_array_error2`
+
+Given that `array` is an array of integers and `target` is an integer value, which best describes the conditions under which this code segment will return `true`?
 
 ```java
-public static boolean allOdd(int[] values)
+boolean temp = false;
+for (int val : array)
 {
-    for (int value : values)
-    {
-        if (value % 2 == 0)
-        {
-            return false;
-        }
-    }
-    return true;
+    temp = (target == val);
 }
+return temp;
 ```
 
-One counterexample is enough to return `false`.
+## Answer Reasoning
 
-## Pairs and Duplicates
+### Last value controls the result
 
-### Nested loops compare combinations
+Correct answer: whenever the last element in `array` is equal to `target`.
 
-```java
-for (int i = 0; i < values.length; i++)
-{
-    for (int j = i + 1; j < values.length; j++)
-    {
-        if (values[i] == values[j])
-        {
-            System.out.println("duplicate");
-        }
-    }
-}
-```
+The variable `temp` is assigned on every loop iteration.
 
-The inner loop starts at `i + 1` to avoid comparing an element with itself.
-
-## Reverse an Array
-
-### Swap from both ends
-
-![Swap array values](../../assets/4-data-collections/4-5-implementing-array-algorithms/swap.png){fig-align="center" width="34%"}
-
-```java
-int left = 0;
-int right = values.length - 1;
-while (left < right)
-{
-    int temp = values[left];
-    values[left] = values[right];
-    values[right] = temp;
-    left++;
-    right--;
-}
-```
+The last time through the loop it checks whether the last element is equal to `target`.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- implement sum and average with an accumulator
+- apply the four accumulator pattern steps
+- use `values.length` when computing an average
 - initialize min or max from an existing array element
-- place early returns correctly in search algorithms
-- use nested loops for pairs and duplicate checks
-- reverse an array by swapping values from both ends
+- keep the final `return false` after the loop in a search
+- identify early returns that stop after only the first element
+- explain why assigning `temp` every iteration makes the last element decide the result
 :::
 
 ## End
 
-### Return to the course outline
+### 4.5 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: back-to-front traversal and property tests.

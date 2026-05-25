@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>3.5 Methods: How to Write Them</title>
+  <title>3.5 Setters, Parameters, and Calculated Returns</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,7 +198,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3.5 Methods: How to Write Them</h1>
+  <h1 class="title">3.5 Setters, Parameters, and Calculated Returns</h1>
   <p class="subtitle">Part 3: Setters and Parameters</p>
 
 <div class="quarto-title-authors">
@@ -210,128 +210,334 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="methods-can-change-state-or-calculate-from-inputs">Methods can change state or calculate from inputs</h3>
-<p>This deck focuses on:</p>
-<div class="tight-list">
-<ul>
-<li><span class="term">mutators</span> or setters</li>
-<li>parameters and arguments</li>
-<li>methods that return calculated values</li>
-</ul>
-</div>
-<p>These methods connect class behavior to Unit 1 method signatures and Unit 2 algorithms.</p>
-</section>
 <section id="mutators-setters" class="slide level2">
 <h2>Mutators / Setters</h2>
-<h3 id="a-setter-changes-object-state">A setter changes object state</h3>
-
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Getter and setter comparison</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setGradeLevel</span><span class="op">(</span><span class="dt">int</span> newGradeLevel<span class="op">)</span></span>
+<h3 id="changing-private-instance-variables">Changing private instance variables</h3>
+<p>In complement to accessor/getter methods, if we want to allow code outside the class to change the value of an instance variable, we provide a <strong>mutator method</strong>.</p>
+<p>Everyone actually calls it a <strong>setter</strong>.</p>
+<p>A setter is a <code>void</code> method with a name that starts with <code>set</code> and takes a single argument of the same type as the instance variable to be set.</p>
+</section>
+<section id="setter-effect" class="slide level2">
+<h2>Setter Effect</h2>
+<h3 id="assign-provided-value">Assign provided value</h3>
+<p>The effect of a setter is to assign the provided value to the instance variable.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">class</span> ExampleTemplate</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    gradeLevel <span class="op">=</span> newGradeLevel<span class="op">;</span></span>
-<span id="cb1-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A setter is usually <code>void</code> and takes a parameter with the new value.</p>
+<span id="cb1-3"><a href=""></a>    <span class="co">// Instance variable declaration</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="kw">private</span> typeOfVar varName<span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a></span>
+<span id="cb1-6"><a href=""></a>    <span class="co">// Setter method template</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setVarName</span><span class="op">(</span>typeOfVar newValue<span class="op">)</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-9"><a href=""></a>        varName <span class="op">=</span> newValue<span class="op">;</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="setter-design" class="slide level2">
-<h2>Setter Design</h2>
-<h3 id="do-not-add-setters-automatically">Do not add setters automatically</h3>
-<p>Only write a setter when outside code should be allowed to change that value.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setGpa</span><span class="op">(</span><span class="dt">double</span> newGpa<span class="op">)</span></span>
+<section id="setter-design-caution" class="slide level2">
+<h2>Setter Design Caution</h2>
+<h3 id="do-not-write-every-setter-automatically">Do not write every setter automatically</h3>
+<p>Just as you should not reflexively write a getter for every instance variable, you should think even harder about whether you want to write a setter.</p>
+<p>Not all instance variables are meant to be manipulated directly by code outside the class.</p>
+<p>In general, you should not write a setter until you find a real reason to do so.</p>
+</section>
+<section id="turtle-example" class="slide level2">
+<h2>Turtle Example</h2>
+<h3 id="controlled-movement-instead-of-direct-setters">Controlled movement instead of direct setters</h3>
+<p>The <code>Turtle</code> class provides getters <code>getXPos</code> and <code>getYPos</code>, but it does not provide corresponding setters.</p>
+<p>There are methods that change a <code>Turtle</code>’s position like <code>forward</code> and <code>moveTo</code>.</p>
+<p>They do more than just changing instance variables; they also take care of drawing lines on the screen if the pen is down.</p>
+</section>
+<section id="student-setname" class="slide level2">
+<h2>Student <code>setName</code></h2>
+<h3 id="setter-example-and-call">Setter example and call</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">class</span> Student</span>
 <span id="cb2-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>newGpa <span class="op">&gt;=</span> <span class="fl">0.0</span> <span class="op">&amp;&amp;</span> newGpa <span class="op">&lt;=</span> <span class="fl">4.0</span><span class="op">)</span></span>
-<span id="cb2-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>        gpa <span class="op">=</span> newGpa<span class="op">;</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The method controls how state can change.</p>
+<span id="cb2-3"><a href=""></a>    <span class="co">// Instance variable name</span></span>
+<span id="cb2-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a>    <span class="co">/**</span></span>
+<span id="cb2-7"><a href=""></a>     <span class="co">*</span> setName sets name to newName</span>
+<span id="cb2-8"><a href=""></a>     <span class="co">*</span></span>
+<span id="cb2-9"><a href=""></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="an">newName</span></span>
+<span id="cb2-10"><a href=""></a>     <span class="co">*/</span></span>
+<span id="cb2-11"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> newName<span class="op">)</span></span>
+<span id="cb2-12"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-13"><a href=""></a>        name <span class="op">=</span> newName<span class="op">;</span></span>
+<span id="cb2-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To call a set method, use <code>objectName.setVar(newValue)</code>, for example <code>s.setName("Ayanna");</code>.</p>
 </section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="pick-the-correct-setter-signature">Pick the correct setter signature</h3>
-<p>Which method header best sets an <code>int gradeLevel</code>?</p>
-<div class="tight-list">
-<ul>
-<li>A. <code>public int setGradeLevel()</code></li>
-<li>B. <code>public void setGradeLevel(int newGradeLevel)</code></li>
-<li>C. <code>public String setGradeLevel(String newGradeLevel)</code></li>
-<li>D. <code>private void getGradeLevel(int newGradeLevel)</code></li>
-</ul>
-</div>
-<p>Answer: <mark>B</mark>.</p>
-</section>
-<section id="parameters-and-arguments" class="slide level2">
-<h2>Parameters and Arguments</h2>
-<h3 id="arguments-are-copied-into-parameters">Arguments are copied into parameters</h3>
+<section id="getters-and-setters" class="slide level2 image-fit">
+<h2>Getters and Setters</h2>
+<h3 id="compare-return-and-parameter-roles">Compare return and parameter roles</h3>
 
-<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Arguments become parameters</p><div class="tight-list">
-<ul>
-<li>a <span class="term">parameter</span> is declared in the method header</li>
-<li>an <span class="term">argument</span> is supplied in the method call</li>
-<li>number, order, and type must match the signature</li>
-</ul>
+<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/get-set-comparison.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparison of setters and getters</p><p>Getters return an instance variable’s value and have the same return type as this variable and no parameters.</p>
+<p>Setters have a <code>void</code> return type and take a new value as a parameter to change the value of the instance variable.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-studentobjexample2"><code>activecode:: StudentObjExample2</code></h3>
+<p>Try the <code>Student</code> class below, which has had some setters added.</p>
+<p>Notice that there is no <code>setId</code> method even though there is a <code>getId</code>.</p>
+<p>This is presumably because, while it makes sense for a student to change their name or email, their id should never change.</p>
+</section>
+<section id="studentobjexample2-task" class="slide level2">
+<h2>StudentObjExample2 Task</h2>
+<h3 id="fix-private-access">Fix private access</h3>
+<p>You need to fix one error.</p>
+<p>The <code>main</code> method is in a separate class <code>TesterClass</code> and does not have access to the <code>private</code> instance variables in the <code>Student</code> class.</p>
+<p>Change the <code>main</code> method so that it uses a <code>public</code> setter to change the value instead.</p>
+</section>
+<section id="studentobjexample2-starter" class="slide level2">
+<h2>StudentObjExample2 Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TesterClass</span>
+<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-3"><a href=""></a>    <span class="co">// main method for testing</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-6"><a href=""></a>        Student s1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Skyler"</span><span class="op">,</span> <span class="st">"skyler@sky.com"</span><span class="op">,</span> <span class="dv">123456</span><span class="op">);</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span>
+<span id="cb3-8"><a href=""></a>        s1<span class="op">.</span><span class="fu">setName</span><span class="op">(</span><span class="st">"Skyler 2"</span><span class="op">);</span></span>
+<span id="cb3-9"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: Main doesn't have access to email, use set method!</span></span>
+<span id="cb3-10"><a href=""></a>        s1<span class="op">.</span><span class="fu">email</span> <span class="op">=</span> <span class="st">"skyler2@gmail.com"</span><span class="op">;</span></span>
+<span id="cb3-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span>
+<span id="cb3-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href=""></a><span class="op">}</span></span>
+<span id="cb3-14"><a href=""></a></span>
+<span id="cb3-15"><a href=""></a><span class="kw">class</span> Student</span>
+<span id="cb3-16"><a href=""></a><span class="op">{</span></span>
+<span id="cb3-17"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb3-18"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb3-19"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> id<span class="op">;</span></span>
+<span id="cb3-20"><a href=""></a></span>
+<span id="cb3-21"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> initEmail<span class="op">,</span> <span class="dt">int</span> initId<span class="op">)</span></span>
+<span id="cb3-22"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-23"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb3-24"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb3-25"><a href=""></a>        id <span class="op">=</span> initId<span class="op">;</span></span>
+<span id="cb3-26"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-27"><a href=""></a></span>
+<span id="cb3-28"><a href=""></a>    <span class="co">// Setters</span></span>
+<span id="cb3-29"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> newName<span class="op">)</span></span>
+<span id="cb3-30"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-31"><a href=""></a>        name <span class="op">=</span> newName<span class="op">;</span></span>
+<span id="cb3-32"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-33"><a href=""></a></span>
+<span id="cb3-34"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setEmail</span><span class="op">(</span><span class="bu">String</span> newEmail<span class="op">)</span></span>
+<span id="cb3-35"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-36"><a href=""></a>        email <span class="op">=</span> newEmail<span class="op">;</span></span>
+<span id="cb3-37"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-38"><a href=""></a></span>
+<span id="cb3-39"><a href=""></a>    <span class="co">// Getters</span></span>
+<span id="cb3-40"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb3-41"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-42"><a href=""></a>        <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb3-43"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-44"><a href=""></a></span>
+<span id="cb3-45"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getEmail</span><span class="op">()</span></span>
+<span id="cb3-46"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-47"><a href=""></a>        <span class="cf">return</span> email<span class="op">;</span></span>
+<span id="cb3-48"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-49"><a href=""></a></span>
+<span id="cb3-50"><a href=""></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getId</span><span class="op">()</span></span>
+<span id="cb3-51"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-52"><a href=""></a>        <span class="cf">return</span> id<span class="op">;</span></span>
+<span id="cb3-53"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-54"><a href=""></a></span>
+<span id="cb3-55"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span></span>
+<span id="cb3-56"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-57"><a href=""></a>        <span class="cf">return</span> id <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> email<span class="op">;</span></span>
+<span id="cb3-58"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-59"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="parameter-trace" class="slide level2">
-<h2>Parameter Trace</h2>
-<h3 id="follow-the-value-into-the-method">Follow the value into the method</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setName</span><span class="op">(</span><span class="bu">String</span> newName<span class="op">)</span></span>
-<span id="cb3-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>    name <span class="op">=</span> newName<span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a><span class="op">}</span></span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>student<span class="op">.</span><span class="fu">setName</span><span class="op">(</span><span class="st">"Nora"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace:</p>
+<section id="studentobjexample2-test-targets" class="slide level2">
+<h2>StudentObjExample2 Test Targets</h2>
+<h3 id="code-target">Code target</h3>
+<p>The test checks that the code contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>s1<span class="op">.</span><span class="fu">setEmail</span><span class="op">(</span><span class="st">"skyler2@gmail.com"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="studentobjexample2-expected-output" class="slide level2">
+<h2>StudentObjExample2 Expected Output</h2>
+<h3 id="runestone-output-check">Runestone output check</h3>
+<p>Expected output:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>123456: Skyler, skyler@sky.com</span>
+<span id="cb5-2"><a href=""></a>123456: Skyler 2, skyler2@gmail.com</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="focused-fix" class="slide level2">
+<h2>Focused Fix</h2>
+<h3 id="replace-direct-private-access-with-setter-call">Replace direct private access with setter call</h3>
+<p>The broken line is direct access to a private instance variable: <code>s1.email = "skyler2@gmail.com";</code></p>
+<p>The repair should use the provided public setter: <code>s1.setEmail("skyler2@gmail.com");</code></p>
+</section>
+<section id="check-your-understanding" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="mchoice-setsignature"><code>mchoice:: setSignature</code></h3>
+<p>Consider the class <code>Party</code>, which keeps track of the number of people at the party.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Party</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="co">// number of people at the party</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="kw">private</span> <span class="dt">int</span> numOfPeople<span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a></span>
+<span id="cb6-6"><a href=""></a>    <span class="co">/* Missing header of set method */</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        numOfPeople <span class="op">=</span> people<span class="op">;</span></span>
+<span id="cb6-9"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Which method signature could replace the missing header so the method works as intended?</p>
+</section>
+<section id="setter-signature-options-12" class="slide level2">
+<h2>Setter Signature Options 1/2</h2>
+<h3 id="a-c">A-C</h3>
 <div class="tight-list">
 <ul>
-<li>argument value: <code>"Nora"</code></li>
-<li>parameter variable: <code>newName</code></li>
-<li>assignment: <code>name = newName</code></li>
-<li>object state after call: <code>name</code> stores <code>"Nora"</code></li>
+<li>A. <code>public int getNum(int people)</code></li>
+<li>B. <code>public int setNum()</code></li>
+<li>C. <code>public int setNum(int people)</code></li>
 </ul>
 </div>
 </section>
-<section id="methods-with-calculated-return-values" class="slide level2">
-<h2>Methods with Calculated Return Values</h2>
-<h3 id="a-method-can-use-parameters-and-return-a-result">A method can use parameters and return a result</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">contains</span><span class="op">(</span><span class="bu">String</span> phrase<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">return</span> phrase<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span>target<span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-4"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is not a getter because it does not just return an instance variable. It computes a result from input values.</p>
+<section id="setter-signature-options-22" class="slide level2">
+<h2>Setter Signature Options 2/2</h2>
+<h3 id="d-e">D-E</h3>
+<div class="tight-list">
+<ul>
+<li>D. <code>public void setNum(int people)</code></li>
+<li>E. <code>public int setNumOfPeople(int p)</code></li>
+</ul>
+</div>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="find-a-substring">Find a substring</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> StringFind</span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">containsIgnoreCase</span><span class="op">(</span><span class="bu">String</span> phrase<span class="op">,</span> <span class="bu">String</span> target<span class="op">)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="bu">String</span> lowerPhrase <span class="op">=</span> phrase<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">();</span></span>
-<span id="cb5-6"><a href=""></a>        <span class="bu">String</span> lowerTarget <span class="op">=</span> target<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">();</span></span>
-<span id="cb5-7"><a href=""></a>        <span class="cf">return</span> lowerPhrase<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span>lowerTarget<span class="op">)</span> <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Test with <code>containsIgnoreCase("Computer Science", "science")</code>.</p>
+<section id="setter-signature-reasoning" class="slide level2 fit-small">
+<h2>Setter Signature Reasoning</h2>
+<h3 id="why-d-works">Why D works</h3>
+<p><code>public void setNum(int people)</code> matches the method body because:</p>
+<div class="tight-list">
+<ul>
+<li>the method changes object state, so it should not return a value</li>
+<li>the body uses the parameter name <code>people</code></li>
+<li>the parameter type is <code>int</code>, matching <code>numOfPeople</code></li>
+</ul>
+</div>
+</section>
+<section id="mutator-method-note" class="slide level2">
+<h2>Mutator Method Note</h2>
+<h3 id="name-and-parameters">Name and parameters</h3>
+<p>Mutator methods do not have to have a name with <code>set</code> in it, although most do.</p>
+<p>They can be any methods that change the value of an instance variable in the class.</p>
+<p>Most mutator methods are non-void methods.</p>
+<p>Mutator methods do not have to have parameters, but they usually do.</p>
+</section>
+<section id="parameters" class="slide level2">
+<h2>Parameters</h2>
+<h3 id="variables-in-method-headers">Variables in method headers</h3>
+<p>The setter methods above contained parameters.</p>
+<p>A <strong>parameter</strong> (参数) is a variable in a method’s header that is used to pass in data that the method needs to do its job.</p>
+<p>In a setter, the parameter is the new value that you want to assign to the instance variable.</p>
+</section>
+<section id="arguments" class="slide level2">
+<h2>Arguments</h2>
+<h3 id="values-in-method-calls">Values in method calls</h3>
+<p>An <strong>argument</strong> (实参) is a value that is passed into a method when the method is called.</p>
+<p>It is saved into a parameter variable.</p>
+<p>The arguments passed to a method must be compatible in number and order with the types identified in the parameter list of the method signature.</p>
+</section>
+<section id="call-by-value" class="slide level2 image-fit">
+<h2>Call by Value</h2>
+<h3 id="arguments-copied-into-parameters">Arguments copied into parameters</h3>
+
+<img data-src="../../assets/3-class-creation/3-5-methods-how-to-write-them/method-param-arg.png" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Method signatures with parameters and method calls arguments</p><p>When calling methods, arguments are passed using <strong>call by value</strong>.</p>
+<p>Call by value initializes the parameters with copies of the arguments.</p>
+<p>When an argument is a primitive value, the parameter is initialized with a copy of that value.</p>
+<p>Changes to the parameter have no effect on the corresponding argument.</p>
+</section>
+<section id="methods-with-parameters-that-return-calculated-values" class="slide level2">
+<h2>Methods with Parameters that Return Calculated Values</h2>
+<h3 id="not-all-return-methods-are-getters">Not all return methods are getters</h3>
+<p>Not all methods that return values are accessor/get methods.</p>
+<p>Some methods have parameters and return values that are found or calculated in a more complex algorithm.</p>
+<p>The following method uses a loop to find a letter in a text string given as a parameter.</p>
+</section>
+<section id="stringfind-task" class="slide level2">
+<h2>StringFind Task</h2>
+<h3 id="activecode-stringfind"><code>activecode:: StringFind</code></h3>
+<p>Run the program, which contains a method called <code>findLetter</code>.</p>
+<p>It takes a letter and a text as parameters and uses a loop to see if that letter is in the text.</p>
+<p>It returns <code>true</code> if the letter is found and <code>false</code> otherwise.</p>
+<p>Then change the code of the <code>findLetter</code> method to return how many times it finds <code>letter</code> in <code>text</code>, using a new variable called <code>count</code>.</p>
+<p>How would the return type change?</p>
+</section>
+<section id="stringfind-starter" class="slide level2">
+<h2>StringFind Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> StringFind</span>
+<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="co">/**</span></span>
+<span id="cb7-4"><a href=""></a>     <span class="co">*</span> findLetter looks for a letter in a String</span>
+<span id="cb7-5"><a href=""></a>     <span class="co">*</span></span>
+<span id="cb7-6"><a href=""></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="an">String</span><span class="co"> </span>letter to look for</span>
+<span id="cb7-7"><a href=""></a>     <span class="co">*</span> <span class="an">@param</span><span class="co"> </span><span class="an">String</span><span class="co"> </span>text to look in</span>
+<span id="cb7-8"><a href=""></a>     <span class="co">*</span> <span class="an">@return</span> boolean true if letter is in text <span class="al">TODO</span><span class="co">:</span> After running the code<span class="co">,</span> change</span>
+<span id="cb7-9"><a href=""></a>     <span class="co">*</span>     this method to return an int count of how many times letter is in the</span>
+<span id="cb7-10"><a href=""></a>     <span class="co">*</span>     text<span class="co">.</span></span>
+<span id="cb7-11"><a href=""></a>     <span class="co">*/</span></span>
+<span id="cb7-12"><a href=""></a>    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">findLetter</span><span class="op">(</span><span class="bu">String</span> letter<span class="op">,</span> <span class="bu">String</span> text<span class="op">)</span></span>
+<span id="cb7-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-14"><a href=""></a>        <span class="dt">boolean</span> flag <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb7-15"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> text<span class="op">.</span><span class="fu">length</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb7-16"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb7-17"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>text<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>i<span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">).</span><span class="fu">equalsIgnoreCase</span><span class="op">(</span>letter<span class="op">))</span></span>
+<span id="cb7-18"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb7-19"><a href=""></a>                flag <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb7-20"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb7-21"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb7-22"><a href=""></a>        <span class="cf">return</span> flag<span class="op">;</span></span>
+<span id="cb7-23"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-24"><a href=""></a></span>
+<span id="cb7-25"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span> args<span class="op">[])</span></span>
+<span id="cb7-26"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb7-27"><a href=""></a>        StringFind test <span class="op">=</span> <span class="kw">new</span> <span class="fu">StringFind</span><span class="op">();</span></span>
+<span id="cb7-28"><a href=""></a>        <span class="bu">String</span> message <span class="op">=</span> <span class="st">"Apples and Oranges"</span><span class="op">;</span></span>
+<span id="cb7-29"><a href=""></a>        <span class="bu">String</span> letter <span class="op">=</span> <span class="st">"p"</span><span class="op">;</span></span>
+<span id="cb7-30"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Does "</span> <span class="op">+</span> message <span class="op">+</span> <span class="st">" contain a "</span> <span class="op">+</span> letter <span class="op">+</span> <span class="st">"?"</span><span class="op">);</span></span>
+<span id="cb7-31"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>test<span class="op">.</span><span class="fu">findLetter</span><span class="op">(</span>letter<span class="op">,</span> message<span class="op">));</span></span>
+<span id="cb7-32"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb7-33"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="stringfind-test-targets" class="slide level2">
+<h2>StringFind Test Targets</h2>
+<h3 id="runestone-checks-after-modification">Runestone checks after modification</h3>
+<p>The tests expect:</p>
+<div class="tight-list">
+<ul>
+<li><code>findLetter("p", "Apples and Oranges")</code> returns <code>2</code></li>
+<li><code>findLetter("s", "Test strings")</code> returns <code>3</code></li>
+<li>method header changes to <code>public int findLetter(String letter, String text)</code></li>
+<li>a variable <code>int count = 0;</code></li>
+<li>a count increment such as <code>count++</code>, <code>count = count + 1</code>, <code>count += 1</code>, or <code>++count</code></li>
+</ul>
+</div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain how a setter changes object state</li>
-<li>choose a correct setter header for a variable type</li>
+<li>define a setter as a method that changes an instance variable</li>
+<li>explain why setters should not be written automatically for every variable</li>
+<li>fix private access by calling a public setter</li>
+<li>choose a setter signature with <code>void</code> return type and a matching parameter</li>
 <li>distinguish parameters from arguments</li>
-<li>trace an argument value into a parameter variable</li>
-<li>explain how a method can return a calculated value rather than a stored field</li>
+<li>explain call by value for primitive arguments</li>
+<li>preserve the <code>StringFind</code> starter and convert it to a counting method only after the task prompt</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="continue-or-return-to-the-course-outline">Continue or return to the course outline</h3>
-<p><a href="3-5-part-4-class-pet-challenge.html">Next: Class Pet Challenge</a><br>
-<a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-3-complete">3.5 Part 3 complete</h3>
+<p>Next: Class Pet Challenge.</p>
 
 </section>
     </div>

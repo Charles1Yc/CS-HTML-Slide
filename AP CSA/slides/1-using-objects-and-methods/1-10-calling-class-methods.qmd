@@ -1,6 +1,6 @@
 ---
 title: "1.10 Calling Class Methods"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Static and Non-Void Methods"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,34 +16,62 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Static methods belong to the class
+### Static methods are class methods
 
-Most methods used so far are <span class="term">static methods</span>, also called <span class="term">class methods</span> (类方法).
+Most of the methods we have used so far are **static methods**, which are also called **class methods** (类方法).
+
+These methods are associated with the class and include the keyword `static` in the method header.
+
+The `main` method is always static, which also means that there is only one copy of the method.
+
+## Static Method Template
+
+### `static` appears before the return type
+
+Here is a template for a static method.
 
 ```java
-public static returnType methodName(parameters)
+// static method header
+public static return-type method-name(parameters)
 {
     // method body
 }
 ```
 
-The keyword `static` appears before the return type. The `main` method is always static.
+Up until now, we have used the keyword `void` as the return type for methods that do not return a value.
 
-## Void and Non-Void
+## Non-Void Methods
 
-### Some methods return a value
+### Methods that calculate and return a value
 
-Most early methods were <span class="term">void methods</span>, which do not return a value. Many methods calculate and return a value.
+Most of the methods we have used so far have been **void methods**, which do not return a value.
 
-![Method as a function](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png){fig-align="center" width="42%"}
+Many methods act like mathematical functions that calculate and return a value given some arguments. These methods are called **non-void methods** (非 void 方法).
 
-A <span class="term">non-void method</span> (非 void 方法) returns a value whose type matches the return type in the method header.
+![Method that takes arguments and returns a value](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png){fig-align="center" width="42%"}
+
+## Non-Void Method Model
+
+### A calculating machine
+
+You can imagine a non-void method as:
+
+::: {.tight-list}
+- a calculating machine that takes numbers as arguments and returns a calculated result
+- a toaster that takes bread as an argument and changes it to return toast
+:::
+
+In the next lesson, we will look at the `Math` library in Java, but consider a simple method that squares a number.
+
+For example, `square(3)` would return `9`.
 
 ## Square Method
 
-### Header, body, and return
+### `square(3)` returns `9`
 
-![Square method model](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png){fig-align="center" width="44%"}
+![The Square Method](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png){fig-align="center" width="42%"}
+
+This method takes an `int` number as an argument, squares that number, and returns the result.
 
 ```java
 public static int square(int number)
@@ -53,306 +81,161 @@ public static int square(int number)
 }
 ```
 
-`static int` means this class method returns an `int`.
+`static int` indicates that the method returns an integer value.
 
 ## Return Statement
 
-### Send a value back to the caller
+### Return a value to the calling code
 
-The <span class="term">return statement</span> sends a value back to the method call.
+The **return** statement is used to return a value from the method back to the calling code.
 
 ::: {.tight-list}
-- The return value must match the declared return type.
-- A return statement ends the method execution.
-- Code after a return statement in the same path is not executed.
+- The return value must be the same type as the return type in the method header.
+- The return statement also ends the method execution.
+- Any code after the return statement is not executed.
 :::
 
-In `square(5)`, the method returns `25`.
+## Square Method Trace
 
-## Using Returned Values
-
-### Store it or use it in an expression
-
-When a method returns a value, use that value.
-
-```java
-int y = square(5);
-System.out.println(y);
-
-System.out.println(square(4));
-```
-
-Common error: calling a non-void method and ignoring the returned value when the value is needed later.
-
-## Code Task
-
-### Add another square call
-
-Add another call to `square` in `main` that prints the square of `6`.
+### `codelens:: squareviz`
 
 ```java
 public class SquareMethod
 {
-    public static int square(int number)
-    {
-        int result = number * number;
-        return result;
-    }
+   public static int square(int number)
+   {
+         int result = number * number;
+         return result;
+   }
 
-    public static void main(String[] args)
-    {
-        System.out.println("5 squared is " + square(5));
-        // Call square to print the square of 6.
-    }
+   public static void main(String[] args)
+   {
+         int x = 5;
+         int y = square(x);
+         System.out.println("The square of " + x + " is " + y);
+         x = 4;
+         System.out.println("The square of " + x + " is " + square(x));
+   }
 }
 ```
 
-Expected output should include `36`.
+The variable `y` is assigned the return value of the `square` method.
 
-## Trace Task
+## Using Returned Values
 
-### Returned values inside an expression
+### Store it or use it directly
 
-What does this code print?
+When calling the `square` method, the return value can be stored in a variable or used as part of an expression.
+
+```java
+// Saving the returned value of the square method in a variable
+int y = square(5);
+System.out.println(y); // prints 25
+
+// Printing the returned value of the square method directly
+System.out.println(square(4)); // prints 16
+```
+
+## Coding Exercise
+
+### `activecode:: squareMethod`
+
+Add another call to the `square` method in the `main` method that prints out the square of `6`.
+
+```java
+public class SquareMethod
+{
+     public static int square(int number)
+     {
+         int result = number * number;
+         return result;
+     }
+
+     public static void main(String[] args)
+     {
+         System.out.println("5 squared is " + square(5));
+         // TO DO: Call the square method to print out the square of 6
+
+     }
+}
+```
+
+## Coding Exercise Check
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- code contains `square(6)`
+- expected output from `main` includes `36`
+:::
+
+The starter code should remain a starter: add the call in `main`, do not change the `square` method.
+
+## Quick Check
+
+### `mchoice:: traceMethods1`
+
+What does the following code print out?
 
 ```java
 public class MethodTrace
 {
     public static int square(int x)
     {
-        return x * x;
+        return (x * x);
     }
 
     public static int divide(int x, int y)
     {
-        return x / y;
+        return (x / y);
     }
 
     public static void main(String[] args)
     {
-        System.out.println(square(3) + divide(5, 2));
+        System.out.println(square(3) + divide(5,2));
     }
 }
 ```
 
-Answer: `11`, because `square(3)` returns `9` and `divide(5, 2)` returns `2`.
+## Quick Check Choices
 
-## Common Errors
-
-### Match types, count, and order
-
-Common errors with non-void methods include:
+### Choose one answer
 
 ::: {.tight-list}
-- forgetting to use the returned value
-- saving a returned `double` in an `int`
-- passing too many or too few arguments
-- passing arguments in the wrong order
-- passing values with incompatible types
+- A. `11`
+- B. `11.5`
+- C. `92`
+- D. `square(3)+divide(5,2)`
+- E. Nothing, it does not compile.
 :::
 
-Use the method signature to check every call.
+## Answer Reasoning
 
-## Debugging Task
+### Correct answer: A
 
-### Fix method calls and return types
+`square(3)` is called first and returns `9`.
 
-Do not change the methods except `main`.
+Then `divide(5,2)` is called and returns `2` because it does `int` division and leaves off the decimal part.
 
-```java
-public class MathMethods
-{
-    public static int square(int number)
-    {
-        return number * number;
-    }
-
-    public static double divide(double x, double y)
-    {
-        return x / y;
-    }
-
-    public static void main(String[] args)
-    {
-        int result1 = square(4.0, 2);
-        int result2 = divide(2, 5);
-        System.out.println("4 squared is " + result1);
-        System.out.println("5 divided by 2 is " + result2);
-    }
-}
-```
-
-## Debugging Task
-
-### Target fix
-
-The corrected calls should use:
-
-```java
-int result1 = square(4);
-double result2 = divide(5, 2);
-```
-
-Expected output:
-
-```text
-4 squared is 16
-5 divided by 2 is 2.5
-```
-
-Notice that the return type of `divide` is `double`, so `result2` must be `double`.
-
-## Methods Outside the Class
-
-### Use the class name with dot operator
-
-Inside the class that defines a static method, the class name is optional. From another class, include the class name.
-
-```java
-ClassName.methodName(arguments)
-```
-
-Examples:
-
-```java
-Math.sqrt(9);
-Math.pow(3, 2);
-```
-
-This is why Java library class methods are usually called with `ClassName.methodName(arguments)`.
-
-## Math Preview
-
-### `sqrt` and `pow`
-
-The next topic uses the `Math` class.
-
-```java
-double x = Math.pow(3, 2);
-double y = Math.sqrt(9);
-```
-
-::: {.tight-list}
-- `Math.pow(3, 2)` returns `9.0`
-- `Math.sqrt(9)` returns `3.0`
-:::
-
-Both are class methods, and both return `double` values.
-
-## Groupwork Challenge
-
-### Ladder on Tower
-
-![Ladder on tower challenge](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png){fig-align="left" width="18%"}
-
-Use the Pythagorean theorem to compute the ladder length.
-
-```text
-c = sqrt(a^2 + b^2)
-```
-
-where `a` and `b` are the triangle's legs, and `c` is the hypotenuse.
-
-Correct Java expressions include:
-
-```java
-Math.sqrt(a * a + b * b)
-Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
-```
-
-## Groupwork Challenge
-
-### Ladder starter code
-
-Complete `ladderSizeNeeded`, then call it with height `30` and width `40`.
-
-```java
-public class LadderHelper
-{
-    public static double ladderSizeNeeded(double height, double width)
-    {
-        double ladderSize;
-        // Calculate ladderSize using Math.sqrt and Math.pow or multiplication.
-
-        return ladderSize;
-    }
-
-    public static void main(String[] argv)
-    {
-        double size;
-        // Call ladderSizeNeeded with height 30 and width 40.
-
-        System.out.println("Beloved, I need a " + size + " foot ladder!");
-    }
-}
-```
-
-Expected output:
-
-```text
-Beloved, I need a 50.0 foot ladder!
-```
-
-## AP-Style Quick Check
-
-### Which call compiles?
-
-Given this method:
-
-```java
-public static double calculatePizzaBoxes(int numOfPeople, double slicesPerBox)
-{
-    // implementation not shown
-}
-```
-
-Which line compiles in the same class?
-
-```java
-double result = calculatePizzaBoxes(45, 9.0);
-```
-
-Reason: the arguments match `int, double`, and the returned `double` is stored in a `double`.
-
-## AP-Style Trace Check
-
-### Static method calls from another static method
-
-```java
-public static void inchesToCentimeters(double i)
-{
-    double c = i * 2.54;
-    printInCentimeters(i, c);
-}
-
-public static void printInCentimeters(double inches, double centimeters)
-{
-    System.out.print(inches + "-->" + centimeters);
-}
-```
-
-If `inchesToCentimeters(10)` is called, the output is:
-
-```text
-10.0-->25.4
-```
+The sum of `9` and `2` is `11`.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- define class methods as <span class="term">static</span> methods associated with the class
-- distinguish <span class="term">void</span> methods from <span class="term">non-void</span> methods
-- explain that a non-void method returns a value matching its return type
-- use or store a returned value correctly
-- match method calls by argument number, type, and order
-- call methods in other classes with `ClassName.methodName(arguments)`
-- use `Math.sqrt` and `Math.pow` inside a returned-value calculation
+- distinguish `void` methods from non-void methods
+- identify `static` methods as class methods
+- match the return value type with the method header return type
+- use a returned value by storing it in a variable or using it in an expression
+- trace a method call back to the returned value
+- remember that `int` division returns an `int`
 :::
 
 ## End
 
-### Return to the course outline
+### 1.10 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Part 2 continues with common errors and class-name method calls.

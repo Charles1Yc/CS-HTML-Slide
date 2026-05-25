@@ -1,0 +1,204 @@
+---
+title: "3.4 Fraction and Car Constructors"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Coding Exercise
+
+### `activecode:: class-Fraction`
+
+The following class defines a `Fraction` with the instance variables `numerator` and `denominator`.
+
+Complete the body of its two constructors.
+
+The no-argument constructor should set the default instance variable values to `1` rather than `0` because a fraction with `0` in the denominator is not valid.
+
+The constructor with parameters should copy those parameters into the instance variables.
+
+## Fraction Trace Prompt
+
+### Before running
+
+What will the code print out?
+
+Try tracing through it:
+
+::: {.tight-list}
+- `Fraction f1 = new Fraction();`
+- `Fraction f2 = new Fraction(1, 2);`
+- `f1.print();`
+- `f2.print();`
+:::
+
+## Fraction Starter
+
+::: {.code-scroll}
+```java
+public class Fraction
+{
+    //  instance variables
+    private int numerator;
+    private int denominator;
+
+    // no-arg constructor: set instance variables to default values of 1
+    public Fraction()
+    {
+        // TODO 1. set numerator to 1
+
+        // TODO 2. set denominator to 1
+    }
+
+    // constructor w/args: set instance variables to init parameters
+    public Fraction(int initNumerator, int initDenominator)
+    {
+        // TODO 3. set numerator to initNumerator
+
+        // TODO 4. set denominator to initDenominator
+
+    }
+
+    // Print fraction
+    public void print()
+    {
+        System.out.println(numerator + "/" + denominator);
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        Fraction f1 = new Fraction();
+        Fraction f2 = new Fraction(1, 2);
+        // What will these print out?
+        f1.print();
+        f2.print();
+    }
+}
+```
+:::
+
+## Fraction Test Targets
+
+### Runestone checks
+
+Expected output from `main`:
+
+```text
+1/1
+1/2
+```
+
+The tests also check that the code contains:
+
+::: {.tight-list}
+- `numerator = 1`
+- `denominator = 1`
+- `numerator = initNumerator`
+- `denominator = initDenominator`
+:::
+
+## Coding Exercise
+
+### `activecode:: class-Car`
+
+The following class defines a `Car` with the instance variables `model` and `year`, for example a Honda 2010 car.
+
+Some of the code is missing.
+
+First, fill in the code to create a `Car` constructor.
+
+Then fill in the code to call the constructor in the `main` method to create two `Car` objects.
+
+## Car Object Targets
+
+### Required objects
+
+The first car should be a **2023 Ford**.
+
+The second car should be a **2010 Honda**.
+
+Run your program and make sure it works and prints out the information for both cars.
+
+## Car Starter
+
+::: {.code-scroll}
+```java
+public class Car
+{
+   //  instance variables
+   private String model;
+   private int year;
+
+   // constructor: set instance variables to init parameters
+   public Car(String initModel, int initYear)
+   {
+       // TODO 1. set the instance variables to the init parameter variables
+
+
+   }
+
+   // Print Car info
+   public void print()
+   {
+     System.out.println("Car model: " + model);
+     System.out.println("Car year: " + year);
+   }
+
+   // main method for testing
+   public static void main(String[] args)
+   {
+       // TODO 2. Call the constructor to create 2 new Car objects with different
+       // values The first car should be a 2023 Ford and the second car
+       // should be a 2010 Honda.
+
+       Car car1 =
+       Car car2 =
+
+       car1.print();
+       car2.print();
+   }
+}
+```
+:::
+
+## Car Test Target
+
+### Expected output
+
+The Runestone test checks the output from `main`.
+
+```text
+Car model: Ford
+Car year: 2023
+Car model: Honda
+Car year: 2010
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- keep the Fraction no-argument constructor defaults at `1` and `1`
+- copy Fraction constructor parameters into `numerator` and `denominator`
+- trace `new Fraction()` separately from `new Fraction(1, 2)`
+- set `Car` instance variables from `initModel` and `initYear`
+- construct the required 2023 Ford and 2010 Honda objects in `main`
+- preserve starter blanks until students complete the constructors
+:::
+
+## End
+
+### 3.4 Part 2 complete
+
+Next: Student and community constructor challenges.

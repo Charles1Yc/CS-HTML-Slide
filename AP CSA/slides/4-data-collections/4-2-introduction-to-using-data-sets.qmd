@@ -14,95 +14,144 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Data Sets
 
-### Data sets need algorithms
+### Definition
 
-A <span class="term">data set</span> (数据集) is a collection of related data values.
+A **data set** is a collection of specific pieces of information or data.
 
-In AP CSA, a data set is often processed with:
+For example, the following table is a data set that keeps track of information about students.
+
+Data can be represented in a diagram by using a chart or table.
+
+Here it is shown as a spreadsheet table with columns for first name, last name, email, and GPA.
+
+## Spreadsheet Table
+
+### Student data set
+
+| firstname | lastname | email | GPA |
+|---|---|---|---|
+| Mickey | Mouse | mickey@disney.com | 3.5 |
+| Minnie | Mouse | minnie@disney.com | 4.0 |
+| Donald | Duck | donald@disney.com | 3.0 |
+| Type here | | | |
+
+Spreadsheet software like Excel and Google Sheets store data in a table and provide functions to manipulate and calculate with the data.
+
+## Spreadsheet Activity
+
+### Source task
+
+Type in another row of data to the table on row 4 with your choice of values for:
 
 ::: {.tight-list}
-- arrays
-- `ArrayList`
-- text files
-- loops
-- selection logic
+- first name
+- last name
+- email
+- GPA
 :::
 
-## Algorithm Task
+The source spreadsheet check requires row 4 to be changed from `Type here`.
 
-### Average GPA pseudocode
+## Manipulating Data Sets
 
-Reorder the algorithm for computing an average.
+### Solve a problem or answer a question
+
+Data sets can be manipulated and analyzed to solve a problem or answer a question.
+
+Data in a table or chart can be used to plan the algorithm that will be used to manipulate the data.
+
+For example, how would you find the average GPA of the students in the table above?
+
+You would need to access each GPA value in the table, add them up, and divide by the number of rows.
+
+## Processing Values
+
+### One at a time
+
+When analyzing data sets, values within the set are accessed and utilized one at a time.
+
+Then they are processed according to the desired outcome.
+
+Loops can be used to access and process each value in a data set.
+
+The source practices this with pseudocode.
+
+## Mixed-Up Pseudocode
+
+### `parsonsprob:: algorithm-avg-gpa`
+
+Put the following pseudocode algorithm steps for calculating the average GPA of the students in the table.
+
+Make sure some of the steps are indented to be inside the loop.
+
+::: {.tight-list}
+- Initialize `sum` to `0`.
+- Loop through each row in the table:
+- Add the GPA value of each row to `sum`.
+- Divide `sum` by the number of rows in the table to get the average GPA.
+:::
+
+## Correct Order
+
+### Average GPA algorithm
 
 ```text
-Initialize total to 0.
-Initialize count to 0.
-For each GPA in the data set:
-    Add the GPA to total.
-    Add 1 to count.
-Divide total by count.
-Return or print the average.
+Initialize sum to 0.
+Loop through each row in the table:
+    Add the GPA value of each row to sum.
+Divide sum by the number of rows in the table to get the average GPA.
 ```
 
-This is the same accumulator pattern from Unit 2 applied to a data collection.
+The indented line belongs inside the loop.
 
 ## Honor Roll Prompt
 
-### Filter data by a property
+### `shortanswer:: honorroll`
 
-Write pseudocode for printing all students with a GPA at least `3.5`.
+What if your school wants to print out an honor roll of students with a GPA of `3.5` or higher?
 
-```text
-For each student in the data set:
-    If the student's GPA is at least 3.5:
-        Print the student's name.
-```
+How would you write an algorithm to do this?
 
-Class focus: filtering is selection inside traversal.
+Write pseudocode for an algorithm that prints out the names of students with a GPA of `3.5` or higher given a table of student data where one column is the GPA.
 
-## Data Set Operations
+Make sure you use repetition (loop) and selection (if) in your algorithm.
 
-### Common classroom algorithms
+## Student Response Task
+
+### Required deliverable
+
+A complete pseudocode response should:
 
 ::: {.tight-list}
-- count how many items match a condition
-- compute sum or average
-- find a minimum or maximum
-- search for a target item
-- build a new collection from selected items
+- loop through each row or each student in the table
+- check whether the GPA is `3.5` or higher
+- print the student's name when the condition is true
 :::
 
-The rest of Unit 4 gives Java structures for implementing these operations.
+## Next Lessons
 
-## Quick Check
+### Java structures for data sets
 
-### Match task to pattern
+In the next lessons, we will learn about data structures like Java arrays that can be used to store data sets.
 
-| Task | Pattern |
-|---|---|
-| total all GPAs | accumulator |
-| print all honor roll students | filter |
-| find highest score | max |
-| find a named student | search |
-
-Use the task verb to choose the algorithm pattern.
+We will use loops to access and manipulate the data in the arrays.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that a data set is a collection of related values
-- connect data set processing to traversal with loops
-- use an accumulator for averages
-- use selection inside a loop to filter data
-- identify common data set tasks such as count, search, min, max, and average
+- define a data set as specific pieces of information or data
+- explain that data can be represented in a table or chart
+- describe how an average GPA algorithm accesses each GPA value
+- indent the add-to-sum step inside the loop
+- write honor-roll pseudocode with both repetition and selection
 :::
 
 ## End
 
-### Return to the course outline
+### 4.2 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: array creation and access.

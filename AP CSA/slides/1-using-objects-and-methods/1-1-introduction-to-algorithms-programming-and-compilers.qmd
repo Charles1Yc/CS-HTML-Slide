@@ -1,6 +1,6 @@
 ---
 title: "1.1 Introduction to Algorithms, Programming, and Compilers"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Algorithms and First Java Program"
 format:
   clean-revealjs:
     slide-number: true
@@ -18,47 +18,43 @@ lang: zh-CN
 
 ### Why Java?
 
-What do <span class="term">Android phones</span>, <span class="term">Minecraft</span>, and <span class="term">Netflix</span> have in common? They all use <span class="term">Java</span> in real software systems.
+What do Android phones, Minecraft, and Netflix have in common? They're all coded in <span class="term">Java</span> (编程语言).
 
-::: {.tight-list}
-- Java is a <span class="term">programming language</span> (编程语言) used worldwide to create software.
-- AP CSA uses Java to study program structure, logic, and problem solving.
-- App Inventor apps can be translated to Java before they run on phones or tablets.
-:::
+Many of the apps you use in an Android phone or tablet are written in Java.
+
+Netflix uses Java for some of its software too. Java is a <span class="term">programming language</span> that is used worldwide to create software that we all use.
 
 ## Algorithms
 
-### Step-by-step problem solving
+### Step-by-step processes
 
-<span class="term">Algorithms</span> (算法) define step-by-step processes for completing a task or solving a problem.
+<span class="term">Algorithms</span> (算法) define step-by-step processes in order to complete a task or solve a problem.
 
 ::: {.tight-list}
 - A recipe is an algorithm for cooking a meal.
-- Directions are an algorithm for getting to a place.
-- In computer science, algorithms can sort, search, calculate, or control a game.
+- A set of directions to a friend's house is an algorithm for getting there.
+- In computer science, algorithms are used to solve problems and to create software.
 :::
 
-<span class="term">Sequencing</span> (顺序执行) means steps are completed <span class="mark">one at a time in a specific order</span>.
+For example, an algorithm can be used to sort a list of numbers, to search for a word in a document, or to code a game.
 
-## Planning Code
+## Algorithms
 
-### English, diagrams, and pseudocode
+### Planning and sequencing
 
-Algorithms can be represented using:
+Algorithms can be used to plan and design code by writing the steps down in English or another language or in a diagram or in <span class="term">pseudocode</span> (伪代码), which is planning code on paper.
 
-::: {.tight-list}
-- written language
-- diagrams or flow charts
-- <span class="term">pseudocode</span> (伪代码), simplified code written for planning
-:::
+It is important to plan the algorithm step by step where <span class="mark">each step can be implemented by a line of code</span>.
 
-The classroom test is practical: <span class="mark">each step should be precise enough to become a line of code</span>.
+<span class="term">Sequencing</span> (顺序执行) defines an order for when steps in a process are completed.
 
-## Reorder Task {.fit-small}
+Steps in a process are completed <span class="mark">one at a time</span>.
 
-### Brushing teeth algorithm
+## Mixed-Up Code
 
-Put the steps in a sensible sequence.
+### `parsonsprob:: brushalgorithm`
+
+Textbook prompt: Put the following algorithm steps for brushing your teeth in order.
 
 ::: {.tight-list}
 - Take the toothbrush.
@@ -68,26 +64,45 @@ Put the steps in a sensible sequence.
 - Rinse your mouth with water.
 :::
 
-Check your answer by asking whether a robot could follow the order without guessing.
+## Correct Order
+
+### `parsonsprob:: brushalgorithm`
+
+```text
+1. Take the toothbrush.
+2. Put some toothpaste on the toothbrush.
+3. Put the brush in your mouth.
+4. Brush each section of your teeth.
+5. Rinse your mouth with water.
+```
 
 ## Student Response Task
 
-### Peanut butter and jelly algorithm
+### `shortanswer:: pbjalgorithm`
 
-Write an algorithm for someone, maybe a robot, to make a peanut butter and jelly sandwich.
+Textbook prompt: Write an algorithm for someone, maybe a robot, to make a peanut butter and jelly sandwich.
 
 ::: {.tight-list}
-- Include at least <span class="mark">5 precise steps</span>.
-- Keep the steps in the order they must happen.
-- Have another person act it out exactly as written.
-- Revise any step that requires common-sense guessing.
+- Include at least <span class="mark">5 precise steps</span> in order.
+- Have someone, maybe your instructor, act it out.
+- Ask: Were your instructions precise enough?
 :::
 
 ## First Java Program
 
 ### Class and main method
 
-Every Java program is written as a <span class="term">class</span> (类). A <span class="term">method</span> (方法) is a block of code that performs a specific task.
+Every program in Java is written as a <span class="term">class</span> (类).
+
+Java is an <span class="term">object-oriented language</span>, and classes and objects created from classes are the basic building blocks in object-oriented programming.
+
+Inside the class, there can be a <span class="term">main method</span> that starts the program.
+
+A <span class="term">method</span> (方法) is a block of code that performs a specific task.
+
+## Java Program Template
+
+### Simple class with `main`
 
 ```java
 public class MyClass
@@ -99,13 +114,39 @@ public class MyClass
 }
 ```
 
-The Java run-time starts execution in the <span class="term">main method</span> (主方法).
+When you ask the Java run-time to run a class, it will always start execution in the `main` method.
+
+## Brace Note
+
+### Match `{` and `}`
+
+In Java every open curly brace `{` must have a matched close curly brace `}`.
+
+These are used to start and end class definitions and method definitions.
+
+```java
+public class MyClass
+{
+    public static void main(String[] args)
+    {
+        // Put your code here!
+    }
+}
+```
 
 ## Code Task
 
-### Print your name
+### `activecode:: printName`
 
-Run the starter code, then change the string so it prints your own greeting.
+Textbook prompt: Run this code to see the output below it.
+
+Then change the code to print your name, for example `"Hi Pat!"`, and run again.
+
+Be sure to keep the starting `"` and ending `"`.
+
+## Code Window
+
+### `activecode:: printName`
 
 ```java
 public class MyClass
@@ -117,293 +158,33 @@ public class MyClass
 }
 ```
 
-Expected starter output:
+## Test Requirements
+
+### `activecode:: printName`
+
+Runestone's starter test expects this output from `main`:
 
 ```text
 Hi there!
 ```
 
-Keep the starting and ending double quotation marks.
-
-## Compiling and Running
-
-### Source file, compiler, IDE
-
-::: {.tight-list}
-- Java source code is saved in a <span class="term">source file</span> such as `MyClass.java`.
-- If using your own files, the class name and file name must match.
-- A <span class="term">compiler</span> (编译器) checks code for some errors and translates Java source files into class files.
-- An <span class="term">IDE</span> (集成开发环境) provides tools to write, compile, and run code.
-:::
-
-Errors detectable by the compiler must be fixed <span class="mark">before the program can run</span>.
-
-## Java Keywords
-
-### Lowercase keywords, capitalized class names
-
-<span class="term">Keywords</span> are reserved words with special meaning in Java.
-
-::: {.tight-list}
-- `public`, `class`, `static`, and `void` must be lowercase.
-- `System` and `String` are class names and are capitalized.
-- A complete action line is a <span class="term">statement</span> (语句).
-- Most Java statements end with a <span class="mark">semicolon `;`</span>.
-:::
-
-## Reorder Task {.fit-small}
-
-### Build the main method header
-
-Use the needed blocks to build the first line of the `main` method.
-
-```text
-public
-static
-void
-main
-(
-String
-[]
-args
-)
-```
-
-Correct line:
-
-```java
-public static void main(String[] args)
-```
-
-Distractors to reject: `Public`, `Static`, `Void`, and an extra `()`.
-
-## Reorder Task {.fit-small}
-
-### Build a print statement
-
-Use the needed blocks to create a statement that prints `Hi!`.
-
-```text
-System
-.
-out
-.
-println
-(
-"
-Hi!
-"
-)
-;
-```
-
-Correct statement:
-
-```java
-System.out.println("Hi!");
-```
-
-Reject `system` or `Out` because Java is <span class="mark">case-sensitive</span>.
-
-## Syntax Errors
-
-### Debugging is normal
-
-A <span class="term">syntax error</span> (语法错误) means the program does not follow Java's writing rules.
-
-::: {.tight-list}
-- missing semicolon `;`
-- open curly brace `{` without matching `}`
-- open quote `"` without matching close quote
-- wrong capitalization, such as `system` instead of `System`
-:::
-
-The process of finding and removing errors is <span class="term">debugging</span> (调试).
-
-## Reading Error Messages
-
-### Start with file, line, message, caret
-
-```text
-FirstClass.java:5: error: unclosed string literal
-       System.out.println("Hi there!);
-                          ^
-1 error
-```
-
-::: {.tight-list}
-- `FirstClass.java` gives the file.
-- `5` gives the line where the compiler detected the problem.
-- `unclosed string literal` says a string was opened but not closed.
-- `^` points near where the compiler noticed the problem.
-:::
-
-The actual fix may be on the same line, earlier, or a little later.
-
-## Debugging Task
-
-### Compile-time error 1
-
-Fix the code so it prints `Hi there!`.
-
-```java
-public class FirstClass
-{
-    public static void main(String[] args)
-    {
-        System.out.println("Hi there!);
-    }
-}
-```
-
-Expected output:
-
-```text
-Hi there!
-```
-
-Focus: pair the opening and closing double quotation marks.
-
-## Debugging Task
-
-### Compile-time error 2
-
-Fix the code so it compiles and runs.
-
-```java
-public class SecondClass
-{
-    public static void main(String[] args)
-    {
-        System.out.println("Hi there!";
-    }
-}
-```
-
-Expected output:
-
-```text
-Hi there!
-```
-
-Focus: close every method call with the matching parenthesis.
-
-## Debugging Task
-
-### Compile-time error 3
-
-This program has more than one error. Read the first compiler message, fix one issue, then compile again.
-
-```java
-public class ThirdClass
-{
-    public static void main(String[] args)
-    {
-        system.out.println("Hi there!")
-    }
-}
-```
-
-Expected output:
-
-```text
-Hi there!
-```
-
-Focus: `System` capitalization and the missing semicolon.
-
-## Run-Time Errors
-
-### Compiles first, fails while running
-
-A <span class="term">run-time error</span> happens while the program is executing. An <span class="term">exception</span> interrupts normal execution.
-
-```java
-public class DivideByZero
-{
-    public static void main(String[] args)
-    {
-        System.out.println("It makes no sense to divide a number by zero!");
-        System.out.println(3 / 0);
-    }
-}
-```
-
-After compilation succeeds, `3 / 0` causes an <span class="term">ArithmeticException</span>.
-
-## Logic Errors
-
-### Code can run and still be wrong
-
-A <span class="term">logic error</span> is a mistake in the algorithm or program that causes incorrect behavior.
-
-::: {.tight-list}
-- The program may compile successfully.
-- The program may run without crashing.
-- Testing with specific data is how you detect the wrong outcome.
-:::
-
-This is why precise algorithms matter before writing Java code.
-
-## Comments
-
-### Notes for humans, skipped by the compiler
-
-```java
-/* MyClass.java
-   Programmer: My Name
-   Date:
-*/
-
-int max = 10; // this keeps track of the max score
-```
-
-::: {.tight-list}
-- `//` starts a single-line comment.
-- `/*` and `*/` surround a multi-line comment.
-- Comments should explain intent or context, not repeat obvious syntax.
-:::
-
-## Groupwork Debugging Challenge
-
-### Pair programming and rubber-duck debugging
-
-![Rubber duck debugging](../../assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/rubberduck.jpg){fig-align="left" width="16%"}
-
-Work in pairs. One student is the <span class="term">driver</span> who edits code; the other is the <span class="term">navigator</span> who reads messages and checks logic. Switch roles often.
-
-```java
-public class Challenge1_1
-{
-    public static void main(String[] args)
-    {
-        System.out.print("Good morning! ")
-        system.out.print("Good afternoon!);
-        System.Print " And good evening!";
-}
-```
-
-Expected output contains:
-
-```text
-Good morning! Good afternoon! And good evening
-```
+The task is still to edit the string and print your own greeting after running the starter.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
 - define an <span class="term">algorithm</span> as a step-by-step process
 - explain <span class="term">sequencing</span> as completing steps one at a time in order
-- identify the <span class="term">class</span> and <span class="term">main method</span> in a basic Java program
-- state that a <span class="term">compiler</span> translates Java and catches some errors before running
-- read a compiler message using file, line, error message, and caret
-- distinguish <span class="term">syntax errors</span>, <span class="term">run-time errors</span>, <span class="term">logic errors</span>, and <span class="term">comments</span>
+- describe <span class="term">pseudocode</span> as planning code on paper
+- identify the <span class="term">class</span> and <span class="term">main method</span> in a Java program
+- preserve matched curly braces `{` and `}` in a Java class
+- run the `printName` starter before editing the string literal
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to Part 2
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+[Next: Compiling, keywords, and syntax errors →](1-1-part-2-compiling-keywords-and-syntax-errors.html)

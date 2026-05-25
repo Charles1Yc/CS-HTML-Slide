@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.15 String Manipulation</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: String Objects, References, and Creation</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,371 +210,150 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="text-in-java-is-stored-as-string-objects">Text in Java is stored as <code>String</code> objects</h3>
-<p><code>String</code> is a class in the built-in <span class="term"><code>java.lang</code></span> package.</p>
-<div class="tight-list">
-<ul>
-<li>Strings are <span class="term">reference types</span>, not primitive types.</li>
-<li>A string variable can hold a reference or <code>null</code>.</li>
-<li>Class names like <code>String</code> start with a capital letter.</li>
-<li>Primitive type names like <code>int</code> and <code>double</code> start with lowercase letters.</li>
-</ul>
-</div>
+<section id="strings" class="slide level2">
+<h2>Strings</h2>
+<h3 id="topic-intro">Topic intro</h3>
+<p><strong>Strings</strong> in Java are objects of the <code>String</code> class.</p>
+<p>Strings represent sequences of characters and are used to store text like names, addresses, or messages.</p>
+<p>The <code>String</code> class is part of the <code>java.lang</code> package, which is available by default in all Java programs.</p>
+</section>
+<section id="source-note" class="slide level2">
+<h2>Source Note</h2>
+<h3 id="class-type-vs.-primitive-type">Class type vs.&nbsp;primitive type</h3>
+<p>Class names in Java, like <code>String</code>, begin with a capital letter.</p>
+<p>All primitive types, <code>int</code>, <code>double</code>, and <code>boolean</code>, begin with a lowercase letter.</p>
+<p>This is one easy way to tell the difference between primitive types and class types.</p>
 </section>
 <section id="string-references" class="slide level2">
 <h2>String References</h2>
-<h3 id="a-string-variable-can-be-null">A string variable can be <code>null</code></h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png" style="width:18.0%" class="r-stretch quarto-figure-center"><p class="caption">Initial string reference</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">String</span> greeting <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greeting<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This prints <code>null</code>. The variable exists, but it does not yet refer to a <code>String</code> object.</p>
+<h3 id="activecode-lcsb1"><code>activecode:: lcsb1</code></h3>
+<p>Run the following code. What does it print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
+<span id="cb1-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="bu">String</span> greeting <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greeting<span class="op">);</span></span>
+<span id="cb1-7"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="expected-output" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="lcsb1"><code>lcsb1</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>null</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code declares an object variable named <code>greeting</code> and sets the value of <code>greeting</code> to the Java keyword <code>null</code> to show that it doesn’t refer to any object yet.</p>
+<p>So <code>System.out.println(greeting);</code> will print <code>null</code>.</p>
+</section>
+<section id="object-references" class="slide level2">
+<h2>Object References</h2>
+<h3 id="a-way-to-find-the-object">A way to find the object</h3>
+<p>Object variables <strong>refer</strong> to objects in memory.</p>
+<p>A reference is a way to find the actual object, like adding a contact to your phone lets you reach someone without knowing exactly where they are.</p>
+<p>The value of <code>greeting</code> is <code>null</code> since the string object has not been created yet.</p>
+
+<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png" style="width:18.0%" class="r-stretch quarto-figure-center"><p class="caption">Initial value for an object reference</p></section>
 <section id="creating-strings" class="slide level2">
 <h2>Creating Strings</h2>
-<h3 id="literal-form-and-constructor-form">Literal form and constructor form</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">String</span> greeting1 <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="bu">String</span> greeting2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"Welcome"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Both statements create a <code>String</code> object and store a reference in the variable.</p>
-<p>In most Java code, the <span class="term">string literal</span> form is preferred.</p>
+<h3 id="constructor-form">Constructor form</h3>
+<p>In Java there are two ways to create an object of the <code>String</code> class.</p>
+<p>You can use the <code>new</code> keyword followed by a space and then the class constructor.</p>
+<p>In parentheses you can include values used to initialize the fields of the object.</p>
+<p>This is the standard way to create a new object of a class in Java.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">String</span> greeting <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="code-task" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="create-first-and-last-name-strings">Create first and last name strings</h3>
-<p>Write a short program that creates and prints two strings.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> StringCreate <span class="op">{</span></span>
-<span id="cb3-2"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-3"><a href=""></a>        <span class="bu">String</span> firstName <span class="op">=</span> <span class="st">"Ada"</span><span class="op">;</span></span>
-<span id="cb3-4"><a href=""></a>        <span class="bu">String</span> lastName <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"Lovelace"</span><span class="op">);</span></span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Hello, "</span> <span class="op">+</span> firstName<span class="op">);</span></span>
-<span id="cb3-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Welcome, "</span> <span class="op">+</span> lastName<span class="op">);</span></span>
-<span id="cb3-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Classroom edit: change the names, and use one literal string and one constructor-created string.</p>
+<section id="creating-strings-1" class="slide level2">
+<h2>Creating Strings</h2>
+<h3 id="string-literal-form">String literal form</h3>
+<p>In Java you can also use just a <strong>string literal</strong>, which is a set of characters enclosed in double quotes (<code>"</code>), to create a <code>String</code> object.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span> greeting <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In both cases an object of the <code>String</code> class will be created in memory and the value of the variable <code>greeting</code> will be set to an object reference, a way to find that object.</p>
 </section>
-<section id="strings-and-object" class="slide level2">
-<h2>Strings and <code>Object</code></h2>
-<h3 id="string-is-a-class-type"><code>String</code> is a class type</h3>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-lcsbnew"><code>activecode:: lcsbnew</code></h3>
+<p>The code below creates two greeting strings: one using a string literal and the other using <code>new</code> and the <code>String</code> constructor.</p>
+<p>Change the code to add 2 new strings called <code>firstName</code> and <code>lastName</code>, one using a string literal and the other using <code>new</code>, and print them out with the greetings.</p>
+</section>
+<section id="starter-code" class="slide level2">
+<h2>Starter Code</h2>
+<h3 id="lcsbnew"><code>lcsbnew</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> StringTest</span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="bu">String</span> greeting1 <span class="op">=</span> <span class="st">"Hello!"</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>        <span class="bu">String</span> greeting2 <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"Welcome!"</span><span class="op">);</span></span>
+<span id="cb5-7"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: add firstName and lastName strings</span></span>
+<span id="cb5-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greeting1<span class="op">);</span></span>
+<span id="cb5-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>greeting2<span class="op">);</span></span>
+<span id="cb5-10"><a href=""></a>        <span class="co">// </span><span class="al">TODO</span><span class="co">: print the new strings with the greetings</span></span>
+<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb5-12"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="test-requirement" class="slide level2">
+<h2>Test Requirement</h2>
+<h3 id="preserved-runestone-check">Preserved Runestone check</h3>
+<p>Runestone checks that the code changed from the original <code>StringTest</code> starter.</p>
+<p>Keep one new string literal and one new <code>String</code> constructor call in the edited program.</p>
+</section>
+<section id="string-class-object" class="slide level2">
+<h2>String Class Object</h2>
+<h3 id="activecode-lcsb2"><code>activecode:: lcsb2</code></h3>
+<p>Now that <code>greeting</code> refers to an actual object we can ask the object what class created it.</p>
+<p>Try the following. What does it print?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test2</span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href=""></a>        <span class="bu">String</span> greeting <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span>
+<span id="cb6-6"><a href=""></a>        <span class="bu">Class</span> currClass <span class="op">=</span> greeting<span class="op">.</span><span class="fu">getClass</span><span class="op">();</span></span>
+<span id="cb6-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>currClass<span class="op">);</span></span>
+<span id="cb6-8"><a href=""></a>        <span class="bu">Class</span> parentClass <span class="op">=</span> currClass<span class="op">.</span><span class="fu">getSuperclass</span><span class="op">();</span></span>
+<span id="cb6-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>parentClass<span class="op">);</span></span>
+<span id="cb6-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="expected-output-1" class="slide level2">
+<h2>Expected Output</h2>
+<h3 id="lcsb2"><code>lcsb2</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>class java.lang.String</span>
+<span id="cb7-2"><a href=""></a>class java.lang.Object</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code first prints class <code>java.lang.String</code> since <code>greeting</code> was created by the <code>String</code> class.</p>
+<p>The full name for the <code>String</code> class is <code>java.lang.String</code>. The <code>java.lang</code> part is the <strong>package</strong> name.</p>
+</section>
+<section id="package-parent-class-superclass" class="slide level2">
+<h2>Package, Parent Class, Superclass</h2>
+<h3 id="source-explanation">Source explanation</h3>
+<p>Every class in the Java language is in a package and the standard classes like <code>String</code> are in the <code>java.lang</code> package.</p>
+<p>Every object in Java knows the class that created it.</p>
+<p>Also, every class knows its <strong>parent</strong> class. In Java a class can only have one parent.</p>
+<p>A class can <code>inherit</code> object fields and methods from a parent class.</p>
+<p>The last print statement prints <code>class java.lang.Object</code> because the parent class (<strong>superclass</strong>) of the <code>String</code> class is the <code>Object</code> class.</p>
+</section>
+<section id="string-and-object" class="slide level2">
+<h2>String and Object</h2>
+<h3 id="source-figure">Source figure</h3>
+<p>All classes in Java inherit from the <code>Object</code> class at some point in their ancestry.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">String object and class relationship</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="bu">String</span> s <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">getClass</span><span class="op">());</span></span>
-<span id="cb4-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">getClass</span><span class="op">().</span><span class="fu">getSuperclass</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Typical output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>class java.lang.String</span>
-<span id="cb5-2"><a href=""></a>class java.lang.Object</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="concatenation" class="slide level2">
-<h2>Concatenation</h2>
-<h3 id="use-and-to-build-new-strings">Use <code>+</code> and <code>+=</code> to build new strings</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> start <span class="op">=</span> <span class="st">"Happy Birthday"</span><span class="op">;</span></span>
-<span id="cb6-2"><a href=""></a><span class="bu">String</span> name <span class="op">=</span> <span class="st">"Jose"</span><span class="op">;</span></span>
-<span id="cb6-3"><a href=""></a><span class="bu">String</span> result <span class="op">=</span> start <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> name<span class="op">;</span></span>
-<span id="cb6-4"><a href=""></a>result <span class="op">+=</span> <span class="st">"!"</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li><code>+</code> concatenates strings.</li>
-<li><code>+=</code> appends to the current variable by creating a new string.</li>
-<li>Java converts other values to strings when needed.</li>
-<li>Strings are <span class="term">immutable</span> (不可变).</li>
-</ul>
-</div>
-</section>
-<section id="code-task-1" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="birthday-message">Birthday message</h3>
-<p>Start:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> BirthdayMessage <span class="op">{</span></span>
-<span id="cb7-2"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>        <span class="bu">String</span> start <span class="op">=</span> <span class="st">"Happy Birthday"</span><span class="op">;</span></span>
-<span id="cb7-4"><a href=""></a>        <span class="bu">String</span> name <span class="op">=</span> <span class="st">"Jose"</span><span class="op">;</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="bu">String</span> result <span class="op">=</span> start <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> name<span class="op">;</span></span>
-<span id="cb7-6"><a href=""></a>        result <span class="op">+=</span> <span class="st">"!"</span><span class="op">;</span></span>
-<span id="cb7-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>result<span class="op">);</span></span>
-<span id="cb7-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Edit it so the output is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>Happy Birthday Jose Hernandez!!!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="trace-string-reassignment">Trace string reassignment</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="bu">String</span> s1 <span class="op">=</span> <span class="st">"xy"</span><span class="op">;</span></span>
-<span id="cb9-2"><a href=""></a><span class="bu">String</span> s2 <span class="op">=</span> s1<span class="op">;</span></span>
-<span id="cb9-3"><a href=""></a>s1 <span class="op">=</span> s1 <span class="op">+</span> s2 <span class="op">+</span> <span class="st">"z"</span><span class="op">;</span></span>
-<span id="cb9-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>xyxyz</code></p>
-<p><code>s2</code> keeps referring to the earlier <code>"xy"</code> string. The final assignment stores a new string reference in <code>s1</code>.</p>
-</section>
-<section id="number-concatenation" class="slide level2">
-<h2>Number Concatenation</h2>
-<h3 id="parentheses-change-the-result">Parentheses change the result</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"12"</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb10-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"12"</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>1243</span>
-<span id="cb11-2"><a href=""></a>127</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When a string is first in the expression, <code>+</code> starts doing string concatenation unless parentheses force arithmetic first.</p>
-</section>
-<section id="index-and-length" class="slide level2">
-<h2>Index and Length</h2>
-<h3 id="string-positions-start-at-0">String positions start at 0</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringIndicies.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">String indices</p><div class="tight-list">
-<ul>
-<li>The first character is at index <code>0</code>.</li>
-<li>The last character is at index <code>length() - 1</code>.</li>
-<li>An invalid index causes an <span class="term">IndexOutOfBoundsException</span>.</li>
-</ul>
-</div>
-</section>
-<section id="ap-string-methods" class="slide level2">
-<h2>AP String Methods</h2>
-<h3 id="methods-used-on-the-ap-csa-exam">Methods used on the AP CSA exam</h3>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>int length()</code></td>
-<td>returns the number of characters</td>
-</tr>
-<tr class="even">
-<td><code>String substring(int from, int to)</code></td>
-<td>returns characters from <code>from</code> up to but not including <code>to</code></td>
-</tr>
-<tr class="odd">
-<td><code>String substring(int from)</code></td>
-<td>returns characters from <code>from</code> to the end</td>
-</tr>
-<tr class="even">
-<td><code>int indexOf(String str)</code></td>
-<td>returns the first index of <code>str</code>, or <code>-1</code> if not found</td>
-</tr>
-<tr class="odd">
-<td><code>boolean equals(String other)</code></td>
-<td>checks whether the character sequences match</td>
-</tr>
-<tr class="even">
-<td><code>int compareTo(String other)</code></td>
-<td>compares strings lexicographically</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="code-task-2" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="trace-length-substring-and-indexof">Trace <code>length</code>, <code>substring</code>, and <code>indexOf</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="bu">String</span> message <span class="op">=</span> <span class="st">"Computer Science"</span><span class="op">;</span></span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">.</span><span class="fu">length</span><span class="op">());</span></span>
-<span id="cb12-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">8</span><span class="op">));</span></span>
-<span id="cb12-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">9</span><span class="op">));</span></span>
-<span id="cb12-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"Science"</span><span class="op">));</span></span>
-<span id="cb12-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"Java"</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace before running. Remember that <code>substring(0, 8)</code> stops before index <code>8</code>, and a missing string returns <code>-1</code>.</p>
-</section>
-<section id="precondition-check" class="slide level2">
-<h2>Precondition Check</h2>
-<h3 id="fix-the-substring-bounds">Fix the substring bounds</h3>
-<p>Broken code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="bu">String</span> str <span class="op">=</span> <span class="st">"hello"</span><span class="op">;</span></span>
-<span id="cb13-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>str<span class="op">.</span><span class="fu">substring</span><span class="op">(-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Goal: print only <code>"o"</code>.</p>
-<p>Corrected code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a><span class="bu">String</span> str <span class="op">=</span> <span class="st">"hello"</span><span class="op">;</span></span>
-<span id="cb14-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>str<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The start index must be at least <code>0</code>, and the end index must be no larger than <code>length()</code>.</p>
-</section>
-<section id="quick-checks" class="slide level2">
-<h2>Quick Checks</h2>
-<h3 id="index-and-substring-tracing">Index and substring tracing</h3>
-<p>Trace each expression.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="st">"abccba"</span><span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span></span>
-<span id="cb15-2"><a href=""></a><span class="st">"baby"</span><span class="op">.</span><span class="fu">length</span><span class="op">()</span></span>
-<span id="cb15-3"><a href=""></a><span class="st">"baby"</span><span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb15-4"><a href=""></a><span class="st">"baby"</span><span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answers:</p>
-<div class="tight-list">
-<ul>
-<li><code>1</code></li>
-<li><code>4</code></li>
-<li><code>"bab"</code></li>
-<li><code>"by"</code></li>
-</ul>
-</div>
-</section>
-<section id="comparing-strings" class="slide level2">
-<h2>Comparing Strings</h2>
-<h3 id="use-methods-not">Use methods, not <code>==</code></h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">compareTo behavior</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a>message<span class="op">.</span><span class="fu">equals</span><span class="op">(</span><span class="st">"Hello!"</span><span class="op">);</span></span>
-<span id="cb16-2"><a href=""></a>message<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span><span class="st">"Zoo"</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>equals</code> checks content equality. <code>compareTo</code> returns <code>0</code>, a negative number, or a positive number.</p>
-</section>
-<section id="compare-trace" class="slide level2">
-<h2>Compare Trace</h2>
-<h3 id="case-sensitive-comparison">Case-sensitive comparison</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a><span class="bu">String</span> s1 <span class="op">=</span> <span class="st">"apple"</span><span class="op">;</span></span>
-<span id="cb17-2"><a href=""></a><span class="bu">String</span> s2 <span class="op">=</span> <span class="st">"apple"</span><span class="op">;</span></span>
-<span id="cb17-3"><a href=""></a><span class="bu">String</span> s3 <span class="op">=</span> <span class="st">"banana"</span><span class="op">;</span></span>
-<span id="cb17-4"><a href=""></a><span class="bu">String</span> s4 <span class="op">=</span> <span class="st">"Apple"</span><span class="op">;</span></span>
-<span id="cb17-5"><a href=""></a></span>
-<span id="cb17-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>s2<span class="op">));</span></span>
-<span id="cb17-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s3<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>s1<span class="op">));</span></span>
-<span id="cb17-8"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s4<span class="op">.</span><span class="fu">compareTo</span><span class="op">(</span>s1<span class="op">));</span></span>
-<span id="cb17-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>s2<span class="op">));</span></span>
-<span id="cb17-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">.</span><span class="fu">equals</span><span class="op">(</span>s4<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>0</span>
-<span id="cb18-2"><a href=""></a>1</span>
-<span id="cb18-3"><a href=""></a>-32</span>
-<span id="cb18-4"><a href=""></a>true</span>
-<span id="cb18-5"><a href=""></a>false</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="vocabulary-check" class="slide level2">
-<h2>Vocabulary Check</h2>
-<h3 id="choose-the-right-method">Choose the right method</h3>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Goal</th>
-<th>Method</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>number of characters</td>
-<td><code>length()</code></td>
-</tr>
-<tr class="even">
-<td>part of a string</td>
-<td><code>substring(begin, end)</code></td>
-</tr>
-<tr class="odd">
-<td>first position of another string</td>
-<td><code>indexOf(str)</code></td>
-</tr>
-<tr class="even">
-<td>same characters or not</td>
-<td><code>equals(other)</code></td>
-</tr>
-<tr class="odd">
-<td>alphabetical-style ordering</td>
-<td><code>compareTo(other)</code></td>
-</tr>
-</tbody>
-</table>
-<p>Quick check: <code>"Hi".compareTo("Bye")</code> returns a positive value because <code>"H"</code> comes after <code>"B"</code>.</p>
-</section>
-<section id="common-mistakes" class="slide level2">
-<h2>Common Mistakes</h2>
-<h3 id="the-usual-errors-are-predictable">The usual errors are predictable</h3>
-<div class="tight-list">
-<ul>
-<li>Forgetting spaces during concatenation.</li>
-<li>Thinking <code>substring(begin, end)</code> includes the character at <code>end</code>.</li>
-<li>Expecting <code>toLowerCase()</code> to change the original string automatically.</li>
-<li>Using <code>==</code> instead of <code>equals(other)</code>.</li>
-<li>Calling string methods on a <code>null</code> reference.</li>
-<li>Forgetting that comparisons are case-sensitive.</li>
-</ul>
-</div>
-</section>
-<section id="debugging-task" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="fix-common-string-mistakes">Fix common string mistakes</h3>
-<p>Target output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href=""></a>The first letter in Hello!: H</span>
-<span id="cb19-2"><a href=""></a>The last char. in Hello!: !</span>
-<span id="cb19-3"><a href=""></a>In lowercase: hello!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One correct version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb20-1"><a href=""></a><span class="bu">String</span> message <span class="op">=</span> <span class="st">"Hello!"</span><span class="op">;</span></span>
-<span id="cb20-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The first letter in "</span> <span class="op">+</span> message <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">));</span></span>
-<span id="cb20-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"The last char. in "</span> <span class="op">+</span> message <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> message<span class="op">.</span><span class="fu">substring</span><span class="op">(</span>message<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">));</span></span>
-<span id="cb20-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"In lowercase: "</span> <span class="op">+</span> message<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="coding-challenge" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="pig-latin">Pig Latin</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png" style="width:26.0%" class="r-stretch quarto-figure-center"><p class="caption">Pig Latin challenge icon</p><p>Move the first letter to the end and add <code>"ay"</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb21-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="bu">String</span> <span class="fu">pigLatin</span><span class="op">(</span><span class="bu">String</span> word<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-2"><a href=""></a>    <span class="bu">String</span> first <span class="op">=</span> word<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb21-3"><a href=""></a>    <span class="bu">String</span> rest <span class="op">=</span> word<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb21-4"><a href=""></a>    <span class="cf">return</span> rest <span class="op">+</span> first <span class="op">+</span> <span class="st">"ay"</span><span class="op">;</span></span>
-<span id="cb21-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="coding-challenge-1" class="slide level2">
-<h2>Coding Challenge</h2>
-<h3 id="pig-latin-classroom-checks">Pig Latin classroom checks</h3>
-<p>Expected examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href=""></a>pig -&gt; igpay</span>
-<span id="cb22-2"><a href=""></a>java -&gt; avajay</span>
-<span id="cb22-3"><a href=""></a>string -&gt; tringsay</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Your solution should:</p>
-<div class="tight-list">
-<ul>
-<li>call <code>substring</code> at least twice</li>
-<li>preserve all original letters</li>
-<li>add <code>"ay"</code> at the end</li>
-<li>work for words longer than one character</li>
-</ul>
-</div>
-</section>
-<section id="ap-style-check" class="slide level2">
-<h2>AP-Style Check</h2>
-<h3 id="indexof-and-substring"><code>indexOf</code> and <code>substring</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb23-1"><a href=""></a><span class="bu">String</span> str <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span><span class="op">(</span><span class="st">"hi there"</span><span class="op">);</span></span>
-<span id="cb23-2"><a href=""></a><span class="dt">int</span> pos <span class="op">=</span> str<span class="op">.</span><span class="fu">indexOf</span><span class="op">(</span><span class="st">"e"</span><span class="op">);</span></span>
-<span id="cb23-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>str<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> pos<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>pos</code> is <code>5</code>, so the printed string is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href=""></a>hi th</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The character at index <code>5</code> is not included.</p>
-</section>
-<section id="ap-style-check-1" class="slide level2">
-<h2>AP-Style Check</h2>
-<h3 id="strings-are-immutable">Strings are immutable</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb25-1"><a href=""></a><span class="bu">String</span> s1 <span class="op">=</span> <span class="st">"Hi"</span><span class="op">;</span></span>
-<span id="cb25-2"><a href=""></a><span class="bu">String</span> s2 <span class="op">=</span> s1<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb25-3"><a href=""></a><span class="bu">String</span> s3 <span class="op">=</span> s2<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">();</span></span>
-<span id="cb25-4"><a href=""></a></span>
-<span id="cb25-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s1<span class="op">);</span></span>
-<span id="cb25-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s2<span class="op">);</span></span>
-<span id="cb25-7"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s3<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href=""></a>Hi</span>
-<span id="cb26-2"><a href=""></a>H</span>
-<span id="cb26-3"><a href=""></a>h</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Calling <code>substring</code> or <code>toLowerCase</code> returns a new string; it does not change <code>s1</code>.</p>
-</section>
+<img data-src="../../assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png" style="width:66.0%" class="r-stretch quarto-figure-center"><p class="caption">Object variable of type String with a reference to a String object</p></section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>identify <code>String</code> as a class type in <code>java.lang</code></li>
-<li>explain concatenation and string immutability</li>
-<li>use <code>length</code>, <code>substring</code>, and <code>indexOf</code> correctly</li>
-<li>apply zero-based indexing to strings</li>
-<li>compare strings with <code>equals</code> or <code>compareTo</code>, not <code>==</code></li>
-<li>trace returned string values without changing the original string</li>
+<li>identify <code>String</code> as a class in <code>java.lang</code></li>
+<li>distinguish <code>String</code> class type from primitive types by naming convention</li>
+<li>explain that a <code>String</code> variable can hold <code>null</code></li>
+<li>create a <code>String</code> with <code>new String("text")</code></li>
+<li>create a <code>String</code> with a string literal like <code>"text"</code></li>
+<li>explain that <code>String</code> inherits from <code>Object</code></li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">1.15 Part 1 complete</h3>
+<p>Part 2 continues with String operators and concatenation.</p>
 
 </section>
     </div>

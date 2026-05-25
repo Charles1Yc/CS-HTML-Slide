@@ -1,0 +1,206 @@
+---
+title: "1.4 Assignment and Input"
+subtitle: "Part 2: Data Types, null, Increment, and Input"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Data Types in Assignments
+
+### Compatible data type
+
+Every variable must be assigned a value before it can be used in an expression.
+
+That value must be from a <span class="term">compatible data type</span> (兼容数据类型).
+
+A variable is <span class="term">initialized</span> the first time it is assigned a value.
+
+## Expression Type
+
+### One value with one type
+
+During execution, an expression is evaluated to produce a single value.
+
+The value of an expression has a type based on the types of the values and operators evaluated in the expression.
+
+For example, an arithmetic expression that uses at least one `double` value will evaluate to a `double` value and must be saved in a `double` variable.
+
+## Coding Exercise
+
+### `activecode:: assignmentTypes`
+
+Textbook prompt: The code below looks okay at first glance, but if you run it, you will see that there is an error of incompatible types.
+
+Change the data type of one of the variables to fix the error.
+
+## Code Window
+
+### `activecode:: assignmentTypes`
+
+```java
+public class Asgn
+{
+    public static void main(String[] args)
+    {
+          int x = 1;
+          double y = 2.2;
+          x = 2 * y;
+          System.out.println(x);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: assignmentTypes`
+
+Runestone expects this output from `main` after the type fix:
+
+```text
+4.4
+```
+
+The assignment target must be able to store a `double` result.
+
+## Reference Types
+
+### `null`
+
+Reference types like `String` can be assigned a new object or `null` if there is no object.
+
+The literal <span class="term">`null`</span> is a special value used to indicate that a reference is not associated with any object.
+
+```java
+// String variables can be assigned null
+// or a new String object
+String str = null;
+str = "new object";
+```
+
+## Adding 1 to a Variable
+
+### `score = score + 1`
+
+If you use a variable to keep score, you would probably increment it whenever score should go up.
+
+You can do this by setting the variable to the current value of the variable plus one:
+
+```java
+score = score + 1;
+```
+
+The formula would look strange in math class, but it makes sense in coding because it assigns a new value to the variable on the left.
+
+## Coding Exercise
+
+### `activecode:: incrementScore`
+
+Textbook prompt: Try the code below to see how score is incremented by `1`.
+
+Try substituting `2` instead of `1` to see what happens.
+
+## Code Window
+
+### `activecode:: incrementScore`
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        int score = 0;
+        System.out.println(score);
+        score = score + 1;
+        System.out.println(score);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: incrementScore`
+
+Runestone expects this output from `main`:
+
+```text
+0
+1
+```
+
+## Input with Variables
+
+### Same algorithm, different input values
+
+Variables are a powerful abstraction in programming because the same algorithm can be used with different input values saved in variables.
+
+Input can come in a variety of forms, such as <span class="term">tactile</span>, <span class="term">audio</span>, <span class="term">visual</span>, or the most common form, <span class="term">text</span> that the user types in.
+
+The `Scanner` class in Java is one way to obtain text input from the keyboard.
+
+## Scanner Example
+
+### `activecode:: inputName`
+
+The code below using the `Scanner` class will say hello to anyone who types in their name and will have different results for different name values.
+
+First, type in your name below the code and then click on run.
+
+Try again with a friend's name.
+
+## Code Window
+
+### `activecode:: inputName`
+
+```java
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Please type in a name in the input box below.");
+        Scanner scan = new Scanner(System.in);
+        String name = scan.nextLine();
+        System.out.println("Hello " + name);
+        scan.close();
+     }
+}
+```
+
+## Test Requirements
+
+### `activecode:: inputName`
+
+Runestone marks this as a Scanner example.
+
+Keyboard input is useful and fun, although you will not be tested in the AP CSA exam on using Java input from the keyboard.
+
+External IDE, Replit, JuiceMind, W3Schools, and Console links are not required in this static deck.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain that variables must be initialized before use
+- assign only values from compatible data types
+- explain why an expression with a `double` value needs a compatible target variable
+- define `null` as a reference literal meaning no associated object
+- trace `score = score + 1` as an update using the previous value
+- explain that `Scanner` can store typed text input in a variable, though keyboard input is not an AP exam target
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Dog Years coding challenge →](1-4-part-3-dog-years-challenge.html)

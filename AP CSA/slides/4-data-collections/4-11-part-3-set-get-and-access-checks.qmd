@@ -1,0 +1,224 @@
+---
+title: "4.11 Set and Get Values in 2D Arrays"
+subtitle: "2D Array Creation and Access"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Set Values in a 2D Array
+
+### `array[row][col]`
+
+The square brackets `[row][col]` are used to access and modify an element in a 2D array.
+
+When accessing the element at `arr[first][second]`, the first index is used for rows, the second index is used for columns.
+
+To explicitly put a value in an array, use assignment statements with the name of the array followed by the row index and column index.
+
+## Set Value Example
+
+### Assignment into a cell
+
+```java
+int[][] ticketInfo = new int[2][3];
+ticketInfo[0][0] = 15;
+```
+
+`ticketInfo[0][0]` means row index `0`, column index `0`.
+
+## Coding Exercise
+
+### `activecode:: twoDArraySet`
+
+Try the code below.
+
+When you print a two dimensional array you just get the reference to the object.
+
+Edit the code to add in an extra row to the `seatingChart` and add your name and a friend's name in the columns of this extra row using assignment statements.
+
+## TwoDArraySet Source Code
+
+::: {.code-scroll}
+```java
+public class TwoDArraySet
+{
+    public static void main(String[] args)
+    {
+        // declare arrays
+        int[][] ticketInfo;
+        String[][] seatingChart;
+
+        // create arrays
+        ticketInfo = new int[2][3];
+        seatingChart = new String[3][2];
+
+        // initialize the array elements
+        ticketInfo[0][0] = 15;
+        ticketInfo[0][1] = 10;
+        ticketInfo[0][2] = 15;
+        ticketInfo[1][0] = 25;
+        ticketInfo[1][1] = 20;
+        ticketInfo[1][2] = 25;
+        seatingChart[0][0] = "Jamal";
+        seatingChart[0][1] = "Maria";
+        seatingChart[1][0] = "Jacob";
+        seatingChart[1][1] = "Suzy";
+        seatingChart[2][0] = "Emma";
+        seatingChart[2][1] = "Luke";
+
+        // print the contents
+        System.out.println(ticketInfo);
+        System.out.println(seatingChart);
+    }
+}
+```
+:::
+
+## TwoDArraySet Test Targets
+
+### Runestone checks
+
+The code should print two 2D array references.
+
+The code should contain:
+
+```java
+new String[4][2]
+```
+
+The code should also contain assignments to:
+
+```java
+seatingChart[3][0]
+seatingChart[3][1]
+```
+
+## Quick Check
+
+### `mchoice:: qa2dab_1`
+
+Which of the following sets the value for the 3rd row and 2nd column of a 2D array called `nums`?
+
+A. `nums[3][2] = 5;`  
+B. `nums[1][2] = 5;`  
+C. `nums[2][1] = 5;`  
+D. `nums[2][3] = 5;`
+
+## Quick Check: Answer
+
+### qa2dab_1 reasoning
+
+Correct answer: **C. `nums[2][1] = 5;`**
+
+This sets the value of the 3rd row and 2nd column because indices start at `0` and the row index comes first.
+
+## Get a Value from a 2D Array
+
+### Read from a cell
+
+To get the value in a 2D array, give the name of the array followed by the row and column indices in square brackets.
+
+```java
+int[][] ticketInfo = { {25, 20, 25}, {25, 20, 25} };
+String[][] seatingInfo = { {"Jamal", "Maria"}, {"Jake", "Suzy"}, {"Emma", "Luke"} };
+int value = ticketInfo[1][0];
+String name = seatingInfo[0][1];
+```
+
+## Quick Check
+
+### `mchoice:: qa2dab_2`
+
+What is the value of `name` after the code executes?
+
+Options:
+
+A. `Jamal`  
+B. `Maria`  
+C. `Jake`  
+D. `Suzy`  
+E. `Emma`
+
+## Quick Check: Answer
+
+### qa2dab_2 reasoning
+
+Correct answer: **B. `Maria`**
+
+`Maria` is the value of `seatingInfo[0][1]`.
+
+## Coding Exercise
+
+### `activecode:: twoDArrayInitGet`
+
+Add another row to `seatingInfo` initialized to your name and a friend's name.
+
+Get these names out of the array using the correct indices and then print them out.
+
+## TwoDArrayInitGet Source Code
+
+::: {.code-scroll}
+```java
+public class TwoDArrayInitGet
+{
+    public static void main(String[] args)
+    {
+        String[][] seatingInfo =
+        {
+            {"Jamal", "Maria"},
+            {"Jake", "Suzy"},
+            {"Emma", "Luke"}
+        };
+        String name = seatingInfo[0][0];
+        System.out.println(name + " is at [0,0]");
+    }
+}
+```
+:::
+
+## TwoDArrayInitGet Test Targets
+
+### Original output and added row checks
+
+The original output should contain:
+
+```text
+Jamal is at [0,0]
+```
+
+After adding a new row, one printed line should contain:
+
+```text
+[3,0]
+```
+
+Another printed line should contain:
+
+```text
+[3,1]
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+- use `[row][col]` with the row index first
+- use assignment statements to set 2D array values
+- explain why printing a 2D array directly prints a reference-like value
+- retrieve a value with the same `[row][col]` pattern
+- choose `[2][1]` for the 3rd row and 2nd column
+
+## End
+
+### 4.11 Set and Get Values in 2D Arrays
+
+Next: row/column length and ASCII Art challenge.

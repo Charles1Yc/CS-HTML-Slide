@@ -1,0 +1,398 @@
+---
+title: "3.6 Same-Class Parameters and Returning Objects"
+subtitle: "Methods: Passing and Returning References of an Object"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Parameter of the Same Class Type
+
+### Private access rule
+
+Methods cannot access the private data and methods of a parameter that holds a reference to an object unless the parameter is the same type as the method's enclosing class.
+
+In the example, the `Person` class can access the `addr` instance variable of another `Person` object because they are the same class type.
+
+It cannot access the `city` instance variable of an `Address` object directly because it is private and not of the same class.
+
+## Same Class Access
+
+### `Person` parameter
+
+```java
+public class Person
+{
+    private String name;
+    private Address addr;  // instance variable of type Address defined below
+
+    public void copyAddress(Person otherPerson)
+    {
+        // otherPerson.addr will work because the parameter is of the same class Person
+        addr = new Address(otherPerson.addr);
+    }
+}
+```
+
+## Different Class Access
+
+### `Address` parameter
+
+```java
+public void copyCity(Address otherAddr)
+{
+    // This will not work because the city instance variable is private
+    //   and the parameter is not of the same class type
+    // addr.city = otherAddr.city;
+    // But you can use the get method to access the city
+    addr.setCity(otherAddr.getCity());
+}
+```
+
+## Coding Exercise
+
+### `activecode:: PersonAddressGet`
+
+Run the code to see that the `Person` class can directly access the instance variables of objects of the same class.
+
+It cannot directly access the instance variable of an `Address` object because it is not of the same class.
+
+Change the code in the `copyAddressFromAddress()` method to use get/set methods instead.
+
+## PersonAddressGet Starter
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address defined below
+
+    // constructor: initialize instance variable and call Address constructor to
+    // make a copy
+    public Person(String initName, Address initAddr)
+    {
+        name = initName;
+        // Defensive copy of the Address argument
+        addr =  new Address(
+                           initAddr.getStreet(),
+                           initAddr.getCity(),
+                           initAddr.getState(),
+                           initAddr.getZipcode());
+    }
+
+    public void copyAddressFromPerson(Person otherPerson)
+    {
+        // otherPerson.addr will work because the parameter is of the same class Person
+        addr = new Address(otherPerson.addr);
+    }
+
+    // TODO: Change the code in this method
+    public void copyAddressFromAddress(Address otherAddr)
+    {
+        // This will not work because the instance variables are private
+        //   and the parameter is not of the same class type
+        // Change this code to use set/get methods!
+        addr.street = otherAddr.street;
+        addr.city = otherAddr.city;
+        addr.state = otherAddr.state;
+        addr.zipcode = otherAddr.zipcode;
+    }
+
+    public String toString()
+    {
+        return "Name:" + name + "\n" + "Address:" + addr;
+    }
+
+    public static void main(String[] args)
+    {
+        Address a1 = new Address("123 Main St", "Anytown", "Anystate", "12345");
+        Address a2 = new Address("456 Elm St", "Othertown", "Otherstate", "67890");
+        Person p1 = new Person("Skyler", a1);
+        Person p2 = new Person("Jordan", a2);
+        System.out.println(p1);
+        p1.copyAddressFromPerson(p2);
+        System.out.println(p1);
+        p1.copyAddressFromAddress(a1);
+        System.out.println(p1);
+    }
+}
+class Address
+{
+      // instance variables
+      private String street;
+      private String city;
+      private String state;
+      private String zipcode;
+      // constructor
+      public Address(String initStreet, String initCity,
+                     String initState, String initZipcode)
+      {
+          street = initStreet;
+          city = initCity;
+          state = initState;
+          zipcode = initZipcode;
+      }
+      // copy constructor
+      public Address(Address otherAddr)
+      {
+          street = otherAddr.getStreet();
+          city = otherAddr.getCity();
+          zipcode = otherAddr.getZipcode();
+      }
+      public String toString()
+      {
+          return street + "\n" + city + ", " + state + " " + zipcode;
+      }
+      public String getStreet()
+      {
+          return street;
+      }
+      public String getCity()
+      {
+          return city;
+      }
+      public String getState()
+      {
+          return state;
+      }
+      public String getZipcode()
+      {
+          return zipcode;
+      }
+      // Setters (makes the class mutable)
+      public void setStreet(String initStreet)
+      {
+          street = initStreet;
+      }
+      public void setCity(String initCity)
+      {
+          city = initCity;
+      }
+      public void setState(String initState)
+      {
+          state = initState;
+      }
+      public void setZipcode(String initZipcode)
+      {
+          zipcode = initZipcode;
+      }
+}
+```
+:::
+
+## Focused Fix
+
+### Replace direct private field access
+
+The broken code tries to access private fields of an `Address` parameter directly: `addr.city = otherAddr.city;`
+
+The intended pattern is get from `otherAddr` and set into `addr`, for example: `addr.setCity(otherAddr.getCity());`
+
+## PersonAddressGet Test Targets
+
+### Runestone checks
+
+The tests check that the code contains:
+
+::: {.tight-list}
+- `addr.setCity`
+- `otherAddr.getCity`
+:::
+
+## Returning Objects
+
+### Returning an object reference
+
+Methods can also return objects.
+
+Methods can only return the value of a variable.
+
+If the return value is primitive, like `int` or `double`, only a copy of the value is returned.
+
+When the return expression evaluates to an object reference, the reference is returned, not a reference to a new copy of the object.
+
+## Mutable Return Values
+
+### Multiple references to the same object
+
+Returning an object reference means that there can be multiple references to the same object.
+
+If the object is mutable, any changes made to the object through one reference will be seen through any other references to the object.
+
+## `getAddress` Example
+
+### A method returns an Address reference
+
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address
+
+    public Address getAddress()
+    {
+        return addr;
+    }
+}
+```
+
+Since `Address` has set methods, the caller can change the `Address` object through the reference returned by the method.
+
+## Returning Reference Trace
+
+### Caller changes the returned object
+
+```java
+Person p1 = new Person("Skyler", new Address("123 Main St", "Anytown", "Anystate", "12345"));
+System.out.println(p1);
+Address a = p1.getAddress();
+a.setCity("Othertown");
+System.out.println(p1);
+```
+
+The reference in `a` points to the same mutable `Address` object that `p1` stores.
+
+## Coding Exercise
+
+### `activecode:: PersonReturnAddress`
+
+Run the code to see that the `Person` class can return the `Address` object, which is mutable.
+
+Add code in the `main` method that changes the zipcode of the `Address` object returned by the `getAddress` method.
+
+It will change the zipcode in the `Person` object too.
+
+## PersonReturnAddress Starter
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address defined below
+
+    // constructor: initialize instance variable and call Address constructor to
+    // make a copy
+    public Person(String initName, Address initAddr)
+    {
+        name = initName;
+        // Defensive copy of the Address argument
+        addr =  new Address(
+                           initAddr.getStreet(),
+                           initAddr.getCity(),
+                           initAddr.getState(),
+                           initAddr.getZipcode());
+    }
+
+    public Address getAddress()
+    {
+        return addr;
+    }
+
+    public String toString()
+    {
+        return "Name:" + name + "\n" + "Address:" + addr;
+    }
+
+    public static void main(String[] args)
+    {
+        Person p1 = new Person("Skyler", new Address("123 Main St", "Anytown", "Anystate", "12345"));
+        System.out.println(p1);
+        Address a = p1.getAddress();
+        // TODO: add code to change a's zipcode to "11111"
+        //    using setZipcode
+
+        // Does it change in p1 too?
+        System.out.println(p1);
+    }
+}
+class Address
+{
+      // instance variables
+      private String street;
+      private String city;
+      private String state;
+      private String zipcode;
+      // constructor
+      public Address(String initStreet, String initCity,
+                     String initState, String initZipcode)
+      {
+          street = initStreet;
+          city = initCity;
+          state = initState;
+          zipcode = initZipcode;
+      }
+      public String toString()
+      {
+          return street + "\n" + city + ", " + state + " " + zipcode;
+      }
+      public String getStreet()
+      {
+          return street;
+      }
+      public String getCity()
+      {
+          return city;
+      }
+      public String getState()
+      {
+          return state;
+      }
+      public String getZipcode()
+      {
+          return zipcode;
+      }
+      // Setters (makes the class mutable)
+      public void setCity(String initCity)
+      {
+          city = initCity;
+      }
+      public void setZipcode(String initZipcode)
+      {
+          zipcode = initZipcode;
+      }
+}
+```
+:::
+
+## PersonReturnAddress Test Targets
+
+### Runestone checks
+
+The tests check:
+
+::: {.tight-list}
+- the code contains `a.setZipcode`
+- output from `main` contains `11111`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why same-class parameters can access private data of that same class
+- explain why an `Address` parameter needs get/set methods
+- repair direct `Address` private-field access using getters and setters
+- explain that returning an object returns a reference, not a new copy
+- trace how changing a returned mutable object can change the object stored inside another object
+- preserve the broken starter lines until students repair them
+:::
+
+## End
+
+### 3.6 Part 3 complete
+
+Next: Friends and Birthdays challenge.

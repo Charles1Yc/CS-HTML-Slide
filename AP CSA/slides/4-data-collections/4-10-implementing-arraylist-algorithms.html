@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.10 Implementing ArrayList Algorithms</title>
+  <title>4.10 Add and Remove Elements</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.10 Implementing ArrayList Algorithms</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.10 Add and Remove Elements</h1>
+  <p class="subtitle">Implementing ArrayList Algorithms</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,129 +210,179 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="arraylist-algorithms-must-respect-shifting">ArrayList algorithms must respect shifting</h3>
-<p>The same collection patterns appear again:</p>
-<div class="tight-list">
+<section id="implementing-arraylist-algorithms" class="slide level2">
+<h2>Implementing ArrayList Algorithms</h2>
+<h3 id="standard-arraylist-algorithms-12">Standard <code>ArrayList</code> algorithms 1/2</h3>
+<p>There are standard <code>ArrayList</code> algorithms that utilize traversals to:</p>
 <ul>
-<li>add and remove elements</li>
-<li>min, max, sum, average</li>
-<li>count properties</li>
-<li>find duplicates</li>
-<li>rotate and reverse</li>
+<li>insert elements</li>
+<li>delete elements</li>
+<li>determine a minimum or maximum value</li>
+<li>compute a sum or average</li>
+<li>determine if at least one element has a particular property</li>
+<li>determine if all elements have a particular property</li>
 </ul>
-</div>
-<p>The main extra risk is that <code>ArrayList</code> indices shift after insertions and removals.</p>
 </section>
-<section id="remove-in-a-loop" class="slide level2">
-<h2>Remove in a Loop</h2>
-<h3 id="traverse-backward-when-removing">Traverse backward when removing</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> list<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--)</span></span>
+<section id="implementing-arraylist-algorithms-1" class="slide level2">
+<h2>Implementing ArrayList Algorithms</h2>
+<h3 id="standard-arraylist-algorithms-22">Standard <code>ArrayList</code> algorithms 2/2</h3>
+<p>There are standard <code>ArrayList</code> algorithms that utilize traversals to:</p>
+<ul>
+<li>determine the number of elements having a particular property</li>
+<li>access all consecutive pairs of elements</li>
+<li>determine the presence or absence of duplicate elements</li>
+<li>shift or rotate elements left or right</li>
+<li>reverse the order of the elements</li>
+</ul>
+</section>
+<section id="common-traversal-loops" class="slide level2">
+<h2>Common Traversal Loops</h2>
+<h3 id="enhanced-for-and-indexed-for">Enhanced <code>for</code> and indexed <code>for</code></h3>
+<p>Here are two common <code>ArrayList</code> traversal loops that can be used for these algorithms.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">Type</span> obj <span class="op">:</span> list<span class="op">)</span></span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>condition about obj<span class="op">)</span></span>
 <span id="cb1-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-5"><a href=""></a>        list<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb1-5"><a href=""></a>        <span class="co">// body for matching values</span></span>
 <span id="cb1-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Backward traversal avoids skipping elements after removal.</p>
+<span id="cb1-7"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-8"><a href=""></a></span>
+<span id="cb1-9"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb1-10"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-11"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>condition about list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">))</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-13"><a href=""></a>        <span class="co">// body for matching indices</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="sum-and-average" class="slide level2">
-<h2>Sum and Average</h2>
-<h3 id="accumulate-values-from-geti">Accumulate values from <code>get(i)</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb2-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-4"><a href=""></a>    sum <span class="op">+=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb2-5"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-6"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use <code>values.size()</code> for the divisor.</p>
+<section id="addremove-elements" class="slide level2">
+<h2>Add/Remove Elements</h2>
+<h3 id="trace-basic-arraylist-methods">Trace basic <code>ArrayList</code> methods</h3>
+<p>You should be able to trace through code that uses all the basic <code>ArrayList</code> methods.</p>
+<p>Key methods in this lesson:</p>
+<ul>
+<li><code>add(obj)</code></li>
+<li><code>add(index, obj)</code></li>
+<li><code>set(index, obj)</code></li>
+<li><code>remove(index)</code></li>
+</ul>
 </section>
-<section id="max" class="slide level2">
-<h2>Max</h2>
-<h3 id="initialize-from-an-existing-element">Initialize from an existing element</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">&gt;</span> max<span class="op">)</span></span>
-<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-6"><a href=""></a>        max <span class="op">=</span> values<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">);</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This works for negative numbers too.</p>
+<section id="quick-check" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qlistrem3"><code>mchoice:: qListRem3</code></h3>
+<p>What will print when the following code executes?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numList <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb2-2"><a href=""></a>numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">1</span><span class="op">));</span></span>
+<span id="cb2-3"><a href=""></a>numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb2-4"><a href=""></a>numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">3</span><span class="op">));</span></span>
+<span id="cb2-5"><a href=""></a>numList<span class="op">.</span><span class="fu">set</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">4</span><span class="op">));</span></span>
+<span id="cb2-6"><a href=""></a>numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">5</span><span class="op">));</span></span>
+<span id="cb2-7"><a href=""></a>numList<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">6</span><span class="op">));</span></span>
+<span id="cb2-8"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>numList<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="count-a-property" class="slide level2">
-<h2>Count a Property</h2>
-<h3 id="selection-inside-traversal">Selection inside traversal</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="dt">int</span> oddCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> values<span class="op">)</span></span>
-<span id="cb4-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="cf">if</span> <span class="op">(</span>value <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-6"><a href=""></a>        oddCount<span class="op">++;</span></span>
-<span id="cb4-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is a frequency counter for an <code>ArrayList</code>.</p>
+<section id="quick-check-options" class="slide level2">
+<h2>Quick Check: Options</h2>
+<h3 id="qlistrem3">qListRem3</h3>
+<p>Options:</p>
+<p>A. <code>[1, 2, 3, 4, 5]</code><br>
+B. <code>[1, 2, 4, 5, 6]</code><br>
+C. <code>[1, 2, 5, 4, 6]</code><br>
+D. <code>[1, 5, 2, 4, 6]</code></p>
 </section>
-<section id="duplicates" class="slide level2">
-<h2>Duplicates</h2>
-<h3 id="compare-each-pair-once">Compare each pair once</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
-<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> list<span class="op">.</span><span class="fu">size</span><span class="op">();</span> j<span class="op">++)</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">).</span><span class="fu">equals</span><span class="op">(</span>list<span class="op">.</span><span class="fu">get</span><span class="op">(</span>j<span class="op">)))</span></span>
-<span id="cb5-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb5-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb5-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-10"><a href=""></a><span class="op">}</span></span>
-<span id="cb5-11"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use <code>equals</code> for objects such as strings.</p>
+<section id="quick-check-answer" class="slide level2">
+<h2>Quick Check: Answer</h2>
+<h3 id="qlistrem3-reasoning">qListRem3 reasoning</h3>
+<p>Correct answer: <strong>D. <code>[1, 5, 2, 4, 6]</code></strong></p>
+<p><code>add</code> without an index adds at the end.</p>
+<p><code>set</code> replaces the item at that index.</p>
+<p><code>add</code> with an index moves all current values at that index or beyond to the right.</p>
 </section>
-<section id="rotate-right" class="slide level2">
-<h2>Rotate Right</h2>
-<h3 id="remove-from-one-end-and-add-to-the-other">Remove from one end and add to the other</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="bu">String</span> last <span class="op">=</span> list<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>list<span class="op">.</span><span class="fu">size</span><span class="op">()</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-2"><a href=""></a>list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> last<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For a new list version, add elements into a separate <code>ArrayList</code> instead of modifying the original.</p>
+<section id="quick-check-1" class="slide level2">
+<h2>Quick Check</h2>
+<h3 id="mchoice-qlistrem4"><code>mchoice:: qListRem4</code></h3>
+<p>What will print when the following code executes?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> list1 <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb3-2"><a href=""></a>list1<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">1</span><span class="op">));</span></span>
+<span id="cb3-3"><a href=""></a>list1<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">2</span><span class="op">));</span></span>
+<span id="cb3-4"><a href=""></a>list1<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span><span class="dv">3</span><span class="op">));</span></span>
+<span id="cb3-5"><a href=""></a>list1<span class="op">.</span><span class="fu">remove</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>list1<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Options:</p>
+<p>A. <code>[2, 3]</code><br>
+B. <code>[1, 2, 3]</code><br>
+C. <code>[1, 2]</code><br>
+D. <code>[1, 3]</code></p>
 </section>
-<section id="reverse-into-a-new-list" class="slide level2">
-<h2>Reverse into a New List</h2>
-<h3 id="build-in-opposite-order">Build in opposite order</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> reversed <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
-<span id="cb7-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="bu">String</span> item <span class="op">:</span> list<span class="op">)</span></span>
-<span id="cb7-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-4"><a href=""></a>    reversed<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> item<span class="op">);</span></span>
-<span id="cb7-5"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Each new item is inserted at the front.</p>
+<section id="quick-check-answer-1" class="slide level2">
+<h2>Quick Check: Answer</h2>
+<h3 id="qlistrem4-reasoning">qListRem4 reasoning</h3>
+<p>Correct answer: <strong>D. <code>[1, 3]</code></strong></p>
+<p>The item at index <code>1</code> is removed and the <code>3</code> is moved left.</p>
 </section>
-<section id="parallel-data-structures" class="slide level2">
-<h2>Parallel Data Structures</h2>
-<h3 id="same-index-connects-related-lists">Same index connects related lists</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> names <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;();</span></span>
-<span id="cb8-2"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> scores <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>names<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">)</span> <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> scores<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Parallel lists require careful index consistency. A class is often a cleaner design.</p>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-arraylistremoveinloop"><code>activecode:: arrayListRemoveInLoop</code></h3>
+<p>The following code is supposed to initialize the <code>ArrayList</code> <code>arr</code> to <code>[0,1,2,3,4]</code> and then remove every other element to get <code>[1,3]</code>.</p>
+<p>However, when you remove an element the size of the array changes and elements move up an index.</p>
+<p>Trace through the code and figure out why you get the unexpected result.</p>
+</section>
+<section id="arraylistremoveinloop-source-code" class="slide level2">
+<h2>arrayListRemoveInLoop Source Code</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> ArrayListLoop</span>
+<span id="cb4-4"><a href=""></a><span class="op">{</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-6"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb4-7"><a href=""></a>        <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> arr <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
+<span id="cb4-8"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb4-9"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-10"><a href=""></a>            arr<span class="op">.</span><span class="fu">add</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb4-11"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-12"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> arr<span class="op">.</span><span class="fu">size</span><span class="op">();</span> i<span class="op">++)</span></span>
+<span id="cb4-13"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb4-14"><a href=""></a>            <span class="cf">if</span> <span class="op">(</span>i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-15"><a href=""></a>            <span class="op">{</span></span>
+<span id="cb4-16"><a href=""></a>                <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Removing element "</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">" : "</span> <span class="op">+</span> arr<span class="op">.</span><span class="fu">get</span><span class="op">(</span>i<span class="op">));</span></span>
+<span id="cb4-17"><a href=""></a>                arr<span class="op">.</span><span class="fu">remove</span><span class="op">(</span>i<span class="op">);</span></span>
+<span id="cb4-18"><a href=""></a>            <span class="op">}</span></span>
+<span id="cb4-19"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb4-20"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>arr<span class="op">);</span></span>
+<span id="cb4-21"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb4-22"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="arraylistremoveinloop-test-target" class="slide level2">
+<h2>arrayListRemoveInLoop Test Target</h2>
+<h3 id="runestone-expected-output">Runestone expected output</h3>
+<p>The Runestone test checks the output from <code>main</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>Removing element 0: 0</span>
+<span id="cb5-2"><a href=""></a>Removing element 2: 3</span>
+<span id="cb5-3"><a href=""></a>[1, 2, 4]</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The source expects this unexpected result, because the exercise is about tracing the removal bug.</p>
+</section>
+<section id="remove-while-traversing" class="slide level2">
+<h2>Remove While Traversing</h2>
+<h3 id="source-note">Source note</h3>
+<p>If you use <code>add</code> or <code>remove</code> inside a loop that traverses an <code>ArrayList</code>, you may get unexpected results because the size of the <code>ArrayList</code> has changed.</p>
+<p>Enhanced <code>for</code> should not be used to remove elements from an <code>ArrayList</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
-<div class="tight-list">
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <ul>
-<li>remove safely by traversing backward when needed</li>
-<li>compute sum, average, min, and max with <code>ArrayList</code> methods</li>
-<li>count elements that match a property</li>
-<li>use nested loops to detect duplicates</li>
-<li>rotate or reverse a list while explaining how indices change</li>
+<li>distinguish <code>add(obj)</code>, <code>add(index, obj)</code>, <code>set(index, obj)</code>, and <code>remove(index)</code></li>
+<li>trace index shifts after an insertion or removal</li>
+<li>explain why removing while moving forward can skip values</li>
+<li>explain why enhanced <code>for</code> should not be used to remove elements</li>
+<li>preserve the source expected output for <code>arrayListRemoveInLoop</code></li>
 </ul>
-</div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="add-and-remove-elements">4.10 Add and Remove Elements</h3>
+<p>Next: Min, Max, Sum, Average, and Finding a Property.</p>
 
 </section>
     </div>

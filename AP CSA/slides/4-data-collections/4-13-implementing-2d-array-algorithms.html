@@ -9,7 +9,7 @@
 <link href="../_shared/site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
-  <title>4.13 Implementing 2D Array Algorithms</title>
+  <title>4.13 Sum and Max 2D Array Algorithms</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -198,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">4.13 Implementing 2D Array Algorithms</h1>
-  <p class="subtitle">Data Collections</p>
+  <h1 class="title">4.13 Sum and Max 2D Array Algorithms</h1>
+  <p class="subtitle">Implementing 2D Array Algorithms</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,131 +210,192 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="d-algorithms-combine-nested-loops-with-array-patterns">2D algorithms combine nested loops with array patterns</h3>
-<p>Common 2D array algorithms include:</p>
-<div class="tight-list">
+<section id="implementing-2d-array-algorithms" class="slide level2">
+<h2>Implementing 2D Array Algorithms</h2>
+<h3 id="standard-2d-traversal-algorithms">Standard 2D traversal algorithms</h3>
+<p>All of the array algorithms can be applied to 2D arrays too.</p>
+<p>There are standard algorithms that utilize 2D array traversals to:</p>
 <ul>
-<li>sum and average</li>
-<li>min and max</li>
-<li>search a subsection</li>
-<li>detect duplicates</li>
-<li>rotate or reverse rows and columns</li>
+<li>determine a minimum or maximum value of all elements or a designated row, column, or subsection</li>
+<li>compute a sum or average of all elements or a designated row, column, or subsection</li>
+<li>determine if at least one element has a particular property</li>
+<li>determine if all elements have a particular property</li>
+<li>determine the number of elements having a particular property</li>
 </ul>
+</section>
+<section id="more-2d-algorithms" class="slide level2">
+<h2>More 2D Algorithms</h2>
+<h3 id="pairs-duplicates-shifts-rotations">Pairs, duplicates, shifts, rotations</h3>
+<p>Standard algorithms also include:</p>
+<ul>
+<li>access all consecutive pairs of elements</li>
+<li>determine the presence or absence of duplicate elements</li>
+<li>shift or rotate elements in a row left or right or in a column up or down</li>
+<li>reverse the order of the elements in a row or column</li>
+</ul>
+</section>
+<section id="from-1d-to-2d" class="slide level2">
+<h2>From 1D to 2D</h2>
+<h3 id="use-nested-loops">Use nested loops</h3>
+<p>With 1D arrays, many algorithms followed patterns with a <code>for</code> loop or enhanced <code>for</code> loop.</p>
+<p>With 2D arrays, you need nested loops to traverse rows and columns.</p>
+<p>Indexed <code>for</code> loops are often used to better control the row and column index values.</p>
+<p>Enhanced <code>for</code> loops can also be used.</p>
+</section>
+<section id="d-traversal-patterns" class="slide level2">
+<h2>2D Traversal Patterns</h2>
+<h3 id="indexed-and-enhanced-loops">Indexed and enhanced loops</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="co">// 2 Dimensional Array Traversal</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> array<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
+<span id="cb1-3"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> array<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>condition about array<span class="op">[</span>row<span class="op">][</span>col<span class="op">])</span></span>
+<span id="cb1-7"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-8"><a href=""></a>            <span class="co">// body for matching values</span></span>
+<span id="cb1-9"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href=""></a><span class="op">}</span></span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a><span class="co">// enhanced for loops</span></span>
+<span id="cb1-14"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> array<span class="op">)</span></span>
+<span id="cb1-15"><a href=""></a><span class="op">{</span></span>
+<span id="cb1-16"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
+<span id="cb1-17"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb1-18"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>condition about value<span class="op">)</span></span>
+<span id="cb1-19"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb1-20"><a href=""></a>            <span class="co">// body for matching values</span></span>
+<span id="cb1-21"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb1-22"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb1-23"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sum-average-min-max" class="slide level2">
+<h2>Sum, Average, Min, Max</h2>
+<h3 id="row-and-column-totals">Row and column totals</h3>
+<p>Counting and searching algorithms work very similarly in 1D and 2D arrays.</p>
+<p>The following source code adds all of the values in a given row and asks you to complete a method that totals a column.</p>
+</section>
+<section id="coding-exercise" class="slide level2">
+<h2>Coding Exercise</h2>
+<h3 id="activecode-lca2dlooppart"><code>activecode:: lca2dloopPart</code></h3>
+<p>What will the following code print out?</p>
+<p>Complete the method called <code>getTotalForCol</code> that gets the total for a column.</p>
+<p>To do this, loop through the rows.</p>
+<p>The array’s length tells you how many rows you have, while the length of the array’s first element tells you how many columns.</p>
+</section>
+<section id="total-starter" class="slide level2">
+<h2>Total Starter</h2>
+<div class="code-scroll">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Total</span>
+<span id="cb2-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getTotalForRow</span><span class="op">(</span><span class="dt">int</span> row<span class="op">,</span> <span class="dt">int</span><span class="op">[][]</span> a<span class="op">)</span></span>
+<span id="cb2-5"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-6"><a href=""></a>        <span class="dt">int</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> a<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="op">{</span></span>
+<span id="cb2-9"><a href=""></a>            total <span class="op">=</span> total <span class="op">+</span> a<span class="op">[</span>row<span class="op">][</span>col<span class="op">];</span></span>
+<span id="cb2-10"><a href=""></a>        <span class="op">}</span></span>
+<span id="cb2-11"><a href=""></a>        <span class="cf">return</span> total<span class="op">;</span></span>
+<span id="cb2-12"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-13"><a href=""></a></span>
+<span id="cb2-14"><a href=""></a>    <span class="co">// Complete the method getTotalForCol below</span></span>
+<span id="cb2-15"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getTotalForCol</span><span class="op">(</span><span class="dt">int</span> col<span class="op">,</span> <span class="dt">int</span><span class="op">[][]</span> a<span class="op">)</span></span>
+<span id="cb2-16"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-17"><a href=""></a>        <span class="dt">int</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-18"><a href=""></a>        <span class="co">// Add a loop here to total a column col</span></span>
+<span id="cb2-19"><a href=""></a></span>
+<span id="cb2-20"><a href=""></a>        <span class="cf">return</span> total<span class="op">;</span></span>
+<span id="cb2-21"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-22"><a href=""></a></span>
+<span id="cb2-23"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb2-24"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb2-25"><a href=""></a>        <span class="dt">int</span><span class="op">[][]</span> matrix <span class="op">=</span> <span class="op">{</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">}};</span></span>
+<span id="cb2-26"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">getTotalForRow</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> matrix<span class="op">));</span></span>
+<span id="cb2-27"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">getTotalForCol</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> matrix<span class="op">));</span></span>
+<span id="cb2-28"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb2-29"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="sum" class="slide level2">
-<h2>Sum</h2>
-<h3 id="accumulate-every-cell">Accumulate every cell</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb1-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb1-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb1-6"><a href=""></a>        sum <span class="op">+=</span> grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">];</span></span>
-<span id="cb1-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb1-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The nested loop visits every element exactly once.</p>
+<section id="total-test-targets" class="slide level2">
+<h2>Total Test Targets</h2>
+<h3 id="runestone-checks">Runestone checks</h3>
+<p>The output from <code>main</code> should be:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>6</span>
+<span id="cb3-2"><a href=""></a>5</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A second test calls <code>getTotalForCol(0, { {1, 4, 8}, {6, 7, 9} })</code>.</p>
+<p>Expected return value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>7</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="average" class="slide level2">
-<h2>Average</h2>
-<h3 id="count-cells-as-well-as-total">Count cells as well as total</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-2"><a href=""></a><span class="dt">int</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-3"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> grid<span class="op">)</span></span>
-<span id="cb2-4"><a href=""></a><span class="op">{</span></span>
-<span id="cb2-5"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
-<span id="cb2-6"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb2-7"><a href=""></a>        sum <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb2-8"><a href=""></a>        count<span class="op">++;</span></span>
-<span id="cb2-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb2-10"><a href=""></a><span class="op">}</span></span>
-<span id="cb2-11"><a href=""></a><span class="dt">double</span> average <span class="op">=</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span> sum <span class="op">/</span> count<span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Counting works even if rows have different lengths.</p>
+<section id="mixed-up-code" class="slide level2">
+<h2>Mixed-Up Code</h2>
+<h3 id="parsonsprob-max2darrayparsons"><code>parsonsprob:: max2DArrayParsons</code></h3>
+<p>The following has the correct code to find the largest value in a 2D array.</p>
+<p>Drag the blocks into the correct order and indent them.</p>
+<div class="code-scroll compact" style="max-height: 360px;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getLargest</span><span class="op">(</span><span class="dt">int</span><span class="op">[][]</span> arr<span class="op">)</span></span>
+<span id="cb5-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb5-3"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-4"><a href=""></a> <span class="dt">int</span> largest <span class="op">=</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb5-5"><a href=""></a> <span class="dt">int</span> current <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a> <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> r <span class="op">&lt;</span> arr<span class="op">.</span><span class="fu">length</span><span class="op">;</span> r<span class="op">++)</span></span>
+<span id="cb5-7"><a href=""></a> <span class="op">{</span></span>
+<span id="cb5-8"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-9"><a href=""></a>   <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> c <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> c <span class="op">&lt;</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> c<span class="op">++)</span></span>
+<span id="cb5-10"><a href=""></a>   <span class="op">{</span></span>
+<span id="cb5-11"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-12"><a href=""></a>     current <span class="op">=</span> arr<span class="op">[</span>r<span class="op">][</span>c<span class="op">];</span></span>
+<span id="cb5-13"><a href=""></a>     <span class="cf">if</span> <span class="op">(</span>current <span class="op">&gt;</span> largest<span class="op">)</span></span>
+<span id="cb5-14"><a href=""></a>     <span class="op">{</span></span>
+<span id="cb5-15"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-16"><a href=""></a>       largest <span class="op">=</span> current<span class="op">;</span></span>
+<span id="cb5-17"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-18"><a href=""></a>     <span class="op">}</span> <span class="co">// end if</span></span>
+<span id="cb5-19"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-20"><a href=""></a>   <span class="op">}</span> <span class="co">// end column loop</span></span>
+<span id="cb5-21"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-22"><a href=""></a> <span class="op">}</span> <span class="co">// end row loop</span></span>
+<span id="cb5-23"><a href=""></a> <span class="cf">return</span> largest<span class="op">;</span></span>
+<span id="cb5-24"><a href=""></a><span class="op">=====</span></span>
+<span id="cb5-25"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="max" class="slide level2">
-<h2>Max</h2>
-<h3 id="initialize-from-an-existing-cell">Initialize from an existing cell</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="dt">int</span> max <span class="op">=</span> grid<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb3-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> grid<span class="op">.</span><span class="fu">length</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb3-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb3-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb3-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb3-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">&gt;</span> max<span class="op">)</span></span>
-<span id="cb3-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb3-8"><a href=""></a>            max <span class="op">=</span> grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">];</span></span>
-<span id="cb3-9"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb3-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="search-a-subsection" class="slide level2">
-<h2>Search a Subsection</h2>
-<h3 id="bounds-can-restrict-rows-or-columns">Bounds can restrict rows or columns</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> row <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> row <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> row<span class="op">++)</span></span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> col <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> col <span class="op">&lt;</span> grid<span class="op">[</span>row<span class="op">].</span><span class="fu">length</span><span class="op">;</span> col<span class="op">++)</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>grid<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">==</span> target<span class="op">)</span></span>
-<span id="cb4-6"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb4-7"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb4-8"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb4-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-10"><a href=""></a><span class="op">}</span></span>
-<span id="cb4-11"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Only the first three rows are searched.</p>
-</section>
-<section id="duplicates" class="slide level2">
-<h2>Duplicates</h2>
-<h3 id="use-a-seen-structure-or-compare-cells">Use a seen structure or compare cells</h3>
-<p>For small classroom examples, use a helper list of seen values:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a><span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> seen <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;();</span></span>
-<span id="cb5-2"><a href=""></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span><span class="op">[]</span> row <span class="op">:</span> grid<span class="op">)</span></span>
-<span id="cb5-3"><a href=""></a><span class="op">{</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> value <span class="op">:</span> row<span class="op">)</span></span>
-<span id="cb5-5"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb5-6"><a href=""></a>        <span class="cf">if</span> <span class="op">(</span>seen<span class="op">.</span><span class="fu">contains</span><span class="op">(</span>value<span class="op">))</span></span>
-<span id="cb5-7"><a href=""></a>        <span class="op">{</span></span>
-<span id="cb5-8"><a href=""></a>            <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb5-9"><a href=""></a>        <span class="op">}</span></span>
-<span id="cb5-10"><a href=""></a>        seen<span class="op">.</span><span class="fu">add</span><span class="op">(</span>value<span class="op">);</span></span>
-<span id="cb5-11"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb5-12"><a href=""></a><span class="op">}</span></span>
-<span id="cb5-13"><a href=""></a><span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="rotate-and-reverse" class="slide level2">
-<h2>Rotate and Reverse</h2>
-<h3 id="trace-positions-before-coding">Trace positions before coding</h3>
-<p>For a single row:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="dt">int</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-2"><a href=""></a><span class="dt">int</span> right <span class="op">=</span> row<span class="op">.</span><span class="fu">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-3"><a href=""></a><span class="cf">while</span> <span class="op">(</span>left <span class="op">&lt;</span> right<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>    <span class="dt">int</span> temp <span class="op">=</span> row<span class="op">[</span>left<span class="op">];</span></span>
-<span id="cb6-6"><a href=""></a>    row<span class="op">[</span>left<span class="op">]</span> <span class="op">=</span> row<span class="op">[</span>right<span class="op">];</span></span>
-<span id="cb6-7"><a href=""></a>    row<span class="op">[</span>right<span class="op">]</span> <span class="op">=</span> temp<span class="op">;</span></span>
-<span id="cb6-8"><a href=""></a>    left<span class="op">++;</span></span>
-<span id="cb6-9"><a href=""></a>    right<span class="op">--;</span></span>
-<span id="cb6-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Start with one row before generalizing to the whole 2D array.</p>
+<section id="mixed-up-code-correct-order" class="slide level2">
+<h2>Mixed-Up Code: Correct Order</h2>
+<h3 id="max2darrayparsons">max2DArrayParsons</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">getLargest</span><span class="op">(</span><span class="dt">int</span><span class="op">[][]</span> arr<span class="op">)</span></span>
+<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-3"><a href=""></a> <span class="dt">int</span> largest <span class="op">=</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">][</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb6-4"><a href=""></a> <span class="dt">int</span> current <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-5"><a href=""></a> <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> r <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> r <span class="op">&lt;</span> arr<span class="op">.</span><span class="fu">length</span><span class="op">;</span> r<span class="op">++)</span></span>
+<span id="cb6-6"><a href=""></a> <span class="op">{</span></span>
+<span id="cb6-7"><a href=""></a>   <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> c <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> c <span class="op">&lt;</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">length</span><span class="op">;</span> c<span class="op">++)</span></span>
+<span id="cb6-8"><a href=""></a>   <span class="op">{</span></span>
+<span id="cb6-9"><a href=""></a>     current <span class="op">=</span> arr<span class="op">[</span>r<span class="op">][</span>c<span class="op">];</span></span>
+<span id="cb6-10"><a href=""></a>     <span class="cf">if</span> <span class="op">(</span>current <span class="op">&gt;</span> largest<span class="op">)</span></span>
+<span id="cb6-11"><a href=""></a>     <span class="op">{</span></span>
+<span id="cb6-12"><a href=""></a>       largest <span class="op">=</span> current<span class="op">;</span></span>
+<span id="cb6-13"><a href=""></a>     <span class="op">}</span> <span class="co">// end if</span></span>
+<span id="cb6-14"><a href=""></a>   <span class="op">}</span> <span class="co">// end column loop</span></span>
+<span id="cb6-15"><a href=""></a> <span class="op">}</span> <span class="co">// end row loop</span></span>
+<span id="cb6-16"><a href=""></a> <span class="cf">return</span> largest<span class="op">;</span></span>
+<span id="cb6-17"><a href=""></a><span class="op">}</span> <span class="co">// end method</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
-<div class="tight-list">
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <ul>
-<li>use nested loops for 2D sum, average, min, and max</li>
-<li>initialize min or max from an existing cell</li>
-<li>count cells when computing an average</li>
-<li>restrict traversal bounds for subsection searches</li>
-<li>trace index movement before rotating or reversing data</li>
+<li>translate 1D algorithms into nested 2D traversals</li>
+<li>use <code>array.length</code> for rows and <code>array[0].length</code> for columns</li>
+<li>total a row by looping over columns</li>
+<li>total a column by looping over rows</li>
+<li>initialize max from <code>arr[0][0]</code> before scanning the whole 2D array</li>
 </ul>
-</div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="sum-and-max-2d-array-algorithms">4.13 Sum and Max 2D Array Algorithms</h3>
+<p>Next: subsection loops and duplicate checks.</p>
 
 </section>
     </div>

@@ -1,0 +1,399 @@
+---
+title: "1.14 Calling Instance Methods"
+subtitle: "Part 3: Methods that Return Values"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Methods that Return Values
+
+### Void methods
+
+All the methods on `Turtle` that we've discussed so far are **void methods** with `void` return type.
+
+This means they don't return anything.
+
+Because a `void` method doesn't return any value, the only point of calling one is because it does something that can be observed by the user or by other code.
+
+It changes the state of the object or maybe causes something to happen like drawing a line on the screen.
+
+## Methods that Return Values
+
+### Non-void methods
+
+In contrast, methods with a return type of anything other than `void` are called **non-void** methods.
+
+These methods **return** a value that the code calling the method can use.
+
+Because methods are called on an object, these methods can be used to return values that tell us things about an object's internal state.
+
+## Void vs. Non-Void
+
+### Effects and values
+
+In well-designed programs, non-void methods typically don't have effects; they just compute and return a value.
+
+To put it another way:
+
+::: {.tight-list}
+- void methods **do things**
+- non-void methods **produce values**
+:::
+
+## Accessors and Getters
+
+### A simple returned value
+
+A simple kind of method that returns a value is what is formally called an **accessor** because it accesses a value in an object.
+
+In the real world everyone calls them **getters**.
+
+A getter is a method that takes no arguments and has a non-`void` return type.
+
+In Java they are almost always named something that starts with `get`, and they usually just return the value of one of the object's instance variables.
+
+## Turtle Getters
+
+### Examples from `Turtle`
+
+The `Turtle` class has several getters:
+
+::: {.tight-list}
+- `getWidth` and `getHeight` return the width and the height of a `Turtle` object.
+- `getXPos` and `getYPos` return the x and y values of the `Turtle`'s position.
+:::
+
+When you use a getter, you need to do something with the value it returns.
+
+You might assign it to a variable, use it in an expression, or print it out.
+
+## Getter Examples
+
+### Use the returned value
+
+```java
+Turtle yertle = new Turtle(world);
+int width = yertle.getWidth();
+int height = yertle.getHeight();
+System.out.println("Yertle's width is: " + width);
+System.out.println("Yertle's height is: " + height);
+System.out.println("Yertle's x position is: " + yertle.getXPos() );
+System.out.println("Yertle's y position is: " + yertle.getYPos() );
+```
+
+## Source Note
+
+### Common error
+
+A common error is forgetting to do something with the value returned from a method.
+
+When you call a method that returns a value, you should do something with that value like assigning it to a variable or printing it out.
+
+If you don't, you're just getting a value and doing nothing with it.
+
+## Coding Exercise
+
+### `activecode:: TurtleTestGetSet`
+
+Try the code below that prints out the turtle's current position using `getXPos()` and `getYPos()`.
+
+Can you make it go to position `(0,0)` or as close to it as possible?
+
+Datafile: `turtleClasses.jar`
+
+## Starter Code
+
+### `TurtleTestGetSet`
+
+::: {.code-scroll .compact}
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTestGetSet
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        Turtle yertle = new Turtle(world);
+        System.out.println(
+                "Yertle is starting at: "
+                        + yertle.getXPos()
+                        + ", "
+                        + yertle.getYPos());
+        yertle.forward(100);
+        yertle.turn(90);
+        yertle.forward(50);
+        // TODO: change the movement to get as close to (0,0) as possible
+        System.out.println(
+                "Yertle has ended up at: "
+                        + yertle.getXPos()
+                        + ", "
+                        + yertle.getYPos());
+        world.show(true);
+    }
+}
+```
+:::
+
+## Test Requirement
+
+### Preserved Runestone check
+
+Runestone checks that the code changed from the original `TurtleTestGetSet` starter.
+
+Use the getter output to compare the starting and ending positions.
+
+## Coding Exercise
+
+### `activecode:: TurtleArea`
+
+Fix the errors in the code below so that it prints out the area of the space that the turtle occupies by multiplying its width and height.
+
+Remember that you have to do something with the values that the get methods return.
+
+Datafile: `turtleClasses.jar`
+
+## Broken Starter Code
+
+### `TurtleArea`
+
+```java
+import java.awt.*;
+import java.lang.Math;
+import java.util.*;
+
+public class TurtleArea
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300,300);
+        Turtle yertle = new Turtle(world);
+
+        int area; // TODO: assign the product of width and height
+        yertle.getWidth() * getHeight;
+        System.out.println("Yertle's area is: ");
+
+        world.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### `TurtleArea`
+
+Runestone checks:
+
+::: {.tight-list}
+- main output is `Yertle's area is: 270`
+- code calls `.getHeight()` at least once
+- code calls `.getWidth()` at least once
+:::
+
+The calling method must do something useful with each returned value.
+
+## Return Statement
+
+### Tracing method calls
+
+We will save a deeper discussion of actually writing getters and other methods until Unit 3.
+
+For the AP progress checks for this unit, you should be able to trace through method calls like the ones below.
+
+Notice that the **return statement** in a method returns the value, and it must match declared return type of the method.
+
+The calling method must then do something useful with that value.
+
+## Quick Check
+
+### `mchoice:: traceCircleArea`
+
+Consider the following class definition.
+
+::: {.code-scroll .compact}
+```java
+public class Circle
+{
+    private double radius;
+
+    public Circle(double r)
+    {
+        radius = r;
+    }
+
+    public double getArea()
+    {
+        return 3.14159 * radius * radius;
+    }
+}
+```
+:::
+
+## Quick Check
+
+### `traceCircleArea` question
+
+Assume that the following code segment appears in a `main` method.
+
+```java
+Circle c = new Circle(10);
+System.out.println(c.getArea());
+```
+
+What is printed as a result of executing the code segment?
+
+::: {.tight-list}
+- A. `0`
+- B. `314.159`
+- C. `c.getArea()`
+- D. The code will not compile.
+- E. `100.0`
+:::
+
+## Answer Reasoning
+
+### `traceCircleArea`
+
+Correct answer: B. `314.159`
+
+First, call the constructor, then call `getArea()`.
+
+`getArea()` returns `3.14159 * radius * radius`, where `radius` is set to `10` by the constructor.
+
+## Quick Check
+
+### `mchoice:: traceRectangleArea`
+
+Consider the following class definition.
+
+::: {.code-scroll .compact}
+```java
+public class Rectangle
+{
+    private int width;
+    private int height;
+
+    public Rectangle(int w, int h)
+    {
+        width = w;
+        height = h;
+    }
+
+    public void resize(int amt)
+    {
+        width += amt;
+    }
+
+    public int getArea()
+    {
+        return width * height;
+    }
+}
+```
+:::
+
+## Quick Check
+
+### `traceRectangleArea` question
+
+Assume that the following code segment appears in a `main` method.
+
+```java
+Rectangle r = new Rectangle(10, 15);
+r.resize(5);
+System.out.println(r.getArea());
+```
+
+What is printed as a result of executing the code segment?
+
+::: {.tight-list}
+- A. `150`
+- B. `150.0`
+- C. `225`
+- D. `255.0`
+- E. `0`
+:::
+
+## Answer Reasoning
+
+### `traceRectangleArea`
+
+Correct answer: C. `225`
+
+The method `resize()` is called before `getArea()`.
+
+`resize()` increases the width by `5`, so the area is `15 * 15 = 225`.
+
+## Quick Check
+
+### `mchoice:: traceReturnMethods`
+
+What does the following code print out?
+
+::: {.code-scroll .compact}
+```java
+public class MethodTrace
+{
+    public int square(int x)
+    {
+        return x * x;
+    }
+
+    public int divide(int x, int y)
+    {
+        return x / y;
+    }
+
+    public static void main(String[] args)
+    {
+        MethodTrace traceObj = new MethodTrace();
+        System.out.println(traceObj.square(2) + traceObj.divide(6, 2));
+    }
+}
+```
+:::
+
+## Quick Check
+
+### `traceReturnMethods` options
+
+::: {.tight-list}
+- A. `5`
+- B. `7`
+- C. `4 3`
+- D. `2 3`
+- E. Does not compile.
+:::
+
+Correct answer: B. `7`
+
+`square(2)` returns `4`, `divide(6,2)` returns `3`, and the total of `4 + 3` is `7`.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- distinguish a void method effect from a non-void method returned value
+- identify getters as no-argument non-void methods that return object state
+- use a returned value by assigning, printing, or using it in an expression
+- trace constructor initialization before a getter call
+- trace state changes before a later getter call
+- combine multiple returned values in an expression
+:::
+
+## End
+
+### 1.14 Part 3 complete
+
+Part 4 continues with distance and Turtle House challenges.

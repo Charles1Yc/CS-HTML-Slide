@@ -1,0 +1,162 @@
+---
+title: "4.6 Pokemon Object Array Challenge"
+subtitle: "Using Text Files"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Groupwork Coding Challenge
+
+### Array of Pokemon from Input File
+
+This challenge combines the skills learned so far.
+
+You may work in pairs.
+
+Create a class `Pokemon` that has at least 3 attributes found in the Pokemon file, including its `name`, `type1`, and `imagefile`, plus any other attributes from the file that you would like.
+
+Write a constructor and getters for these attributes.
+
+## Challenge Deliverables
+
+### `activecode:: challenge-pokemon-file`
+
+Then:
+
+::: {.tight-list}
+- read in the data from the pokemon file
+- split each line
+- save the data in an array of `Pokemon` objects
+- write a `findType` method
+- loop through the array to find the Pokemon object with the given name
+- print and return its type and print its image
+:::
+
+## Pokemon Class Starter
+
+```java
+import java.io.*;
+import java.util.*;
+
+class Pokemon
+{
+    // 1. Add at least 3 String attributes of a Pokemon
+    //   including name, type1, and imagefile
+
+    // 2. Add a constructor that initializes the attributes of a Pokemon
+    //  to the values given as arguments
+
+    // 3. Add getters for the attributes
+
+}
+```
+
+## PokemonArray Fields and Constructor
+
+```java
+public class PokemonArray
+{
+    // An array of 152 Pokemon objects
+    private Pokemon[] pokemonArray = new Pokemon[152];
+    private String filename = "pokemon.csv";
+
+    public PokemonArray() throws IOException
+    {
+         readFile(); // read in the data file into pokemonArray
+    }
+```
+
+## readFile Starter
+
+```java
+    // 4. Write a method to read in the data file (it may throw an exception).
+    // Loop through each row to split it into attributes.
+    //     Create a new Pokemon object from the attributes.
+    //     and save it into the pokemonArray
+    public void readFile()
+    {
+
+    }
+```
+
+## findType Starter
+
+```java
+    // 5. Write a findType method that prints out the type of a Pokemon
+    // given its name as an argument.
+    // It should loop through the array to find the Pokemon object with the correct name.
+    // It should print and return the type and print the image.
+    // This method can call printHTMLimage(url) defined below.
+    public String findType(String name)
+    {
+        // Loop through the array to find the Pokemon with the given name
+        // Call the getType method to get the type of the Pokemon
+        // Call the printHTMLimage method to print out the image
+        // return the type
+
+
+        return "Type";
+    }
+```
+
+## Image Method and Main
+
+```java
+    // This method will just work on Runestone to print out images
+    public static void printHTMLimage(String url)
+    {
+        System.out.print("<img src=" + url + " width=300px />");
+    }
+
+    public static void main(String[] args) throws IOException
+    {
+        PokemonArray obj = new PokemonArray();
+        // Call your method to find the type of a Pokemon and display its image
+        System.out.println("Pikachu's type is " + obj.findType("Pikachu"));
+
+    }
+}
+```
+
+## Test Targets
+
+### Runestone checks
+
+The tests check:
+
+::: {.tight-list}
+- at least 3 private instance variables
+- a `public Pokemon(` constructor
+- a call to `.split`
+- `findType("Pikachu")` returns `Electric`
+- `findType("Bulbasaur")` returns `Grass`
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- create at least three `private` attributes in `Pokemon`
+- initialize attributes in a `Pokemon` constructor
+- write getters such as `getName()` and `getType()`
+- split each CSV row before constructing a `Pokemon`
+- store each constructed `Pokemon` object into `pokemonArray`
+- use `.equals` when comparing the target name to a Pokemon name
+- return the found Pokemon type and print its image
+:::
+
+## End
+
+### 4.6 Part 3 complete
+
+Next: wrapper classes.

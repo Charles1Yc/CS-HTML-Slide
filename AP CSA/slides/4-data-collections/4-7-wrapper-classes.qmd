@@ -1,6 +1,6 @@
 ---
-title: "4.7 Wrapper Classes"
-subtitle: "Data Collections"
+title: "4.7 Wrapper Classes and Parsing"
+subtitle: "Wrapper Classes - Integer and Double"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,110 +14,254 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Wrapper Classes
 
-### Wrapper classes turn primitives into objects
+### Primitive values with object appearance
 
-<span class="term">Wrapper classes</span> (包装类) provide object versions of primitive values.
+A **wrapper class** (包装类) wraps around a primitive data type and gives it an object appearance.
 
-| Primitive | Wrapper class |
-|---|---|
-| `int` | `Integer` |
-| `double` | `Double` |
-| `boolean` | `Boolean` |
+The wrapper classes are part of the `java.lang` package, which is imported by default into all Java programs.
 
-AP CSA most often uses `Integer` and `Double`.
+The `Integer` class and `Double` class create objects from primitive types of `int` and `double` respectively.
 
-## Creating Wrapper Objects
+## Why Wrapper Classes
 
-### Prefer autoboxing in modern Java
+### Objects, collections, and conversion
+
+Sometimes you need to create a wrapped object for a primitive type so that you can:
+
+::: {.tight-list}
+- give it to a method that expects an object
+- put it in a collection like an `ArrayList`
+- convert strings to primitive data types
+- convert primitive data types to strings
+:::
+
+These conversions are useful when using the `Scanner` class with input.
+
+## Creating Integer and Double Objects
+
+### Older and newer Java syntax
+
+In Java version 7, you can use a constructor like `new Integer(2)`.
+
+In Java 9 and later, you can use `Integer i = 2;` to create an object with the value `2` wrapped in it.
 
 ```java
-Integer count = 5;
-Double price = 19.99;
+// in older versions of Java
+Integer i = new Integer(2);
+Double d = new Double(3.5);
+
+// in newer versions of Java (9+)
+Integer i = 2;
+Double d = 3.5;
 ```
 
-The primitive value is automatically wrapped into an object. This is called <span class="term">autoboxing</span>.
+`Integer` and `Double` objects are immutable (不可变): once created, their values cannot be changed.
+
+## Coding Exercise
+
+### `activecode:: lcmm1`
+
+What are the minimum and maximum numbers for an `int`?
+
+What happens if you go beyond these limits with `- 1` or `+ 1`?
+
+```java
+public class Test1
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE - 1);
+        System.out.println(Integer.MAX_VALUE + 1);
+    }
+}
+```
+
+## lcmm1 Expected Output
+
+### Runestone check
+
+```text
+-2147483648
+2147483647
+2147483647
+-2147483648
+```
+
+Java returns the maximum integer value if you subtract one from the minimum value. This is **underflow**.
+
+Java returns the minimum integer value if you add one to the maximum value. This is **overflow**.
+
+## Integer Limits
+
+### Why those numbers?
+
+The `int` type in Java can represent any whole number from `-2147483648` to `2147483647`.
+
+Integers in Java are represented in 2's complement binary and each integer gets 32 bits of space.
+
+`Integer.MIN_VALUE` and `Integer.MAX_VALUE` are useful when you want to initialize a variable to the smallest possible value and then search a sequence of values for a larger value.
+
+## Autoboxing
+
+### Primitive to wrapper object
+
+**Autoboxing** is the automatic conversion that the Java compiler makes between primitive types and their corresponding object wrapper classes.
+
+This includes converting an `int` to an `Integer` and a `double` to a `Double`.
+
+```java
+Integer i = 2;
+Double d = 3.5;
+```
 
 ## Unboxing
 
-### Wrapper objects can become primitive values
+### Wrapper object to primitive
+
+**Unboxing** is the automatic conversion from the wrapper class to the primitive type.
+
+This includes converting an `Integer` to an `int` and a `Double` to a `double`.
 
 ```java
-Integer count = 5;
-int next = count + 1;
+Integer i = 2;  // autoboxing - wrap 2
+int number = i; // unboxing - back to primitive type
 ```
 
-Java automatically extracts the `int` value from the `Integer`. This is called <span class="term">unboxing</span>.
+## Matching Check
 
-## Why Wrappers Matter
+### `dragndrop:: WrapperClasses`
 
-### Generic collections store objects
-
-`ArrayList` cannot use primitive type arguments:
-
-```java
-ArrayList<int> values;      // invalid
-ArrayList<Integer> values;  // valid
-```
-
-Use wrapper classes when storing primitive-style values in an `ArrayList`.
+| Definition | Word |
+|---|---|
+| automatic conversion from the primitive type to the wrapper object | autoboxing |
+| automatic conversion from the wrapper object to the primitive type | unboxing |
+| `Integer` | wrapper class |
+| `int` | primitive type |
+| `Integer.MAX_VALUE + 1` | overflow |
+| `Integer.MIN_VALUE - 1` | underflow |
 
 ## Parsing Strings to Numbers
 
-### Convert text input into numeric values
+### Integer.parseInt and Double.parseDouble
 
+The `Integer` and `Double` classes have methods that convert strings to numbers.
+
+They are often used with the `Scanner` class to convert input read as a `String` into an `int` or `double`.
+
+These methods are listed on the Java Quick Reference Sheet.
+
+::: {.tight-list}
+- `static int parseInt(String s)` returns the `String` argument as a signed `int`
+- `static double parseDouble(String s)` returns the `String` argument as a signed `double`
+:::
+
+## Coding Exercise
+
+### `activecode:: parseMethods`
+
+Run the code below to see useful parse methods in the `Integer` and `Double` wrapper classes.
+
+::: {.code-scroll}
 ```java
-String ageText = "16";
-int age = Integer.parseInt(ageText);
+public class Test2
+{
+    public static void main(String[] args)
+    {
+        Integer i = 2;
+        Double d = 3.5;
+        System.out.println(
+                i.intValue()); // intValue() returns the primitive value
+        System.out.println(d.doubleValue());
 
-String priceText = "12.50";
-double price = Double.parseDouble(priceText);
+        String ageStr = "16";
+        // Integer.parseInt and Double.parseDouble are often used to
+        // convert an input string to a number so you can do math on it.
+        System.out.println(
+                "Age "
+                        + ageStr
+                        + " in 10 years is "
+                        + (Integer.parseInt(ageStr) + 10));
+
+    }
+}
 ```
+:::
 
-Parsing is common when reading from text files or CSV data.
+## parseMethods Expected Output
+
+### Runestone check
+
+```text
+2
+3.5
+Age 16 in 10 years is 26
+```
 
 ## Debug Task
 
-### Fix invalid parsing
+### `activecode:: wrapperDebug`
+
+Find and fix the bugs below to use the correct `Integer` and `Double` methods and variables.
 
 ```java
-String speedText = "fast";
-int speed = Integer.parseInt(speedText);
+public class Debug
+{
+    public static void main(String[] args)
+    {
+        integer i = 2.3;
+        Double d = 5;
+        System.out.println( i.intValue );
+        System.out.println( doubleValue() );
+        // Print out the min and max values possible for integers
+        System.out.println(Integer.min_value);
+        System.out.println( int.MAX_VALUE() );
+        // parse strings to numbers
+        String numStr = "2.5";
+        System.out.println( Int.parseInt(numStr) * 2 );
+    }
+}
 ```
 
-This causes a runtime error because `"fast"` is not an integer.
+## wrapperDebug Test Targets
 
-Fix the data or check input before parsing.
+### Runestone checks
 
-## Groupwork Coding Challenge
+Expected output:
 
-### Pokemon Speed
-
-Given a CSV field for Pokemon speed:
-
-```java
-String line = "Pikachu,Electric,90";
-String[] parts = line.split(",");
-int speed = Integer.parseInt(parts[2]);
+```text
+2
+5.0
+-2147483648
+2147483647
+5.0
 ```
 
-Use parsing to compare speeds and find the fastest Pokemon in a data set.
+The tests also check for:
+
+::: {.tight-list}
+- `Integer.MAX_VALUE`
+- `Double.parseDouble`
+:::
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- match `int` with `Integer` and `double` with `Double`
-- explain autoboxing and unboxing at a basic level
-- explain why `ArrayList<Integer>` is used instead of `ArrayList<int>`
-- parse numeric strings with `Integer.parseInt` or `Double.parseDouble`
-- identify parsing errors caused by nonnumeric strings
+- define wrapper class as an object version of a primitive type
+- identify `Integer` and `Double` as `java.lang` wrapper classes
+- explain immutability for `Integer` and `Double`
+- describe autoboxing and unboxing
+- identify overflow and underflow around `Integer.MAX_VALUE` and `Integer.MIN_VALUE`
+- use `Integer.parseInt` and `Double.parseDouble` for numeric strings
 :::
 
 ## End
 
-### Return to the course outline
+### 4.7 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Pokemon Speed challenge.

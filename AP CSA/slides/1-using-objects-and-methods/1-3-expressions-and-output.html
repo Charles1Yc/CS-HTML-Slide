@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.3 Expressions and Output</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Output, Literals, and Escape Sequences</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,34 +210,33 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="output-and-expressions">Output and expressions</h3>
-<p>This topic connects two core skills:</p>
-<div class="tight-list">
-<ul>
-<li>using <code>System.out.print</code> and <code>System.out.println</code> to display information</li>
-<li>evaluating <span class="term">arithmetic expressions</span> (算术表达式) using Java operators</li>
-</ul>
-</div>
-<p>The main classroom habit is to predict output before running code.</p>
-</section>
 <section id="output" class="slide level2">
 <h2>Output</h2>
-<h3 id="print-versus-println"><code>print</code> versus <code>println</code></h3>
-<p>Java has two common output methods:</p>
+<h3 id="two-methods-for-screen-output">Two methods for screen output</h3>
+<p>Java has two different methods to print output to the screen:</p>
 <div class="tight-list">
 <ul>
-<li><code>System.out.println(value)</code> prints the value followed by a new line.</li>
-<li><code>System.out.print(value)</code> prints the value without advancing to the next line.</li>
+<li><strong><code>System.out.println(value)</code></strong> prints the value followed by a new line (<code>ln</code>).</li>
+<li><strong><code>System.out.print(value)</code></strong> prints the value without advancing to the next line.</li>
 </ul>
 </div>
-<p><code>"Hi there!"</code> is a <span class="term">string literal</span> (字符串字面量): zero or more characters enclosed in double quotes.</p>
+</section>
+<section id="string-literals" class="slide level2">
+<h2>String Literals</h2>
+<h3 id="characters-inside-double-quotes">Characters inside double quotes</h3>
+<p><code>System.out.println("Hi there!");</code> prints out the characters between the first <code>"</code> and the second <code>"</code> followed by a new line.</p>
+<p><code>"Hi there!"</code> is called a <span class="term">string literal</span> (字符串字面量), which is zero to many characters enclosed in starting and ending double quotes.</p>
+<p>A <span class="term">literal</span> (字面量) is the code representation of a fixed value, which can be a string or a numerical value.</p>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="keep-the-output-on-one-line">Keep the output on one line</h3>
-<p>Run the starter code, then change it to print <code>Hi there!</code> on one line while keeping all three print statements.</p>
+<h3 id="activecode-printcommands"><code>activecode:: printCommands</code></h3>
+<p>Textbook prompt: Run this code to see the output below it.</p>
+<p>How would you change it to print the <code>!</code> on the same line as <code>Hi there</code> while keeping all three print statements?</p>
+</section>
+<section id="code-window" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-printcommands-1"><code>activecode:: printCommands</code></h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> MyClass</span>
 <span id="cb1-2"><a href=""></a><span class="op">{</span></span>
 <span id="cb1-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
@@ -247,279 +246,86 @@
 <span id="cb1-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"!"</span><span class="op">);</span></span>
 <span id="cb1-8"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb1-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Target output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="literals" class="slide level2">
-<h2>Literals</h2>
-<h3 id="fixed-values-in-code">Fixed values in code</h3>
-<p>A <span class="term">literal</span> is the code representation of a fixed value.</p>
-<div class="tight-list">
-<ul>
-<li><code>"Hi there!"</code> is a string literal.</li>
-<li><code>100</code> is an integer literal.</li>
-<li><code>2.54</code> is a decimal numeric literal.</li>
-<li><code>true</code> and <code>false</code> are boolean literals.</li>
-</ul>
-</div>
-<p>Changing a literal in code changes the fixed value the program uses.</p>
+<section id="test-requirements" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-printcommands-2"><code>activecode:: printCommands</code></h3>
+<p>Runestone expects one output line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>Hi there!</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The line-count test expects <code>1 output line</code>.</p>
 </section>
 <section id="escape-sequences" class="slide level2">
 <h2>Escape Sequences</h2>
-<h3 id="special-characters-inside-strings">Special characters inside strings</h3>
-<p>Use a backslash when a character needs special treatment inside a string.</p>
+<h3 id="printing-special-characters">Printing special characters</h3>
+<p>What if you wanted to print out a double quote <code>"</code> character?</p>
+<p>Since the double quote <code>"</code> is a special character with meaning in Java, we put in a backslash in front of the quote to signal that we want just the character.</p>
+<p>This is called a <span class="term">backslash escape sequence</span> (反斜杠转义序列).</p>
+</section>
+<section id="escape-sequences-1" class="slide level2">
+<h2>Escape Sequences</h2>
+<h3 id="ap-csa-escape-sequences">AP CSA escape sequences</h3>
+<p>If you wanted to print out a backslash, you would have to backslash it too in order to escape its special meaning.</p>
+<p>Another useful backslashed character is backslash <code>\n</code>, which will put in a newline.</p>
+<p>AP CSA escape sequences here:</p>
+<div class="tight-list">
+<ul>
+<li><code>\"</code></li>
+<li><code>\\</code></li>
+<li><code>\n</code></li>
+</ul>
+</div>
+</section>
+<section id="code-task-1" class="slide level2">
+<h2>Code Task</h2>
+<h3 id="activecode-bhescape"><code>activecode:: bhescape</code></h3>
+<p>Textbook prompt: Here are the escape sequences that may be used in the AP course.</p>
+<p>Run the code and inspect how the string is printed.</p>
+</section>
+<section id="code-window-1" class="slide level2">
+<h2>Code Window</h2>
+<h3 id="activecode-bhescape-1"><code>activecode:: bhescape</code></h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TestEscape</span>
 <span id="cb3-2"><a href=""></a><span class="op">{</span></span>
 <span id="cb3-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
 <span id="cb3-4"><a href=""></a>    <span class="op">{</span></span>
 <span id="cb3-5"><a href=""></a>        <span class="bu">String</span> message <span class="op">=</span></span>
 <span id="cb3-6"><a href=""></a>                <span class="st">"Here is a backslash quote </span><span class="sc">\"</span><span class="st"> "</span></span>
-<span id="cb3-7"><a href=""></a>                        <span class="op">+</span> <span class="st">"and a backslashed backslash (</span><span class="sc">\\</span><span class="st">) "</span></span>
+<span id="cb3-7"><a href=""></a>                        <span class="op">+</span> <span class="st">" and a backslashed backslash (</span><span class="sc">\\</span><span class="st">) "</span></span>
 <span id="cb3-8"><a href=""></a>                        <span class="op">+</span> <span class="st">"Backslash n </span><span class="sc">\n</span><span class="st"> prints out a new line."</span><span class="op">;</span></span>
 <span id="cb3-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>message<span class="op">);</span></span>
 <span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
 <span id="cb3-11"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>AP CSA escape sequences here: <code>\"</code>, <code>\\</code>, and <code>\n</code>.</p>
 </section>
-<section id="expressions-and-operators" class="slide level2">
-<h2>Expressions and Operators</h2>
-<h3 id="one-expression-evaluates-to-one-value">One expression evaluates to one value</h3>
-<p>An <span class="term">arithmetic expression</span> combines numeric values, variables, and operators into one numerical result.</p>
+<section id="test-requirements-1" class="slide level2">
+<h2>Test Requirements</h2>
+<h3 id="activecode-bhescape-2"><code>activecode:: bhescape</code></h3>
+<p>Runestone checks that <code>main</code> runs and prints the message.</p>
+<p>The teaching focus is recognizing that these are one string value split across concatenated source lines:</p>
 <div class="tight-list">
 <ul>
-<li><code>+</code> addition</li>
-<li><code>-</code> subtraction</li>
-<li><code>*</code> multiplication</li>
-<li><code>/</code> division</li>
-<li><code>%</code> remainder</li>
+<li><code>\"</code> prints a quote character.</li>
+<li><code>\\</code> prints a backslash character.</li>
+<li><code>\n</code> creates a new output line.</li>
 </ul>
 </div>
-<p>Java uses <code>*</code> for multiplication because keyboard character sets do not rely on a multiplication sign.</p>
-</section>
-<section id="code-task-1" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="operators-in-action">Operators in action</h3>
-<p>Run the code. Predict every line first.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
-<span id="cb4-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb4-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb4-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb4-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb4-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb4-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb4-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb4-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Starter output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>5</span>
-<span id="cb5-2"><a href=""></a>-1</span>
-<span id="cb5-3"><a href=""></a>6</span>
-<span id="cb5-4"><a href=""></a>0</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="truncating-division" class="slide level2">
-<h2>Truncating Division</h2>
-<h3 id="int-int-gives-an-int"><code>int / int</code> gives an <code>int</code></h3>
-<p>An expression with only <code>int</code> values evaluates to an <code>int</code>. Integer division throws away the decimal part.</p>
-<div class="tight-list">
-<ul>
-<li><code>2 / 3</code> evaluates to <code>0</code></li>
-<li><code>2.0 / 3</code> evaluates to <code>0.6666666666666666</code></li>
-<li>if at least one value is <code>double</code>, the expression evaluates to <code>double</code></li>
-</ul>
-</div>
-<p>Change the last line of the previous program to use <code>2.0 / 3</code>.</p>
-</section>
-<section id="logic-error-task" class="slide level2">
-<h2>Logic Error Task</h2>
-<h3 id="centimeters-to-inches">Centimeters to inches</h3>
-<p>This code compiles and runs, but it uses the wrong operation.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> CmToInches</span>
-<span id="cb6-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb6-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">print</span><span class="op">(</span><span class="st">"100 centimeters in inches is: "</span><span class="op">);</span></span>
-<span id="cb6-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">100</span> <span class="op">*</span> <span class="fl">2.54</span><span class="op">);</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb6-8"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Fix the <span class="term">logic error</span>. One inch equals <code>2.54</code> centimeters, so the expression should divide by <code>2.54</code>.</p>
-</section>
-<section id="divide-by-zero" class="slide level2">
-<h2>Divide by Zero</h2>
-<h3 id="a-math-error-can-become-a-run-time-error">A math error can become a run-time error</h3>
-<p>Dividing an integer by zero is undefined. In Java, attempting integer division by zero results in an <span class="term">ArithmeticException</span>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> DivideByZero</span>
-<span id="cb7-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb7-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">/</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb7-6"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb7-7"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is a run-time failure, not a normal output value.</p>
-</section>
-<section id="compound-expressions" class="slide level2">
-<h2>Compound Expressions</h2>
-<h3 id="operator-precedence">Operator precedence</h3>
-<p>Expressions can be combined into <span class="term">compound expressions</span> (复合表达式). Java uses precedence rules:</p>
-<div class="tight-list">
-<ul>
-<li>parentheses first</li>
-<li>then <code>*</code>, <code>/</code>, <code>%</code></li>
-<li>then <code>+</code>, <code>-</code></li>
-<li>operators with the same precedence are evaluated left to right</li>
-</ul>
-</div>
-<p>Extra parentheses are allowed when they make the intended grouping clearer.</p>
-</section>
-<section id="code-task-2" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="predict-before-running">Predict before running</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TestCompound</span>
-<span id="cb8-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb8-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb8-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb8-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb8-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">((</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">)</span> <span class="op">*</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb8-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="op">(</span><span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span><span class="op">));</span></span>
-<span id="cb8-8"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb8-9"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>8</span>
-<span id="cb9-2"><a href=""></a>10</span>
-<span id="cb9-3"><a href=""></a>8</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Explain why the first and third expressions match.</p>
-</section>
-<section id="remainder-operator" class="slide level2">
-<h2>Remainder Operator</h2>
-<h3 id="gives-the-leftover-part"><code>%</code> gives the leftover part</h3>
-<p>The operator <span class="term"><code>%</code></span> returns the remainder after integer division.</p>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-3-expressions-and-output/mod-py.png" style="width:24.0%" class="r-stretch quarto-figure-center"><p class="caption">Long division remainder</p><div class="tight-list">
-<ul>
-<li><code>5 % 2</code> evaluates to <code>1</code></li>
-<li><code>8 % 2</code> evaluates to <code>0</code></li>
-<li><code>3 % 4</code> evaluates to <code>3</code></li>
-</ul>
-</div>
-<p>With positive operands, the terms remainder and mod often give the same result for AP CSA work.</p>
-</section>
-<section id="remainder-pattern" class="slide level2">
-<h2>Remainder Pattern</h2>
-<h3 id="smaller-left-operand">Smaller left operand</h3>
-<p>If <code>x</code> is smaller than <code>y</code>, then <code>x % y</code> evaluates to <code>x</code>.</p>
-<p>Reason:</p>
-<div class="tight-list">
-<ul>
-<li><code>y</code> goes into <code>x</code> zero times.</li>
-<li>The whole value of <code>x</code> is left over.</li>
-<li>Therefore <code>2 % 3</code> evaluates to <code>2</code>.</li>
-</ul>
-</div>
-<p>Use this shortcut carefully only when both values are positive in AP-style questions.</p>
-</section>
-<section id="code-task-3" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="remainder-output">Remainder output</h3>
-<p>Predict all four lines, then check the result.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Test1</span>
-<span id="cb10-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb10-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb10-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb10-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">11</span> <span class="op">%</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb10-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">3</span> <span class="op">%</span> <span class="dv">4</span><span class="op">);</span></span>
-<span id="cb10-7"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">8</span> <span class="op">%</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb10-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">9</span> <span class="op">%</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb10-9"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb10-10"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>1</span>
-<span id="cb11-2"><a href=""></a>3</span>
-<span id="cb11-3"><a href=""></a>0</span>
-<span id="cb11-4"><a href=""></a>1</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="remainder-questions">Remainder questions</h3>
-<p>Answer each question and give the reason.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Question</th>
-<th style="text-align: right;">Answer</th>
-<th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>158 % 10</code></td>
-<td style="text-align: right;"><code>8</code></td>
-<td>dividing by <code>10</code> leaves the ones digit</td>
-</tr>
-<tr class="even">
-<td><code>3 % 8</code></td>
-<td style="text-align: right;"><code>3</code></td>
-<td><code>8</code> goes into <code>3</code> zero times</td>
-</tr>
-</tbody>
-</table>
-<p>The second question is a common trap because it is not asking for <code>8 % 3</code>.</p>
-</section>
-<section id="groupwork-coding-challenge" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="pay-calculator-starter">Pay Calculator starter</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-3-expressions-and-output/dollarSign.png" style="width:10.0%" class="r-stretch quarto-figure-left"><p class="caption">Dollar sign</p><p>Complete the expressions for a pay calculator.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Challenge1_3_Pay_Calculator</span>
-<span id="cb12-2"><a href=""></a><span class="op">{</span></span>
-<span id="cb12-3"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb12-4"><a href=""></a>    <span class="op">{</span></span>
-<span id="cb12-5"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Pay for 4 hours of work at 10 dollars an hour"</span><span class="op">);</span></span>
-<span id="cb12-6"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">4</span>  <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb12-7"><a href=""></a></span>
-<span id="cb12-8"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Number of hours worked for pay 120 dollars and rate 15 dollars per hour"</span><span class="op">);</span></span>
-<span id="cb12-9"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="dv">120</span>  <span class="dv">15</span><span class="op">);</span></span>
-<span id="cb12-10"><a href=""></a></span>
-<span id="cb12-11"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Pay for 12 hours of work at 7.50 dollars an hour"</span><span class="op">);</span></span>
-<span id="cb12-12"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>        <span class="op">);</span></span>
-<span id="cb12-13"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb12-14"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="groupwork-coding-challenge-1" class="slide level2">
-<h2>Groupwork Coding Challenge</h2>
-<h3 id="add-the-final-two-expressions">Add the final two expressions</h3>
-<p>Extend the pay calculator with these two statements.</p>
-<div class="tight-list">
-<ul>
-<li>print the integer number of hours worked if pay is <code>100</code> dollars and rate is <code>9</code> dollars per hour</li>
-<li>print the remainder when <code>100</code> dollars is divided by <code>9</code> dollars per hour</li>
-</ul>
-</div>
-<p>Required expressions:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="dv">4</span> <span class="op">*</span> <span class="dv">10</span></span>
-<span id="cb13-2"><a href=""></a><span class="dv">120</span> <span class="op">/</span> <span class="dv">15</span></span>
-<span id="cb13-3"><a href=""></a><span class="dv">12</span> <span class="op">*</span> <span class="fl">7.50</span></span>
-<span id="cb13-4"><a href=""></a><span class="dv">100</span> <span class="op">/</span> <span class="dv">9</span></span>
-<span id="cb13-5"><a href=""></a><span class="dv">100</span> <span class="op">%</span> <span class="dv">9</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The target output should contain <code>90.0</code> for <code>12 * 7.50</code>.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>distinguish <code>System.out.print</code> and <code>System.out.println</code></li>
-<li>define <span class="term">literal</span>, <span class="term">string literal</span>, and <span class="term">escape sequence</span></li>
-<li>evaluate expressions using <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code></li>
-<li>explain why <code>int / int</code> uses <span class="term">truncating division</span></li>
-<li>identify a <span class="term">logic error</span> when the program runs but calculates the wrong result</li>
-<li>apply precedence rules to <span class="term">compound expressions</span></li>
-<li>interpret <code>%</code> as the remainder after integer division</li>
+<li>distinguish <code>System.out.println(value)</code> from <code>System.out.print(value)</code></li>
+<li>explain that <code>println</code> advances to a new line and <code>print</code> does not</li>
+<li>define <span class="term">literal</span> as the code representation of a fixed value</li>
+<li>define <span class="term">string literal</span> as characters inside double quotes</li>
+<li>identify <code>\"</code>, <code>\\</code>, and <code>\n</code> as AP CSA escape sequences</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="continue-to-part-2">Continue to Part 2</h3>
+<p><a href="1-3-part-2-arithmetic-and-compound-expressions.html">Next: Arithmetic and compound expressions →</a></p>
 
 </section>
     </div>

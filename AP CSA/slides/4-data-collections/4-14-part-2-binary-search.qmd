@@ -1,6 +1,6 @@
 ---
-title: "4.14 Searching Algorithms"
-subtitle: "Part 2: Binary Search"
+title: "4.14 Binary Search"
+subtitle: "Searching Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -10,111 +10,190 @@ lang: zh-CN
 
 ## Course Directory
 
-### Return to the course outline
-
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Algorithm Idea
+## Binary Search
 
-### Binary search halves a sorted search space
+### Sorted data required
 
-<span class="term">Binary search</span> requires sorted data.
+If your array or list is already in order, binary search will on average find an element or determine that it is missing much more quickly than a linear search.
 
-![Binary search animation](../../assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif){fig-align="center" width="46%"}
+Binary search can only be used if the data is sorted.
 
-At each step, compare the target with the middle element, then discard half the remaining values.
+It keeps dividing the sorted search space in half.
 
-## Full Code {.fit-small}
+## Binary Search Steps
 
-### Iterative binary search
+### Left, right, middle
 
+Binary search compares a target value to the value in the middle of a range of indices.
+
+If the value is not found, it looks again in either the left or right half of the current range.
+
+Each time through the loop it eliminates half the values in the search area until the value is found or there is no more data to look at.
+
+## Middle Index and Bounds
+
+### Source explanation
+
+Binary search calculates the middle index as `(left + right) / 2`.
+
+`left` starts at `0`.
+
+`right` starts at the array length minus `1`.
+
+If the target is less than the middle value, set `right` to `middle - 1`.
+
+If the target is greater than the middle value, set `left` to `middle + 1`.
+
+If `left` becomes greater than `right`, return `-1`.
+
+## Coding Exercise
+
+### `activecode:: binSearch`
+
+The code for `binarySearch` below is from the AP CSA course description.
+
+A recursive version of this algorithm will be covered in lesson 4.17.
+
+## SearchTest Binary Source
+
+::: {.code-scroll}
 ```java
-public static int binarySearch(int[] values, int target)
+public class SearchTest
 {
-    int low = 0;
-    int high = values.length - 1;
-
-    while (low <= high)
+    public static int binarySearch(int[] elements, int target)
     {
-        int mid = (low + high) / 2;
-        if (values[mid] == target)
+        int left = 0;
+        int right = elements.length - 1;
+        while (left <= right)
         {
-            return mid;
+            int middle = (left + right) / 2;
+            if (target < elements[middle])
+            {
+                right = middle - 1;
+            }
+            else if (target > elements[middle])
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                return middle;
+            }
         }
-        else if (values[mid] < target)
-        {
-            low = mid + 1;
-        }
-        else
-        {
-            high = mid - 1;
-        }
+        return -1;
     }
-    return -1;
+
+    public static void main(String[] args)
+    {
+        int[] arr1 = {-20, 3, 15, 81, 432};
+        int index = binarySearch(arr1, 15);
+        System.out.println(index);
+        index = binarySearch(arr1, -20);
+        System.out.println(index);
+        index = binarySearch(arr1, 432);
+        System.out.println(index);
+        index = binarySearch(arr1, 53);
+        System.out.println(index);
+    }
 }
 ```
+:::
 
-## Focused Trace
+## binSearch Test Target
 
-### Search sorted values for `15`
+### Runestone expected output
 
-```java
-int[] values = {2, 5, 8, 12, 15, 19, 24};
+```text
+2
+0
+4
+-1
 ```
-
-| Step | `low` | `high` | `mid` | `values[mid]` | action |
-|---:|---:|---:|---:|---:|---|
-| 1 | 0 | 6 | 3 | 12 | move `low` to 4 |
-| 2 | 4 | 6 | 5 | 19 | move `high` to 4 |
-| 3 | 4 | 4 | 4 | 15 | return 4 |
 
 ## Binary Search with Strings
 
 ### Use `compareTo`
 
+You can also use binary search with a `String` array.
+
+When searching for a `String`, use `compareTo` rather than `<` or `>`.
+
+`compareTo(String other)` returns:
+
+- a negative value if the current string is less than `other`
+- `0` if the strings have the same characters in the same order
+- a positive value if the current string is greater than `other`
+
+## BinSearchStrings Source
+
+::: {.code-scroll}
 ```java
-int comparison = words.get(mid).compareTo(target);
-if (comparison == 0)
+public class BinSearchStrings
 {
-    return mid;
-}
-else if (comparison < 0)
-{
-    low = mid + 1;
-}
-else
-{
-    high = mid - 1;
+    public static int binarySearch(String[] elements, String target)
+    {
+        int left = 0;
+        int right = elements.length - 1;
+        while (left <= right)
+        {
+            int middle = (left + right) / 2;
+            if (target.compareTo(elements[middle]) < 0)
+            {
+                right = middle - 1;
+            }
+            else if (target.compareTo(elements[middle]) > 0)
+            {
+                left = middle + 1;
+            }
+            else
+            {
+                return middle;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args)
+    {
+        String[] arr1 = {"apple", "banana", "cherry", "kiwi", "melon"};
+        int index = binarySearch(arr1, "cherry");
+        System.out.println(index);
+        index = binarySearch(arr1, "apple");
+        System.out.println(index);
+        index = binarySearch(arr1, "melon");
+        System.out.println(index);
+        index = binarySearch(arr1, "pear");
+        System.out.println(index);
+    }
 }
 ```
+:::
 
-For strings, sorted order is checked with `compareTo`.
+## binSearchStrings Test Target
 
-## Quick Check
+### Runestone expected output
 
-### Why sorted data matters
-
-Binary search decides which half to discard based on the middle value.
-
-If data is not sorted, discarding half can remove the target by mistake.
-
-Class prompt: give a small unsorted array where binary search would make the wrong decision after the first comparison.
+```text
+2
+0
+4
+-1
+```
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- explain why binary search requires sorted data
-- update `low` and `high` correctly
-- compute and use the middle index
-- trace how the search space shrinks
-- use `compareTo` when binary searching strings
-:::
+- state that binary search requires sorted data
+- update `right` when target is less than the middle value
+- update `left` when target is greater than the middle value
+- return `middle` when the target matches
+- use `compareTo` for `String` binary search
 
 ## End
 
-### Continue or return to the course outline
+### 4.14 Binary Search
 
-[Next: Search Runtimes](4-14-part-3-search-runtimes.html)  
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Search runtimes.

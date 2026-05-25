@@ -14,153 +14,304 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Methods: How to Write Them
 
-### Methods define object behavior
+### Topic intro
 
-In object-oriented programming, a class combines:
+In object-oriented programming, the three main parts of a class are:
 
 ::: {.tight-list}
-- instance variables: state
-- constructors: initialization
-- <span class="term">methods</span> (方法): behavior
+- the **instance variables**, which hold attributes or values associated with each object
+- the **constructors**, whose job is to initialize the instance variables
+- the **methods**, which contain the code for the behaviors of an object and can use the instance variables defined in the class
 :::
 
-This first deck focuses on defining, calling, and classifying methods.
+## Unit 1 Review
+
+### Turtle and static methods
+
+In Unit 1, we used `Turtle` objects and called methods like `forward`, which changed the `x` and `y` coordinates, the instance variables, of the turtle.
+
+We also defined static methods that did not work with objects.
+
+In this unit, we will learn how to write our own methods in our own classes.
 
 ## Defining and Calling Methods
 
-### A method definition lives inside the class
+### Method definition
 
-![Calling methods in different contexts](../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png){fig-align="center" width="66%"}
+A **method** is a block of code that performs a specific task.
 
-A method call such as `p.print()` transfers control to the method body, runs its statements, then returns to the caller.
+Methods are defined inside a class and can access the instance variables of the class.
 
-## Method Header
+Methods are usually `public`.
 
-### Read the method signature
+## Person `print` Method
 
-```java
-public void print()
-{
-    System.out.println(name);
-}
-```
-
-Key parts:
-
-::: {.tight-list}
-- `public`: other classes can call it
-- `void`: it does not return a value
-- `print`: method name
-- `()`: parameter list, empty here
-:::
-
-## Code Task
-
-### Add and call an instance method
+### Example method definition and call
 
 ```java
 public class Person
 {
+    // instance variables
     private String name;
+    private String email;
 
-    public Person(String initialName)
-    {
-        name = initialName;
-    }
-
+    // Method definition: uses instance variables name and email
     public void print()
     {
-        System.out.println(name);
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
     }
 
     public static void main(String[] args)
     {
-        Person p = new Person("Ada");
-        p.print();
+        Person p = new Person();
+        p.print();  // Method call
     }
 }
 ```
 
-Expected output: `Ada`.
+## Three Steps
+
+### Creating and calling a method
+
+There are three steps to creating and calling a method:
+
+::: {.tight-list}
+- **Object of the Class**
+- **Method Call**
+- **Method Definition**
+:::
+
+## Step 1
+
+### Object of the class
+
+Declare an object of your class in the `main` method or from outside the class.
+
+```java
+// Step 1: declare an object in main or from outside the class
+Classname objectName = new Classname();
+```
+
+## Step 2
+
+### Method call
+
+Whenever you want to use the method, call:
+
+```java
+// Step 2: call the object's method
+objectName.methodName(); //Step 2
+```
+
+## Step 3
+
+### Method definition
+
+Write the method's **header** and **body** code.
+
+```java
+// Step 3: Define the method in the class
+// method header
+public void methodName()
+{
+      // method body for the code
+}
+```
+
+## Calling Methods Flowchart {.image-fit}
+
+### Static, instance, and same-class calls
+
+![Comparing method calls to static and instance methods](../../assets/3-class-creation/3-5-methods-how-to-write-them/FlowChartCallingMethods.png){fig-align="center" width="76%"}
+
+Class methods are called using the class name.
+
+Instance methods are called using an object of the class.
+
+## Instance Method Calls
+
+### From outside the class
+
+If you are calling the instance method from the `main` method or from another class, you must first create an object of that class.
+
+Then call its methods using:
+
+```java
+object.methodName();
+```
+
+## Same-Class Method Calls
+
+### From within the same class
+
+If you are calling the method from within the same class, you can just call:
+
+```java
+methodName();
+```
+
+This will refer to the current object.
+
+## Coding Exercise
+
+### `activecode:: PersonPrint`
+
+Try the following code.
+
+Add a `print()` method in the `Person` class that prints out all the attributes of a person object:
+
+::: {.tight-list}
+- `name`
+- `email`
+- `phonenumber`
+:::
+
+## PersonPrint Starter
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private String email;
+    private String phonenumber;
+
+    // Constructor
+    public Person(String n, String e, String p)
+    {
+        name = n;
+        email = e;
+        phonenumber = p;
+    }
+
+    // TODO: Add a print() method that prints out all the attributes (name, email, phonenumber)
+
+
+    public static void main(String[] args)
+    {
+        Person p1 = new Person("Taylor", "swift@gmail.com", "123-456-7890");
+        p1.print();
+    }
+}
+```
+:::
+
+## PersonPrint Test Target
+
+### Runestone check
+
+The Runestone test checks that your code contains this method header:
+
+```java
+public void print()
+```
+
+Keep the starter context: the constructor and `main` method are already provided.
 
 ## `void` Methods
 
-### A `void` method performs an action
+### Performs an action, returns no value
 
-Common `void` method jobs:
+A **void method** is a method that does not return a value.
 
-::: {.tight-list}
-- print information
-- update object state
-- move an object
-- draw something
-:::
-
-`void` methods do not return a value to the caller.
+It is used when you want to perform an action but do not need to return a value.
 
 ```java
-public void celebrateBirthday()
+public void methodName()
 {
-    age++;
+    // method body
 }
 ```
+
+## `print` Is `void`
+
+### Output is the action
+
+The `print` method above is a `void` method.
+
+It does not return a value, but it does print out the name and email of the person.
+
+In later sections, we will learn about setter methods that are also `void` methods.
 
 ## Non-`void` Methods
 
-### A non-`void` method returns one value
+### Returns one value
+
+A **non-void method** is a method that returns a single value.
+
+Its body must have a **return** statement, usually at the end, that returns a variable's value or an expression.
+
+Its header includes the **return type**, the type of the value in the return statement, in place of the keyword `void`.
+
+## Non-`void` Method Shape
+
+### Return type and return statement
 
 ```java
-public int getAge()
+public returnType methodName()
 {
-    return age;
+    // method body
+    return value;
 }
 ```
 
-Rules:
+In Unit 1, we used static non-void methods like `Math.random()`, which returned a random number.
+
+We also used Turtle methods like `getXPos()` and `getYPos()`.
+
+## Return by Value
+
+### Flow of control
+
+In non-void methods, a return expression compatible with the return type is evaluated, and the value is returned.
+
+This is referred to as **return by value**.
+
+The `return` keyword is used to return the flow of control to the point where the method or constructor was called.
+
+## Return Statement Caution
+
+### Code after return
+
+Any code that is sequentially after a return statement will never be executed.
+
+Usually non-void methods end with a return statement.
+
+Executing a return statement inside a selection or iteration statement will halt the statement and exit the method or constructor.
+
+## Common Errors
+
+### Non-void methods
+
+Some common errors when writing and using non-void methods are:
 
 ::: {.tight-list}
-- the return type is written before the method name
-- the method must return a compatible value
-- code after a guaranteed `return` path does not run
-:::
-
-## Quick Check
-
-### Classify the method
-
-```java
-public boolean isAdult()
-{
-    return age >= 18;
-}
-```
-
-This method is:
-
-::: {.tight-list}
-- non-`void`
-- return type `boolean`
-- no parameters
-- computes a value from instance data
+- forgetting a return type like `int` before the method name
+- forgetting to use the `return` keyword to return a value at the end of the method
+- returning too soon from a method
+- forgetting to do something with the value returned from a method, like assigning it to a variable or printing it out
 :::
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- identify a method header and method body
+- identify the three class parts: instance variables, constructors, and methods
 - distinguish a method definition from a method call
-- explain what `void` means
-- explain when a `return` statement is required
-- trace control from a call to a method body and back
+- create an object before calling an instance method from `main` or another class
+- write the method header and body inside the class
+- preserve the `PersonPrint` starter and add a `public void print()` method
+- explain the difference between `void` and non-`void` methods
+- explain why non-`void` methods need a compatible `return` value
 :::
 
 ## End
 
-### Continue or return to the course outline
+### 3.5 Part 1 complete
 
-[Next: Getters and toString](3-5-part-2-getters-and-tostring.html)  
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Accessors, getters, and `toString`.

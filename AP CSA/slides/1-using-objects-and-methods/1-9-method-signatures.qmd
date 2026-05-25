@@ -1,6 +1,6 @@
 ---
 title: "1.9 Method Signatures"
-subtitle: "Using Objects and Methods"
+subtitle: "Part 1: Method Basics and Flow of Control"
 format:
   clean-revealjs:
     slide-number: true
@@ -16,71 +16,175 @@ lang: zh-CN
 
 ## Topic Intro
 
-### Methods organize complex programs
+### Methods and procedural abstraction
 
-Until now, most code has been inside `main`. Complex programs are made up of many <span class="term">methods</span> (方法).
+Up until now, all of our code has been in the `main` method, but complex programs are made up of many methods.
 
-A method is a named block of code that performs a task when it is called.
+When faced with a large problem, we can break it down into smaller subproblems and solve each subproblem separately.
 
-::: {.tight-list}
-- A <span class="term">block</span> is code enclosed in curly braces `{ }`.
-- A method can solve one smaller subproblem.
-- Method names should describe what the method does.
-:::
+Each of these subproblems can be a method.
+
+## Method
+
+### Named block of code
+
+A <span class="term">method</span> (方法) is a named block of code that performs a task when it is called.
+
+A <span class="term">block</span> of code is any section of code enclosed in curly braces like `{ }`.
+
+These named blocks of code have many names in different programming languages: functions, procedures, subroutines, etc.
+
+In Java they are called methods.
 
 ## Procedural Abstraction
 
-### Use a method without knowing every detail
+### Use without knowing every detail
 
-<span class="term">Procedural abstraction</span> (过程抽象) lets a programmer use a method by knowing what it does, even without knowing exactly how it is implemented.
+<span class="term">Procedural abstraction</span> (过程抽象) allows a programmer to use a method and not worry about the details of how it exactly works.
 
-Everyday analogy:
+For example, we do not need to know how a car exactly works in order to drive.
 
-::: {.tight-list}
-- You can use a car's brakes without knowing every internal mechanical detail.
-- You can call `println()` without knowing the full `PrintStream` implementation.
-:::
+We know that if we hit the brakes, the car will stop.
 
-This is how large programs stay readable.
+Similarly, we can use a method someone else wrote without knowing exactly how it works.
 
-## Repeated Code
+## Why Methods
 
-### Repetition signals a method opportunity
+### Organize and avoid repetition
 
-The textbook uses song lyrics because repeated lines make method extraction visible.
+We divide up a program into multiple methods in order to organize the code, reduce its complexity, and avoid repetition of code.
 
-Repeated lines in an Old MacDonald verse include:
+The song "Old MacDonald Had a Farm" has a lot of repetition.
+
+Instead of writing the same code over and over in order to print the song, we can write methods that contain the repeated code and run them when needed.
+
+## Repeated Code Check
+
+### `clickablearea:: repeatedcode-old-mcdonald`
+
+Click on all the lines that are completely identical and repeated.
 
 ```java
-System.out.println("Old MacDonald had a farm");
-System.out.println("E-I-E-I-O");
+public static void main(String args[]) {
+    System.out.println("Old MacDonald had a farm.");
+    System.out.println("E-I-E-I-O");
+    System.out.println("And on this farm, they had a cow.");
+    System.out.println("E-I-E-I-O");
+    System.out.println("With a moo moo here and a moo moo there");
+    System.out.println("Here a moo, there a moo, everywhere a moo moo");
+    System.out.println("Old MacDonald had a farm");
+    System.out.println("E-I-E-I-O");
+}
 ```
 
-When you see identical code repeated, ask whether it should become a named method.
+## Repeated Code Answer
 
-## Method Calls
+### Identical repeated lines
 
-### Call the method name to run its code
+The repeated lines are:
 
-A <span class="term">method call</span> includes the method name and parentheses.
+::: {.tight-list}
+- `System.out.println("Old MacDonald had a farm.");`
+- `System.out.println("E-I-E-I-O");`
+- `System.out.println("E-I-E-I-O");`
+- `System.out.println("Old MacDonald had a farm");`
+- `System.out.println("E-I-E-I-O");`
+:::
+
+When you see repeated code, that is a signal for you to make a new method.
+
+## Method Call
+
+### Name plus parentheses
+
+A <span class="term">method call</span> is when the code calls out the method's name in order to run the code in the method.
+
+The method call always includes the method name and parentheses `()`.
+
+Sometimes there is data inside the parentheses if the method needs that to do its job.
 
 ```java
+// Method call
 methodName();
+```
+
+## Method Call Example
+
+### `println()`
+
+When we write:
+
+```java
 System.out.println("Hello World");
 ```
 
-When a method is called:
+we are calling the `println()` method to print out `"Hello World"`.
 
-::: {.tight-list}
-- flow of control jumps to the method
-- the method body executes
-- control returns to the line immediately after the call
-:::
+Method calls are how Java runs code stored inside a named block.
 
 ## Flow of Control
 
-### Old MacDonald with methods
+### Method calls interrupt sequential execution
 
+Execution in Java always begins in the `main` method in the current class.
+
+Then, the <span class="term">flow of control</span> (控制流) skips from method to method as they are called.
+
+When a method ends, it returns to the line right after the method call.
+
+## Old MacDonald with Methods
+
+### `codelens:: songvizOldMcdonald`
+
+```java
+public class OldMacDonaldSong
+{
+  public static void intro()
+  {
+    System.out.println("Old MacDonald had a farm");
+    chorus();
+  }
+
+  public static void chorus()
+  {
+    System.out.println("E-I-E-I-O");
+  }
+
+  public static void main(String[] args)
+  {
+    intro();
+    System.out.println("And on that farm they had a cow.");
+    chorus();
+    System.out.println("With a moo moo here and a moo moo there");
+    System.out.println("Here a moo, there a moo, everywhere a moo moo");
+    intro();
+  }
+}
+```
+
+## Flow Trace
+
+### What happens in the song code
+
+The `main()` method calls the `intro()` method, which calls the `chorus()` method.
+
+When `chorus()` is called, flow skips to the `chorus` code, executes and prints `"E-I-E-I-O"`, and then returns back to the method that called it.
+
+The methods can be in any order, but programmers usually put the `main` method at the end after all the methods that it uses are defined.
+
+## Code Task
+
+### `activecode:: song-add-calls`
+
+Scroll down to the `main` method below and add lines of code to the `main` method for the second verse of the Old MacDonald Song.
+
+Call the `intro()` and `chorus()` methods and print out lines about a duck or another animal.
+
+## Starter Code
+
+### `song-add-calls`
+
+::: {.code-scroll}
 ```java
 public class OldMacDonaldSong
 {
@@ -100,374 +204,113 @@ public class OldMacDonaldSong
         intro();
         System.out.println("And on that farm they had a cow.");
         chorus();
-        intro();
+        System.out.println("With a moo moo here and a moo moo there");
+        System.out.println("Here a moo, there a moo, everywhere a moo moo");
+
+        // TODO:
+        // 1. Call the method intro()
+
+        // 2. Print out the line beginning "And on that farm"
+        //    with a duck or another animal
+
+        // 3. Call the method chorus
+
+        // 4. Print out the lines with the appropriate animal sounds
+
+        // 5. Call the method intro again
+
     }
 }
 ```
-
-Execution starts in `main`, then jumps through calls.
-
-## Code Task
-
-### Add method calls for another verse
-
-Scroll to `main` and add a second verse by calling existing methods.
-
-```java
-public static void main(String[] args)
-{
-    intro();
-    System.out.println("And on that farm they had a cow.");
-    chorus();
-    System.out.println("With a moo moo here and a moo moo there");
-    System.out.println("Here a moo, there a moo, everywhere a moo moo");
-
-    // 1. Call intro().
-    // 2. Print a line with a duck or another animal.
-    // 3. Call chorus().
-    // 4. Print the animal sound lines.
-    // 5. Call intro() again.
-}
-```
-
-Completion checks: at least 3 calls to `intro()` and 3 calls to `chorus()`.
-
-## Trace Task
-
-### Method call output order
-
-What does this code print?
-
-```java
-public static void print()
-{
-    System.out.print("I like to ");
-    eat();
-    eat();
-    eat();
-    fruit();
-}
-```
-
-where `eat()` prints `eat ` and `fruit()` prints `apples and bananas!`.
-
-Answer:
-
-```text
-I like to eat eat eat apples and bananas!
-```
-
-## Method Header
-
-### What the caller and compiler need
-
-The <span class="term">method header</span> is the first line of a method.
-
-It includes:
-
-::: {.tight-list}
-- method name
-- return type
-- parameter list with data types
 :::
 
-For this lesson, many examples use the return type `void`, which means the method does not return a value.
+## Test Requirements
 
-## Method Signature
+### `song-add-calls`
 
-### Header without the return type
-
-![Method signature and method call](../../assets/1-using-objects-and-methods/1-9-method-signatures/method-parts.png){fig-align="center" width="62%"}
-
-A <span class="term">method signature</span> consists of:
+Runestone checks:
 
 ::: {.tight-list}
-- method name
-- ordered list of parameter types
+- calls to `intro()` are `3 or more`
+- calls to `chorus()` are `3 or more`
 :::
 
-A method without parameters has the method name and an empty parameter list.
+The new verse must call the existing methods rather than duplicating the repeated method bodies.
 
-## PrintStream Examples
+## Quick Check
 
-### Same method name, different parameter lists
+### `mchoice:: songMethodsTrace`
 
-Examples from `PrintStream`:
+What does the following code print out?
 
+::: {.code-scroll .compact}
 ```java
-void println()
-void println(String x)
-void println(int x)
+public class Song
+{
+    public static void print()
+    {
+        System.out.print("I like to ");
+        eat();
+        eat();
+        eat();
+        fruit();
+    }
+
+    public static void fruit()
+    {
+        System.out.println("apples and bananas!");
+    }
+
+    public static void eat()
+    {
+        System.out.print("eat ");
+    }
+
+    public static void main(String[] args)
+    {
+        print();
+    }
+}
 ```
+:::
 
-Corresponding calls:
+## Quick Check Options
 
-```java
-System.out.println();
-System.out.println("Hello World");
-System.out.println(42);
-```
-
-The argument must be compatible with the parameter type in the method signature.
-
-## Parameters and Arguments
-
-### Header variables versus call-time values
-
-The <span class="term">parameter</span> is declared in the method header.
-
-The <span class="term">argument</span> is the actual value passed into the method call.
-
-```java
-void println(String x)   // x is a parameter
-println("Hello World");  // "Hello World" is an argument
-```
-
-Arguments can be literals, variables, or expressions that evaluate to the correct type.
-
-## Finding Parameters
-
-### What changes between verses?
-
-Old MacDonald verses repeat the same structure, but these parts change:
+### `songMethodsTrace`
 
 ::: {.tight-list}
-- animal: `cow`, `duck`
-- sound: `moo`, `quack`
+- A. `I like to eat eat eat.`
+- B. `I like to eat eat eat fruit.`
+- C. `I like to apples and bananas eat.`
+- D. `I like to eat eat eat apples and bananas!`
+- E. Nothing, it does not compile.
 :::
 
-Those changing values are good candidates for parameters.
+## Answer Reasoning
 
-This is the design move: keep the shared structure in one method, pass the changing values as arguments.
+### `songMethodsTrace`
 
-## Method with Parameters
+Correct answer: <span class="mark">D. `I like to eat eat eat apples and bananas!`</span>
 
-### One method can print many verses
+The `print` method calls `eat` three times and then calls `fruit`.
 
-```java
-public static void verse(String animal, String sound)
-{
-    System.out.println("And on this farm, they had a " + animal);
-    chorus();
-    System.out.println("With a " + sound + " " + sound
-            + " here and a " + sound + " " + sound + " there");
-    System.out.println("Here a " + sound
-            + ", there a " + sound
-            + ", everywhere a " + sound + " " + sound);
-}
-```
-
-The parameters `animal` and `sound` hold different values for each call.
-
-## Main as Outline
-
-### Method calls show the program structure
-
-```java
-public static void main(String[] args)
-{
-    intro();
-    verse("cow", "moo");
-    intro();
-    verse("duck", "quack");
-    intro();
-}
-```
-
-Main methods often read like an outline: high-level calls appear in the order the program should run.
-
-## Code Task
-
-### Add verses with arguments
-
-Add a verse with animal `goose` and sound `honk`, then call `intro()` again. Repeat with another animal and sound of your choice.
-
-```java
-public static void main(String[] args)
-{
-    intro();
-    verse("cow", "moo");
-    intro();
-    verse("duck", "quack");
-    intro();
-
-    // Add verse("goose", "honk");
-    // Then call intro().
-    // Add one more animal and sound.
-}
-```
-
-Completion checks: include `verse("goose", "honk");` and at least 5 calls to `intro()`.
-
-## Arguments to Parameters
-
-### Matching by number, type, and order
-
-![Arguments to parameters](../../assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png){fig-align="center" width="66%"}
-
-Java chooses the right method by checking:
-
-::: {.tight-list}
-- method name
-- number of arguments
-- data types of the arguments
-- order of parameter types
-:::
-
-Method headers contain types; method calls contain values.
-
-## Call by Value
-
-### Parameters receive copies
-
-Java uses <span class="term">call by value</span> when it passes arguments to methods.
-
-That means:
-
-::: {.tight-list}
-- the argument's value is copied into the parameter variable
-- the parameter is initialized with that copy
-- changing the parameter variable does not change the original primitive variable outside the method
-:::
-
-For now, read method calls as passing values into named parameter variables.
-
-## Overloading
-
-### Same method name, different signatures
-
-Methods are <span class="term">overloaded</span> when multiple methods have the same name but different signatures.
-
-Example:
-
-```java
-println()
-println(String x)
-println(int x)
-```
-
-The compiler determines which version to call from the number and types of arguments.
-
-## Groupwork Challenge
-
-### Song with Parameters
-
-The Ants Go Marching repeats structure with different values.
-
-Changing phrases:
-
-| Verse | `num` argument | `action` argument |
-|---|---|---|
-| 1 | `"one"` | `"suck a thumb"` |
-| 2 | `"two"` | `"tie a shoe"` |
-| 3 | `"three"` | `"climb a tree"` |
-
-These changing phrases become arguments to `chorus(num)` and `verse(num, action)`.
-
-## Groupwork Challenge
-
-### Ants Song starter
-
-Write code in `main` that calls `chorus` and `verse` to print all three verses.
-
-```java
-public class AntsSong
-{
-    public static void chorus(String num)
-    {
-        System.out.println("The ants go marching " + num
-                + " by " + num + ", hurrah, hurrah");
-        System.out.println("The ants go marching " + num
-                + " by " + num + ", hurrah, hurrah");
-    }
-
-    public static void verse(String num, String action)
-    {
-        System.out.println("The ants go marching " + num + " by " + num);
-        System.out.println("The little one stops to " + action);
-        System.out.println("And they all go marching down to the ground");
-        System.out.println("To get out of the rain, BOOM! BOOM! BOOM! BOOM!\n");
-    }
-}
-```
-
-## Groupwork Challenge
-
-### Required method calls
-
-Your `main` method should call:
-
-```java
-chorus("one");
-verse("one", "suck a thumb");
-
-chorus("two");
-verse("two", "tie a shoe");
-
-chorus("three");
-verse("three", "climb a tree");
-```
-
-A strong solution uses method calls instead of copying all song lines into `main`.
-
-## AP-Style Trace Check
-
-### Which calls print `purr meow purr`?
-
-```java
-public class Cat
-{
-    public static void sound1()
-    {
-        System.out.print("meow ");
-    }
-
-    public static void sound2()
-    {
-        System.out.print("purr ");
-    }
-
-    public static void hello()
-    {
-        sound2();
-        sound1();
-    }
-}
-```
-
-Correct call sequence: `hello(); sound2();`
-
-## Vocabulary Check
-
-### Match the concept
-
-| Definition | Concept |
-|---|---|
-| named block of code to perform a task | method |
-| where execution starts | main method |
-| method name and ordered parameter types | method signature |
-| variable declared in a method header | parameter |
-| value passed into a method call | argument |
-
-Use this vocabulary precisely when reading API documentation.
+Figuring out what the code does is called <span class="term">tracing</span> through the code.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- define a <span class="term">method</span> as a named task block
-- explain <span class="term">procedural abstraction</span>
-- trace jump-and-return <span class="term">flow of control</span> during method calls
-- identify the method name, return type, and parameter list in a header
-- define a <span class="term">method signature</span> as method name plus ordered parameter types
-- distinguish <span class="term">parameters</span> from <span class="term">arguments</span>
-- explain <span class="term">call by value</span> as copying argument values into parameters
-- explain <span class="term">overloading</span> as same method name with different signatures
+- define a method as a named block of code that runs when called
+- explain procedural abstraction as using a method without knowing every implementation detail
+- identify repeated code as a signal for creating methods
+- trace flow of control from `main()` to called methods and back
+- add a second Old MacDonald verse by calling `intro()` and `chorus()`
+- trace the output of `print()`, `eat()`, and `fruit()`
 :::
 
 ## End
 
-### Return to the course outline
+### Continue to method signatures
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+The next deck covers method headers, signatures, parameters, and arguments.

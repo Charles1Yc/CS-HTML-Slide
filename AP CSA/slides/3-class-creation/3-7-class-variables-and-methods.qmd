@@ -1,6 +1,6 @@
 ---
-title: "3.7 Class Variables and Methods"
-subtitle: "Class Creation"
+title: "3.7 Class Methods"
+subtitle: "Class Variables and Methods"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,173 +14,228 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Class Variables and Methods
 
-### `static` belongs to the class
+### Topic intro
 
-A <span class="term">static</span> member belongs to the class itself, not to one individual object.
+In Unit 1, we learned about methods by using the `Math` class and its many **static** methods like `Math.random()`.
 
-::: {.tight-list}
-- static method: called on the class
-- static variable: shared by all objects of the class
-- instance variable: each object has its own copy
-:::
+We also wrote our own `main` methods and other methods that were static.
+
+These are called **class methods** because they belong to the class and not to any object of the class.
+
+In this lesson, you will learn to write your own class variables and methods using the keyword `static` and compare them to instance variables and methods.
 
 ## Class Methods
 
-### Static methods are called with the class name
+### Belong to the class
 
-![Calling methods](../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png){fig-align="center" width="55%"}
+Class methods belong to the class and not to any object of the class.
+
+They are called with the class name and the dot operator:
 
 ```java
-double root = Math.sqrt(25);
+ClassName.methodName();
+Math.random();
 ```
 
-`Math.sqrt` is a static method. You do not create a `Math` object before calling it.
+## One Copy for the Class
 
-## Static Method Example
+### Static method call forms
 
-### No instance variables required
+There is only one copy of a class variable or method for the whole class.
+
+For example, the `main` method is a class method because there should only be one `main` method.
+
+If the method is in the same class, you can call it from other static methods in the class:
 
 ```java
-public class Temperature
+ClassName.methodName();
+methodName();
+```
+
+## Calling Class Methods
+
+### Source pattern
+
+```java
+// Calling class methods
+// ClassName.methodName();
+int x = Math.sqrt(9);
+
+// If the method is in the same class,
+// you can call it with or without the class name
+// from other static methods in the class
+ClassName.methodName();
+methodName();
+```
+
+## Comparing Method Calls {.image-fit}
+
+### Static, instance, and same-class calls
+
+![Comparing Method Calls to Static and Instance Methods](../../assets/3-class-creation/3-7-class-variables-and-methods/FlowChartCallingMethods.png){fig-align="center" width="68%"}
+
+Class methods are called using the class name.
+
+Instance methods can only be called using an object of the class.
+
+## Method Call Rules
+
+### Where the call happens
+
+If you are calling an instance method from the `main` method or from another class, you must first create an object of that class and then call its methods using `object.methodName()`.
+
+If you are calling the method from within the same class, you can just call `methodName()`.
+
+```java
+object.methodName();  // from main or another class
+methodName();         // from within the same class
+```
+
+That call will refer to the current object.
+
+## Static Declarations
+
+### Where `static` is placed
+
+When writing class methods, they can be `public` or `private`.
+
+The `static` keyword is placed right after the public/private modifier and right before the type of variables and methods in their declarations.
+
+```java
+public class ClassName
 {
-    public static double celsiusToFahrenheit(double celsius)
+    // static class variable
+    public static type variableName;
+
+    // static class method
+    public static returnType methodName(parameters)
     {
-        return celsius * 9.0 / 5.0 + 32;
+        // implementation not shown
     }
 }
 ```
 
-Call:
+## Static Access Rule
 
-```java
-double f = Temperature.celsiusToFahrenheit(20.0);
-```
+### What class methods can access
 
-Static methods should not depend on one object's instance state.
+Class methods can access or change the values of class variables and can call other class methods.
 
-## Class Variables
+However, they cannot access or change the values of non-static instance variables or call non-static instance methods without being passed an instance of the class via a parameter.
 
-### One shared value for the whole class
+For example, the `main` method can call other static methods directly with or without the class name, but it cannot call instance methods without first creating an object.
 
+## Coding Exercise
+
+### `activecode:: staticmethods`
+
+Note that the static method `printStatic` has errors in it because it cannot access the instance variables and methods.
+
+Fix the `printStatic` method by giving it the `Person` object as a parameter and using this object to call its instance variables and methods.
+
+Also fix the method call to `printStatic` in `main` to pass in the object as an argument.
+
+## staticmethods Starter
+
+::: {.code-scroll}
 ```java
 public class Person
 {
-    private static int personCount = 0;
+    // instance variables
     private String name;
+    private String email;
 
-    public Person(String personName)
+    // constructor
+    public Person(String initName, String initEmail)
     {
-        name = personName;
-        personCount++;
+        name = initName;
+        email = initEmail;
     }
 
-    public static int getPersonCount()
+    // instance method
+    public void print()
     {
-        return personCount;
+        System.out.println(name + ": " + email);
+    }
+
+    // static method
+    public static void printStatic()
+    {
+        System.out.println("Static methods cannot print out non-static variables.");
+        // The following lines will cause errors
+
+        // TODO: Fix this by giving it the Person object as a parameter
+        // Use the object to print out the name and call its instance methods.
+        System.out.println(name);
+        print();
+    }
+
+    public static void main(String[] args)
+    {
+        Person p = new Person("Jana", "jana@gmail.com");
+
+        // Call p's instance method to print
+        p.print();
+
+        // Call printStatic with the class name
+        // Note this has errors.
+        // TODO: Fix the errors by giving it the object p as an argument
+        Person.printStatic();
     }
 }
 ```
-
-Every constructor call updates the same shared counter.
-
-## Quick Check
-
-### Trace the static counter
-
-```java
-Person a = new Person("Ana");
-Person b = new Person("Bo");
-Person c = new Person("Cam");
-System.out.println(Person.getPersonCount());
-```
-
-Answer:
-
-```text
-3
-```
-
-There is one `personCount` for the class, not one per object.
-
-## Debug Task
-
-### Static method cannot use instance state directly
-
-Problem:
-
-```java
-public static void printName()
-{
-    System.out.println(name);
-}
-```
-
-`name` is an instance variable. A static method has no specific object.
-
-Fix: make the method an instance method, or pass needed data as a parameter.
-
-## `final` Keyword
-
-### Constants should not change
-
-```java
-public static final double PI = 3.14159;
-```
-
-`final` means the value cannot be reassigned after initialization.
-
-Class constants are often:
-
-::: {.tight-list}
-- `public`
-- `static`
-- `final`
-- named with uppercase words
 :::
 
-## Groupwork Coding Challenge
+## Focused Fix
 
-### Static song and counter
+### Pass an object into the static method
 
-Design a class that tracks how many song objects have been created.
+The source task asks students to change the method so a `Person` object is passed into `printStatic`.
 
-```java
-public class Song
-{
-    private static int count = 0;
-    private String title;
+The static method can then use that object to access the instance data and instance method.
 
-    public Song(String songTitle)
-    {
-        title = songTitle;
-        count++;
-    }
+The call in `main` must also pass the object `p`.
 
-    public static int getCount()
-    {
-        return count;
-    }
-}
-```
+## Test Targets
 
-Add one instance method that prints the song title.
+### Runestone checks
+
+The tests check for:
+
+::: {.tight-list}
+- a call containing `printStatic(p)`
+- a method header containing `printStatic(Person`
+:::
+
+The classroom trace focus is why the original `printStatic` produced a static-context error.
+
+## After the Exercise
+
+### Static methods as utilities
+
+This example also shows how instance methods easily share data variables without the need for parameters.
+
+Static methods cannot directly access the instance methods.
+
+They are often used for utility methods, like `Math` operations, that do not need access to the instance variables of an object.
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- distinguish static members from instance members
-- call a static method with the class name
-- explain why a static variable is shared by all objects
-- trace a static counter across multiple constructor calls
-- explain why `final` is used for constants
+- explain why `Math.random()` and `main` are class methods
+- call a class method with `ClassName.methodName()`
+- distinguish class-method calls from instance-method calls
+- place `static` correctly in a method or variable declaration
+- explain the static-context error in `printStatic`
+- fix `printStatic` by passing a `Person` object as a parameter
 :::
 
 ## End
 
-### Return to the course outline
+### 3.7 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: class variables and static counters.

@@ -199,7 +199,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">1.14 Calling Instance Methods</h1>
-  <p class="subtitle">Using Objects and Methods</p>
+  <p class="subtitle">Part 1: Class Methods, Instance Methods, and Null References</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,262 +210,177 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="objects-do-work-through-instance-methods">Objects do work through instance methods</h3>
-<p>An <span class="term">instance method</span> (实例方法) belongs to an object. Calling it can ask the object for information or tell the object to change its state.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb1-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb1-3"><a href=""></a>yertle<span class="op">.</span><span class="fu">turnRight</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The object before the dot is the <span class="term">object receiver</span>: it receives the method call.</p>
-</section>
-<section id="static-vs-instance" class="slide level2">
-<h2>Static vs Instance</h2>
-<h3 id="class-methods-and-object-methods-have-different-receivers">Class methods and object methods have different receivers</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png" style="width:72.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling static versus instance methods</p><div class="tight-list">
-<ul>
-<li>A static method is called on the class: <code>Math.sqrt(25)</code>.</li>
-<li>An instance method is called on an object: <code>yertle.forward()</code>.</li>
-<li>Instance methods can use or change the object’s attribute values.</li>
-</ul>
-</div>
-</section>
-<section id="method-signatures" class="slide level2">
-<h2>Method Signatures</h2>
-<h3 id="documentation-tells-you-what-can-be-called">Documentation tells you what can be called</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Student class method signatures</p><p>Example signatures:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
-<span id="cb2-2"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To call an instance method from another class, use an object variable, a dot, and the method name.</p>
-</section>
 <section id="calling-instance-methods" class="slide level2">
 <h2>Calling Instance Methods</h2>
-<h3 id="use-object.methodnamearguments">Use <code>object.methodName(arguments)</code></h3>
+<h3 id="topic-intro">Topic intro</h3>
+<p>In object-oriented programming, <strong>methods</strong> define the behavior and actions that an object can perform.</p>
+<p>For example, <code>Turtle</code> objects can go forward or turn left using method calls like <code>yertle.forward()</code> and <code>yertle.turnRight()</code> to change its position.</p>
+<p>These methods are sometimes called <strong>instance methods</strong> (实例方法) or <strong>object methods</strong> because they are called using an instance or object of the class.</p>
+</section>
+<section id="class-methods-vs.-instance-methods" class="slide level2">
+<h2>Class Methods vs.&nbsp;Instance Methods</h2>
+<h3 id="class-method-calls">Class method calls</h3>
+<p>In lessons 1.9 and 1.10, we learned how to call <strong>class methods</strong> (also called <strong>static methods</strong>).</p>
+<p>Class methods are called using the class name followed by the dot (<code>.</code>) operator and the method name.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href=""></a><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span><span class="op">(</span><span class="dv">25</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This calls the <code>sqrt</code> method in the <code>Math</code> class to find the square root of <code>25</code>.</p>
+</section>
+<section id="class-methods-vs.-instance-methods-1" class="slide level2">
+<h2>Class Methods vs.&nbsp;Instance Methods</h2>
+<h3 id="instance-method-calls">Instance method calls</h3>
+<p>Class methods use the keyword <code>static</code> in their method signature. They do not access or change the attributes of an object.</p>
+<p>In this lesson, we will learn more about <strong>instance methods</strong>, which are always called using an object of the class.</p>
+<p>They are not static methods. They access and change the attributes of the object they are called on.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb2-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="static-vs.-instance-flowchart" class="slide level2">
+<h2>Static vs.&nbsp;Instance Flowchart</h2>
+<h3 id="receiver-decides-the-call-style">Receiver decides the call style</h3>
+<p>Static methods are called using the class name, for example, <code>Math.sqrt(25);</code>.</p>
+<p>Instance methods are called using an object of the class, for example, <code>yertle.forward();</code>.</p>
+<p>Traditionally, class names are capitalized, and object variables are lowercase.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png" style="width:68.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling methods from another class</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a>Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">(</span><span class="st">"Ada"</span><span class="op">,</span> <span class="st">"Lovelace"</span><span class="op">,</span> <span class="dv">11</span><span class="op">);</span></span>
-<span id="cb3-2"><a href=""></a><span class="bu">String</span> name <span class="op">=</span> s<span class="op">.</span><span class="fu">getName</span><span class="op">();</span></span>
-<span id="cb3-3"><a href=""></a>s<span class="op">.</span><span class="fu">print</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The method call must match the method signature’s name, return type, and parameter list.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling static vs.&nbsp;instance methods</p></section>
+<section id="method-signatures" class="slide level2">
+<h2>Method Signatures</h2>
+<h3 id="reading-a-class-definition">Reading a class definition</h3>
+<p>The <strong>method signature</strong> defines the method’s name and the number and types of parameters it takes.</p>
+<p>In a class definition or in documentation of a library, instance methods are usually defined after the instance variables (attributes) and constructors in a class.</p>
+<p>Notice that the methods do not use the keyword <code>static</code>. They are instance methods that are called using an object of the class and can access and change the object’s attributes.</p>
 </section>
-<section id="runtime-error-check" class="slide level2">
-<h2>Runtime Error Check</h2>
-<h3 id="do-not-call-methods-on-null">Do not call methods on <code>null</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a>World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb4-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb4-3"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This code throws a <span class="term">NullPointerException</span> because <code>yertle</code> does not refer to a turtle object.</p>
-<p>Fix:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">);</span></span>
-<span id="cb5-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="calling-flow" class="slide level2">
-<h2>Calling Flow</h2>
-<h3 id="control-moves-to-the-method-and-returns">Control moves to the method and returns</h3>
+<section id="student-class-diagram" class="slide level2">
+<h2>Student Class Diagram</h2>
+<h3 id="methods-after-constructors">Methods after constructors</h3>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Flow chart for calling methods</p><p>When a method is called:</p>
-<div class="tight-list">
-<ul>
-<li>Java evaluates the object receiver.</li>
-<li>Java runs the matching method.</li>
-<li>When the method finishes, control returns to the next statement after the call.</li>
-</ul>
-</div>
+<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png" style="width:64.0%" class="r-stretch quarto-figure-center"><p class="caption">Student class showing instance variables, constructors, and methods</p></section>
+<section id="check-your-understanding" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="clickablearea-student_methods"><code>clickablearea:: student_methods</code></h3>
+<p>Click on the method headers (signatures) in the following class. Do not click on the constructors.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb3-1"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> Student <span class="op">{</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb3-4"><a href=""></a>    <span class="kw">private</span> <span class="bu">String</span> email<span class="op">;</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>    <span class="kw">public</span> <span class="fu">Student</span><span class="op">(</span><span class="bu">String</span> initName<span class="op">,</span> <span class="bu">String</span> intEmail<span class="op">)</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-8"><a href=""></a>        name <span class="op">=</span> initName<span class="op">;</span></span>
+<span id="cb3-9"><a href=""></a>        email <span class="op">=</span> initEmail<span class="op">;</span></span>
+<span id="cb3-10"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb3-13"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-14"><a href=""></a>        <span class="cf">return</span> name<span class="op">;</span></span>
+<span id="cb3-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-16"><a href=""></a></span>
+<span id="cb3-17"><a href=""></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span>
+<span id="cb3-18"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb3-19"><a href=""></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>name <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> email<span class="op">);</span></span>
+<span id="cb3-20"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb3-21"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="methods-with-arguments" class="slide level2">
-<h2>Methods with Arguments</h2>
-<h3 id="arguments-are-copied-into-parameters">Arguments are copied into parameters</h3>
+<section id="check-your-understanding-1" class="slide level2">
+<h2>Check Your Understanding</h2>
+<h3 id="answer-reasoning">Answer reasoning</h3>
+<p>Correct method headers:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb4-1"><a href=""></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">getName</span><span class="op">()</span></span>
+<span id="cb4-2"><a href=""></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">print</span><span class="op">()</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Methods follow the constructors. The method header is the first line of a method.</p>
+<p>Do not click the class header, instance variables, constructor header, braces, assignment statements, return statement, or print statement.</p>
+</section>
+<section id="method-calls" class="slide level2">
+<h2>Method Calls</h2>
+<h3 id="object.methodname"><code>object.methodName()</code></h3>
+<p>To use an object’s method, you must use the object name and the dot (<code>.</code>) operator followed by the method name.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb5-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This calls <code>yertle</code>’s <code>forward</code> method to move a turtle object forward <code>100</code> pixels.</p>
+<p>Object methods work with the <strong>attributes</strong> of the object, such as the direction the turtle is heading or its position.</p>
+</section>
+<section id="calling-across-classes" class="slide level2">
+<h2>Calling Across Classes</h2>
+<h3 id="same-class-vs.-another-class">Same class vs.&nbsp;another class</h3>
+<p>Methods inside the same class can call each other using just <code>methodName()</code>.</p>
+<p>But to call instance methods in another class or from a <code>main</code> method, you must first create an object of that class and then call its methods using <code>object.methodName()</code>.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png" style="width:62.0%" class="r-stretch quarto-figure-center"><p class="caption">Method parameters and arguments</p><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span>
-<span id="cb6-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>200</code> and <code>30</code> are <span class="term">arguments</span> in the calls. The method’s parameter variables receive copies of those values.</p>
+<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-methods.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Calling instance methods from main() or from other methods inside the same class</p></section>
+<section id="method-call-note" class="slide level2">
+<h2>Method Call Note</h2>
+<h3 id="source-note">Source note</h3>
+<p><code>method();</code> is used to call a method within the same class.</p>
+<p><code>object.method();</code> is necessary if you are calling the method from the <code>main</code> method or from a different class.</p>
+<p>Before you call a method from <code>main</code> or from outside of the current class, make sure that you have created and initialized an object.</p>
 </section>
-<section id="vocabulary-check" class="slide level2">
-<h2>Vocabulary Check</h2>
-<h3 id="match-the-term-to-the-code">Match the term to the code</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>object receiver: <code>yertle</code></li>
-<li>method name: <code>forward</code></li>
-<li>argument: <code>200</code></li>
-<li>full method call: <code>yertle.forward(200)</code></li>
-</ul>
-</div>
-<p>This vocabulary is also used when reading constructor calls.</p>
-</section>
-<section id="overloaded-instance-methods" class="slide level2">
-<h2>Overloaded Instance Methods</h2>
-<h3 id="same-method-name-different-parameter-lists">Same method name, different parameter lists</h3>
-
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png" style="width:58.0%" class="r-stretch quarto-figure-center"><p class="caption">Turtle UML method list</p><p>Examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb8-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
-<span id="cb8-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Java chooses the method whose parameter list matches the arguments.</p>
+<section id="null-references" class="slide level2">
+<h2>Null References</h2>
+<h3 id="calling-a-method-on-null">Calling a method on <code>null</code></h3>
+<p>If you just declare an object reference without setting it to refer to a new object, the value will be <code>null</code>, meaning that it doesn’t reference an object.</p>
+<p>If you call a method on a variable whose value is <code>null</code>, you will get a <strong>NullPointerException</strong> error, where a <strong>pointer</strong> is another name for a reference.</p>
 </section>
 <section id="code-task" class="slide level2">
 <h2>Code Task</h2>
-<h3 id="draw-with-turtle-methods">Draw with turtle methods</h3>
-<p>Start from a simple turtle program and add movement.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb9-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> TurtleTestMethods1 <span class="op">{</span></span>
-<span id="cb9-4"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb9-5"><a href=""></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="dv">400</span><span class="op">);</span></span>
-<span id="cb9-6"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb9-7"><a href=""></a></span>
-<span id="cb9-8"><a href=""></a>        yertle<span class="op">.</span><span class="fu">setColor</span><span class="op">(</span><span class="bu">Color</span><span class="op">.</span><span class="fu">blue</span><span class="op">);</span></span>
-<span id="cb9-9"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
-<span id="cb9-10"><a href=""></a>        yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">90</span><span class="op">);</span></span>
-<span id="cb9-11"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
-<span id="cb9-12"><a href=""></a></span>
-<span id="cb9-13"><a href=""></a>        world<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
-<span id="cb9-14"><a href=""></a>    <span class="op">}</span></span>
-<span id="cb9-15"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Classroom goal: draw a square and a triangle using at least three colors.</p>
+<h3 id="activecode-nullpointertest"><code>activecode:: nullPointerTest</code></h3>
+<p>Run the code below to see a <code>NullPointerException</code>.</p>
+<p>Fix the code by using <code>new Turtle(habitat)</code> to create a new <code>Turtle</code> object before calling its methods.</p>
+<p>Datafile: <code>turtleClasses.jar</code></p>
 </section>
-<section id="mixed-up-code" class="slide level2">
-<h2>Mixed-Up Code</h2>
-<h3 id="reorder-the-house-drawing">Reorder the house drawing</h3>
+<section id="starter-code" class="slide level2">
+<h2>Starter Code</h2>
+<h3 id="nullpointertest"><code>nullPointerTest</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb6-1"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">awt</span><span class="op">.*;</span></span>
+<span id="cb6-2"><a href=""></a><span class="kw">import</span> <span class="im">java</span><span class="op">.</span><span class="im">util</span><span class="op">.*;</span></span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="kw">public</span> <span class="kw">class</span> NullPointerTest</span>
+<span id="cb6-5"><a href=""></a><span class="op">{</span></span>
+<span id="cb6-6"><a href=""></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-7"><a href=""></a>    <span class="op">{</span></span>
+<span id="cb6-8"><a href=""></a>        World habitat <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb6-9"><a href=""></a>        Turtle yertle <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// </span><span class="al">TODO</span><span class="co">: create a Turtle object for habitat</span></span>
+<span id="cb6-10"><a href=""></a></span>
+<span id="cb6-11"><a href=""></a>        <span class="co">// yertle is null!</span></span>
+<span id="cb6-12"><a href=""></a>        yertle<span class="op">.</span><span class="fu">forward</span><span class="op">();</span></span>
+<span id="cb6-13"><a href=""></a></span>
+<span id="cb6-14"><a href=""></a>        habitat<span class="op">.</span><span class="fu">show</span><span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb6-15"><a href=""></a>    <span class="op">}</span></span>
+<span id="cb6-16"><a href=""></a><span class="op">}</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="test-requirement" class="slide level2">
+<h2>Test Requirement</h2>
+<h3 id="preserved-runestone-check">Preserved Runestone check</h3>
+<p>Runestone checks that the code contains:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb7-1"><a href=""></a><span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>habitat<span class="op">)</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The method call should happen after <code>yertle</code> refers to a real <code>Turtle</code> object.</p>
+</section>
+<section id="comparing-method-calls" class="slide level2">
+<h2>Comparing Method Calls</h2>
+<h3 id="three-different-ways">Three different ways</h3>
+<p>The following flowchart can be used to compare three different ways of calling methods.</p>
+<p>Class (static) methods are called using the class name. Instance methods are called using an object of the class.</p>
+<p>If you are calling the instance method from the <code>main</code> method or from another class, you must first create an object of that class and then call its methods using <code>object.methodName()</code>.</p>
+</section>
+<section id="comparing-method-calls-1" class="slide level2">
+<h2>Comparing Method Calls</h2>
+<h3 id="flowchart">Flowchart</h3>
+<p>If you are calling the method from within the same class, you can just call the method using <code>methodName()</code> which will refer to the current object.</p>
 
-<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png" style="width:32.0%" class="r-stretch quarto-figure-center"><p class="caption">House target</p><p>Place these actions in an order that draws the square walls first and then the red roof.</p>
-<div class="tight-list">
-<ul>
-<li>create <code>World</code> and <code>Turtle</code></li>
-<li>set the turtle color for the wall</li>
-<li>draw four equal sides with four turns</li>
-<li>set the turtle color to red</li>
-<li>turn and draw the two roof sides</li>
-<li>show the world</li>
-</ul>
-</div>
-</section>
-<section id="void-and-non-void-methods" class="slide level2">
-<h2>Void and Non-Void Methods</h2>
-<h3 id="some-methods-perform-actions-some-return-values">Some methods perform actions, some return values</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb10-1"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span>        <span class="co">// void: moves the turtle</span></span>
-<span id="cb10-2"><a href=""></a><span class="dt">int</span> x <span class="op">=</span> yertle<span class="op">.</span><span class="fu">getXPos</span><span class="op">();</span>   <span class="co">// returns an int</span></span>
-<span id="cb10-3"><a href=""></a><span class="dt">int</span> y <span class="op">=</span> yertle<span class="op">.</span><span class="fu">getYPos</span><span class="op">();</span>   <span class="co">// returns an int</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight-list">
-<ul>
-<li>A <code>void</code> method does not return a value.</li>
-<li>A non-void method returns a value that can be stored, printed, or used in an expression.</li>
-<li>Getter methods often return object state.</li>
-</ul>
-</div>
-</section>
-<section id="getter-trace" class="slide level2">
-<h2>Getter Trace</h2>
-<h3 id="track-state-before-and-after-movement">Track state before and after movement</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb11-1"><a href=""></a>World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb11-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb11-3"><a href=""></a></span>
-<span id="cb11-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getXPos</span><span class="op">());</span></span>
-<span id="cb11-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getYPos</span><span class="op">());</span></span>
-<span id="cb11-6"><a href=""></a></span>
-<span id="cb11-7"><a href=""></a>yertle<span class="op">.</span><span class="fu">forward</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span>
-<span id="cb11-8"><a href=""></a>yertle<span class="op">.</span><span class="fu">turn</span><span class="op">(</span><span class="dv">90</span><span class="op">);</span></span>
-<span id="cb11-9"><a href=""></a></span>
-<span id="cb11-10"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getXPos</span><span class="op">());</span></span>
-<span id="cb11-11"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getYPos</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Trace the values printed before and after the movement.</p>
-</section>
-<section id="debugging-task" class="slide level2">
-<h2>Debugging Task</h2>
-<h3 id="store-and-print-a-returned-value">Store and print a returned value</h3>
-<p>Broken code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb12-1"><a href=""></a><span class="dt">int</span> area<span class="op">;</span></span>
-<span id="cb12-2"><a href=""></a>yertle<span class="op">.</span><span class="fu">getWidth</span><span class="op">()</span> <span class="op">*</span> getHeight<span class="op">;</span></span>
-<span id="cb12-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Yertle's area is: "</span><span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Corrected code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb13-1"><a href=""></a><span class="dt">int</span> area <span class="op">=</span> yertle<span class="op">.</span><span class="fu">getWidth</span><span class="op">()</span> <span class="op">*</span> yertle<span class="op">.</span><span class="fu">getHeight</span><span class="op">();</span></span>
-<span id="cb13-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">"Yertle's area is: "</span> <span class="op">+</span> area<span class="op">);</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If width is <code>15</code> and height is <code>18</code>, the area is <code>270</code>.</p>
-</section>
-<section id="trace-check" class="slide level2">
-<h2>Trace Check</h2>
-<h3 id="method-return-values-in-expressions">Method return values in expressions</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb14-1"><a href=""></a>Circle c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Circle</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
-<span id="cb14-2"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>c<span class="op">.</span><span class="fu">getArea</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If <code>getArea()</code> returns <code>3.14159 * radius * radius</code>, the output is approximately <code>314.159</code>.</p>
-<p>Student task: identify which value is the object state and which value is returned by the method.</p>
-</section>
-<section id="trace-check-1" class="slide level2">
-<h2>Trace Check</h2>
-<h3 id="object-state-can-change-before-a-getter-call">Object state can change before a getter call</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb15-1"><a href=""></a><span class="bu">Rectangle</span> r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Rectangle</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
-<span id="cb15-2"><a href=""></a>r<span class="op">.</span><span class="fu">resize</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb15-3"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>r<span class="op">.</span><span class="fu">getArea</span><span class="op">());</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If <code>resize(5)</code> increases the width by <code>5</code>, the new dimensions are <code>15</code> by <code>15</code>.</p>
-<p>The printed area is <code>225</code>.</p>
-</section>
-<section id="trace-check-2" class="slide level2">
-<h2>Trace Check</h2>
-<h3 id="follow-nested-method-calls">Follow nested method calls</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb16-1"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">square</span><span class="op">(</span><span class="dt">int</span> x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb16-2"><a href=""></a>    <span class="cf">return</span> x <span class="op">*</span> x<span class="op">;</span></span>
-<span id="cb16-3"><a href=""></a><span class="op">}</span></span>
-<span id="cb16-4"><a href=""></a></span>
-<span id="cb16-5"><a href=""></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">divide</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb16-6"><a href=""></a>    <span class="cf">return</span> a <span class="op">/</span> b<span class="op">;</span></span>
-<span id="cb16-7"><a href=""></a><span class="op">}</span></span>
-<span id="cb16-8"><a href=""></a></span>
-<span id="cb16-9"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="fu">square</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">+</span> <span class="fu">divide</span><span class="op">(</span><span class="dv">6</span><span class="op">,</span> <span class="dv">2</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Answer: <code>4 + 3</code>, so the output is <code>7</code>.</p>
-</section>
-<section id="code-task-1" class="slide level2">
-<h2>Code Task</h2>
-<h3 id="distance-from-one-turtle-to-another-point">Distance from one turtle to another point</h3>
-<p>Use the turtle getter methods.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource java number-lines code-with-copy"><code class="sourceCode java"><span id="cb17-1"><a href=""></a>World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> <span class="dv">400</span><span class="op">);</span></span>
-<span id="cb17-2"><a href=""></a>Turtle yertle <span class="op">=</span> <span class="kw">new</span> <span class="fu">Turtle</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb17-3"><a href=""></a></span>
-<span id="cb17-4"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getXPos</span><span class="op">());</span></span>
-<span id="cb17-5"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getYPos</span><span class="op">());</span></span>
-<span id="cb17-6"><a href=""></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>yertle<span class="op">.</span><span class="fu">getDistance</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">));</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Extend the program:</p>
-<div class="tight-list">
-<ul>
-<li>create another turtle</li>
-<li>move at least one turtle</li>
-<li>print the distance between the two turtles</li>
-</ul>
-</div>
-</section>
-<section id="groupwork" class="slide level2">
-<h2>Groupwork</h2>
-<h3 id="turtle-house">Turtle House</h3>
-<p>Use instance methods to draw a house.</p>
-<p>Required method types:</p>
-<div class="tight-list">
-<ul>
-<li>movement: <code>forward</code>, <code>turn</code>, <code>moveTo</code></li>
-<li>pen control: <code>penUp</code>, <code>penDown</code></li>
-<li>style: <code>setColor</code></li>
-<li>getter or distance check: one method that returns a value</li>
-</ul>
-</div>
-<p>The drawing should use different colors for at least two house parts.</p>
-</section>
+<img data-src="../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/FlowChartCallingMethods.png" style="width:64.0%" class="r-stretch quarto-figure-center"><p class="caption">Comparing method calls to static and instance methods</p></section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-complete-answer-should">A complete answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>call instance methods with <mark><code>object.methodName(arguments)</code></mark></li>
-<li>distinguish class method calls from instance method calls</li>
-<li>identify object receiver, method name, and arguments</li>
-<li>avoid method calls on <code>null</code></li>
-<li>explain overloaded methods by parameter list</li>
-<li>use returned values from non-void methods correctly</li>
+<li>define an instance method as a behavior called on an object</li>
+<li>distinguish <code>ClassName.methodName()</code> from <code>object.methodName()</code></li>
+<li>identify method signatures by method name and parameter list</li>
+<li>avoid constructor headers when identifying method headers</li>
+<li>explain why calling a method on <code>null</code> causes <code>NullPointerException</code></li>
+<li>choose <code>methodName()</code> only for a method call from within the same class</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="part-1-complete">1.14 Part 1 complete</h3>
+<p>Part 2 continues with methods that take arguments.</p>
 
 </section>
     </div>

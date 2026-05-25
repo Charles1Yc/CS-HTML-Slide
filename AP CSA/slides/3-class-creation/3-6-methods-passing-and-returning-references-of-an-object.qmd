@@ -1,6 +1,6 @@
 ---
-title: "3.6 Methods: Passing and Returning References of an Object"
-subtitle: "Class Creation"
+title: "3.6 Objects as Instance Variables and Arguments"
+subtitle: "Methods: Passing and Returning References of an Object"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,180 +14,254 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Methods: Passing and Returning References
 
-### Object variables store references
+### Topic intro
 
-When an object variable is passed to a method, Java passes a copy of the <span class="term">reference</span> (引用).
+Programs often consist of many classes that interact with each other.
 
-The copy still points to the same object.
+Objects of one class can be instance variables of another class.
 
-This topic explains:
+Objects can be passed as arguments to methods and returned from methods.
 
-::: {.tight-list}
-- objects as instance variables
-- objects as arguments
-- copying parameter objects
-- parameters of the same class type
-- returning objects
-:::
+This is a powerful feature of object-oriented programming that allows complex interactions between objects.
 
 ## Objects as Instance Variables
 
 ### A class can store another object
 
-```java
-public class Person
-{
-    private String name;
-    private Address homeAddress;
+Classes can have complex instance variables that use other classes.
 
-    public Person(String personName, Address address)
-    {
-        name = personName;
-        homeAddress = address;
-    }
+For example, a `Person` class could have an instance variable for the address, which can be an object with its own instance variables:
+
+::: {.tight-list}
+- street
+- city
+- state
+- zipcode
+:::
+
+This is a **has-a** relationship where a `Person` has an `Address` inside it.
+
+## Address and Person
+
+### Object type as an instance variable
+
+```java
+class Address
+{
+    // instance variables
+    private String street;
+    private String city;
+    private String state;
+    private String zipcode;
+}
+
+class Person
+{
+    // instance variables
+    private String name;
+    private Address addr;  // instance variable of type Address
 }
 ```
 
-`homeAddress` is an instance variable whose type is another class.
+## Multiple Classes in Java
+
+### Files and Runestone
+
+In Java, usually each class is saved in its own file with the same name as the class.
+
+The `Person` class would be in `Person.java`, and the `Address` class would be in `Address.java`.
+
+If the files are in the same folder, they can be compiled together so that they can interact.
+
+In Runestone, we put them in one coding area, and only the class that has the `main` method can be `public`.
 
 ## Objects as Arguments
 
-### The parameter receives a copy of the reference
+### Call by value and object references
 
-![Object reference equality](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png){fig-align="center" width="36%"}
+Java uses **Call by Value** when it passes arguments to methods and constructors.
 
-If a method receives an object reference, it can call methods on the same object.
+This means that a copy of the value in the argument is saved in the parameter variable.
 
+If the parameter variable changes its value inside the method, the original value outside the method is not changed.
+
+## Primitive vs Object Arguments
+
+### What is copied
+
+With primitive types like `int` and `double`, the argument value is copied into the parameter variable.
+
+If you pass in an argument that holds a reference to an object, like a `String`, `Person`, `Address`, or `Turtle`, the reference is copied, not the whole object.
+
+Java was designed this way to avoid copying large objects from method to method.
+
+## Aliases {.image-fit}
+
+### Two references, same object
+
+![Turtle Reference Equality](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/turtleEquality.png){fig-align="center" width="46%"}
+
+When a copy of a reference is passed in and saved in the parameter variable, the parameter and the argument are then **aliases** (别名).
+
+Both refer to the same object.
+
+## Mutable Objects
+
+### Unexpected results
+
+There can be unexpected results if the parameter refers to a mutable object.
+
+The method or constructor can use this reference to alter the state of the original object.
+
+Some classes like `String` are immutable, so they cannot be changed by any method.
+
+Any new classes that you write that have setters or methods that change object state will be mutable.
+
+## Design Caution
+
+### Modify only when intended
+
+If you pass an object of a class that you write into a method as an argument, be careful that the method does not change the object unless that is the intended behavior.
+
+It is good programming practice to not modify mutable objects that are passed as parameters unless required in the specification.
+
+## Coding Exercise
+
+### `activecode:: AddressPerson`
+
+Try the following code.
+
+Scroll down to see both the `Person` and `Address` class definitions.
+
+The `Person` class has an `Address` object as an instance variable.
+
+Add code in the `main` method that changes the original address to your city.
+
+Does it also change in the person object?
+
+## AddressPerson Starter
+
+::: {.code-scroll}
 ```java
-public void moveTurtle(Turtle t)
+public class Person
 {
-    t.forward(50);
-}
-```
-
-The parameter `t` points to the same turtle object as the argument.
-
-## Code Task
-
-### Address object as an argument
-
-```java
-public void updateAddress(Address newAddress)
-{
-    homeAddress = newAddress;
-}
-```
-
-Trace:
-
-```java
-Address a = new Address("Main St");
-Person p = new Person("Kai", a);
-p.updateAddress(new Address("Oak St"));
-```
-
-After the call, `p` refers to the new `Address` object.
-
-## Copying Parameter Objects
-
-### Copying a reference is not the same as copying an object
-
-```java
-public Person(String personName, Address address)
-{
-    name = personName;
-    homeAddress = address;
-}
-```
-
-This stores the same `Address` object reference.
-
-If the class needs an independent object, it should construct a new one from the parameter's data.
-
-## Same Class Type Parameter
-
-### Methods can compare this object to another object
-
-```java
-public boolean sameName(Person other)
-{
-    return name.equals(other.name);
-}
-```
-
-Because this method is inside the `Person` class, it can access private instance variables of another `Person` object.
-
-## Returning Objects
-
-### A method can return an object reference
-
-```java
-public Address getHomeAddress()
-{
-    return homeAddress;
-}
-```
-
-This returns a reference to an `Address` object. Callers can store it:
-
-```java
-Address saved = p.getHomeAddress();
-```
-
-## Reference Safety
-
-### Returning a mutable object can expose state
-
-If the returned object can be changed, outside code may affect the original object's internal state.
-
-Design choices:
-
-::: {.tight-list}
-- return the reference when sharing is intended
-- return a copy when protection is needed
-- provide specific methods instead of exposing the whole object
-:::
-
-## Groupwork Coding Challenge {.fit-small .image-fit}
-
-### Friends and Birthdays
-
-![Friends and birthdays challenge](../../assets/3-class-creation/3-6-methods-passing-and-returning-references-of-an-object/cake.jpg){fig-align="center" width="28%"}
-
-Starter design:
-
-```java
-public class Friend
-{
+    // instance variables
     private String name;
-    private Date birthday;
+    private Address addr;  // instance variable of type Address defined below
 
-    public Friend(String friendName, Date friendBirthday)
+    // Constructor
+    public Person(String initName, Address initAddress)
     {
-        name = friendName;
-        birthday = friendBirthday;
+        name = initName;
+        // This direct assignment of references may not be the best practice!
+        addr = initAddress;
+    }
+
+    public String toString()
+    {
+        return "Name:" + name + "\n" + "Address:" + addr;
+    }
+    public static void main(String[] args)
+    {
+        Address a1 = new Address("123 Main St", "Anytown", "Anystate", "12345");
+        Person p1 = new Person("Skyler", a1);
+        System.out.println(p1);
+        // Add code to change a1 to your city with its setCity method
+
+        // Print out a1 and p1. Did changing a1 change p1?
+
     }
 }
+class Address
+{
+      // instance variables
+      private String street;
+      private String city;
+      private String state;
+      private String zipcode;
+      // constructor
+      public Address(String initStreet, String initCity,
+                     String initState, String initZipcode)
+      {
+          street = initStreet;
+          city = initCity;
+          state = initState;
+          zipcode = initZipcode;
+      }
+      public String toString()
+      {
+          return street + "\n" + city + ", " + state + " " + zipcode;
+      }
+      public String getStreet()
+      {
+          return street;
+      }
+      public String getCity()
+      {
+          return city;
+      }
+      public String getState()
+      {
+          return state;
+      }
+      public String getZipcode()
+      {
+          return zipcode;
+      }
+      // Setters (makes the class mutable)
+      public void setCity(String initCity)
+      {
+          city = initCity;
+      }
+}
+```
+:::
+
+## Focused Trace
+
+### Shared Address reference
+
+The constructor stores the same `Address` reference:
+
+```java
+addr = initAddress;
 ```
 
-Add methods that compare birthdays or return birthday information.
+The original variable `a1` and the instance variable `addr` refer to the same mutable `Address` object.
+
+If `a1.setCity(newCity)` changes the city, `p1` will show that change too.
+
+## Test Target
+
+### Runestone check
+
+The Runestone test checks that the code contains a call to:
+
+```java
+a1.setCity
+```
+
+The classroom trace question is:
+
+**Did changing `a1` change `p1`?**
 
 ## Classroom Check
 
-### A complete answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- explain that object variables store references
-- trace what happens when an object reference is passed as an argument
-- distinguish copying a reference from copying an object
-- use a parameter of the same class type for comparison
-- explain what it means for a method to return an object reference
+- explain how one class can store another class as an instance variable
+- identify the `Person has an Address` relationship
+- distinguish primitive argument copying from object reference copying
+- define aliases as two references to the same object
+- explain why mutable objects can produce unexpected changes
+- preserve the `AddressPerson` starter and add the `a1.setCity` call only as the student task
 :::
 
 ## End
 
-### Return to the course outline
+### 3.6 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: copying parameter objects.

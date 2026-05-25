@@ -1,0 +1,174 @@
+---
+title: "1.12 Objects: Instances of Classes"
+subtitle: "Part 2: Turtle Class and Dot Operator"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Turtle Class
+
+### Blueprint for turtle objects
+
+![Turtle attributes and methods](../../assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png){fig-align="left" width="28%"}
+
+The `Turtle` class is a blueprint for turtle objects.
+
+It defines attributes for graphical turtles like their color and position and methods to make the turtles move.
+
+Try the Java program below that creates a `Turtle` object called `yertle` using the `Turtle` class.
+
+## Program Code
+
+### `activecode:: TurtleTest`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTest
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+
+        yertle.forward();
+        yertle.turnLeft();
+        yertle.forward();
+
+        habitat.show(true);
+    }
+}
+```
+
+## Program Check
+
+### `TurtleTest`
+
+Runestone checks that `main()` runs.
+
+The program creates:
+
+::: {.tight-list}
+- a `World` object called `habitat`
+- a `Turtle` object called `yertle`
+:::
+
+Then it asks `yertle` to move forward, turn left, and move forward again.
+
+## Dot Operator
+
+### Ask an object to execute a method
+
+The **dot operator** (`.`) is used to run an object's method.
+
+You can think of the dot as asking the object to do something, or execute one of its methods.
+
+For example:
+
+```java
+yertle.forward();
+```
+
+asks the turtle `yertle` to go `forward`.
+
+## Dot Operator
+
+### Arguments in parentheses
+
+`yertle.forward()` does not tell `yertle` how much to go forward, so it goes forward `100` pixels by default.
+
+The parentheses `()` after a method name are there in case you need to give the method **arguments** (参数), some data, to do its job.
+
+For example:
+
+```java
+yertle.forward(50);
+```
+
+asks `yertle` to go forward `50` pixels instead of `100`.
+
+## Coding Exercise
+
+### `activecode:: TurtleTest2`
+
+In the code below, `yertle` goes forward and then turns left.
+
+Change the code to make `yertle` go `forward` twice and then `turnRight`.
+
+## Starter Code
+
+### `TurtleTest2`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTest2
+{
+    public static void main(String[] args)
+    {
+        World habitat = new World(300, 300);
+        Turtle yertle = new Turtle(habitat);
+
+        // TODO: make yertle go forward twice and then turnRight.
+        yertle.forward();
+        yertle.turnLeft();
+
+        habitat.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks:
+
+::: {.tight-list}
+- code contains `yertle.forward` two times
+- code contains `yertle.turnRight()` at least one time
+:::
+
+The goal is to change the movement commands, not the `World` or `Turtle` creation lines.
+
+## Reference Variables
+
+### Object references
+
+A variable like `yertle` of a **reference** type like `Turtle` holds an object reference.
+
+The object reference can be thought of as the memory address of that object.
+
+Variables that are of primitive types like `int` hold just a single number value.
+
+Objects are complex and contain a collection of values called **attributes**, for example the color and size of the turtle.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- identify `Turtle` as a class used to create turtle objects
+- explain that `new Turtle(habitat)` creates a `Turtle` object
+- use the dot operator to call an object's method
+- keep parentheses in method calls
+- pass arguments when a method needs data
+- distinguish primitive values from reference variables
+:::
+
+## End
+
+### 1.12 Part 2 complete
+
+Part 3 continues with creating multiple Turtle objects.

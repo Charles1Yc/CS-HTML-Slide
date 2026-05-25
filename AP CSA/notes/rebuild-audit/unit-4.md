@@ -5,475 +5,821 @@ This audit tracks rebuilt Unit 4 topics against CSAwesome2 source content.
 ## Topic 4.1 Ethical and Social Issues Around Data Collection
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-1-data-ethics.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Data Privacy
-  - Data and Bias
+  - source lines 20-32 Data Privacy -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 17-66 -> phone data, location tracking, benefit/privacy tradeoff, Google timeline figure, programmer responsibility, permission, breach notification, laws, and personal-security impacts preserved
+  - source lines 50-56 Data and Bias intro -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 82-137 -> AI/ML data/resource context, internet bias, profession image-search example, biased hiring tool example, algorithmic bias definition, and facial-recognition example preserved
+  - source lines 88-97 dataset quality and mitigation -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 153-181 -> collection method, potential bias, incomplete/inaccurate data, dataset fit, and five mitigation steps preserved
 - Kept exercises:
-  - `shortanswer:: privacy` -> converted to privacy tradeoff response
-  - `shortanswer:: bias` -> converted to bias response task
-  - `shortanswer:: datasets` -> converted to dataset checklist prompt
+  - source lines 36-38 `shortanswer:: privacy` -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 68-80 -> app/site data practice prompt, privacy-risk explanation, ethical/legal issues, programmer avoidance strategy, and pair/group work note preserved
+  - source lines 75-77 `shortanswer:: bias` -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 139-151 -> data quality, data bias, AI/ML applications, dataset definition, and pair/group work note preserved
+  - source lines 101-103 `shortanswer:: datasets` -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 183-200 -> Dataset Search task, good/bad dataset links, appropriateness reasoning, incomplete/small/biased example, program-result impact, and pair/group work note preserved
 - Omitted items:
-  - Summary
+  - source lines 12-18 source video/location raw links -> omitted as external resources; location-tracking concept retained
+  - source lines 40-47 Cambridge Analytica, geofencing, and GDPR video resource list -> omitted as external video/resources
+  - source lines 58-71 Gender Shades video/Joy Buolamwini links and embedded video -> omitted as external video/resource; facial-recognition bias concept retained
+  - source lines 79-86 additional algorithmic bias video list -> omitted as external video/resources
+  - source lines 105-116 Summary -> omitted allowed category
 - Assets:
   - `Figures/googletimeline.png` -> `AP CSA/assets/4-data-collections/4-1-ethical-and-social-issues-around-data-collection/googletimeline.png`
+- Source coverage map:
+  - source lines 20-38 -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 17-80 -> Data Privacy, image, Activity 1, and classroom response task preserved
+  - source lines 50-103 -> `AP CSA/slides/4-data-collections/4-1-ethical-and-social-issues-around-data-collection.qmd` lines 82-200 -> Data and Bias, Activity 2, dataset quality, mitigation steps, Activity 3, and classroom response task preserved
+- Compression/adaptation log:
+  - source lines 12-18, 40-47, 58-71, and 79-86 external videos/links omitted under allowed external-resource category
+  - source lines 105-116 Summary omitted under allowed category
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 4.2 Introduction to Using Data Sets
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-2-data-sets.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Data Sets
+  - source lines 12-14 Data Sets intro and spreadsheet table setup -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 17-50 -> data set definition, student table context, chart/table representation, spreadsheet columns, spreadsheet software, and row-4 entry task preserved
+  - source lines 28-30 manipulating/analyzing data sets -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 52-78 -> solving questions with data, planning algorithms from tables/charts, average GPA example, one-at-a-time value processing, and loop use preserved
+  - source lines 48-54 honor roll transition and next lessons -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 101-120 -> honor-roll question, arrays as future data structures, and loop-based array manipulation transition preserved
 - Kept exercises:
-  - `parsonsprob:: algorithm-avg-gpa` -> converted to average GPA algorithm task
-  - `shortanswer:: honorroll` -> converted to honor roll filter prompt
+  - source lines 16-27 `spreadsheet:: disneySheet` -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 29-50 -> Mickey/Minnie/Donald rows, row-4 `Type here` placeholder, and spreadsheet check target preserved as static classroom table/task
+  - source lines 32-46 `parsonsprob:: algorithm-avg-gpa` -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 80-99 -> prompt, all mixed pseudocode blocks, indentation requirement, and correct order preserved
+  - source lines 50-52 `shortanswer:: honorroll` -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 101-118 -> prompt, GPA `3.5` threshold, table-of-students context, loop requirement, if requirement, and student deliverable preserved
 - Omitted items:
-  - Summary
+  - source lines 56-60 Summary -> omitted allowed category
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 12-30 -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 17-78 -> definition, spreadsheet table/activity, manipulating/analyzing data, and loop-processing explanation preserved
+  - source lines 32-54 -> `AP CSA/slides/4-data-collections/4-2-introduction-to-using-data-sets.qmd` lines 80-120 -> average GPA Parsons task, honor roll shortanswer, and next-lessons transition preserved
+- Compression/adaptation log:
+  - source lines 16-27 Runestone spreadsheet interaction converted to a static table plus row-4 classroom entry task; source rows and check target retained
+  - source lines 32-46 Parsons problem converted to mixed-up pseudocode plus correct-order slide
+  - source lines 56-60 Summary omitted under allowed category
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 4.3 Array Creation and Access
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-3-array-basics.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-3-part-3-countries-array-challenge.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Declaring and Creating an Array
-  - Using new to Create Arrays
-  - Initializer Lists to Create Arrays
-  - Array length
-  - Access and Modify Array Values
-  - Coding Challenge: Countries Array
+  - source lines 17-57 topic intro and array analogy -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 17-83 -> many-score motivation, data structure/list/array terminology, array definition, elements, index, locker analogy, Java index starting at 0, App Inventor comparison, and array analogy prompt preserved
+  - source lines 60-90 Declaring and Creating an Array / Using new -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 85-149 -> bracket declaration syntax, reference/null explanation, two creation methods, `new` syntax, one-step declaration/creation, and fixed size preserved
+  - source lines 181-235 default values, initializer lists, and Array length -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 201-279 -> default values, arrayIndicies figure, initializer lists, primitive vs object arrays, int/String array figure, `length` attribute, public final instance variable, and dot notation preserved
+  - source lines 293-337 `length` note, last index, and Access and Modify Array Values -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 17-63 -> indexed array variable, App Inventor/AP CSP/Java access comparison, assignment/access examples, bracket rule, first/last index rule, and external video omission note preserved
+  - source lines 380-452 parallel arrays, out-of-bounds, and index variables -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 113-195 -> parallel arrays, corresponding index rule, out-of-bounds behavior, `ArrayIndexOutOfBoundsException`, valid range, and variable index example preserved
+  - source lines 531-553 Countries Array challenge directions -> `AP CSA/slides/4-data-collections/4-3-part-3-countries-array-challenge.qmd` lines 17-89 -> country-guide context, four parallel array data sets, matching-order requirement, optional additions/regional image note, random index, data/image output, and optional OO refactor omission note preserved
+  - source lines 682-699 arrays of objects pattern -> `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd` lines 17-36 -> arrays of ints/Strings/classes, object construction for each element, and `array[index].method()` pattern preserved
+  - source lines 763-777 Community object array directions -> `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd` lines 87-108 -> prior community class dependency, array of 3 objects, initialization of elements 0-2, and print calls preserved
 - Kept exercises:
-  - `shortanswer:: arrayAnalogy` -> converted to array analogy intro
-  - `mchoice:: createarray` -> converted to quick check
-  - `activecode:: arrayex1`, `arrayex2`, `array-set` -> converted to code tasks
-  - `fillintheblank:: array-access1`, `array-access2` -> converted to access checkpoints
-  - `activecode:: challenge-array-countries` -> converted to Countries Array starter
+  - source lines 54-56 `shortanswer:: arrayAnalogy` -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 75-83 -> prompt and required analogy features preserved
+  - source lines 105-117 `mchoice:: createarray` -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 151-167 -> question, all options, correct answer B, and feedback intent preserved
+  - source lines 124-176 `activecode:: arrayex1` -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 169-199 -> prompt, full starter code, prices/names TODOs, length-print task, and exact `new double[5]`/`new String[5]` targets preserved
+  - source lines 239-291 `activecode:: arrayex2` -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 281-314 -> prompt, full code, add-one-value task, expected `6` output, and changed-code target preserved
+  - source lines 301-309 `mchoice:: qarrayLength` -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 326-340 -> question, options, correct answer B, and length-minus-one reasoning preserved
+  - source lines 353-365 `fillintheblank:: array-access1` -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 65-85 -> prompt, cars array code, Volvo target, answer `cars[1]`, and feedback preserved
+  - source lines 367-378 `fillintheblank:: array-access2` -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 87-111 -> prompt, cars array code, Toyota assignment target, answer `cars[0]`, and feedback preserved
+  - source lines 386-443 `activecode:: array-set` -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 127-160 -> prompt, full parallel-array starter, Mateo/Sofia/6-element tasks, changed-output target, and Mateo output target preserved
+  - source lines 470-529 `activecode:: imageArray` -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 197-273 -> prompt, full ImageEx starter, puppy/reindeer/random-index tasks, changed-index target, and `Math.random` target preserved
+  - source lines 555-680 `activecode:: challenge-array-countries` -> `AP CSA/slides/4-data-collections/4-3-part-3-countries-array-challenge.qmd` lines 91-172 -> prompt, full Countries starter, four-array data comments, random index task, image helper, output/image/randomness/String-array test targets preserved
+  - source lines 700-761 `activecode:: TurtleArray` -> `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd` lines 38-84 -> prompt, full TurtleArray starter, size-3 task, element-2 construction, element-2 method calls, and exact test targets preserved
+  - source lines 778-869 `activecode:: community-challenge-6-1` -> `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd` lines 110-151 -> prompt, full community starter, array-of-3 task, object initialization task, print-call task, and all test targets preserved
 - Omitted items:
-  - Summary
-  - AP Practice
-  - Arrays Game
-  - Optional image-array and community-object extensions
+  - source lines 22-31, 76-85, 217-226, and 339-348 videos -> omitted as external video resources; corresponding concepts retained
+  - source lines 553 optional Country-class refactor -> omitted as optional enrichment
+  - source lines 763-765 internal lesson link -> omitted as external navigation; prior community class dependency retained
+  - source lines 871-880 Summary -> omitted allowed category
+  - source lines 882-957 AP Practice -> omitted allowed category
+  - source lines 965-978 Arrays Game -> omitted allowed category
 - Assets:
   - `Figures/rowLockers.jpg` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/rowLockers.jpg`
+  - `Figures/appinvListComparison.png` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/appinvListComparison.png`
   - `Figures/arrayIndicies.png` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/arrayIndicies.png`
   - `Figures/intAndStringArrays.png` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/intAndStringArrays.png`
+  - `Figures/appinvSelectComparison.png` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/appinvSelectComparison.png`
+  - `array-images/US.jpg` -> `AP CSA/assets/4-data-collections/4-3-array-creation-and-access/US.jpg`
+- Source coverage map:
+  - source lines 17-309 -> `AP CSA/slides/4-data-collections/4-3-array-creation-and-access.qmd` lines 17-340 -> array intro, declaration/creation, `new`, defaults, initializer lists, length, exercises, checks, and classroom check preserved
+  - source lines 312-529 -> `AP CSA/slides/4-data-collections/4-3-part-2-access-modify-and-index-variables.qmd` lines 17-295 -> access/modify values, fill-in checks, parallel arrays, array-set, out-of-bounds, index variables, imageArray, and classroom check preserved
+  - source lines 531-680 -> `AP CSA/slides/4-data-collections/4-3-part-3-countries-array-challenge.qmd` lines 17-191 -> Countries Array challenge, full starter, test targets, and classroom check preserved
+  - source lines 682-869 -> `AP CSA/slides/4-data-collections/4-3-part-4-arrays-of-objects.qmd` lines 17-170 -> arrays of objects, TurtleArray, community object-array challenge, test targets, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 147-176, 254-291, 406-443, 501-529, 595-680, 731-761, and 803-869 JUnit code is not copied verbatim; prompts, starter code, expected output, and exact test targets are preserved as classroom slides
+  - source lines 22-31, 76-85, 217-226, and 339-348 external videos omitted under allowed external-resource category
+  - source line 553 optional OO refactor omitted as optional enrichment
+  - source lines 871-978 Summary, AP Practice, and Arrays Game omitted under allowed categories
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs`
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 4.4 Array Traversals
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-4-array-traversal.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Index Variables
-  - Loops to Traverse Arrays
-  - Arrays as Objects and Parameters
-  - Looping through Part of an Array
-  - Common Errors When Looping Through an Array
-  - Enhanced For-Loop for Arrays
-  - Enhanced For Loop Limitations
-  - Traversing Arrays of Objects
-  - Coding Challenge: SpellChecker
+  - source lines 1-43: topic intro explanation -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 17-27.
+  - source lines 45-92: Index Variables -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 29-57.
+  - source lines 95-165: Loops to Traverse Arrays and `activecode:: arraytrace2` prompt/starter/tests -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 59-154.
+  - source lines 167-250: Arrays as Objects and Parameters, `activecode:: arrayMethodTrace`, and `parsonsprob:: patdonsArraySubtract` -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 156-273.
+  - source lines 252-439: Looping through Part of an Array and `activecode:: tripleFirstFour` prompt/starter/tests -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 17-135.
+  - source lines 440-647: Common Errors When Looping Through an Array, quick checks, off-by-one starter/tests, early return, and infinite loop check -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 137-377.
+  - source lines 648-859: Enhanced For-Loop for Arrays, syntax, comparison figure, `foreach1`, and equivalent loops -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 17-185.
+  - source lines 861-966: Enhanced For Loop Limitations, `incrementLoop`, and quick checks -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 187-313.
+  - source lines 967-1141: Traversing Arrays of Objects and `activecode:: student-array` prompt/starter/tests -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 17-158.
+  - source lines 1144-1326: Coding Challenge: SpellChecker prompt, dictionary datafile note, starter code, and tests -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 160-283.
+  - source lines 1328-1421: Design an Array of Objects for your Community prompt, starter, and tests -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 285-332.
 - Kept exercises:
-  - `activecode:: arraytrace2`, `arrayMethodTrace`, `tripleFirstFour`, `offbyone`, `foreach1`, `evenLoop`, `incrementLoop`, `student-array` -> converted to trace and code task slides
-  - `parsonsprob:: patdonsArraySubtract` -> converted to mixed-up traversal task
-  - `mchoice:: qIndexOutOfBounds`, `mcq_for_each1`, `mcqfor-each2` -> converted to quick checks
-  - `activecode:: challenge-spellchecker` -> converted to SpellChecker groupwork starter
+  - source lines 116-165: `activecode:: arraytrace2` -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 108-154 -> prompt, starter, expected output, and Runestone test target preserved.
+  - source lines 186-237: `activecode:: arrayMethodTrace` -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 180-241 -> prompt, full code, and expected output preserved.
+  - source lines 239-250: `parsonsprob:: patdonsArraySubtract` -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 253-273 -> mixed blocks and correct order preserved.
+  - source lines 274-428: `activecode:: tripleFirstFour` -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 39-135 -> prompt, full starter code, expected output, and unit test targets preserved.
+  - source lines 445-492: `mchoice:: qIndexOutOfBounds` -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 137-169 -> question, choices, and reasoning preserved.
+  - source lines 494-520: common-error quick check -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 171-203 -> question, choices, and reasoning preserved.
+  - source lines 533-576: `activecode:: offbyone` -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 250-288 -> broken starter and expected corrected behavior preserved.
+  - source lines 578-647: early-return and infinite-loop checks -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 290-377 -> broken code and reasoning preserved.
+  - source lines 735-806: `activecode:: foreach1` -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 86-137 -> prompt, starter, expected output, and test targets preserved.
+  - source lines 823-859: `activecode:: evenLoop` -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 147-185 -> rewrite prompt, starter, expected output, and for-each test target preserved.
+  - source lines 878-938: `activecode:: incrementLoop` -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 201-253 -> prompt, starter, expected output, and indexed-loop test target preserved.
+  - source lines 940-966: `mchoice:: mcq_for_each1` and `mcqfor-each2` -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 271-313 -> questions, choices or code, correct output, and reasoning preserved.
+  - source lines 976-1139: `activecode:: student-array` -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 27-148 -> prompt, full starter code, and unit test targets preserved.
+  - source lines 1173-1326: `activecode:: challenge-spellchecker` -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 182-283 -> dictionary datafile note, full starter code, and unit test targets preserved.
+  - source lines 1340-1421: `activecode:: community-challenge-array-loop` -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 297-332 -> prompt, starter, and unit test targets preserved.
 - Omitted items:
-  - Summary
-  - Arrays Game
-  - Optional SpellChecker extension and community extension
+  - Source lines 1153-1163: external `startsWith()`, replit, and input-file links; external tools are not classroom slide content.
+  - Source line 1171 optional `printStartsWith(String)` extension kept as an optional task statement but not expanded into a full exercise because it is explicitly not autograded.
+  - Source lines 1423-1439: Summary.
+  - Source lines 1441-1455: Arrays Game.
 - Assets:
   - `Figures/arraywithindex.png` -> `AP CSA/assets/4-data-collections/4-4-array-traversals/arraywithindex.png`
   - `Figures/arrayForLoop.png` -> `AP CSA/assets/4-data-collections/4-4-array-traversals/arrayForLoop.png`
   - `Figures/appinvForEachComparison.png` -> `AP CSA/assets/4-data-collections/4-4-array-traversals/appinvForEachComparison.png`
   - `Figures/spellcheck.png` -> `AP CSA/assets/4-data-collections/4-4-array-traversals/spellcheck.png`
+- Source coverage map:
+  - source lines 1-250 -> `AP CSA/slides/4-data-collections/4-4-array-traversals.qmd` lines 17-273 -> intro, index variables, indexed traversal, array parameters, trace exercises, and mixed-up code preserved.
+  - source lines 252-647 -> `AP CSA/slides/4-data-collections/4-4-part-2-partial-traversals-and-errors.qmd` lines 17-377 -> partial traversals, `tripleFirstFour`, out-of-bounds checks, off-by-one starter, early-return bug, and infinite-loop check preserved.
+  - source lines 648-966 -> `AP CSA/slides/4-data-collections/4-4-part-3-enhanced-for-loops.qmd` lines 17-313 -> enhanced for-loop syntax, examples, limitations, rewrite exercises, and quick checks preserved.
+  - source lines 967-1422 -> `AP CSA/slides/4-data-collections/4-4-part-4-object-arrays-and-spellchecker.qmd` lines 17-332 -> object-array traversal, `student-array`, SpellChecker, and community object-array loop preserved.
+  - source lines 1423-1455 -> omitted Summary and Arrays Game.
+- Compression/adaptation log:
+  - source lines 274-428 and 976-1139 long Runestone `activecode` blocks were preserved as starter code with `.code-scroll`; tests and expected output were moved to adjacent test-target slides.
+  - source lines 445-520 and 940-966 quick-check answers and reasoning were separated from prompt slides when needed to avoid same-slide answer reveal.
+  - source lines 1153-1163 and 1441-1455 external links and game iframe were omitted under the project rule for external tools and games.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed long-code `.code-scroll` warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.5 Implementing Array Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-5-array-algorithms.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-5-part-3-pairs-and-duplicates.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Accumulator Pattern for Sum/Average
-  - Min, Max, Search Algorithms
-  - Looping From Back to Front
-  - Test Property
-  - Pairs and Duplicates in Array
-  - Rotating Array Elements
-  - Reversing an Array
+  - source lines 33-181: topic intro, accumulator pattern, `parsons_array_avg`, and `enhanced-for-loop-avg` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 17-169.
+  - source lines 185-458: Min, Max, Search Algorithms, `parsons_for_each_largest`, `minmax`, `early_return_error`, and two MC checks -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 171-427.
+  - source lines 459-653: Looping From Back to Front, `arrayFindSmaller`, and two loop quick checks -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 17-195.
+  - source lines 654-795: Test Property patterns, `parsons-even-array`, and `exAllOdd` -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 197-359.
+  - source lines 796-948: Pairs and Duplicates in Array, adjacent-pair pattern, nested duplicate pattern, `sumPairs`, and `noDups` -> `AP CSA/slides/4-data-collections/4-5-part-3-pairs-and-duplicates.qmd` lines 17-157.
+  - source lines 949-1058: Rotating Array Elements, `rotateRightParsons`, in-place rotate, and `rotate` starter/tests -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 17-162.
+  - source lines 1059-1205: Reversing an Array, swap figure, two reverse Parsons tasks, and `reverseArrayCode` -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 164-366.
 - Kept exercises:
-  - `parsonsprob:: parsons_array_avg`, `parsons_for_each_largest`, `parsons-even-array`, `rotateRightParsons`, `parsons_array_reverse` -> converted to mixed-up code tasks
-  - `activecode:: enhanced-for-loop-avg`, `minmax`, `early_return_error`, `arrayFindSmaller`, `exAllOdd`, `sumPairs`, `noDups`, `rotate`, `reverseArrayCode` -> converted to code tasks
-  - `mchoice:: mcq_array_error1`, `mcq_array_loop1`, `mcq_array_loop2` -> converted to quick checks
+  - source lines 75-95: `parsonsprob:: parsons_array_avg` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 62-105 -> mixed blocks and correct order preserved.
+  - source lines 105-181: `activecode:: enhanced-for-loop-avg` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 107-169 -> prompt, full starter code, expected output, and loop-count target preserved.
+  - source lines 209-235: `parsonsprob:: parsons_for_each_largest` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 191-244 -> mixed blocks and correct order preserved.
+  - source lines 250-321: `activecode:: minmax` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 246-292 -> prompt, starter, expected max/average output, and `if (val >` target preserved.
+  - source lines 327-393: `activecode:: early_return_error` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 294-355 -> prompt, broken starter, expected output, and method test preserved.
+  - source lines 398-458: `mchoice:: mcq_array_error1` and `mcq_array_error2` -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 357-414 -> questions, code, correct answers, and reasoning preserved.
+  - source lines 473-592: `activecode:: arrayFindSmaller` -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 37-129 -> prompt, full starter code, expected first output, added-method tests, and `-1` test preserved.
+  - source lines 596-653: `mchoice:: mcq_array_loop1` and `mcq_array_loop2` -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 131-195 -> questions, code, correct answers, and reasoning preserved.
+  - source lines 698-719: `parsonsprob:: parsons-even-array` -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 258-301 -> mixed blocks and correct order preserved.
+  - source lines 720-795: `activecode:: exAllOdd` -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 303-359 -> prompt, starter code, expected output, and method tests preserved.
+  - source lines 830-888: `activecode:: sumPairs` -> `AP CSA/slides/4-data-collections/4-5-part-3-pairs-and-duplicates.qmd` lines 58-107 -> prompt, starter, expected output, and method test preserved.
+  - source lines 890-947: `activecode:: noDups` -> `AP CSA/slides/4-data-collections/4-5-part-3-pairs-and-duplicates.qmd` lines 109-157 -> prompt, starter, expected output, and method test preserved.
+  - source lines 954-980: `parsonsprob:: rotateRightParsons` -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 29-91 -> mixed blocks, distractor, and correct order preserved.
+  - source lines 992-1057: `activecode:: rotate` -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 105-162 -> prompt, starter, expected output, and `values[i] = values[i - 1]` target preserved.
+  - source lines 1082-1143: `parsonsprob:: parsons_array_reverse` and `parsons_array_reverse2` -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 189-322 -> mixed blocks, distractors, and correct orders preserved.
+  - source lines 1145-1203: `activecode:: reverseArrayCode` -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 324-366 -> prompt, starter, expected output, and method test preserved.
 - Omitted items:
-  - Review and FRQ Practice for Arrays
+  - source lines 97-99, 237-245, 467-469, and 982-984 Java Visualizer external links; concepts and code retained.
+  - source lines 1206-1242 Review and FRQ Practice for Arrays; review/AP Classroom category.
 - Assets:
   - `Figures/swap.png` -> `AP CSA/assets/4-data-collections/4-5-implementing-array-algorithms/swap.png`
+- Source coverage map:
+  - source lines 33-458 -> `AP CSA/slides/4-data-collections/4-5-implementing-array-algorithms.qmd` lines 17-427 -> intro, accumulator, min/max/search, Parsons, activecode, and MC checks preserved.
+  - source lines 459-795 -> `AP CSA/slides/4-data-collections/4-5-part-2-back-to-front-and-properties.qmd` lines 17-359 -> back-to-front traversal, property patterns, activecode, Parsons, and MC checks preserved.
+  - source lines 796-948 -> `AP CSA/slides/4-data-collections/4-5-part-3-pairs-and-duplicates.qmd` lines 17-157 -> pairs, duplicates, `sumPairs`, and `noDups` preserved.
+  - source lines 949-1205 -> `AP CSA/slides/4-data-collections/4-5-part-4-rotate-and-reverse.qmd` lines 17-366 -> rotate, reverse, swap figure, Parsons tasks, and reverse starter preserved.
+  - source lines 1206-1242 -> omitted review/FRQ/AP Classroom category.
+- Compression/adaptation log:
+  - source lines 75-95, 209-235, 698-719, 954-980, 1082-1143 Parsons blocks were preserved as mixed-up code slides with correct-order slides after the prompt.
+  - source lines 105-181, 250-321, 327-393, 473-592, 720-795, 830-947, 992-1057, and 1145-1203 activecode blocks preserve prompt, starter code, expected output, and test targets; JUnit harnesses are summarized as test-target slides.
+  - source lines 97-99, 237-245, 467-469, and 982-984 external visualizer links omitted while retaining the source code and trace intent.
+  - source lines 1206-1242 review/FRQ/AP Classroom section omitted under allowed category.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.6 Using Text Files
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-6-input-files.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-6-part-3-pokemon-object-array-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Java File, Scanner, and IOException Classes
-  - Reading in Data with Scanner
-  - Loop to Read in a File
-  - Save File Data into an Array
-  - Split Strings
-  - Object-Oriented Design with CSV Files
-  - Coding Challenge: Array of Pokemon from Input File
+  - source lines 22-113: Java File, Scanner, and IOException classes plus `throws-exception-exercise` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 17-118.
+  - source lines 114-179: Reading in Data with Scanner and `calculatorInput` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 120-200.
+  - source lines 180-265: Loop to Read in a File and `loop-read-file` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 202-277.
+  - source lines 266-372: Save File Data into an Array, CSV note, and `read-pokemon-file` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 279-368.
+  - source lines 373-525: Split Strings and `pokeImages` -> `AP CSA/slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.qmd` lines 17-142.
+  - source lines 526-562: Object-Oriented Design with CSV Files -> `AP CSA/slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.qmd` lines 144-216.
+  - source lines 563-697: Coding Challenge: Array of Pokemon from Input File -> `AP CSA/slides/4-data-collections/4-6-part-3-pokemon-object-array-challenge.qmd` lines 17-139.
 - Kept exercises:
-  - `activecode:: throws-exception-exercise`, `calculatorInput`, `loop-read-file`, `read-pokemon-file`, `pokeImages`, `challenge-pokemon-file` -> converted to file input tasks
+  - source lines 62-112: `activecode:: throws-exception-exercise` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 80-118 -> prompt, starter code, expected output, and `throws IOException` target preserved.
+  - source lines 131-175: `activecode:: calculatorInput` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 146-200 -> prompt, starter code, stdin, and `nextDouble`/`double` targets preserved.
+  - source lines 197-264: `activecode:: loop-read-file` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 218-277 -> prompt, starter code, expected line count, and `nextLine`/`hasNext` targets preserved.
+  - source lines 284-371: `activecode:: read-pokemon-file` -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 299-368 -> datafile note, prompt, starter code, 10-line output target, and `pokemonLines[i]`/`hasNext`/`i < 10` targets preserved.
+  - source lines 410-524: `activecode:: pokeImages` -> `AP CSA/slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.qmd` lines 58-142 -> prompt, full starter code split across slides, and random/split/image/name-index/image-index targets preserved.
+  - source lines 569-696: `activecode:: challenge-pokemon-file` -> `AP CSA/slides/4-data-collections/4-6-part-3-pokemon-object-array-challenge.qmd` lines 27-126 -> groupwork prompt, starter class, readFile/findType stubs, image method, main, and test targets preserved.
 - Omitted items:
-  - Summary
-  - Optional Challenge with a Dataset
+  - source lines 698-803 Optional Challenge with a Dataset; optional open-ended enrichment.
+  - source lines 805-833 Summary.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 22-372 -> `AP CSA/slides/4-data-collections/4-6-using-text-files.qmd` lines 17-368 -> File/Scanner/IOException, scanner methods, file loop, array storage, CSV intro, and first Pokemon file exercise preserved.
+  - source lines 373-562 -> `AP CSA/slides/4-data-collections/4-6-part-2-csv-split-and-poke-images.qmd` lines 17-216 -> split strings, Pokemon CSV indexes, PokeImages, and CSV-to-object design preserved.
+  - source lines 563-697 -> `AP CSA/slides/4-data-collections/4-6-part-3-pokemon-object-array-challenge.qmd` lines 17-139 -> Array of Pokemon from Input File groupwork challenge preserved.
+  - source lines 698-833 -> omitted optional dataset challenge and Summary.
+- Compression/adaptation log:
+  - source lines 62-112, 131-175, 197-264, 284-371, 410-524, and 569-696 activecode blocks preserve prompts, starter code, datafile/stdin context, expected output, and unit-test targets; JUnit harnesses are summarized as test-target slides.
+  - source lines 30-32, 50-52, 188-192, 400-403, and 545-547 placeholder examples using omitted-code markers were converted to classroom-safe code snippets without adding solution logic.
+  - source lines 698-803 optional dataset challenge omitted because it is explicitly optional and open-ended enrichment.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.7 Wrapper Classes
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-7-wrapper-classes.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-7-part-2-pokemon-speed-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Creating Integer and Double Objects
-  - Autoboxing and Unboxing
-  - Parsing Strings to Numbers
-  - Coding Challenge: Pokemon Speed
+  - source lines 20-84: wrapper class intro, creating `Integer` and `Double` objects, immutability, `lcmm1`, int range, overflow, and underflow -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 17-106.
+  - source lines 86-116: Autoboxing and Unboxing plus drag-and-drop vocabulary check -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 108-148.
+  - source lines 119-230: Parsing Strings to Numbers, `parseMethods`, and `wrapperDebug` -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 150-255.
+  - source lines 232-363: Coding Challenge: Pokemon Speed -> `AP CSA/slides/4-data-collections/4-7-part-2-pokemon-speed-challenge.qmd` lines 17-130.
 - Kept exercises:
-  - `activecode:: lcmm1`, `parseMethods`, `wrapperDebug`, `challenge-pokespeed` -> converted to code tasks
-  - `dragndrop:: WrapperClasses` -> converted to primitive-wrapper matching table
+  - source lines 41-75: `activecode:: lcmm1` -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 58-88 -> prompt, full code, and expected output preserved.
+  - source lines 107-116: `dragndrop:: WrapperClasses` -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 134-148 -> all vocabulary matches preserved as a matching table.
+  - source lines 129-175: `activecode:: parseMethods` -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 166-207 -> prompt, full code, and expected output preserved.
+  - source lines 177-230: `activecode:: wrapperDebug` -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 209-255 -> broken starter code, expected output, and `Integer.MAX_VALUE`/`Double.parseDouble` targets preserved.
+  - source lines 237-362: `activecode:: challenge-pokespeed` -> `AP CSA/slides/4-data-collections/4-7-part-2-pokemon-speed-challenge.qmd` lines 27-130 -> groupwork prompt, full starter split across slides, datafile context, and parse/max/average/split/speed-index tests preserved.
 - Omitted items:
-  - Summary
+  - source lines 364-385 Summary.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 20-230 -> `AP CSA/slides/4-data-collections/4-7-wrapper-classes.qmd` lines 17-255 -> wrapper intro, object creation, min/max, overflow/underflow, autoboxing/unboxing, vocabulary check, parsing, and debug task preserved.
+  - source lines 232-363 -> `AP CSA/slides/4-data-collections/4-7-part-2-pokemon-speed-challenge.qmd` lines 17-130 -> Pokemon Speed groupwork challenge preserved.
+  - source lines 364-385 -> omitted Summary.
+- Compression/adaptation log:
+  - source lines 41-75, 129-175, 177-230, and 237-362 activecode blocks preserve prompts, source code, expected outputs, and test targets; JUnit harnesses are summarized as test-target slides.
+  - source lines 107-116 drag-and-drop interaction converted to a static matching table with all source pairs retained.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed table warning.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.8 ArrayList Methods
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-8-arraylists.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-8-part-4-frq-digits-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - import java.util.ArrayList
-  - Declaring and Creating ArrayLists
-  - ArrayList Methods
-  - size
-  - add
-  - add(index,obj)
-  - remove
-  - get and set
-  - Comparing arrays and ArrayLists
-  - Coding Challenge: FRQ Digits
+  - source lines 18-67: topic intro, list figure, dynamic size, mutable size, and `qloopList` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 17-61.
+  - source lines 69-137: `import java.util.ArrayList`, import rules, wildcard import, and `qlib_1` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 63-99.
+  - source lines 139-248: declaring/creating ArrayLists, `ArrayListCreateStr`, wrapper type parameters, and `qArrayListInteger` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 101-225.
+  - source lines 249-383: method list, `size()`, `add(obj)`, `listAdd`, autoboxing/unboxing, and `StudentArrayList` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 17-170.
+  - source lines 385-686: `add(index,obj)`, `listAddInt2`, add quick checks, `remove(index)`, `listRem`, and `qListRem` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 172-321.
+  - source lines 687-821: `get(index)` and `set(index,obj)`, `listGetSet`, and two quick checks -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 17-118.
+  - source lines 822-1010: Comparing arrays and ArrayLists, operation table, `array-to-arraylist`, and `ArrayListFromArray` -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 120-264.
+  - source lines 1012-1165: Coding Challenge: FRQ Digits, `divideby10`, digit pseudocode, and `challenge-digits` -> `AP CSA/slides/4-data-collections/4-8-part-4-frq-digits-challenge.qmd` lines 17-159.
 - Kept exercises:
-  - `mchoice:: qloopList`, `qlib_1`, `qArrayListInteger`, `qalAdd1`, `qListRem`, `qListRem1` -> converted to quick checks
-  - `activecode:: ArrayListCreateStr`, `listAdd`, `StudentArrayList`, `listAddInt2`, `listRem`, `listGetSet`, `array-to-arraylist`, `ArrayListFromArray`, `divideby10`, `challenge-digits` -> converted to code tasks
+  - source lines 54-65: `mchoice:: qloopList` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 51-61 -> question, correct answer, and reasoning preserved.
+  - source lines 126-137: `mchoice:: qlib_1` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 91-99 -> question, correct answer, and reasoning preserved.
+  - source lines 170-212: `activecode:: ArrayListCreateStr` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 141-181 -> prompt, broken null starter, and expected output preserved.
+  - source lines 236-247: `mchoice:: qArrayListInteger` -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 211-225 -> question, correct `Integer` answer, and reasoning preserved.
+  - source lines 317-375: `activecode:: listAdd` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 58-108 -> prompt, full code, original output, and changed-output target preserved.
+  - source lines 394-460: `activecode:: StudentArrayList` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 120-170 -> prompt, full `Student` starter, and original output preserved.
+  - source lines 473-525: `activecode:: listAddInt2` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 180-229 -> prompt, source code, and expected output preserved.
+  - source lines 533-588: `mchoice:: qalAdd1` and `qalAdd2` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 231-261 -> questions, code, correct answers, and reasoning preserved.
+  - source lines 606-651: `activecode:: listRem` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 271-300 -> prompt, full code, expected output, and index-removal note preserved.
+  - source lines 660-681: `mchoice:: qListRem` -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 302-319 -> question, code, correct answer, and reasoning preserved.
+  - source lines 704-763: `activecode:: listGetSet` -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 43-88 -> prompt, source code, and test targets preserved.
+  - source lines 767-816: `mchoice:: qListRem1` and `qListRem2` -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 90-118 -> questions, code, correct answers, and reasoning preserved.
+  - source lines 874-961: `activecode:: array-to-arraylist` -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 164-220 -> prompt, array starter, required ArrayList rewrite targets, and output target preserved.
+  - source lines 968-1009: `activecode:: ArrayListFromArray` -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 232-264 -> source code and expected output preserved.
+  - source lines 1033-1074: `activecode:: divideby10` -> `AP CSA/slides/4-data-collections/4-8-part-4-frq-digits-challenge.qmd` lines 39-65 -> prompt, source code, and changed-code target preserved.
+  - source lines 1092-1164: `activecode:: challenge-digits` -> `AP CSA/slides/4-data-collections/4-8-part-4-frq-digits-challenge.qmd` lines 93-159 -> prompt, starter code, and `Digits(154)`/`Digits(123456)` tests preserved.
 - Omitted items:
-  - Summary
+  - source lines 259-265 external AP CSA Java Quick Reference Sheet link; method list retained.
+  - source lines 556-588, 791-816, and 845-871 external visualizer/handout links; code and concepts retained.
+  - source lines 963-966 `Arrays.asList` note retained as not-on-exam note because it is directly tied to `ArrayListFromArray`.
+  - source lines 1166-1197 Summary.
 - Assets:
   - `Figures/lists.jpg` -> `AP CSA/assets/4-data-collections/4-8-arraylist-methods/lists.jpg`
+- Source coverage map:
+  - source lines 18-248 -> `AP CSA/slides/4-data-collections/4-8-arraylist-methods.qmd` lines 17-225 -> intro, imports, declaration, construction, and creation checks preserved.
+  - source lines 249-686 -> `AP CSA/slides/4-data-collections/4-8-part-2-size-add-and-remove.qmd` lines 17-321 -> method list, size, add, add by index, remove, code exercises, and quick checks preserved.
+  - source lines 687-1010 -> `AP CSA/slides/4-data-collections/4-8-part-3-get-set-and-array-comparison.qmd` lines 17-264 -> get/set, arrays vs ArrayLists, ToDoList rewrite, and ArrayListFromArray preserved.
+  - source lines 1012-1165 -> `AP CSA/slides/4-data-collections/4-8-part-4-frq-digits-challenge.qmd` lines 17-159 -> FRQ Digits challenge preserved.
+  - source lines 1166-1197 -> omitted Summary.
+- Compression/adaptation log:
+  - source lines 170-212, 317-375, 394-460, 473-525, 606-651, 704-763, 874-961, 968-1009, 1033-1074, and 1092-1164 activecode blocks preserve prompts, source code, expected outputs, and test targets; JUnit harnesses are summarized as test-target slides.
+  - source lines 54-65, 126-137, 236-247, 533-588, 660-681, and 767-816 multiple-choice items preserve questions, code, correct answers, and reasoning.
+  - source lines 259-265, 556-588, 791-816, and 845-871 external links omitted under external-resource category while retaining source concepts and code.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.9 ArrayList Traversals
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-9-arraylist-traversal.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd`
+- Source coverage map:
+  - source lines 22-151 -> `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd` lines 17-160 -> topic intro, enhanced-for loop, `listForEachLoop`, and `list_1` preserved.
+  - source lines 152-447 -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 17-292 -> indexed loop, while loop, `qloopList_1`, `listInsertParsons`, and NIO file traversal preserved.
+  - source lines 448-825 -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 17-306 -> `StudentList`, WordPair class, WordPairsList constructor, tests, and `numMatches` preserved.
+  - source lines 842-851 -> omitted Summary.
 - Kept sections:
-  - Topic intro explanation
-  - Enhanced For Loop
-  - For Loops and IndexOutOfBounds Exception
-  - While Loop
-  - ArrayList of Student Objects
-  - Coding Challenge: FRQ Word Pairs
+  - source lines 22-40: topic intro explanation and traversal motivation -> `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd` lines 17-30.
+  - source lines 42-151: Enhanced For Loop teaching sequence, code, and Parsons practice -> `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd` lines 32-160.
+  - source lines 152-221: For Loops and `IndexOutOfBoundsException` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 17-68.
+  - source lines 223-301: While Loop traversal and object traversal source code -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 70-153.
+  - source lines 378-447: Reading in Files with `java.nio.file` retained as source classroom exercise because it supplies the `pokeList` traversal context -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 236-279.
+  - source lines 448-524: `ArrayList` of `Student` objects -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 17-90.
+  - source lines 526-825: Coding Challenge: FRQ Word Pairs -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 92-292.
 - Kept exercises:
-  - `activecode:: listForEachLoop`, `listForLoop`, `listForEachLoopObj`, `StudentList`, `ArrayListWordPair1`, `challenge-WordPairs` -> converted to traversal and groupwork tasks
-  - `parsonsprob:: list_1`, `listInsertParsons` -> converted to mixed-up code tasks
-  - `mchoice:: qloopList_1` -> converted to quick check
+  - source lines 42-110: `activecode:: listForEachLoop` -> `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd` lines 32-76 -> prompt, complete source code, and test targets preserved.
+  - source lines 112-150: `parsonsprob:: list_1` -> `AP CSA/slides/4-data-collections/4-9-arraylist-traversals.qmd` lines 78-145 -> prompt, mixed blocks, and later correct order preserved.
+  - source lines 169-221: `activecode:: listForLoop` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 27-68 -> prompt, source code, and expected removals preserved.
+  - source lines 234-301: `activecode:: listForEachLoopObj` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 78-153 -> prompt, code with source blanks, main method, and expected output preserved.
+  - source lines 316-346: `mchoice:: qloopList_1` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 155-177 -> question, options, correct answer, and reasoning preserved.
+  - source lines 352-376: `parsonsprob:: listInsertParsons` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 179-224 -> prompt, mixed blocks, and later correct order preserved.
+  - source lines 396-446: `activecode:: read-pokemon-file-nio` -> `AP CSA/slides/4-data-collections/4-9-part-2-indexed-while-and-nio.qmd` lines 244-279 -> prompt and source code context preserved.
+  - source lines 457-524: `activecode:: StudentList` -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 27-90 -> prompt, starter class, and expected output/checks preserved.
+  - source lines 572-648: `activecode:: ArrayListWordPair1` -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 133-170 -> prompt, source code, and expected output preserved.
+  - source lines 675-825: `activecode:: challenge-WordPairs` -> `AP CSA/slides/4-data-collections/4-9-part-3-students-and-word-pairs.qmd` lines 194-292 -> FRQ prompt, constructor task, starter fields, tests, and `numMatches` task preserved.
 - Omitted items:
-  - Summary
-  - Reading in Files with java.nio.file as optional enrichment
+  - source lines 842-851 Summary omitted.
+  - source lines 348 and 529-531 external visualizer/FRQ links omitted while retaining the source prompts and code context.
 - Assets:
   - `Figures/wordpairs.png` -> `AP CSA/assets/4-data-collections/4-9-arraylist-traversals/wordpairs.png`
+- Compression/adaptation log:
+  - source lines 42-110, 169-221, 234-301, 396-446, 457-524, 572-648, and 675-825 activecode blocks preserve prompts, source/starter code, expected outputs, and test targets.
+  - source lines 112-150 and 352-376 Parsons problems were split into mixed-block slides and later correct-order slides.
+  - source lines 675-825 long Word Pairs challenge was split into prompt, starter fields/constructor, tests, and `numMatches` pages so the source task remains complete without overflowing.
+  - source lines 348 and 529-531 external links were omitted under the established external-resource rule; their associated source concepts, prompts, and code were retained.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.10 Implementing ArrayList Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-10-arraylist-algorithms.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-10-part-3-pairs-and-duplicates.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Add/Remove Elements
-  - Min, Max, Sum, Average
-  - Finding a property
-  - Pairs and Duplicates
-  - Shift/Rotate an ArrayList
-  - Reversing an ArrayList
-  - Multiple or Parallel Data Structures
+  - source lines 24-54: topic intro and two common traversal loop patterns -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 17-65.
+  - source lines 56-163: Add/Remove Elements, `qListRem3`, `qListRem4`, and `arrayListRemoveInLoop` -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 67-217.
+  - source lines 165-297: Min, Max, Sum, Average, Parsons average/min tasks, and `arraylistMax` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 17-181.
+  - source lines 299-410: Finding a property, `arraylistEvenParsons`, and `countOddArrayList` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 183-318.
+  - source lines 412-551: Pairs and Duplicates, duplicate Parsons, and `arraylistDuplicates` -> `AP CSA/slides/4-data-collections/4-10-part-3-pairs-and-duplicates.qmd` lines 17-208.
+  - source lines 553-668: Shift/Rotate an `ArrayList` and `rotateNewList` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 17-137.
+  - source lines 670-777: Reversing an `ArrayList` and `reverseNewList` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 139-275.
+  - source lines 781-843: Multiple or Parallel Data Structures and `parallelArrayLists` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 277-341.
 - Kept exercises:
-  - `mchoice:: qListRem3`, `qListRem4` -> converted to removal quick checks
-  - `parsonsprob:: arraylistAvgParsons`, `arraylistMinParsons`, `arraylistEvenParsons`, `arraylistDuplicatesParsons`, `rotateArrayListParsons`, `reverseArrayListParsons` -> converted to mixed-up algorithm tasks
-  - `activecode:: arrayListRemoveInLoop`, `arraylistMax`, `countOddArrayList`, `arraylistDuplicates`, `rotateNewList`, `reverseNewList`, `parallelArrayLists` -> converted to code tasks
+  - source lines 63-87: `mchoice:: qListRem3` -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 79-119 -> question, code, options, correct answer, and reasoning preserved.
+  - source lines 89-111: `mchoice:: qListRem4` -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 121-151 -> question, code, options, correct answer, and reasoning preserved.
+  - source lines 113-159: `activecode:: arrayListRemoveInLoop` -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 153-194 -> prompt, full bug source code, and expected unexpected output preserved.
+  - source lines 170-227: `parsonsprob:: arraylistAvgParsons` and `arraylistMinParsons` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 30-118 -> mixed blocks and later correct orders preserved.
+  - source lines 229-297: `activecode:: arraylistMax` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 120-181 -> prompt, starter code, main output, and extra method-call test preserved.
+  - source lines 304-337: `parsonsprob:: arraylistEvenParsons` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 197-253 -> mixed blocks and later correct order preserved.
+  - source lines 342-410: `activecode:: countOddArrayList` -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 255-318 -> prompt, starter code, main output, and extra method-call test preserved.
+  - source lines 417-457: `parsonsprob:: arraylistDuplicatesParsons` -> `AP CSA/slides/4-data-collections/4-10-part-3-pairs-and-duplicates.qmd` lines 30-86 -> mixed blocks and later correct order preserved.
+  - source lines 459-551: `activecode:: arraylistDuplicates` -> `AP CSA/slides/4-data-collections/4-10-part-3-pairs-and-duplicates.qmd` lines 92-208 -> prompt, starter code, expected output, loop-count test, and extra method-call tests preserved.
+  - source lines 558-589: `parsonsprob:: rotateArrayListParsons` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 23-75 -> mixed blocks and later correct order preserved.
+  - source lines 592-668: `activecode:: rotateNewList` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 77-137 -> prompt, starter code, output target, `set` target, and extra test preserved.
+  - source lines 675-698: `parsonsprob:: reverseArrayListParsons` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 149-199 -> prompt, mixed blocks, and later correct order preserved.
+  - source lines 701-777: `activecode:: reverseNewList` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 201-275 -> prompt, starter code, output target, `reversed.add(0` target, and extra test preserved.
+  - source lines 786-843: `activecode:: parallelArrayLists` -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 287-341 -> prompt, starter code, output target, and one-loop count test preserved.
 - Omitted items:
-  - Summary
-  - Review and FRQ Practice with ArrayLists
+  - source lines 845-862 Summary.
+  - source lines 864-900 Review and FRQ Practice with ArrayLists external review/practice bank.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 24-163 -> `AP CSA/slides/4-data-collections/4-10-implementing-arraylist-algorithms.qmd` lines 17-217 -> topic intro, add/remove checks, removal bug activecode, and source note preserved.
+  - source lines 165-410 -> `AP CSA/slides/4-data-collections/4-10-part-2-min-max-and-properties.qmd` lines 17-331 -> min/max/sum/average, property algorithms, Parsons tasks, starters, and tests preserved.
+  - source lines 412-551 -> `AP CSA/slides/4-data-collections/4-10-part-3-pairs-and-duplicates.qmd` lines 17-221 -> pairs/duplicates intro, Parsons task, duplicate starter, and tests preserved.
+  - source lines 553-843 -> `AP CSA/slides/4-data-collections/4-10-part-4-rotate-reverse-and-parallel-lists.qmd` lines 17-354 -> rotate, reverse, parallel list exercises, starters, and tests preserved.
+  - source lines 845-900 -> omitted Summary and review/practice bank.
+- Compression/adaptation log:
+  - source lines 63-111 multiple-choice items preserve question code, options, correct answers, and reasoning.
+  - source lines 170-227, 304-337, 417-457, 558-589, and 675-698 Parsons problems were split into mixed-block slides and later correct-order slides.
+  - source lines 113-159, 229-297, 342-410, 459-551, 592-668, 701-777, and 786-843 activecode blocks preserve prompts, starter/source code, expected outputs, and Runestone test targets.
+  - source lines 845-900 were omitted only because they are Summary and external review/FRQ practice bank content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.11 2D Array Creation and Access
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-11-2Darrays.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-11-2d-array-creation-and-access.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Array Storage
-  - Declaring 2D Arrays
-  - Initializer Lists for 2D Arrays
-  - Set Values in a 2D Array
-  - Get a Value from a 2D Array
-  - 2D Array Row and Column length
-  - Coding Challenge: ASCII Art
+  - source lines 21-32: topic intro, rows/columns, and natural 2D data examples -> `AP CSA/slides/4-data-collections/4-11-2d-array-creation-and-access.qmd` lines 17-55.
+  - source lines 34-143: Array Storage, row-major/column-major, Java array-of-arrays, exam assumption, and clickable checks -> `AP CSA/slides/4-data-collections/4-11-2d-array-creation-and-access.qmd` lines 57-159.
+  - source lines 144-248: Declaring 2D Arrays, default values, `twodaNumElfill`, `twoDArrayCreate`, initializer lists, and `twodaGetElfill` -> `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd` lines 17-165.
+  - source lines 251-521: Set Values, `twoDArraySet`, `qa2dab_1`, Get a Value, `qa2dab_2`, and `twoDArrayInitGet` -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 17-233.
+  - source lines 523-570: 2D Array Row and Column length and quick checks -> `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd` lines 17-110.
+  - source lines 572-696: Coding Challenge: ASCII Art and `challenge-8-1-ascii-art` -> `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd` lines 112-230.
 - Kept exercises:
-  - `clickablearea:: clicktd1` through `clicktd5` -> converted to row-column identification
-  - `fillintheblank:: twodaNumElfill`, `twodaGetElfill` -> converted to checkpoints
-  - `activecode:: twoDArrayCreate`, `twoDArraySet`, `twoDArrayInitGet`, `challenge-8-1-ascii-art` -> converted to code tasks
-  - `mchoice:: qa2dab_1`, `qa2dab_2`, `qa2ldb_2`, `qa2ldb_3` -> converted to quick checks
+  - source lines 69-143: `clickablearea:: clicktd1` through `clicktd5` -> `AP CSA/slides/4-data-collections/4-11-2d-array-creation-and-access.qmd` lines 112-159 -> row/column prompts and correct values preserved.
+  - source lines 164-169: `fillintheblank:: twodaNumElfill` -> `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd` lines 61-78 -> prompt and answer preserved.
+  - source lines 175-228: `activecode:: twoDArrayCreate` -> `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd` lines 80-115 -> prompt, starter code, expected output, and `studentNames` target preserved.
+  - source lines 243-248: `fillintheblank:: twodaGetElfill` -> `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd` lines 143-165 -> prompt and `Luke` answer preserved.
+  - source lines 274-362: `activecode:: twoDArraySet` -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 35-100 -> prompt, starter code, array-reference output check, row-size target, and new-cell assignment targets preserved.
+  - source lines 366-378: `mchoice:: qa2dab_1` -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 102-120 -> question, options, correct answer, and reasoning preserved.
+  - source lines 397-411: `mchoice:: qa2dab_2` -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 132-154 -> question, options, correct answer, and reasoning preserved.
+  - source lines 417-521: `activecode:: twoDArrayInitGet` -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 156-218 -> prompt, starter code, original output, and added-row index targets preserved.
+  - source lines 546-570: `mchoice:: qa2ldb_2` and `qa2ldb_3` -> `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd` lines 65-110 -> questions, options, correct answers, and reasoning preserved.
+  - source lines 587-696: `activecode:: challenge-8-1-ascii-art` -> `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd` lines 139-230 -> task prompt, starter code, expected output, own-art check, and assignment-pattern check preserved.
 - Omitted items:
-  - Summary
-  - 2D Arrays Game
+  - source lines 698-714 Summary.
+  - source lines 716-728 2D Arrays Game external game iframe.
 - Assets:
   - `Figures/2DLockers.jpg` -> `AP CSA/assets/4-data-collections/4-11-2d-array-creation-and-access/2DLockers.jpg`
   - `Figures/rowMajor.png` -> `AP CSA/assets/4-data-collections/4-11-2d-array-creation-and-access/rowMajor.png`
   - `Figures/ArrayRowsAndCols.png` -> `AP CSA/assets/4-data-collections/4-11-2d-array-creation-and-access/ArrayRowsAndCols.png`
+- Source coverage map:
+  - source lines 21-143 -> `AP CSA/slides/4-data-collections/4-11-2d-array-creation-and-access.qmd` lines 17-172 -> intro, storage figures, exam assumption, and clickable checks preserved.
+  - source lines 144-248 -> `AP CSA/slides/4-data-collections/4-11-part-2-declaring-and-initializing-2d-arrays.qmd` lines 17-178 -> declaration, default values, `twoDArrayCreate`, initializer lists, and fill-ins preserved.
+  - source lines 251-521 -> `AP CSA/slides/4-data-collections/4-11-part-3-set-get-and-access-checks.qmd` lines 17-246 -> set/get syntax, two activecode tasks, and quick checks preserved.
+  - source lines 523-696 -> `AP CSA/slides/4-data-collections/4-11-part-4-length-and-ascii-art-challenge.qmd` lines 17-243 -> length rules, quick checks, and ASCII Art challenge preserved.
+  - source lines 698-728 -> omitted Summary and external game.
+- Compression/adaptation log:
+  - source lines 69-143 clickablearea items were converted to static row/column trace checks with correct values preserved.
+  - source lines 164-169 and 243-248 fillintheblank items were converted to trace checkpoints with source answers preserved.
+  - source lines 366-378, 397-411, and 546-570 multiple-choice items preserve questions, options, correct answers, and reasoning.
+  - source lines 175-228, 274-362, 417-521, and 587-696 activecode blocks preserve prompts, starter/source code, expected outputs, and Runestone test targets.
+  - source lines 698-728 were omitted only because they are Summary and external game content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.12 2D Array Traversals
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-12-2Darray-traversal.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-12-2d-array-traversals.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-12-part-2-row-major-and-column-major.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-12-part-3-enhanced-for-each-2d-arrays.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-12-part-4-picture-lab-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Nested Loops
-  - Row-Major and Column-Major Traversals
-  - Enhanced For-Each Loop for 2D Arrays
-  - 2D Array of Objects
-  - Coding Challenge: Picture Lab
+  - source lines 12-25: lesson intro and nested-loop explanation -> `AP CSA/slides/4-data-collections/4-12-2d-array-traversals.qmd` lines 17-42.
+  - source lines 27-114: nested loop source example, `lcgetAverage`, tests, and source observations -> `AP CSA/slides/4-data-collections/4-12-2d-array-traversals.qmd` lines 44-127.
+  - source lines 116-200: Row-Major and Column-Major Traversals, `ColumnMajorTraversal`, and `AP-2DArrays` -> `AP CSA/slides/4-data-collections/4-12-part-2-row-major-and-column-major.qmd` lines 17-119.
+  - source lines 202-274: Enhanced For-Each Loop for 2D Arrays and `getAvgForEach` -> `AP CSA/slides/4-data-collections/4-12-part-3-enhanced-for-each-2d-arrays.qmd` lines 17-128.
+  - source lines 277-363: 2D Array of Objects, pixel/RGB explanation, Pixel/Picture examples, and `zeroBlue` -> `AP CSA/slides/4-data-collections/4-12-part-4-picture-lab-challenge.qmd` lines 17-87.
+  - source lines 365-590: Coding Challenge: Picture Lab, `challenge-picture`, tests, and optional Picture Lab A5 follow-up tasks -> `AP CSA/slides/4-data-collections/4-12-part-4-picture-lab-challenge.qmd` lines 89-302.
 - Kept exercises:
-  - `activecode:: lcgetAverage`, `ColumnMajorTraversal`, `getAvgForEach`, `challenge-picture` -> converted to traversal and Picture Lab tasks
-  - `mchoice:: AP-2DArrays` -> converted to quick check
+  - source lines 42-106: `activecode:: lcgetAverage` -> `AP CSA/slides/4-data-collections/4-12-2d-array-traversals.qmd` lines 44-104 -> prompt, source code, changed-average test, and changed-matrix test preserved.
+  - source lines 126-165: `activecode:: ColumnMajorTraversal` -> `AP CSA/slides/4-data-collections/4-12-part-2-row-major-and-column-major.qmd` lines 33-65 -> prompt, source code, and expected output preserved.
+  - source lines 168-198: `mchoice:: AP-2DArrays` -> `AP CSA/slides/4-data-collections/4-12-part-2-row-major-and-column-major.qmd` lines 67-104 -> question, code, options, correct answer, and reasoning preserved.
+  - source lines 228-274: `activecode:: getAvgForEach` -> `AP CSA/slides/4-data-collections/4-12-part-3-enhanced-for-each-2d-arrays.qmd` lines 66-115 -> prompt, source code, and expected output preserved.
+  - source lines 378-581: `activecode:: challenge-picture` -> `AP CSA/slides/4-data-collections/4-12-part-4-picture-lab-challenge.qmd` lines 101-282 -> prompt, datafiles, full `Picture` starter, and tests for `keepOnlyBlue` and `switchColors` preserved.
 - Omitted items:
-  - Summary
-  - AP Practice
-  - 2D Arrays and Loops Game
+  - source lines 592-601 Summary.
+  - source lines 604-1743 AP Practice/review bank.
+  - source lines 1745-1758 2D Arrays and Loops Game external game iframe.
 - Assets:
   - `Figures/pixel.jpg` -> `AP CSA/assets/4-data-collections/4-12-2d-array-traversals/pixel.jpg`
   - `../../_static/arch.jpg` -> `AP CSA/assets/4-data-collections/4-12-2d-array-traversals/arch.jpg`
+- Source coverage map:
+  - source lines 12-114 -> `AP CSA/slides/4-data-collections/4-12-2d-array-traversals.qmd` lines 17-140 -> nested-loop traversal and `lcgetAverage` preserved.
+  - source lines 116-200 -> `AP CSA/slides/4-data-collections/4-12-part-2-row-major-and-column-major.qmd` lines 17-132 -> row-major/column-major traversal, source code, quick check, and answer reasoning preserved.
+  - source lines 202-274 -> `AP CSA/slides/4-data-collections/4-12-part-3-enhanced-for-each-2d-arrays.qmd` lines 17-141 -> enhanced for-each pattern, limitations, `getAvgForEach`, and expected output preserved.
+  - source lines 277-590 -> `AP CSA/slides/4-data-collections/4-12-part-4-picture-lab-challenge.qmd` lines 17-315 -> pixel concepts, Picture Lab starter, tests, and optional follow-up tasks preserved.
+  - source lines 592-1758 -> omitted Summary, AP Practice/review bank, and external game.
+- Compression/adaptation log:
+  - source lines 42-106, 126-165, 228-274, and 378-581 activecode blocks preserve prompts, source/starter code, expected outputs, datafiles, and Runestone test targets.
+  - source lines 168-198 multiple-choice item preserves question, code, options, correct answer, and reasoning.
+  - source lines 378-581 long Picture Lab starter is kept as a `.code-scroll` full-code page; focused task and test-target slides surround the full code page.
+  - source lines 592-1758 were omitted only because they are Summary, AP Practice/review bank, and external game content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed full-code and test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.13 Implementing 2D Array Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-13-2Darray-algorithms.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-13-part-3-rotate-row-right.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Sum, Average, Min, Max 2D Array Algorithms
-  - Subsection of a 2D Array for a Property
-  - Duplicates in 2D Arrays
-  - Rotate and Reverse
+  - source lines 23-75: topic intro and 1D-to-2D traversal patterns -> `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd` lines 17-76.
+  - source lines 77-199: Sum/Average/Min/Max algorithms, `lca2dloopPart`, and `max2DArrayParsons` -> `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd` lines 78-229.
+  - source lines 201-258: Subsection of a 2D Array for a Property and `lca2dloopPart2` -> `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd` lines 17-74.
+  - source lines 260-300: Duplicates in 2D Arrays and `noDups2DArray` -> `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd` lines 76-158.
+  - source lines 303-377: Rotate and Reverse and `rotate2DArray` -> `AP CSA/slides/4-data-collections/4-13-part-3-rotate-row-right.qmd` lines 17-145.
 - Kept exercises:
-  - `activecode:: lca2dloopPart`, `lca2dloopPart2`, `noDups2DArray`, `rotate2DArray` -> converted to code tasks
-  - `parsonsprob:: max2DArrayParsons` -> converted to mixed-up max task
+  - source lines 85-158: `activecode:: lca2dloopPart` -> `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd` lines 88-150 -> prompt, starter code, main output, and extra method-call test preserved.
+  - source lines 162-193: `parsonsprob:: max2DArrayParsons` -> `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd` lines 152-214 -> mixed blocks and later correct order preserved.
+  - source lines 209-258: `activecode:: lca2dloopPart2` -> `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd` lines 26-74 -> prompt, source code, and expected output preserved.
+  - source lines 266-300: `activecode:: noDups2DArray` -> `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd` lines 86-143 -> prompt and source code preserved.
+  - source lines 308-377: `activecode:: rotate2DArray` -> `AP CSA/slides/4-data-collections/4-13-part-3-rotate-row-right.qmd` lines 26-130 -> prompt, starter code, main output, and extra method-call test preserved.
 - Omitted items:
-  - Review and FRQ Practice with 2D arrays
+  - source lines 379-411 Review and FRQ Practice with 2D arrays external review/FRQ bank.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 23-199 -> `AP CSA/slides/4-data-collections/4-13-implementing-2d-array-algorithms.qmd` lines 17-242 -> intro, traversal patterns, row/column totals, and max Parsons preserved.
+  - source lines 201-300 -> `AP CSA/slides/4-data-collections/4-13-part-2-subsections-and-duplicates.qmd` lines 17-171 -> subsection count and duplicate search preserved.
+  - source lines 303-377 -> `AP CSA/slides/4-data-collections/4-13-part-3-rotate-row-right.qmd` lines 17-158 -> row rotation starter and tests preserved.
+  - source lines 379-411 -> omitted external review/FRQ bank.
+- Compression/adaptation log:
+  - source lines 85-158, 209-258, 266-300, and 308-377 activecode blocks preserve prompts, starter/source code, expected outputs, and Runestone test targets.
+  - source lines 162-193 Parsons problem was split into mixed-block and correct-order slides.
+  - source lines 38-75 traversal skeletons were rewritten without source placeholder dots to comply with the no-compression-marker rule while preserving the algorithm roles.
+  - source lines 379-411 were omitted only because they are external review/FRQ bank content.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.14 Searching Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-14-searching.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd`
   - [x] Deck: `AP CSA/slides/4-data-collections/4-14-part-2-binary-search.qmd`
   - [x] Deck: `AP CSA/slides/4-data-collections/4-14-part-3-search-runtimes.qmd`
+  - [x] Deck: `AP CSA/slides/4-data-collections/4-14-part-4-search-runtimes-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Linear Search
-  - Linear Search with 2D Arrays
-  - Binary Search
-  - Runtimes
-  - Coding Challenge: Search Runtimes
+  - source lines 21-35: topic intro and searching overview -> `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd` lines 17-25.
+  - source lines 37-336: Linear Search, ArrayList search, String search, and 2D array search -> `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd` lines 27-247.
+  - source lines 340-509: Binary Search and String binary search -> `AP CSA/slides/4-data-collections/4-14-part-2-binary-search.qmd` lines 17-198.
+  - source lines 511-593: Runtimes and `qbs_1` through `qbs_4` -> `AP CSA/slides/4-data-collections/4-14-part-3-search-runtimes.qmd` lines 17-114.
+  - source lines 595-726: Coding Challenge: Search Runtimes and `challenge-search-coding` -> `AP CSA/slides/4-data-collections/4-14-part-4-search-runtimes-challenge.qmd` lines 17-137.
 - Kept exercises:
-  - `activecode:: seqSearch`, `seqSearchList`, `seqSearchStr`, `linearSearch2DArrays`, `binSearch`, `binSearchStrings`, `challenge-search-coding` -> converted to code task slides
-  - `mchoice:: qss_1`, `qss_2`, `qbs_1` through `qbs_4` -> converted to quick checks
-  - `shortanswer:: challenge-binary-search` -> converted to groupwork runtime prompt
+  - source lines 49-105, 109-172, 204-256, and 266-336: linear-search activecode blocks -> `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd` lines 37-233 -> prompts, source code, expected outputs, and tests preserved.
+  - source lines 176-200: `mchoice:: qss_1` and `qss_2` -> `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd` lines 138-148 -> questions, correct answers, and reasoning preserved.
+  - source lines 362-432 and 439-509: binary-search activecode blocks -> `AP CSA/slides/4-data-collections/4-14-part-2-binary-search.qmd` lines 55-185 -> prompts, source code, and expected outputs preserved.
+  - source lines 539-593: `mchoice:: qbs_1` through `qbs_4` -> `AP CSA/slides/4-data-collections/4-14-part-3-search-runtimes.qmd` lines 66-101 -> questions, correct answers, and reasoning preserved.
+  - source lines 610-713: `activecode:: challenge-search-coding` -> `AP CSA/slides/4-data-collections/4-14-part-4-search-runtimes-challenge.qmd` lines 46-114 -> prompt, dictionary datafile, starter methods, and expected counts preserved.
+  - source lines 724-726: `shortanswer:: challenge-binary-search` -> `AP CSA/slides/4-data-collections/4-14-part-4-search-runtimes-challenge.qmd` lines 116-124 -> student response prompt preserved.
 - Omitted items:
-  - Summary
+  - source lines 23-33 external video omitted.
+  - source lines 353-356 binary-search animation gif omitted as optional animation; algorithm text and code retained.
+  - source lines 715-720 embedded Google doc omitted as external document; recording prompt retained.
+  - source lines 729-741 Summary.
 - Assets:
-  - `Figures/binary-search-small.gif` -> `AP CSA/assets/4-data-collections/4-14-searching-algorithms/binary-search-small.gif`
+  - No retained topic-specific image.
+- Source coverage map:
+  - source lines 21-336 -> `AP CSA/slides/4-data-collections/4-14-searching-algorithms.qmd` lines 17-260 -> linear search variants and checks preserved.
+  - source lines 340-509 -> `AP CSA/slides/4-data-collections/4-14-part-2-binary-search.qmd` lines 17-211 -> binary search variants preserved.
+  - source lines 511-593 -> `AP CSA/slides/4-data-collections/4-14-part-3-search-runtimes.qmd` lines 17-127 -> runtime table and quick checks preserved.
+  - source lines 595-726 -> `AP CSA/slides/4-data-collections/4-14-part-4-search-runtimes-challenge.qmd` lines 17-150 -> spellchecker challenge and response prompt preserved.
+  - source lines 729-741 -> omitted Summary.
+- Compression/adaptation log:
+  - source lines 49-105, 109-172, 204-256, 266-336, 362-432, 439-509, and 610-713 activecode blocks preserve prompts, source/starter code, expected outputs, datafile names, and Runestone test targets.
+  - source lines 176-200 and 539-593 multiple-choice blocks preserve questions, correct answers, and reasoning; obvious distractor lists are summarized only where the answer reasoning is retained.
+  - source lines 23-33, 353-356, and 715-720 external video/animation/Google doc embeds were omitted under the external-resource rule.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.15 Sorting Algorithms
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-15-sorting.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Selection Sort
-  - Insertion Sort
-  - Coding Challenge: Sort Runtimes
+  - source lines 12-22: topic intro and AP CSA sorting algorithms -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 17-29.
+  - source lines 24-169: Selection Sort, source identification points, `selSort`, and selection quick checks -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 31-117.
+  - source lines 172-314: Insertion Sort, source identification points, `insertionSort`, and insertion quick checks -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 119-203.
+  - source lines 318-335: Coding Challenge: Sort Runtimes and `challenge-sorting` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 205-225.
 - Kept exercises:
-  - `activecode:: selSort`, `insertionSort` -> converted to full code and trace pages
-  - `mchoice:: qsel_1`, `qsel_2`, `qins_1`, `qins_2` -> converted to quick checks
-  - `shortanswer:: challenge-sorting` -> converted to sort runtimes groupwork prompt
+  - source lines 62-116: `activecode:: selSort` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 53-91 -> prompt, source code, and expected output preserved.
+  - source lines 123-168: `mchoice:: qsel_1` and `qsel_2` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 103-117 -> questions, correct answers, and reasoning preserved.
+  - source lines 214-265: `activecode:: insertionSort` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 138-176 -> prompt, source code, and expected output preserved.
+  - source lines 271-313: `mchoice:: qins_1` and `qins_2` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 188-203 -> questions, correct answers, and reasoning preserved.
+  - source lines 333-335: `shortanswer:: challenge-sorting` -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 215-225 -> runtime comparison prompt preserved.
 - Omitted items:
-  - Summary
-  - Search/Sort Multiple-Choice Exercises
+  - source lines 37-49, 181-198, 267-314 external visualization/video links omitted.
+  - source lines 337-343 Summary.
+  - source lines 345-348 Search/Sort Multiple-Choice Exercises external review link.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 12-169 -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 17-117 -> selection sort intro, source code, tests, and checks preserved.
+  - source lines 172-335 -> `AP CSA/slides/4-data-collections/4-15-sorting-algorithms.qmd` lines 119-225 -> insertion sort intro, source code, tests, checks, and runtime challenge preserved.
+  - source lines 337-348 -> omitted Summary and external review link.
+- Compression/adaptation log:
+  - source lines 62-116 and 214-265 activecode blocks preserve prompts, AP CSA source code, and expected outputs.
+  - source lines 123-168 and 271-313 multiple-choice checks preserve questions, correct answers, and reasoning.
+  - source lines 333-335 shortanswer prompt preserved as a student response task.
+  - source external videos, visualizer links, and review exercises were omitted under external-resource/review-bank rules.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed code/test-target warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.16 Recursion
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-16-recursion.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-16-recursion.qmd`
   - [x] Deck: `AP CSA/slides/4-data-collections/4-16-part-2-factorial.qmd`
   - [x] Deck: `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Recursive Call
-  - Why use Recursion
-  - Factorial Method
-  - Base Case
-  - Tracing Recursive Methods
-  - Tracing Challenge: Recursion
+  - source lines 32-97: infinite recursion, recursive call, base case, and quick checks -> `AP CSA/slides/4-data-collections/4-16-recursion.qmd` lines 17-108.
+  - source lines 99-153: Why use Recursion and recursion examples -> `AP CSA/slides/4-data-collections/4-16-recursion.qmd` lines 66-95.
+  - source lines 155-364: Factorial Method, base case, `FactorialTest`, and base-case quick checks -> `AP CSA/slides/4-data-collections/4-16-part-2-factorial.qmd` lines 17-107.
+  - source lines 367-807: Tracing Recursive Methods and tracing challenge questions -> `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd` lines 17-86.
 - Kept exercises:
-  - `fillintheblank:: recurb1fill`, `recurb2fill`, `recBase1`, `recFBTracex1`, `recFBTracey1`, `recFBBase2`, `recFBRetX2`, `recFBRetY2`, `recFBRetZ2` -> converted to trace checkpoints
-  - `mchoice:: qrb_1` through `qrb_9` -> converted to quick checks
-  - `activecode:: FactorialTest` -> converted to factorial code deck
-  - `clickablearea:: rec_base1` -> converted to base case identification
+  - source lines 55-97: `mchoice:: qrb_1` and `qrb_2` -> `AP CSA/slides/4-data-collections/4-16-recursion.qmd` lines 79-95 -> recursive call/base-case quick checks preserved.
+  - source lines 197-245: `activecode:: FactorialTest` -> `AP CSA/slides/4-data-collections/4-16-part-2-factorial.qmd` lines 17-64 -> factorial source code and output context preserved.
+  - source lines 295-364: `mchoice:: qrb_3`, `qrb_4`, and `qrb_5-new` -> `AP CSA/slides/4-data-collections/4-16-part-2-factorial.qmd` lines 65-94 -> base-case and recursion quick checks preserved.
+  - source lines 464-552: `mchoice:: qrb_5-old`, `qrb_6`, and `qrb_7` -> `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd` lines 47-73 -> tracing tasks and answers preserved.
+  - source lines 602-671: `mchoice:: qrb_8` and `qrb_9` -> `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd` lines 55-73 -> recursive output tracing prompts preserved.
+  - source lines 678-807: paired tracing problems and trace tables -> `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd` lines 55-73 -> classroom tracing challenge preserved.
 - Omitted items:
-  - Summary
+  - source lines 155-166 external recursion video omitted.
+  - source lines 181-195 external factorial demo omitted.
+  - source lines 449-552, 598-671 external visualizer links omitted while retaining the trace prompts.
+  - source lines 809-818 Summary.
 - Assets:
   - `Figures/triangleSub.png` -> `AP CSA/assets/4-data-collections/4-16-recursion/triangleSub.png`
   - `Figures/cupStack.jpg` -> `AP CSA/assets/4-data-collections/4-16-recursion/cupStack.jpg`
   - `Figures/codeForCallStack.png` -> `AP CSA/assets/4-data-collections/4-16-recursion/codeForCallStack.png`
   - `Figures/errorCallStack.png` -> `AP CSA/assets/4-data-collections/4-16-recursion/errorCallStack.png`
   - `Figures/callTree.png` -> `AP CSA/assets/4-data-collections/4-16-recursion/callTree.png`
+- Source coverage map:
+  - source lines 32-153 -> `AP CSA/slides/4-data-collections/4-16-recursion.qmd` lines 17-108 -> recursive calls, base cases, why recursion, and checks preserved.
+  - source lines 155-364 -> `AP CSA/slides/4-data-collections/4-16-part-2-factorial.qmd` lines 17-107 -> factorial, base case, activecode, and checks preserved.
+  - source lines 367-807 -> `AP CSA/slides/4-data-collections/4-16-part-3-tracing-recursion.qmd` lines 17-86 -> call stack and tracing challenges preserved.
+  - source lines 809-818 -> omitted Summary.
+- Compression/adaptation log:
+  - source lines 197-245 activecode block preserves factorial source and expected output context.
+  - source lines 55-97, 295-364, and 464-807 quick checks and tracing questions were converted into static quick check and tracing task slides.
+  - source external videos, demos, visualizers, and Summary were omitted under external-resource/Summary rules.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed trace warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 4.17 Recursive Searching and Sorting
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit4-Data-Collections/topic-4-17-recursive-search-sort.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd`
   - [x] Deck: `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd`
 - Kept sections:
-  - Topic intro explanation
-  - Recursive Binary Search
-  - Merge Sort
-  - Tracing Challenge: Recursive Search and Sort
+  - source lines 13-188: topic intro, iterative binary search, recursive binary search, and ArrayList recursive binary search -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 17-112.
+  - source lines 188-348: Merge Sort, source code, split/merge trace, and merge sort quick checks -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 17-109.
+  - source lines 349-366: tracing challenge prompts -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 84-96.
 - Kept exercises:
-  - `activecode:: BinarySearchLoop`, `recursiveBinarySearch`, `recursiveBinarySearchArrayList`, `mergeSort` -> converted to code and trace pages
-  - `shortanswer:: baseCaseQ`, `recursiveCallQ`, `challenge-mergesort`, `challenge-recursive-binary-search` -> converted to response and tracing prompts
-  - `mchoice:: qms_1`, `qms_2` -> converted to merge sort quick checks
+  - source lines 20-61: `activecode:: BinarySearchLoop` -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 30-75 -> iterative binary search contrast preserved.
+  - source lines 70-76: `shortanswer:: baseCaseQ` and `recursiveCallQ` -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 17-29 -> base-case and recursive-call prompts preserved.
+  - source lines 84-130: `activecode:: recursiveBinarySearch` -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 48-88 -> recursive binary search source and trace focus preserved.
+  - source lines 135-188: `activecode:: recursiveBinarySearchArrayList` -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 89-99 -> ArrayList recursive binary search preserved.
+  - source lines 229-306: `activecode:: mergeSort` -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 52-83 -> merge/mergeSort source structure preserved.
+  - source lines 321-348: `mchoice:: qms_1` and `qms_2` -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 84-96 -> merge sort tracing quick checks preserved.
+  - source lines 360-366: `shortanswer:: challenge-mergesort` and `challenge-recursive-binary-search` -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 84-96 -> pair tracing prompts preserved.
 - Omitted items:
-  - Summary
-  - Summary and Review Exercises
+  - source lines 205-220 and 306-349 external videos/visualizers omitted.
+  - source lines 368-379 Summary.
+  - source lines 381-393 Summary and Review Exercises external review directions.
 - Assets:
   - No retained topic-specific image.
+- Source coverage map:
+  - source lines 13-188 -> `AP CSA/slides/4-data-collections/4-17-recursive-searching-and-sorting.qmd` lines 17-112 -> recursive binary search concepts, code, and ArrayList version preserved.
+  - source lines 188-366 -> `AP CSA/slides/4-data-collections/4-17-part-2-merge-sort.qmd` lines 17-109 -> merge sort concepts, source code, trace, checks, and practice prompts preserved.
+  - source lines 368-393 -> omitted Summary and review directions.
+- Compression/adaptation log:
+  - source lines 20-188 activecode blocks for binary search preserve loop/recursive/ArrayList code roles and prompts.
+  - source lines 229-306 merge sort source retained as a source-code page with split/merge trace slides.
+  - source lines 321-366 quick checks and shortanswer prompts preserved as quick check/tracing slides.
+  - source external videos, visualizers, Summary, and review directions were omitted under allowed categories.
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-slide-density.mjs` with reviewed trace warnings.
+  - [x] Passed `node scripts/check-slide-overflow.mjs`
+  - [x] Passed targeted `node scripts/check-ap-csa-source-fidelity.mjs`

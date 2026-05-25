@@ -1,0 +1,200 @@
+---
+title: "1.10 Calling Class Methods"
+subtitle: "Part 2: Common Errors and Class Method Calls"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Common Errors with Methods
+
+### Use the returned value
+
+A common error with non-void methods is forgetting to do something with the value returned from a method.
+
+When you call a method that returns a value, you should do something with that value like assigning it to a variable or printing it out.
+
+To use the return value when calling a non-void method, it must be stored in a variable or used as part of an expression.
+
+## Common Errors with Methods
+
+### Match arguments and return values
+
+Another common error is a mismatch in types or order for the arguments or return values.
+
+For example, if a method returns a `double` value, you cannot assign it to an `int` variable.
+
+Use the method signature to check:
+
+::: {.tight-list}
+- the number of arguments
+- the type of each argument
+- the order of the arguments
+- the type of the returned value
+:::
+
+## Coding Exercise
+
+### `activecode:: fixMethodCalls`
+
+Fix the method calls below in the `main` method.
+
+Make sure the type, how many, and order of the arguments match what the methods expect.
+
+Are the returned values saved in the right type of variables?
+
+Do not change the methods other than `main`.
+
+## Starter Code
+
+### `fixMethodCalls`
+
+::: {.code-scroll}
+```java
+public class MathMethods
+{
+     /* square method returns the square of a number.
+        Do NOT change */
+     public static int square(int number)
+     {
+         return number * number;
+     }
+
+     /** divide method divides x by y to return a double result .
+        Do NOT change */
+     public static double divide(double x, double y)
+     {
+         return x / y;
+     }
+
+     public static void main(String[] args)
+     {
+         // TODO: Fix the method calls and data types below
+         // Make sure the type, how many, and order of the
+         // arguments match what the methods expect.
+         // Make sure they are saved in the right type of variables.
+         // result1 should be 4 squared
+         // result2 should be 5 divided by 2
+         int result1 = square(4.0, 2);
+         int result2 = divide(2, 5);
+         System.out.println("4 squared is " + result1);
+         System.out.println("5 divided by 2 is " + result2);
+     }
+}
+```
+:::
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Code checks:
+
+::: {.tight-list}
+- code contains correct `double` type for `result2`: `double result2`
+- code contains call to square with `int` `4`: `square(4)`
+- code contains call to divide with the correct argument order: `divide(5,2)`
+:::
+
+## Expected Output
+
+### `testMain`
+
+Expected output from `main`:
+
+```text
+4 squared is 16
+5 divided by 2 is 2.5
+```
+
+## Worked Fix
+
+### Fix only `main`
+
+The method signatures show the needed argument types and return types.
+
+```java
+public static void main(String[] args)
+{
+    int result1 = square(4);
+    double result2 = divide(5, 2);
+    System.out.println("4 squared is " + result1);
+    System.out.println("5 divided by 2 is " + result2);
+}
+```
+
+This fix matches the method signatures and the expected output check.
+
+## Methods Outside the Class
+
+### Use the class name
+
+In the examples above, we called the methods by using the method name.
+
+However, if we call a method from a different class, we need to include its class name.
+
+For example, if the `square` method is in a class called `MathFunctions`, we would call it as `MathFunctions.square(3)`.
+
+## Dot Operator
+
+### `ClassName.methodName(arguments)`
+
+Class methods are typically called using the class name along with the **dot operator** (`.`).
+
+When the method call occurs in the defining class, the use of the class name is optional in the call.
+
+```java
+MathFunctions.square(3)
+```
+
+## Math Class Preview
+
+### `sqrt` and `pow`
+
+![Pow](../../assets/1-using-objects-and-methods/1-10-calling-class-methods/pow.png){fig-align="left" width="15%"}
+
+In the next lesson, we will learn to use the methods in the `Math` class in Java and will need to call them with the class name `Math`.
+
+There is a method to compute the square of a number in the `Math` library, but it is called `pow` instead of `square`, and it takes `2` arguments to return a number raised to the power of an exponent number.
+
+## Math Class Preview
+
+### Two class methods
+
+::: {.tight-list}
+- `Math.sqrt(double number)`: returns the square root of a given number
+- `Math.pow(double base, double exponent)`: returns `base^exponent`, the value of base, the first argument, raised to the power of exponent, the second argument
+:::
+
+Here is an example of how to use these methods:
+
+```java
+double x = Math.pow(3, 2); // 3^2 is 9.0
+double y = Math.sqrt(9); // the square root of 9 is 3.0
+```
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- use a non-void returned value instead of ignoring it
+- match method-call arguments to the method signature
+- save returned values in compatible variable types
+- call methods from another class with the class name and dot operator
+- recognize `Math.sqrt` and `Math.pow` as class method calls
+:::
+
+## End
+
+### 1.10 Part 2 complete
+
+Part 3 continues with the Ladder on Tower groupwork challenge.

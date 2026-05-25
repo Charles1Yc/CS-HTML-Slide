@@ -5,506 +5,812 @@ This audit tracks rebuilt Unit 1 topics against CSAwesome2 source content.
 ## Topic 1.1 Introduction to Algorithms, Programming, and Compilers
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-1-intro-algorithms.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd`
 - Kept sections:
-  - Topic intro explanation with Java examples
-  - Algorithms
-  - First Java Program
-  - Compiling and Running Java Programs
-  - Java Keywords
-  - Syntax Errors and Debugging
-  - Reading Error Messages
-  - Run-time Errors
-  - Comments
+  - source lines 24-31 topic intro and video placement -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 17-25 -> Java motivation preserved, external video omitted
+  - source lines 33-42 `Algorithms` -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 27-51 -> algorithm definition, examples, planning, pseudocode, and sequencing preserved
+  - source lines 68-95 `First Java Program` -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 91-135 -> class, object-oriented language, method, main method, template, and brace note preserved
+  - source lines 133-142 `Compiling and Running Java Programs` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 17-37 -> IDE, source file, compiler, class/file name, and compile-before-run rule preserved
+  - source lines 144-147 `Java Keywords` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 39-47 -> reserved words, lowercase keywords, and capitalized class names preserved
+  - source lines 201-245 Java statements and print-statement reorder tasks -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 123-195 -> statement and semicolon explanation preserved
+  - source lines 246-279 `Syntax Errors and Debugging` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 197-221 -> syntax error examples, bug/debugging vocabulary, and Grace Hopper figure preserved, external video omitted
+  - source lines 331-384 `Reading Error Messages` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 275-313 -> compile-time error explanation, sample error, file/line/message/caret reading strategy preserved
+  - source lines 523-563 `Run-time Errors` and logic errors -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 17-84 -> run-time error, exception, ArithmeticException, and logic error explanation preserved
+  - source lines 566-583 `Comments` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 86-109 -> single-line comments, multi-line comments, compiler skip behavior, and examples preserved
+  - source lines 585-595 `Groupwork Debugging Challenge` intro -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 111-129 -> pair programming, driver/navigator, rubber duck option, and challenge setup preserved
 - Kept exercises:
-  - `parsonsprob:: brushalgorithm` -> converted to algorithm ordering slide
-  - `shortanswer:: pbjalgorithm` -> converted to student response slide
-  - `activecode:: printName` -> converted to code task slide
-  - `hparsons:: mp-main-method-order-*` -> converted to method-header reorder slide
-  - `hparsons:: mp-print-order-*` -> converted to print-statement reorder slide
-  - `parsonsprob:: mixed-hi` and `mixed-hi-paired` -> converted to mixed-up program slides
-  - `activecode:: sc2error1`, `sc2error2`, `sc2error3` -> converted to debugging code task slides
-  - `activecode:: divideByZeroDemo` -> converted to run-time error demonstration slide
-  - `activecode:: challenge1-1` -> converted to debugging challenge slide
+  - source lines 44-62 `parsonsprob:: brushalgorithm` -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 53-77 -> prompt, mixed steps, and correct order preserved
+  - source lines 63-65 `shortanswer:: pbjalgorithm` -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 79-89 -> student response prompt and deliverable preserved
+  - source lines 96-131 `activecode:: printName` -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 137-171 -> prompt, starter code, and expected starter output preserved
+  - source lines 149-198 `hparsons:: mp-main-method-order-*` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 49-121 -> prompts, mixed blocks, distractors, and correct main-method header preserved
+  - source lines 204-245 `hparsons:: mp-print-order-*` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 135-195 -> prompts, mixed blocks, distractors, and correct print statements preserved
+  - source lines 282-328 `parsonsprob:: mixed-hi`, `mixed-hi-paired` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 223-273 -> prompts, correct blocks, and extra wrong blocks preserved
+  - source lines 386-421 `activecode:: sc2error1` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 315-341 -> prompt, broken code, expected output, and error focus preserved
+  - source lines 423-464 `activecode:: sc2error2` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 343-369 -> prompt, broken code, expected output, and parenthesis focus preserved
+  - source lines 466-521 `activecode:: sc2error3` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 371-399 -> prompt, broken code, expected output, and capitalization/semicolon focus preserved
+  - source lines 530-560 `activecode:: divideByZeroDemo` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 37-72 -> prompt, source code, `DivideByZero` test, and ArithmeticException purpose preserved
+  - source lines 598-634 `activecode:: challenge1-1` -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 131-165 -> groupwork prompt, broken code, and expected output preserved
+- Source coverage map:
+  - source lines 24-131 -> `AP CSA/slides/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers.qmd` lines 17-171 -> preserved, external video omitted
+  - source lines 133-521 -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-2-compiling-keywords-and-syntax-errors.qmd` lines 17-399 -> preserved, external video omitted
+  - source lines 523-634 -> `AP CSA/slides/1-using-objects-and-methods/1-1-part-3-runtime-errors-and-debugging-challenge.qmd` lines 17-165 -> preserved
+- Compression/adaptation log:
+  - source lines 26-31 and 272-278 YouTube embeds are omitted; adjacent lesson intro/debugging text is retained
+  - source lines 113-131, 403-421, 445-464, 499-519, 545-560, 615-634 Runestone JUnit classes are not copied verbatim; prompts, starter/broken code, expected output, and key test assertions are retained on `Test Requirements` slides
 - Omitted items:
-  - YouTube videos
-  - Summary
-  - Unit review/practice links
-  - AP practice multiple choice
+  - source lines 26-31 intro YouTube video -> omitted optional external media
+  - source lines 272-278 debugging YouTube video -> omitted optional external media
+  - source lines 636-673 `Summary` -> omitted allowed category
+  - source lines 675-714 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/firstbug.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/firstbug.jpg`
   - `Figures/rubberduck.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/rubberduck.jpg`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 1.2 Variables and Data Types
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-2-variables.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.qmd`
 - Kept sections:
-  - What is a Variable?
-  - Data Types
-  - Declaring Variables in Java
-  - Naming Variables
+  - source lines 12-33 `What is a Variable?` -> `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd` lines 17-35 -> variable definition, changing score example, and Pong figure preserved; external video omitted
+  - source lines 35-80 `Data Types` -> `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd` lines 37-96 -> data type definition, primitive/reference variables, `int`, `double`, `boolean`, `String`, and domain/operations explanation preserved
+  - source lines 156-198 `Declaring Variables in Java` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 17-94 -> declaration syntax, bits, memory figure, assignment, initialization, and printing variables preserved
+  - source lines 300-301 assignment direction note -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 218-226 -> Java assignment direction preserved
+  - source lines 392-417 `Naming Variables` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 322-359 -> naming rules, keywords, meaningful names, camelCase, and case sensitivity preserved
+  - source lines 476-504 `Debugging Challenge` and `Groupwork Coding Challenge` intros -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.qmd` lines 17-27 and 77-99 -> Weather Report, Mad Libs context, pair work, and static classroom task preserved
 - Kept exercises:
-  - `mchoice:: chooseType1` through `chooseType5` -> converted to type-choice quick check slides
-  - `activecode:: strConcatDemo` -> converted to complete code task slide
-  - `clickablearea:: var_declare` and `var_init` -> converted to identify declarations/initializations slide
-  - `activecode:: asgn_order` -> converted to assignment-order debugging slide
-  - `fillintheblank:: fillDecVar1` through `fillDecVar3` -> converted to declaration checkpoint slide
-  - `parsonsprob:: declareVars1` -> converted to mixed-up declaration slide
-  - `activecode:: varCaseSensitive` -> converted to case-sensitivity debugging slide
-  - `fillintheblank:: fillName1`, `fillName2` -> converted to camelCase checkpoint slide
-  - `activecode:: challenge1-2-weather` -> converted to debugging challenge slide
-  - `activecode:: challengeMadLibs` -> converted to coding challenge slide
+  - source lines 85-153 `mchoice:: chooseType1` through `chooseType5` -> `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd` lines 98-181 -> prompts, answer choices, correct answers, and reasoning preserved
+  - source lines 203-251 `activecode:: strConcatDemo` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 96-146 -> prompt, full code, starter output, and modification directions preserved
+  - source lines 260-299 `clickablearea:: var_declare`, `var_init` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 148-216 -> prompts, code, and correct declaration/initialization lines preserved
+  - source lines 305-340 `activecode:: asgn_order` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 228-256 -> broken code, prompt, expected output, and target assignment rule preserved
+  - source lines 344-365 `fillintheblank:: fillDecVar1` through `fillDecVar3` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 258-294 -> blanks, prompts, and expected responses preserved
+  - source lines 370-388 `parsonsprob:: declareVars1` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 296-320 -> prompt, needed blocks, and extra wrong blocks preserved
+  - source lines 421-455 `activecode:: varCaseSensitive` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 361-391 -> prompt, broken code, expected output, and exact-name fix preserved
+  - source lines 459-473 `fillintheblank:: fillName1`, `fillName2` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 393-407 -> camelCase prompts and expected names preserved
+  - source lines 509-530 `activecode:: challenge1-2-weather` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.qmd` lines 29-75 -> full broken starter, expected output, and debugging focus preserved
+  - source lines 533-604 `activecode:: challengeMadLibs` -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.qmd` lines 77-153 -> Mad Libs prompt, pair deliverable, starter code, expected poem shape, and placeholder replacement test preserved
+- Source coverage map:
+  - source lines 12-153 -> `AP CSA/slides/1-using-objects-and-methods/1-2-variables-and-data-types.qmd` lines 17-181 -> variable concept, data types, and type-choice checks preserved
+  - source lines 156-473 -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-2-declaring-assigning-and-naming-variables.qmd` lines 17-407 -> declaration, assignment, printing, tracing, mixed-code, and naming content preserved
+  - source lines 476-604 -> `AP CSA/slides/1-using-objects-and-methods/1-2-part-3-weather-and-mad-libs-challenges.qmd` lines 17-153 -> Weather debugging and Mad Libs group challenge preserved
+- Compression/adaptation log:
+  - source lines 20-23 YouTube embed is omitted; the adjacent variable definition, score example, and Pong figure are retained
+  - source lines 231-251, 321-340, 437-455, 509-530, and 574-604 Runestone JUnit classes are not copied verbatim; prompts, starter/broken code, expected output, and key test assertions are retained on `Test Requirements` slides
+  - source lines 539-544 external Scanner/JuiceMind IDE directions are not made a required classroom step; the paired static Mad Libs task and optional input note are retained
 - Omitted items:
-  - YouTube video
-  - Scanner enrichment link for optional IDE input
-  - Summary
-  - AP practice multiple choice
+  - source lines 20-23 YouTube video -> omitted optional external media
+  - source lines 539-544 Scanner/JuiceMind external IDE directions -> omitted as required tool dependency; noted as optional extension
+  - source lines 606-630 `Summary` -> omitted allowed category
+  - source lines 631-648 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/pongScore.png` -> `AP CSA/assets/1-using-objects-and-methods/1-2-variables-and-data-types/pongScore.png`
   - `Figures/typesAndSpace.png` -> `AP CSA/assets/1-using-objects-and-methods/1-2-variables-and-data-types/typesAndSpace.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 1.3 Expressions and Output
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-3-expressions.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd`
 - Kept sections:
-  - Output
-  - Expressions and Operators
-  - Compound Expressions
-  - The Remainder Operator
+  - source lines 12-27 `Output` -> `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd` lines 17-36 -> `print`, `println`, string literal, and literal definitions preserved
+  - source lines 85-91 escape-sequence explanation -> `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd` lines 74-98 -> double-quote, backslash, and newline escape behavior preserved
+  - source lines 126-155 `Expressions and Operators` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 17-61 -> arithmetic expression definition, operator symbols, `int`/`double` result types, and truncating division preserved
+  - source lines 194-238 logic/runtime math errors -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 107-162 -> Hubble context, logic error testing point, centimeters-to-inches task, and divide-by-zero note preserved
+  - source lines 240-243 `Compound Expressions` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 164-186 -> compound expression, precedence order, and parentheses behavior preserved
+  - source lines 286-315 `The Remainder Operator` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 17-47 -> `%`, operands, truncating integer division, `5 % 2`, remainder/mod boundary, and AP exam note preserved
+  - source lines 369-370 remainder pattern note -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 85-93 -> `x % y` when `x < y` pattern preserved
+  - source lines 408-415 Pay Calculator intro and figure -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 127-137 -> pair-work challenge context and dollar figure preserved
 - Kept exercises:
-  - `activecode:: printCommands` -> converted to output code task slide
-  - `activecode:: bhescape` -> converted to escape sequence code slide
-  - `activecode:: lcop1` -> converted to arithmetic/truncating division code task slide
-  - `activecode:: cm2in-runtime-error` -> converted to logic-error debugging task
-  - `activecode:: compound1` -> converted to precedence prediction slide
-  - `activecode:: lcop2` -> converted to remainder prediction slide
-  - `mchoice:: mcq-rem1`, `mcq-rem2` -> converted to quick check slide
-  - `activecode:: challenge1-3-pay-calculator` -> converted to pay calculator coding challenge slide
+  - source lines 28-83 `activecode:: printCommands` -> `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd` lines 38-72 -> prompt, starter code, expected output, and line-count target preserved
+  - source lines 87-122 `activecode:: bhescape` -> `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd` lines 100-138 -> prompt, full code, and escape-sequence inspection focus preserved
+  - source lines 157-191 `activecode:: lcop1` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 63-105 -> prompt, starter code, expected changed output, and `2.0/3` test message preserved
+  - source lines 196-236 `activecode:: cm2in-runtime-error` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 117-152 -> prompt, broken code, expected output, and division-operator requirement preserved
+  - source lines 249-284 `activecode:: compound1` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 188-226 -> prompt, full code, expected output, and precedence reasoning preserved
+  - source lines 329-367 `activecode:: lcop2` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 49-83 -> prompt, starter code, and expected output preserved
+  - source lines 378-402 `mchoice:: mcq-rem1`, `mcq-rem2` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 95-125 -> questions, answer choices, correct answers, and reasoning preserved
+  - source lines 417-504 `activecode:: challenge1-3-pay-calculator` -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 139-215 -> full starter code, required expressions, output target, and code-contained test targets preserved
+- Source coverage map:
+  - source lines 12-122 -> `AP CSA/slides/1-using-objects-and-methods/1-3-expressions-and-output.qmd` lines 17-138 -> output methods, literals, escape sequences, and related activecode tasks preserved
+  - source lines 126-284 -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-2-arithmetic-and-compound-expressions.qmd` lines 17-226 -> arithmetic expressions, truncating division, logic-error task, divide-by-zero note, and compound expressions preserved
+  - source lines 286-504 -> `AP CSA/slides/1-using-objects-and-methods/1-3-part-3-remainder-and-pay-calculator.qmd` lines 17-215 -> remainder operator, remainder checks, and Pay Calculator challenge preserved; external video omitted
+- Compression/adaptation log:
+  - source lines 45-83, 105-122, 175-191, 213-236, 265-284, 348-367, and 456-504 Runestone JUnit classes are not copied verbatim; prompts, starter/broken code, expected output, and key test assertions are retained on `Test Requirements` slides
+  - source lines 317-327 external YouTube embed is omitted; the surrounding `%` explanation, figure, and remainder/mod boundary are retained
+  - source lines 417-504 Pay Calculator starter is kept as complete starter code in a `.code-scroll` block, followed by focused expressions and test targets
 - Omitted items:
-  - YouTube video
-  - Summary
-  - AP practice multiple choice
+  - source lines 317-327 YouTube video -> omitted optional external media
+  - source lines 508-537 `Summary` -> omitted allowed category
+  - source lines 539-606 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/mod-py.png` -> `AP CSA/assets/1-using-objects-and-methods/1-3-expressions-and-output/mod-py.png`
   - `Figures/dollarSign.png` -> `AP CSA/assets/1-using-objects-and-methods/1-3-expressions-and-output/dollarSign.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 1.4 Assignment and Input
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-4-assignment.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-4-part-3-dog-years-challenge.qmd`
 - Kept sections:
-  - Assignment Statements
-  - Data Types in Assignments
-  - Reference type `null`
-  - Adding 1 to a Variable
-  - Input with Variables
-  - Groupwork Coding Challenge: Dog Years
+  - source lines 12-25 `Assignment Statements` -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 17-37 -> assignment definition, single left-side variable, right-side expression value, assignment figure, and "gets/is assigned" reading preserved
+  - source lines 39-47 assignment copy and visualizer setup -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 39-53 -> copy-of-value concept preserved, external visualizer/video omitted
+  - source lines 127-131 `Data Types in Assignments` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 17-35 -> initialized-before-use, compatible type, expression evaluation, and `double` target requirement preserved
+  - source lines 173-180 reference type `null` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 74-87 -> `String`, new object, and `null` reference meaning preserved
+  - source lines 182-191 `Adding 1 to a Variable` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 89-101 -> score increment and right-side previous-value explanation preserved
+  - source lines 230-249 `Input with Variables` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 139-157 -> variables as abstraction, input forms, `Scanner`, and different name values preserved
+  - source lines 292-300 `Groupwork Coding Challenge : Dog Years` intro -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-3-dog-years-challenge.qmd` lines 17-55 -> dog image, challenge context, variables, formulas, output, and pair-programming driver switch preserved
 - Kept exercises:
-  - `codelens:: asgn_viz1` -> converted to assignment tracing slide
-  - `mchoice:: qasgn1` -> converted to trace quick check slide
-  - `parsonsprob:: swapParsons` -> converted to mixed-up swap slide
-  - `activecode:: assignmentTypes` -> converted to incompatible-type debugging task
-  - `activecode:: incrementScore` -> converted to update-pattern code task
-  - `activecode:: inputName` -> converted to Scanner input code slide
-  - `activecode:: challenge1-4` -> converted to Dog Years coding challenge slides
-  - `mchoice:: apcsa_sample1` -> converted to assignment/expression quick check
+  - source lines 50-69 `codelens:: asgn_viz1` -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 49-91 -> full code and trace moments preserved
+  - source lines 73-101 `mchoice:: qasgn1` -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 93-121 -> prompt, code, choices, correct answer, and feedback reasoning preserved
+  - source lines 103-126 `parsonsprob:: swapParsons` -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 123-163 -> prompt, mixed blocks, distractor, and correct order preserved
+  - source lines 133-170 `activecode:: assignmentTypes` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 37-72 -> prompt, incompatible-type code, and expected output preserved
+  - source lines 193-228 `activecode:: incrementScore` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 103-137 -> prompt, code, substitution task, and expected output preserved
+  - source lines 251-288 `activecode:: inputName` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 149-187 -> prompt, full Scanner code, typed-name task, and Scanner example test intent preserved
+  - source lines 302-415 `activecode:: challenge1-4` -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-3-dog-years-challenge.qmd` lines 57-123 -> full starter code, initialized-variable requirements, output requirement, print requirement, formula checks, and accepted alternate dog-years formula preserved
+- Source coverage map:
+  - source lines 12-126 -> `AP CSA/slides/1-using-objects-and-methods/1-4-assignment-and-input.qmd` lines 17-163 -> assignment concept, assignment figure, copy trace, assignment MC, and swap Parsons preserved; video and external visualizer omitted
+  - source lines 127-290 -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-2-types-null-increment-and-input.qmd` lines 17-187 -> compatible types, `null`, increment, Scanner input, and input AP boundary preserved; external input links omitted
+  - source lines 292-430 -> `AP CSA/slides/1-using-objects-and-methods/1-4-part-3-dog-years-challenge.qmd` lines 17-133 -> Dog Years context, full starter, tests, formulas, and optional interactive-input note preserved
+- Compression/adaptation log:
+  - source lines 27-37 YouTube embed and lines 43-47, 75-77 Java visualizer links are omitted; the assignment-copy explanation and full trace code are retained as static slides
+  - source lines 153-170, 210-228, 271-288, and 336-415 Runestone JUnit classes are not copied verbatim; prompts, starter/broken code, expected output, and key test assertions are retained on `Test Requirements` slides
+  - source lines 233-245, 290, and 418-430 external Scanner/Replit/JuiceMind/W3Schools/Console links are not made required; the Scanner concept, code, AP exam boundary, and optional extension note are retained
 - Omitted items:
-  - YouTube video
-  - External Java visualizer links
-  - External Scanner/Replit/JuiceMind enrichment links
-  - Summary
-  - AP Classroom progress check note
+  - source lines 27-37 YouTube video -> omitted optional external media
+  - source lines 43-47 and 75-77 external Java visualizer links -> omitted external tool dependency
+  - source lines 233-245, 290, and 418-430 external Scanner/Replit/JuiceMind/W3Schools/Console links -> omitted as required tool dependency; optional interactive-input path noted
+  - source lines 432-446 `Summary` -> omitted allowed category
+  - source lines 448-474 `AP Practice` -> omitted allowed category
+  - source lines 476-480 `AP Classroom Progress Check Unit 1 Part 1` -> omitted external AP Classroom direction
 - Assets:
   - `Figures/assignment.png` -> `AP CSA/assets/1-using-objects-and-methods/1-4-assignment-and-input/assignment.png`
   - `Figures/dog-free.png` -> `AP CSA/assets/1-using-objects-and-methods/1-4-assignment-and-input/dog-free.png`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 1.5 Casting and Ranges of Values
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-5-casting.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-5-part-3-average-3-numbers-challenge.qmd`
 - Kept sections:
-  - Casting
-  - Widening conversion
-  - Rounding
-  - Range of Values
-  - Double precision and round-off error
-  - Groupwork Coding Challenge: Average 3 Numbers
+  - source lines 12-38 `Casting` -> `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd` lines 17-58 -> type casting definition, bronze analogy, figure, cast operators, `(double) 1 / 3`, `(int) 3.6`, and truncation preserved
+  - source lines 93-128 truncating and widening conversion -> `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd` lines 106-168 -> `int / int`, `9 / 10`, contagious `double`, average pattern, widening conversion, and `Integer.MIN_VALUE`/`MAX_VALUE` note preserved
+  - source lines 130-157 `Rounding` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 17-43 -> positive/negative rounding formulas and `1.75`/`1.25` examples preserved
+  - source lines 213-225 `Range of Values` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 92-114 -> `double` digit limit, `int` constants, 4-byte storage, inclusive range, and integer overflow preserved
+  - source lines 266-271 double precision and formatting intro -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 154-184 -> memory allocation, 8-byte `double`, round-off error, 15-digit cutoff, precision rounding, and `printf` boundary preserved
+  - source lines 340-343 `Groupwork Coding Challenge : Average 3 Numbers` intro -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-3-average-3-numbers-challenge.qmd` lines 17-41 -> pair programming, three grades, sum, average, casting, sample `90/100/94`, and variable-use rule preserved
 - Kept exercises:
-  - `activecode:: cast-division` -> converted to division-with-casts code task
-  - `activecode:: nearestInt` -> converted to rounding-by-casting code task
-  - `activecode:: overfl` -> converted to integer overflow debugging task
-  - `activecode:: double_precision` -> converted to formatting demo slide
-  - `mchoice:: q_round`, `q_cast` -> converted to quick check table
-  - `activecode:: challenge1-5-average` -> converted to Average 3 Numbers challenge slides
-  - `mchoice:: AP_casting` -> converted to average-expression quick check
+  - source lines 45-91 `activecode:: cast-division` -> `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd` lines 60-104 -> prompt, full starter code, added `(double)` task, and expected output preserved
+  - source lines 159-211 `activecode:: nearestInt` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 45-90 -> prompt, full starter code, added rounding task, and expected output preserved
+  - source lines 227-264 `activecode:: overfl` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 116-152 -> prompt, overflow code, fix instruction, and expected fixed output preserved
+  - source lines 273-315 `activecode:: double_precision` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 176-220 -> prompt, formatting code, `2.0/3` task, and `0.67` output requirement preserved
+  - source lines 317-337 `mchoice:: q_round`, `q_cast` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 222-250 -> true/false prompts, answers, and feedback reasoning preserved
+  - source lines 346-600 `activecode:: challenge1-5-average` -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-3-average-3-numbers-challenge.qmd` lines 43-140 -> prompt, full starter code, grade variable checks, `average` declaration check, `(double)` check, sum/division checks, and expected calculation preserved
+- Source coverage map:
+  - source lines 12-128 -> `AP CSA/slides/1-using-objects-and-methods/1-5-casting-and-ranges-of-values.qmd` lines 17-168 -> casting, cast-division task, truncation, widening, average pattern, and `int` range note preserved
+  - source lines 130-337 -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-2-rounding-ranges-and-precision.qmd` lines 17-250 -> rounding, nearest-int task, range, overflow task, double precision, formatting task, and quick checks preserved
+  - source lines 340-615 -> `AP CSA/slides/1-using-objects-and-methods/1-5-part-3-average-3-numbers-challenge.qmd` lines 17-150 -> Average 3 Numbers challenge, starter code, tests, and optional external IDE note preserved
+- Compression/adaptation log:
+  - source lines 67-91, 187-211, 244-264, 297-315, and 375-600 Runestone JUnit classes are not copied verbatim; prompts, starter code, expected output, and key test assertions are retained on `Test Requirements` slides
+  - source lines 603-615 external Scanner/Replit/JuiceMind links are not made required; optional interactive-input path is noted
+  - source lines 617-717 Bonus Challenge Unicode is omitted as optional enrichment outside the required casting/ranges lesson
 - Omitted items:
-  - Optional external Scanner/Replit/JuiceMind links
-  - Bonus Challenge: Unicode
-  - Summary
-  - AP practice bank beyond the retained average-expression check
+  - source lines 603-615 external Scanner/Replit/JuiceMind links -> omitted as required tool dependency; optional extension noted
+  - source lines 617-717 `Bonus Challenge : Unicode` -> omitted optional enrichment
+  - source lines 718-747 `Summary` -> omitted allowed category
+  - source lines 749-765 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/bronze-casting.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-5-casting-and-ranges-of-values/bronze-casting.jpg`
 - Verification:
   - [x] Rendered with `bash scripts/render-clean-reveal.sh`
   - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Passed `node scripts/check-ap-csa-source-fidelity.mjs`
 
 ## Topic 1.6 Compound Assignment Operators
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-6-compound-operators.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd`
 - Kept sections:
-  - Compound Assignment Operators
-  - Increment and decrement operators
-  - Prefix/postfix note with AP boundary
-  - Code Tracing
-  - Groupwork Code Tracing Challenge
+  - source lines 16-26 compound assignment intro and mnemonic -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 17-39 -> `+=`, `-=`, `*=`, `/=`, `%=` meaning, `x += 1`, and operator-then-equal mnemonic preserved
+  - source lines 28-37 increment/decrement operators -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 41-72 -> `++`, `--`, increment/decrement vocabulary, equivalent forms, and operator boundary preserved
+  - source lines 39-43 C++ naming note -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 74-80 -> inside joke and increment/improvement meaning preserved
+  - source lines 46-59 operator table -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 82-92 -> written-out, compound, and extra-concise forms preserved
+  - source lines 121-139 prefix/postfix AP boundary -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 158-191 -> prefix/postfix definitions, print examples, and AP exam limitation preserved
+  - source lines 195-202 Code Tracing Challenge and trace-table explanation -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 99-117 -> groupwork prompt, code tracing definition, dry-run use, and trace-table purpose preserved
+  - source lines 204-214 trace-table figures -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 119-131 -> column and inline trace-table formats preserved
 - Kept exercises:
-  - `activecode:: compound-ops` -> converted to compound operator code task
-  - `mchoice:: q_trace_increment` -> converted to trace quick check
-  - `mchoice:: q_trace_increment2` -> converted to mixed-update trace quick check
-  - `shortanswer:: challenge1-6` -> converted to trace table groupwork challenge
+  - source lines 62-120 `activecode:: compound-ops` -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 94-156 -> prompt, starter code, expected output, and `+=`/`/=` test requirements preserved
+  - source lines 142-169 `mchoice:: q_trace_increment` -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 25-60 -> prompt, code, answer choices, correct answer, and reasoning preserved
+  - source lines 170-193 `mchoice:: q_trace_increment2` -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 62-97 -> prompt, code, answer choices, correct answer, and integer-division reasoning preserved
+  - source lines 216-233 tracing code and `shortanswer:: challenge1-6` -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 133-155 -> full trace code and student trace-table deliverable preserved
+- Source coverage map:
+  - source lines 16-139 -> `AP CSA/slides/1-using-objects-and-methods/1-6-compound-assignment-operators.qmd` lines 17-191 -> compound operators, increment/decrement, operator table, activecode task, and prefix/postfix note preserved
+  - source lines 142-233 -> `AP CSA/slides/1-using-objects-and-methods/1-6-part-2-tracing-and-groupwork-challenge.qmd` lines 17-155 -> quick checks, answer reasoning, tracing challenge, trace-table figures, full trace code, and shortanswer prompt preserved
+- Compression/adaptation log:
+  - source lines 89-119 Runestone JUnit class is not copied verbatim; prompt, starter code, expected output, and key test assertions are retained on `Expected Output` and `Test Requirements` slides
+  - source lines 145-182 repeated Runestone feedback for incorrect choices is consolidated into answer-reasoning slides while preserving the exact correct answer, shared feedback idea, and trace reasoning
 - Omitted items:
-  - C++ naming enrichment note as standalone content
-  - External Operators Maze game
-  - Summary
-  - Review/Practice for Unit 1 Part 1 links
-  - AP Classroom progress check note
+  - source lines 234-241 `Operators Maze game` external Google Doc game -> omitted allowed classroom-unsuitable game/external activity
+  - source lines 243-251 `Summary` -> omitted allowed category
+  - source lines 254-270 `Review/Practice for Unit 1 Part 1` and AP Classroom direction -> omitted allowed review/AP Classroom category
 - Assets:
   - `Figures/traceTable.png` -> `AP CSA/assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceTable.png`
+  - `Figures/traceInline.png` -> `AP CSA/assets/1-using-objects-and-methods/1-6-compound-assignment-operators/traceInline.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Rendered both decks with `bash scripts/render-clean-reveal.sh`
+  - [x] Both decks passed `bash scripts/check-clean-reveal.sh`
+  - [x] Both decks passed `node scripts/check-slide-density.mjs`
+  - [x] Both decks passed `node scripts/check-slide-overflow.mjs`
 
-## Topic 1.7 Application Program Interface and Libraries
+## Topic 1.7 APIs and Libraries
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-7-APIs-and-libraries.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.qmd`
 - Kept sections:
-  - APIs and Libraries
-  - `java.lang` Package
-  - Turtle Library
-  - Attributes and Behaviors
-  - Dot Operator
-  - Groupwork Coding Challenge: Turtle Drawing
+  - source lines 23-30 API, library, package, class, and method intro -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 17-59 -> `System.out.println()`, API, library, package, reusable code, and method definitions preserved
+  - source lines 31-37 `java.lang Package` and documentation -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 61-99 -> built-in `java.lang`, `String`, `System`, `System.out`, `PrintStream`, and `println()` connection preserved; external documentation URLs omitted
+  - source lines 73-80 Turtle library and class/object introduction -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 17-47 -> Turtle movement, library/class/reference type, `yertle` object, and data/behavior definition preserved
+  - source lines 82-90 Turtle attributes and behaviors figure/explanation -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 39-57 -> figure, attributes/fields, behaviors/methods, and Turtle examples preserved
+  - source lines 92-100 documentation reading and dot operator -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 59-84 -> parentheses rule, attributes without parentheses, `yertle.forward()`, `yertle.turnRight()`, and dot operator preserved; external API URL omitted
+  - source lines 282-292 Turtle Drawing groupwork intro and method list -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.qmd` lines 88-111 -> shape examples, pair-work context, and six simple Turtle methods preserved; external API URL omitted
 - Kept exercises:
-  - `fillintheblank:: count-println` -> converted to documentation-count quick check
-  - `dragndrop:: API_vocab_match` -> converted to vocabulary table
-  - `mchoice:: purpose_apis` -> converted to API purpose quick check
-  - `activecode:: TurtleAPI` -> converted to Turtle API code task
-  - `mchoice:: turtle_dir`, `turtle_type`, `type_turn_right`, `type_position`, `attributes_class` -> converted to turtle vocabulary quick check
-  - `parsonsprob:: parsons_TurtleL` -> converted to mixed-up turtle code slide
-  - `activecode:: challenge1-7-TurtleShape` -> converted to Turtle Drawing coding challenge slides
+  - source lines 38-45 `fillintheblank:: count-println` -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 101-109 -> prompt, answer `10`, and `print`/`printf` boundary preserved
+  - source lines 49-57 `dragndrop:: API_vocab_match` -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 111-137 -> prompt, all five definitions, concepts, and answer key preserved
+  - source lines 59-70 `mchoice:: purpose_apis` -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 139-164 -> question, choices, correct answer, and feedback reasoning preserved
+  - source lines 111-167 `activecode:: TurtleAPI` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 86-133 -> prompt, complete starter code, add-one-line task, and `yertle.forward` count test preserved; external IDE/replit/download links omitted
+  - source lines 171-185 `mchoice:: turtle_dir` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 135-150 -> question, choices, correct answer, and north-facing feedback preserved
+  - source lines 188-199 `mchoice:: turtle_type` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 152-179 -> question, choices, correct answer, and class/object/attribute/method reasoning preserved
+  - source lines 201-212 `mchoice:: type_turn_right` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 181-208 -> question, choices, correct answer, and behavior/method reasoning preserved
+  - source lines 214-225 `mchoice:: type_position` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 210-225 -> question, choices, correct answer, and attribute feedback preserved
+  - source lines 228-239 `mchoice:: attributes_class` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 227-242 -> question, choices, correct answer, and attributes-not-methods/packages reasoning preserved
+  - source lines 241-280 `parsonsprob:: parsons_TurtleL` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.qmd` lines 31-86 -> prompt, target image, mixed blocks, two extra blocks, correct order, and distractor rejection preserved
+  - source lines 295-395 `activecode:: challenge1-7-TurtleShape` -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.qmd` lines 113-155 -> prompt, full starter code, student drawing insertion point, and `3+ turns`/`4+ moves`/`25+ lines` test requirements preserved
+- Source coverage map:
+  - source lines 23-70 -> `AP CSA/slides/1-using-objects-and-methods/1-7-application-program-interface-and-libraries.qmd` lines 17-164 -> API/library/package intro, `java.lang`, documentation, fill-in, matching, and purpose quick check preserved
+  - source lines 73-240 -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-2-turtle-library-and-dot-operator.qmd` lines 17-242 -> Turtle library, class/object, attributes/behaviors, dot operator, TurtleAPI starter/test, and five quick checks preserved
+  - source lines 241-395 -> `AP CSA/slides/1-using-objects-and-methods/1-7-part-3-turtle-practice-and-challenge.qmd` lines 17-155 -> Parsons mixed-up code, Turtle Drawing challenge, starter, and Runestone test requirements preserved
+- Compression/adaptation log:
+  - source lines 34-36 Oracle API documentation URLs are omitted as external links; the documentation-reading concept, `System`/`PrintStream` relationship, and `println()` count task are retained
+  - source lines 92-93 Turtle API documentation URL is omitted as an external link; the method-vs-attribute documentation-reading rule is retained
+  - source lines 103-109 and 116-117 JuiceMind/Replit/GitHub external execution/download links are omitted; the TurtleAPI prompt, starter, and test target are retained
+  - source line 285 Turtle API documentation URL is omitted as an external link; the six method calls listed in the source are retained
+  - source lines 322-395 Runestone JUnit class is not copied verbatim; prompt, starter code, and key test assertions are retained on `Test Requirements` slides
 - Omitted items:
-  - External API documentation links
-  - External Turtle IDE/Replit/GitHub links
-  - Embedded `turtleClasses.jar` source listing
-  - Summary
+  - source lines 397-414 `Summary` -> omitted allowed category
+  - source lines 417-3095 hidden `turtleClasses.jar` source listing -> omitted embedded support library/source listing
 - Assets:
   - `Figures/turtleOOD.png` -> `AP CSA/assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleOOD.png`
   - `Figures/turtleForwardLeftForward.png` -> `AP CSA/assets/1-using-objects-and-methods/1-7-application-program-interface-and-libraries/turtleForwardLeftForward.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.8 Documentation with Comments
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-8-comments.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd`
 - Kept sections:
-  - Comments
-  - Documentation comments and Javadoc-style tags
-  - Preconditions and Postconditions
-  - `Math.sqrt` precondition
-  - Turtle `forward` precondition example
-  - Software Validity and Use-Case Diagrams
-  - Coding Challenge: Preconditions in Algorithms
+  - source lines 12-22 comments intro and three comment types -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 17-41 -> readability/maintenance purpose, compiler-ignore behavior, and `//`, `/* */`, `/** */` forms preserved
+  - source lines 35-37 single-line, multiline, and documentation comments -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 39-51 -> comment delimiters, `javadoc` purpose, AP boundary, and library documentation reason preserved; external links omitted
+  - source lines 50-78 comment example and documentation tags -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 77-123 -> compiler skip behavior, textbook code example, IDE formatting note, and common Javadoc tags preserved
+  - source lines 135-142 preconditions, postconditions, and math examples -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd` lines 17-55 -> definitions, method expectations, method promises, division by zero, `Math.sqrt`, and `NaN` concept preserved; external API URL omitted
+  - source lines 179-194 Turtle `forward` documentation example -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd` lines 98-125 -> `@param`, pixel range precondition, edge-of-world behavior, and postcondition preserved
+  - source lines 266-275 software validity and use-case diagram intro -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd` lines 17-45 -> validity, tester behavior, precondition-breaking, use-case diagram, actors, and use-case definition preserved
+  - source lines 277-290 restaurant use-case diagram and conditions -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd` lines 47-75 -> figure, two actors, three use-cases, Order Food pre/postconditions, and Eat Food pre/postconditions preserved
 - Kept exercises:
-  - `dragndrop:: comments` -> converted to comment-type table
-  - `activecode:: commentExercise` -> converted to add-comments code task
-  - `activecode:: math-preconditions` -> converted to `Math.sqrt` precondition task
-  - `activecode:: turtle-preconditions` -> converted to Turtle precondition experiment
-  - `shortanswer:: payconditions` -> converted to student response task
-  - `shortanswer:: challenge-1-8-use-case-preconditions` -> converted to groupwork challenge
-  - `mchoice:: AP-preconditions` -> converted to AP-style quick check
+  - source lines 39-47 `dragndrop:: comments` -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 53-75 -> prompt, three definitions, symbols, and answer key preserved
+  - source lines 80-131 `activecode:: commentExercise` -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 125-174 -> prompt, stdin `5 5`, program to annotate, and `/*`/`//` test requirements preserved
+  - source lines 144-176 `activecode:: math-preconditions` -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd` lines 57-96 -> prompt, broken `num = -4` code, `NaN` outcome, precondition question, and `SqRoot` test target preserved
+  - source lines 205-264 `activecode:: turtle-preconditions` -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd` lines 127-177 -> prompt, full TurtlePreconditions code, `forward(100)` change target, negative-number prompt, and Runestone change check preserved
+  - source lines 292-296 `shortanswer:: payconditions` -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd` lines 77-83 -> Pay for food prompt and relation to Order Food/Eat Food conditions preserved
+  - source lines 332-343 `shortanswer:: challenge-1-8-use-case-preconditions` -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd` lines 85-109 -> online-store context, four-step requirement, and precondition/postcondition deliverable preserved; external drawing tool omitted
+- Source coverage map:
+  - source lines 12-132 -> `AP CSA/slides/1-using-objects-and-methods/1-8-documentation-with-comments.qmd` lines 17-174 -> comments, documentation comments, matching exercise, example, Javadoc tags, and commentExercise preserved
+  - source lines 135-264 -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-2-preconditions-and-postconditions.qmd` lines 17-177 -> preconditions, postconditions, Math.sqrt task, Turtle forward documentation, and Turtle precondition task preserved
+  - source lines 266-343 -> `AP CSA/slides/1-using-objects-and-methods/1-8-part-3-use-cases-and-precondition-challenge.qmd` lines 17-109 -> software validity, use-case diagram, restaurant conditions, Pay for food response, and online-store precondition challenge preserved; Agile/Scrum/video/game and external drawing tool omitted
+- Compression/adaptation log:
+  - source lines 23-33 and 37 Java JDK, javadoc, and String class external links are omitted; documentation comment purpose and AP boundary are retained
+  - source lines 107-131 Runestone JUnit class is not copied verbatim; prompt, starter program, stdin, and key comment checks are retained on `Test Requirements` slides
+  - source line 142 Math API documentation URL is omitted; the `Math.sqrt` special case and precondition are retained
+  - source lines 197-203 and 207-208 GitHub/Replit external links are omitted; the Turtle precondition experiment prompt and starter code are retained
+  - source lines 161-176 and 241-263 Runestone JUnit classes are not copied verbatim; prompts, source code, and key checks are retained on `Test Requirements` slides
+  - source lines 335-339 Creately external drawing tool direction is omitted; the four-step online-store precondition/postcondition task is retained
 - Omitted items:
-  - External JDK/Javadoc/String documentation links
-  - External software-design drawing tool links
-  - Agile Scrum video and Wake Up In the Morning game
-  - Summary
+  - source lines 298-329 Agile/Scrum video and Wake Up game -> omitted optional external media/game
+  - source lines 345-354 `Summary` -> omitted allowed category
+  - source lines 357-386 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/use-case-restaurant.png` -> `AP CSA/assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png`
-  - `Figures/waterfallVsAgile.png` -> `AP CSA/assets/1-using-objects-and-methods/1-8-documentation-with-comments/waterfallVsAgile.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.9 Method Signatures
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-9-method-signatures.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-9-part-4-song-with-parameters-challenge.qmd`
 - Kept sections:
-  - Methods and Procedural Abstraction
-  - Method Calls
-  - Flow of Control
-  - Method Signature, Parameters, Arguments
-  - Argument-to-parameter matching
-  - Call by Value
-  - Overloading
-  - Groupwork Coding Challenge: Song with Parameters
+  - source lines 13-24 methods and procedural abstraction -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 17-49 -> method, block, subproblem decomposition, and car-brake abstraction analogy preserved
+  - source lines 26-34 method calls and repeated-code motivation -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 51-59 -> organizing code, reducing complexity, avoiding repetition, and Old MacDonald setup preserved
+  - source lines 54-67 method-call definition and `methodName()` example -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 96-123 -> method call, parentheses, data in parentheses, and `println()` example preserved; external visualizer link omitted
+  - source lines 67-99 flow of control and Old MacDonald codelens -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 125-173 -> `main`, flow jumps, return after call, full codelens code, method order note, and flow-of-control note preserved
+  - source lines 228-252 method signatures, headers, parameters, arguments, and `println` examples -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd` lines 17-101 -> method header, return type, `void`, method signature, parameter list, empty parameter list, arguments, and compatible-call examples preserved; external API URL omitted
+  - source lines 254-260 method-parts figure -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd` lines 83-91 -> method signature and method call figure preserved
+  - source lines 286-326 parameters, arguments, `verse`, main outline, and argument flow -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd` lines 119-203 -> animal/sound differences, formal/actual parameter vocabulary, `verse` method, `main` calls, and argument-to-parameter flow preserved; external visualizer link omitted
+  - source lines 328-365 parameterized Old MacDonald codelens -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd` lines 31-71 -> full `intro`, `chorus`, `verse`, and `main` code with parameterized calls preserved
+  - source lines 447-473 signature matching, arguments-to-parameters figure, header/call distinction, and call by value -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd` lines 149-220 -> method matching rules, signature forms, args2params figure, header-versus-call code, and call-by-value explanation preserved
+  - source lines 475-482 overloading -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd` lines 222-250 -> overloaded-method definition, `println` overload examples, and compiler choice by number/types of arguments preserved; external API URL omitted
 - Kept exercises:
-  - `clickablearea:: repeatedcode-old-mcdonald` -> converted to repeated-code method opportunity slide
-  - `codelens:: songvizOldMcdonald` -> converted to flow-of-control code slide
-  - `activecode:: song-add-calls` -> converted to method-call code task
-  - `mchoice:: songMethodsTrace` -> converted to method-call trace task
-  - `clickablearea:: different-code-old-mcdonald` -> converted to parameter-identification slide
-  - `codelens:: songvizOldMcdonald2` -> converted to method-with-parameters flow slide
-  - `activecode:: OldMacDonaldSong2` -> converted to add-verses-with-arguments code task
-  - `activecode:: challenge-1-9-song` -> converted to Ants Song groupwork challenge slides
-  - `dragndrop:: vocab1_9` -> converted to vocabulary table
-  - `mchoice:: AP-trace-method-calls` -> converted to AP-style trace check
+  - source lines 36-52 `clickablearea:: repeatedcode-old-mcdonald` -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 61-94 -> prompt, source code, repeated-line targets, and method-opportunity conclusion preserved
+  - source lines 101-174 `activecode:: song-add-calls` -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 175-238 -> prompt, full starter code, TODO sequence, and `intro()`/`chorus()` call-count tests preserved
+  - source lines 175-220 `mchoice:: songMethodsTrace` -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 240-297 -> question, full code, answer choices, correct answer, and trace reasoning preserved
+  - source lines 262-284 `clickablearea:: different-code-old-mcdonald` -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd` lines 103-132 -> prompt, repeated verse lines, and correct changing words `cow`/`duck` and `moo`/`quack` preserved
+  - source lines 366-445 `activecode:: OldMacDonaldSong2` -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd` lines 73-147 -> prompt, full starter code, TODO sequence, goose/honk requirement, another-animal extension, and `intro()` count test preserved
+  - source lines 486-519 `clickablearea:: clickDifferentAntSong` -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-4-song-with-parameters-challenge.qmd` lines 17-80 -> prompt, three Ants Go Marching verses, changing phrases, and answer phrases preserved; external YouTube link omitted
+  - source lines 522-627 `activecode:: challenge-1-9-song` -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-4-song-with-parameters-challenge.qmd` lines 82-165 -> coding prompt, full starter code with student insertion point, chorus/verse call-count checks, and complete expected output preserved
+- Source coverage map:
+  - source lines 13-226 -> `AP CSA/slides/1-using-objects-and-methods/1-9-method-signatures.qmd` lines 17-297 -> method basics, procedural abstraction, repeated-code task, method call syntax, flow of control, Old MacDonald starter, and trace quick check preserved
+  - source lines 228-326 -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-2-signatures-parameters-and-arguments.qmd` lines 17-203 -> signatures, headers, `println` examples, method-parts figure, different-word task, parameters, arguments, `verse`, `main`, and argument flow preserved
+  - source lines 328-483 -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-3-call-by-value-and-overloading.qmd` lines 17-250 -> parameterized codelens, OldMacDonaldSong2 starter/tests, method matching, args2params figure, call by value, and overloading preserved
+  - source lines 486-627 -> `AP CSA/slides/1-using-objects-and-methods/1-9-part-4-song-with-parameters-challenge.qmd` lines 17-165 -> Ants Go Marching groupwork prompt, repeated-phrase identification, starter code, call-count tests, and expected output preserved
+- Compression/adaptation log:
+  - source lines 63-67 and 222-226 Python Tutor visualizer links are omitted; the static codelens code and tracing concept are retained
+  - source line 240 PrintStream documentation URL is omitted; the listed `println` signatures and matching calls are retained
+  - source lines 322-326 Python Tutor visualizer link is omitted; the argument-to-parameter flow is retained in static form
+  - source lines 420-445 Runestone JUnit class is not copied verbatim; prompt, starter code, goose/honk check, and `intro()` count check are retained
+  - source line 481 PrintStream documentation URL is omitted; overloaded `println` examples and compiler-choice rule are retained
+  - source lines 145-173 Runestone JUnit class is not copied verbatim; prompt, starter code, and `intro()`/`chorus()` call-count tests are retained
+  - source line 134 source TODO contains an ellipsis in `"And on that farm..."`; rewritten as `line beginning "And on that farm"` to comply with no-ellipsis slide rule while preserving the task
+  - source lines 489-493 YouTube link is omitted; song text and coding challenge are retained
+  - source lines 558-626 Runestone JUnit class is not copied verbatim; call-count checks and complete expected output are retained
+  - source line 551 blank student workspace is represented by `// Write your code here` as a static classroom insertion marker, preserving the starter task without making the page look like a worked answer
 - Omitted items:
-  - External visualizer links
-  - External song video link
-  - Summary
-  - AP Classroom progress check note
+  - source lines 629-657 `Summary` and summary drag-and-drop -> omitted allowed category
+  - source lines 658-717 `AP Practice` -> omitted allowed category
+  - source lines 718-721 `AP Classroom Progress Check Unit 1 Part 2` -> omitted external AP Classroom direction
 - Assets:
   - `Figures/method-parts.png` -> `AP CSA/assets/1-using-objects-and-methods/1-9-method-signatures/method-parts.png`
   - `Figures/args2paramsFarm.png` -> `AP CSA/assets/1-using-objects-and-methods/1-9-method-signatures/args2paramsFarm.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.10 Calling Class Methods
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-10-calling-class-methods.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.qmd`
 - Kept sections:
-  - Calling Class Methods
-  - Non-void Methods
-  - Square method and return values
-  - Common Errors with Methods
-  - Methods Outside the Class
-  - Math preview
-  - Groupwork Coding Challenge: Ladder on Tower
+  - source lines 12-24 class methods, `static`, `main`, and static method template -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 17-41 -> class-method definition, `static` placement, `main` note, and template preserved
+  - source lines 26-44 non-void methods and function-machine model -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 43-66 -> void/non-void distinction, calculated return value, metaphor, and `square(3)` setup preserved
+  - source lines 36-42 `function.png` figure -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 43-51 -> method-as-function figure preserved
+  - source lines 46-62 `square-method.png` figure and `square` implementation -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 68-84 -> square-method model, full method code, and `static int` return-type point preserved
+  - source lines 68-100 return statement, `squareviz` code, and returned-value examples -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 86-137 -> return behavior, full trace code, storing returned value, and using returned value directly preserved; external Python Tutor link omitted
+  - source lines 195-200 common errors with methods -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.qmd` lines 17-42 -> returned-value error, argument type/order mismatch, and return-value type mismatch preserved
+  - source lines 278-299 methods outside the class, `pow.png`, `Math.sqrt`, and `Math.pow` preview -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.qmd` lines 136-182 -> class-name call form, dot operator, pow image, Math preview method signatures, and example code preserved
+  - source lines 300-322 Ladder on Tower context and Pythagorean theorem -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.qmd` lines 17-52 -> ladder image, hypotenuse definition, formula, width/height context, and moat/window triangle preserved
 - Kept exercises:
-  - `codelens:: squareviz` -> converted to square method tracing slide
-  - `activecode:: squareMethod` -> converted to square-call code task
-  - `mchoice:: traceMethods1` -> converted to returned-value trace task
-  - `activecode:: fixMethodCalls` -> converted to method-call debugging task
-  - `mchoice:: hypotenuse-java-mc` -> converted to Pythagorean expression quick check
-  - `activecode:: challenge-1-10-pythagorean` -> converted to Ladder on Tower coding challenge slides
-  - `mchoice:: AP1-10-static-method`, `AP1-10-static-method2` -> converted to AP-style quick checks
+  - source lines 103-149 `activecode:: squareMethod` -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 139-174 -> prompt, full starter code, `square(6)` check, and expected output `36` preserved
+  - source lines 151-193 `mchoice:: traceMethods1` -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 176-222 -> prompt, full code, choices, correct answer, and integer-division reasoning preserved; external Python Tutor link omitted
+  - source lines 202-276 `activecode:: fixMethodCalls` -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.qmd` lines 44-134 -> prompt, full broken starter code, method-change restriction, type/call/order checks, expected output, and later worked fix preserved
+  - source lines 324-354 `mchoice:: hypotenuse-java-mc` -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.qmd` lines 54-86 -> prompt, formula, all four choices, correct answers, and reasoning for each choice preserved
+  - source lines 356-427 `activecode:: challenge-1-10-pythagorean` -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.qmd` lines 88-164 -> prompt, complete starter code with TODO blanks, expected output, and method test cases preserved
+- Source coverage map:
+  - source lines 12-193 -> `AP CSA/slides/1-using-objects-and-methods/1-10-calling-class-methods.qmd` lines 17-222 -> static/class method intro, non-void methods, square method figures/code, return values, square activecode, and trace mchoice preserved
+  - source lines 195-299 -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-2-common-errors-and-class-method-calls.qmd` lines 17-182 -> common method-call errors, fixMethodCalls starter/tests, class-name calls, dot operator, pow image, Math method signatures, and preview code preserved
+  - source lines 300-427 -> `AP CSA/slides/1-using-objects-and-methods/1-10-part-3-ladder-on-tower-challenge.qmd` lines 17-164 -> Ladder on Tower context, Pythagorean formula, hypotenuse mchoice, full starter code, output check, and method test cases preserved
+- Compression/adaptation log:
+  - source lines 64-68 Python Tutor visualizer link is omitted; static `squareviz` code and return-value tracing are retained
+  - source lines 128-149 Runestone JUnit class is not copied verbatim; `square(6)` code check and expected output `36` are retained
+  - source lines 153-155 Python Tutor visualizer link is omitted; trace code and answer reasoning are retained
+  - source lines 243-276 Runestone JUnit class is not copied verbatim; type check, corrected calls, argument order, and expected output are retained
+  - source line 230 starter marker `TO DO` is normalized to `TODO` for the static starter-code gate; the student task is unchanged
+  - source lines 310-312 parenthetical historical anecdote is omitted as nonessential enrichment; theorem, formula, and challenge context are retained
+  - source lines 393-426 Runestone JUnit class is not copied verbatim; expected formula, output check, fixed test cases, and random-value test are retained
 - Omitted items:
-  - External visualizer links
-  - Math history enrichment in Pythagorean theorem discussion
-  - Summary
+  - source lines 429-445 `Summary` -> omitted allowed category
+  - source lines 447-520 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/function.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/function.png`
   - `Figures/square-method.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/square-method.png`
-  - `Figures/ladder.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png`
+  - `Figures/pow.png` -> `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/pow.png`
+  - `Figures/ladder.png` -> reserved for part 3 `AP CSA/assets/1-using-objects-and-methods/1-10-calling-class-methods/ladder.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.11 Math Class
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-11-Math.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-11-part-4-combination-lock-challenge.qmd`
 - Kept sections:
-  - Using the Math Class
-  - Mathematical Functions
-  - `Math.abs`, `Math.pow`, `Math.sqrt`
-  - Random Numbers
-  - Random integer range recipe
-  - Groupwork Coding Challenge: Random Numbers
+  - source lines 18-23 topic intro, `Math.random`, `Math.pow`, `java.lang`, and class methods -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 17-35 -> intro, `Math.random`, `Math.pow(2,3)`, `java.lang`, and `ClassName.methodName()` call form preserved
+  - source lines 39-58 AP CSA Math subset and exam-reference note -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 37-53 -> `abs`, `pow`, `sqrt`, `random`, return descriptions, and AP reference note preserved; external reference/Javadocs links omitted
+  - source lines 60-98 `Math.abs`, `Math.pow`, `Math.sqrt`, and returned-value example -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 55-110 -> method descriptions, examples, pow image, and print-expression returned-value use preserved
+  - source lines 177-184 number-line figure and distance definition -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 186-196 -> distance definition, examples, and number-line figure preserved
+  - source lines 264-282 random numbers, dice image, and inclusive/exclusive range language -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 17-41 -> dice image, `Math.random()` bounds, inclusive/exclusive meaning, and Java range convention preserved
+  - source lines 318-331 stretching the random range -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 74-84 -> range-stretch idea and multiply-by-any-amount rule preserved
+  - source lines 370-390 casting and shifting random integer ranges -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 117-140 -> cast-to-int behavior, `0-9` code, and `1-10` shift code preserved
+  - source lines 426-458 random range note and examples -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 184-241 -> general form, range formula, `rnd`, `rnd1`, `rnd2`, `rnd3`, `rnd4`, and general recipe preserved
+  - source lines 460-498 random-recipes table -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 17-42 -> all expressions, minimums, maximums, and possible-values entries preserved across two table slides
+  - source lines 570-595 combination lock challenge context and permutation formula -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-4-combination-lock-challenge.qmd` lines 17-83 -> lock image, forgotten-combination prompt, three random integers, `Math.pow` permutation count, dial directions, and `NumbersPerDial^numberOfSpins` formula preserved
 - Kept exercises:
-  - `activecode:: trymath` -> converted to Math methods code task
-  - `mchoice:: call-sqrt-mc` -> converted to valid `sqrt` quick check
-  - `mchoice:: distance-mc` -> converted to distance formula explanation
-  - `activecode:: distance-abs` -> converted to distance method code task
-  - `activecode:: random1`, `random-example-stretched`, `randomRange` -> converted to random observation and range slides
-  - `mchoice:: qrand_1` through `qrand_4` -> converted to random probability/range quick checks
-  - `mchoice:: apcsa_sample3` -> converted to AP-style random range check
-  - `activecode:: challenge1-11-random-math` -> converted to random combination lock challenge
-  - `activecode:: challenge-random-dancing-turtles` -> kept as optional extension boundary only
+  - source lines 99-137 `activecode:: trymath` -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 112-156 -> prompt, full starter code, TODO comments, and expected output preserved
+  - source lines 139-170 `mchoice:: call-sqrt-mc` -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 158-184 -> prompt, all choices, correct answers, and reasoning preserved
+  - source lines 173-202 `mchoice:: distance-mc` -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 198-218 -> prompt, all choices, correct answer, and reasoning preserved
+  - source lines 204-262 `activecode:: distance-abs` -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 220-262 -> prompt, full starter code, TODO, and direct method test expectations preserved
+  - source lines 284-316 `activecode:: random1` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 43-72 -> prompt, full starter code, and unpredictable output check preserved
+  - source lines 333-367 `activecode:: random-example-stretched` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 86-115 -> prompt, full starter code, and `0.0 <= value < 10.0` output range preserved
+  - source lines 392-424 `activecode:: randomRange` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 143-182 -> prompt, full starter code, `+ 1` test requirement, and parentheses warning preserved
+  - source lines 499-511 `mchoice:: qrand_1` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 44-64 -> prompt, all choices, correct answer, and probability/double reasoning preserved
+  - source lines 513-523 `mchoice:: qrand_2` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 66-86 -> prompt, all choices, correct answer, and range-shift reasoning preserved
+  - source lines 525-535 `mchoice:: qrand_3` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 88-108 -> prompt, all choices, correct answer, and `0-10` inclusive reasoning preserved
+  - source lines 537-547 `mchoice:: qrand_4` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 110-130 -> prompt, all choices, correct answer, and probability/double reasoning preserved
+  - source lines 549-565 `mchoice:: apcsa_sample3` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 132-161 -> prompt, all choices, correct answer, and range-size reasoning preserved
+  - source lines 596-679 `activecode:: challenge1-11-random-math` -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-4-combination-lock-challenge.qmd` lines 85-163 -> prompt, full starter code with TODO markers, output-count check, `64000` check, random-number expression checks, and `Math.pow` check preserved
+- Source coverage map:
+  - source lines 18-263 -> `AP CSA/slides/1-using-objects-and-methods/1-11-math-class.qmd` lines 17-262 -> Math class intro, AP subset, `abs`, `pow`, `sqrt`, returned values, TryMath, sqrt quick check, distance quick check, and distance activecode preserved
+  - source lines 264-458 -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-2-random-numbers-and-ranges.qmd` lines 17-241 -> random bounds, inclusive/exclusive language, random1, stretched random, casting, shifting, randomRange, range formula, examples, and recipe preserved
+  - source lines 460-565 -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-3-random-recipes-and-checks.qmd` lines 17-161 -> random recipes table, qrand 1-4 checks, and AP CSA sample problem preserved
+  - source lines 570-679 -> `AP CSA/slides/1-using-objects-and-methods/1-11-part-4-combination-lock-challenge.qmd` lines 17-163 -> combination lock context, random integer task, permutation formula, starter code, and test requirements preserved
+- Compression/adaptation log:
+  - source lines 29-35 AP Quick Reference and Oracle Javadocs external links are omitted; AP subset method list and reference-note meaning are retained
+  - source lines 121-137 Runestone JUnit class is not copied verbatim; exact expected output is retained
+  - source lines 236-262 Runestone JUnit class is not copied verbatim; direct method test inputs and expected returns are retained
+  - source lines 300-316 and 351-367 Runestone JUnit classes are not copied verbatim; randomized-output acceptance is retained as an output-range check
+  - source lines 318-327 money analogy is shortened to the same range-stretch explanation; multiply-to-stretch behavior is retained
+  - source lines 415-424 Runestone JUnit class is not copied verbatim; `+ 1` code check is retained
+  - source lines 400-406 starter code is given a `TODO` comment marker for the static starter-code gate; the code and task target are retained
+  - source lines 460-498 table is split into two classroom table slides to avoid overfull slide layout; all rows and values are retained
+  - source lines 584-591 raw HTML permutation listing is omitted because it contains an abbreviated list; `Math.pow(10,2)` example and permutation formula are retained
+  - source lines 606-612 starter comments are marked with `TODO` for the static starter-code gate; the two task requirements are retained
+  - source lines 681-762 Dancing Turtles challenge is omitted as game/optional enrichment not suitable for the strict classroom sequence
 - Omitted items:
-  - External AP reference sheet and Javadocs links
-  - Long permutation listing
-  - Dancing turtles loop implementation as core content
-  - Summary
+  - source lines 764-781 `Summary` -> omitted allowed category
+  - source lines 681-762 Dancing Turtles challenge -> omitted game/optional enrichment
 - Assets:
+  - `Figures/pow.png` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/pow.png`
   - `Figures/number-line.svg` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/number-line.svg`
-  - `Figures/dice.png` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/dice.png`
-  - `Figures/lock.jpg` -> `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/lock.jpg`
+  - `Figures/dice.png` -> reserved for part 2 `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/dice.png`
+  - `Figures/lock.jpg` -> reserved for part 4 `AP CSA/assets/1-using-objects-and-methods/1-11-math-class/lock.jpg`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.12 Objects: Instances of Classes
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-12-objects.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-part-3-creating-multiple-turtle-objects.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.qmd`
 - Kept sections:
-  - Objects - Instances of Classes
-  - What are Classes and Objects?
-  - Attributes and Behaviors
-  - Turtle Class
-  - Reference Variables
-  - Creating Turtle Objects
-  - Class Hierarchy and Inheritance boundary
-  - Turtle Methods and Coordinates
-  - Groupwork Coding Challenge: Draw Letters
+  - source lines 20-23 object-oriented programming intro, objects, classes, and `public class` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 17-43 -> Java object-oriented intro, object/class definitions, `public class`, and unit learning path preserved
+  - source lines 25-44 classes and objects with blueprint/cookie-cutter/Turtle data type -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 45-83 -> blueprint model, cookie-cutter model, class as data type, Turtle declarations, and instance vocabulary preserved; external video omitted
+  - source lines 64-67 attributes and behaviors -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 85-108 -> attributes, behaviors, instances, per-object attribute values, and Turtle examples preserved
+  - source lines 81-93 cat objects and attributes/behaviors prompt context -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 110-120 -> cats image, shared class structure, and per-object attribute values preserved; external Belt video omitted
+  - source lines 101-109 Turtle attributes and methods figure -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 138-146 -> Turtle attributes and methods explanation plus figure preserved
+  - source lines 166-173 Turtle Class setup and turtleOOD image -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 17-27 -> turtleOOD image, Turtle class blueprint, attributes, methods, and `yertle` setup preserved
+  - source lines 248-249 dot operator and arguments explanation -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 68-98 -> dot operator, `yertle.forward()`, default `100` pixels, parentheses, arguments, and `yertle.forward(50)` preserved
+  - source lines 317-317 reference variable explanation -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 145-155 -> object reference, memory-address analogy, primitive contrast, and object attributes preserved
+  - source lines 319-330 creating Turtle objects and object-creation pattern -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-3-creating-multiple-turtle-objects.qmd` lines 17-39 -> many objects of one class type, `yertle`/`myrtle`, object-creation pattern, and movement example preserved
+  - source lines 392-411 class hierarchy and inheritance -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd` lines 17-35 -> inheritance, subclass, superclass, `Object`, and hierarchy figure preserved
+  - source lines 413-434 Turtle methods and coordinate system -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd` lines 37-57 -> Turtle class diagram, top-left `(0,0)`, increasing `x`/`y`, and coordinate figure preserved
+  - source lines 605-621 Draw Letters groupwork context and simple turtle methods -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.qmd` lines 63-109 -> pairs instruction, straight-line constraint, turtle direction reminder, method list, and simple-method challenge context preserved
 - Kept exercises:
-  - `shortanswer:: cats` -> converted to attributes/behaviors student response task
-  - `dragndrop:: vocab2_1` -> converted to vocabulary table
-  - `mchoice:: howmanyobjects`, `mcq_behaviors`, `mcq_data` -> converted to quick checks
-  - `activecode:: TurtleTest` -> converted to Turtle object code example
-  - `activecode:: TurtleTest2` -> converted to movement edit task
-  - `activecode:: TurtleTest3` -> converted to add-another-turtle task
-  - `parsonsprob:: ParsonsDraw7` -> converted to mixed-up digital 7 slide
-  - `activecode:: TurtleDrawSeven` -> converted to digital 7 code task
-  - `activecode:: TurtleDrawEight` -> converted to digital 8 code task
-  - `activecode:: challenge-Turtle_Letter` -> converted to Draw Letters groupwork challenge
-  - `mchoice:: AP-attributes`, `AP-objects` -> converted to AP-style vocabulary quick checks
+  - source lines 95-99 `shortanswer:: cats` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 122-136 -> student response prompt, attributes/behaviors questions, attribute-value task, and noun/adjective/verb note preserved
+  - source lines 113-122 `dragndrop:: vocab2_1` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 148-161 -> all definitions and matching concepts preserved
+  - source lines 124-136 `mchoice:: howmanyobjects` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 163-176 -> prompt, choices, correct answer, and reasoning preserved
+  - source lines 138-150 `mchoice:: mcq_behaviors` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 178-191 -> prompt, choices, correct answer, and reasoning preserved
+  - source lines 152-164 `mchoice:: mcq_data` -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 193-206 -> prompt, choices, correct answer, and reasoning preserved
+  - source lines 187-233 `activecode:: TurtleTest` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 29-66 -> prompt, full demo code, object creation, movement calls, and main-run check preserved; external IDE links omitted
+  - source lines 253-315 `activecode:: TurtleTest2` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 100-143 -> prompt, full starter code, two-forward check, and turnRight check preserved
+  - source lines 332-390 `activecode:: TurtleTest3` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-3-creating-multiple-turtle-objects.qmd` lines 41-108 -> prompt, full starter code, added-turtle task, `new Turtle(habitat)` check, and `3+ Turtles` expected count preserved
+  - source lines 436-465 `parsonsprob:: ParsonsDraw7` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd` lines 59-105 -> prompt, full block sequence, and correct order preserved
+  - source lines 467-515 `activecode:: TurtleDrawSeven` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd` lines 107-148 -> prompt, full starter code, required forward/turnLeft/forward sequence, and code-containment test preserved
+  - source lines 517-602 `activecode:: TurtleDrawEight` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.qmd` lines 17-61 -> prompt, full starter code, code-changed check, `forward(` count check, and turn count check preserved
+  - source lines 623-693 `activecode:: challenge-Turtle_Letter` -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.qmd` lines 111-152 -> prompt, full starter code, code-changed check, and `20+` lines check preserved
+- Source coverage map:
+  - source lines 20-170 -> `AP CSA/slides/1-using-objects-and-methods/1-12-objects-instances-of-classes.qmd` lines 17-206 -> object-oriented intro, class/object models, Turtle declarations, attributes/behaviors, cats shortanswer, turtleOOD figure, vocabulary matching, and three quick checks preserved
+  - source lines 170-317 -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-2-turtle-class-and-dot-operator.qmd` lines 17-155 -> Turtle class setup, TurtleTest demo, dot operator, TurtleTest2 starter/tests, and reference variables preserved
+  - source lines 319-390 -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-3-creating-multiple-turtle-objects.qmd` lines 17-108 -> object-creation pattern, TurtleTest3 starter, and new-Turtle count test preserved
+  - source lines 392-515 -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-4-inheritance-and-draw-7.qmd` lines 17-148 -> inheritance vocabulary, Turtle class diagram, coordinates, Parsons Draw 7, TurtleDrawSeven starter, and test sequence preserved
+  - source lines 517-693 -> `AP CSA/slides/1-using-objects-and-methods/1-12-part-5-draw-8-and-letters-challenge.qmd` lines 17-152 -> Draw 8 activecode, Draw Letters groupwork, starter code, method list, and tests preserved
+- Compression/adaptation log:
+  - source lines 52-63 classes-and-objects YouTube video is omitted as external video; blueprint, cookie-cutter, and class/object explanation are retained
+  - source lines 69-79 Belt YouTube video is omitted as external video; attributes/behaviors explanation is retained
+  - source lines 175-185 JuiceMind/Replit/GitHub external IDE links are omitted; TurtleTest prompt and code are retained
+  - source lines 235-245 object-memory YouTube video is omitted as external video; object creation and reference concepts are retained
+  - source lines 269-271 TurtleTest2 starter code is given a `TODO` comment marker for the static starter-code gate; the original movement commands and task target are retained
+  - source lines 348-350 TurtleTest3 starter code is given a `TODO` comment marker for the static starter-code gate; the existing two turtle declarations and add-a-turtle task are retained
+  - source lines 488-488 TurtleDrawSeven starter comment is given a `TODO` marker for the static starter-code gate; the draw-a-7 task is retained
+  - source lines 536-537 TurtleDrawEight starter comment is given a `TODO` marker for the static starter-code gate; the draw-an-8 task is retained
+  - source lines 638-640 TurtleLetter starter comments are given `TODO` markers for the static starter-code gate; create-a-turtle and draw-initials tasks are retained
 - Omitted items:
-  - YouTube videos
-  - External Turtle IDE/Replit/GitHub links
-  - Full inheritance implementation details beyond vocabulary boundary
-  - Summary
+  - source lines 696-711 `Summary` -> omitted allowed category
+  - source lines 713-762 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/blueprint.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/blueprint.png`
   - `Figures/cookieCutterLabelled.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/cookieCutterLabelled.png`
   - `Figures/catsLabelled.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/catsLabelled.png`
   - `Figures/turtleOOD.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleOOD.png`
-  - `Figures/inheritance-hierarchy-pet.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/inheritance-hierarchy-pet.png`
-  - `Figures/turtleUMLClassDiagram.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/turtleUMLClassDiagram.png`
-  - `Figures/coords.png` -> `AP CSA/assets/1-using-objects-and-methods/1-12-objects-instances-of-classes/coords.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 5 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 5 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 5 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 5 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.13 Object Creation and Storage
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-13-constructors.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-13-part-4-custom-turtles-challenge.qmd`
 - Kept sections:
-  - Constructors and `new ClassName(arguments)` syntax
-  - `World` constructors and overloaded constructor selection
-  - `Turtle` constructors and argument order
-  - Object variables, references, and `null`
-  - Reading constructor signatures from documentation
-  - Parameters, arguments, and call by value
-  - Groupwork Coding Challenge: Custom Turtles
+  - source lines 17-27 constructors, `new`, object references, and constructor-call pattern -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 17-40 -> constructor definition, same-name rule, `new ClassName(arguments)`, reference type, and `World`/`Turtle` creation examples preserved
+  - source lines 28-47 World constructors and overloading -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 42-67 -> overloaded constructor idea, worldConstructors figure, no-argument constructor, `World(int width, int height)`, default size, and code examples preserved
+  - source lines 80-93 Turtle constructors and argument order -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 112-137 -> Turtle world requirement, default location, `(x,y)` constructor, constructor-call examples, and argument-order warning preserved
+  - source lines 176-207 object variables, references, `null`, and reference example -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 17-56 -> reference type, memory-tracking analogy, `null`, delayed initialization, and same-line initialization preserved; external video omitted
+  - source lines 210-235 constructor signatures, parameter lists, overloading, and Turtle constructor-signature figure -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 58-96 -> documentation role, signatures, parameter lists, overloading differences, and TurtleClassDefn figure preserved; external documentation link omitted
+  - source lines 257-265 Date class introduction and figure -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 124-132 -> AP exam class-definition reading purpose and DateClass figure preserved
+  - source lines 309-323 arguments, parameters, call by value, flow of control, and type/order rules -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd` lines 17-49 -> call-by-value definition, parameterMappingDate figure, constructor flow of control, type matching, and order matching preserved
+  - source lines 419-452 `Groupwork | Coding Challenge: Custom Turtles` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-4-custom-turtles-challenge.qmd` lines 17-58 -> image, pair-work context, inheritance note, three constructor signatures, `Color` use, and all three task requirements preserved; external Color API link omitted
 - Kept exercises:
-  - `mchoice:: mcq_world_constructor` -> converted to valid `World` constructor quick check
-  - `mchoice:: mcq_overload_constructor` -> converted to overloaded constructor explanation
-  - `mchoice:: const_turtle` -> converted into Turtle constructor argument-order check
-  - `activecode:: TurtleConstructorTest` -> converted to constructor experiment code task
-  - `clickablearea:: date_constructor` -> converted to Date constructor call analysis
-  - parameter/argument quick checks -> converted to parameter-or-argument slide
-  - `activecode:: TurtleConstructorDebug` -> converted to debugging task with corrected version
-  - `activecode:: challenge-CustomTurtles` -> converted to Custom Turtles coding challenge slides
-  - AP-style constructor/reference checks -> converted to quick check slides
+  - source lines 48-64 `mchoice:: mcq_world_constructor` -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 69-93 -> prompt, all choices, correct answers, and reasoning preserved
+  - source lines 66-78 `mchoice:: mcq_overload_constructor` -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 95-110 -> prompt, all choices, correct answer, and overloading reasoning preserved
+  - source lines 95-109 `mchoice:: const_turtle` -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 139-152 -> prompt, all choices, correct answer, and coordinate constructor reasoning preserved
+  - source lines 111-174 `activecode:: TurtleConstructorTest` -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 154-205 -> prompt, full starter code with TODO markers, world-size edit, turtle-location edit, argument-order experiment, and code-changed test preserved
+  - source lines 238-255 `mchoice:: TurtleClass1` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 98-122 -> prompt, all choices, correct answer, and coordinate-constructor reasoning preserved
+  - source lines 267-290 `clickablearea:: date_constructor` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 134-157 -> prompt, Date class code, constructor-header targets, and same-name rule preserved
+  - source lines 292-307 `mchoice:: DateClass1` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 159-183 -> prompt, all choices, correct answer, and constructor-argument order reasoning preserved
+  - source lines 324-338 `mchoice:: mcq_params` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd` lines 51-64 -> prompt, all choices, correct answer, and parameter reasoning preserved
+  - source lines 340-352 `mchoice:: mcq_arguments` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd` lines 66-79 -> prompt, all choices, correct answer, and argument reasoning preserved
+  - source lines 354-415 `activecode:: TurtleConstructorDebug` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd` lines 81-117 -> prompt, full broken code, and code-changed test target preserved
+  - source lines 454-604 `activecode:: challenge-CustomTurtles` -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-4-custom-turtles-challenge.qmd` lines 60-217 -> prompt, datafile, full starter code with TODO markers, full `CustomTurtle` class, focused constructor-call page, and both exact Runestone target constructor calls preserved
+- Source coverage map:
+  - source lines 17-175 -> `AP CSA/slides/1-using-objects-and-methods/1-13-object-creation-and-storage.qmd` lines 17-205 -> constructor intro, new-object pattern, World constructors, Turtle constructors, quick checks, and TurtleConstructorTest preserved
+  - source lines 176-307 -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-2-references-and-constructor-signatures.qmd` lines 17-183 -> references, `null`, constructor signatures, TurtleClass1, DateClass, date constructor clickablearea, and DateClass1 preserved
+  - source lines 309-417 -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-3-call-by-value-and-constructor-debugging.qmd` lines 17-127 -> arguments, parameters, call by value, flow of control, quick checks, debug starter, and transition note preserved
+  - source lines 419-604 -> `AP CSA/slides/1-using-objects-and-methods/1-13-part-4-custom-turtles-challenge.qmd` lines 17-235 -> Custom Turtles groupwork, constructors, task list, full starter code, test targets, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 127-132 TurtleConstructorTest starter comments are marked with `TODO` for the static starter-code gate; the world-size and top-right turtle tasks are retained
+  - source lines 139-174 Runestone JUnit class is not copied verbatim; code-changed test target is retained
+  - source lines 187-197 null YouTube video is omitted as external video; reference/null explanation and code example are retained
+  - source lines 220-224 Turtle external documentation link is omitted; signature-reading explanation is retained
+  - source lines 379-415 Runestone JUnit class is not copied verbatim; code-changed test target is retained
+  - source lines 442-446 external `Color` API link is omitted; `Color.red` style usage and constructor tasks are retained
+  - source lines 470-482 challenge starter comments are marked with `TODO` for the static starter-code gate; all original tasks are retained
+  - source lines 568-604 Runestone JUnit class is not copied verbatim; exact target constructor calls are retained on separate test-requirement slides
 - Omitted items:
-  - External documentation links
-  - Summary
-  - Review/practice bank items beyond retained quick checks
+  - source lines 606-631 `Summary` -> omitted allowed category
+  - source lines 633-721 `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/worldConstructors.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/worldConstructors.png`
-  - `Figures/TurtleClassDefn.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/TurtleClassDefn.png`
-  - `Figures/DateClass.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/DateClass.png`
-  - `Figures/parameterMappingDate.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/parameterMappingDate.png`
+  - `Figures/TurtleClassDefn.png` -> reserved for part 2 `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/TurtleClassDefn.png`
+  - `Figures/DateClass.png` -> reserved for part 2 `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/DateClass.png`
+  - `Figures/parameterMappingDate.png` -> reserved for part 2 `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/parameterMappingDate.png`
   - `Figures/customTurtles.png` -> `AP CSA/assets/1-using-objects-and-methods/1-13-object-creation-and-storage/customTurtles.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.14 Calling Instance Methods
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-14-calling-instance-methods.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd`
 - Kept sections:
-  - Instance methods and object receiver
-  - Static method calls versus instance method calls
-  - Reading method signatures from class documentation
-  - `object.methodName(arguments)` call syntax
-  - `NullPointerException` from calling a method on `null`
-  - Flow of control during method calls
-  - Methods with parameters and arguments
-  - Overloaded instance methods
-  - Void methods versus non-void getter methods
-  - Groupwork Turtle House challenge
+  - source lines 20-21 instance method topic intro -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 17-25 -> methods as object behaviors, Turtle method examples, and instance/object method vocabulary preserved
+  - source lines 22-39 class methods vs instance methods and static-vs-instance figure -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 27-65 -> class-method receiver, `Math.sqrt(25)`, static keyword, instance-method receiver, attribute access/change, capitalization convention, and figure preserved
+  - source lines 40-53 method signatures and Student class figure -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 67-81 -> method signature definition, class-definition reading order, no-`static` instance-method note, and StudentClass figure preserved
+  - source lines 84-104 method calls, same-class calls, other-class calls, calling-methods figure, and null-reference warning -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 128-168 -> `object.methodName()` form, receiver/object attribute behavior, same-class `methodName()`, `main`/other-class object requirement, figure, source note, `null`, and `NullPointerException` preserved
+  - source lines 149-157 three method-call forms and flowchart -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 215-231 -> class/static call, object instance call, same-class method call, object-creation requirement, and FlowChartCallingMethods figure preserved
+  - source lines 159-177 methods with arguments, parameter/argument explanation, and figure -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 17-82 -> `forward`/`turnRight` limitations, `forward(200)`, `turn(30)`, `object.method(arguments)`, parameters vs arguments, Unit 3 note, and method-param-arg figure preserved
+  - source lines 189-211 Turtle class diagram and overloaded methods -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 97-118 -> Turtle UML figure, inherited methods note, overload definition, `forward()`/`forward(100)`, and signature matching preserved; external Color/Javadoc links omitted
+  - source lines 379-428 void methods, non-void methods, accessors/getters, Turtle getter examples, and common-error note -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 17-101 -> void effects, non-void returned values, getter/accessor vocabulary, `getWidth`/`getHeight`/`getXPos`/`getYPos`, example code, and returned-value use warning preserved
+  - source lines 586-590 tracing returned values and return statement -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 205-215 -> Unit 3 deferral, AP progress-check tracing expectation, return statement, declared return type, and useful caller action preserved
+  - source lines 741-743 `getDistance(x,y)` explanation and distance-between-turtles task -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd` lines 17-29 -> `getDistance(x,y)`, distance from `(0,0)`, add another turtle, move both turtles, and required `getXPos`/`getYPos`/`getDistance` methods preserved
+  - source lines 832-850 Turtle House groupwork context, image, `penUp`/`moveTo`/`penDown` example, and planning notes -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd` lines 80-118 -> pair-work challenge, house image, windows/door task, repositioning code, facing direction, center coordinate, and top-left coordinate preserved
 - Kept exercises:
-  - `clickablearea:: student_methods` -> converted to method signature identification
-  - `activecode:: nullPointerTest` -> converted to runtime error check
-  - `dragndrop:: vocab1_14` -> converted to vocabulary check slide
-  - `activecode:: TurtleTestMethods1` -> converted to drawing with turtle methods code task
-  - `parsonsprob:: DrawAHouse` -> converted to mixed-up house drawing task
-  - `activecode:: TurtleTestGetSet` -> converted to getter trace task
-  - `activecode:: TurtleArea` -> converted to returned-value debugging task
-  - `mchoice:: traceCircleArea`, `traceRectangleArea`, `MethodTrace` -> converted to trace check slides
-  - `activecode:: TurtleDistance` -> converted to distance method code task
-  - `activecode:: challenge-Turtle-House` -> converted to Turtle House groupwork challenge
+  - source lines 54-82 `clickablearea:: student_methods` -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 83-126 -> prompt, full class code, two correct method headers, incorrect constructor/class/field/body targets, and feedback preserved
+  - source lines 106-147 `activecode:: nullPointerTest` -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 170-213 -> prompt, datafile, full starter code with TODO marker, `null` call, and exact `new Turtle(habitat)` test target preserved
+  - source lines 178-187 `dragndrop:: methodVocab` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 84-95 -> prompt and all four vocabulary matches preserved as a table
+  - source lines 212-323 `activecode:: TurtleTestMethods1` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 120-189 -> square task, triangle task, `Color` usage, full starter code with TODO marker, code-changed check, and color/turn/forward test counts preserved
+  - source lines 325-377 `parsonsprob:: DrawAHouse` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 191-306 -> house image, prompt, mixed blocks, square-before-roof order, and correct order preserved
+  - source lines 429-503 `activecode:: TurtleTestGetSet` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 103-154 -> prompt, datafile, full starter code with TODO marker, position getter prints, movement sequence, and code-changed test preserved
+  - source lines 505-584 `activecode:: TurtleArea` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 156-203 -> prompt, broken starter code with TODO marker, expected output `Yertle's area is: 270`, `.getHeight()` check, and `.getWidth()` check preserved
+  - source lines 592-648 `mchoice:: traceCircleArea` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 217-271 -> Circle class, main code segment, all choices, correct answer, and radius/getArea reasoning preserved; external visualization link omitted
+  - source lines 650-700 `mchoice:: traceRectangleArea` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 273-335 -> Rectangle class, resize call, main code segment, all choices, correct answer, and width-change reasoning preserved; external visualization link omitted
+  - source lines 703-738 `mchoice:: traceReturnMethods` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 337-380 -> MethodTrace class, `square`, `divide`, main print expression, all choices, correct answer, and return-value addition reasoning preserved; external visualization link omitted
+  - source lines 745-829 `activecode:: TurtleDistance` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd` lines 31-78 -> prompt, datafile, full starter code with TODO markers, `.getXPos()`, `.getYPos()`, `.getDistance(`, and `.getDistance(0,0)` test checks preserved
+  - source lines 853-947 `activecode:: challenge-TurtleHouse` -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd` lines 120-168 -> prompt, datafile, full starter code with TODO marker, `moveTo(`, `.penUp()`, `.penDown(`, `.turn`, and `.forward(` test checks preserved
+- Source coverage map:
+  - source lines 20-157 -> `AP CSA/slides/1-using-objects-and-methods/1-14-calling-instance-methods.qmd` lines 17-250 -> topic intro, class/static vs instance calls, method signatures, clickablearea, object method calls, null reference task, test target, and method-call flowchart preserved
+  - source lines 159-377 -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-2-methods-with-arguments.qmd` lines 17-325 -> methods with arguments, vocabulary drag-and-drop, Turtle UML, overloading, TurtleTestMethods1, test requirements, DrawAHouse mixed-up code, correct order, and classroom check preserved
+  - source lines 379-740 -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-3-methods-that-return-values.qmd` lines 17-399 -> void/non-void methods, getters, Turtle getter examples, TurtleTestGetSet, TurtleArea, return statement tracing, traceCircleArea, traceRectangleArea, traceReturnMethods, and classroom check preserved
+  - source lines 741-947 -> `AP CSA/slides/1-using-objects-and-methods/1-14-part-4-distance-and-turtle-house-challenges.qmd` lines 17-187 -> TurtleDistance, distance test checks, Turtle House groupwork, houseWithWindows image, movement-without-drawing example, starter code, test checks, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 56-82 clickablearea is converted to prompt plus answer-reasoning slide; all correct and incorrect targets are represented
+  - source lines 121-124 `nullPointerTest` starter comment is marked with `TODO` for the static starter-code gate; the `null` failure and required constructor call are retained
+  - source lines 130-147 Runestone JUnit class is not copied verbatim; exact code target `new Turtle(habitat)` is retained
+  - source lines 203-209 external `Color` and Turtle Javadoc links are omitted; `Color` usage and Turtle diagram are retained
+  - source lines 241-323 Runestone JUnit class is not copied verbatim; code-changed check and exact color/turn/forward count checks are retained
+  - source lines 340-376 Parsons blocks are displayed as labeled mixed blocks, then as a separate correct-order slide, preserving block boundaries and order
+  - source lines 481-503 Runestone JUnit class is not copied verbatim; code-changed requirement is retained
+  - source lines 535-584 Runestone JUnit class is not copied verbatim; exact expected output and getter-call count checks are retained
+  - source lines 594-604 external Python Tutor visualization links are omitted; full trace code and reasoning are retained
+  - source lines 772-829 Runestone JUnit class is not copied verbatim; exact getter and distance count checks are retained
+  - source lines 878-947 Runestone JUnit class is not copied verbatim; exact drawing-method count checks are retained
 - Omitted items:
-  - External visualizer links
-  - External turtle library setup links
-  - Summary
-  - Review/practice bank items beyond retained trace checks
+  - none from source lines 20-157
+  - source lines 949-969 `Summary` -> omitted allowed category
+  - source lines 971 onward `AP Practice` -> omitted allowed category
 - Assets:
   - `Figures/calling-static-vs-instance-methods.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/calling-static-vs-instance-methods.png`
   - `Figures/StudentClass.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/StudentClass.png`
@@ -513,46 +819,93 @@ This audit tracks rebuilt Unit 1 topics against CSAwesome2 source content.
   - `Figures/method-param-arg.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png`
   - `Figures/turtleUMLClassDiagram.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png`
   - `Figures/house.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png`
+  - `Figures/houseWithWindows.png` -> `AP CSA/assets/1-using-objects-and-methods/1-14-calling-instance-methods/houseWithWindows.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
 
 ## Topic 1.15 String Manipulation
 
 - Status: rebuilt
+- Fidelity mode: strict textbook
 - Source file: `AP CSA/materials/CSAwesome2-main/_sources/Unit1-Using-Objects-and-Methods/topic-1-15-strings.rst`
 - Rebuilt decks:
   - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd`
+  - [x] Deck: `AP CSA/slides/1-using-objects-and-methods/1-15-part-5-pig-latin-challenge.qmd`
 - Kept sections:
-  - Strings as objects in `java.lang`
-  - String references and `null`
-  - Creating strings with literals and constructor calls
-  - `String` class and `Object` relationship
-  - Concatenation, `+=`, numeric conversion, and immutability
-  - Zero-based indexing and `length`
-  - AP String methods: `substring`, `indexOf`, `equals`, `compareTo`
-  - Common string mistakes
-  - Groupwork Coding Challenge: Pig Latin
+  - source lines 20-25 String definition, `java.lang`, and class/primitive naming note -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 17-35 -> `String` as object class, sequence of characters, `java.lang` default package, capitalized class names, and lowercase primitive names preserved
+  - source lines 62-93 object references, `null`, greeting figure, constructor form, and string literal form -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 54-104 -> expected `null` output, object-reference explanation, greeting figure, `new String("Hello")`, `"Hello"` literal, and reference value preserved
+  - source lines 182-190 package, parent class, superclass, inheritance, Object superclass, and stringObject figure -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 163-196 -> expected class output, `java.lang.String`, package name, parent/superclass, inheritance, `java.lang.Object`, and figure preserved
+  - source lines 196-213 String concatenation, `+`, `+=`, automatic conversion, and immutability -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 17-50 -> `+`/`+=`, concatenation term, automatic conversion, immutable String, new String result, and assignment back to variable preserved
+  - source lines 252-253 spaces and variables note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 93-107 -> explicit spaces, smushed output, and variable names outside quotes preserved
+  - source lines 285-288 primitive/object concatenation, `toString`, Object inheritance, and overriding note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 139-159 -> primitive conversion, object `toString`, inherited `Object` method, overriding definition, and AP boundary note preserved
+  - source lines 339-342 number appending and left-to-right conversion note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 202-212 -> string-first conversion, `1243` trace, and parenthesis advice preserved
+  - source lines 350-374 String index, length, stringIndicies figure, and valid-index note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 17-45 -> sequence of characters, index starting at `0`, length including spaces/special characters, length `14`, figure, `length - 1`, and `IndexOutOfBoundsException` preserved
+  - source lines 375-390 AP String method list -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 47-67 -> exam method boundary and `length`, `substring`, `indexOf`, `compareTo`, `equals` descriptions preserved; external AP reference link omitted
+  - source lines 392-395 method behavior explanation for `length`, `substring`, and `indexOf` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 69-79 -> `length` not last index, substring excludes `to`, and `indexOf` returns first index or `-1` preserved
+  - source lines 447-449 single-character substring note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 145-155 -> `substring(from,to)` excludes `to` and `str.substring(i, i + 1)` preserved
+  - source lines 575-590 `compareTo` and `equals` explanation plus figure -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 17-55 -> reference-type method comparison, `compareTo` negative/zero/positive meaning, compareTo figure, `equals`, case sensitivity, and AP boundary for ignore-case methods preserved
+  - source lines 634-638 external String class note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` omitted as external documentation note; AP-needed methods already preserved in Part 3
+  - source lines 738-750 common mistakes list -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 199-210 -> all six common mistakes preserved
+  - source lines 753-765 Pig Latin groupwork context, image, transformation rule, needed substrings, single-letter substring note, and external IDE note -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-5-pig-latin-challenge.qmd` lines 17-45 -> image, pair challenge, `"pig"` to `"igpay"`, needed word length/substrings, `substring(i,i+1)`, and index example preserved; external IDE link omitted
 - Kept exercises:
-  - `activecode:: lcsbnew` -> converted to first/last-name string creation task
-  - `activecode:: lcsb2` -> converted to `getClass` and superclass trace
-  - `activecode:: lcso1` -> converted to birthday concatenation task
-  - `mchoice:: qse_1` -> converted to string reassignment trace quick check
-  - `activecode:: lcso2` -> converted to numeric concatenation/parentheses trace
-  - `activecode:: lcsm1` -> converted to `length`, `substring`, and `indexOf` trace task
-  - `activecode:: substring-preconditions` -> converted to bounds debugging task
-  - `mchoice:: qsb_3`, `qsb_3b`, `qsb_3c`, `qsb_4b` -> converted to index/substring quick checks
-  - `activecode:: lcsm2` -> converted to compare trace slide
-  - `dragndrop` string method vocabulary -> converted to method selection table
-  - `activecode:: stringMistakes` -> converted to common mistakes debugging task
-  - `activecode:: challenge-PigLatin` -> converted to Pig Latin coding challenge slides
-  - AP-style substring and immutability checks -> converted to quick check slides
+  - source lines 29-60 `activecode:: lcsb1` -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 37-64 -> prompt, full code, and expected output `null` preserved
+  - source lines 95-135 `activecode:: lcsbnew` -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 106-139 -> prompt, full starter code with TODO markers, required `firstName`/`lastName`, literal/new requirement, print requirement, and code-changed test preserved
+  - source lines 137-172 `activecode:: lcsb2` -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 141-174 -> prompt, full code, expected `class java.lang.String` and `class java.lang.Object` output preserved
+  - source lines 214-250 `activecode:: lcso1` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 52-91 -> prompt, full starter code with TODO marker, lastname/exclamation tasks, and expected output `Happy Birthday Jose Hernandez!!!` preserved
+  - source lines 255-279 `mchoice:: qse_1` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 109-137 -> code segment, all choices, correct answer, and concatenation reasoning preserved
+  - source lines 291-337 `activecode:: lcso2` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 161-200 -> prompt, full starter code with TODO marker, expected output `127`, and `(4+3)` check preserved
+  - source lines 397-445 `activecode:: lcsm1` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 81-143 -> prompt, full code, `substring(0,3)` question, `indexOf` not-found question, and full expected output preserved
+  - source lines 451-490 `activecode:: substring-preconditions` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 157-191 -> prompt, broken starter code with TODO marker, `IndexOutOfBoundsException` cause, expected output `o`, and bounds reasoning preserved
+  - source lines 493-513 `mchoice:: qsb_3` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 193-211 -> prompt, code, all choices, correct answer `1`, and leftmost index reasoning preserved
+  - source lines 514-532 `mchoice:: qsb_3b` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 213-231 -> prompt, code, all choices, correct answer `4`, and length reasoning preserved
+  - source lines 533-551 `mchoice:: qsb_3c` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 233-251 -> prompt, code, all choices, correct answer `bab`, and end-exclusive substring reasoning preserved
+  - source lines 552-572 `mchoice:: qsb_4b` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 253-272 -> prompt, code, all choices, correct answer `by`, and one-argument substring reasoning preserved
+  - source lines 592-632 `activecode:: lcsm2` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 57-100 -> prompt, full code, compareTo/equals calls, case-sensitivity prompt, negative-number prompt, and exact expected output preserved
+  - source lines 641-650 `dragndrop:: ch4_str1` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 102-113 -> prompt and all four concept matches preserved as a table
+  - source lines 652-659 `dragndrop:: ch4_str2` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 115-126 -> prompt and all four method matches preserved as a table
+  - source lines 662-679 `mchoice:: qsb_8-new` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 128-148 -> prompt, code, all choices, correct answer positive, and `H` after `B` reasoning preserved
+  - source lines 684-736 `activecode:: stringMistakes` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 150-197 -> prompt, broken starter code with TODO marker, substring/toLowerCase errors, and expected output preserved
+  - source lines 769-843 `activecode:: challenge-PigLatin` -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-5-pig-latin-challenge.qmd` lines 47-113 -> prompt, stdin `pig`, full starter code with TODO marker, `main` preservation, `java`/`pig` expected method returns, substring-count check, and classroom trace preserved
+- Source coverage map:
+  - source lines 20-190 -> `AP CSA/slides/1-using-objects-and-methods/1-15-string-manipulation.qmd` lines 17-215 -> String intro, reference/null code, greeting figure, constructor and literal creation, first/last name starter, class/superclass code, expected output, inheritance explanation, stringObject figure, and classroom check preserved
+  - source lines 196-342 -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-2-string-concatenation.qmd` lines 17-231 -> concatenation, immutability, `+=`, lcso1 starter, expected output, spacing note, qse_1, primitive/object conversion, `toString`, lcso2 starter, parenthesis test, number-appending note, and classroom check preserved
+  - source lines 350-573 -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-3-string-index-and-methods.qmd` lines 17-291 -> index/length, stringIndicies figure, AP method list, lcsm1 code/output, substring precondition task, qsb_3, qsb_3b, qsb_3c, qsb_4b, and classroom check preserved
+  - source lines 575-750 -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-4-compareto-equals-and-common-mistakes.qmd` lines 17-229 -> compareTo/equals, compareTo figure, lcsm2, vocabulary drag-and-drops, qsb_8-new, stringMistakes, common mistakes list, and classroom check preserved
+  - source lines 753-843 -> `AP CSA/slides/1-using-objects-and-methods/1-15-part-5-pig-latin-challenge.qmd` lines 17-132 -> Pig Latin groupwork, transformation rule, substring planning, starter code, tests, trace, and classroom check preserved
+- Compression/adaptation log:
+  - source lines 44-60, 116-135, and 156-172 Runestone JUnit classes are not copied verbatim; exact output or code-changed checks are retained
+  - source lines 127-131 original-code string for `lcsbnew` is not copied verbatim; the code-changed requirement and starter code are retained
+  - source lines 233-250 and 309-337 Runestone JUnit classes are not copied verbatim; exact expected output and code-shape checks are retained
+  - source lines 345-347 AP CSA reference sheet external link is omitted; the in-exam reference-sheet note is retained
+  - source lines 423-425 lowercase/uppercase calls are retained because they are in the source code, but marked as not AP exam methods as in source
+  - source lines 429-445 and 468-490 Runestone JUnit classes are not copied verbatim; expected output/check intent is retained
+  - source lines 615-632 and 716-736 Runestone JUnit classes are not copied verbatim; exact expected outputs are retained
+  - source lines 641-659 drag-and-drop items are converted to vocabulary tables; all matches are retained
+  - source lines 765 external JuiceMind IDE direction is omitted; Scanner/input starter context and stdin value are retained
+  - source lines 800-843 Runestone JUnit class is not copied verbatim; exact method outputs and substring-count checks are retained
 - Omitted items:
-  - String Methods Game iframe
-  - Optional external documentation links
-  - Summary
-  - Review/practice bank items beyond retained AP-style checks
+  - source lines 845-884 `Summary` -> omitted allowed category
+  - source lines 886-932 `AP Practice` -> omitted allowed category
+  - source lines 934-947 String Methods Game -> omitted allowed category
+  - source lines 950-970 Unit 1 review/practice directions -> omitted allowed category
 - Assets:
   - `Figures/greeting.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/greeting.png`
   - `Figures/stringObject.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/stringObject.png`
@@ -560,6 +913,23 @@ This audit tracks rebuilt Unit 1 topics against CSAwesome2 source content.
   - `Figures/compareTo.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/compareTo.png`
   - `Figures/pig.png` -> `AP CSA/assets/1-using-objects-and-methods/1-15-string-manipulation/pig.png`
 - Verification:
-  - [x] Rendered with `bash scripts/render-clean-reveal.sh`
-  - [x] Passed `bash scripts/check-clean-reveal.sh`
-  - [x] Passed `node scripts/check-ap-csa-content-quality.mjs`
+  - [x] Deck 1 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 1 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 1 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 1 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 2 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 2 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 2 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 2 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 3 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 3 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 3 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 3 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 4 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 4 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 4 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 4 passed `node scripts/check-slide-overflow.mjs`
+  - [x] Deck 5 rendered with `bash scripts/render-clean-reveal.sh`
+  - [x] Deck 5 passed `bash scripts/check-clean-reveal.sh`
+  - [x] Deck 5 passed `node scripts/check-slide-density.mjs`
+  - [x] Deck 5 passed `node scripts/check-slide-overflow.mjs`

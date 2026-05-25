@@ -1,6 +1,6 @@
 ---
-title: "4.10 Implementing ArrayList Algorithms"
-subtitle: "Data Collections"
+title: "4.10 Add and Remove Elements"
+subtitle: "Implementing ArrayList Algorithms"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,159 +14,211 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Implementing ArrayList Algorithms
 
-### ArrayList algorithms must respect shifting
+### Standard `ArrayList` algorithms 1/2
 
-The same collection patterns appear again:
+There are standard `ArrayList` algorithms that utilize traversals to:
 
-::: {.tight-list}
-- add and remove elements
-- min, max, sum, average
-- count properties
-- find duplicates
-- rotate and reverse
-:::
+- insert elements
+- delete elements
+- determine a minimum or maximum value
+- compute a sum or average
+- determine if at least one element has a particular property
+- determine if all elements have a particular property
 
-The main extra risk is that `ArrayList` indices shift after insertions and removals.
+## Implementing ArrayList Algorithms
 
-## Remove in a Loop
+### Standard `ArrayList` algorithms 2/2
 
-### Traverse backward when removing
+There are standard `ArrayList` algorithms that utilize traversals to:
+
+- determine the number of elements having a particular property
+- access all consecutive pairs of elements
+- determine the presence or absence of duplicate elements
+- shift or rotate elements left or right
+- reverse the order of the elements
+
+## Common Traversal Loops
+
+### Enhanced `for` and indexed `for`
+
+Here are two common `ArrayList` traversal loops that can be used for these algorithms.
 
 ```java
-for (int i = list.size() - 1; i >= 0; i--)
+for (Type obj : list)
 {
-    if (list.get(i) < 0)
+    if (condition about obj)
     {
-        list.remove(i);
+        // body for matching values
     }
 }
-```
 
-Backward traversal avoids skipping elements after removal.
-
-## Sum and Average
-
-### Accumulate values from `get(i)`
-
-```java
-int sum = 0;
-for (int i = 0; i < values.size(); i++)
-{
-    sum += values.get(i);
-}
-double average = (double) sum / values.size();
-```
-
-Use `values.size()` for the divisor.
-
-## Max
-
-### Initialize from an existing element
-
-```java
-int max = values.get(0);
-for (int i = 1; i < values.size(); i++)
-{
-    if (values.get(i) > max)
-    {
-        max = values.get(i);
-    }
-}
-```
-
-This works for negative numbers too.
-
-## Count a Property
-
-### Selection inside traversal
-
-```java
-int oddCount = 0;
-for (int value : values)
-{
-    if (value % 2 != 0)
-    {
-        oddCount++;
-    }
-}
-```
-
-This is a frequency counter for an `ArrayList`.
-
-## Duplicates
-
-### Compare each pair once
-
-```java
 for (int i = 0; i < list.size(); i++)
 {
-    for (int j = i + 1; j < list.size(); j++)
+    if (condition about list.get(i))
     {
-        if (list.get(i).equals(list.get(j)))
-        {
-            return true;
-        }
+        // body for matching indices
     }
 }
-return false;
 ```
 
-Use `equals` for objects such as strings.
+## Add/Remove Elements
 
-## Rotate Right
+### Trace basic `ArrayList` methods
 
-### Remove from one end and add to the other
+You should be able to trace through code that uses all the basic `ArrayList` methods.
+
+Key methods in this lesson:
+
+- `add(obj)`
+- `add(index, obj)`
+- `set(index, obj)`
+- `remove(index)`
+
+## Quick Check
+
+### `mchoice:: qListRem3`
+
+What will print when the following code executes?
 
 ```java
-String last = list.remove(list.size() - 1);
-list.add(0, last);
+List<Integer> numList = new ArrayList<Integer>();
+numList.add(new Integer(1));
+numList.add(new Integer(2));
+numList.add(new Integer(3));
+numList.set(2, new Integer(4));
+numList.add(1, new Integer(5));
+numList.add(new Integer(6));
+System.out.println(numList);
 ```
 
-For a new list version, add elements into a separate `ArrayList` instead of modifying the original.
+## Quick Check: Options
 
-## Reverse into a New List
+### qListRem3
 
-### Build in opposite order
+Options:
+
+A. `[1, 2, 3, 4, 5]`  
+B. `[1, 2, 4, 5, 6]`  
+C. `[1, 2, 5, 4, 6]`  
+D. `[1, 5, 2, 4, 6]`
+
+## Quick Check: Answer
+
+### qListRem3 reasoning
+
+Correct answer: **D. `[1, 5, 2, 4, 6]`**
+
+`add` without an index adds at the end.
+
+`set` replaces the item at that index.
+
+`add` with an index moves all current values at that index or beyond to the right.
+
+## Quick Check
+
+### `mchoice:: qListRem4`
+
+What will print when the following code executes?
 
 ```java
-ArrayList<String> reversed = new ArrayList<String>();
-for (String item : list)
+List<Integer> list1 = new ArrayList<Integer>();
+list1.add(new Integer(1));
+list1.add(new Integer(2));
+list1.add(new Integer(3));
+list1.remove(1);
+System.out.println(list1);
+```
+
+Options:
+
+A. `[2, 3]`  
+B. `[1, 2, 3]`  
+C. `[1, 2]`  
+D. `[1, 3]`
+
+## Quick Check: Answer
+
+### qListRem4 reasoning
+
+Correct answer: **D. `[1, 3]`**
+
+The item at index `1` is removed and the `3` is moved left.
+
+## Coding Exercise
+
+### `activecode:: arrayListRemoveInLoop`
+
+The following code is supposed to initialize the `ArrayList` `arr` to `[0,1,2,3,4]` and then remove every other element to get `[1,3]`.
+
+However, when you remove an element the size of the array changes and elements move up an index.
+
+Trace through the code and figure out why you get the unexpected result.
+
+## arrayListRemoveInLoop Source Code
+
+::: {.code-scroll}
+```java
+import java.util.*;
+
+public class ArrayListLoop
 {
-    reversed.add(0, item);
+    public static void main(String[] args)
+    {
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for (int i = 0; i < 5; i++)
+        {
+            arr.add(i);
+        }
+        for (int i = 0; i < arr.size(); i++)
+        {
+            if (i % 2 == 0)
+            {
+                System.out.println("Removing element " + i + " : " + arr.get(i));
+                arr.remove(i);
+            }
+        }
+        System.out.println(arr);
+    }
 }
 ```
+:::
 
-Each new item is inserted at the front.
+## arrayListRemoveInLoop Test Target
 
-## Parallel Data Structures
+### Runestone expected output
 
-### Same index connects related lists
+The Runestone test checks the output from `main`.
 
-```java
-ArrayList<String> names = new ArrayList<String>();
-ArrayList<Integer> scores = new ArrayList<Integer>();
-
-System.out.println(names.get(i) + ": " + scores.get(i));
+```text
+Removing element 0: 0
+Removing element 2: 3
+[1, 2, 4]
 ```
 
-Parallel lists require careful index consistency. A class is often a cleaner design.
+The source expects this unexpected result, because the exercise is about tracing the removal bug.
+
+## Remove While Traversing
+
+### Source note
+
+If you use `add` or `remove` inside a loop that traverses an `ArrayList`, you may get unexpected results because the size of the `ArrayList` has changed.
+
+Enhanced `for` should not be used to remove elements from an `ArrayList`.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
-::: {.tight-list}
-- remove safely by traversing backward when needed
-- compute sum, average, min, and max with `ArrayList` methods
-- count elements that match a property
-- use nested loops to detect duplicates
-- rotate or reverse a list while explaining how indices change
-:::
+- distinguish `add(obj)`, `add(index, obj)`, `set(index, obj)`, and `remove(index)`
+- trace index shifts after an insertion or removal
+- explain why removing while moving forward can skip values
+- explain why enhanced `for` should not be used to remove elements
+- preserve the source expected output for `arrayListRemoveInLoop`
 
 ## End
 
-### Return to the course outline
+### 4.10 Add and Remove Elements
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: Min, Max, Sum, Average, and Finding a Property.

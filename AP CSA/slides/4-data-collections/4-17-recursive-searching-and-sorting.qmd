@@ -45,7 +45,7 @@ Recursive case:
 - search the left half if middle is too large
 :::
 
-## Full Code {.fit-small}
+## Recursive Binary Search Source Code {.fit-small}
 
 ### Recursive binary search
 
@@ -99,7 +99,7 @@ The recursive logic is the same, but `ArrayList` uses `get(mid)` and strings use
 
 ## Classroom Check
 
-### A strong answer should...
+### A strong answer should include
 
 ::: {.tight-list}
 - identify the base case for not found

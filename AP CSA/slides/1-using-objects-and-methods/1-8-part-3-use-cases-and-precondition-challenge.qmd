@@ -1,0 +1,128 @@
+---
+title: "1.8 Documentation with Comments and Preconditions"
+subtitle: "Part 3: Use Cases and Precondition Challenge"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Topic Intro
+
+### Preconditions support testing
+
+Preconditions and postconditions help us test code and determine the <span class="term">validity</span> (有效性) of software.
+
+Software validity tests whether the software does what it is supposed to do before it is released.
+
+This can be very important if the code is part of a satellite going to outer space or is going to be used in an emergency condition.
+
+## Good Testers
+
+### Try to break assumptions
+
+Good software testers actually try to break the code.
+
+They try all kinds of input to see what the software will do because you never know what users will try or what conditions there will be.
+
+Always think what the preconditions of your code are, see what happens when you break them, and then see if you can protect or warn against that.
+
+## Use-Case Diagrams
+
+### Designing software systems
+
+Preconditions and postconditions can also help us design better software systems.
+
+Software designers often first draw a high-level <span class="term">Use-Case Diagram</span> of a system that shows the different ways that a user might interact with a system before they build it.
+
+A <span class="term">Use-case</span> is a particular user interaction or situation in the system or software, and use-cases often become methods in the program.
+
+## Restaurant Use-Case Diagram {.image-fit}
+
+### Customer, staff, and use-cases
+
+![Use-Case Diagram of a Restaurant System](../../assets/1-using-objects-and-methods/1-8-documentation-with-comments/use-case-restaurant.png){fig-align="center" width="64%"}
+
+The diagram shows `2` actors in the system: the customer and the staff at the restaurant, and `3` use-cases in circles.
+
+## Use-Case Conditions
+
+### Order Food
+
+After drawing a Use-Case Diagram, designers write down the preconditions and the postconditions for each Use-Case.
+
+Often the successful post-condition for one use-case becomes the preconditions for the next use-case.
+
+::: {.tight-list}
+- Preconditions for "Order Food": Customer enters restaurant. Staff is ready to take the order.
+- Postconditions for "Order Food": Customer orders the food. Staff takes the order.
+:::
+
+## Use-Case Conditions
+
+### Eat Food
+
+::: {.tight-list}
+- Preconditions for "Eat Food": Customer has already ordered food. Staff has delivered food.
+- Postcondition for "Eat Food": Customer eats the food.
+:::
+
+## Student Response Task
+
+### `shortanswer:: payconditions`
+
+What are the preconditions and postconditions of the use-case "Pay for food"?
+
+Remember that these are often related to the other use-case conditions "order food" and "eat food".
+
+## Groupwork
+
+### Coding Challenge: Preconditions in Algorithms
+
+Working in pairs or groups, come up with `4` steps that a user must do to purchase a product, for example a book on Java, in an online store.
+
+List the preconditions and postconditions for each step.
+
+You could pretend to buy something online to come up with the steps.
+
+Do not forget to list the preconditions and postconditions for each step.
+
+## Student Response Task
+
+### `shortanswer:: challenge-1-8-use-case-preconditions`
+
+Write down `4` steps that a user must do to purchase a product, for example a book on Java, in an online store.
+
+For each step, list:
+
+::: {.tight-list}
+- the use-case step
+- the preconditions
+- the postconditions
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain that software validity asks whether the software does what it is supposed to do
+- describe why testers try to break preconditions
+- identify actors and use-cases in the restaurant diagram
+- connect "Order Food", "Eat Food", and "Pay for food" with pre/postconditions
+- write `4` online-store purchase steps
+- list preconditions and postconditions for each online-store step
+:::
+
+## End
+
+### 1.8 complete
+
+The next topic begins method signatures.

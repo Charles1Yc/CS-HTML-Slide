@@ -1,6 +1,6 @@
 ---
-title: "4.4 Array Traversals"
-subtitle: "Data Collections"
+title: "4.4 Indexed Array Traversals"
+subtitle: "Array Traversals"
 format:
   clean-revealjs:
     slide-number: true
@@ -14,156 +14,279 @@ lang: zh-CN
 
 [← Back to AP CSA / 返回课程目录](../../index.html)
 
-## Topic Intro
+## Array Traversals
 
-### Traversal visits array elements
+### Visiting each element
 
-An <span class="term">array traversal</span> (数组遍历) processes each element, or a selected range of elements, using a loop.
+In this lesson, we will learn how to traverse an array using a loop.
+
+**Traversing** an array means visiting each element of the array.
+
+We can use a loop to visit each element of an array and perform some operation on it.
+
+This is a common operation when working with arrays.
+
+## Index Variables
+
+### Arithmetic inside brackets
+
+In the last lesson, we mentioned that you can use a variable for the index of an array.
+
+You can even do math with that index and have an arithmetic expression inside the square brackets.
+
+```java
+// highScores array declaration
+int[] highScores = {10, 9, 8, 8};
+// use a variable for the index
+int index = 3;
+// modify array value at index
+highScores[index] = 11;
+// print array value at index
+System.out.println(highScores[index]);
+System.out.println(highScores[index - 1]);
+```
+
+## Array With Index Variable {.image-fit}
+
+### Trace the output
 
 ![Array with index variable](../../assets/4-data-collections/4-4-array-traversals/arraywithindex.png){fig-align="center" width="48%"}
 
-Traversal connects loop counters to array indices.
+What does the code print out?
 
-## Standard For Loop
+The external visualizer link is omitted; the trace prompt and image are retained.
 
-### Use the index when you need positions
+## Loops to Traverse Arrays
 
-![Array for loop](../../assets/4-data-collections/4-4-array-traversals/arrayForLoop.png){fig-align="center" width="52%"}
+### Indexed traversal
+
+**Traversing an array** or **iteration** is when repetition statements are used to access all or an ordered sequence of elements in an array.
+
+We can traverse an array with an indexed `for` loop or `while` loop, accessing the elements using an index variable.
+
+Start the index at `0` and loop while the index is less than the `length` of the array.
+
+The variable `i`, short for index, is often used as the loop counter variable.
+
+## For Loop Traversal {.image-fit}
+
+### Counter variable as index
+
+![For loop traversing array](../../assets/4-data-collections/4-4-array-traversals/arrayForLoop.png){fig-align="center" width="62%"}
+
+Since this is a simple counter-controlled loop, `for` loops are used more often than `while` loops for array traversals.
+
+## Traversal Code
+
+### `for` and `while`
 
 ```java
-for (int i = 0; i < values.length; i++)
+int[] highScores = {10, 9, 8, 11};
+for (int i = 0; i < highScores.length; i++)
 {
-    System.out.println(values[i]);
+    System.out.println(highScores[i]);
+}
+// Or with a while loop
+int i = 0;
+while (i < highScores.length)
+{
+    System.out.println(highScores[i]);
+    i++;
 }
 ```
 
-This loop visits every valid index from `0` to `values.length - 1`.
+## Source Note
 
-## Trace Task
+### Data abstraction
 
-### Sum an array
+Using a variable as the index is a powerful **data abstraction** feature.
+
+It allows us to use loops with arrays where the loop counter variable is the index of the array.
+
+This allows our code to generalize to work for the whole array.
+
+## Coding Exercise
+
+### `activecode:: arraytrace2`
+
+What do you think the following code will print out?
+
+First trace through it on paper keeping track of the array and the index variable.
+
+Then run it to see if you were right.
+
+Then try adding your name and a friend's name to the array `names` and run the code again.
+
+Did the code work without changing the loop?
+
+## arraytrace2 Starter
 
 ```java
-int[] values = {3, 5, 2};
-int sum = 0;
-
-for (int i = 0; i < values.length; i++)
+public class Test2
 {
-    sum += values[i];
-}
+    public static void main(String[] args)
+    {
+        String[] names = {"Jamal", "Emily", "Destiny", "Mateo", "Sofia"};
 
-System.out.println(sum);
+        for (int i = 0; i < names.length; i++)
+        {
+            System.out.println(names[i]);
+        }
+        // TODO: Add your name and a friend's name to the array initializer list.
+    }
+}
 ```
 
-Answer: `10`.
+## arraytrace2 Test Targets
 
-## Arrays as Parameters
+### Runestone checks
 
-### A method can traverse a received array
+The first expected output contains:
+
+```text
+Jamal
+Emily
+Destiny
+Mateo
+Sofia
+```
+
+After adding two more names, the output should have at least six lines and include the new names.
+
+## Arrays as Objects and Parameters
+
+### Reference values
+
+The following code demonstrates a loop that changes the values in an array.
+
+In this code, the array is passed as an argument to the static methods in the class.
+
+Arrays in Java are objects.
+
+The array variables are references to an address in memory.
+
+Since arrays can be very large, we do not want to copy them when we pass them into methods.
+
+## Passing Arrays to Methods
+
+### Changes affect the original
+
+When an array is passed as an argument to a method, the name of the array refers to its address in memory.
+
+Therefore, any changes to the array in the method will affect the original array.
+
+The external Java visualizer link is omitted; the source trace code is retained.
+
+## Coding Exercise
+
+### `activecode:: arrayMethodTrace`
+
+What does the following code print out?
+
+Trace through it keeping track of the array values and the output.
+
+Then run it to see if you are right.
+
+Notice that the array is passed as an argument to the methods.
+
+## arrayMethodTrace Code
+
+::: {.code-scroll}
+```java
+public class ArrayLoop
+{
+
+    // What does this method do?
+    public static void multAll(int[] values, int amt)
+    {
+        for (int i = 0; i < values.length; i++)
+        {
+            values[i] = values[i] * amt;
+        }
+    }
+
+    // What does this method do?
+    public static void printValues(int[] values)
+    {
+        for (int i = 0; i < values.length; i++)
+        {
+            System.out.println(values[i]);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        int[] numArray = {2, 6, 7, 12, 5};
+        multAll(numArray, 2);
+        printValues(numArray);
+    }
+}
+```
+:::
+
+## Expected Output
+
+### Runestone check
+
+The expected output from `main` is:
+
+```text
+4
+12
+14
+24
+10
+```
+
+`multAll` changes the original array because the array reference is passed to the method.
+
+## Source Note
+
+### Array arguments
+
+Arrays in Java are objects.
+
+When arrays are passed in as arguments to methods, any changes to the array in the method will affect the original array.
+
+The array name is a reference value referring to the address of the array in memory.
+
+## Mixed-Up Code
+
+### `parsonsprob:: patdonsArraySubtract`
+
+The following method has the correct code to subtract `amt` from all the values in the array `values`, but the code is mixed up.
+
+Drag the blocks into the correct order.
+
+## Correct Order
+
+### `subAll`
 
 ```java
-public static int sum(int[] values)
+public void subAll(int[] values, int amt)
 {
-    int total = 0;
     for (int i = 0; i < values.length; i++)
     {
-        total += values[i];
-    }
-    return total;
-}
+        values[i] = values[i] - amt;
+    } // end for loop
+} // end method
 ```
-
-The parameter stores a reference to the array object.
-
-## Partial Traversal
-
-### Sometimes only part of the array should be processed
-
-```java
-for (int i = 0; i < 4; i++)
-{
-    nums[i] *= 3;
-}
-```
-
-This loop changes only the first four elements. Always check that the array has enough elements before using a fixed bound.
-
-## Common Errors
-
-### Off-by-one mistakes break traversals
-
-Wrong:
-
-```java
-for (int i = 0; i <= values.length; i++)
-{
-    System.out.println(values[i]);
-}
-```
-
-Correct:
-
-```java
-for (int i = 0; i < values.length; i++)
-{
-    System.out.println(values[i]);
-}
-```
-
-## Enhanced For Loop
-
-### Use for-each when index is not needed
-
-![For-each comparison](../../assets/4-data-collections/4-4-array-traversals/appinvForEachComparison.png){fig-align="center" width="44%"}
-
-```java
-for (int value : values)
-{
-    System.out.println(value);
-}
-```
-
-For-each is concise for reading elements, but it does not give direct access to the index.
-
-## Enhanced For Loop Limitation
-
-### It cannot replace array elements directly
-
-```java
-for (int value : values)
-{
-    value++;
-}
-```
-
-This changes only the local loop variable, not the array elements.
-
-Use an indexed loop when modifying array contents.
-
-## Groupwork Coding Challenge {.image-fit}
-
-### SpellChecker
-
-![SpellChecker challenge prompt](../../assets/4-data-collections/4-4-array-traversals/spellcheck.png){fig-align="center" width="34%"}
-
-Write a method that traverses an array of dictionary words and checks whether a target word appears.
-
-Key pattern: loop through words, compare with `equals`, return early when found.
 
 ## Classroom Check
 
-### A strong answer should...
+### A complete answer should include
 
 ::: {.tight-list}
-- write an indexed traversal from `0` to `array.length - 1`
-- use array elements inside an accumulator or search
-- explain why `i < array.length` avoids out-of-bounds errors
-- choose for-each when no index or mutation is needed
-- explain why for-each cannot directly replace array elements
+- define traversal as visiting each element of the array
+- use `i = 0; i < array.length; i++` as the indexed traversal pattern
+- explain why `i` can be used inside `array[i]`
+- trace `arraytrace2` before and after adding names
+- explain why passing an array to a method can mutate the original
+- order `subAll` with the loop header before the array update statement
 :::
 
 ## End
 
-### Return to the course outline
+### 4.4 Part 1 complete
 
-[← Back to AP CSA / 返回课程目录](../../index.html)
+Next: partial traversals and common loop errors.

@@ -1,0 +1,260 @@
+---
+title: "1.11 Math Class"
+subtitle: "Part 2: Random Numbers and Ranges"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Random Numbers
+
+### `Math.random()`
+
+![Dice](../../assets/1-using-objects-and-methods/1-11-math-class/dice.png){fig-align="left" width="14%"}
+
+The `Math.random()` method returns a `double` number greater than or equal to `0.0`, and less than `1.0`.
+
+When we talk about ranges of numbers, we need to be precise about whether the ends of the range are part of the range.
+
+## Inclusive and Exclusive
+
+### `0.0` inclusive, `1.0` exclusive
+
+`Math.random()` can return `0`, but never returns `1`.
+
+When we need to be precise, we say that it returns a number between:
+
+```text
+0 inclusive and 1 exclusive
+```
+
+That means include `0` but exclude `1`.
+
+Lots of ranges in Java are expressed with an inclusive bottom and exclusive top.
+
+## Coding Exercise
+
+### `activecode:: random1`
+
+Try the following code.
+
+Run it several times to see what it prints each time.
+
+```java
+public class Test3
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Math.random());
+        System.out.println(Math.random());
+    }
+}
+```
+
+## Random Output Check
+
+### `random1`
+
+Runestone accepts the program output as unpredictable output.
+
+Each run should print two values, and each value should satisfy:
+
+```text
+0.0 <= value < 1.0
+```
+
+## Stretch the Range
+
+### Multiply the random value
+
+Getting a number between `0` inclusive and `1` exclusive may not seem useful.
+
+But we can expand the range easily.
+
+The value `Math.random()` returns is always a bit less than `1`.
+
+If you multiply that value by any amount, it will stretch it into the range you want.
+
+## Coding Exercise
+
+### `activecode:: random-example-stretched`
+
+Try the following code. Run it several times to see what it prints each time.
+
+Did you ever see `0.0`? How about `1.0`?
+
+```java
+public class StretchedRandom
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Math.random() * 10);
+        System.out.println(Math.random() * 10);
+    }
+}
+```
+
+## Stretched Output Check
+
+### Range after multiplying by `10`
+
+The generated numbers are always in the range `0` to `10`.
+
+The output values are `double` values and probably have a lot of digits after the decimal point.
+
+```text
+0.0 <= value < 10.0
+```
+
+## Random Integer
+
+### Cast to `int`
+
+Often we want a random integer, with nothing after the decimal point.
+
+Casting a `double` to an `int` throws away any values after the decimal point.
+
+```java
+// rnd is an integer in the range 0-9 (from 0 up to 10).
+int rnd = (int)(Math.random()*10);
+```
+
+## Shift the Range
+
+### From `0-9` to `1-10`
+
+What if we want a number in a range that does not start with `0`, say a number from `1` to `10` including `10`?
+
+Since the size of the two ranges is the same, with ten numbers in each, all we need to do is shift from the range we have generated into the range we want.
+
+```java
+// rnd is an integer in the range 1-10 (including 10).
+int rnd = (int)(Math.random()*10) + 1;
+```
+
+## Coding Exercise
+
+### `activecode:: randomRange`
+
+Run the code below several times to see how the value changes each time.
+
+How could you change the code to return a random integer from `1` to `10`?
+
+Modify the code and see if your answer is correct.
+
+Try removing the parentheses from around `(Math.random() * 10)` and run the code several times.
+
+## Starter Code
+
+### `randomRange`
+
+```java
+public class Test4
+{
+    public static void main(String[] args)
+    {
+        // TODO: Modify this line to return a random integer from 1 to 10.
+        System.out.println((int) (Math.random() * 10));
+    }
+}
+```
+
+## Test Requirement
+
+### Preserve the parentheses rule
+
+Runestone checks that the code contains `+ 1` to move the range from `0-9` to `1-10`.
+
+The parentheses are necessary because `(int)` will cast the closest expression.
+
+```java
+(int) (Math.random() * 10)
+```
+
+Without the parentheses, `(int)Math.random()` will always be `0`, since anything after the decimal point is dropped.
+
+## Random Range Note
+
+### General form
+
+`Math.random()` returns a random number between `0.0` and just under `1.0`.
+
+```java
+(int)(Math.random() * range) + min
+```
+
+moves the random number into a range starting from a minimum number.
+
+## Random Range Note
+
+### Range size
+
+The range is:
+
+```text
+max number - min number + 1
+```
+
+## Range Examples
+
+### Specific ranges
+
+```java
+// Math.random() returns a random number between 0.0-0.99.
+double rnd = Math.random();
+
+// rnd1 is an integer in the range 0-9 (including 9).
+int rnd1 = (int)(Math.random()*10);
+
+// rnd2 is in the range 1-10 (including 10). The parentheses are necessary!
+int rnd2 = (int)(Math.random()*10) + 1;
+
+// rnd3 is in the range 5-10 (including 10). The range is 10-5+1 = 6.
+int rnd3 = (int)(Math.random()*6) + 5;
+```
+
+## Range Examples
+
+### Negative minimum
+
+```java
+// rnd4 is in the range -10 up to 9 (including 9).
+// The range is doubled (9 - -10 + 1 = 20)
+// and the minimum is -10.
+int rnd4 = (int)(Math.random()*20) - 10;
+```
+
+So the general recipe for generating a random is to:
+
+::: {.tight-list}
+- stretch the value by multiplying by the size of the range
+- cast to `int` if you want an integer value
+- shift the value up by adding the minimum value
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- state that `Math.random()` returns `0.0 <= value < 1.0`
+- multiply by a range size to stretch the random value
+- cast after multiplication to discard the decimal part
+- add `min` to shift the integer range
+- keep parentheses around `(Math.random() * range)` before casting
+- compute inclusive integer range size as `max - min + 1`
+:::
+
+## End
+
+### 1.11 Part 2 complete
+
+Part 3 continues with random recipes and quick checks.

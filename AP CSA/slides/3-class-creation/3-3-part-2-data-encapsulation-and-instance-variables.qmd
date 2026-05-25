@@ -1,0 +1,253 @@
+---
+title: "3.3 Data Encapsulation and Instance Variables"
+subtitle: "Class Creation"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit3-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Data Encapsulation
+
+### Implementation details are hidden
+
+**Data encapsulation** (数据封装) is an object-oriented design technique in which the implementation details of a class are kept hidden from external classes.
+
+The keywords `public` and `private` are called **access modifiers** (访问修饰符).
+
+They affect how you can access classes, data, constructors, and methods.
+
+## Public and Private
+
+### Access modifiers
+
+The keyword `public` means anyone can access this.
+
+It allows access from classes outside the declaring class.
+
+The keyword `private` restricts access to the declaring class.
+
+Variables or methods marked `private` are only accessible inside the class where they are defined.
+
+## Private Instance Variables
+
+### Standard class design
+
+In general, instance variables in a class should be declared `private` to ensure data encapsulation.
+
+```java
+private String name;
+private String email;
+private String phoneNumber;
+```
+
+## Instance Variables
+
+### Object data
+
+**Instance Variables** (sometimes called **attributes**, **fields**, or **properties**) hold the data for an object.
+
+They belong to the object, and each object has its own copy of these variables.
+
+On the AP CSA exam, instance variables should be declared **private**.
+
+## Instance Variable Pattern
+
+### Where declarations appear
+
+Instance variables are declared right after the class declaration.
+
+They usually start with `private`, then the **type** of the variable, and then a **name** for the variable.
+
+```java
+public class Person
+{
+    private String name;
+    private String email;
+    private String phoneNumber;
+}
+```
+
+## Person Variables
+
+### Three pieces of data
+
+The `Person` class declares three private instance variables:
+
+::: {.tight-list}
+- `name`
+- `email`
+- `phoneNumber`
+:::
+
+These are things that you might want to know about a person.
+
+They are declared at the top of the class and exist inside the `{}` of the class.
+
+## Class and Objects {.image-fit}
+
+### Blueprint and separate object data
+
+![Person class and objects](../../assets/3-class-creation/3-3-anatomy-of-a-class/PersonClassWithCookies.png){fig-align="center" width="78%"}
+
+Each object will have its own copies of the same instance variables but with possibly different values in them.
+
+## Encapsulation Practice
+
+### Internal attributes, public methods
+
+Access to attributes should be kept internal to the class in order to accomplish encapsulation.
+
+It is good programming practice to designate the instance variables as `private`.
+
+The data and the code acting on the data are wrapped together into a single unit, and the implementation details are hidden.
+
+## Outside Classes
+
+### Interact through public methods
+
+Only code in the class can access or change the values of `private` instance variables.
+
+Code in other classes can only interact with the `public` methods you provide.
+
+When designing a class, you decide what data to make accessible or modifiable from other classes by what `public` methods you provide.
+
+## Check Your Understanding
+
+### `clickablearea:: name_instance_variables`
+
+Click on all the instance variable declarations in the following class.
+
+```java
+public class Name
+{
+    private String first;
+    private String last;
+
+    public Name(String theFirst, String theLast)
+    {
+        first = theFirst;
+        last = theLast;
+    }
+
+    public void setFirst(String theFirst)
+    {
+        first = theFirst;
+    }
+
+    public void setLast(String theLast)
+    {
+        last = theLast;
+    }
+}
+```
+
+## Answer Reasoning
+
+### Instance variables are declarations after the class declaration
+
+Correct lines:
+
+```java
+private String first;
+private String last;
+```
+
+They are private declarations inside the class and outside any constructor or method.
+
+The assignment statements `first = theFirst;` and `last = theLast;` are not declarations.
+
+## Active Code
+
+### `activecode:: PersonClass2`
+
+The following `Person` class keeps track of the name, email, and phone number of a person.
+
+What other data could you keep track of about a `Person`?
+
+Add another private instance variable of your choice.
+
+Do not worry about changing the constructor or other methods yet.
+
+## PersonClass2 Starter
+
+::: {.code-scroll}
+```java
+public class Person
+{
+    // instance variables
+    private String name;
+    private String email;
+    private String phoneNumber;
+    // Add another private instance variable about a Person here
+
+
+    // constructor: construct a Person copying in the data into the instance
+    // variables
+    public Person(String initName, String initEmail, String initPhone)
+    {
+        name = initName;
+        email = initEmail;
+        phoneNumber = initPhone;
+    }
+
+    // Print all the data for a person
+    public void print()
+    {
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone Number: " + phoneNumber);
+    }
+
+    // main method for testing
+    public static void main(String[] args)
+    {
+        // call the constructor to create a new person
+        Person p1 = new Person("Sana", "sana@gmail.com", "123-456-7890");
+        // call p1's print method
+        p1.print();
+        Person p2 = new Person("Jean", "jean@gmail.com", "404 899-9955");
+        p2.print();
+    }
+}
+```
+:::
+
+## Test Target
+
+### Runestone private-variable check
+
+The Runestone test checks for four private instance variables after your addition.
+
+```text
+Expected: 4 Private
+Check: Checking Private Instance Variable(s)
+```
+
+The task does not ask you to change the constructor or the `print` method yet.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- define data encapsulation as hiding implementation details from external classes
+- distinguish `public` access from `private` access
+- state that instance variables should generally be `private`
+- explain that each object has its own copy of instance variables
+- identify instance variable declarations outside constructors and methods
+- preserve starter blanks when adding one new private instance variable
+:::
+
+## End
+
+### 3.3 Part 2 complete
+
+Next: instance methods.

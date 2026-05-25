@@ -1,0 +1,132 @@
+---
+title: "4.13 Rotate a Row in a 2D Array"
+subtitle: "Implementing 2D Array Algorithms"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit4-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Rotate and Reverse
+
+### Row or column algorithms
+
+We can also rotate or reverse the order of the elements in a row or column.
+
+The following source code rotates the elements in a row to the right by one position.
+
+This algorithm is very similar to the 1D array rotation algorithm because we are dealing with a single row or column.
+
+## Coding Exercise
+
+### `activecode:: rotate2DArray`
+
+Create a method `rotateRowRight` that rotates the elements in a row to the right by one position.
+
+It should return the rotated array.
+
+## Rotate Starter
+
+::: {.code-scroll}
+```java
+public class Rotate
+{
+     public static int[][] rotateRowRight(int[][] nums, int row)
+     {
+          int last = nums[row][nums[0].length - 1];
+          // Write a backwards loop through the row's columns
+          //  to copy elements at col-1 to col
+
+
+          // Copy the last element to the first element at col 0
+
+
+          return nums;
+     }
+
+     public static void main(String[] args)
+     {
+          int[][] matrix = { {3, 2, 3}, {4, 3, 6}, {8, 9, 3}, {10, 3, 3}};
+          int[][] rotated = rotateRowRight(matrix, 1);
+          for (int row = 0; row < rotated.length; row++)
+          {
+            for (int col = 0; col < rotated[0].length; col++)
+            {
+                 System.out.print(rotated[row][col] + " ");
+            }
+            System.out.println();
+          }
+     }
+}
+```
+:::
+
+## Rotate Test Target
+
+### Main output
+
+The output from `main` should be:
+
+```text
+3 2 3
+6 4 3
+8 9 3
+10 3 3
+```
+
+The method call in `main` rotates row index `1`.
+
+## Rotate Test Target
+
+### Extra method call
+
+A second test calls `rotateRowRight` with:
+
+```java
+int[][] array = { {1, 4, 8}, {6, 7, 9}};
+Rotate.rotateRowRight(array, 0);
+```
+
+Expected output from the returned array:
+
+```text
+8 1 4
+6 7 9
+```
+
+## Algorithm Focus
+
+### Rotate one row right
+
+The starter stores:
+
+```java
+int last = nums[row][nums[0].length - 1];
+```
+
+Then the missing loop should copy each value at `col - 1` into `col`, moving from right to left.
+
+After the loop, copy `last` into column `0`.
+
+## Classroom Check
+
+### A complete answer should include
+
+- store the last element before overwriting row values
+- traverse the row from right to left
+- copy `nums[row][col - 1]` into `nums[row][col]`
+- place the saved value into `nums[row][0]`
+- return the same `int[][]` after rotating the row
+
+## End
+
+### 4.13 Rotate a Row in a 2D Array
+
+Next: Searching Algorithms.

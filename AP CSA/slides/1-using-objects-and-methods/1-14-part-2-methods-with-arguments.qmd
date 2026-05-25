@@ -1,0 +1,325 @@
+---
+title: "1.14 Calling Instance Methods"
+subtitle: "Part 2: Methods with Arguments"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Methods Calls with Arguments
+
+### Turtle methods can take values
+
+In the last lessons, we used simple **methods** like `forward` and `turnRight` to make the turtle draw lines.
+
+You may have noticed that `forward()` and `backward()` always move the same number of pixels (`100` pixels), and `turnRight()` and `turnLeft()` always turn at right angles (`90` degrees).
+
+This is a little limiting.
+
+## Methods Calls with Arguments
+
+### More flexible movement
+
+What if we wanted to draw a triangle or the letter A?
+
+These require smaller angles to draw diagonal lines and different length lines.
+
+Luckily, there are more complex methods in the `Turtle` class that let you specify the number of pixels to move forward or the number of degrees to turn.
+
+## Arguments and Parameters
+
+### Values passed to methods
+
+These values that you can give to methods to help them do their job are called **arguments** or **parameters**.
+
+For example, we can give the argument `200` in `forward(200)` to make the turtle go forward `200` pixels instead of the default of `100`.
+
+We can give the argument `30` in `turn(30)` to make the turtle turn `30` degrees instead of `90` degrees.
+
+## Source Note
+
+### Method calls with arguments
+
+`object.method(arguments);` is used to call an object's method and give it some argument values that it will need to do its job.
+
+```java
+yertle.forward(200);
+yertle.turn(30);
+```
+
+The object receiver is `yertle`.
+
+The arguments are `200` and `30`.
+
+## Parameters vs. Arguments
+
+### Method definition and method call
+
+When you create your own method, the variables you define for it are called **parameters**.
+
+When you call the method to do its job, you give or pass in **arguments** to it that are then saved in the parameter variables.
+
+In the definition of the `forward` method, it has a parameter variable called `pixels`.
+
+In the call to `forward(200)`, the argument is the value `200`, which will get saved in the parameter variable `pixels`.
+
+## Parameters and Arguments Figure
+
+### Source diagram
+
+You will learn to write your own methods in Unit 3.
+
+In this unit, you will learn to call methods that are already written for you.
+
+![Method signatures with parameters and method call arguments](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/method-param-arg.png){fig-align="center" width="64%"}
+
+## Vocabulary Check
+
+### `dragndrop:: methodVocab`
+
+Drag the definition from the left and drop it on the correct word on the right.
+
+| Definition | Word |
+|---|---|
+| an object's behaviors or functions that can be used or called to do its job | methods |
+| the values or data passed to an object's method | arguments |
+| the variables in a method's definition that hold the arguments | parameters |
+| asking to run the method | method call |
+
+## Turtle Class Diagram
+
+### Methods inherited from `SimpleTurtle`
+
+Here is the `Turtle` class diagram again that shows some of the variables and methods inherited from the `SimpleTurtle` class in the class `Turtle` that are written for you.
+
+![Turtle class diagram](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/turtleUMLClassDiagram.png){fig-align="center" width="54%"}
+
+## Overloaded Instance Methods
+
+### Same name, different signature
+
+Methods are said to be **overloaded** when there are multiple methods with the same name but a different **method signature**, where it requires a different number or type of parameters.
+
+For example, we have two different `forward` methods:
+
+```java
+yertle.forward();
+yertle.forward(100);
+```
+
+The arguments given to the method need to correspond to the order and types of the parameters in the method signature.
+
+## Coding Exercise
+
+### `activecode:: TurtleTestMethods1`
+
+Can you make `yertle` draw a square and change the pen color for each side of the square?
+
+Try something like:
+
+```java
+yertle.setColor(Color.red);
+```
+
+This uses the `Color` class in Java, which has some colors predefined like red, yellow, blue, magenta, cyan.
+
+You can also use more specific methods like `setPenColor`, `setBodyColor`, and `setShellColor`.
+
+## Coding Exercise
+
+### Triangle task
+
+Can you draw a triangle?
+
+The `turnRight()` method always does `90` degree turns, but you'll need external angles of `120` degree for an equilateral triangle.
+
+Use the `turn` method which has a parameter for the angle of the turn in degrees.
+
+For example, `turn(90)` is the same as `turnRight()`.
+
+Try drawing a triangle with different colors.
+
+## Starter Code
+
+### `TurtleTestMethods1`
+
+```java
+import java.awt.*;
+import java.util.*;
+
+public class TurtleTestMethods1
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300, 300);
+        Turtle yertle = new Turtle(world);
+
+        yertle.forward(100);
+        yertle.turnLeft();
+        yertle.forward(75);
+
+        // TODO: add method calls for a square, a triangle, and colors
+
+        world.show(true);
+    }
+}
+```
+
+## Test Requirements
+
+### Preserved Runestone checks
+
+Runestone checks that the code changed from the starter.
+
+It also checks:
+
+::: {.tight-list}
+- changes color at least `3` times by counting `Color(`
+- calls `.turn` at least `3` times
+- calls `.turn(` at least `1` time
+- calls `.forward(` at least `4` times
+:::
+
+## Mixed-Up Code
+
+### `parsonsprob:: DrawAHouse`
+
+![Simple house](../../assets/1-using-objects-and-methods/1-14-calling-instance-methods/house.png){fig-align="center" width="24%"}
+
+The following code uses a turtle to draw a simple house, but the lines are mixed up.
+
+Drag the code blocks to the right and put them in the correct order to first draw a square for the house and then a red triangle for the roof.
+
+You can type this code in the Active Code window above to see it in action.
+
+## Mixed Blocks
+
+### Setup blocks
+
+```java
+// Block 1
+public class TurtleDrawHouse
+
+// Block 2
+{
+
+// Block 3
+public static void main(String[] args)
+{
+
+// Block 4
+World world = new World(300,300);
+
+// Block 5
+Turtle builder = new Turtle(world);
+```
+
+## Mixed Blocks
+
+### Square block
+
+```java
+// Block 6
+// Draw a square
+builder.turnRight();
+builder.forward(100);
+builder.turnRight();
+builder.forward(100);
+builder.turnRight();
+builder.forward(100);
+builder.turnRight();
+builder.forward(100);
+```
+
+## Mixed Blocks
+
+### `DrawAHouse` continued
+
+```java
+// Block 7
+builder.setColor(Color.red);
+
+// Block 8
+// Draw a triangle
+builder.turn(30);
+builder.forward(100);
+builder.turn(120);
+builder.forward(100);
+builder.turn(120);
+builder.forward(100);
+
+// Block 9
+world.show(true);
+
+// Block 10
+}
+
+// Block 11
+}
+```
+
+## Correct Order
+
+### `DrawAHouse`
+
+::: {.code-scroll .compact}
+```java
+public class TurtleDrawHouse
+{
+    public static void main(String[] args)
+    {
+        World world = new World(300,300);
+        Turtle builder = new Turtle(world);
+
+        // Draw a square
+        builder.turnRight();
+        builder.forward(100);
+        builder.turnRight();
+        builder.forward(100);
+        builder.turnRight();
+        builder.forward(100);
+        builder.turnRight();
+        builder.forward(100);
+
+        builder.setColor(Color.red);
+
+        // Draw a triangle
+        builder.turn(30);
+        builder.forward(100);
+        builder.turn(120);
+        builder.forward(100);
+        builder.turn(120);
+        builder.forward(100);
+
+        world.show(true);
+    }
+}
+```
+:::
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- call an object method with `object.method(arguments)`
+- distinguish parameters in a method definition from arguments in a method call
+- match method arguments to the number, order, and type in the method signature
+- explain method overloading using `forward()` and `forward(100)`
+- use turtle methods with arguments for distance, turn angle, and color changes
+- reorder turtle code so setup comes before drawing and `world.show(true)` comes last
+:::
+
+## End
+
+### 1.14 Part 2 complete
+
+Part 3 continues with methods that return values.

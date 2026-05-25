@@ -210,105 +210,151 @@
 <h3 id="return-to-the-course-outline">Return to the course outline</h3>
 <p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
 </section>
-<section id="topic-intro" class="slide level2">
-<h2>Topic Intro</h2>
-<h3 id="data-sets-need-algorithms">Data sets need algorithms</h3>
-<p>A <span class="term">data set</span> (数据集) is a collection of related data values.</p>
-<p>In AP CSA, a data set is often processed with:</p>
-<div class="tight-list">
-<ul>
-<li>arrays</li>
-<li><code>ArrayList</code></li>
-<li>text files</li>
-<li>loops</li>
-<li>selection logic</li>
-</ul>
-</div>
+<section id="data-sets" class="slide level2">
+<h2>Data Sets</h2>
+<h3 id="definition">Definition</h3>
+<p>A <strong>data set</strong> is a collection of specific pieces of information or data.</p>
+<p>For example, the following table is a data set that keeps track of information about students.</p>
+<p>Data can be represented in a diagram by using a chart or table.</p>
+<p>Here it is shown as a spreadsheet table with columns for first name, last name, email, and GPA.</p>
 </section>
-<section id="algorithm-task" class="slide level2">
-<h2>Algorithm Task</h2>
-<h3 id="average-gpa-pseudocode">Average GPA pseudocode</h3>
-<p>Reorder the algorithm for computing an average.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Initialize total to 0.</span>
-<span id="cb1-2"><a href=""></a>Initialize count to 0.</span>
-<span id="cb1-3"><a href=""></a>For each GPA in the data set:</span>
-<span id="cb1-4"><a href=""></a>    Add the GPA to total.</span>
-<span id="cb1-5"><a href=""></a>    Add 1 to count.</span>
-<span id="cb1-6"><a href=""></a>Divide total by count.</span>
-<span id="cb1-7"><a href=""></a>Return or print the average.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is the same accumulator pattern from Unit 2 applied to a data collection.</p>
-</section>
-<section id="honor-roll-prompt" class="slide level2">
-<h2>Honor Roll Prompt</h2>
-<h3 id="filter-data-by-a-property">Filter data by a property</h3>
-<p>Write pseudocode for printing all students with a GPA at least <code>3.5</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>For each student in the data set:</span>
-<span id="cb2-2"><a href=""></a>    If the student's GPA is at least 3.5:</span>
-<span id="cb2-3"><a href=""></a>        Print the student's name.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Class focus: filtering is selection inside traversal.</p>
-</section>
-<section id="data-set-operations" class="slide level2">
-<h2>Data Set Operations</h2>
-<h3 id="common-classroom-algorithms">Common classroom algorithms</h3>
-<div class="tight-list">
-<ul>
-<li>count how many items match a condition</li>
-<li>compute sum or average</li>
-<li>find a minimum or maximum</li>
-<li>search for a target item</li>
-<li>build a new collection from selected items</li>
-</ul>
-</div>
-<p>The rest of Unit 4 gives Java structures for implementing these operations.</p>
-</section>
-<section id="quick-check" class="slide level2">
-<h2>Quick Check</h2>
-<h3 id="match-task-to-pattern">Match task to pattern</h3>
+<section id="spreadsheet-table" class="slide level2">
+<h2>Spreadsheet Table</h2>
+<h3 id="student-data-set">Student data set</h3>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Task</th>
-<th>Pattern</th>
+<th>firstname</th>
+<th>lastname</th>
+<th>email</th>
+<th>GPA</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>total all GPAs</td>
-<td>accumulator</td>
+<td>Mickey</td>
+<td>Mouse</td>
+<td>mickey@disney.com</td>
+<td>3.5</td>
 </tr>
 <tr class="even">
-<td>print all honor roll students</td>
-<td>filter</td>
+<td>Minnie</td>
+<td>Mouse</td>
+<td>minnie@disney.com</td>
+<td>4.0</td>
 </tr>
 <tr class="odd">
-<td>find highest score</td>
-<td>max</td>
+<td>Donald</td>
+<td>Duck</td>
+<td>donald@disney.com</td>
+<td>3.0</td>
 </tr>
 <tr class="even">
-<td>find a named student</td>
-<td>search</td>
+<td>Type here</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>Use the task verb to choose the algorithm pattern.</p>
+<p>Spreadsheet software like Excel and Google Sheets store data in a table and provide functions to manipulate and calculate with the data.</p>
+</section>
+<section id="spreadsheet-activity" class="slide level2">
+<h2>Spreadsheet Activity</h2>
+<h3 id="source-task">Source task</h3>
+<p>Type in another row of data to the table on row 4 with your choice of values for:</p>
+<div class="tight-list">
+<ul>
+<li>first name</li>
+<li>last name</li>
+<li>email</li>
+<li>GPA</li>
+</ul>
+</div>
+<p>The source spreadsheet check requires row 4 to be changed from <code>Type here</code>.</p>
+</section>
+<section id="manipulating-data-sets" class="slide level2">
+<h2>Manipulating Data Sets</h2>
+<h3 id="solve-a-problem-or-answer-a-question">Solve a problem or answer a question</h3>
+<p>Data sets can be manipulated and analyzed to solve a problem or answer a question.</p>
+<p>Data in a table or chart can be used to plan the algorithm that will be used to manipulate the data.</p>
+<p>For example, how would you find the average GPA of the students in the table above?</p>
+<p>You would need to access each GPA value in the table, add them up, and divide by the number of rows.</p>
+</section>
+<section id="processing-values" class="slide level2">
+<h2>Processing Values</h2>
+<h3 id="one-at-a-time">One at a time</h3>
+<p>When analyzing data sets, values within the set are accessed and utilized one at a time.</p>
+<p>Then they are processed according to the desired outcome.</p>
+<p>Loops can be used to access and process each value in a data set.</p>
+<p>The source practices this with pseudocode.</p>
+</section>
+<section id="mixed-up-pseudocode" class="slide level2">
+<h2>Mixed-Up Pseudocode</h2>
+<h3 id="parsonsprob-algorithm-avg-gpa"><code>parsonsprob:: algorithm-avg-gpa</code></h3>
+<p>Put the following pseudocode algorithm steps for calculating the average GPA of the students in the table.</p>
+<p>Make sure some of the steps are indented to be inside the loop.</p>
+<div class="tight-list">
+<ul>
+<li>Initialize <code>sum</code> to <code>0</code>.</li>
+<li>Loop through each row in the table:</li>
+<li>Add the GPA value of each row to <code>sum</code>.</li>
+<li>Divide <code>sum</code> by the number of rows in the table to get the average GPA.</li>
+</ul>
+</div>
+</section>
+<section id="correct-order" class="slide level2">
+<h2>Correct Order</h2>
+<h3 id="average-gpa-algorithm">Average GPA algorithm</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>Initialize sum to 0.</span>
+<span id="cb1-2"><a href=""></a>Loop through each row in the table:</span>
+<span id="cb1-3"><a href=""></a>    Add the GPA value of each row to sum.</span>
+<span id="cb1-4"><a href=""></a>Divide sum by the number of rows in the table to get the average GPA.</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The indented line belongs inside the loop.</p>
+</section>
+<section id="honor-roll-prompt" class="slide level2">
+<h2>Honor Roll Prompt</h2>
+<h3 id="shortanswer-honorroll"><code>shortanswer:: honorroll</code></h3>
+<p>What if your school wants to print out an honor roll of students with a GPA of <code>3.5</code> or higher?</p>
+<p>How would you write an algorithm to do this?</p>
+<p>Write pseudocode for an algorithm that prints out the names of students with a GPA of <code>3.5</code> or higher given a table of student data where one column is the GPA.</p>
+<p>Make sure you use repetition (loop) and selection (if) in your algorithm.</p>
+</section>
+<section id="student-response-task" class="slide level2">
+<h2>Student Response Task</h2>
+<h3 id="required-deliverable">Required deliverable</h3>
+<p>A complete pseudocode response should:</p>
+<div class="tight-list">
+<ul>
+<li>loop through each row or each student in the table</li>
+<li>check whether the GPA is <code>3.5</code> or higher</li>
+<li>print the student’s name when the condition is true</li>
+</ul>
+</div>
+</section>
+<section id="next-lessons" class="slide level2">
+<h2>Next Lessons</h2>
+<h3 id="java-structures-for-data-sets">Java structures for data sets</h3>
+<p>In the next lessons, we will learn about data structures like Java arrays that can be used to store data sets.</p>
+<p>We will use loops to access and manipulate the data in the arrays.</p>
 </section>
 <section id="classroom-check" class="slide level2">
 <h2>Classroom Check</h2>
-<h3 id="a-strong-answer-should">A strong answer should…</h3>
+<h3 id="a-complete-answer-should-include">A complete answer should include</h3>
 <div class="tight-list">
 <ul>
-<li>explain that a data set is a collection of related values</li>
-<li>connect data set processing to traversal with loops</li>
-<li>use an accumulator for averages</li>
-<li>use selection inside a loop to filter data</li>
-<li>identify common data set tasks such as count, search, min, max, and average</li>
+<li>define a data set as specific pieces of information or data</li>
+<li>explain that data can be represented in a table or chart</li>
+<li>describe how an average GPA algorithm accesses each GPA value</li>
+<li>indent the add-to-sum step inside the loop</li>
+<li>write honor-roll pseudocode with both repetition and selection</li>
 </ul>
 </div>
 </section>
 <section id="end" class="slide level2">
 <h2>End</h2>
-<h3 id="return-to-the-course-outline-1">Return to the course outline</h3>
-<p><a href="../../index.html">← Back to AP CSA / 返回课程目录</a></p>
+<h3 id="complete">4.2 complete</h3>
+<p>Next: array creation and access.</p>
 
 </section>
     </div>

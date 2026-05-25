@@ -1,0 +1,419 @@
+---
+title: "1.1 Introduction to Algorithms, Programming, and Compilers"
+subtitle: "Part 2: Compiling, Keywords, and Syntax Errors"
+format:
+  clean-revealjs:
+    slide-number: true
+    css: unit1-shared.css
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the course outline
+
+[← Back to AP CSA / 返回课程目录](../../index.html)
+
+## Compiling and Running Java Programs
+
+### Source file, IDE, compiler
+
+Code can be written in any text editor, including the small text editor built into the Active Code exercises in this e-book.
+
+An <span class="term">Integrated Development Environment</span> (IDE, 集成开发环境) is often used because it provides tools to write, compile, and run code.
+
+In other IDEs, you must name the file the same name as the class name with `.java` as the extension.
+
+All Java code must be defined inside a class in a source file, and the name of the class must match the file name.
+
+## Compiler
+
+### Translate and check before running
+
+Computers do not actually speak Java, so we have to <span class="term">compile</span> Java source files into class files that a computer can understand and run.
+
+A <span class="term">compiler</span> (编译器) checks your code for errors and translates your code to executable code that can be run.
+
+Errors detectable by the compiler need to be fixed <span class="mark">before the program can be run</span>.
+
+## Java Keywords
+
+### Reserved words
+
+<span class="term">Keywords</span> are reserved words that have special meaning in Java.
+
+Keywords such as `public`, `class`, and `void` must be in lowercase.
+
+Class names such as `System` and `String` are capitalized.
+
+## Reorder Task
+
+### `hparsons:: mp-main-method-order-1`
+
+Textbook prompt: Drag or click on the blocks you need to move them from the top section into the yellow area to create the first line for the `main` method.
+
+There are extra blocks that you do not need.
+
+```text
+public static
+void main(
+String[]
+args)
+public Static
+```
+
+## Correct Order
+
+### `hparsons:: mp-main-method-order-1`
+
+```java
+public static void main(String[] args)
+```
+
+Reject:
+
+```text
+public Static
+```
+
+## Reorder Task
+
+### `hparsons:: mp-main-method-order-2`
+
+```text
+public
+static
+void
+main(
+String[]
+args)
+Void
+Public
+```
+
+Correct line:
+
+```java
+public static void main(String[] args)
+```
+
+## Reorder Task
+
+### `hparsons:: mp-main-method-order-3`
+
+```text
+public
+static
+void
+main
+(
+String
+[]
+args
+)
+()
+```
+
+Correct line:
+
+```java
+public static void main(String[] args)
+```
+
+## Java Statements
+
+### Semicolon
+
+Lines in a Java program that express a complete action such as printing output must end with a semicolon `;`.
+
+Such a line is called a <span class="term">statement</span> (语句).
+
+You can think of the semicolon in Java like a period in English.
+
+You will not be penalized on the exam if you forget a needed semicolon, but the Java compiler is not so lenient.
+
+## Reorder Task
+
+### `hparsons:: mp-print-order-1`
+
+Textbook prompt: Create a Java statement that will print `"Hi!"`.
+
+```text
+System
+.
+out
+.
+println
+(
+"
+Hi!
+"
+)
+;
+system
+```
+
+## Correct Order
+
+### `hparsons:: mp-print-order-1`
+
+```java
+System.out.println("Hi!");
+```
+
+Reject `system` because Java is case-sensitive.
+
+## Reorder Task
+
+### `hparsons:: mp-print-order-2`
+
+Textbook prompt: Create a Java statement that will print `"Bye!"`.
+
+```text
+System
+.
+out
+.
+println
+(
+"
+Bye!
+"
+)
+;
+Out
+```
+
+## Correct Order
+
+### `hparsons:: mp-print-order-2`
+
+```java
+System.out.println("Bye!");
+```
+
+Reject `Out`; the field name is lowercase `out`.
+
+## Syntax Errors and Debugging
+
+### Compiler-reported errors
+
+<span class="term">Syntax errors</span> (语法错误) are reported by the compiler if Java code is not correctly written.
+
+Examples of syntax errors are:
+
+::: {.tight-list}
+- a missing semicolon `;`
+- an open curly brace `{` without a close curly brace `}`
+- an open quote `"` without a close quote `"`
+:::
+
+Informally, a syntax error is called a <span class="term">bug</span>, and the process of removing errors is called <span class="term">debugging</span> (调试).
+
+## First Bug
+
+### Grace Hopper's log
+
+::: {.image-fit}
+![Grace Hopper's log showing a real bug, 1947](../../assets/1-using-objects-and-methods/1-1-introduction-to-algorithms-programming-and-compilers/firstbug.jpg){fig-align="center" width="34%"}
+:::
+
+An early computer science pioneer Grace Hopper documented a real bug, a moth that flew into a computer in 1947.
+
+## Mixed-Up Program
+
+### `parsonsprob:: mixed-hi`
+
+The following has all the correct code to print out `"Hi my friend!"` when the code is run, but the code is mixed up.
+
+```java
+public class Hello
+{
+   public static void main(String[] args)
+   {
+      System.out.println("Hi my friend!");
+   } // end of main
+} // end of class
+```
+
+## Mixed-Up Program
+
+### `parsonsprob:: mixed-hi-paired`
+
+The following has all the correct code to print out `"Hi there!"`, but it also contains extra blocks with errors.
+
+Correct blocks:
+
+```java
+public class Hello
+{
+   public static void main(String[] args)
+   {
+      System.out.println("Hi there!");
+   } // end of main
+} // end of class
+```
+
+## Extra Blocks to Reject
+
+### `parsonsprob:: mixed-hi-paired`
+
+```java
+public Class Hello
+{
+```
+
+```java
+public static void main()
+{
+```
+
+```java
+System.out.println("Hi there!")
+```
+
+## Reading Error Messages
+
+### Compile-time error
+
+Click run to compile and run code. If there is a syntax error, look for the error message below the code.
+
+This is called a <span class="term">compile time error</span> because it is an error detected by the compiler.
+
+It will be a lot easier to find the problem if you understand how to read the error message.
+
+## Error Message Shape
+
+### File, line, message, caret
+
+```text
+FirstClass.java:5: error: unclosed string literal
+       System.out.println("Hi there!);
+                          ^
+1 error
+```
+
+::: {.tight-list}
+- `FirstClass.java` is the file.
+- `5` is the line where the compiler detected the error.
+- `unclosed string literal` is the error message.
+- `^` points near where the compiler thinks the problem is.
+:::
+
+## Error Message Strategy
+
+### Read before fixing
+
+Error messages are not always 100% accurate about where the error actually is.
+
+Sometimes you need to change something earlier in the program, and sometimes a bit later.
+
+The line number is the best place to start looking.
+
+It is worth getting in the habit of really reading error messages.
+
+## Debugging Task
+
+### `activecode:: sc2error1`
+
+Textbook prompt: Fix the code below.
+
+```java
+public class FirstClass
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Hi there!);
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: sc2error1`
+
+Runestone expects this output from `main`:
+
+```text
+Hi there!
+```
+
+The visible compiler message points to an unclosed string literal.
+
+## Debugging Task
+
+### `activecode:: sc2error2`
+
+Textbook prompt: Click run, look for an error message after the code, fix the code, and run it again.
+
+```java
+public class SecondClass
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Hi there!";
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: sc2error2`
+
+Runestone expects this output from `main`:
+
+```text
+Hi there!
+```
+
+The method call needs a matching closing parenthesis.
+
+## Debugging Task
+
+### `activecode:: sc2error3`
+
+This program has more than one error.
+
+Read the first compiler message, fix one issue, and compile again.
+
+```java
+public class ThirdClass
+{
+    public static void main(String[] args)
+    {
+        system.out.println("Hi there!")
+    }
+}
+```
+
+## Test Requirements
+
+### `activecode:: sc2error3`
+
+Runestone expects this output from `main`:
+
+```text
+Hi there!
+```
+
+Remember that `System` is capitalized in `System.out.println`, and find the missing semicolon.
+
+## Classroom Check
+
+### A complete answer should include
+
+::: {.tight-list}
+- explain why Java source code must be compiled before running
+- match a class name to a `.java` file name in a regular IDE
+- distinguish lowercase Java keywords from capitalized class names
+- build `public static void main(String[] args)`
+- build `System.out.println("Hi!");`
+- read compiler errors using file, line, message, and caret
+- fix one compile-time error at a time
+:::
+
+## End
+
+### Continue to Part 3
+
+[Next: Runtime errors and debugging challenge →](1-1-part-3-runtime-errors-and-debugging-challenge.html)
