@@ -1,0 +1,113 @@
+---
+title: "4.1.1 System software and application software"
+subtitle: "Application software examples · P149"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Application Software
+
+### Specific task software
+
+<span class="term">Application software</span> refers to programs that allow the user to do specific tasks.
+
+The textbook gives several examples of typical application software.
+
+::: {.figure-placeholder}
+Figure 4.3 Application software screenshot placeholder
+:::
+
+## Documents, Numbers and Data
+
+### Office-style applications
+
+::: {.clean-table}
+| Software | Used for |
+|---|---|
+| <span class="term">Word processor</span> | Manipulating a text document, such as an essay or a report |
+| <span class="term">Spreadsheet</span> | Organising and manipulating numerical data |
+| <span class="term">Database</span> | Organising, manipulating and analysing data |
+:::
+
+Typical functions include editing text, using formulas, producing graphs, carrying out database queries, and adding, deleting or modifying data.
+
+## Control and Measuring Software
+
+### Interfacing with sensors
+
+<span class="term">Control and measuring software</span> allows a computer or microprocessor to interface with sensors.
+
+It can:
+
+::: {.tight-list}
+- measure physical quantities in the real world, such as temperatures
+- control applications by comparing <span class="mark">sensor data</span> with stored data
+- send signals to alter process parameters, for example opening a valve to change pH
+:::
+
+## Apps
+
+### Mobile and tablet applications
+
+<span class="term">Apps</span> normally refer to software which runs on mobile phones or tablets.
+
+They are normally downloaded from an App Store and range from games to sophisticated software such as phone banking.
+
+Common examples include video and music streaming, GPS and camera facilities.
+
+## Editing Software
+
+### Photos, video and graphics
+
+::: {.clean-table}
+| Software | Used for |
+|---|---|
+| <span class="term">Photo editing software</span> | Manipulating digital photographs, such as brightness, contrast or colour saturation |
+| <span class="term">Video editing software</span> | Manipulating videos to produce a new video |
+| <span class="term">Graphics manipulation software</span> | Changing bitmap and vector images |
+:::
+
+## Classroom Check
+
+### Give examples of application software
+
+A complete answer should include:
+
+::: {.tight-list}
+- application software performs <span class="mark">specific user tasks</span>
+- word processors, spreadsheets and databases have different purposes
+- control and measuring software can interface with sensors
+- apps normally run on mobile phones or tablets
+- editing software can manipulate photos, video, bitmap images or vector images
+:::
+
+## Bridge
+
+### Next: System software and utilities
+
+The next deck returns to system software examples and utility programs.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

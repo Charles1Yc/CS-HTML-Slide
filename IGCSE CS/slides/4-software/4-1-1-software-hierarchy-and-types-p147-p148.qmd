@@ -1,0 +1,106 @@
+---
+title: "4.1.1 System software and application software"
+subtitle: "Software hierarchy and types · P147-P148"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Software and Hardware
+
+### Why software is needed
+
+All computers begin life as a group of connected <span class="term">hardware</span> (硬件) items. Without <span class="term">software</span> (软件), the hardware items would be useless.
+
+This section considers the link between hardware and software.
+
+::: {.figure-placeholder}
+Figure 4.1 Software and hardware hierarchy screenshot placeholder
+:::
+
+## Two Types of Software
+
+### System software and application software
+
+There are two types of software:
+
+::: {.clean-table}
+| Type | Core idea |
+|---|---|
+| <span class="term">System software</span> (系统软件) | Programs that allow the <span class="mark">hardware to run properly</span> and allow the user to communicate with the computer |
+| <span class="term">Application software</span> (应用软件) | Programs that allow the user to do <span class="mark">specific tasks</span> |
+:::
+
+::: {.figure-placeholder}
+Figure 4.2 Software types screenshot placeholder
+:::
+
+## System Software
+
+### General features
+
+<span class="term">System software</span> is a set of programs used to control and manage the operation of computer hardware.
+
+::: {.tight-list}
+- provides a <span class="mark">platform</span> on which other software can run
+- required to allow hardware and software to run without problems
+- provides a <span class="term">human computer interface (HCI)</span> (人机界面)
+- controls the allocation and usage of hardware resources
+:::
+
+## Application Software
+
+### General features
+
+<span class="term">Application software</span> is used to perform various applications (apps) on a computer.
+
+::: {.tight-list}
+- allows a user to perform <span class="mark">specific tasks</span> using the computer's resources
+- may be a single program, for example <span class="term">NotePad</span>
+- may be a suite of programs, for example <span class="term">Microsoft Office</span>
+- can be executed by the user as and when they require
+:::
+
+## Classroom Check
+
+### Explain the two software types
+
+A complete answer should include:
+
+::: {.tight-list}
+- hardware alone would be useless without software
+- <span class="term">system software</span> controls and manages hardware operation
+- system software provides a platform and an HCI
+- <span class="term">application software</span> lets the user perform specific tasks
+- application software may be a single program or a suite
+:::
+
+## Bridge
+
+### Next: Application software examples
+
+The next deck looks at examples of application software.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

@@ -1,0 +1,191 @@
+---
+title: "5.3.2 Keeping data safe from security threats"
+subtitle: "Biometrics · P201-P203"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.58em; line-height: 1.0; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.18em 0.26em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Biometrics
+
+### Unique human characteristics
+
+<span class="term">Biometrics</span> (生物识别) can be used in much the same way as passwords as a way of identifying a user.
+
+Biometrics relies on certain unique characteristics of human beings.
+
+Examples include:
+
+::: {.tight-list}
+- fingerprint scans
+- retina scans
+- face recognition
+- voice recognition
+:::
+
+## Biometric Applications
+
+### Security devices
+
+Biometrics is used in a number of applications as a security device.
+
+For example:
+
+::: {.tight-list}
+- some mobile phones use fingerprint matching before they can be operated
+- some pharmaceutical companies use face recognition or retina scans to allow entry to secure areas
+:::
+
+## Fingerprint Scans
+
+### Matching stored images
+
+Images of fingerprints are compared against previously scanned fingerprint images stored in a database.
+
+If they match, then a user has been correctly recognised.
+
+The system compares patterns of <span class="mark">ridges and valleys</span> that are unique. The accuracy is about 1 in 5000.
+
+::: {.figure-placeholder}
+Figure 5.14 Fingerprint scan screenshot placeholder
+:::
+
+## Fingerprint Benefits
+
+### Why fingerprints improve security
+
+Fingerprint scanning benefits:
+
+::: {.tight-list}
+- fingerprints are unique, so they are difficult to replicate
+- other security devices can be lost or stolen
+- it would be impossible to sign in for somebody else
+- fingerprints cannot be misplaced
+:::
+
+## Fingerprint Drawbacks
+
+### Cost and acceptance
+
+Fingerprint scanning drawbacks:
+
+::: {.tight-list}
+- relatively expensive to install and set up
+- damaged fingers can affect scanning accuracy
+- some people may regard biometric devices as an infringement of civil liberties
+:::
+
+## Retina Scans
+
+### Blood vessel patterns
+
+<span class="term">Retina scans</span> use infrared light to scan the unique pattern of blood vessels in the retina at the back of the eye.
+
+It is secure since nobody has yet found a way to duplicate the blood vessel patterns.
+
+The accuracy is about <span class="mark">1 in 10 million</span>.
+
+::: {.figure-placeholder}
+Figure 5.15 Retina scan screenshot placeholder
+:::
+
+## Table 5.3
+
+### Fingerprint and retina scans
+
+::: {.clean-table}
+| Biometric technique | Benefits | Drawbacks |
+|---|---|---|
+| Fingerprint scans | developed technique; easy to use; small storage requirements | intrusive for some people; can make mistakes if skin is dirty or damaged |
+| Retina scans | very high accuracy; no known way to replicate a person's retina | intrusive; slow to verify; very expensive to install and set up |
+:::
+
+## Table 5.3
+
+### Face and voice recognition
+
+::: {.clean-table}
+| Biometric technique | Benefits | Drawbacks |
+|---|---|---|
+| Face recognition | non-intrusive method; relatively inexpensive technology | affected by lighting, hair, age and glasses |
+| Voice recognition | non-intrusive; verification takes less than 5 seconds; relatively inexpensive | voice can be recorded; low accuracy; illness can change a person's voice |
+:::
+
+## Biometric Application
+
+### Door security with retina scanner
+
+In the textbook example, a company uses retina scans to permit entry to secure research laboratories.
+
+::: {.figure-placeholder}
+Figure 5.16 Security system controlled by retina scanners screenshot placeholder
+:::
+
+## Retina Door System
+
+### Data flow
+
+::: {.tight-list}
+1. A person stands facing the retina scanner.
+2. The scanned data is sent via an <span class="term">ADC</span> to a microprocessor.
+3. The microprocessor compares the data with retina scan data stored in a database.
+4. If the data matches, a signal turns a light from red to green and unlocks the security door.
+5. The door is controlled by a <span class="term">DAC</span> and an actuator.
+6. If the data does not match, entry is denied and the light remains red.
+:::
+
+## Activity 5.5
+
+### Textbook practice
+
+The textbook asks students to:
+
+::: {.tight-list}
+- describe how a retina-scan entry system might change if face recognition was used
+- name other biometric devices that could control entry
+- describe benefits and drawbacks of voice control as a form of car security
+:::
+
+## Classroom Check
+
+### Biometrics
+
+A complete answer should include:
+
+::: {.tight-list}
+- biometrics identifies a user using unique human characteristics
+- fingerprint scans compare ridges and valleys with stored images
+- retina scans use infrared light to scan blood vessel patterns
+- benefits and drawbacks differ for fingerprint, retina, face and voice systems
+- the retina door system uses scanner, ADC, microprocessor, database, DAC and actuator
+:::
+
+## Bridge
+
+### Next: Two-step verification and updates
+
+The next deck explains two-factor checking and automatic software updates.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

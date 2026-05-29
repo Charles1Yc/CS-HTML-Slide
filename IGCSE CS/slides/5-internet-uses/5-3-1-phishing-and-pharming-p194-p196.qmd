@@ -1,0 +1,161 @@
+---
+title: "5.3.1 Cyber security threats"
+subtitle: "Phishing and pharming · P194-P196"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.72em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Phishing
+
+### Legitimate-looking emails
+
+<span class="term">Phishing</span> occurs when a cybercriminal sends out legitimate-looking emails to users.
+
+The emails may contain links or attachments that, when initiated, take the user to a fake website; or they may trick the user into responding with personal data.
+
+Examples of personal data include bank account details and credit/debit card details.
+
+## The User Initiates an Action
+
+### Why deletion helps
+
+The email usually appears to be genuine and may appear to come from a known bank or service provider.
+
+The key point is that the recipient has to initiate some act before the phishing scam can cause any harm.
+
+If suspicious emails are deleted or not opened, then phishing attacks will not cause problems.
+
+## Preventing Phishing
+
+### Awareness and links
+
+Textbook prevention advice includes:
+
+::: {.tight-list}
+- users should be aware of new phishing scams
+- security awareness training helps identify phishing and pharming scams
+- do not click email links unless totally certain it is safe
+- fake emails can often be identified by wording such as "Dear Customer"
+:::
+
+## Preventing Phishing
+
+### Browser and account checks
+
+The textbook also recommends:
+
+::: {.tight-list}
+- run anti-phishing toolbars on browsers
+- look out for `https` or the green padlock symbol in the address bar
+- check online accounts regularly and maintain passwords
+- use an up-to-date browser and a good firewall
+- be wary of pop-ups and close them rather than clicking "cancel"
+:::
+
+## Spear Phishing
+
+### Specific targets
+
+<span class="term">Spear phishing</span> targets specific individuals or companies to gain access to sensitive financial information or industrial espionage.
+
+Regular phishing is not specific regarding who the victims are.
+
+## Pharming
+
+### Redirected without user action
+
+<span class="term">Pharming</span> is malicious code installed on a user's computer or on an infected website.
+
+The code redirects the user's browser to a fake website without the user's knowledge.
+
+Unlike phishing, the user does not actually need to take any action for it to be initiated.
+
+## Pharming Threat
+
+### Fraud and identity theft
+
+The creator of the malicious code can gain personal data, such as bank details, from the user.
+
+Often the website appears to come from a trusted source and can lead to <span class="mark">fraud and identity theft</span>.
+
+## DNS Cache Poisoning
+
+### Changing IP address values
+
+Redirection from a legitimate website to a fake website can be done using <span class="term">DNS cache poisoning</span>.
+
+Every time a user types in a URL, the browser contacts the DNS server and the IP address is sent back. DNS cache poisoning changes the real IP address values to those of the fake website.
+
+## Reducing Pharming Risk
+
+### Checks and browser warnings
+
+It is possible to mitigate against pharming:
+
+::: {.tight-list}
+- anti-virus software can detect unauthorised alterations to a website address
+- modern browsers can alert users to pharming and phishing attacks
+- check the spelling of websites to ensure the address is correct
+- use `https` or the green padlock symbol as an additional defence
+:::
+
+If the DNS server itself has been infected, rather than the user's computer, it is much more difficult to mitigate the risk.
+
+## Activity 5.3
+
+### Textbook practice
+
+The textbook asks students to:
+
+::: {.tight-list}
+- describe data security issues for a company communicating over the internet
+- explain why each issue threatens company security
+- describe ways to mitigate those threats
+- explain worm, ransomware and Trojan horse
+- judge weak passwords and improve password maintenance
+:::
+
+## Classroom Check
+
+### Phishing and pharming
+
+A complete answer should include:
+
+::: {.tight-list}
+- phishing uses legitimate-looking emails with links or attachments
+- phishing needs the recipient to initiate an action
+- spear phishing targets specific people or companies
+- pharming redirects a browser to a fake website without the user's knowledge
+- DNS cache poisoning changes real IP address values to fake website addresses
+- anti-virus software, modern browser alerts, correct spelling and https/padlock checks help reduce risk
+:::
+
+## Bridge
+
+### Next: Social engineering
+
+The next deck explains how cybercriminals manipulate people rather than break systems directly.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

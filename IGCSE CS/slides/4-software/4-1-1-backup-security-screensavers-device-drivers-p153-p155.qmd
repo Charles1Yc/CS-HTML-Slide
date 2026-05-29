@@ -1,0 +1,154 @@
+---
+title: "4.1.1 System software and application software"
+subtitle: "Back-up, security, screensavers and device drivers · P153-P155"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Back-up Software
+
+### Back-up utility
+
+The operating system back-up utility can:
+
+::: {.tight-list}
+- allow a schedule for backing up files to be made
+- only carry out a back-up procedure if there have been changes made to a file
+:::
+
+For total security there should be three versions of a file: the working version, a local back-up copy and a remote back-up version.
+
+## Back-up Software
+
+### Restore points and time-based backups
+
+Back-up utilities can also:
+
+::: {.tight-list}
+- restore data, files or the computer from the back-up
+- create a <span class="term">restore point</span>
+- choose where back-up files are saved
+:::
+
+Examples in the textbook include Windows <span class="term">File History</span> and Mac OS <span class="term">Time Machine</span>.
+
+## Back-up Software
+
+### Figure 4.6
+
+::: {.figure-placeholder}
+Figure 4.6 Time machine message on Mac OS screenshot placeholder
+:::
+
+## Security Software
+
+### Managing access and protection
+
+<span class="term">Security software</span> is an over-arching utility that:
+
+::: {.tight-list}
+- manages access control and user accounts
+- links into other utility software, such as virus checkers and spyware checkers
+- protects network interfaces, for example through firewalls
+- uses encryption and decryption so intercepted data is meaningless without a decryption key
+- oversees software updating
+:::
+
+## Screensavers
+
+### Original purpose and modern use
+
+<span class="term">Screensavers</span> supply moving and still images on the monitor screen after a period of inactivity.
+
+They were originally developed to protect older CRT monitors from phosphor burn. With modern LCD and OLED screens, this problem no longer exists.
+
+Many screensavers are also used as part of the computer's security system.
+
+## Screensavers
+
+### Idle-state tasks
+
+Some screensavers can activate useful background tasks that can only go on when the computer is in an idle state.
+
+Examples include:
+
+::: {.tight-list}
+- virus scans
+- distributed computing applications
+:::
+
+## Device Drivers
+
+### Connecting hardware to the operating system
+
+<span class="term">Device drivers</span> communicate with the operating system and translate data into a format understood by a hardware peripheral device.
+
+Without device drivers:
+
+::: {.tight-list}
+- a hardware device would be unable to work with a computer
+- a message such as <span class="mark">device not recognised</span> could appear
+- when a USB device is plugged in, the operating system looks for the appropriate device driver
+:::
+
+## Device Drivers
+
+### USB descriptors
+
+All USB device drivers contain information about devices called <span class="term">descriptors</span>.
+
+Descriptors allow the USB bus to ask a newly connected device what it is. They include:
+
+::: {.tight-list}
+- <span class="term">vendor id (VID)</span>
+- <span class="term">product id (PID)</span>
+- unique serial numbers
+:::
+
+If a device has no serial number, the operating system will treat it as new every time it is plugged into a USB port.
+
+## Classroom Check
+
+### Explain support utilities and drivers
+
+A complete answer should include:
+
+::: {.tight-list}
+- back-up software can schedule backups and restore data
+- three secure file versions are working, local back-up and remote back-up
+- security software manages access, firewalls, encryption and updates
+- screensavers can support security and idle-state tasks
+- device drivers translate data for hardware peripheral devices
+- USB descriptors include VID, PID and serial numbers
+:::
+
+## Bridge
+
+### Next: Operating systems
+
+The next topic explains the role and functions of an operating system.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

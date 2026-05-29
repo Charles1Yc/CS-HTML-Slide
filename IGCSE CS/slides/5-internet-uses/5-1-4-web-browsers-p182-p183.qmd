@@ -1,0 +1,110 @@
+---
+title: "5.1.4 Web browsers"
+subtitle: "The internet and the World Wide Web · P182-P183"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Browser Purpose
+
+### Access and display web pages
+
+Browsers are software that allow a user to <span class="mark">access and display web pages</span> on their device screens.
+
+Browsers interpret or translate the <span class="term">HTML</span> from websites and show the result of the translation, for example videos, images/text and audio.
+
+## Browser Features
+
+### Pages and navigation
+
+Most browsers have the following features:
+
+::: {.tight-list}
+- they have a <span class="term">home page</span>
+- they can store a user's favourite websites or web pages as <span class="term">bookmarks</span>
+- they keep a <span class="term">history</span> of websites visited by the user
+- they allow the user to navigate forwards and backwards through opened web pages
+:::
+
+## Browser Features
+
+### Tabs, links and data
+
+Browsers also:
+
+::: {.tight-list}
+- allow many web pages to be open at the same time using <span class="term">multiple tabs</span>
+- make use of <span class="term">cookies</span>
+- make use of <span class="term">hyperlinks</span> that allow navigation between websites and web pages
+- store data as a <span class="term">cache</span>
+:::
+
+## Hyperlinks
+
+### Opening links
+
+Hyperlinks can be opened in one of two ways:
+
+::: {.tight-list}
+- open in a new tab by using `<ctrl> + <click>`
+- open in the same tab by simply clicking on the link
+:::
+
+::: {.figure-placeholder}
+Figure 5.1 Hyperlink example screenshot placeholder
+:::
+
+## Address Bar
+
+### Browser interface
+
+Browsers make use of <span class="term">JavaScript</span> and use an <span class="term">address bar</span>.
+
+::: {.figure-placeholder}
+Figure 5.2 Browser address bar screenshot placeholder
+:::
+
+## Classroom Check
+
+### Browser features
+
+A complete answer should include:
+
+::: {.tight-list}
+- browsers access and display web pages on device screens
+- browsers interpret HTML and show videos, images/text and audio
+- bookmarks, user history and tabs are common browser features
+- hyperlinks support navigation between websites and web pages
+- browsers use cookies, cache, JavaScript and an address bar
+:::
+
+## Bridge
+
+### Next: Retrieving web pages
+
+The next deck explains how DNS helps a browser locate a web server.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

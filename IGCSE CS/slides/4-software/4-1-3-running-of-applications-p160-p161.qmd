@@ -1,0 +1,148 @@
+---
+title: "4.1.3 Running of applications"
+subtitle: "Software P160-P161"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Running of Applications
+
+### Operating system as a platform
+
+Application software requires the <span class="term">operating system</span> (操作系统) to provide a <span class="mark">platform</span> on which the software can run successfully.
+
+This section brings together earlier ideas about:
+
+::: {.tight-list}
+- hardware
+- firmware
+- the operating system
+- application software
+:::
+
+## Booting Up
+
+### Loading the operating system into RAM
+
+When a computer starts up, part of the operating system needs to be loaded into <span class="term">RAM</span>.
+
+This is known as:
+
+::: {.tight-list}
+- <span class="term">booting up</span> (启动)
+- or using a <span class="term">bootstrap loader</span> (引导加载程序)
+:::
+
+## BIOS
+
+### Finding and loading the operating system
+
+The start-up of the computer's motherboard is handled by the <span class="term">basic input/output system (BIOS)</span>.
+
+The BIOS:
+
+::: {.tight-list}
+- tells the computer where the storage device holding the operating system can be found
+- loads the part of the operating system that is needed
+- executes that part of the operating system
+:::
+
+## Firmware
+
+### BIOS as firmware
+
+The BIOS is often referred to as <span class="term">firmware</span> (固件).
+
+<span class="term">Firmware</span> is defined as a program that provides <span class="mark">low level control</span> for devices.
+
+::: {.figure-placeholder}
+Figure 4.11 Firmware interface between OS and hardware screenshot placeholder
+:::
+
+## BIOS Storage
+
+### EEPROM and CMOS
+
+The BIOS program is stored in a special type of ROM called <span class="term">EEPROM</span> (Electrically Erasable Programmable ROM).
+
+The BIOS settings are stored on a <span class="term">CMOS</span> chip (Complementary Metal Oxide Semi-conductor).
+
+::: {.tight-list}
+- EEPROM contents remain when the computer is powered down
+- BIOS can be rewritten, updated or deleted by a user
+- CMOS is powered by a rechargeable battery on the motherboard
+:::
+
+## BIOS Settings
+
+### What happens if CMOS power is lost
+
+If the CMOS battery is removed or disconnected, the BIOS settings would be reset.
+
+Once the CMOS is restarted:
+
+::: {.tight-list}
+- it accesses the same BIOS program from EEPROM
+- the settings become the <span class="mark">default factory settings</span>
+- user changes such as clock speed settings are lost
+:::
+
+## Applications While Running
+
+### OS control and system software
+
+Application software is under the control of the operating system.
+
+While it is running, application software may need to:
+
+::: {.tight-list}
+- access system software such as <span class="term">device drivers</span>
+- use parts of the operating system loaded into RAM
+- have different parts of the operating system loaded in and out of RAM
+:::
+
+## Classroom Check
+
+### Explain how applications start and run
+
+A complete answer should include:
+
+::: {.tight-list}
+- application software requires the operating system as a <span class="mark">platform</span>
+- part of the operating system is loaded into <span class="term">RAM</span> during booting
+- <span class="term">BIOS</span> finds and loads the required operating system part
+- firmware provides <span class="mark">low level control</span> for devices
+- BIOS program is stored in EEPROM; BIOS settings are stored in CMOS
+- applications may access system software, such as device drivers, while running
+:::
+
+## Bridge
+
+### Next: Interrupts
+
+The next deck explains interrupt signals, buffers and interrupt service routines.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

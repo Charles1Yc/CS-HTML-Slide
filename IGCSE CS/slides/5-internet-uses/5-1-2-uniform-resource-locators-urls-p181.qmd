@@ -1,0 +1,99 @@
+---
+title: "5.1.2 Uniform resource locators (URLs)"
+subtitle: "The internet and the World Wide Web · P181"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Web Browsers
+
+### Accessing web pages
+
+<span class="term">Web browsers</span> are software that allow users to access and display web pages on their device screens.
+
+Browsers interpret <span class="term">hypertext mark-up language (HTML)</span> (超文本标记语言) sent from websites and produce the results on the user's device.
+
+## URLs
+
+### Text addresses
+
+<span class="term">Uniform resource locators (URLs)</span> (统一资源定位符) are text addresses used to access websites.
+
+A URL is typed into a browser <span class="term">address bar</span> using the following format:
+
+```text
+protocol://website address/path/file name
+```
+
+## URL Components
+
+### Protocol and website address
+
+The <span class="term">protocol</span> is usually either <span class="term">http</span> or <span class="term">https</span>.
+
+The website address is:
+
+::: {.tight-list}
+- <span class="term">domain host</span> (www)
+- <span class="term">domain name</span> (website name)
+- <span class="term">domain type</span> (.com, .org, .net, .gov, for example)
+- sometimes <span class="term">country code</span> (.uk, .de, .cy, for example)
+:::
+
+## Path and File Name
+
+### Location inside the website
+
+The <span class="term">path</span> is the web page, but is often omitted and it then becomes the <span class="mark">root directory</span> of the website.
+
+The <span class="term">file name</span> is the item on the web page.
+
+Example:
+
+```text
+https://www.hoddereducation.co.uk/ict
+```
+
+## Classroom Check
+
+### Parse a URL
+
+A complete answer should include:
+
+::: {.tight-list}
+- URLs are <span class="mark">text addresses used to access websites</span>
+- a URL is typed into the browser address bar
+- the protocol is usually http or https
+- the website address can include domain host, domain name, domain type and country code
+- the path is the web page and the file name is the item on the web page
+:::
+
+## Bridge
+
+### Next: HTTP and HTTPS
+
+The next deck explains why `https` indicates a more secure way of sending and receiving data.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

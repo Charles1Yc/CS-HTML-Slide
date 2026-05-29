@@ -1,0 +1,181 @@
+---
+title: "5.3.2 Keeping data safe from security threats"
+subtitle: "Privacy settings and SSL · P209-P210"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.68em; line-height: 1.06; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.2em 0.3em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Privacy Settings
+
+### Limiting access to personal profile
+
+<span class="term">Privacy settings</span> (隐私设置) are controls available on web browsers, social networks and other websites.
+
+They are designed to limit who can access and see a user's personal profile.
+
+## Privacy Setting Examples
+
+### Tracking, payments and browsing
+
+Privacy settings can refer to:
+
+::: {.tight-list}
+- a "do not track" setting to stop websites collecting and using browsing data
+- checking whether payment methods have been saved on websites
+- safer browsing alerts when the browser encounters a potentially dangerous website
+- web browser privacy options such as storing browsing history and cookies
+:::
+
+## Privacy Setting Examples
+
+### Advertising and apps
+
+Privacy settings can also refer to:
+
+::: {.tight-list}
+- website advertising opt-outs
+- third-party tracking for advertising purposes
+- app settings, for example switching off location data sharing in map apps
+:::
+
+## Secure Sockets Layer
+
+### Protocol for secure communication
+
+<span class="term">Secure Sockets Layer (SSL)</span> is a type of protocol: a set of rules used by computers to communicate with each other across a network.
+
+This allows data to be sent and received securely over the internet.
+
+## SSL and HTTPS
+
+### Encrypted data
+
+When a user logs onto a website, SSL encrypts the data.
+
+Only the user's computer and the web server are able to make sense of what is being transmitted.
+
+A user will know if SSL is being applied when they see <span class="mark">https</span> or the small padlock in the status bar.
+
+## HTTP vs HTTPS Address
+
+### Secure clue in the browser
+
+::: {.clean-table}
+| Protocol shown | Example |
+|---|---|
+| using https | `https://www.xxxx.org/documents` |
+| using http | `http://www.yyyy.co.uk/documents` |
+:::
+
+## Figure 5.23
+
+### Secure sockets layer process
+
+::: {.figure-placeholder}
+Figure 5.23 Secure sockets layer SSL screenshot placeholder
+:::
+
+## SSL Sequence
+
+### Connection and certificate
+
+::: {.tight-list}
+- the user's browser sends a message so that it can connect with the SSL-secured website
+- the browser requests that the web server identifies itself
+- the web server responds by sending a copy of its SSL certificate to the browser
+- if the browser can authenticate the certificate, it sends a message back to allow communication to begin
+- the web server acknowledges the browser and SSL-encrypted two-way data transfer begins
+:::
+
+## SSL Certificate
+
+### Authenticating a website
+
+An <span class="term">SSL certificate</span> is a form of <span class="term">digital certificate</span> used to authenticate a website.
+
+This means any communication or data exchange between browser and website is secure, provided this certificate can be authenticated.
+
+## Where SSL Is Used
+
+### Textbook examples 1/2
+
+SSL would be used for:
+
+::: {.tight-list}
+- online banking and all online financial transactions
+- online shopping/commerce
+- sending software to a restricted list of users
+- sending and receiving emails
+- using cloud storage facilities
+:::
+
+## Where SSL Is Used
+
+### Textbook examples 2/2
+
+SSL would also be used for:
+
+::: {.tight-list}
+- intranets and extranets
+- Voice over Internet Protocol when video chatting or audio chatting
+- instant messaging
+- social networking sites
+:::
+
+## Activity 5.6
+
+### Textbook practice
+
+The textbook asks students to:
+
+::: {.tight-list}
+- identify terms such as two-step verification, proxy server, privacy settings, SSL, firewall, DNS, biometrics, social engineering and pharming
+- describe how SSL/TLS certificates are used for secure sharing of data
+- identify clues in possible phishing emails
+:::
+
+## Classroom Check
+
+### Privacy settings and SSL
+
+A complete answer should include:
+
+::: {.tight-list}
+- privacy settings limit who can access and see a user's personal profile
+- privacy controls include do not track, saved payment checks, safer browsing, browser history/cookies and location sharing
+- SSL is a protocol for secure communication over a network
+- SSL encrypts data so only the user's computer and web server can make sense of it
+- https and the padlock indicate SSL may be applied
+- an SSL certificate authenticates a website before secure data exchange
+:::
+
+## Bridge
+
+### Unit 5 complete
+
+This deck completes the formal Unit 5 knowledge content. P211 is extension material, and P212-P216 are summary, key terms and exam-style questions.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

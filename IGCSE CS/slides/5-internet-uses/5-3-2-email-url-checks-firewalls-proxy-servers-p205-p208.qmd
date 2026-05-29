@@ -1,0 +1,199 @@
+---
+title: "5.3.2 Keeping data safe from security threats"
+subtitle: "Email and URL checks, firewalls and proxy servers · P205-P208"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.68em; line-height: 1.06; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.2em 0.3em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Email Checks
+
+### Before opening links
+
+When emails are sent to you, there are actions to take before opening them or activating links in them.
+
+::: {.tight-list}
+- check the spellings in the email and in the links
+- professional, genuine organisations will not send emails with spelling or major grammatical errors
+- carefully check the tone used in the email message
+- if it rushes you or the language is inappropriate, it could be phishing or worse
+:::
+
+## Five Things to Look Out For
+
+### Email address and tone
+
+::: {.tight-list}
+1. Check the email address itself; no legitimate company will use an address such as `@gmail.com`.
+2. The tone of the email and bad spelling of words is a clear indication of a potential scam.
+:::
+
+::: {.figure-placeholder}
+Figure 5.19 Sample scam email screenshot placeholder
+:::
+
+## Typo Squatting
+
+### Misspelled domain names
+
+Misspelling of domain names in a link is very common in emails sent by scammers and fraudsters.
+
+Textbook examples:
+
+```text
+www.gougle.com
+www.amozon.com
+```
+
+This is known as <span class="term">typo squatting</span>.
+
+## Suspicious Links
+
+### Destination address mismatch
+
+Destination addresses should match the rest of the email.
+
+::: {.figure-placeholder}
+Figure 5.20 Second example of probable scam screenshot placeholder
+:::
+
+Other errors include insecure `http`, incorrect company spelling and unexpected domain types.
+
+## Firewalls
+
+### Filtering traffic
+
+A <span class="term">firewall</span> can be either software or hardware.
+
+It sits between the user's computer and an external network, for example the internet, and filters information in and out of the computer.
+
+::: {.figure-placeholder}
+Figure 5.21 Typical firewall setup screenshot placeholder
+:::
+
+## Firewall Tasks
+
+### Traffic checks
+
+Main firewall tasks include:
+
+::: {.tight-list}
+- examine traffic between a user's computer/internal network and a public network
+- check whether incoming or outgoing data meets criteria
+- block traffic and warn the user or network manager if criteria fail
+- log incoming and outgoing traffic for later interrogation
+- prevent access to undesirable sites using a list of undesirable IP addresses
+:::
+
+## Firewall Protection
+
+### Viruses, hackers and software access
+
+Firewalls can help prevent viruses or hackers entering the user's computer or internal network.
+
+The user is warned if software on their system is trying to access an external data source and can allow or deny the access.
+
+Firewalls can be hardware interfaces or software installed on a computer.
+
+## Firewall Limits
+
+### What firewalls cannot control
+
+Firewalls cannot prevent:
+
+::: {.tight-list}
+- internal users using their own hardware devices to bypass the firewall
+- employee misconduct or carelessness, such as poor password or user account control
+- users on stand-alone computers disabling the firewall
+:::
+
+These issues require management control or personal control.
+
+## Proxy Servers
+
+### Intermediate server
+
+<span class="term">Proxy servers</span> act as an intermediate between the user and a web server.
+
+::: {.figure-placeholder}
+Figure 5.22 Proxy server screenshot placeholder
+:::
+
+## Proxy Server Features
+
+### Filtering and protection
+
+Proxy servers:
+
+::: {.tight-list}
+- allow internet traffic to be filtered and websites to be blocked
+- keep users' IP addresses secret
+- allow valid internet traffic and deny invalid traffic
+- block requests from certain IP addresses
+- prevent direct access to a web server
+- can act as firewalls
+:::
+
+## Proxy Server Features
+
+### Attack handling and cache
+
+If an attack is launched, it hits the proxy server instead, helping prevent hacking and DoS attacks.
+
+Proxy servers can direct invalid traffic away from web servers.
+
+Using a <span class="term">cache</span>, the proxy server can speed up access to information from a website by storing the home page after the first visit.
+
+## Classroom Check
+
+### Email checks and firewalls
+
+A complete answer should include:
+
+::: {.tight-list}
+- scam clues include spelling errors, odd tone, suspicious email domains, typo-squatting and mismatched links
+- a firewall filters information between a computer/internal network and an external network
+- firewalls can block traffic, warn users, log traffic and restrict undesirable sites
+- firewalls cannot stop misconduct, bypass devices or users disabling protection
+:::
+
+## Classroom Check
+
+### Proxy servers
+
+A complete answer should include:
+
+::: {.tight-list}
+- proxy servers sit between user and web server, filter traffic and hide IP addresses
+- proxy servers can use cache and absorb attacks before they reach the web server
+:::
+
+## Bridge
+
+### Next: Privacy settings and SSL
+
+The next deck closes Unit 5 with privacy controls and secure sockets layer.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

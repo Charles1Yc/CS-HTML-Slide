@@ -1,0 +1,150 @@
+---
+title: "5.3.1 Cyber security threats"
+subtitle: "Threats overview, brute force attacks and data interception · P189-P190"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.72em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Why Cyber Security Matters
+
+### Keeping data safe
+
+Keeping data safe is extremely important for many reasons.
+
+It may be personal data that you want to keep within your family or close friends, or commercial data, such as <span class="mark">passwords and bank details</span>.
+
+Data can be corrupted or deleted either through accidental damage or malicious acts.
+
+## Threat Categories
+
+### Section 5.3.1 list
+
+The textbook considers these cyber threats:
+
+::: {.tight-list}
+- brute force attacks
+- data interception
+- distributed denial of service (DDoS) attacks
+- hacking
+- malware: viruses, worms, Trojan horse, spyware, adware and ransomware
+- phishing, pharming and social engineering
+:::
+
+## Brute Force Attacks
+
+### Trying all combinations
+
+If a hacker wants to "crack" a password, they can systematically try all the different combinations of letters, numbers and other symbols until eventually they find the password.
+
+This is known as a <span class="term">brute force attack</span> (暴力破解攻击). There is not a lot of sophistication in the technique.
+
+## Common Passwords
+
+### First logical step
+
+One way to reduce the number of attempts needed is to check whether the password is one of the most common ones used.
+
+The textbook examples are:
+
+::: {.tight-list}
+- `123456`
+- `password`
+- `qwerty`
+- `111111`
+- `abc123`
+:::
+
+## Word Lists
+
+### Faster than total trial and error
+
+If the password is not in the common password list, the next step is to start with a <span class="term">word list</span>.
+
+A word list is a text file containing a collection of words that can be used in a brute force attack.
+
+The longer a password is and the greater the variation of characters used, the <span class="mark">harder it will be to crack</span>.
+
+## Data Interception
+
+### Stealing data in transit
+
+<span class="term">Data interception</span> (数据拦截) is a form of stealing data by tapping into a wired or wireless communication link.
+
+The intent is to compromise privacy or to obtain confidential information.
+
+## Packet Sniffing
+
+### Wired networks
+
+Interception can be carried out using a <span class="term">packet sniffer</span>, which examines data packets being sent over a network.
+
+The intercepted data is sent back to the hacker. This is a common method when wired networks are used.
+
+## Wardriving
+
+### Wireless interception
+
+Wi-Fi data interception can be carried out using <span class="term">wardriving</span>, sometimes called Access Point Mapping.
+
+Using this method, data can be intercepted using a laptop or smartphone, antenna and a GPS device, together with software, outside a building or somebody's house.
+
+The intercepted Wi-Fi signal can reveal personal data, often without the user being aware.
+
+## Reducing Interception Risk
+
+### Encryption and safer Wi-Fi use
+
+Encryption does not stop the data being intercepted or altered, but it makes the data <span class="mark">incomprehensible</span> if the hacker does not have the decryption key.
+
+The textbook recommends:
+
+::: {.tight-list}
+- WEP encryption protocol together with a firewall against wardriving
+- complex passwords to protect the wireless router
+- not using Wi-Fi connectivity in public places such as airports
+:::
+
+## Classroom Check
+
+### Brute force and interception
+
+A complete answer should include:
+
+::: {.tight-list}
+- brute force attacks systematically try combinations until a password is found
+- common passwords and word lists reduce the number of attempts needed
+- longer passwords with more varied characters are harder to crack
+- data interception steals data by tapping wired or wireless links
+- packet sniffers examine data packets; wardriving targets Wi-Fi signals
+- encryption makes intercepted data incomprehensible without the decryption key
+:::
+
+## Bridge
+
+### Next: DDoS and hacking
+
+The next deck explains attacks that stop access to services and illegal access to systems.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

@@ -1,0 +1,137 @@
+---
+title: "4.2.3 Translators"
+subtitle: "Software P168-P169"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Translators
+
+### Why programs need translation
+
+Computer programs are written by humans in a form trained programmers can understand.
+
+To be used by a computer, programs need to be translated into binary instructions, or <span class="term">machine code</span>.
+
+Humans find binary very difficult to read, but computers can only perform operations written in binary.
+
+::: {.figure-placeholder}
+Figure 4.15 Translation screenshot placeholder
+:::
+
+## Translator Programs
+
+### Different translators for different tasks
+
+A program must be translated into binary before a computer can use it.
+
+This is done by a utility program called a <span class="term">translator</span> (翻译程序).
+
+There are several types of translator program in use; each one performs a different task.
+
+## Compilers
+
+### Whole-program translation
+
+A <span class="term">compiler</span> translates an entire high-level language program into machine code all in one go.
+
+After compilation:
+
+::: {.tight-list}
+- the machine code can be directly used by the computer
+- it can be used again and again without re-compilation
+- if errors are detected, an error report is produced instead of a compiled program
+:::
+
+## Interpreters
+
+### Statement-by-statement execution
+
+An <span class="term">interpreter</span> reads a statement from a high-level language program, translates it and performs the specified action.
+
+It then does the same with the next statement.
+
+If there is an error, execution ceases and an error message is output, sometimes with a suggested correction.
+
+A program needs to be interpreted again each time it is run.
+
+## Assemblers
+
+### Assembly language to machine code
+
+An <span class="term">assembler</span> translates a program written in assembly language into machine code.
+
+Once a program is assembled:
+
+::: {.tight-list}
+- the machine code can be directly used by the computer
+- the same task can be performed without re-assembly
+:::
+
+## Table 4.3
+
+### What each translator translates
+
+::: {.clean-table}
+| Compiler | Interpreter | Assembler |
+|---|---|---|
+| Translates a high-level language program into machine code | Executes a high-level language program one statement at a time | Translates a low-level assembly language program into machine code |
+| Produces an executable file of machine code | Does not produce an executable file of machine code | Produces an executable file of machine code |
+:::
+
+## Table 4.3
+
+### How translated programs are used
+
+::: {.clean-table}
+| Compiler | Interpreter | Assembler |
+|---|---|---|
+| Compiled programs are run without the compiler | Interpreted programs cannot be run without the interpreter | Assembled programs are used without the assembler |
+| A compiled program is usually distributed for general use | An interpreter is often used when a program is being developed | An assembled program is usually distributed for general use |
+:::
+
+## Classroom Check
+
+### Compare translator programs
+
+A complete answer should include:
+
+::: {.tight-list}
+- a translator converts a program into machine code
+- a compiler translates the whole high-level program at once
+- an interpreter translates and executes one statement at a time
+- an assembler translates assembly language into machine code
+- compiler and assembler output can be used without re-translation
+- interpreted programs need the interpreter each time they run
+:::
+
+## Bridge
+
+### Next: Compilers and interpreters
+
+The next deck compares the advantages and disadvantages of compilers and interpreters.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

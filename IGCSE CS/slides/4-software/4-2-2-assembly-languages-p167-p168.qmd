@@ -1,0 +1,105 @@
+---
+title: "4.2.2 Assembly languages"
+subtitle: "Software P167-P168"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Assembly Languages
+
+### Why some programmers use assembly
+
+Fewer programmers write programs in an <span class="term">assembly language</span> (汇编语言).
+
+Those who do may use assembly language:
+
+::: {.tight-list}
+- to make use of special hardware
+- to make use of special machine-dependent instructions
+- to write code that does not take up much space in primary memory
+- to write code that performs a task very quickly
+:::
+
+## Assembly Language Example
+
+### Adding two numbers
+
+The textbook gives this typical assembly language example:
+
+```text
+LDA    First
+ADD    Second
+STO    Sum
+```
+
+It consists of three statements.
+
+## Mnemonics
+
+### What the statements mean
+
+To understand the program, the programmer needs to know the meaning of the mnemonics:
+
+::: {.tight-list}
+- <span class="term">LDA</span> means load value of the variable into the accumulator
+- <span class="term">ADD</span> means add value of the variable to the value stored in the accumulator
+- <span class="term">STO</span> means replace the value of the variable by the value stored in the accumulator
+:::
+
+## Assembler
+
+### Translation into machine code
+
+Assembly language needs to be translated into <span class="term">machine code</span> using an <span class="term">assembler</span> in order to run.
+
+This means:
+
+::: {.tight-list}
+- the program is written in assembly language
+- the assembler translates it into machine code
+- the machine code can then be used by the computer
+:::
+
+## Classroom Check
+
+### Explain assembly language
+
+A complete answer should include:
+
+::: {.tight-list}
+- assembly language is a <span class="term">low-level language</span>
+- it is dependent on computer hardware
+- it can use special hardware and machine-dependent instructions
+- mnemonics such as LDA, ADD and STO represent operations
+- an <span class="term">assembler</span> is needed to translate assembly language into machine code
+:::
+
+## Bridge
+
+### Next: Translators
+
+The next deck compares compilers, interpreters and assemblers.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

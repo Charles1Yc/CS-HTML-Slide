@@ -1,0 +1,112 @@
+---
+title: "5.2.1 What is digital currency?"
+subtitle: "Digital currency · P186-P187"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Digital Currency
+
+### No physical form
+
+<span class="term">Digital currency</span> (数字货币) exists purely in a digital format.
+
+It has <span class="mark">no physical form</span> unlike conventional <span class="term">fiat currency</span>, for example $, £, €, and ¥.
+
+Digital currency is an accepted form of payment to pay for goods or services.
+
+## Fiat Currency
+
+### Backed by governments and banks
+
+Fiat is a Latin word meaning "let it be done".
+
+Conventional currency is backed by governments and banks rather than being linked to gold or silver reserves, so it is referred to as <span class="term">fiat currency</span>.
+
+## Digital Transfers
+
+### Money as data
+
+As with cash or credit/debit cards, digital currency can be transferred between various accounts when carrying out transactions.
+
+It has made it possible to bank online or via a smartphone app because money only exists as <span class="mark">data on a computer system</span>, but it can be transferred into physical cash if needed.
+
+## Central Banking
+
+### Traditional digital currency
+
+Digital currency relies on a <span class="term">central banking system</span>.
+
+::: {.figure-placeholder}
+Figure 5.6 Digital currency screenshot placeholder
+:::
+
+The problem with centralisation is maintaining <span class="mark">confidentiality and security</span>.
+
+## Cryptocurrency
+
+### Decentralisation
+
+One example of digital currency, known as <span class="term">cryptocurrency</span> (加密货币), has essentially overcome confidentiality and security issues by introducing <span class="term">decentralisation</span>.
+
+::: {.figure-placeholder}
+Figure 5.7 Cryptocurrency and decentralisation screenshot placeholder
+:::
+
+## Cryptocurrency Features
+
+### Tracking and control
+
+::: {.tight-list}
+- Cryptocurrency uses <span class="term">cryptography</span> to track transactions.
+- Traditional digital currencies are regulated by central banks and governments.
+- Cryptocurrency has no state control and rules are set by the cryptocurrency community.
+- Cryptocurrency transactions are publicly available, so transactions can be tracked and the amount of money in the system is monitored.
+- The cryptocurrency system works within a <span class="term">blockchain network</span>.
+:::
+
+## Classroom Check
+
+### Digital currency and cryptocurrency
+
+A complete answer should include:
+
+::: {.tight-list}
+- digital currency exists purely in digital format and has no physical form
+- it is accepted as payment and can be transferred between accounts
+- traditional digital currency relies on a central banking system
+- centralisation creates confidentiality and security issues
+- cryptocurrency uses cryptography and decentralisation
+- cryptocurrency transactions are publicly available and work within a blockchain network
+:::
+
+## Bridge
+
+### Next: Blockchaining
+
+The next deck explains how a blockchain stores and checks transaction data.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

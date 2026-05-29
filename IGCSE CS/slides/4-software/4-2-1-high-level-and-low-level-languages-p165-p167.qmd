@@ -1,0 +1,180 @@
+---
+title: "4.2.1 High-level languages and low-level languages"
+subtitle: "Software P165-P167"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Programming Languages
+
+### Programs tell computers what to do
+
+Programmers use programming languages to communicate with computers.
+
+Computers only understand their own language, called <span class="term">machine code</span> (机器码).
+
+A program needs to be translated into machine code before it can be understood by a computer.
+
+::: {.figure-placeholder}
+Figure 4.14 A Scratch multiplication table test program screenshot placeholder
+:::
+
+## Computer Programs
+
+### Specific tasks
+
+A <span class="term">computer program</span> is a list of instructions that enable a computer to perform a specific task.
+
+Computer programs can be written in:
+
+::: {.tight-list}
+- <span class="term">high-level languages</span>
+- <span class="term">low-level languages</span>
+:::
+
+Most programmers write programs in high-level languages.
+
+## High-Level Languages
+
+### Problem-oriented programming
+
+<span class="term">High-level languages</span> enable a programmer to focus on the problem to be solved.
+
+They require no knowledge of:
+
+::: {.tight-list}
+- the hardware of the computer that will use the program
+- the instruction set of the computer
+:::
+
+Many high-level programming languages are portable and can be used on different types of computer.
+
+## High-Level Languages
+
+### Easier for programmers
+
+High-level languages are designed with programmers in mind.
+
+Programs written in a high-level language are easier to:
+
+::: {.tight-list}
+- read and understand because the language is closer to English
+- write in a shorter time
+- debug at the development stage
+- maintain once in use
+:::
+
+## High-Level Language Example
+
+### Adding two numbers
+
+The textbook gives this example of a single high-level program statement:
+
+```text
+Sum := FirstNumber + SecondNumber
+```
+
+It shows how easy it is to understand what is happening in a high-level language program.
+
+Examples of high-level languages include C++, Delphi, Java, Pascal, Python and Visual Basic.
+
+## Low-Level Languages
+
+### Hardware-specific languages
+
+<span class="term">Low-level languages</span> relate to the specific architecture and hardware of a particular type of computer.
+
+Low-level languages can refer to:
+
+::: {.tight-list}
+- <span class="term">machine code</span>, the binary instructions that a computer understands
+- <span class="term">assembly language</span>, which needs to be translated into machine code
+:::
+
+## Machine Code
+
+### Binary instructions
+
+Programmers do not usually write in machine code because it is difficult to understand.
+
+It can also be complicated to manage:
+
+::: {.tight-list}
+- data manipulation
+- data storage
+:::
+
+Machine code is usually shown in hexadecimal.
+
+## Table 4.2
+
+### High-level language comparison
+
+::: {.clean-table}
+| High-level advantages | High-level disadvantages |
+|---|---|
+| Independent of the type of computer being used | Programs can be larger |
+| Easier to read, write and understand programs | Programs can take longer to execute |
+| Quicker to write programs | Programs may not make use of special hardware |
+| Easier and quicker to debug |  |
+| Easier to maintain programs in use |  |
+:::
+
+## Table 4.2
+
+### Low-level language comparison
+
+::: {.clean-table}
+| Low-level advantages | Low-level disadvantages |
+|---|---|
+| Can make use of special hardware | It takes longer to write and debug programs |
+| Includes special machine-dependent instructions | Programs are more difficult to understand |
+| Can write code that does not take up much space in primary memory |  |
+| Can write code that performs a task very quickly |  |
+:::
+
+## Classroom Check
+
+### Compare high-level and low-level languages
+
+A complete answer should include:
+
+::: {.tight-list}
+- computers only understand <span class="term">machine code</span>
+- high-level languages are closer to English and easier to read, write, debug and maintain
+- high-level languages are often portable
+- low-level languages depend on architecture and hardware
+- low-level languages include machine code and assembly language
+- low-level code can use special hardware and run quickly, but is harder to write and debug
+:::
+
+## Bridge
+
+### Next: Assembly languages
+
+The next deck explains assembly language and mnemonics.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

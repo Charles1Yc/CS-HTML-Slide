@@ -1,0 +1,147 @@
+---
+title: "4.1.1 System software and application software"
+subtitle: "System software and utilities · P150-P152"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## System Software Examples
+
+### Compiler, linker and driver
+
+::: {.clean-table}
+| Software | Used for |
+|---|---|
+| <span class="term">Compiler</span> | Translates a high-level language program into machine code |
+| <span class="term">Linker</span> | Combines one or more object files into a single program that can run |
+| <span class="term">Device driver</span> | Enables hardware devices to communicate with the operating system |
+:::
+
+::: {.figure-placeholder}
+Figure 4.4 System software screenshot placeholder
+:::
+
+## Operating Systems
+
+### Background software
+
+The <span class="term">operating system</span> is software running in the background of a computer system.
+
+Operating systems allow:
+
+::: {.tight-list}
+- input/output operations
+- users to communicate with the computer
+- error handling
+- loading and running programs
+- managing security, such as user accounts and log on passwords
+:::
+
+## Utility Programs
+
+### Managing computer resources
+
+<span class="term">Utility programs</span> help to manage, maintain and control computer resources.
+
+Utility programs offered by most computer system software include:
+
+::: {.tight-list}
+- virus checkers
+- defragmentation software
+- disk contents analysis and repair
+- file compression and file management
+:::
+
+Some utilities are initiated by the user, while virus checkers often run in the background.
+
+## Virus Checkers
+
+### Anti-virus software
+
+Any computer, including mobile phones and tablets, can be subject to a virus attack.
+
+Anti-virus software commonly:
+
+::: {.tight-list}
+- checks software or files before they are run or loaded
+- compares a possible virus against a <span class="mark">database of known viruses</span>
+- carries out <span class="term">heuristic checking</span> for behaviour that could indicate a possible virus
+- puts possible infected files or programs into <span class="term">quarantine</span>
+:::
+
+## Virus Checkers
+
+### Updates, scans and false positives
+
+Anti-virus software needs to be kept up to date because new viruses are constantly discovered.
+
+Full system checks need to be carried out regularly because some viruses lie dormant.
+
+A file may also be a <span class="term">false positive</span>, where the user knows that the file or program is not infected by a virus.
+
+## Defragmentation Software
+
+### Why fragmentation slows access
+
+As an <span class="term">HDD</span> becomes full, blocks used for files can become scattered across the disk surface.
+
+This can happen because files are deleted, partially deleted or extended over time.
+
+The consequence is <span class="mark">slower data access time</span>, because the HDD read-write head needs several movements to find and retrieve the data.
+
+## Defragmentation Software
+
+### Contiguous sectors
+
+A disk defragmenter rearranges blocks of data to store files in <span class="term">contiguous</span> sectors wherever possible.
+
+This gives faster data access and retrieval because the HDD needs fewer read-write head movements.
+
+::: {.figure-placeholder}
+Figure 4.5 Hard disk drive tracks and sectors screenshot placeholder
+:::
+
+## Classroom Check
+
+### Explain utilities and system software examples
+
+A complete answer should include:
+
+::: {.tight-list}
+- compilers, linkers, device drivers, operating systems and utilities are system software
+- utility programs help manage, maintain and control computer resources
+- anti-virus software uses known-virus databases, heuristic checking and quarantine
+- anti-virus software must be kept up to date
+- defragmentation rearranges data into contiguous sectors on an HDD
+:::
+
+## Bridge
+
+### Next: Back-up, security, screensavers and device drivers
+
+The next deck covers more utility software and device-driver details.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

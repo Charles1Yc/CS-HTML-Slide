@@ -1,0 +1,127 @@
+---
+title: "4.1.2 Operating systems"
+subtitle: "Multitasking and user accounts · P159-P160"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Multitasking
+
+### More than one process at a time
+
+<span class="term">Multitasking</span> allows computers to carry out more than one task, or process, at a time.
+
+Each process shares hardware resources under the control of the operating system.
+
+The operating system constantly monitors the status of each process so the processes do not clash.
+
+::: {.figure-placeholder}
+Figure 4.10 Multitasking diagram screenshot placeholder
+:::
+
+## Pre-emptive Multitasking
+
+### Time limits, interrupts and priorities
+
+The textbook identifies these three bullet points as <span class="term">pre-emptive multitasking</span>:
+
+::: {.tight-list}
+- resources are allocated to a process for a specific time limit
+- the process can be interrupted while it is running
+- the process is given a priority so it can have resources according to its priority
+:::
+
+The risk is that a low-priority process could be starved of resources.
+
+## Multitasking Management
+
+### Making effective use of CPU time
+
+Using multitasking management:
+
+::: {.tight-list}
+- main memory is better managed
+- HDD/SSD is better managed
+- virtual memory is better managed
+- CPU time is used more effectively
+:::
+
+## User Accounts
+
+### Separate data and protected accounts
+
+Computers allow more than one user to log onto the system.
+
+Users' data is stored in separate parts of memory for security reasons.
+
+Each user account is protected by a user name and password.
+
+## User Accounts
+
+### What each user can do
+
+The operating system manages different user accounts. This allows each user to:
+
+::: {.tight-list}
+- customise their screen layout and other settings
+- use separate folders and files
+- manage these folders and files themselves
+:::
+
+An administrator can create accounts, delete accounts and restrict account activity.
+
+## Multi-user Systems
+
+### Multi-access levels
+
+On large university or industrial computers, the operating system may oversee several user accounts in a complex multi-user system.
+
+The operating system maintains accounts for several users and manages different types of data.
+
+<span class="mark">Multi-access levels</span> permit this control to take place.
+
+## Classroom Check
+
+### Explain multitasking and user accounts
+
+A complete answer should include:
+
+::: {.tight-list}
+- multitasking allows more than one process at a time
+- the operating system monitors process status to prevent clashes
+- pre-emptive multitasking uses time limits, interrupts and priorities
+- multitasking makes effective use of CPU time
+- user accounts separate user data and use usernames and passwords
+- administrators can create, delete and restrict accounts
+:::
+
+## Bridge
+
+### Next: Running of applications
+
+The next topic explains hardware, firmware and operating systems when running application software.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

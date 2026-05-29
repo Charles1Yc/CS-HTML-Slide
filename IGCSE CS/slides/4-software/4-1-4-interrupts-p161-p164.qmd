@@ -1,0 +1,183 @@
+---
+title: "4.1.4 Interrupts"
+subtitle: "Software P161-P164"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Interrupts
+
+### Signal to the microprocessor
+
+An <span class="term">interrupt</span> (中断) is a signal sent from a device or from software to the microprocessor.
+
+This causes the microprocessor to <span class="mark">temporarily stop</span> what it is doing so that it can service the interrupt.
+
+## Causes of Interrupts
+
+### Signals, processes and faults
+
+Interrupts can be caused by:
+
+::: {.tight-list}
+- a timing signal
+- an input/output process, such as a disk drive or printer requiring more data
+- a hardware fault, such as a paper jam in the printer
+:::
+
+## Causes of Interrupts
+
+### User and software events
+
+Interrupts can also be caused by:
+
+::: {.tight-list}
+- user interaction, such as pressing keys on a keyboard
+- software errors that cause a problem
+- an `.exe` file that cannot be found
+- two processes trying to access the same memory location
+- an attempt to divide by zero
+:::
+
+## Servicing an Interrupt
+
+### Identify type and priority
+
+Once the interrupt signal is received, the microprocessor either:
+
+::: {.tight-list}
+- carries on with what it was doing
+- or stops to service the device or program that caused the interrupt
+:::
+
+The computer needs to identify the interrupt type and establish the <span class="term">interrupt priority</span> (中断优先级).
+
+## Interrupts and Multitasking
+
+### Co-existing tasks
+
+Interrupts allow computers to carry out many tasks or have several windows open at the same time.
+
+For example, a user may download a file from the internet while listening to music from a library.
+
+The user has the impression that both functions are being carried out simultaneously, but data is being passed in and out of memory very rapidly.
+
+## Buffers
+
+### Temporary memory area
+
+A <span class="term">buffer</span> (缓冲区) is a memory area that stores data temporarily.
+
+Buffers can compensate for different speeds, for example:
+
+::: {.tight-list}
+- downloading a movie from the internet
+- sending data to a media player
+- sending data to a printer
+:::
+
+::: {.figure-placeholder}
+Figure 4.12 Use of a buffer when sending data to a printer screenshot placeholder
+:::
+
+## Buffers and Streaming
+
+### Avoiding freezing
+
+When streaming a movie, the data transmission rate from the web server to the buffer must be greater than the rate at which data is transmitted from buffer to media player.
+
+Without buffers, the movie would frequently <span class="mark">freeze</span>.
+
+## Interrupt Service Routine
+
+### Saving and restoring the current task
+
+Whenever an interrupt is received it needs to be serviced.
+
+The sequence includes:
+
+::: {.tight-list}
+- the status of the current task is saved
+- the contents of the <span class="term">Program Counter (PC)</span> and other registers are saved
+- the <span class="term">interrupt service routine (ISR)</span> is executed
+- the status of the interrupted task is reinstated after servicing
+:::
+
+## Buffers and Interrupts
+
+### Why they are used together
+
+Buffers and interrupts are often used together to allow standard computer functions to be carried out.
+
+Without buffers and interrupts, the microprocessor could remain idle waiting for a document to be printed.
+
+This would waste microprocessor time. Buffers and interrupts allow the microprocessor to carry on with other tasks while printing continues.
+
+## Printer Example
+
+### Figure 4.13
+
+Figure 4.13 shows how buffers and interrupts are used when a document is sent from memory to a printer.
+
+::: {.figure-placeholder}
+Figure 4.13 Use of interrupts and buffers when printing a document screenshot placeholder
+:::
+
+## Activity 4.1
+
+### Classroom practice prompts
+
+Use the textbook activity to check understanding:
+
+::: {.tight-list}
+- identify whether named software is system software or application software
+- explain how a buffer can stop a video constantly freezing
+- describe how interrupts can allow a video to play while a document prints
+- describe what happens if a printer runs out of black ink
+:::
+
+## Classroom Check
+
+### Explain interrupts and buffers
+
+A complete answer should include:
+
+::: {.tight-list}
+- an interrupt is a signal from a device or software to a microprocessor
+- the microprocessor temporarily stops to service the interrupt
+- the interrupt type and priority must be identified
+- a buffer stores data temporarily
+- the PC and registers are saved before the ISR runs
+- buffers and interrupts prevent the CPU from waiting idly for slow devices
+:::
+
+## Bridge
+
+### Next: Programming languages and translators
+
+The next deck starts Section 4.2 with high-level and low-level languages.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

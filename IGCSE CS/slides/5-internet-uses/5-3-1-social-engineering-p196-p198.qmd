@@ -1,0 +1,132 @@
+---
+title: "5.3.1 Cyber security threats"
+subtitle: "Social engineering · P196-P198"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.68em; line-height: 1.06; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.2em 0.3em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Social Engineering
+
+### Manipulating people
+
+<span class="term">Social engineering</span> (社会工程) occurs when a cybercriminal creates a social situation that can lead to a potential victim dropping their guard.
+
+It involves the manipulation of people into breaking their normal security procedures and not following best practice.
+
+## Figure 5.11
+
+### Five common threats 1/2
+
+::: {.clean-table}
+| Threat | Textbook idea |
+|---|---|
+| Instant messaging | malicious links are embedded into instant messages, for example an important software upgrade; relies on curiosity |
+| Scareware | a pop-up claims the computer is infected and the user needs to download fake anti-virus immediately; relies on fear |
+| Emails/phishing scams | the user is tricked by a genuine-looking email and opens a link to a fake website; relies on trust |
+:::
+
+## Figure 5.11
+
+### Five common threats 2/2
+
+::: {.clean-table}
+| Threat | Textbook idea |
+|---|---|
+| Baiting | a malware-infected memory stick is left where it can be found; relies on curiosity |
+| Phone calls | a so-called IT professional claims the device has been compromised and asks the user to download software; relies on fear |
+:::
+
+## Human Emotions
+
+### Fear, curiosity, empathy and trust
+
+The whole idea is based on the exploitation of certain human emotions.
+
+The three most common ones to exploit are:
+
+::: {.tight-list}
+- <span class="term">fear</span>: the user is panicked into believing their computer is in immediate danger
+- <span class="term">curiosity</span>: the user is tricked into following a tempting claim or opening a found memory stick
+- <span class="term">empathy and trust</span>: genuine-sounding companies are assumed to be safe
+:::
+
+## No Hacking Involved
+
+### The user allows access
+
+There is no hacking involved.
+
+The user is willingly allowing the cybercriminal to have access to their computer, to download malicious software or to visit fake websites.
+
+The user is rushed into making rash decisions.
+
+## Figure 5.12
+
+### Stages in a typical scam
+
+::: {.figure-placeholder}
+Figure 5.12 Stages in a typical social engineering scam screenshot placeholder
+:::
+
+## Social Engineering Stages
+
+### Stage 1 and Stage 2
+
+::: {.tight-list}
+- <span class="term">Stage 1</span>: victims are identified; information about the victim is gathered and the method of attack is decided
+- <span class="term">Stage 2</span>: the victim is targeted through email, phone call, Trojan horse and so on, depending on who the victim is
+:::
+
+## Social Engineering Stages
+
+### Stage 3 and Stage 4
+
+::: {.tight-list}
+- <span class="term">Stage 3</span>: the attack is executed, allowing the cybercriminal to obtain information or cause the disruption chosen at Stage 1
+- <span class="term">Stage 4</span>: when the cybercriminal has what they wanted, they try to remove traces of the malware to cover their tracks
+:::
+
+## Classroom Check
+
+### Social engineering
+
+A complete answer should include:
+
+::: {.tight-list}
+- social engineering manipulates people into breaking normal security procedures
+- examples include instant messaging, scareware, phishing emails, baiting and phone calls
+- it exploits fear, curiosity, empathy and trust
+- no hacking is involved because the user willingly allows access or downloads malware
+- the scam stages are identify victim, target victim, execute attack and cover tracks
+:::
+
+## Bridge
+
+### Next: Keeping data safe
+
+The next section moves from threats to solutions that keep data safe.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

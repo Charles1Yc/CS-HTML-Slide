@@ -1,0 +1,162 @@
+---
+title: "4.1.2 Operating systems"
+subtitle: "Management functions · P157-P159"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Memory Management
+
+### Managing RAM and storage
+
+<span class="term">Memory management</span> carries out the following functions:
+
+::: {.tight-list}
+- manages primary storage, RAM
+- allows data to be moved between RAM and HDD/SSD during program execution
+- keeps track of all memory locations
+- carries out memory protection
+:::
+
+Memory protection helps ensure that two competing applications cannot use the same memory locations at the same time.
+
+## Memory Management
+
+### Why memory protection matters
+
+If memory protection was not done:
+
+::: {.tight-list}
+- data would probably be lost
+- applications could produce incorrect results
+- security issues could occur if data is placed in the wrong location
+- in extreme cases, the computer could crash
+:::
+
+## Security Management
+
+### Data integrity, confidentiality and availability
+
+The function of <span class="term">security management</span> is to ensure the integrity, confidentiality and availability of data.
+
+This can be achieved by:
+
+::: {.tight-list}
+- carrying out operating system updates
+- keeping anti-virus and other security software up to date
+- communicating with a firewall to check traffic to and from the computer
+:::
+
+## Security Management
+
+### Privileges and recovery
+
+Security management can also:
+
+::: {.tight-list}
+- use privileges to prevent users entering private areas
+- set up user accounts, passwords and user IDs
+- maintain access rights for all users
+- offer data recovery and system restore
+- help prevent illegal intrusion into the computer system
+:::
+
+## Hardware Peripheral Management
+
+### Device drivers and resource priority
+
+<span class="term">Hardware management</span> involves all input and output peripheral devices.
+
+Hardware management:
+
+::: {.tight-list}
+- communicates with devices using <span class="term">device drivers</span>
+- translates data into a format the device can understand
+- ensures each hardware resource has a priority
+- manages input/output devices using queues and buffers
+:::
+
+## Printer Management Example
+
+### Queues, buffers and interrupts
+
+When printing a document:
+
+::: {.tight-list}
+- the printer driver is located and loaded into memory
+- data is sent to a printer buffer
+- if the printer is busy, data is sent to a printer queue
+- control commands are sent during the printing process
+- error messages and interrupts from the printer are handled
+:::
+
+## File Management
+
+### Main tasks
+
+The main tasks of <span class="term">file management</span> include:
+
+::: {.tight-list}
+- file naming conventions, such as filename.docx
+- create, open, close, delete, rename, copy and move
+- maintaining directory structures
+- maintaining access control mechanisms
+- allocating memory by reading a file from HDD/SSD and loading it into memory
+:::
+
+## Interrupts and Application Platform
+
+### Linked OS functions
+
+The textbook links two operating system functions to later sections:
+
+::: {.tight-list}
+- <span class="term">Interrupts</span> — see Section 4.1.4
+- <span class="term">Platform for running of application software</span> — see Section 4.1.3
+:::
+
+Both are part of the operating system function list in Figure 4.7.
+
+## Classroom Check
+
+### Explain OS management functions
+
+A complete answer should include:
+
+::: {.tight-list}
+- memory management tracks locations and protects RAM
+- security management protects integrity, confidentiality and availability
+- hardware management uses device drivers, queues and buffers
+- printer management may use buffers, queues, commands, errors and interrupts
+- file management handles names, operations, directory structures and access control
+:::
+
+## Bridge
+
+### Next: Multitasking and user accounts
+
+The next deck completes the operating system functions.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

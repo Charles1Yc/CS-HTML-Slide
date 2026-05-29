@@ -1,0 +1,181 @@
+---
+title: "5.1.6 Cookies"
+subtitle: "The internet and the World Wide Web · P184-P186"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.70em; line-height: 1.08; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.22em 0.32em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Cookies
+
+### Small files or code
+
+<span class="term">Cookies</span> (Cookie 文件) are small files or code stored on a user's computer.
+
+They are sent by a web server to a browser on a user's computer. Each cookie is effectively a small look-up table containing pairs of <span class="mark">(key, data) values</span>.
+
+Examples:
+
+```text
+(surname, Jones) (music, rock)
+```
+
+## User Tracking
+
+### Preferences and browsing activity
+
+Every time a user visits a website, it checks if it has set cookies on their browser before.
+
+If so, the browser reads the cookie which holds key information on the user's preferences such as <span class="mark">language, currency and previous browsing activity</span>.
+
+Cookies allow user tracking and maintain user preferences.
+
+## Customised Pages
+
+### Data used by websites
+
+Collected data can be used to customise the web page for each individual user.
+
+For example, if a user buys a book online, cookies remember the type of book chosen and the web page can show related recommendations.
+
+## Two Types of Cookie
+
+### Session and persistent
+
+There are two types of cookie:
+
+::: {.clean-table}
+| Type | Basic difference |
+|---|---|
+| <span class="term">Session cookie</span> (会话 Cookie) | no expiry date; used during a website session |
+| <span class="term">Persistent cookie</span> (persistent/permanent cookie, 持久 Cookie) | stored until the expiry date is reached or the user deletes it |
+:::
+
+## Session Cookies
+
+### Temporary memory
+
+Session cookies are used, for example, when making online purchases. They keep a user's items in a <span class="term">virtual shopping basket</span>.
+
+This type of cookie is stored in temporary memory, does not actually collect information from the user's computer and does not personally identify a user.
+
+Session cookies cease to exist once the browser is closed or the website session is terminated.
+
+## Persistent Cookies
+
+### Hard drive storage
+
+Persistent cookies remember a user's login details so that they can authenticate the user's browser.
+
+They are stored on the hard drive until the expiry date is reached or the user deletes them. They remain in operation even after the browser is closed or the website session is terminated.
+
+## Persistent Cookies
+
+### Personal information and protection
+
+Some websites use cookies to store more personal information or user preferences, but this can only be done if the user has provided information and agrees to it being stored.
+
+Legitimate websites will always <span class="mark">encrypt any personal information</span> stored in the cookie to prevent unauthorised use by a third party.
+
+## Figure 5.4
+
+### First login
+
+::: {.figure-placeholder}
+Figure 5.4 Cookies first login screenshot placeholder
+:::
+
+## Figure 5.5
+
+### Subsequent logins
+
+::: {.figure-placeholder}
+Figure 5.5 Cookies subsequent logins screenshot placeholder
+:::
+
+## Uses of Persistent Cookies
+
+### Remember and track
+
+Persistent cookies can:
+
+::: {.tight-list}
+- allow the website to remember passwords, email addresses and invoice details
+- serve as a memory, enabling the website to recognise users every time they visit it
+- save users' items in a virtual shopping basket/cart
+- track internet habits and website histories or favourites/bookmarks
+- target users with advertising that matches previous buying or surfing habits
+:::
+
+## Uses of Persistent Cookies
+
+### Preferences and sessions
+
+Persistent cookies can also:
+
+::: {.tight-list}
+- store users' preferences, for example customised web pages
+- be used in online financial transactions
+- allow progress in online games and quizzes to be stored
+- allow social networking sites to recognise preferences and browsing histories
+- allow different languages to be used automatically when users log on
+:::
+
+## Activity 5.1
+
+### Textbook practice
+
+The textbook asks students to:
+
+::: {.tight-list}
+- identify URL parts such as domain name, domain type, file name and protocol
+- compare session cookies and persistent cookies
+- describe uses of cookies
+- classify features as internet or World Wide Web
+- explain why persistent cookies may be called tracking cookies
+:::
+
+## Classroom Check
+
+### Cookies
+
+A complete answer should include:
+
+::: {.tight-list}
+- cookies are small files or code sent by a web server to a browser
+- cookies contain key/data values and can store preferences and browsing activity
+- session cookies are temporary and end when the browser or session is closed
+- persistent cookies remain on the hard drive until expiry or deletion
+- persistent cookies can remember details, track habits, target advertising and store preferences
+- personal information stored in legitimate cookies should be encrypted
+:::
+
+## Bridge
+
+### Next: Digital currency
+
+The next deck moves from web technologies to currency that exists only in digital form.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

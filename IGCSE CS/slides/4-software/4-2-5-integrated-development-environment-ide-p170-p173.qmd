@@ -1,0 +1,198 @@
+---
+title: "4.2.5 Integrated Development Environment (IDE)"
+subtitle: "Software P170-P173"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Integrated Development Environment
+
+### A suite for writing and developing programs
+
+An <span class="term">Integrated Development Environment (IDE)</span> (集成开发环境) is used by programmers to aid the writing and development of programs.
+
+Some IDEs support one programming language. Others can be used for several different programming languages.
+
+Examples in the textbook include PyCharm, Visual Studio and BlueJ.
+
+## IDE Features
+
+### Common tools
+
+IDEs usually have these features:
+
+::: {.tight-list}
+- code editors
+- a translator
+- a runtime environment with a debugger
+- error diagnostics
+- auto-completion
+- auto-correction
+- an auto-documenter and prettyprinting
+:::
+
+## Code Editor
+
+### Writing and editing programs
+
+A <span class="term">code editor</span> allows a program to be written and edited without using a separate text editor.
+
+This speeds up the program development process because editing can be done without changing to different software each time the program needs correcting or adding to.
+
+::: {.figure-placeholder}
+Figure 4.16 Visual Studio code editor screenshot placeholder
+:::
+
+## Translator
+
+### Executing the program
+
+Most IDEs usually provide a <span class="term">translator</span>, which can be a compiler and/or an interpreter, to enable the program to be executed.
+
+The interpreter is often used for developing the program.
+
+The compiler is often used to produce the final version of the program.
+
+::: {.figure-placeholder}
+Figure 4.17 Visual Studio code editor and program running screenshot placeholder
+:::
+
+## Runtime Environment
+
+### Debugger
+
+A <span class="term">debugger</span> runs the program under development and allows the programmer to:
+
+::: {.tight-list}
+- step through the program a line at a time
+- set a <span class="term">breakpoint</span> to stop execution at a certain point
+:::
+
+A report window can show the contents of variables and expressions at that point in the program.
+
+## Runtime Environment
+
+### Checking logic
+
+The debugger helps the programmer:
+
+::: {.tight-list}
+- see whether there are logic errors in the program
+- check that the program works as intended
+:::
+
+::: {.figure-placeholder}
+Figure 4.18 PyCharm debugger screenshot placeholder
+:::
+
+## Error Diagnostics
+
+### Dynamic error checking
+
+<span class="term">Dynamic error checking</span> finds possible errors as the program code is being typed.
+
+It can:
+
+::: {.tight-list}
+- alert the programmer at the time
+- provide a suggested correction
+- help find and correct errors before the program is run
+:::
+
+## Error Diagnostics
+
+### Figure 4.19
+
+::: {.figure-placeholder}
+Figure 4.19 Visual Studio error list with suggested corrections screenshot placeholder
+:::
+
+## Auto-Completion
+
+### Context-sensitive prompts
+
+Code editors can offer context-sensitive prompts with text completion for:
+
+::: {.tight-list}
+- variable names
+- reserved words
+:::
+
+::: {.figure-placeholder}
+Figure 4.20 Visual Studio showing auto-completion screenshot placeholder
+:::
+
+## Auto-Documenter
+
+### Explaining code
+
+IDEs can provide an <span class="term">auto-documenter</span> to explain the function and purpose of programming code.
+
+::: {.figure-placeholder}
+Figure 4.21 Visual Studio auto-documenter screenshot placeholder
+:::
+
+## Prettyprinting
+
+### Making code easier to read
+
+Most code editors colour code the words in the program and lay out the program in a meaningful way.
+
+This is called <span class="term">prettyprinting</span> (美化排版).
+
+::: {.figure-placeholder}
+Figure 4.22 Visual Studio code editor showing prettyprinting screenshot placeholder
+:::
+
+## Activity 4.2
+
+### Classroom practice prompts
+
+Use the textbook activity to check understanding:
+
+::: {.tight-list}
+- decide whether translator statements are true or false
+- describe three IDE features helpful when writing high-level language programs
+- describe the difference between a compiler and an interpreter
+- explain why a programmer would choose assembly language
+:::
+
+## Classroom Check
+
+### Explain IDE features
+
+A complete answer should include:
+
+::: {.tight-list}
+- an IDE helps programmers write and develop programs
+- a code editor avoids using a separate text editor
+- a translator lets the program be executed
+- a debugger supports single stepping and breakpoints
+- error diagnostics and auto-correction find errors while code is typed
+- auto-completion, auto-documenter and prettyprinting help write and read code
+:::
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

@@ -1,0 +1,114 @@
+---
+title: "5.1.5 Retrieval and location of web pages"
+subtitle: "The internet and the World Wide Web · P183-P184"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## HTML and Web Servers
+
+### Where web pages are stored
+
+<span class="term">HTML</span> is a language used to display content on browsers.
+
+All websites are written in HTML and hosted on a <span class="term">web server</span> that has its own <span class="term">IP address</span>.
+
+To retrieve pages from a website your browser needs to know this IP address.
+
+## DNS
+
+### Finding IP addresses
+
+The <span class="term">Domain Name Server (DNS)</span>, also known as domain name system, is a system for finding IP addresses for a domain name given in a URL.
+
+URLs and domain name servers eliminate the need for a user to memorise IP addresses.
+
+## DNS Conversion
+
+### URL to IP address
+
+The DNS process involves converting a URL into an IP address the computer can understand.
+
+Example:
+
+::: {.clean-table}
+| URL | IP address |
+|---|---|
+| `www.hoddereducation.co.uk` | `107.162.140.19` |
+:::
+
+The DNS process involves <span class="mark">more than one server</span>.
+
+## Figure 5.3
+
+### DNS is used to locate and retrieve a web page
+
+::: {.figure-placeholder}
+Figure 5.3 How DNS is used to locate and retrieve a web page screenshot placeholder
+:::
+
+## Retrieval Sequence
+
+### Steps 1-3
+
+::: {.tight-list}
+1. The user opens their browser and types in the URL; the browser asks DNS server (1) for the website IP address.
+2. If DNS server (1) cannot find the URL in its database or cache, it sends a request to DNS server (2).
+3. DNS server (2) finds the URL and maps it to the IP address; this IP address is sent back to DNS server (1), which stores it in its cache/database.
+:::
+
+## Retrieval Sequence
+
+### Steps 4-5
+
+::: {.tight-list}
+4. The IP address is sent back to the user's computer.
+5. The computer sets up communication with the website server and the required pages are downloaded.
+:::
+
+HTML files are sent from the website server to the computer. The browser interprets the HTML and displays the information on the user's computer.
+
+## Classroom Check
+
+### DNS and retrieval
+
+A complete answer should include:
+
+::: {.tight-list}
+- websites are written in HTML and hosted on a web server with an IP address
+- DNS finds IP addresses for domain names given in URLs
+- DNS avoids the need for users to memorise IP addresses
+- DNS may use more than one server and can use cache/database records
+- after the IP address is returned, HTML files are downloaded and interpreted by the browser
+:::
+
+## Bridge
+
+### Next: Cookies
+
+The next deck explains how websites store small files or code on a user's computer.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

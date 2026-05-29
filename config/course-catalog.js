@@ -4,7 +4,7 @@ window.EduHubCourseCatalog = {
       id: "igcse-cs",
       href: "IGCSE%20CS/index.html",
       tags: ["igcse", "cs", "ready"],
-      search: "igcse 计算机科学 computer science cambridge 0478 0984 unit hardware data representation data transmission",
+      search: "igcse 计算机科学 computer science cambridge 0478 0984 unit hardware software data representation data transmission operating systems translators ide",
       iconTone: "blue",
       track: { label: "IGCSE", className: "igcse" },
       library: {
@@ -20,9 +20,9 @@ window.EduHubCourseCatalog = {
       },
       overview: {
         kind: "progress",
-        percent: 30,
-        left: "3 / 10 单元已上线",
-        right: "64 课件"
+        percent: 50,
+        left: "5 / 10 单元已上线",
+        right: "97 课件"
       }
     },
     {

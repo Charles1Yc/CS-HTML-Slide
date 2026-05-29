@@ -1,0 +1,190 @@
+---
+title: "4.1.2 Operating systems"
+subtitle: "Overview and interfaces · P155-P157"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Operating Systems
+
+### Why an operating system is needed
+
+To enable computer systems to function correctly and allow users to communicate with computer systems, an <span class="term">operating system</span> must be installed.
+
+An operating system provides:
+
+::: {.tight-list}
+- the <span class="mark">environment</span> in which applications can be run
+- a useable interface between humans and computer
+- a way to disguise the complexity of computer software and hardware
+:::
+
+## Operating Systems
+
+### Examples and storage
+
+Common examples include Microsoft Windows, Apple Mac OS, Google Android and Apple IOS.
+
+Most computers store the operating system on an HDD or SSD because operating systems tend to be very large programs.
+
+Mobile phones and tablets store the operating system on a solid state device because they are too small to accommodate an HDD.
+
+## Operating System Functions
+
+### Figure 4.7 overview
+
+::: {.figure-placeholder}
+Figure 4.7 Operating system functions screenshot placeholder
+:::
+
+Figure 4.7 lists functions such as HCI, security, multitasking, memory management, hardware peripheral management, file management and user account management.
+
+## Human Computer Interface
+
+### CLI and GUI
+
+The <span class="term">human computer interface (HCI)</span> is in the form of a:
+
+::: {.tight-list}
+- <span class="term">Command Line Interface (CLI)</span>
+- <span class="term">Graphical User Interface (GUI)</span>
+:::
+
+A CLI requires typed instructions. A GUI uses pictures or symbols called icons.
+
+## Command Line Interface
+
+### Direct communication
+
+A <span class="term">CLI</span> requires commands to be typed in to choose options, open software, save or load a file.
+
+The user must learn commands, and typing them each time is slow.
+
+The advantage is that the user is in <span class="mark">direct communication</span> with the computer and is not restricted to pre-determined options.
+
+## Graphical User Interface
+
+### Icons and applications
+
+A <span class="term">GUI</span> allows the user to interact with a computer, MP3 player, gaming device or mobile phone using icons.
+
+Selecting an icon can automatically load the application ready to be used.
+
+::: {.figure-placeholder}
+Figure 4.8 GUI icons on a mobile phone screenshot placeholder
+:::
+
+## WIMP Interfaces
+
+### Windows, icons, menu and pointing device
+
+One common GUI technology is <span class="term">WIMP</span> (windows icons menu and pointing device).
+
+::: {.tight-list}
+- a mouse controls a cursor
+- icons are selected to open or run windows
+- each window contains an application
+- several windows can be open at the same time
+:::
+
+## WIMP Interfaces
+
+### Windows manager and Figure 4.9
+
+A <span class="term">windows manager</span> looks after interaction between windows, applications, pointing devices and the cursor's position.
+
+::: {.figure-placeholder}
+Figure 4.9 Windows screen showing icons screenshot placeholder
+:::
+
+## Post-WIMP Interactions
+
+### Touchscreen actions
+
+Devices such as mobile phones and tablets increasingly use touch screens and <span class="term">post-WIMP interactions</span>.
+
+Fingers are in contact with the screen, allowing actions such as:
+
+::: {.tight-list}
+- pinching
+- rotating
+:::
+
+## Table 4.1
+
+### CLI comparison
+
+::: {.clean-table}
+| CLI advantages | CLI disadvantages |
+|---|---|
+| Direct communication with the computer | User needs to learn commands |
+| Not restricted to pre-determined options | Commands take time and can be error-prone |
+| Can alter computer configuration settings | Commands need correct format and spelling |
+| Uses a small amount of computer memory |  |
+:::
+
+## Table 4.1
+
+### GUI comparison
+
+::: {.clean-table}
+| GUI advantages | GUI disadvantages |
+|---|---|
+| User does not need to learn commands | Uses more memory than CLI |
+| More user-friendly; icons represent applications | User is limited to screen icons |
+| Pointing device or touch screen can launch applications | Needs an operating system to operate |
+:::
+
+## Interface Users
+
+### Who would use each interface?
+
+<span class="term">CLI</span> is used by a programmer, analyst or technician needing direct communication with a computer.
+
+<span class="term">GUI</span> is used by an end-user who runs software, plays games or stores and manipulates photographs.
+
+## Classroom Check
+
+### Explain OS purpose and interfaces
+
+A complete answer should include:
+
+::: {.tight-list}
+- an operating system provides an application environment and a human-computer interface
+- operating systems disguise software and hardware complexity
+- CLI uses typed commands and gives direct communication
+- GUI uses icons and is more user-friendly
+- WIMP uses windows, icons, menu and pointing device
+- post-WIMP uses touch actions such as pinching and rotating
+:::
+
+## Bridge
+
+### Next: OS management functions
+
+The next deck covers memory, security, hardware peripheral and file management.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

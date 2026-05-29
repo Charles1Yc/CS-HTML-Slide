@@ -455,7 +455,7 @@
         "code": "4",
         "cn": "软件",
         "en": "Software",
-        "status": "pending",
+        "status": "ready",
         "sections": [
           {
             "code": "4.1",
@@ -463,8 +463,43 @@
             "en": "Types of software and interrupts",
             "summary": "系统软件与应用软件、操作系统功能，以及中断的作用与处理。",
             "topics": [
-              { "code": "4.1.1", "cn": "软件类型", "en": "Types of software", "decks": [] },
-              { "code": "4.1.2", "cn": "中断", "en": "Interrupts", "decks": [] }
+              {
+                "code": "4.1.1",
+                "cn": "系统软件与应用软件",
+                "en": "System software and application software",
+                "decks": [
+                  { "cn": "软件层级与类型", "en": "Software hierarchy and types", "href": "slides/4-software/4-1-1-software-hierarchy-and-types-p147-p148.html" },
+                  { "cn": "应用软件示例", "en": "Application software examples", "href": "slides/4-software/4-1-1-application-software-examples-p149.html" },
+                  { "cn": "系统软件与实用程序", "en": "System software and utilities", "href": "slides/4-software/4-1-1-system-software-and-utilities-p150-p152.html" },
+                  { "cn": "备份、安全、屏保与设备驱动", "en": "Back-up, security, screensavers and device drivers", "href": "slides/4-software/4-1-1-backup-security-screensavers-device-drivers-p153-p155.html" }
+                ]
+              },
+              {
+                "code": "4.1.2",
+                "cn": "操作系统",
+                "en": "Operating systems",
+                "decks": [
+                  { "cn": "操作系统概述与界面", "en": "Operating system overview and interfaces", "href": "slides/4-software/4-1-2-operating-system-overview-and-interfaces-p155-p157.html" },
+                  { "cn": "操作系统管理功能", "en": "Operating system management functions", "href": "slides/4-software/4-1-2-operating-system-management-functions-p157-p159.html" },
+                  { "cn": "多任务与用户账户", "en": "Multitasking and user accounts", "href": "slides/4-software/4-1-2-multitasking-and-user-accounts-p159-p160.html" }
+                ]
+              },
+              {
+                "code": "4.1.3",
+                "cn": "应用程序的运行",
+                "en": "Running of applications",
+                "decks": [
+                  { "cn": "应用程序的运行", "en": "Running of applications", "href": "slides/4-software/4-1-3-running-of-applications-p160-p161.html" }
+                ]
+              },
+              {
+                "code": "4.1.4",
+                "cn": "中断",
+                "en": "Interrupts",
+                "decks": [
+                  { "cn": "中断", "en": "Interrupts", "href": "slides/4-software/4-1-4-interrupts-p161-p164.html" }
+                ]
+              }
             ]
           },
           {
@@ -473,8 +508,46 @@
             "en": "Types of programming language, translators and IDEs",
             "summary": "高级语言、低级语言、汇编器、编译器、解释器与 IDE。",
             "topics": [
-              { "code": "4.2.1", "cn": "编程语言类型", "en": "Types of programming language", "decks": [] },
-              { "code": "4.2.2", "cn": "翻译器与 IDE", "en": "Translators and IDEs", "decks": [] }
+              {
+                "code": "4.2.1",
+                "cn": "高级语言与低级语言",
+                "en": "High-level languages and low-level languages",
+                "decks": [
+                  { "cn": "高级语言与低级语言", "en": "High-level and low-level languages", "href": "slides/4-software/4-2-1-high-level-and-low-level-languages-p165-p167.html" }
+                ]
+              },
+              {
+                "code": "4.2.2",
+                "cn": "汇编语言",
+                "en": "Assembly languages",
+                "decks": [
+                  { "cn": "汇编语言", "en": "Assembly languages", "href": "slides/4-software/4-2-2-assembly-languages-p167-p168.html" }
+                ]
+              },
+              {
+                "code": "4.2.3",
+                "cn": "翻译器",
+                "en": "Translators",
+                "decks": [
+                  { "cn": "翻译器", "en": "Translators", "href": "slides/4-software/4-2-3-translators-p168-p169.html" }
+                ]
+              },
+              {
+                "code": "4.2.4",
+                "cn": "编译器与解释器的优缺点",
+                "en": "Advantages and disadvantages of compilers and interpreters",
+                "decks": [
+                  { "cn": "编译器与解释器", "en": "Compilers and interpreters", "href": "slides/4-software/4-2-4-compilers-and-interpreters-p170.html" }
+                ]
+              },
+              {
+                "code": "4.2.5",
+                "cn": "集成开发环境（IDE）",
+                "en": "Integrated Development Environment (IDE)",
+                "decks": [
+                  { "cn": "集成开发环境", "en": "Integrated Development Environment", "href": "slides/4-software/4-2-5-integrated-development-environment-ide-p170-p173.html" }
+                ]
+              }
             ]
           }
         ]
@@ -484,7 +557,7 @@
         "code": "5",
         "cn": "互联网及其应用",
         "en": "The Internet and Its Uses",
-        "status": "pending",
+        "status": "ready",
         "sections": [
           {
             "code": "5.1",
@@ -492,7 +565,54 @@
             "en": "The internet and the World Wide Web (WWW)",
             "summary": "互联网与 WWW 的区别、URL、HTTP/HTTPS、浏览器与 cookies。",
             "topics": [
-              { "code": "5.1.1", "cn": "互联网与 WWW", "en": "The internet and the World Wide Web", "decks": [] }
+              {
+                "code": "5.1.1",
+                "cn": "互联网与 WWW 的区别",
+                "en": "The differences between the internet and the World Wide Web (WWW)",
+                "decks": [
+                  { "cn": "互联网与 WWW 的区别", "en": "Internet vs World Wide Web", "href": "slides/5-internet-uses/5-1-1-internet-vs-world-wide-web-p180-p181.html" }
+                ]
+              },
+              {
+                "code": "5.1.2",
+                "cn": "统一资源定位符（URL）",
+                "en": "Uniform resource locators (URLs)",
+                "decks": [
+                  { "cn": "URL", "en": "Uniform resource locators", "href": "slides/5-internet-uses/5-1-2-uniform-resource-locators-urls-p181.html" }
+                ]
+              },
+              {
+                "code": "5.1.3",
+                "cn": "HTTP 与 HTTPS",
+                "en": "HTTP and HTTPS",
+                "decks": [
+                  { "cn": "HTTP 与 HTTPS", "en": "HTTP and HTTPS", "href": "slides/5-internet-uses/5-1-3-http-and-https-p181-p182.html" }
+                ]
+              },
+              {
+                "code": "5.1.4",
+                "cn": "Web 浏览器",
+                "en": "Web browsers",
+                "decks": [
+                  { "cn": "Web 浏览器", "en": "Web browsers", "href": "slides/5-internet-uses/5-1-4-web-browsers-p182-p183.html" }
+                ]
+              },
+              {
+                "code": "5.1.5",
+                "cn": "网页检索与定位",
+                "en": "Retrieval and location of web pages",
+                "decks": [
+                  { "cn": "网页检索与定位", "en": "Retrieval and location of web pages", "href": "slides/5-internet-uses/5-1-5-retrieval-and-location-of-web-pages-p183-p184.html" }
+                ]
+              },
+              {
+                "code": "5.1.6",
+                "cn": "Cookies",
+                "en": "Cookies",
+                "decks": [
+                  { "cn": "Cookies", "en": "Cookies", "href": "slides/5-internet-uses/5-1-6-cookies-p184-p186.html" }
+                ]
+              }
             ]
           },
           {
@@ -501,7 +621,22 @@
             "en": "Digital currency",
             "summary": "数字货币的使用方式与区块链跟踪交易。",
             "topics": [
-              { "code": "5.2.1", "cn": "数字货币", "en": "Digital currency", "decks": [] }
+              {
+                "code": "5.2.1",
+                "cn": "什么是数字货币",
+                "en": "What is digital currency?",
+                "decks": [
+                  { "cn": "数字货币", "en": "Digital currency", "href": "slides/5-internet-uses/5-2-1-digital-currency-p186-p187.html" }
+                ]
+              },
+              {
+                "code": "5.2.2",
+                "cn": "区块链",
+                "en": "Blockchaining",
+                "decks": [
+                  { "cn": "区块链", "en": "Blockchaining", "href": "slides/5-internet-uses/5-2-2-blockchaining-p187-p189.html" }
+                ]
+              }
             ]
           },
           {
@@ -510,7 +645,31 @@
             "en": "Cyber security",
             "summary": "网络安全威胁以及常用安全实践。",
             "topics": [
-              { "code": "5.3.1", "cn": "网络安全", "en": "Cyber security", "decks": [] }
+              {
+                "code": "5.3.1",
+                "cn": "网络安全威胁",
+                "en": "Cyber security threats",
+                "decks": [
+                  { "cn": "威胁概览、暴力破解与数据拦截", "en": "Threats overview, brute force and data interception", "href": "slides/5-internet-uses/5-3-1-threats-overview-brute-force-data-interception-p189-p190.html" },
+                  { "cn": "DDoS 与黑客攻击", "en": "DDoS attacks and hacking", "href": "slides/5-internet-uses/5-3-1-ddos-and-hacking-p190-p191.html" },
+                  { "cn": "恶意软件：病毒、蠕虫与木马", "en": "Malware: viruses, worms and Trojan horse", "href": "slides/5-internet-uses/5-3-1-malware-viruses-worms-trojan-horse-p191-p192.html" },
+                  { "cn": "恶意软件：间谍软件、广告软件与勒索软件", "en": "Malware: spyware, adware and ransomware", "href": "slides/5-internet-uses/5-3-1-malware-spyware-adware-ransomware-p192-p194.html" },
+                  { "cn": "网络钓鱼与域名欺骗", "en": "Phishing and pharming", "href": "slides/5-internet-uses/5-3-1-phishing-and-pharming-p194-p196.html" },
+                  { "cn": "社会工程", "en": "Social engineering", "href": "slides/5-internet-uses/5-3-1-social-engineering-p196-p198.html" }
+                ]
+              },
+              {
+                "code": "5.3.2",
+                "cn": "防范网络安全威胁",
+                "en": "Keeping data safe from security threats",
+                "decks": [
+                  { "cn": "访问级别、反恶意软件、认证与密码", "en": "Access levels, anti-malware, authentication and passwords", "href": "slides/5-internet-uses/5-3-2-access-levels-anti-malware-authentication-passwords-p198-p200.html" },
+                  { "cn": "生物识别", "en": "Biometrics", "href": "slides/5-internet-uses/5-3-2-biometrics-p201-p203.html" },
+                  { "cn": "两步验证与自动软件更新", "en": "Two-step verification and automatic software updates", "href": "slides/5-internet-uses/5-3-2-two-step-verification-and-automatic-software-updates-p204-p205.html" },
+                  { "cn": "邮件与 URL 检查、防火墙和代理服务器", "en": "Email and URL checks, firewalls and proxy servers", "href": "slides/5-internet-uses/5-3-2-email-url-checks-firewalls-proxy-servers-p205-p208.html" },
+                  { "cn": "隐私设置与 SSL", "en": "Privacy settings and SSL", "href": "slides/5-internet-uses/5-3-2-privacy-settings-and-ssl-p209-p210.html" }
+                ]
+              }
             ]
           }
         ]

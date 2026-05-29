@@ -1,0 +1,80 @@
+---
+title: "5.1.3 HTTP and HTTPS"
+subtitle: "The internet and the World Wide Web · P181-P182"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.76em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## HTTP
+
+### Transfer rules
+
+<span class="term">Hypertext transfer protocol (http)</span> (超文本传输协议) is a set of rules that must be obeyed when transferring files across the internet.
+
+The protocol controls how web page data is transferred between devices and web servers.
+
+## HTTPS
+
+### Secure transfer
+
+When some form of security, for example <span class="term">SSL</span> or <span class="term">TLS</span>, is used, http changes to <span class="term">https</span>.
+
+The <span class="mark">'s' stands for secure</span>, and indicates a more secure way of sending and receiving data across a network.
+
+## Secure Clues
+
+### What users see
+
+When HTTPS is used, users may see:
+
+::: {.tight-list}
+- `https` at the start of the URL
+- the green padlock symbol in the status bar or address bar
+- a secure connection when data is sent across a network
+:::
+
+The textbook later connects this to <span class="term">Secure Sockets Layer (SSL)</span>.
+
+## Classroom Check
+
+### HTTP vs HTTPS
+
+A complete answer should include:
+
+::: {.tight-list}
+- http is a set of rules for transferring files across the internet
+- https is used when security such as SSL or TLS is applied
+- the `s` in https stands for secure
+- https indicates a <span class="mark">more secure way of sending and receiving data</span>
+- the padlock symbol can indicate a secure connection
+:::
+
+## Bridge
+
+### Next: Web browsers
+
+The next deck explains the browser features that help users access and use web pages.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

@@ -1,0 +1,90 @@
+---
+title: "4.2.4 Advantages and disadvantages of compilers and interpreters"
+subtitle: "Software P170"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.74em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)
+
+## Compilers and Interpreters
+
+### Comparing translator choices
+
+The textbook compares the advantages and disadvantages of <span class="term">compilers</span> and <span class="term">interpreters</span> in Table 4.4.
+
+The comparison focuses on:
+
+::: {.tight-list}
+- development and debugging
+- whether the translator is needed when the program runs
+- memory use
+- execution time
+:::
+
+## Table 4.4
+
+### Interpreter advantages and disadvantages
+
+::: {.clean-table}
+| Interpreter advantages | Interpreter disadvantages |
+|---|---|
+| Easier and quicker to debug and test programs during development | Programs cannot be run without the interpreter |
+| Easier to edit programs during development | Programs can take longer to execute |
+:::
+
+## Table 4.4
+
+### Compiler advantages and disadvantages
+
+::: {.clean-table}
+| Compiler advantages | Compiler disadvantages |
+|---|---|
+| A compiled program can be stored ready for use | It takes longer to write, test and debug programs during development |
+| A compiled program can be executed without the compiler |  |
+| A compiled program takes up less space in memory when executed |  |
+| A compiled program is executed in a shorter time |  |
+:::
+
+## Classroom Check
+
+### Compare compilers and interpreters
+
+A complete answer should include:
+
+::: {.tight-list}
+- interpreters are useful during development because programs are easier to debug, test and edit
+- interpreted programs cannot run without the interpreter
+- interpreted programs can take longer to execute
+- compiled programs can be stored ready for use
+- compiled programs can run without the compiler
+- compiled programs execute in a shorter time but take longer to write, test and debug
+:::
+
+## Bridge
+
+### Next: Integrated Development Environment
+
+The next deck explains how IDE features help programmers write and develop programs.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 4 Directory / 返回 Unit 4 目录](../../index.html)

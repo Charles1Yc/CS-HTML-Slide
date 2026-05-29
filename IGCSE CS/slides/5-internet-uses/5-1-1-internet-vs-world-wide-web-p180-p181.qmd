@@ -1,0 +1,111 @@
+---
+title: "5.1.1 The differences between the internet and the World Wide Web (WWW)"
+subtitle: "The internet and the World Wide Web · P180-P181"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.72em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Internet
+
+### INTERconnected NETwork
+
+The word <span class="term">internet</span> (互联网) comes from <span class="mark">INTERconnected NETwork</span>, since it is basically a worldwide collection of interconnected networks.
+
+The internet is actually a <span class="mark">concept rather than something tangible</span>. It relies on a physical infrastructure that allows networks and individual devices to connect to other networks and devices.
+
+## World Wide Web
+
+### A part of the internet
+
+In contrast, the <span class="term">World Wide Web (WWW)</span> (万维网) is only a part of the internet that users can access using <span class="term">web browser</span> software.
+
+The World Wide Web consists of a massive collection of web pages, and is based on the <span class="term">hypertext transfer protocol</span>.
+
+## Core Difference
+
+### Accessing information using the internet
+
+The <span class="term">World Wide Web</span> is a way of accessing information using the <span class="term">internet</span>.
+
+Therefore, the internet and the World Wide Web are actually quite different.
+
+## Table 5.1
+
+### Internet
+
+::: {.clean-table}
+| Internet |
+|---|
+| users can send and receive emails |
+| allows online chatting via text, audio and video |
+| makes use of transmission protocols (TCP) and internet protocols (IP) |
+| it is a worldwide collection of interconnected networks and devices |
+:::
+
+## Table 5.1
+
+### World Wide Web 1/2
+
+::: {.clean-table}
+| World Wide Web (WWW) |
+|---|
+| it is a collection of multimedia web pages and other information on websites |
+| http(s) protocols are written using hypertext mark-up language (HTML) |
+| uniform resource locators (URLs) are used to specify the location of web pages |
+:::
+
+## Table 5.1
+
+### World Wide Web 2/2
+
+::: {.clean-table}
+| World Wide Web (WWW) |
+|---|
+| web resources are accessed by web browsers |
+| uses the internet to access information from web servers |
+:::
+
+## Classroom Check
+
+### Internet vs WWW
+
+A complete answer should include:
+
+::: {.tight-list}
+- the internet is a <span class="mark">worldwide collection of interconnected networks and devices</span>
+- the internet relies on physical infrastructure but is a concept rather than one tangible object
+- the World Wide Web is <span class="mark">only a part of the internet</span>
+- the WWW consists of web pages and uses web browsers
+- the WWW uses http(s), HTML and URLs to access information from web servers
+:::
+
+## Bridge
+
+### Next: URLs
+
+The next deck explains how <span class="term">uniform resource locators</span> specify the location of web pages.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

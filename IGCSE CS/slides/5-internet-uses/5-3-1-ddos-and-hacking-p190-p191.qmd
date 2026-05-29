@@ -1,0 +1,151 @@
+---
+title: "5.3.1 Cyber security threats"
+subtitle: "DDoS attacks and hacking · P190-P191"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .clean-table table { font-size: 0.72em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## DoS Attacks
+
+### Preventing access
+
+A <span class="term">denial of service (DoS) attack</span> is an attempt at preventing users from accessing part of a network, notably an internet server.
+
+This is usually temporary but may be a damaging act or a large breach of security.
+
+## What Attackers Prevent
+
+### Network services
+
+An attacker may be able to prevent a user from:
+
+::: {.tight-list}
+- accessing their emails
+- accessing websites or web pages
+- accessing online services, such as banking
+:::
+
+## Flooding with Spam Traffic
+
+### Overloading the server
+
+One method of attack is to flood the network with useless <span class="term">spam traffic</span>.
+
+When a server becomes overloaded by an attacker sending thousands of requests, it cannot service a user's legitimate request. This is effectively a denial of service.
+
+## Distributed DoS
+
+### Many different computers
+
+In a <span class="term">distributed denial of service (DDoS)</span> attack, the spam traffic originates from many different computers.
+
+This makes it hard to block the attack.
+
+DDoS can also target an email account by clogging it with thousands of spam messages.
+
+## Guarding Against DDoS
+
+### Textbook mitigations
+
+An individual user or website can guard against these attacks to some degree by:
+
+::: {.tight-list}
+- using an up-to-date malware checker
+- setting up a firewall to restrict traffic to and from the web server or user's computer
+- applying email filters to filter out unwanted traffic such as spam
+:::
+
+## Signs of DDoS
+
+### Symptoms to watch for
+
+There are signs a user can look out for:
+
+::: {.tight-list}
+- slow network performance, such as opening files or accessing websites
+- inability to access certain websites
+- large amounts of spam email reaching the user's email account
+:::
+
+## Hacking
+
+### Illegal access
+
+<span class="term">Hacking</span> is generally the act of gaining illegal access to a computer system without the user's permission.
+
+This can lead to <span class="mark">identity theft</span> or gaining personal information; data can be deleted, passed on, changed or corrupted.
+
+## Encryption and Hacking
+
+### What encryption does not do
+
+Encryption does not stop hacking.
+
+It makes the data meaningless to the hacker, but it does not stop them from deleting, corrupting or passing on the data.
+
+## Preventing Hacking
+
+### Security controls
+
+Hacking can be prevented through the use of:
+
+::: {.tight-list}
+- firewalls
+- user names
+- frequently changed strong passwords
+- anti-hacking software
+- intrusion-detection software
+:::
+
+## Ethical Hacking
+
+### Authorised testing
+
+Malicious hacking takes place without the user's permission and is always illegal.
+
+<span class="term">Ethical hacking</span> occurs when companies authorise paid hackers to check their security measures and test how robust their computer systems are to hacking attacks.
+
+## Classroom Check
+
+### DDoS and hacking
+
+A complete answer should include:
+
+::: {.tight-list}
+- DoS prevents users from accessing part of a network or online service
+- DDoS uses spam traffic from many different computers
+- symptoms include slow network performance, inaccessible websites and large spam email volumes
+- firewalls, malware checkers and email filters reduce risk
+- hacking is illegal access without permission
+- encryption does not stop hacking; strong passwords, user names, firewalls and intrusion detection help prevent it
+:::
+
+## Bridge
+
+### Next: Malware
+
+The next deck begins the six malware types listed in Figure 5.10.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)

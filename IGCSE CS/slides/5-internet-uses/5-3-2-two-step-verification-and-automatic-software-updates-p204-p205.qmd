@@ -1,0 +1,124 @@
+---
+title: "5.3.2 Keeping data safe from security threats"
+subtitle: "Two-step verification and automatic software updates · P204-P205"
+format:
+  clean-revealjs:
+    slide-number: true
+    include-in-header:
+      text: |
+        <style>
+        .reveal .term { color: #cf1f2e; font-weight: 700; }
+        .reveal .mark { background: #fff36d; padding: 0 0.08em; }
+        .reveal .tight-list li { margin-bottom: 0.24em; }
+        .reveal .figure-note { font-size: 0.82em; line-height: 1.28; }
+        .reveal .figure-placeholder { border: 1px dashed #8aa0bf; border-radius: 8px; background: #f4f8ff; color: #40526b; padding: 1.1em 1.3em; margin: 0.8em 0; font-size: 0.9em; text-align: center; }
+        .reveal .clean-table table { font-size: 0.72em; line-height: 1.1; }
+        .reveal .clean-table th, .reveal .clean-table td { padding: 0.24em 0.34em; vertical-align: top; }
+        </style>
+lang: zh-CN
+---
+
+## Course Directory
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
+
+## Two-step Verification
+
+### Two methods of authentication
+
+<span class="term">Two-step verification</span> (两步验证) requires two methods of authentication to verify who a user is.
+
+It is used predominantly when a user makes an online purchase using a credit/debit card as payment method.
+
+## Purchase Example
+
+### Step 1
+
+Suppose Kate wishes to buy a new camera from a website.
+
+She logs into the website using her computer. This requires her to enter a <span class="term">user name</span> and a <span class="term">password</span>, which is step 1 of the authentication process.
+
+## Purchase Example
+
+### Step 2
+
+To improve security, an eight-digit PIN, called a <span class="term">one-time pass code</span>, is sent back to her either in an email or as a text message to her mobile phone.
+
+Kate enters this eight-digit PIN into her computer and is now authorised to buy the camera.
+
+::: {.figure-placeholder}
+Figure 5.17 Two-step verification using a mobile phone screenshot placeholder
+:::
+
+## Authentication Factors
+
+### Something she has and knows
+
+Using the textbook definitions:
+
+::: {.tight-list}
+- the mobile phone is <span class="mark">something she has</span>
+- the password/PIN code is <span class="mark">something she knows</span>
+:::
+
+## Automatic Software Updates
+
+### Keeping software current
+
+<span class="term">Automatic software updates</span> mean software on computers and mobile phones/tablets is kept up-to-date.
+
+Sometimes this is done overnight or when the user logs off the device.
+
+## Why Updates Matter
+
+### Patches and performance
+
+These updates are vital since they may contain <span class="term">patches</span> that:
+
+::: {.tight-list}
+- update the software security to protect against malware
+- improve software performance
+- remove bugs
+- add new features
+:::
+
+The downside is the potential for updates to disrupt a device following installation.
+
+## Update Problems
+
+### Waiting or reversing
+
+If updates disrupt the device, the user either has to wait for another patch or use techniques from Chapter 4 that reverse the clock time to an earlier date before the updates were made.
+
+::: {.figure-placeholder}
+Figure 5.18 Automatic software update flow chart screenshot placeholder
+:::
+
+## Classroom Check
+
+### Two-step verification and updates
+
+A complete answer should include:
+
+::: {.tight-list}
+- two-step verification uses two authentication methods
+- the first step can be user name and password
+- the second step can be a one-time pass code sent to email or mobile phone
+- the mobile phone is something the user has; the password/PIN is something the user knows
+- automatic updates keep software up-to-date and may include security patches
+- updates can disrupt the device after installation
+:::
+
+## Bridge
+
+### Next: Email and URL checks
+
+The next deck explains clues that identify scam emails, then moves to firewalls and proxy servers.
+
+## End
+
+### Return to the main outline
+
+[← Back to Unit 5 Directory / 返回 Unit 5 目录](../../index.html)
